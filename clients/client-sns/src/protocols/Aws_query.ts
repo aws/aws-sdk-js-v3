@@ -4390,9 +4390,7 @@ const deserializeAws_queryAuthorizationErrorException = (
   output: any,
   context: __SerdeContext
 ): AuthorizationErrorException => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
@@ -4403,9 +4401,7 @@ const deserializeAws_queryBatchEntryIdsNotDistinctException = (
   output: any,
   context: __SerdeContext
 ): BatchEntryIdsNotDistinctException => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
@@ -4416,9 +4412,7 @@ const deserializeAws_queryBatchRequestTooLongException = (
   output: any,
   context: __SerdeContext
 ): BatchRequestTooLongException => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
@@ -4426,12 +4420,7 @@ const deserializeAws_queryBatchRequestTooLongException = (
 };
 
 const deserializeAws_queryBatchResultErrorEntry = (output: any, context: __SerdeContext): BatchResultErrorEntry => {
-  const contents: any = {
-    Id: undefined,
-    Code: undefined,
-    Message: undefined,
-    SenderFault: undefined,
-  };
+  const contents: any = {};
   if (output["Id"] !== undefined) {
     contents.Id = __expectString(output["Id"]);
   }
@@ -4462,9 +4451,7 @@ const deserializeAws_queryCheckIfPhoneNumberIsOptedOutResponse = (
   output: any,
   context: __SerdeContext
 ): CheckIfPhoneNumberIsOptedOutResponse => {
-  const contents: any = {
-    isOptedOut: undefined,
-  };
+  const contents: any = {};
   if (output["isOptedOut"] !== undefined) {
     contents.isOptedOut = __parseBoolean(output["isOptedOut"]);
   }
@@ -4475,9 +4462,7 @@ const deserializeAws_queryConcurrentAccessException = (
   output: any,
   context: __SerdeContext
 ): ConcurrentAccessException => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
@@ -4488,9 +4473,7 @@ const deserializeAws_queryConfirmSubscriptionResponse = (
   output: any,
   context: __SerdeContext
 ): ConfirmSubscriptionResponse => {
-  const contents: any = {
-    SubscriptionArn: undefined,
-  };
+  const contents: any = {};
   if (output["SubscriptionArn"] !== undefined) {
     contents.SubscriptionArn = __expectString(output["SubscriptionArn"]);
   }
@@ -4498,9 +4481,7 @@ const deserializeAws_queryConfirmSubscriptionResponse = (
 };
 
 const deserializeAws_queryCreateEndpointResponse = (output: any, context: __SerdeContext): CreateEndpointResponse => {
-  const contents: any = {
-    EndpointArn: undefined,
-  };
+  const contents: any = {};
   if (output["EndpointArn"] !== undefined) {
     contents.EndpointArn = __expectString(output["EndpointArn"]);
   }
@@ -4511,9 +4492,7 @@ const deserializeAws_queryCreatePlatformApplicationResponse = (
   output: any,
   context: __SerdeContext
 ): CreatePlatformApplicationResponse => {
-  const contents: any = {
-    PlatformApplicationArn: undefined,
-  };
+  const contents: any = {};
   if (output["PlatformApplicationArn"] !== undefined) {
     contents.PlatformApplicationArn = __expectString(output["PlatformApplicationArn"]);
   }
@@ -4529,9 +4508,7 @@ const deserializeAws_queryCreateSMSSandboxPhoneNumberResult = (
 };
 
 const deserializeAws_queryCreateTopicResponse = (output: any, context: __SerdeContext): CreateTopicResponse => {
-  const contents: any = {
-    TopicArn: undefined,
-  };
+  const contents: any = {};
   if (output["TopicArn"] !== undefined) {
     contents.TopicArn = __expectString(output["TopicArn"]);
   }
@@ -4550,9 +4527,7 @@ const deserializeAws_queryEmptyBatchRequestException = (
   output: any,
   context: __SerdeContext
 ): EmptyBatchRequestException => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
@@ -4560,10 +4535,7 @@ const deserializeAws_queryEmptyBatchRequestException = (
 };
 
 const deserializeAws_queryEndpoint = (output: any, context: __SerdeContext): Endpoint => {
-  const contents: any = {
-    EndpointArn: undefined,
-    Attributes: undefined,
-  };
+  const contents: any = {};
   if (output["EndpointArn"] !== undefined) {
     contents.EndpointArn = __expectString(output["EndpointArn"]);
   }
@@ -4582,9 +4554,7 @@ const deserializeAws_queryEndpointDisabledException = (
   output: any,
   context: __SerdeContext
 ): EndpointDisabledException => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
@@ -4595,9 +4565,7 @@ const deserializeAws_queryFilterPolicyLimitExceededException = (
   output: any,
   context: __SerdeContext
 ): FilterPolicyLimitExceededException => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
@@ -4608,9 +4576,7 @@ const deserializeAws_queryGetDataProtectionPolicyResponse = (
   output: any,
   context: __SerdeContext
 ): GetDataProtectionPolicyResponse => {
-  const contents: any = {
-    DataProtectionPolicy: undefined,
-  };
+  const contents: any = {};
   if (output["DataProtectionPolicy"] !== undefined) {
     contents.DataProtectionPolicy = __expectString(output["DataProtectionPolicy"]);
   }
@@ -4621,9 +4587,7 @@ const deserializeAws_queryGetEndpointAttributesResponse = (
   output: any,
   context: __SerdeContext
 ): GetEndpointAttributesResponse => {
-  const contents: any = {
-    Attributes: undefined,
-  };
+  const contents: any = {};
   if (output.Attributes === "") {
     contents.Attributes = {};
   } else if (output["Attributes"] !== undefined && output["Attributes"]["entry"] !== undefined) {
@@ -4639,9 +4603,7 @@ const deserializeAws_queryGetPlatformApplicationAttributesResponse = (
   output: any,
   context: __SerdeContext
 ): GetPlatformApplicationAttributesResponse => {
-  const contents: any = {
-    Attributes: undefined,
-  };
+  const contents: any = {};
   if (output.Attributes === "") {
     contents.Attributes = {};
   } else if (output["Attributes"] !== undefined && output["Attributes"]["entry"] !== undefined) {
@@ -4657,9 +4619,7 @@ const deserializeAws_queryGetSMSAttributesResponse = (
   output: any,
   context: __SerdeContext
 ): GetSMSAttributesResponse => {
-  const contents: any = {
-    attributes: undefined,
-  };
+  const contents: any = {};
   if (output.attributes === "") {
     contents.attributes = {};
   } else if (output["attributes"] !== undefined && output["attributes"]["entry"] !== undefined) {
@@ -4675,9 +4635,7 @@ const deserializeAws_queryGetSMSSandboxAccountStatusResult = (
   output: any,
   context: __SerdeContext
 ): GetSMSSandboxAccountStatusResult => {
-  const contents: any = {
-    IsInSandbox: undefined,
-  };
+  const contents: any = {};
   if (output["IsInSandbox"] !== undefined) {
     contents.IsInSandbox = __parseBoolean(output["IsInSandbox"]);
   }
@@ -4688,9 +4646,7 @@ const deserializeAws_queryGetSubscriptionAttributesResponse = (
   output: any,
   context: __SerdeContext
 ): GetSubscriptionAttributesResponse => {
-  const contents: any = {
-    Attributes: undefined,
-  };
+  const contents: any = {};
   if (output.Attributes === "") {
     contents.Attributes = {};
   } else if (output["Attributes"] !== undefined && output["Attributes"]["entry"] !== undefined) {
@@ -4706,9 +4662,7 @@ const deserializeAws_queryGetTopicAttributesResponse = (
   output: any,
   context: __SerdeContext
 ): GetTopicAttributesResponse => {
-  const contents: any = {
-    Attributes: undefined,
-  };
+  const contents: any = {};
   if (output.Attributes === "") {
     contents.Attributes = {};
   } else if (output["Attributes"] !== undefined && output["Attributes"]["entry"] !== undefined) {
@@ -4721,9 +4675,7 @@ const deserializeAws_queryGetTopicAttributesResponse = (
 };
 
 const deserializeAws_queryInternalErrorException = (output: any, context: __SerdeContext): InternalErrorException => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
@@ -4734,9 +4686,7 @@ const deserializeAws_queryInvalidBatchEntryIdException = (
   output: any,
   context: __SerdeContext
 ): InvalidBatchEntryIdException => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
@@ -4747,9 +4697,7 @@ const deserializeAws_queryInvalidParameterException = (
   output: any,
   context: __SerdeContext
 ): InvalidParameterException => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
@@ -4760,9 +4708,7 @@ const deserializeAws_queryInvalidParameterValueException = (
   output: any,
   context: __SerdeContext
 ): InvalidParameterValueException => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
@@ -4773,9 +4719,7 @@ const deserializeAws_queryInvalidSecurityException = (
   output: any,
   context: __SerdeContext
 ): InvalidSecurityException => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
@@ -4786,9 +4730,7 @@ const deserializeAws_queryKMSAccessDeniedException = (
   output: any,
   context: __SerdeContext
 ): KMSAccessDeniedException => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
@@ -4796,9 +4738,7 @@ const deserializeAws_queryKMSAccessDeniedException = (
 };
 
 const deserializeAws_queryKMSDisabledException = (output: any, context: __SerdeContext): KMSDisabledException => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
@@ -4809,9 +4749,7 @@ const deserializeAws_queryKMSInvalidStateException = (
   output: any,
   context: __SerdeContext
 ): KMSInvalidStateException => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
@@ -4819,9 +4757,7 @@ const deserializeAws_queryKMSInvalidStateException = (
 };
 
 const deserializeAws_queryKMSNotFoundException = (output: any, context: __SerdeContext): KMSNotFoundException => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
@@ -4829,9 +4765,7 @@ const deserializeAws_queryKMSNotFoundException = (output: any, context: __SerdeC
 };
 
 const deserializeAws_queryKMSOptInRequired = (output: any, context: __SerdeContext): KMSOptInRequired => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
@@ -4839,9 +4773,7 @@ const deserializeAws_queryKMSOptInRequired = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_queryKMSThrottlingException = (output: any, context: __SerdeContext): KMSThrottlingException => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
@@ -4852,10 +4784,7 @@ const deserializeAws_queryListEndpointsByPlatformApplicationResponse = (
   output: any,
   context: __SerdeContext
 ): ListEndpointsByPlatformApplicationResponse => {
-  const contents: any = {
-    Endpoints: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.Endpoints === "") {
     contents.Endpoints = [];
   } else if (output["Endpoints"] !== undefined && output["Endpoints"]["member"] !== undefined) {
@@ -4893,10 +4822,7 @@ const deserializeAws_queryListOriginationNumbersResult = (
   output: any,
   context: __SerdeContext
 ): ListOriginationNumbersResult => {
-  const contents: any = {
-    NextToken: undefined,
-    PhoneNumbers: undefined,
-  };
+  const contents: any = {};
   if (output["NextToken"] !== undefined) {
     contents.NextToken = __expectString(output["NextToken"]);
   }
@@ -4915,10 +4841,7 @@ const deserializeAws_queryListPhoneNumbersOptedOutResponse = (
   output: any,
   context: __SerdeContext
 ): ListPhoneNumbersOptedOutResponse => {
-  const contents: any = {
-    phoneNumbers: undefined,
-    nextToken: undefined,
-  };
+  const contents: any = {};
   if (output.phoneNumbers === "") {
     contents.phoneNumbers = [];
   } else if (output["phoneNumbers"] !== undefined && output["phoneNumbers"]["member"] !== undefined) {
@@ -4937,10 +4860,7 @@ const deserializeAws_queryListPlatformApplicationsResponse = (
   output: any,
   context: __SerdeContext
 ): ListPlatformApplicationsResponse => {
-  const contents: any = {
-    PlatformApplications: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.PlatformApplications === "") {
     contents.PlatformApplications = [];
   } else if (output["PlatformApplications"] !== undefined && output["PlatformApplications"]["member"] !== undefined) {
@@ -4959,10 +4879,7 @@ const deserializeAws_queryListSMSSandboxPhoneNumbersResult = (
   output: any,
   context: __SerdeContext
 ): ListSMSSandboxPhoneNumbersResult => {
-  const contents: any = {
-    PhoneNumbers: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.PhoneNumbers === "") {
     contents.PhoneNumbers = [];
   } else if (output["PhoneNumbers"] !== undefined && output["PhoneNumbers"]["member"] !== undefined) {
@@ -4981,10 +4898,7 @@ const deserializeAws_queryListSubscriptionsByTopicResponse = (
   output: any,
   context: __SerdeContext
 ): ListSubscriptionsByTopicResponse => {
-  const contents: any = {
-    Subscriptions: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.Subscriptions === "") {
     contents.Subscriptions = [];
   } else if (output["Subscriptions"] !== undefined && output["Subscriptions"]["member"] !== undefined) {
@@ -5003,10 +4917,7 @@ const deserializeAws_queryListSubscriptionsResponse = (
   output: any,
   context: __SerdeContext
 ): ListSubscriptionsResponse => {
-  const contents: any = {
-    Subscriptions: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.Subscriptions === "") {
     contents.Subscriptions = [];
   } else if (output["Subscriptions"] !== undefined && output["Subscriptions"]["member"] !== undefined) {
@@ -5025,9 +4936,7 @@ const deserializeAws_queryListTagsForResourceResponse = (
   output: any,
   context: __SerdeContext
 ): ListTagsForResourceResponse => {
-  const contents: any = {
-    Tags: undefined,
-  };
+  const contents: any = {};
   if (output.Tags === "") {
     contents.Tags = [];
   } else if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
@@ -5037,10 +4946,7 @@ const deserializeAws_queryListTagsForResourceResponse = (
 };
 
 const deserializeAws_queryListTopicsResponse = (output: any, context: __SerdeContext): ListTopicsResponse => {
-  const contents: any = {
-    Topics: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.Topics === "") {
     contents.Topics = [];
   } else if (output["Topics"] !== undefined && output["Topics"]["member"] !== undefined) {
@@ -5063,9 +4969,7 @@ const deserializeAws_queryMapStringToString = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_queryNotFoundException = (output: any, context: __SerdeContext): NotFoundException => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
@@ -5084,9 +4988,7 @@ const deserializeAws_queryNumberCapabilityList = (
 };
 
 const deserializeAws_queryOptedOutException = (output: any, context: __SerdeContext): OptedOutException => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
@@ -5102,14 +5004,7 @@ const deserializeAws_queryOptInPhoneNumberResponse = (
 };
 
 const deserializeAws_queryPhoneNumberInformation = (output: any, context: __SerdeContext): PhoneNumberInformation => {
-  const contents: any = {
-    CreatedAt: undefined,
-    PhoneNumber: undefined,
-    Status: undefined,
-    Iso2CountryCode: undefined,
-    RouteType: undefined,
-    NumberCapabilities: undefined,
-  };
+  const contents: any = {};
   if (output["CreatedAt"] !== undefined) {
     contents.CreatedAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreatedAt"]));
   }
@@ -5156,10 +5051,7 @@ const deserializeAws_queryPhoneNumberList = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_queryPlatformApplication = (output: any, context: __SerdeContext): PlatformApplication => {
-  const contents: any = {
-    PlatformApplicationArn: undefined,
-    Attributes: undefined,
-  };
+  const contents: any = {};
   if (output["PlatformApplicationArn"] !== undefined) {
     contents.PlatformApplicationArn = __expectString(output["PlatformApplicationArn"]);
   }
@@ -5178,9 +5070,7 @@ const deserializeAws_queryPlatformApplicationDisabledException = (
   output: any,
   context: __SerdeContext
 ): PlatformApplicationDisabledException => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
@@ -5188,10 +5078,7 @@ const deserializeAws_queryPlatformApplicationDisabledException = (
 };
 
 const deserializeAws_queryPublishBatchResponse = (output: any, context: __SerdeContext): PublishBatchResponse => {
-  const contents: any = {
-    Successful: undefined,
-    Failed: undefined,
-  };
+  const contents: any = {};
   if (output.Successful === "") {
     contents.Successful = [];
   } else if (output["Successful"] !== undefined && output["Successful"]["member"] !== undefined) {
@@ -5212,11 +5099,7 @@ const deserializeAws_queryPublishBatchResponse = (output: any, context: __SerdeC
 };
 
 const deserializeAws_queryPublishBatchResultEntry = (output: any, context: __SerdeContext): PublishBatchResultEntry => {
-  const contents: any = {
-    Id: undefined,
-    MessageId: undefined,
-    SequenceNumber: undefined,
-  };
+  const contents: any = {};
   if (output["Id"] !== undefined) {
     contents.Id = __expectString(output["Id"]);
   }
@@ -5241,10 +5124,7 @@ const deserializeAws_queryPublishBatchResultEntryList = (
 };
 
 const deserializeAws_queryPublishResponse = (output: any, context: __SerdeContext): PublishResponse => {
-  const contents: any = {
-    MessageId: undefined,
-    SequenceNumber: undefined,
-  };
+  const contents: any = {};
   if (output["MessageId"] !== undefined) {
     contents.MessageId = __expectString(output["MessageId"]);
   }
@@ -5258,9 +5138,7 @@ const deserializeAws_queryResourceNotFoundException = (
   output: any,
   context: __SerdeContext
 ): ResourceNotFoundException => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
@@ -5276,10 +5154,7 @@ const deserializeAws_querySetSMSAttributesResponse = (
 };
 
 const deserializeAws_querySMSSandboxPhoneNumber = (output: any, context: __SerdeContext): SMSSandboxPhoneNumber => {
-  const contents: any = {
-    PhoneNumber: undefined,
-    Status: undefined,
-  };
+  const contents: any = {};
   if (output["PhoneNumber"] !== undefined) {
     contents.PhoneNumber = __expectString(output["PhoneNumber"]);
   }
@@ -5301,9 +5176,7 @@ const deserializeAws_querySMSSandboxPhoneNumberList = (
 };
 
 const deserializeAws_queryStaleTagException = (output: any, context: __SerdeContext): StaleTagException => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
@@ -5311,9 +5184,7 @@ const deserializeAws_queryStaleTagException = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_querySubscribeResponse = (output: any, context: __SerdeContext): SubscribeResponse => {
-  const contents: any = {
-    SubscriptionArn: undefined,
-  };
+  const contents: any = {};
   if (output["SubscriptionArn"] !== undefined) {
     contents.SubscriptionArn = __expectString(output["SubscriptionArn"]);
   }
@@ -5321,13 +5192,7 @@ const deserializeAws_querySubscribeResponse = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_querySubscription = (output: any, context: __SerdeContext): Subscription => {
-  const contents: any = {
-    SubscriptionArn: undefined,
-    Owner: undefined,
-    Protocol: undefined,
-    Endpoint: undefined,
-    TopicArn: undefined,
-  };
+  const contents: any = {};
   if (output["SubscriptionArn"] !== undefined) {
     contents.SubscriptionArn = __expectString(output["SubscriptionArn"]);
   }
@@ -5363,9 +5228,7 @@ const deserializeAws_querySubscriptionLimitExceededException = (
   output: any,
   context: __SerdeContext
 ): SubscriptionLimitExceededException => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
@@ -5381,10 +5244,7 @@ const deserializeAws_querySubscriptionsList = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_queryTag = (output: any, context: __SerdeContext): Tag => {
-  const contents: any = {
-    Key: undefined,
-    Value: undefined,
-  };
+  const contents: any = {};
   if (output["Key"] !== undefined) {
     contents.Key = __expectString(output["Key"]);
   }
@@ -5398,9 +5258,7 @@ const deserializeAws_queryTagLimitExceededException = (
   output: any,
   context: __SerdeContext
 ): TagLimitExceededException => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
@@ -5416,9 +5274,7 @@ const deserializeAws_queryTagList = (output: any, context: __SerdeContext): Tag[
 };
 
 const deserializeAws_queryTagPolicyException = (output: any, context: __SerdeContext): TagPolicyException => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
@@ -5431,9 +5287,7 @@ const deserializeAws_queryTagResourceResponse = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_queryThrottledException = (output: any, context: __SerdeContext): ThrottledException => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
@@ -5444,9 +5298,7 @@ const deserializeAws_queryTooManyEntriesInBatchRequestException = (
   output: any,
   context: __SerdeContext
 ): TooManyEntriesInBatchRequestException => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
@@ -5454,9 +5306,7 @@ const deserializeAws_queryTooManyEntriesInBatchRequestException = (
 };
 
 const deserializeAws_queryTopic = (output: any, context: __SerdeContext): Topic => {
-  const contents: any = {
-    TopicArn: undefined,
-  };
+  const contents: any = {};
   if (output["TopicArn"] !== undefined) {
     contents.TopicArn = __expectString(output["TopicArn"]);
   }
@@ -5477,9 +5327,7 @@ const deserializeAws_queryTopicLimitExceededException = (
   output: any,
   context: __SerdeContext
 ): TopicLimitExceededException => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
@@ -5500,9 +5348,7 @@ const deserializeAws_queryUntagResourceResponse = (output: any, context: __Serde
 };
 
 const deserializeAws_queryUserErrorException = (output: any, context: __SerdeContext): UserErrorException => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
@@ -5510,9 +5356,7 @@ const deserializeAws_queryUserErrorException = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_queryValidationException = (output: any, context: __SerdeContext): ValidationException => {
-  const contents: any = {
-    Message: undefined,
-  };
+  const contents: any = {};
   if (output["Message"] !== undefined) {
     contents.Message = __expectString(output["Message"]);
   }
@@ -5520,10 +5364,7 @@ const deserializeAws_queryValidationException = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_queryVerificationException = (output: any, context: __SerdeContext): VerificationException => {
-  const contents: any = {
-    Message: undefined,
-    Status: undefined,
-  };
+  const contents: any = {};
   if (output["Message"] !== undefined) {
     contents.Message = __expectString(output["Message"]);
   }

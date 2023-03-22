@@ -7463,10 +7463,7 @@ const serializeAws_queryVCpuCountRequest = (input: VCpuCountRequest, context: __
 };
 
 const deserializeAws_queryAcceleratorCountRequest = (output: any, context: __SerdeContext): AcceleratorCountRequest => {
-  const contents: any = {
-    Min: undefined,
-    Max: undefined,
-  };
+  const contents: any = {};
   if (output["Min"] !== undefined) {
     contents.Min = __strictParseInt32(output["Min"]) as number;
   }
@@ -7499,10 +7496,7 @@ const deserializeAws_queryAcceleratorTotalMemoryMiBRequest = (
   output: any,
   context: __SerdeContext
 ): AcceleratorTotalMemoryMiBRequest => {
-  const contents: any = {
-    Min: undefined,
-    Max: undefined,
-  };
+  const contents: any = {};
   if (output["Min"] !== undefined) {
     contents.Min = __strictParseInt32(output["Min"]) as number;
   }
@@ -7524,9 +7518,7 @@ const deserializeAws_queryActiveInstanceRefreshNotFoundFault = (
   output: any,
   context: __SerdeContext
 ): ActiveInstanceRefreshNotFoundFault => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
@@ -7542,10 +7534,7 @@ const deserializeAws_queryActivities = (output: any, context: __SerdeContext): A
 };
 
 const deserializeAws_queryActivitiesType = (output: any, context: __SerdeContext): ActivitiesType => {
-  const contents: any = {
-    Activities: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.Activities === "") {
     contents.Activities = [];
   } else if (output["Activities"] !== undefined && output["Activities"]["member"] !== undefined) {
@@ -7561,20 +7550,7 @@ const deserializeAws_queryActivitiesType = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_queryActivity = (output: any, context: __SerdeContext): Activity => {
-  const contents: any = {
-    ActivityId: undefined,
-    AutoScalingGroupName: undefined,
-    Description: undefined,
-    Cause: undefined,
-    StartTime: undefined,
-    EndTime: undefined,
-    StatusCode: undefined,
-    StatusMessage: undefined,
-    Progress: undefined,
-    Details: undefined,
-    AutoScalingGroupState: undefined,
-    AutoScalingGroupARN: undefined,
-  };
+  const contents: any = {};
   if (output["ActivityId"] !== undefined) {
     contents.ActivityId = __expectString(output["ActivityId"]);
   }
@@ -7615,9 +7591,7 @@ const deserializeAws_queryActivity = (output: any, context: __SerdeContext): Act
 };
 
 const deserializeAws_queryActivityType = (output: any, context: __SerdeContext): ActivityType => {
-  const contents: any = {
-    Activity: undefined,
-  };
+  const contents: any = {};
   if (output["Activity"] !== undefined) {
     contents.Activity = deserializeAws_queryActivity(output["Activity"], context);
   }
@@ -7625,9 +7599,7 @@ const deserializeAws_queryActivityType = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_queryAdjustmentType = (output: any, context: __SerdeContext): AdjustmentType => {
-  const contents: any = {
-    AdjustmentType: undefined,
-  };
+  const contents: any = {};
   if (output["AdjustmentType"] !== undefined) {
     contents.AdjustmentType = __expectString(output["AdjustmentType"]);
   }
@@ -7643,10 +7615,7 @@ const deserializeAws_queryAdjustmentTypes = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_queryAlarm = (output: any, context: __SerdeContext): Alarm => {
-  const contents: any = {
-    AlarmName: undefined,
-    AlarmARN: undefined,
-  };
+  const contents: any = {};
   if (output["AlarmName"] !== undefined) {
     contents.AlarmName = __expectString(output["AlarmName"]);
   }
@@ -7673,9 +7642,7 @@ const deserializeAws_queryAllowedInstanceTypes = (output: any, context: __SerdeC
 };
 
 const deserializeAws_queryAlreadyExistsFault = (output: any, context: __SerdeContext): AlreadyExistsFault => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
@@ -7707,42 +7674,7 @@ const deserializeAws_queryAttachTrafficSourcesResultType = (
 };
 
 const deserializeAws_queryAutoScalingGroup = (output: any, context: __SerdeContext): AutoScalingGroup => {
-  const contents: any = {
-    AutoScalingGroupName: undefined,
-    AutoScalingGroupARN: undefined,
-    LaunchConfigurationName: undefined,
-    LaunchTemplate: undefined,
-    MixedInstancesPolicy: undefined,
-    MinSize: undefined,
-    MaxSize: undefined,
-    DesiredCapacity: undefined,
-    PredictedCapacity: undefined,
-    DefaultCooldown: undefined,
-    AvailabilityZones: undefined,
-    LoadBalancerNames: undefined,
-    TargetGroupARNs: undefined,
-    HealthCheckType: undefined,
-    HealthCheckGracePeriod: undefined,
-    Instances: undefined,
-    CreatedTime: undefined,
-    SuspendedProcesses: undefined,
-    PlacementGroup: undefined,
-    VPCZoneIdentifier: undefined,
-    EnabledMetrics: undefined,
-    Status: undefined,
-    Tags: undefined,
-    TerminationPolicies: undefined,
-    NewInstancesProtectedFromScaleIn: undefined,
-    ServiceLinkedRoleARN: undefined,
-    MaxInstanceLifetime: undefined,
-    CapacityRebalance: undefined,
-    WarmPoolConfiguration: undefined,
-    WarmPoolSize: undefined,
-    Context: undefined,
-    DesiredCapacityType: undefined,
-    DefaultInstanceWarmup: undefined,
-    TrafficSources: undefined,
-  };
+  const contents: any = {};
   if (output["AutoScalingGroupName"] !== undefined) {
     contents.AutoScalingGroupName = __expectString(output["AutoScalingGroupName"]);
   }
@@ -7899,10 +7831,7 @@ const deserializeAws_queryAutoScalingGroups = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_queryAutoScalingGroupsType = (output: any, context: __SerdeContext): AutoScalingGroupsType => {
-  const contents: any = {
-    AutoScalingGroups: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.AutoScalingGroups === "") {
     contents.AutoScalingGroups = [];
   } else if (output["AutoScalingGroups"] !== undefined && output["AutoScalingGroups"]["member"] !== undefined) {
@@ -7921,18 +7850,7 @@ const deserializeAws_queryAutoScalingInstanceDetails = (
   output: any,
   context: __SerdeContext
 ): AutoScalingInstanceDetails => {
-  const contents: any = {
-    InstanceId: undefined,
-    InstanceType: undefined,
-    AutoScalingGroupName: undefined,
-    AvailabilityZone: undefined,
-    LifecycleState: undefined,
-    HealthStatus: undefined,
-    LaunchConfigurationName: undefined,
-    LaunchTemplate: undefined,
-    ProtectedFromScaleIn: undefined,
-    WeightedCapacity: undefined,
-  };
+  const contents: any = {};
   if (output["InstanceId"] !== undefined) {
     contents.InstanceId = __expectString(output["InstanceId"]);
   }
@@ -7981,10 +7899,7 @@ const deserializeAws_queryAutoScalingInstancesType = (
   output: any,
   context: __SerdeContext
 ): AutoScalingInstancesType => {
-  const contents: any = {
-    AutoScalingInstances: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.AutoScalingInstances === "") {
     contents.AutoScalingInstances = [];
   } else if (output["AutoScalingInstances"] !== undefined && output["AutoScalingInstances"]["member"] !== undefined) {
@@ -8019,10 +7934,7 @@ const deserializeAws_queryBaselineEbsBandwidthMbpsRequest = (
   output: any,
   context: __SerdeContext
 ): BaselineEbsBandwidthMbpsRequest => {
-  const contents: any = {
-    Min: undefined,
-    Max: undefined,
-  };
+  const contents: any = {};
   if (output["Min"] !== undefined) {
     contents.Min = __strictParseInt32(output["Min"]) as number;
   }
@@ -8036,9 +7948,7 @@ const deserializeAws_queryBatchDeleteScheduledActionAnswer = (
   output: any,
   context: __SerdeContext
 ): BatchDeleteScheduledActionAnswer => {
-  const contents: any = {
-    FailedScheduledActions: undefined,
-  };
+  const contents: any = {};
   if (output.FailedScheduledActions === "") {
     contents.FailedScheduledActions = [];
   } else if (
@@ -8057,9 +7967,7 @@ const deserializeAws_queryBatchPutScheduledUpdateGroupActionAnswer = (
   output: any,
   context: __SerdeContext
 ): BatchPutScheduledUpdateGroupActionAnswer => {
-  const contents: any = {
-    FailedScheduledUpdateGroupActions: undefined,
-  };
+  const contents: any = {};
   if (output.FailedScheduledUpdateGroupActions === "") {
     contents.FailedScheduledUpdateGroupActions = [];
   } else if (
@@ -8075,12 +7983,7 @@ const deserializeAws_queryBatchPutScheduledUpdateGroupActionAnswer = (
 };
 
 const deserializeAws_queryBlockDeviceMapping = (output: any, context: __SerdeContext): BlockDeviceMapping => {
-  const contents: any = {
-    VirtualName: undefined,
-    DeviceName: undefined,
-    Ebs: undefined,
-    NoDevice: undefined,
-  };
+  const contents: any = {};
   if (output["VirtualName"] !== undefined) {
     contents.VirtualName = __expectString(output["VirtualName"]);
   }
@@ -8108,9 +8011,7 @@ const deserializeAws_queryCancelInstanceRefreshAnswer = (
   output: any,
   context: __SerdeContext
 ): CancelInstanceRefreshAnswer => {
-  const contents: any = {
-    InstanceRefreshId: undefined,
-  };
+  const contents: any = {};
   if (output["InstanceRefreshId"] !== undefined) {
     contents.InstanceRefreshId = __expectString(output["InstanceRefreshId"]);
   }
@@ -8118,10 +8019,7 @@ const deserializeAws_queryCancelInstanceRefreshAnswer = (
 };
 
 const deserializeAws_queryCapacityForecast = (output: any, context: __SerdeContext): CapacityForecast => {
-  const contents: any = {
-    Timestamps: undefined,
-    Values: undefined,
-  };
+  const contents: any = {};
   if (output.Timestamps === "") {
     contents.Timestamps = [];
   } else if (output["Timestamps"] !== undefined && output["Timestamps"]["member"] !== undefined) {
@@ -8177,14 +8075,7 @@ const deserializeAws_queryCustomizedMetricSpecification = (
   output: any,
   context: __SerdeContext
 ): CustomizedMetricSpecification => {
-  const contents: any = {
-    MetricName: undefined,
-    Namespace: undefined,
-    Dimensions: undefined,
-    Statistic: undefined,
-    Unit: undefined,
-    Metrics: undefined,
-  };
+  const contents: any = {};
   if (output["MetricName"] !== undefined) {
     contents.MetricName = __expectString(output["MetricName"]);
   }
@@ -8233,12 +8124,7 @@ const deserializeAws_queryDescribeAccountLimitsAnswer = (
   output: any,
   context: __SerdeContext
 ): DescribeAccountLimitsAnswer => {
-  const contents: any = {
-    MaxNumberOfAutoScalingGroups: undefined,
-    MaxNumberOfLaunchConfigurations: undefined,
-    NumberOfAutoScalingGroups: undefined,
-    NumberOfLaunchConfigurations: undefined,
-  };
+  const contents: any = {};
   if (output["MaxNumberOfAutoScalingGroups"] !== undefined) {
     contents.MaxNumberOfAutoScalingGroups = __strictParseInt32(output["MaxNumberOfAutoScalingGroups"]) as number;
   }
@@ -8258,9 +8144,7 @@ const deserializeAws_queryDescribeAdjustmentTypesAnswer = (
   output: any,
   context: __SerdeContext
 ): DescribeAdjustmentTypesAnswer => {
-  const contents: any = {
-    AdjustmentTypes: undefined,
-  };
+  const contents: any = {};
   if (output.AdjustmentTypes === "") {
     contents.AdjustmentTypes = [];
   } else if (output["AdjustmentTypes"] !== undefined && output["AdjustmentTypes"]["member"] !== undefined) {
@@ -8276,9 +8160,7 @@ const deserializeAws_queryDescribeAutoScalingNotificationTypesAnswer = (
   output: any,
   context: __SerdeContext
 ): DescribeAutoScalingNotificationTypesAnswer => {
-  const contents: any = {
-    AutoScalingNotificationTypes: undefined,
-  };
+  const contents: any = {};
   if (output.AutoScalingNotificationTypes === "") {
     contents.AutoScalingNotificationTypes = [];
   } else if (
@@ -8297,10 +8179,7 @@ const deserializeAws_queryDescribeInstanceRefreshesAnswer = (
   output: any,
   context: __SerdeContext
 ): DescribeInstanceRefreshesAnswer => {
-  const contents: any = {
-    InstanceRefreshes: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.InstanceRefreshes === "") {
     contents.InstanceRefreshes = [];
   } else if (output["InstanceRefreshes"] !== undefined && output["InstanceRefreshes"]["member"] !== undefined) {
@@ -8319,9 +8198,7 @@ const deserializeAws_queryDescribeLifecycleHooksAnswer = (
   output: any,
   context: __SerdeContext
 ): DescribeLifecycleHooksAnswer => {
-  const contents: any = {
-    LifecycleHooks: undefined,
-  };
+  const contents: any = {};
   if (output.LifecycleHooks === "") {
     contents.LifecycleHooks = [];
   } else if (output["LifecycleHooks"] !== undefined && output["LifecycleHooks"]["member"] !== undefined) {
@@ -8337,9 +8214,7 @@ const deserializeAws_queryDescribeLifecycleHookTypesAnswer = (
   output: any,
   context: __SerdeContext
 ): DescribeLifecycleHookTypesAnswer => {
-  const contents: any = {
-    LifecycleHookTypes: undefined,
-  };
+  const contents: any = {};
   if (output.LifecycleHookTypes === "") {
     contents.LifecycleHookTypes = [];
   } else if (output["LifecycleHookTypes"] !== undefined && output["LifecycleHookTypes"]["member"] !== undefined) {
@@ -8355,10 +8230,7 @@ const deserializeAws_queryDescribeLoadBalancersResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeLoadBalancersResponse => {
-  const contents: any = {
-    LoadBalancers: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.LoadBalancers === "") {
     contents.LoadBalancers = [];
   } else if (output["LoadBalancers"] !== undefined && output["LoadBalancers"]["member"] !== undefined) {
@@ -8377,10 +8249,7 @@ const deserializeAws_queryDescribeLoadBalancerTargetGroupsResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeLoadBalancerTargetGroupsResponse => {
-  const contents: any = {
-    LoadBalancerTargetGroups: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.LoadBalancerTargetGroups === "") {
     contents.LoadBalancerTargetGroups = [];
   } else if (
@@ -8402,10 +8271,7 @@ const deserializeAws_queryDescribeMetricCollectionTypesAnswer = (
   output: any,
   context: __SerdeContext
 ): DescribeMetricCollectionTypesAnswer => {
-  const contents: any = {
-    Metrics: undefined,
-    Granularities: undefined,
-  };
+  const contents: any = {};
   if (output.Metrics === "") {
     contents.Metrics = [];
   } else if (output["Metrics"] !== undefined && output["Metrics"]["member"] !== undefined) {
@@ -8429,10 +8295,7 @@ const deserializeAws_queryDescribeNotificationConfigurationsAnswer = (
   output: any,
   context: __SerdeContext
 ): DescribeNotificationConfigurationsAnswer => {
-  const contents: any = {
-    NotificationConfigurations: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.NotificationConfigurations === "") {
     contents.NotificationConfigurations = [];
   } else if (
@@ -8454,9 +8317,7 @@ const deserializeAws_queryDescribeTerminationPolicyTypesAnswer = (
   output: any,
   context: __SerdeContext
 ): DescribeTerminationPolicyTypesAnswer => {
-  const contents: any = {
-    TerminationPolicyTypes: undefined,
-  };
+  const contents: any = {};
   if (output.TerminationPolicyTypes === "") {
     contents.TerminationPolicyTypes = [];
   } else if (
@@ -8475,10 +8336,7 @@ const deserializeAws_queryDescribeTrafficSourcesResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeTrafficSourcesResponse => {
-  const contents: any = {
-    TrafficSources: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.TrafficSources === "") {
     contents.TrafficSources = [];
   } else if (output["TrafficSources"] !== undefined && output["TrafficSources"]["member"] !== undefined) {
@@ -8494,11 +8352,7 @@ const deserializeAws_queryDescribeTrafficSourcesResponse = (
 };
 
 const deserializeAws_queryDescribeWarmPoolAnswer = (output: any, context: __SerdeContext): DescribeWarmPoolAnswer => {
-  const contents: any = {
-    WarmPoolConfiguration: undefined,
-    Instances: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output["WarmPoolConfiguration"] !== undefined) {
     contents.WarmPoolConfiguration = deserializeAws_queryWarmPoolConfiguration(
       output["WarmPoolConfiguration"],
@@ -8517,10 +8371,7 @@ const deserializeAws_queryDescribeWarmPoolAnswer = (output: any, context: __Serd
 };
 
 const deserializeAws_queryDesiredConfiguration = (output: any, context: __SerdeContext): DesiredConfiguration => {
-  const contents: any = {
-    LaunchTemplate: undefined,
-    MixedInstancesPolicy: undefined,
-  };
+  const contents: any = {};
   if (output["LaunchTemplate"] !== undefined) {
     contents.LaunchTemplate = deserializeAws_queryLaunchTemplateSpecification(output["LaunchTemplate"], context);
   }
@@ -8531,9 +8382,7 @@ const deserializeAws_queryDesiredConfiguration = (output: any, context: __SerdeC
 };
 
 const deserializeAws_queryDetachInstancesAnswer = (output: any, context: __SerdeContext): DetachInstancesAnswer => {
-  const contents: any = {
-    Activities: undefined,
-  };
+  const contents: any = {};
   if (output.Activities === "") {
     contents.Activities = [];
   } else if (output["Activities"] !== undefined && output["Activities"]["member"] !== undefined) {
@@ -8570,15 +8419,7 @@ const deserializeAws_queryDetachTrafficSourcesResultType = (
 };
 
 const deserializeAws_queryEbs = (output: any, context: __SerdeContext): Ebs => {
-  const contents: any = {
-    SnapshotId: undefined,
-    VolumeSize: undefined,
-    VolumeType: undefined,
-    DeleteOnTermination: undefined,
-    Iops: undefined,
-    Encrypted: undefined,
-    Throughput: undefined,
-  };
+  const contents: any = {};
   if (output["SnapshotId"] !== undefined) {
     contents.SnapshotId = __expectString(output["SnapshotId"]);
   }
@@ -8604,10 +8445,7 @@ const deserializeAws_queryEbs = (output: any, context: __SerdeContext): Ebs => {
 };
 
 const deserializeAws_queryEnabledMetric = (output: any, context: __SerdeContext): EnabledMetric => {
-  const contents: any = {
-    Metric: undefined,
-    Granularity: undefined,
-  };
+  const contents: any = {};
   if (output["Metric"] !== undefined) {
     contents.Metric = __expectString(output["Metric"]);
   }
@@ -8626,9 +8464,7 @@ const deserializeAws_queryEnabledMetrics = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_queryEnterStandbyAnswer = (output: any, context: __SerdeContext): EnterStandbyAnswer => {
-  const contents: any = {
-    Activities: undefined,
-  };
+  const contents: any = {};
   if (output.Activities === "") {
     contents.Activities = [];
   } else if (output["Activities"] !== undefined && output["Activities"]["member"] !== undefined) {
@@ -8649,9 +8485,7 @@ const deserializeAws_queryExcludedInstanceTypes = (output: any, context: __Serde
 };
 
 const deserializeAws_queryExitStandbyAnswer = (output: any, context: __SerdeContext): ExitStandbyAnswer => {
-  const contents: any = {
-    Activities: undefined,
-  };
+  const contents: any = {};
   if (output.Activities === "") {
     contents.Activities = [];
   } else if (output["Activities"] !== undefined && output["Activities"]["member"] !== undefined) {
@@ -8667,11 +8501,7 @@ const deserializeAws_queryFailedScheduledUpdateGroupActionRequest = (
   output: any,
   context: __SerdeContext
 ): FailedScheduledUpdateGroupActionRequest => {
-  const contents: any = {
-    ScheduledActionName: undefined,
-    ErrorCode: undefined,
-    ErrorMessage: undefined,
-  };
+  const contents: any = {};
   if (output["ScheduledActionName"] !== undefined) {
     contents.ScheduledActionName = __expectString(output["ScheduledActionName"]);
   }
@@ -8699,11 +8529,7 @@ const deserializeAws_queryGetPredictiveScalingForecastAnswer = (
   output: any,
   context: __SerdeContext
 ): GetPredictiveScalingForecastAnswer => {
-  const contents: any = {
-    LoadForecast: undefined,
-    CapacityForecast: undefined,
-    UpdateTime: undefined,
-  };
+  const contents: any = {};
   if (output.LoadForecast === "") {
     contents.LoadForecast = [];
   } else if (output["LoadForecast"] !== undefined && output["LoadForecast"]["member"] !== undefined) {
@@ -8722,17 +8548,7 @@ const deserializeAws_queryGetPredictiveScalingForecastAnswer = (
 };
 
 const deserializeAws_queryInstance = (output: any, context: __SerdeContext): Instance => {
-  const contents: any = {
-    InstanceId: undefined,
-    InstanceType: undefined,
-    AvailabilityZone: undefined,
-    LifecycleState: undefined,
-    HealthStatus: undefined,
-    LaunchConfigurationName: undefined,
-    LaunchTemplate: undefined,
-    ProtectedFromScaleIn: undefined,
-    WeightedCapacity: undefined,
-  };
+  const contents: any = {};
   if (output["InstanceId"] !== undefined) {
     contents.InstanceId = __expectString(output["InstanceId"]);
   }
@@ -8775,11 +8591,7 @@ const deserializeAws_queryInstanceGenerations = (
 };
 
 const deserializeAws_queryInstanceMetadataOptions = (output: any, context: __SerdeContext): InstanceMetadataOptions => {
-  const contents: any = {
-    HttpTokens: undefined,
-    HttpPutResponseHopLimit: undefined,
-    HttpEndpoint: undefined,
-  };
+  const contents: any = {};
   if (output["HttpTokens"] !== undefined) {
     contents.HttpTokens = __expectString(output["HttpTokens"]);
   }
@@ -8793,9 +8605,7 @@ const deserializeAws_queryInstanceMetadataOptions = (output: any, context: __Ser
 };
 
 const deserializeAws_queryInstanceMonitoring = (output: any, context: __SerdeContext): InstanceMonitoring => {
-  const contents: any = {
-    Enabled: undefined,
-  };
+  const contents: any = {};
   if (output["Enabled"] !== undefined) {
     contents.Enabled = __parseBoolean(output["Enabled"]);
   }
@@ -8803,20 +8613,7 @@ const deserializeAws_queryInstanceMonitoring = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_queryInstanceRefresh = (output: any, context: __SerdeContext): InstanceRefresh => {
-  const contents: any = {
-    InstanceRefreshId: undefined,
-    AutoScalingGroupName: undefined,
-    Status: undefined,
-    StatusReason: undefined,
-    StartTime: undefined,
-    EndTime: undefined,
-    PercentageComplete: undefined,
-    InstancesToUpdate: undefined,
-    ProgressDetails: undefined,
-    Preferences: undefined,
-    DesiredConfiguration: undefined,
-    RollbackDetails: undefined,
-  };
+  const contents: any = {};
   if (output["InstanceRefreshId"] !== undefined) {
     contents.InstanceRefreshId = __expectString(output["InstanceRefreshId"]);
   }
@@ -8868,9 +8665,7 @@ const deserializeAws_queryInstanceRefreshInProgressFault = (
   output: any,
   context: __SerdeContext
 ): InstanceRefreshInProgressFault => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
@@ -8881,10 +8676,7 @@ const deserializeAws_queryInstanceRefreshLivePoolProgress = (
   output: any,
   context: __SerdeContext
 ): InstanceRefreshLivePoolProgress => {
-  const contents: any = {
-    PercentageComplete: undefined,
-    InstancesToUpdate: undefined,
-  };
+  const contents: any = {};
   if (output["PercentageComplete"] !== undefined) {
     contents.PercentageComplete = __strictParseInt32(output["PercentageComplete"]) as number;
   }
@@ -8898,10 +8690,7 @@ const deserializeAws_queryInstanceRefreshProgressDetails = (
   output: any,
   context: __SerdeContext
 ): InstanceRefreshProgressDetails => {
-  const contents: any = {
-    LivePoolProgress: undefined,
-    WarmPoolProgress: undefined,
-  };
+  const contents: any = {};
   if (output["LivePoolProgress"] !== undefined) {
     contents.LivePoolProgress = deserializeAws_queryInstanceRefreshLivePoolProgress(
       output["LivePoolProgress"],
@@ -8921,10 +8710,7 @@ const deserializeAws_queryInstanceRefreshWarmPoolProgress = (
   output: any,
   context: __SerdeContext
 ): InstanceRefreshWarmPoolProgress => {
-  const contents: any = {
-    PercentageComplete: undefined,
-    InstancesToUpdate: undefined,
-  };
+  const contents: any = {};
   if (output["PercentageComplete"] !== undefined) {
     contents.PercentageComplete = __strictParseInt32(output["PercentageComplete"]) as number;
   }
@@ -8935,31 +8721,7 @@ const deserializeAws_queryInstanceRefreshWarmPoolProgress = (
 };
 
 const deserializeAws_queryInstanceRequirements = (output: any, context: __SerdeContext): InstanceRequirements => {
-  const contents: any = {
-    VCpuCount: undefined,
-    MemoryMiB: undefined,
-    CpuManufacturers: undefined,
-    MemoryGiBPerVCpu: undefined,
-    ExcludedInstanceTypes: undefined,
-    InstanceGenerations: undefined,
-    SpotMaxPricePercentageOverLowestPrice: undefined,
-    OnDemandMaxPricePercentageOverLowestPrice: undefined,
-    BareMetal: undefined,
-    BurstablePerformance: undefined,
-    RequireHibernateSupport: undefined,
-    NetworkInterfaceCount: undefined,
-    LocalStorage: undefined,
-    LocalStorageTypes: undefined,
-    TotalLocalStorageGB: undefined,
-    BaselineEbsBandwidthMbps: undefined,
-    AcceleratorTypes: undefined,
-    AcceleratorCount: undefined,
-    AcceleratorManufacturers: undefined,
-    AcceleratorNames: undefined,
-    AcceleratorTotalMemoryMiB: undefined,
-    NetworkBandwidthGbps: undefined,
-    AllowedInstanceTypes: undefined,
-  };
+  const contents: any = {};
   if (output["VCpuCount"] !== undefined) {
     contents.VCpuCount = deserializeAws_queryVCpuCountRequest(output["VCpuCount"], context);
   }
@@ -9095,9 +8857,7 @@ const deserializeAws_queryInstanceRequirements = (output: any, context: __SerdeC
 };
 
 const deserializeAws_queryInstanceReusePolicy = (output: any, context: __SerdeContext): InstanceReusePolicy => {
-  const contents: any = {
-    ReuseOnScaleIn: undefined,
-  };
+  const contents: any = {};
   if (output["ReuseOnScaleIn"] !== undefined) {
     contents.ReuseOnScaleIn = __parseBoolean(output["ReuseOnScaleIn"]);
   }
@@ -9113,14 +8873,7 @@ const deserializeAws_queryInstances = (output: any, context: __SerdeContext): In
 };
 
 const deserializeAws_queryInstancesDistribution = (output: any, context: __SerdeContext): InstancesDistribution => {
-  const contents: any = {
-    OnDemandAllocationStrategy: undefined,
-    OnDemandBaseCapacity: undefined,
-    OnDemandPercentageAboveBaseCapacity: undefined,
-    SpotAllocationStrategy: undefined,
-    SpotInstancePools: undefined,
-    SpotMaxPrice: undefined,
-  };
+  const contents: any = {};
   if (output["OnDemandAllocationStrategy"] !== undefined) {
     contents.OnDemandAllocationStrategy = __expectString(output["OnDemandAllocationStrategy"]);
   }
@@ -9145,9 +8898,7 @@ const deserializeAws_queryInstancesDistribution = (output: any, context: __Serde
 };
 
 const deserializeAws_queryInvalidNextToken = (output: any, context: __SerdeContext): InvalidNextToken => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
@@ -9158,9 +8909,7 @@ const deserializeAws_queryIrreversibleInstanceRefreshFault = (
   output: any,
   context: __SerdeContext
 ): IrreversibleInstanceRefreshFault => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
@@ -9168,28 +8917,7 @@ const deserializeAws_queryIrreversibleInstanceRefreshFault = (
 };
 
 const deserializeAws_queryLaunchConfiguration = (output: any, context: __SerdeContext): LaunchConfiguration => {
-  const contents: any = {
-    LaunchConfigurationName: undefined,
-    LaunchConfigurationARN: undefined,
-    ImageId: undefined,
-    KeyName: undefined,
-    SecurityGroups: undefined,
-    ClassicLinkVPCId: undefined,
-    ClassicLinkVPCSecurityGroups: undefined,
-    UserData: undefined,
-    InstanceType: undefined,
-    KernelId: undefined,
-    RamdiskId: undefined,
-    BlockDeviceMappings: undefined,
-    InstanceMonitoring: undefined,
-    SpotPrice: undefined,
-    IamInstanceProfile: undefined,
-    CreatedTime: undefined,
-    EbsOptimized: undefined,
-    AssociatePublicIpAddress: undefined,
-    PlacementTenancy: undefined,
-    MetadataOptions: undefined,
-  };
+  const contents: any = {};
   if (output["LaunchConfigurationName"] !== undefined) {
     contents.LaunchConfigurationName = __expectString(output["LaunchConfigurationName"]);
   }
@@ -9283,10 +9011,7 @@ const deserializeAws_queryLaunchConfigurationsType = (
   output: any,
   context: __SerdeContext
 ): LaunchConfigurationsType => {
-  const contents: any = {
-    LaunchConfigurations: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.LaunchConfigurations === "") {
     contents.LaunchConfigurations = [];
   } else if (output["LaunchConfigurations"] !== undefined && output["LaunchConfigurations"]["member"] !== undefined) {
@@ -9302,10 +9027,7 @@ const deserializeAws_queryLaunchConfigurationsType = (
 };
 
 const deserializeAws_queryLaunchTemplate = (output: any, context: __SerdeContext): LaunchTemplate => {
-  const contents: any = {
-    LaunchTemplateSpecification: undefined,
-    Overrides: undefined,
-  };
+  const contents: any = {};
   if (output["LaunchTemplateSpecification"] !== undefined) {
     contents.LaunchTemplateSpecification = deserializeAws_queryLaunchTemplateSpecification(
       output["LaunchTemplateSpecification"],
@@ -9321,12 +9043,7 @@ const deserializeAws_queryLaunchTemplate = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_queryLaunchTemplateOverrides = (output: any, context: __SerdeContext): LaunchTemplateOverrides => {
-  const contents: any = {
-    InstanceType: undefined,
-    WeightedCapacity: undefined,
-    LaunchTemplateSpecification: undefined,
-    InstanceRequirements: undefined,
-  };
+  const contents: any = {};
   if (output["InstanceType"] !== undefined) {
     contents.InstanceType = __expectString(output["InstanceType"]);
   }
@@ -9349,11 +9066,7 @@ const deserializeAws_queryLaunchTemplateSpecification = (
   output: any,
   context: __SerdeContext
 ): LaunchTemplateSpecification => {
-  const contents: any = {
-    LaunchTemplateId: undefined,
-    LaunchTemplateName: undefined,
-    Version: undefined,
-  };
+  const contents: any = {};
   if (output["LaunchTemplateId"] !== undefined) {
     contents.LaunchTemplateId = __expectString(output["LaunchTemplateId"]);
   }
@@ -9367,17 +9080,7 @@ const deserializeAws_queryLaunchTemplateSpecification = (
 };
 
 const deserializeAws_queryLifecycleHook = (output: any, context: __SerdeContext): LifecycleHook => {
-  const contents: any = {
-    LifecycleHookName: undefined,
-    AutoScalingGroupName: undefined,
-    LifecycleTransition: undefined,
-    NotificationTargetARN: undefined,
-    RoleARN: undefined,
-    NotificationMetadata: undefined,
-    HeartbeatTimeout: undefined,
-    GlobalTimeout: undefined,
-    DefaultResult: undefined,
-  };
+  const contents: any = {};
   if (output["LifecycleHookName"] !== undefined) {
     contents.LifecycleHookName = __expectString(output["LifecycleHookName"]);
   }
@@ -9417,9 +9120,7 @@ const deserializeAws_queryLifecycleHooks = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_queryLimitExceededFault = (output: any, context: __SerdeContext): LimitExceededFault => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
@@ -9435,10 +9136,7 @@ const deserializeAws_queryLoadBalancerNames = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_queryLoadBalancerState = (output: any, context: __SerdeContext): LoadBalancerState => {
-  const contents: any = {
-    LoadBalancerName: undefined,
-    State: undefined,
-  };
+  const contents: any = {};
   if (output["LoadBalancerName"] !== undefined) {
     contents.LoadBalancerName = __expectString(output["LoadBalancerName"]);
   }
@@ -9460,10 +9158,7 @@ const deserializeAws_queryLoadBalancerTargetGroupState = (
   output: any,
   context: __SerdeContext
 ): LoadBalancerTargetGroupState => {
-  const contents: any = {
-    LoadBalancerTargetGroupARN: undefined,
-    State: undefined,
-  };
+  const contents: any = {};
   if (output["LoadBalancerTargetGroupARN"] !== undefined) {
     contents.LoadBalancerTargetGroupARN = __expectString(output["LoadBalancerTargetGroupARN"]);
   }
@@ -9485,11 +9180,7 @@ const deserializeAws_queryLoadBalancerTargetGroupStates = (
 };
 
 const deserializeAws_queryLoadForecast = (output: any, context: __SerdeContext): LoadForecast => {
-  const contents: any = {
-    Timestamps: undefined,
-    Values: undefined,
-    MetricSpecification: undefined,
-  };
+  const contents: any = {};
   if (output.Timestamps === "") {
     contents.Timestamps = [];
   } else if (output["Timestamps"] !== undefined && output["Timestamps"]["member"] !== undefined) {
@@ -9532,10 +9223,7 @@ const deserializeAws_queryLocalStorageTypes = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_queryMemoryGiBPerVCpuRequest = (output: any, context: __SerdeContext): MemoryGiBPerVCpuRequest => {
-  const contents: any = {
-    Min: undefined,
-    Max: undefined,
-  };
+  const contents: any = {};
   if (output["Min"] !== undefined) {
     contents.Min = __strictParseFloat(output["Min"]) as number;
   }
@@ -9546,10 +9234,7 @@ const deserializeAws_queryMemoryGiBPerVCpuRequest = (output: any, context: __Ser
 };
 
 const deserializeAws_queryMemoryMiBRequest = (output: any, context: __SerdeContext): MemoryMiBRequest => {
-  const contents: any = {
-    Min: undefined,
-    Max: undefined,
-  };
+  const contents: any = {};
   if (output["Min"] !== undefined) {
     contents.Min = __strictParseInt32(output["Min"]) as number;
   }
@@ -9560,11 +9245,7 @@ const deserializeAws_queryMemoryMiBRequest = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_queryMetric = (output: any, context: __SerdeContext): Metric => {
-  const contents: any = {
-    Namespace: undefined,
-    MetricName: undefined,
-    Dimensions: undefined,
-  };
+  const contents: any = {};
   if (output["Namespace"] !== undefined) {
     contents.Namespace = __expectString(output["Namespace"]);
   }
@@ -9583,9 +9264,7 @@ const deserializeAws_queryMetric = (output: any, context: __SerdeContext): Metri
 };
 
 const deserializeAws_queryMetricCollectionType = (output: any, context: __SerdeContext): MetricCollectionType => {
-  const contents: any = {
-    Metric: undefined,
-  };
+  const contents: any = {};
   if (output["Metric"] !== undefined) {
     contents.Metric = __expectString(output["Metric"]);
   }
@@ -9609,13 +9288,7 @@ const deserializeAws_queryMetricDataQueries = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_queryMetricDataQuery = (output: any, context: __SerdeContext): MetricDataQuery => {
-  const contents: any = {
-    Id: undefined,
-    Expression: undefined,
-    MetricStat: undefined,
-    Label: undefined,
-    ReturnData: undefined,
-  };
+  const contents: any = {};
   if (output["Id"] !== undefined) {
     contents.Id = __expectString(output["Id"]);
   }
@@ -9635,10 +9308,7 @@ const deserializeAws_queryMetricDataQuery = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_queryMetricDimension = (output: any, context: __SerdeContext): MetricDimension => {
-  const contents: any = {
-    Name: undefined,
-    Value: undefined,
-  };
+  const contents: any = {};
   if (output["Name"] !== undefined) {
     contents.Name = __expectString(output["Name"]);
   }
@@ -9657,9 +9327,7 @@ const deserializeAws_queryMetricDimensions = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_queryMetricGranularityType = (output: any, context: __SerdeContext): MetricGranularityType => {
-  const contents: any = {
-    Granularity: undefined,
-  };
+  const contents: any = {};
   if (output["Granularity"] !== undefined) {
     contents.Granularity = __expectString(output["Granularity"]);
   }
@@ -9675,11 +9343,7 @@ const deserializeAws_queryMetricGranularityTypes = (output: any, context: __Serd
 };
 
 const deserializeAws_queryMetricStat = (output: any, context: __SerdeContext): MetricStat => {
-  const contents: any = {
-    Metric: undefined,
-    Stat: undefined,
-    Unit: undefined,
-  };
+  const contents: any = {};
   if (output["Metric"] !== undefined) {
     contents.Metric = deserializeAws_queryMetric(output["Metric"], context);
   }
@@ -9693,10 +9357,7 @@ const deserializeAws_queryMetricStat = (output: any, context: __SerdeContext): M
 };
 
 const deserializeAws_queryMixedInstancesPolicy = (output: any, context: __SerdeContext): MixedInstancesPolicy => {
-  const contents: any = {
-    LaunchTemplate: undefined,
-    InstancesDistribution: undefined,
-  };
+  const contents: any = {};
   if (output["LaunchTemplate"] !== undefined) {
     contents.LaunchTemplate = deserializeAws_queryLaunchTemplate(output["LaunchTemplate"], context);
   }
@@ -9713,10 +9374,7 @@ const deserializeAws_queryNetworkBandwidthGbpsRequest = (
   output: any,
   context: __SerdeContext
 ): NetworkBandwidthGbpsRequest => {
-  const contents: any = {
-    Min: undefined,
-    Max: undefined,
-  };
+  const contents: any = {};
   if (output["Min"] !== undefined) {
     contents.Min = __strictParseFloat(output["Min"]) as number;
   }
@@ -9730,10 +9388,7 @@ const deserializeAws_queryNetworkInterfaceCountRequest = (
   output: any,
   context: __SerdeContext
 ): NetworkInterfaceCountRequest => {
-  const contents: any = {
-    Min: undefined,
-    Max: undefined,
-  };
+  const contents: any = {};
   if (output["Min"] !== undefined) {
     contents.Min = __strictParseInt32(output["Min"]) as number;
   }
@@ -9747,11 +9402,7 @@ const deserializeAws_queryNotificationConfiguration = (
   output: any,
   context: __SerdeContext
 ): NotificationConfiguration => {
-  const contents: any = {
-    AutoScalingGroupName: undefined,
-    TopicARN: undefined,
-    NotificationType: undefined,
-  };
+  const contents: any = {};
   if (output["AutoScalingGroupName"] !== undefined) {
     contents.AutoScalingGroupName = __expectString(output["AutoScalingGroupName"]);
   }
@@ -9784,10 +9435,7 @@ const deserializeAws_queryOverrides = (output: any, context: __SerdeContext): La
 };
 
 const deserializeAws_queryPoliciesType = (output: any, context: __SerdeContext): PoliciesType => {
-  const contents: any = {
-    ScalingPolicies: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.ScalingPolicies === "") {
     contents.ScalingPolicies = [];
   } else if (output["ScalingPolicies"] !== undefined && output["ScalingPolicies"]["member"] !== undefined) {
@@ -9803,10 +9451,7 @@ const deserializeAws_queryPoliciesType = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_queryPolicyARNType = (output: any, context: __SerdeContext): PolicyARNType => {
-  const contents: any = {
-    PolicyARN: undefined,
-    Alarms: undefined,
-  };
+  const contents: any = {};
   if (output["PolicyARN"] !== undefined) {
     contents.PolicyARN = __expectString(output["PolicyARN"]);
   }
@@ -9822,10 +9467,7 @@ const deserializeAws_queryPredefinedMetricSpecification = (
   output: any,
   context: __SerdeContext
 ): PredefinedMetricSpecification => {
-  const contents: any = {
-    PredefinedMetricType: undefined,
-    ResourceLabel: undefined,
-  };
+  const contents: any = {};
   if (output["PredefinedMetricType"] !== undefined) {
     contents.PredefinedMetricType = __expectString(output["PredefinedMetricType"]);
   }
@@ -9839,13 +9481,7 @@ const deserializeAws_queryPredictiveScalingConfiguration = (
   output: any,
   context: __SerdeContext
 ): PredictiveScalingConfiguration => {
-  const contents: any = {
-    MetricSpecifications: undefined,
-    Mode: undefined,
-    SchedulingBufferTime: undefined,
-    MaxCapacityBreachBehavior: undefined,
-    MaxCapacityBuffer: undefined,
-  };
+  const contents: any = {};
   if (output.MetricSpecifications === "") {
     contents.MetricSpecifications = [];
   } else if (output["MetricSpecifications"] !== undefined && output["MetricSpecifications"]["member"] !== undefined) {
@@ -9873,9 +9509,7 @@ const deserializeAws_queryPredictiveScalingCustomizedCapacityMetric = (
   output: any,
   context: __SerdeContext
 ): PredictiveScalingCustomizedCapacityMetric => {
-  const contents: any = {
-    MetricDataQueries: undefined,
-  };
+  const contents: any = {};
   if (output.MetricDataQueries === "") {
     contents.MetricDataQueries = [];
   } else if (output["MetricDataQueries"] !== undefined && output["MetricDataQueries"]["member"] !== undefined) {
@@ -9891,9 +9525,7 @@ const deserializeAws_queryPredictiveScalingCustomizedLoadMetric = (
   output: any,
   context: __SerdeContext
 ): PredictiveScalingCustomizedLoadMetric => {
-  const contents: any = {
-    MetricDataQueries: undefined,
-  };
+  const contents: any = {};
   if (output.MetricDataQueries === "") {
     contents.MetricDataQueries = [];
   } else if (output["MetricDataQueries"] !== undefined && output["MetricDataQueries"]["member"] !== undefined) {
@@ -9909,9 +9541,7 @@ const deserializeAws_queryPredictiveScalingCustomizedScalingMetric = (
   output: any,
   context: __SerdeContext
 ): PredictiveScalingCustomizedScalingMetric => {
-  const contents: any = {
-    MetricDataQueries: undefined,
-  };
+  const contents: any = {};
   if (output.MetricDataQueries === "") {
     contents.MetricDataQueries = [];
   } else if (output["MetricDataQueries"] !== undefined && output["MetricDataQueries"]["member"] !== undefined) {
@@ -9943,15 +9573,7 @@ const deserializeAws_queryPredictiveScalingMetricSpecification = (
   output: any,
   context: __SerdeContext
 ): PredictiveScalingMetricSpecification => {
-  const contents: any = {
-    TargetValue: undefined,
-    PredefinedMetricPairSpecification: undefined,
-    PredefinedScalingMetricSpecification: undefined,
-    PredefinedLoadMetricSpecification: undefined,
-    CustomizedScalingMetricSpecification: undefined,
-    CustomizedLoadMetricSpecification: undefined,
-    CustomizedCapacityMetricSpecification: undefined,
-  };
+  const contents: any = {};
   if (output["TargetValue"] !== undefined) {
     contents.TargetValue = __strictParseFloat(output["TargetValue"]) as number;
   }
@@ -10009,10 +9631,7 @@ const deserializeAws_queryPredictiveScalingPredefinedLoadMetric = (
   output: any,
   context: __SerdeContext
 ): PredictiveScalingPredefinedLoadMetric => {
-  const contents: any = {
-    PredefinedMetricType: undefined,
-    ResourceLabel: undefined,
-  };
+  const contents: any = {};
   if (output["PredefinedMetricType"] !== undefined) {
     contents.PredefinedMetricType = __expectString(output["PredefinedMetricType"]);
   }
@@ -10026,10 +9645,7 @@ const deserializeAws_queryPredictiveScalingPredefinedMetricPair = (
   output: any,
   context: __SerdeContext
 ): PredictiveScalingPredefinedMetricPair => {
-  const contents: any = {
-    PredefinedMetricType: undefined,
-    ResourceLabel: undefined,
-  };
+  const contents: any = {};
   if (output["PredefinedMetricType"] !== undefined) {
     contents.PredefinedMetricType = __expectString(output["PredefinedMetricType"]);
   }
@@ -10043,10 +9659,7 @@ const deserializeAws_queryPredictiveScalingPredefinedScalingMetric = (
   output: any,
   context: __SerdeContext
 ): PredictiveScalingPredefinedScalingMetric => {
-  const contents: any = {
-    PredefinedMetricType: undefined,
-    ResourceLabel: undefined,
-  };
+  const contents: any = {};
   if (output["PredefinedMetricType"] !== undefined) {
     contents.PredefinedMetricType = __expectString(output["PredefinedMetricType"]);
   }
@@ -10065,9 +9678,7 @@ const deserializeAws_queryProcesses = (output: any, context: __SerdeContext): Pr
 };
 
 const deserializeAws_queryProcessesType = (output: any, context: __SerdeContext): ProcessesType => {
-  const contents: any = {
-    Processes: undefined,
-  };
+  const contents: any = {};
   if (output.Processes === "") {
     contents.Processes = [];
   } else if (output["Processes"] !== undefined && output["Processes"]["member"] !== undefined) {
@@ -10077,9 +9688,7 @@ const deserializeAws_queryProcessesType = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_queryProcessType = (output: any, context: __SerdeContext): ProcessType => {
-  const contents: any = {
-    ProcessName: undefined,
-  };
+  const contents: any = {};
   if (output["ProcessName"] !== undefined) {
     contents.ProcessName = __expectString(output["ProcessName"]);
   }
@@ -10105,16 +9714,7 @@ const deserializeAws_queryRecordLifecycleActionHeartbeatAnswer = (
 };
 
 const deserializeAws_queryRefreshPreferences = (output: any, context: __SerdeContext): RefreshPreferences => {
-  const contents: any = {
-    MinHealthyPercentage: undefined,
-    InstanceWarmup: undefined,
-    CheckpointPercentages: undefined,
-    CheckpointDelay: undefined,
-    SkipMatching: undefined,
-    AutoRollback: undefined,
-    ScaleInProtectedInstances: undefined,
-    StandbyInstances: undefined,
-  };
+  const contents: any = {};
   if (output["MinHealthyPercentage"] !== undefined) {
     contents.MinHealthyPercentage = __strictParseInt32(output["MinHealthyPercentage"]) as number;
   }
@@ -10148,9 +9748,7 @@ const deserializeAws_queryRefreshPreferences = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_queryResourceContentionFault = (output: any, context: __SerdeContext): ResourceContentionFault => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
@@ -10158,9 +9756,7 @@ const deserializeAws_queryResourceContentionFault = (output: any, context: __Ser
 };
 
 const deserializeAws_queryResourceInUseFault = (output: any, context: __SerdeContext): ResourceInUseFault => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
@@ -10168,13 +9764,7 @@ const deserializeAws_queryResourceInUseFault = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_queryRollbackDetails = (output: any, context: __SerdeContext): RollbackDetails => {
-  const contents: any = {
-    RollbackReason: undefined,
-    RollbackStartTime: undefined,
-    PercentageCompleteOnRollback: undefined,
-    InstancesToUpdateOnRollback: undefined,
-    ProgressDetailsOnRollback: undefined,
-  };
+  const contents: any = {};
   if (output["RollbackReason"] !== undefined) {
     contents.RollbackReason = __expectString(output["RollbackReason"]);
   }
@@ -10200,9 +9790,7 @@ const deserializeAws_queryRollbackInstanceRefreshAnswer = (
   output: any,
   context: __SerdeContext
 ): RollbackInstanceRefreshAnswer => {
-  const contents: any = {
-    InstanceRefreshId: undefined,
-  };
+  const contents: any = {};
   if (output["InstanceRefreshId"] !== undefined) {
     contents.InstanceRefreshId = __expectString(output["InstanceRefreshId"]);
   }
@@ -10213,9 +9801,7 @@ const deserializeAws_queryScalingActivityInProgressFault = (
   output: any,
   context: __SerdeContext
 ): ScalingActivityInProgressFault => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
@@ -10231,24 +9817,7 @@ const deserializeAws_queryScalingPolicies = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_queryScalingPolicy = (output: any, context: __SerdeContext): ScalingPolicy => {
-  const contents: any = {
-    AutoScalingGroupName: undefined,
-    PolicyName: undefined,
-    PolicyARN: undefined,
-    PolicyType: undefined,
-    AdjustmentType: undefined,
-    MinAdjustmentStep: undefined,
-    MinAdjustmentMagnitude: undefined,
-    ScalingAdjustment: undefined,
-    Cooldown: undefined,
-    StepAdjustments: undefined,
-    MetricAggregationType: undefined,
-    EstimatedInstanceWarmup: undefined,
-    Alarms: undefined,
-    TargetTrackingConfiguration: undefined,
-    Enabled: undefined,
-    PredictiveScalingConfiguration: undefined,
-  };
+  const contents: any = {};
   if (output["AutoScalingGroupName"] !== undefined) {
     contents.AutoScalingGroupName = __expectString(output["AutoScalingGroupName"]);
   }
@@ -10314,10 +9883,7 @@ const deserializeAws_queryScalingPolicy = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_queryScheduledActionsType = (output: any, context: __SerdeContext): ScheduledActionsType => {
-  const contents: any = {
-    ScheduledUpdateGroupActions: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.ScheduledUpdateGroupActions === "") {
     contents.ScheduledUpdateGroupActions = [];
   } else if (
@@ -10339,19 +9905,7 @@ const deserializeAws_queryScheduledUpdateGroupAction = (
   output: any,
   context: __SerdeContext
 ): ScheduledUpdateGroupAction => {
-  const contents: any = {
-    AutoScalingGroupName: undefined,
-    ScheduledActionName: undefined,
-    ScheduledActionARN: undefined,
-    Time: undefined,
-    StartTime: undefined,
-    EndTime: undefined,
-    Recurrence: undefined,
-    MinSize: undefined,
-    MaxSize: undefined,
-    DesiredCapacity: undefined,
-    TimeZone: undefined,
-  };
+  const contents: any = {};
   if (output["AutoScalingGroupName"] !== undefined) {
     contents.AutoScalingGroupName = __expectString(output["AutoScalingGroupName"]);
   }
@@ -10411,9 +9965,7 @@ const deserializeAws_queryServiceLinkedRoleFailure = (
   output: any,
   context: __SerdeContext
 ): ServiceLinkedRoleFailure => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
@@ -10432,9 +9984,7 @@ const deserializeAws_queryStartInstanceRefreshAnswer = (
   output: any,
   context: __SerdeContext
 ): StartInstanceRefreshAnswer => {
-  const contents: any = {
-    InstanceRefreshId: undefined,
-  };
+  const contents: any = {};
   if (output["InstanceRefreshId"] !== undefined) {
     contents.InstanceRefreshId = __expectString(output["InstanceRefreshId"]);
   }
@@ -10442,11 +9992,7 @@ const deserializeAws_queryStartInstanceRefreshAnswer = (
 };
 
 const deserializeAws_queryStepAdjustment = (output: any, context: __SerdeContext): StepAdjustment => {
-  const contents: any = {
-    MetricIntervalLowerBound: undefined,
-    MetricIntervalUpperBound: undefined,
-    ScalingAdjustment: undefined,
-  };
+  const contents: any = {};
   if (output["MetricIntervalLowerBound"] !== undefined) {
     contents.MetricIntervalLowerBound = __strictParseFloat(output["MetricIntervalLowerBound"]) as number;
   }
@@ -10468,10 +10014,7 @@ const deserializeAws_queryStepAdjustments = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_querySuspendedProcess = (output: any, context: __SerdeContext): SuspendedProcess => {
-  const contents: any = {
-    ProcessName: undefined,
-    SuspensionReason: undefined,
-  };
+  const contents: any = {};
   if (output["ProcessName"] !== undefined) {
     contents.ProcessName = __expectString(output["ProcessName"]);
   }
@@ -10490,13 +10033,7 @@ const deserializeAws_querySuspendedProcesses = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_queryTagDescription = (output: any, context: __SerdeContext): TagDescription => {
-  const contents: any = {
-    ResourceId: undefined,
-    ResourceType: undefined,
-    Key: undefined,
-    Value: undefined,
-    PropagateAtLaunch: undefined,
-  };
+  const contents: any = {};
   if (output["ResourceId"] !== undefined) {
     contents.ResourceId = __expectString(output["ResourceId"]);
   }
@@ -10524,10 +10061,7 @@ const deserializeAws_queryTagDescriptionList = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_queryTagsType = (output: any, context: __SerdeContext): TagsType => {
-  const contents: any = {
-    Tags: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.Tags === "") {
     contents.Tags = [];
   } else if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
@@ -10551,12 +10085,7 @@ const deserializeAws_queryTargetTrackingConfiguration = (
   output: any,
   context: __SerdeContext
 ): TargetTrackingConfiguration => {
-  const contents: any = {
-    PredefinedMetricSpecification: undefined,
-    CustomizedMetricSpecification: undefined,
-    TargetValue: undefined,
-    DisableScaleIn: undefined,
-  };
+  const contents: any = {};
   if (output["PredefinedMetricSpecification"] !== undefined) {
     contents.PredefinedMetricSpecification = deserializeAws_queryPredefinedMetricSpecification(
       output["PredefinedMetricSpecification"],
@@ -10593,13 +10122,7 @@ const deserializeAws_queryTargetTrackingMetricDataQuery = (
   output: any,
   context: __SerdeContext
 ): TargetTrackingMetricDataQuery => {
-  const contents: any = {
-    Id: undefined,
-    Expression: undefined,
-    MetricStat: undefined,
-    Label: undefined,
-    ReturnData: undefined,
-  };
+  const contents: any = {};
   if (output["Id"] !== undefined) {
     contents.Id = __expectString(output["Id"]);
   }
@@ -10622,11 +10145,7 @@ const deserializeAws_queryTargetTrackingMetricStat = (
   output: any,
   context: __SerdeContext
 ): TargetTrackingMetricStat => {
-  const contents: any = {
-    Metric: undefined,
-    Stat: undefined,
-    Unit: undefined,
-  };
+  const contents: any = {};
   if (output["Metric"] !== undefined) {
     contents.Metric = deserializeAws_queryMetric(output["Metric"], context);
   }
@@ -10651,10 +10170,7 @@ const deserializeAws_queryTotalLocalStorageGBRequest = (
   output: any,
   context: __SerdeContext
 ): TotalLocalStorageGBRequest => {
-  const contents: any = {
-    Min: undefined,
-    Max: undefined,
-  };
+  const contents: any = {};
   if (output["Min"] !== undefined) {
     contents.Min = __strictParseFloat(output["Min"]) as number;
   }
@@ -10665,9 +10181,7 @@ const deserializeAws_queryTotalLocalStorageGBRequest = (
 };
 
 const deserializeAws_queryTrafficSourceIdentifier = (output: any, context: __SerdeContext): TrafficSourceIdentifier => {
-  const contents: any = {
-    Identifier: undefined,
-  };
+  const contents: any = {};
   if (output["Identifier"] !== undefined) {
     contents.Identifier = __expectString(output["Identifier"]);
   }
@@ -10683,10 +10197,7 @@ const deserializeAws_queryTrafficSources = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_queryTrafficSourceState = (output: any, context: __SerdeContext): TrafficSourceState => {
-  const contents: any = {
-    TrafficSource: undefined,
-    State: undefined,
-  };
+  const contents: any = {};
   if (output["TrafficSource"] !== undefined) {
     contents.TrafficSource = __expectString(output["TrafficSource"]);
   }
@@ -10705,10 +10216,7 @@ const deserializeAws_queryTrafficSourceStates = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_queryVCpuCountRequest = (output: any, context: __SerdeContext): VCpuCountRequest => {
-  const contents: any = {
-    Min: undefined,
-    Max: undefined,
-  };
+  const contents: any = {};
   if (output["Min"] !== undefined) {
     contents.Min = __strictParseInt32(output["Min"]) as number;
   }
@@ -10719,13 +10227,7 @@ const deserializeAws_queryVCpuCountRequest = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_queryWarmPoolConfiguration = (output: any, context: __SerdeContext): WarmPoolConfiguration => {
-  const contents: any = {
-    MaxGroupPreparedCapacity: undefined,
-    MinSize: undefined,
-    PoolState: undefined,
-    Status: undefined,
-    InstanceReusePolicy: undefined,
-  };
+  const contents: any = {};
   if (output["MaxGroupPreparedCapacity"] !== undefined) {
     contents.MaxGroupPreparedCapacity = __strictParseInt32(output["MaxGroupPreparedCapacity"]) as number;
   }

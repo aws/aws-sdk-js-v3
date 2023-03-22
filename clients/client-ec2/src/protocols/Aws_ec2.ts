@@ -59143,10 +59143,7 @@ const serializeAws_ec2ZoneNameStringList = (input: string[], context: __SerdeCon
 };
 
 const deserializeAws_ec2AcceleratorCount = (output: any, context: __SerdeContext): AcceleratorCount => {
-  const contents: any = {
-    Min: undefined,
-    Max: undefined,
-  };
+  const contents: any = {};
   if (output["min"] !== undefined) {
     contents.Min = __strictParseInt32(output["min"]) as number;
   }
@@ -59179,10 +59176,7 @@ const deserializeAws_ec2AcceleratorTotalMemoryMiB = (
   output: any,
   context: __SerdeContext
 ): AcceleratorTotalMemoryMiB => {
-  const contents: any = {
-    Min: undefined,
-    Max: undefined,
-  };
+  const contents: any = {};
   if (output["min"] !== undefined) {
     contents.Min = __strictParseInt32(output["min"]) as number;
   }
@@ -59204,9 +59198,7 @@ const deserializeAws_ec2AcceptAddressTransferResult = (
   output: any,
   context: __SerdeContext
 ): AcceptAddressTransferResult => {
-  const contents: any = {
-    AddressTransfer: undefined,
-  };
+  const contents: any = {};
   if (output["addressTransfer"] !== undefined) {
     contents.AddressTransfer = deserializeAws_ec2AddressTransfer(output["addressTransfer"], context);
   }
@@ -59217,9 +59209,7 @@ const deserializeAws_ec2AcceptReservedInstancesExchangeQuoteResult = (
   output: any,
   context: __SerdeContext
 ): AcceptReservedInstancesExchangeQuoteResult => {
-  const contents: any = {
-    ExchangeId: undefined,
-  };
+  const contents: any = {};
   if (output["exchangeId"] !== undefined) {
     contents.ExchangeId = __expectString(output["exchangeId"]);
   }
@@ -59230,9 +59220,7 @@ const deserializeAws_ec2AcceptTransitGatewayMulticastDomainAssociationsResult = 
   output: any,
   context: __SerdeContext
 ): AcceptTransitGatewayMulticastDomainAssociationsResult => {
-  const contents: any = {
-    Associations: undefined,
-  };
+  const contents: any = {};
   if (output["associations"] !== undefined) {
     contents.Associations = deserializeAws_ec2TransitGatewayMulticastDomainAssociations(
       output["associations"],
@@ -59246,9 +59234,7 @@ const deserializeAws_ec2AcceptTransitGatewayPeeringAttachmentResult = (
   output: any,
   context: __SerdeContext
 ): AcceptTransitGatewayPeeringAttachmentResult => {
-  const contents: any = {
-    TransitGatewayPeeringAttachment: undefined,
-  };
+  const contents: any = {};
   if (output["transitGatewayPeeringAttachment"] !== undefined) {
     contents.TransitGatewayPeeringAttachment = deserializeAws_ec2TransitGatewayPeeringAttachment(
       output["transitGatewayPeeringAttachment"],
@@ -59262,9 +59248,7 @@ const deserializeAws_ec2AcceptTransitGatewayVpcAttachmentResult = (
   output: any,
   context: __SerdeContext
 ): AcceptTransitGatewayVpcAttachmentResult => {
-  const contents: any = {
-    TransitGatewayVpcAttachment: undefined,
-  };
+  const contents: any = {};
   if (output["transitGatewayVpcAttachment"] !== undefined) {
     contents.TransitGatewayVpcAttachment = deserializeAws_ec2TransitGatewayVpcAttachment(
       output["transitGatewayVpcAttachment"],
@@ -59278,9 +59262,7 @@ const deserializeAws_ec2AcceptVpcEndpointConnectionsResult = (
   output: any,
   context: __SerdeContext
 ): AcceptVpcEndpointConnectionsResult => {
-  const contents: any = {
-    Unsuccessful: undefined,
-  };
+  const contents: any = {};
   if (output.unsuccessful === "") {
     contents.Unsuccessful = [];
   } else if (output["unsuccessful"] !== undefined && output["unsuccessful"]["item"] !== undefined) {
@@ -59296,9 +59278,7 @@ const deserializeAws_ec2AcceptVpcPeeringConnectionResult = (
   output: any,
   context: __SerdeContext
 ): AcceptVpcPeeringConnectionResult => {
-  const contents: any = {
-    VpcPeeringConnection: undefined,
-  };
+  const contents: any = {};
   if (output["vpcPeeringConnection"] !== undefined) {
     contents.VpcPeeringConnection = deserializeAws_ec2VpcPeeringConnection(output["vpcPeeringConnection"], context);
   }
@@ -59309,12 +59289,7 @@ const deserializeAws_ec2AccessScopeAnalysisFinding = (
   output: any,
   context: __SerdeContext
 ): AccessScopeAnalysisFinding => {
-  const contents: any = {
-    NetworkInsightsAccessScopeAnalysisId: undefined,
-    NetworkInsightsAccessScopeId: undefined,
-    FindingId: undefined,
-    FindingComponents: undefined,
-  };
+  const contents: any = {};
   if (output["networkInsightsAccessScopeAnalysisId"] !== undefined) {
     contents.NetworkInsightsAccessScopeAnalysisId = __expectString(output["networkInsightsAccessScopeAnalysisId"]);
   }
@@ -59347,11 +59322,7 @@ const deserializeAws_ec2AccessScopeAnalysisFindingList = (
 };
 
 const deserializeAws_ec2AccessScopePath = (output: any, context: __SerdeContext): AccessScopePath => {
-  const contents: any = {
-    Source: undefined,
-    Destination: undefined,
-    ThroughResources: undefined,
-  };
+  const contents: any = {};
   if (output["source"] !== undefined) {
     contents.Source = deserializeAws_ec2PathStatement(output["source"], context);
   }
@@ -59378,10 +59349,7 @@ const deserializeAws_ec2AccessScopePathList = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_ec2AccountAttribute = (output: any, context: __SerdeContext): AccountAttribute => {
-  const contents: any = {
-    AttributeName: undefined,
-    AttributeValues: undefined,
-  };
+  const contents: any = {};
   if (output["attributeName"] !== undefined) {
     contents.AttributeName = __expectString(output["attributeName"]);
   }
@@ -59405,9 +59373,7 @@ const deserializeAws_ec2AccountAttributeList = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_ec2AccountAttributeValue = (output: any, context: __SerdeContext): AccountAttributeValue => {
-  const contents: any = {
-    AttributeValue: undefined,
-  };
+  const contents: any = {};
   if (output["attributeValue"] !== undefined) {
     contents.AttributeValue = __expectString(output["attributeValue"]);
   }
@@ -59423,12 +59389,7 @@ const deserializeAws_ec2AccountAttributeValueList = (output: any, context: __Ser
 };
 
 const deserializeAws_ec2ActiveInstance = (output: any, context: __SerdeContext): ActiveInstance => {
-  const contents: any = {
-    InstanceId: undefined,
-    InstanceType: undefined,
-    SpotInstanceRequestId: undefined,
-    InstanceHealth: undefined,
-  };
+  const contents: any = {};
   if (output["instanceId"] !== undefined) {
     contents.InstanceId = __expectString(output["instanceId"]);
   }
@@ -59453,12 +59414,7 @@ const deserializeAws_ec2ActiveInstanceSet = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_ec2AddedPrincipal = (output: any, context: __SerdeContext): AddedPrincipal => {
-  const contents: any = {
-    PrincipalType: undefined,
-    Principal: undefined,
-    ServicePermissionId: undefined,
-    ServiceId: undefined,
-  };
+  const contents: any = {};
   if (output["principalType"] !== undefined) {
     contents.PrincipalType = __expectString(output["principalType"]);
   }
@@ -59483,16 +59439,7 @@ const deserializeAws_ec2AddedPrincipalSet = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_ec2AdditionalDetail = (output: any, context: __SerdeContext): AdditionalDetail => {
-  const contents: any = {
-    AdditionalDetailType: undefined,
-    Component: undefined,
-    VpcEndpointService: undefined,
-    RuleOptions: undefined,
-    RuleGroupTypePairs: undefined,
-    RuleGroupRuleOptionsPairs: undefined,
-    ServiceName: undefined,
-    LoadBalancers: undefined,
-  };
+  const contents: any = {};
   if (output["additionalDetailType"] !== undefined) {
     contents.AdditionalDetailType = __expectString(output["additionalDetailType"]);
   }
@@ -59552,22 +59499,7 @@ const deserializeAws_ec2AdditionalDetailList = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_ec2Address = (output: any, context: __SerdeContext): Address => {
-  const contents: any = {
-    InstanceId: undefined,
-    PublicIp: undefined,
-    AllocationId: undefined,
-    AssociationId: undefined,
-    Domain: undefined,
-    NetworkInterfaceId: undefined,
-    NetworkInterfaceOwnerId: undefined,
-    PrivateIpAddress: undefined,
-    Tags: undefined,
-    PublicIpv4Pool: undefined,
-    NetworkBorderGroup: undefined,
-    CustomerOwnedIp: undefined,
-    CustomerOwnedIpv4Pool: undefined,
-    CarrierIp: undefined,
-  };
+  const contents: any = {};
   if (output["instanceId"] !== undefined) {
     contents.InstanceId = __expectString(output["instanceId"]);
   }
@@ -59616,12 +59548,7 @@ const deserializeAws_ec2Address = (output: any, context: __SerdeContext): Addres
 };
 
 const deserializeAws_ec2AddressAttribute = (output: any, context: __SerdeContext): AddressAttribute => {
-  const contents: any = {
-    PublicIp: undefined,
-    AllocationId: undefined,
-    PtrRecord: undefined,
-    PtrRecordUpdate: undefined,
-  };
+  const contents: any = {};
   if (output["publicIp"] !== undefined) {
     contents.PublicIp = __expectString(output["publicIp"]);
   }
@@ -59654,14 +59581,7 @@ const deserializeAws_ec2AddressSet = (output: any, context: __SerdeContext): Add
 };
 
 const deserializeAws_ec2AddressTransfer = (output: any, context: __SerdeContext): AddressTransfer => {
-  const contents: any = {
-    PublicIp: undefined,
-    AllocationId: undefined,
-    TransferAccountId: undefined,
-    TransferOfferExpirationTimestamp: undefined,
-    TransferOfferAcceptedTimestamp: undefined,
-    AddressTransferStatus: undefined,
-  };
+  const contents: any = {};
   if (output["publicIp"] !== undefined) {
     contents.PublicIp = __expectString(output["publicIp"]);
   }
@@ -59696,9 +59616,7 @@ const deserializeAws_ec2AddressTransferList = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_ec2AdvertiseByoipCidrResult = (output: any, context: __SerdeContext): AdvertiseByoipCidrResult => {
-  const contents: any = {
-    ByoipCidr: undefined,
-  };
+  const contents: any = {};
   if (output["byoipCidr"] !== undefined) {
     contents.ByoipCidr = deserializeAws_ec2ByoipCidr(output["byoipCidr"], context);
   }
@@ -59706,16 +59624,7 @@ const deserializeAws_ec2AdvertiseByoipCidrResult = (output: any, context: __Serd
 };
 
 const deserializeAws_ec2AllocateAddressResult = (output: any, context: __SerdeContext): AllocateAddressResult => {
-  const contents: any = {
-    PublicIp: undefined,
-    AllocationId: undefined,
-    PublicIpv4Pool: undefined,
-    NetworkBorderGroup: undefined,
-    Domain: undefined,
-    CustomerOwnedIp: undefined,
-    CustomerOwnedIpv4Pool: undefined,
-    CarrierIp: undefined,
-  };
+  const contents: any = {};
   if (output["publicIp"] !== undefined) {
     contents.PublicIp = __expectString(output["publicIp"]);
   }
@@ -59744,9 +59653,7 @@ const deserializeAws_ec2AllocateAddressResult = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_ec2AllocateHostsResult = (output: any, context: __SerdeContext): AllocateHostsResult => {
-  const contents: any = {
-    HostIds: undefined,
-  };
+  const contents: any = {};
   if (output.hostIdSet === "") {
     contents.HostIds = [];
   } else if (output["hostIdSet"] !== undefined && output["hostIdSet"]["item"] !== undefined) {
@@ -59762,9 +59669,7 @@ const deserializeAws_ec2AllocateIpamPoolCidrResult = (
   output: any,
   context: __SerdeContext
 ): AllocateIpamPoolCidrResult => {
-  const contents: any = {
-    IpamPoolAllocation: undefined,
-  };
+  const contents: any = {};
   if (output["ipamPoolAllocation"] !== undefined) {
     contents.IpamPoolAllocation = deserializeAws_ec2IpamPoolAllocation(output["ipamPoolAllocation"], context);
   }
@@ -59780,13 +59685,7 @@ const deserializeAws_ec2AllowedInstanceTypeSet = (output: any, context: __SerdeC
 };
 
 const deserializeAws_ec2AllowedPrincipal = (output: any, context: __SerdeContext): AllowedPrincipal => {
-  const contents: any = {
-    PrincipalType: undefined,
-    Principal: undefined,
-    ServicePermissionId: undefined,
-    Tags: undefined,
-    ServiceId: undefined,
-  };
+  const contents: any = {};
   if (output["principalType"] !== undefined) {
     contents.PrincipalType = __expectString(output["principalType"]);
   }
@@ -59816,10 +59715,7 @@ const deserializeAws_ec2AllowedPrincipalSet = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_ec2AlternatePathHint = (output: any, context: __SerdeContext): AlternatePathHint => {
-  const contents: any = {
-    ComponentId: undefined,
-    ComponentArn: undefined,
-  };
+  const contents: any = {};
   if (output["componentId"] !== undefined) {
     contents.ComponentId = __expectString(output["componentId"]);
   }
@@ -59838,14 +59734,7 @@ const deserializeAws_ec2AlternatePathHintList = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_ec2AnalysisAclRule = (output: any, context: __SerdeContext): AnalysisAclRule => {
-  const contents: any = {
-    Cidr: undefined,
-    Egress: undefined,
-    PortRange: undefined,
-    Protocol: undefined,
-    RuleAction: undefined,
-    RuleNumber: undefined,
-  };
+  const contents: any = {};
   if (output["cidr"] !== undefined) {
     contents.Cidr = __expectString(output["cidr"]);
   }
@@ -59868,11 +59757,7 @@ const deserializeAws_ec2AnalysisAclRule = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_ec2AnalysisComponent = (output: any, context: __SerdeContext): AnalysisComponent => {
-  const contents: any = {
-    Id: undefined,
-    Arn: undefined,
-    Name: undefined,
-  };
+  const contents: any = {};
   if (output["id"] !== undefined) {
     contents.Id = __expectString(output["id"]);
   }
@@ -59897,10 +59782,7 @@ const deserializeAws_ec2AnalysisLoadBalancerListener = (
   output: any,
   context: __SerdeContext
 ): AnalysisLoadBalancerListener => {
-  const contents: any = {
-    LoadBalancerPort: undefined,
-    InstancePort: undefined,
-  };
+  const contents: any = {};
   if (output["loadBalancerPort"] !== undefined) {
     contents.LoadBalancerPort = __strictParseInt32(output["loadBalancerPort"]) as number;
   }
@@ -59914,12 +59796,7 @@ const deserializeAws_ec2AnalysisLoadBalancerTarget = (
   output: any,
   context: __SerdeContext
 ): AnalysisLoadBalancerTarget => {
-  const contents: any = {
-    Address: undefined,
-    AvailabilityZone: undefined,
-    Instance: undefined,
-    Port: undefined,
-  };
+  const contents: any = {};
   if (output["address"] !== undefined) {
     contents.Address = __expectString(output["address"]);
   }
@@ -59936,13 +59813,7 @@ const deserializeAws_ec2AnalysisLoadBalancerTarget = (
 };
 
 const deserializeAws_ec2AnalysisPacketHeader = (output: any, context: __SerdeContext): AnalysisPacketHeader => {
-  const contents: any = {
-    DestinationAddresses: undefined,
-    DestinationPortRanges: undefined,
-    Protocol: undefined,
-    SourceAddresses: undefined,
-    SourcePortRanges: undefined,
-  };
+  const contents: any = {};
   if (output.destinationAddressSet === "") {
     contents.DestinationAddresses = [];
   } else if (output["destinationAddressSet"] !== undefined && output["destinationAddressSet"]["item"] !== undefined) {
@@ -59985,22 +59856,7 @@ const deserializeAws_ec2AnalysisPacketHeader = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_ec2AnalysisRouteTableRoute = (output: any, context: __SerdeContext): AnalysisRouteTableRoute => {
-  const contents: any = {
-    DestinationCidr: undefined,
-    DestinationPrefixListId: undefined,
-    EgressOnlyInternetGatewayId: undefined,
-    GatewayId: undefined,
-    InstanceId: undefined,
-    NatGatewayId: undefined,
-    NetworkInterfaceId: undefined,
-    Origin: undefined,
-    TransitGatewayId: undefined,
-    VpcPeeringConnectionId: undefined,
-    State: undefined,
-    CarrierGatewayId: undefined,
-    CoreNetworkArn: undefined,
-    LocalGatewayId: undefined,
-  };
+  const contents: any = {};
   if (output["destinationCidr"] !== undefined) {
     contents.DestinationCidr = __expectString(output["destinationCidr"]);
   }
@@ -60050,14 +59906,7 @@ const deserializeAws_ec2AnalysisSecurityGroupRule = (
   output: any,
   context: __SerdeContext
 ): AnalysisSecurityGroupRule => {
-  const contents: any = {
-    Cidr: undefined,
-    Direction: undefined,
-    SecurityGroupId: undefined,
-    PortRange: undefined,
-    PrefixListId: undefined,
-    Protocol: undefined,
-  };
+  const contents: any = {};
   if (output["cidr"] !== undefined) {
     contents.Cidr = __expectString(output["cidr"]);
   }
@@ -60083,9 +59932,7 @@ const deserializeAws_ec2ApplySecurityGroupsToClientVpnTargetNetworkResult = (
   output: any,
   context: __SerdeContext
 ): ApplySecurityGroupsToClientVpnTargetNetworkResult => {
-  const contents: any = {
-    SecurityGroupIds: undefined,
-  };
+  const contents: any = {};
   if (output.securityGroupIds === "") {
     contents.SecurityGroupIds = [];
   } else if (output["securityGroupIds"] !== undefined && output["securityGroupIds"]["item"] !== undefined) {
@@ -60117,9 +59964,7 @@ const deserializeAws_ec2ArnList = (output: any, context: __SerdeContext): string
 };
 
 const deserializeAws_ec2AssignedPrivateIpAddress = (output: any, context: __SerdeContext): AssignedPrivateIpAddress => {
-  const contents: any = {
-    PrivateIpAddress: undefined,
-  };
+  const contents: any = {};
   if (output["privateIpAddress"] !== undefined) {
     contents.PrivateIpAddress = __expectString(output["privateIpAddress"]);
   }
@@ -60141,11 +59986,7 @@ const deserializeAws_ec2AssignIpv6AddressesResult = (
   output: any,
   context: __SerdeContext
 ): AssignIpv6AddressesResult => {
-  const contents: any = {
-    AssignedIpv6Addresses: undefined,
-    AssignedIpv6Prefixes: undefined,
-    NetworkInterfaceId: undefined,
-  };
+  const contents: any = {};
   if (output.assignedIpv6Addresses === "") {
     contents.AssignedIpv6Addresses = [];
   } else if (output["assignedIpv6Addresses"] !== undefined && output["assignedIpv6Addresses"]["item"] !== undefined) {
@@ -60172,11 +60013,7 @@ const deserializeAws_ec2AssignPrivateIpAddressesResult = (
   output: any,
   context: __SerdeContext
 ): AssignPrivateIpAddressesResult => {
-  const contents: any = {
-    NetworkInterfaceId: undefined,
-    AssignedPrivateIpAddresses: undefined,
-    AssignedIpv4Prefixes: undefined,
-  };
+  const contents: any = {};
   if (output["networkInterfaceId"] !== undefined) {
     contents.NetworkInterfaceId = __expectString(output["networkInterfaceId"]);
   }
@@ -60206,10 +60043,7 @@ const deserializeAws_ec2AssignPrivateNatGatewayAddressResult = (
   output: any,
   context: __SerdeContext
 ): AssignPrivateNatGatewayAddressResult => {
-  const contents: any = {
-    NatGatewayId: undefined,
-    NatGatewayAddresses: undefined,
-  };
+  const contents: any = {};
   if (output["natGatewayId"] !== undefined) {
     contents.NatGatewayId = __expectString(output["natGatewayId"]);
   }
@@ -60225,9 +60059,7 @@ const deserializeAws_ec2AssignPrivateNatGatewayAddressResult = (
 };
 
 const deserializeAws_ec2AssociateAddressResult = (output: any, context: __SerdeContext): AssociateAddressResult => {
-  const contents: any = {
-    AssociationId: undefined,
-  };
+  const contents: any = {};
   if (output["associationId"] !== undefined) {
     contents.AssociationId = __expectString(output["associationId"]);
   }
@@ -60238,10 +60070,7 @@ const deserializeAws_ec2AssociateClientVpnTargetNetworkResult = (
   output: any,
   context: __SerdeContext
 ): AssociateClientVpnTargetNetworkResult => {
-  const contents: any = {
-    AssociationId: undefined,
-    Status: undefined,
-  };
+  const contents: any = {};
   if (output["associationId"] !== undefined) {
     contents.AssociationId = __expectString(output["associationId"]);
   }
@@ -60252,12 +60081,7 @@ const deserializeAws_ec2AssociateClientVpnTargetNetworkResult = (
 };
 
 const deserializeAws_ec2AssociatedRole = (output: any, context: __SerdeContext): AssociatedRole => {
-  const contents: any = {
-    AssociatedRoleArn: undefined,
-    CertificateS3BucketName: undefined,
-    CertificateS3ObjectKey: undefined,
-    EncryptionKmsKeyId: undefined,
-  };
+  const contents: any = {};
   if (output["associatedRoleArn"] !== undefined) {
     contents.AssociatedRoleArn = __expectString(output["associatedRoleArn"]);
   }
@@ -60282,10 +60106,7 @@ const deserializeAws_ec2AssociatedRolesList = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_ec2AssociatedTargetNetwork = (output: any, context: __SerdeContext): AssociatedTargetNetwork => {
-  const contents: any = {
-    NetworkId: undefined,
-    NetworkType: undefined,
-  };
+  const contents: any = {};
   if (output["networkId"] !== undefined) {
     contents.NetworkId = __expectString(output["networkId"]);
   }
@@ -60310,11 +60131,7 @@ const deserializeAws_ec2AssociateEnclaveCertificateIamRoleResult = (
   output: any,
   context: __SerdeContext
 ): AssociateEnclaveCertificateIamRoleResult => {
-  const contents: any = {
-    CertificateS3BucketName: undefined,
-    CertificateS3ObjectKey: undefined,
-    EncryptionKmsKeyId: undefined,
-  };
+  const contents: any = {};
   if (output["certificateS3BucketName"] !== undefined) {
     contents.CertificateS3BucketName = __expectString(output["certificateS3BucketName"]);
   }
@@ -60331,9 +60148,7 @@ const deserializeAws_ec2AssociateIamInstanceProfileResult = (
   output: any,
   context: __SerdeContext
 ): AssociateIamInstanceProfileResult => {
-  const contents: any = {
-    IamInstanceProfileAssociation: undefined,
-  };
+  const contents: any = {};
   if (output["iamInstanceProfileAssociation"] !== undefined) {
     contents.IamInstanceProfileAssociation = deserializeAws_ec2IamInstanceProfileAssociation(
       output["iamInstanceProfileAssociation"],
@@ -60347,9 +60162,7 @@ const deserializeAws_ec2AssociateInstanceEventWindowResult = (
   output: any,
   context: __SerdeContext
 ): AssociateInstanceEventWindowResult => {
-  const contents: any = {
-    InstanceEventWindow: undefined,
-  };
+  const contents: any = {};
   if (output["instanceEventWindow"] !== undefined) {
     contents.InstanceEventWindow = deserializeAws_ec2InstanceEventWindow(output["instanceEventWindow"], context);
   }
@@ -60360,9 +60173,7 @@ const deserializeAws_ec2AssociateIpamResourceDiscoveryResult = (
   output: any,
   context: __SerdeContext
 ): AssociateIpamResourceDiscoveryResult => {
-  const contents: any = {
-    IpamResourceDiscoveryAssociation: undefined,
-  };
+  const contents: any = {};
   if (output["ipamResourceDiscoveryAssociation"] !== undefined) {
     contents.IpamResourceDiscoveryAssociation = deserializeAws_ec2IpamResourceDiscoveryAssociation(
       output["ipamResourceDiscoveryAssociation"],
@@ -60376,10 +60187,7 @@ const deserializeAws_ec2AssociateNatGatewayAddressResult = (
   output: any,
   context: __SerdeContext
 ): AssociateNatGatewayAddressResult => {
-  const contents: any = {
-    NatGatewayId: undefined,
-    NatGatewayAddresses: undefined,
-  };
+  const contents: any = {};
   if (output["natGatewayId"] !== undefined) {
     contents.NatGatewayId = __expectString(output["natGatewayId"]);
   }
@@ -60398,10 +60206,7 @@ const deserializeAws_ec2AssociateRouteTableResult = (
   output: any,
   context: __SerdeContext
 ): AssociateRouteTableResult => {
-  const contents: any = {
-    AssociationId: undefined,
-    AssociationState: undefined,
-  };
+  const contents: any = {};
   if (output["associationId"] !== undefined) {
     contents.AssociationId = __expectString(output["associationId"]);
   }
@@ -60415,10 +60220,7 @@ const deserializeAws_ec2AssociateSubnetCidrBlockResult = (
   output: any,
   context: __SerdeContext
 ): AssociateSubnetCidrBlockResult => {
-  const contents: any = {
-    Ipv6CidrBlockAssociation: undefined,
-    SubnetId: undefined,
-  };
+  const contents: any = {};
   if (output["ipv6CidrBlockAssociation"] !== undefined) {
     contents.Ipv6CidrBlockAssociation = deserializeAws_ec2SubnetIpv6CidrBlockAssociation(
       output["ipv6CidrBlockAssociation"],
@@ -60435,9 +60237,7 @@ const deserializeAws_ec2AssociateTransitGatewayMulticastDomainResult = (
   output: any,
   context: __SerdeContext
 ): AssociateTransitGatewayMulticastDomainResult => {
-  const contents: any = {
-    Associations: undefined,
-  };
+  const contents: any = {};
   if (output["associations"] !== undefined) {
     contents.Associations = deserializeAws_ec2TransitGatewayMulticastDomainAssociations(
       output["associations"],
@@ -60451,9 +60251,7 @@ const deserializeAws_ec2AssociateTransitGatewayPolicyTableResult = (
   output: any,
   context: __SerdeContext
 ): AssociateTransitGatewayPolicyTableResult => {
-  const contents: any = {
-    Association: undefined,
-  };
+  const contents: any = {};
   if (output["association"] !== undefined) {
     contents.Association = deserializeAws_ec2TransitGatewayPolicyTableAssociation(output["association"], context);
   }
@@ -60464,9 +60262,7 @@ const deserializeAws_ec2AssociateTransitGatewayRouteTableResult = (
   output: any,
   context: __SerdeContext
 ): AssociateTransitGatewayRouteTableResult => {
-  const contents: any = {
-    Association: undefined,
-  };
+  const contents: any = {};
   if (output["association"] !== undefined) {
     contents.Association = deserializeAws_ec2TransitGatewayAssociation(output["association"], context);
   }
@@ -60477,10 +60273,7 @@ const deserializeAws_ec2AssociateTrunkInterfaceResult = (
   output: any,
   context: __SerdeContext
 ): AssociateTrunkInterfaceResult => {
-  const contents: any = {
-    InterfaceAssociation: undefined,
-    ClientToken: undefined,
-  };
+  const contents: any = {};
   if (output["interfaceAssociation"] !== undefined) {
     contents.InterfaceAssociation = deserializeAws_ec2TrunkInterfaceAssociation(
       output["interfaceAssociation"],
@@ -60497,11 +60290,7 @@ const deserializeAws_ec2AssociateVpcCidrBlockResult = (
   output: any,
   context: __SerdeContext
 ): AssociateVpcCidrBlockResult => {
-  const contents: any = {
-    Ipv6CidrBlockAssociation: undefined,
-    CidrBlockAssociation: undefined,
-    VpcId: undefined,
-  };
+  const contents: any = {};
   if (output["ipv6CidrBlockAssociation"] !== undefined) {
     contents.Ipv6CidrBlockAssociation = deserializeAws_ec2VpcIpv6CidrBlockAssociation(
       output["ipv6CidrBlockAssociation"],
@@ -60518,10 +60307,7 @@ const deserializeAws_ec2AssociateVpcCidrBlockResult = (
 };
 
 const deserializeAws_ec2AssociationStatus = (output: any, context: __SerdeContext): AssociationStatus => {
-  const contents: any = {
-    Code: undefined,
-    Message: undefined,
-  };
+  const contents: any = {};
   if (output["code"] !== undefined) {
     contents.Code = __expectString(output["code"]);
   }
@@ -60535,9 +60321,7 @@ const deserializeAws_ec2AttachClassicLinkVpcResult = (
   output: any,
   context: __SerdeContext
 ): AttachClassicLinkVpcResult => {
-  const contents: any = {
-    Return: undefined,
-  };
+  const contents: any = {};
   if (output["return"] !== undefined) {
     contents.Return = __parseBoolean(output["return"]);
   }
@@ -60548,10 +60332,7 @@ const deserializeAws_ec2AttachmentEnaSrdSpecification = (
   output: any,
   context: __SerdeContext
 ): AttachmentEnaSrdSpecification => {
-  const contents: any = {
-    EnaSrdEnabled: undefined,
-    EnaSrdUdpSpecification: undefined,
-  };
+  const contents: any = {};
   if (output["enaSrdEnabled"] !== undefined) {
     contents.EnaSrdEnabled = __parseBoolean(output["enaSrdEnabled"]);
   }
@@ -60568,9 +60349,7 @@ const deserializeAws_ec2AttachmentEnaSrdUdpSpecification = (
   output: any,
   context: __SerdeContext
 ): AttachmentEnaSrdUdpSpecification => {
-  const contents: any = {
-    EnaSrdUdpEnabled: undefined,
-  };
+  const contents: any = {};
   if (output["enaSrdUdpEnabled"] !== undefined) {
     contents.EnaSrdUdpEnabled = __parseBoolean(output["enaSrdUdpEnabled"]);
   }
@@ -60581,10 +60360,7 @@ const deserializeAws_ec2AttachNetworkInterfaceResult = (
   output: any,
   context: __SerdeContext
 ): AttachNetworkInterfaceResult => {
-  const contents: any = {
-    AttachmentId: undefined,
-    NetworkCardIndex: undefined,
-  };
+  const contents: any = {};
   if (output["attachmentId"] !== undefined) {
     contents.AttachmentId = __expectString(output["attachmentId"]);
   }
@@ -60598,10 +60374,7 @@ const deserializeAws_ec2AttachVerifiedAccessTrustProviderResult = (
   output: any,
   context: __SerdeContext
 ): AttachVerifiedAccessTrustProviderResult => {
-  const contents: any = {
-    VerifiedAccessTrustProvider: undefined,
-    VerifiedAccessInstance: undefined,
-  };
+  const contents: any = {};
   if (output["verifiedAccessTrustProvider"] !== undefined) {
     contents.VerifiedAccessTrustProvider = deserializeAws_ec2VerifiedAccessTrustProvider(
       output["verifiedAccessTrustProvider"],
@@ -60618,9 +60391,7 @@ const deserializeAws_ec2AttachVerifiedAccessTrustProviderResult = (
 };
 
 const deserializeAws_ec2AttachVpnGatewayResult = (output: any, context: __SerdeContext): AttachVpnGatewayResult => {
-  const contents: any = {
-    VpcAttachment: undefined,
-  };
+  const contents: any = {};
   if (output["attachment"] !== undefined) {
     contents.VpcAttachment = deserializeAws_ec2VpcAttachment(output["attachment"], context);
   }
@@ -60628,9 +60399,7 @@ const deserializeAws_ec2AttachVpnGatewayResult = (output: any, context: __SerdeC
 };
 
 const deserializeAws_ec2AttributeBooleanValue = (output: any, context: __SerdeContext): AttributeBooleanValue => {
-  const contents: any = {
-    Value: undefined,
-  };
+  const contents: any = {};
   if (output["value"] !== undefined) {
     contents.Value = __parseBoolean(output["value"]);
   }
@@ -60638,9 +60407,7 @@ const deserializeAws_ec2AttributeBooleanValue = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_ec2AttributeValue = (output: any, context: __SerdeContext): AttributeValue => {
-  const contents: any = {
-    Value: undefined,
-  };
+  const contents: any = {};
   if (output["value"] !== undefined) {
     contents.Value = __expectString(output["value"]);
   }
@@ -60648,14 +60415,7 @@ const deserializeAws_ec2AttributeValue = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_ec2AuthorizationRule = (output: any, context: __SerdeContext): AuthorizationRule => {
-  const contents: any = {
-    ClientVpnEndpointId: undefined,
-    Description: undefined,
-    GroupId: undefined,
-    AccessAll: undefined,
-    DestinationCidr: undefined,
-    Status: undefined,
-  };
+  const contents: any = {};
   if (output["clientVpnEndpointId"] !== undefined) {
     contents.ClientVpnEndpointId = __expectString(output["clientVpnEndpointId"]);
   }
@@ -60689,9 +60449,7 @@ const deserializeAws_ec2AuthorizeClientVpnIngressResult = (
   output: any,
   context: __SerdeContext
 ): AuthorizeClientVpnIngressResult => {
-  const contents: any = {
-    Status: undefined,
-  };
+  const contents: any = {};
   if (output["status"] !== undefined) {
     contents.Status = deserializeAws_ec2ClientVpnAuthorizationRuleStatus(output["status"], context);
   }
@@ -60702,10 +60460,7 @@ const deserializeAws_ec2AuthorizeSecurityGroupEgressResult = (
   output: any,
   context: __SerdeContext
 ): AuthorizeSecurityGroupEgressResult => {
-  const contents: any = {
-    Return: undefined,
-    SecurityGroupRules: undefined,
-  };
+  const contents: any = {};
   if (output["return"] !== undefined) {
     contents.Return = __parseBoolean(output["return"]);
   }
@@ -60724,10 +60479,7 @@ const deserializeAws_ec2AuthorizeSecurityGroupIngressResult = (
   output: any,
   context: __SerdeContext
 ): AuthorizeSecurityGroupIngressResult => {
-  const contents: any = {
-    Return: undefined,
-    SecurityGroupRules: undefined,
-  };
+  const contents: any = {};
   if (output["return"] !== undefined) {
     contents.Return = __parseBoolean(output["return"]);
   }
@@ -60743,19 +60495,7 @@ const deserializeAws_ec2AuthorizeSecurityGroupIngressResult = (
 };
 
 const deserializeAws_ec2AvailabilityZone = (output: any, context: __SerdeContext): AvailabilityZone => {
-  const contents: any = {
-    State: undefined,
-    OptInStatus: undefined,
-    Messages: undefined,
-    RegionName: undefined,
-    ZoneName: undefined,
-    ZoneId: undefined,
-    GroupName: undefined,
-    NetworkBorderGroup: undefined,
-    ZoneType: undefined,
-    ParentZoneName: undefined,
-    ParentZoneId: undefined,
-  };
+  const contents: any = {};
   if (output["zoneState"] !== undefined) {
     contents.State = __expectString(output["zoneState"]);
   }
@@ -60806,9 +60546,7 @@ const deserializeAws_ec2AvailabilityZoneList = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_ec2AvailabilityZoneMessage = (output: any, context: __SerdeContext): AvailabilityZoneMessage => {
-  const contents: any = {
-    Message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.Message = __expectString(output["message"]);
   }
@@ -60827,10 +60565,7 @@ const deserializeAws_ec2AvailabilityZoneMessageList = (
 };
 
 const deserializeAws_ec2AvailableCapacity = (output: any, context: __SerdeContext): AvailableCapacity => {
-  const contents: any = {
-    AvailableInstanceCapacity: undefined,
-    AvailableVCpus: undefined,
-  };
+  const contents: any = {};
   if (output.availableInstanceCapacity === "") {
     contents.AvailableInstanceCapacity = [];
   } else if (
@@ -60857,10 +60592,7 @@ const deserializeAws_ec2AvailableInstanceCapacityList = (output: any, context: _
 };
 
 const deserializeAws_ec2BaselineEbsBandwidthMbps = (output: any, context: __SerdeContext): BaselineEbsBandwidthMbps => {
-  const contents: any = {
-    Min: undefined,
-    Max: undefined,
-  };
+  const contents: any = {};
   if (output["min"] !== undefined) {
     contents.Min = __strictParseInt32(output["min"]) as number;
   }
@@ -60871,12 +60603,7 @@ const deserializeAws_ec2BaselineEbsBandwidthMbps = (output: any, context: __Serd
 };
 
 const deserializeAws_ec2BlockDeviceMapping = (output: any, context: __SerdeContext): BlockDeviceMapping => {
-  const contents: any = {
-    DeviceName: undefined,
-    VirtualName: undefined,
-    Ebs: undefined,
-    NoDevice: undefined,
-  };
+  const contents: any = {};
   if (output["deviceName"] !== undefined) {
     contents.DeviceName = __expectString(output["deviceName"]);
   }
@@ -60909,9 +60636,7 @@ const deserializeAws_ec2BootModeTypeList = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_ec2BundleInstanceResult = (output: any, context: __SerdeContext): BundleInstanceResult => {
-  const contents: any = {
-    BundleTask: undefined,
-  };
+  const contents: any = {};
   if (output["bundleInstanceTask"] !== undefined) {
     contents.BundleTask = deserializeAws_ec2BundleTask(output["bundleInstanceTask"], context);
   }
@@ -60919,16 +60644,7 @@ const deserializeAws_ec2BundleInstanceResult = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_ec2BundleTask = (output: any, context: __SerdeContext): BundleTask => {
-  const contents: any = {
-    BundleId: undefined,
-    BundleTaskError: undefined,
-    InstanceId: undefined,
-    Progress: undefined,
-    StartTime: undefined,
-    State: undefined,
-    Storage: undefined,
-    UpdateTime: undefined,
-  };
+  const contents: any = {};
   if (output["bundleId"] !== undefined) {
     contents.BundleId = __expectString(output["bundleId"]);
   }
@@ -60957,10 +60673,7 @@ const deserializeAws_ec2BundleTask = (output: any, context: __SerdeContext): Bun
 };
 
 const deserializeAws_ec2BundleTaskError = (output: any, context: __SerdeContext): BundleTaskError => {
-  const contents: any = {
-    Code: undefined,
-    Message: undefined,
-  };
+  const contents: any = {};
   if (output["code"] !== undefined) {
     contents.Code = __expectString(output["code"]);
   }
@@ -60979,12 +60692,7 @@ const deserializeAws_ec2BundleTaskList = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_ec2ByoipCidr = (output: any, context: __SerdeContext): ByoipCidr => {
-  const contents: any = {
-    Cidr: undefined,
-    Description: undefined,
-    StatusMessage: undefined,
-    State: undefined,
-  };
+  const contents: any = {};
   if (output["cidr"] !== undefined) {
     contents.Cidr = __expectString(output["cidr"]);
   }
@@ -61009,9 +60717,7 @@ const deserializeAws_ec2ByoipCidrSet = (output: any, context: __SerdeContext): B
 };
 
 const deserializeAws_ec2CancelBundleTaskResult = (output: any, context: __SerdeContext): CancelBundleTaskResult => {
-  const contents: any = {
-    BundleTask: undefined,
-  };
+  const contents: any = {};
   if (output["bundleInstanceTask"] !== undefined) {
     contents.BundleTask = deserializeAws_ec2BundleTask(output["bundleInstanceTask"], context);
   }
@@ -61022,10 +60728,7 @@ const deserializeAws_ec2CancelCapacityReservationFleetError = (
   output: any,
   context: __SerdeContext
 ): CancelCapacityReservationFleetError => {
-  const contents: any = {
-    Code: undefined,
-    Message: undefined,
-  };
+  const contents: any = {};
   if (output["code"] !== undefined) {
     contents.Code = __expectString(output["code"]);
   }
@@ -61039,10 +60742,7 @@ const deserializeAws_ec2CancelCapacityReservationFleetsResult = (
   output: any,
   context: __SerdeContext
 ): CancelCapacityReservationFleetsResult => {
-  const contents: any = {
-    SuccessfulFleetCancellations: undefined,
-    FailedFleetCancellations: undefined,
-  };
+  const contents: any = {};
   if (output.successfulFleetCancellationSet === "") {
     contents.SuccessfulFleetCancellations = [];
   } else if (
@@ -61072,9 +60772,7 @@ const deserializeAws_ec2CancelCapacityReservationResult = (
   output: any,
   context: __SerdeContext
 ): CancelCapacityReservationResult => {
-  const contents: any = {
-    Return: undefined,
-  };
+  const contents: any = {};
   if (output["return"] !== undefined) {
     contents.Return = __parseBoolean(output["return"]);
   }
@@ -61085,9 +60783,7 @@ const deserializeAws_ec2CancelImageLaunchPermissionResult = (
   output: any,
   context: __SerdeContext
 ): CancelImageLaunchPermissionResult => {
-  const contents: any = {
-    Return: undefined,
-  };
+  const contents: any = {};
   if (output["return"] !== undefined) {
     contents.Return = __parseBoolean(output["return"]);
   }
@@ -61095,11 +60791,7 @@ const deserializeAws_ec2CancelImageLaunchPermissionResult = (
 };
 
 const deserializeAws_ec2CancelImportTaskResult = (output: any, context: __SerdeContext): CancelImportTaskResult => {
-  const contents: any = {
-    ImportTaskId: undefined,
-    PreviousState: undefined,
-    State: undefined,
-  };
+  const contents: any = {};
   if (output["importTaskId"] !== undefined) {
     contents.ImportTaskId = __expectString(output["importTaskId"]);
   }
@@ -61116,10 +60808,7 @@ const deserializeAws_ec2CancelledSpotInstanceRequest = (
   output: any,
   context: __SerdeContext
 ): CancelledSpotInstanceRequest => {
-  const contents: any = {
-    SpotInstanceRequestId: undefined,
-    State: undefined,
-  };
+  const contents: any = {};
   if (output["spotInstanceRequestId"] !== undefined) {
     contents.SpotInstanceRequestId = __expectString(output["spotInstanceRequestId"]);
   }
@@ -61144,9 +60833,7 @@ const deserializeAws_ec2CancelReservedInstancesListingResult = (
   output: any,
   context: __SerdeContext
 ): CancelReservedInstancesListingResult => {
-  const contents: any = {
-    ReservedInstancesListings: undefined,
-  };
+  const contents: any = {};
   if (output.reservedInstancesListingsSet === "") {
     contents.ReservedInstancesListings = [];
   } else if (
@@ -61165,10 +60852,7 @@ const deserializeAws_ec2CancelSpotFleetRequestsError = (
   output: any,
   context: __SerdeContext
 ): CancelSpotFleetRequestsError => {
-  const contents: any = {
-    Code: undefined,
-    Message: undefined,
-  };
+  const contents: any = {};
   if (output["code"] !== undefined) {
     contents.Code = __expectString(output["code"]);
   }
@@ -61182,10 +60866,7 @@ const deserializeAws_ec2CancelSpotFleetRequestsErrorItem = (
   output: any,
   context: __SerdeContext
 ): CancelSpotFleetRequestsErrorItem => {
-  const contents: any = {
-    Error: undefined,
-    SpotFleetRequestId: undefined,
-  };
+  const contents: any = {};
   if (output["error"] !== undefined) {
     contents.Error = deserializeAws_ec2CancelSpotFleetRequestsError(output["error"], context);
   }
@@ -61210,10 +60891,7 @@ const deserializeAws_ec2CancelSpotFleetRequestsResponse = (
   output: any,
   context: __SerdeContext
 ): CancelSpotFleetRequestsResponse => {
-  const contents: any = {
-    SuccessfulFleetRequests: undefined,
-    UnsuccessfulFleetRequests: undefined,
-  };
+  const contents: any = {};
   if (output.successfulFleetRequestSet === "") {
     contents.SuccessfulFleetRequests = [];
   } else if (
@@ -61243,11 +60921,7 @@ const deserializeAws_ec2CancelSpotFleetRequestsSuccessItem = (
   output: any,
   context: __SerdeContext
 ): CancelSpotFleetRequestsSuccessItem => {
-  const contents: any = {
-    CurrentSpotFleetRequestState: undefined,
-    PreviousSpotFleetRequestState: undefined,
-    SpotFleetRequestId: undefined,
-  };
+  const contents: any = {};
   if (output["currentSpotFleetRequestState"] !== undefined) {
     contents.CurrentSpotFleetRequestState = __expectString(output["currentSpotFleetRequestState"]);
   }
@@ -61275,9 +60949,7 @@ const deserializeAws_ec2CancelSpotInstanceRequestsResult = (
   output: any,
   context: __SerdeContext
 ): CancelSpotInstanceRequestsResult => {
-  const contents: any = {
-    CancelledSpotInstanceRequests: undefined,
-  };
+  const contents: any = {};
   if (output.spotInstanceRequestSet === "") {
     contents.CancelledSpotInstanceRequests = [];
   } else if (output["spotInstanceRequestSet"] !== undefined && output["spotInstanceRequestSet"]["item"] !== undefined) {
@@ -61290,10 +60962,7 @@ const deserializeAws_ec2CancelSpotInstanceRequestsResult = (
 };
 
 const deserializeAws_ec2CapacityAllocation = (output: any, context: __SerdeContext): CapacityAllocation => {
-  const contents: any = {
-    AllocationType: undefined,
-    Count: undefined,
-  };
+  const contents: any = {};
   if (output["allocationType"] !== undefined) {
     contents.AllocationType = __expectString(output["allocationType"]);
   }
@@ -61312,31 +60981,7 @@ const deserializeAws_ec2CapacityAllocations = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_ec2CapacityReservation = (output: any, context: __SerdeContext): CapacityReservation => {
-  const contents: any = {
-    CapacityReservationId: undefined,
-    OwnerId: undefined,
-    CapacityReservationArn: undefined,
-    AvailabilityZoneId: undefined,
-    InstanceType: undefined,
-    InstancePlatform: undefined,
-    AvailabilityZone: undefined,
-    Tenancy: undefined,
-    TotalInstanceCount: undefined,
-    AvailableInstanceCount: undefined,
-    EbsOptimized: undefined,
-    EphemeralStorage: undefined,
-    State: undefined,
-    StartDate: undefined,
-    EndDate: undefined,
-    EndDateType: undefined,
-    InstanceMatchCriteria: undefined,
-    CreateDate: undefined,
-    Tags: undefined,
-    OutpostArn: undefined,
-    CapacityReservationFleetId: undefined,
-    PlacementGroupArn: undefined,
-    CapacityAllocations: undefined,
-  };
+  const contents: any = {};
   if (output["capacityReservationId"] !== undefined) {
     contents.CapacityReservationId = __expectString(output["capacityReservationId"]);
   }
@@ -61417,20 +61062,7 @@ const deserializeAws_ec2CapacityReservation = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_ec2CapacityReservationFleet = (output: any, context: __SerdeContext): CapacityReservationFleet => {
-  const contents: any = {
-    CapacityReservationFleetId: undefined,
-    CapacityReservationFleetArn: undefined,
-    State: undefined,
-    TotalTargetCapacity: undefined,
-    TotalFulfilledCapacity: undefined,
-    Tenancy: undefined,
-    EndDate: undefined,
-    CreateTime: undefined,
-    InstanceMatchCriteria: undefined,
-    AllocationStrategy: undefined,
-    InstanceTypeSpecifications: undefined,
-    Tags: undefined,
-  };
+  const contents: any = {};
   if (output["capacityReservationFleetId"] !== undefined) {
     contents.CapacityReservationFleetId = __expectString(output["capacityReservationFleetId"]);
   }
@@ -61484,11 +61116,7 @@ const deserializeAws_ec2CapacityReservationFleetCancellationState = (
   output: any,
   context: __SerdeContext
 ): CapacityReservationFleetCancellationState => {
-  const contents: any = {
-    CurrentFleetState: undefined,
-    PreviousFleetState: undefined,
-    CapacityReservationFleetId: undefined,
-  };
+  const contents: any = {};
   if (output["currentFleetState"] !== undefined) {
     contents.CurrentFleetState = __expectString(output["currentFleetState"]);
   }
@@ -61524,10 +61152,7 @@ const deserializeAws_ec2CapacityReservationFleetSet = (
 };
 
 const deserializeAws_ec2CapacityReservationGroup = (output: any, context: __SerdeContext): CapacityReservationGroup => {
-  const contents: any = {
-    GroupArn: undefined,
-    OwnerId: undefined,
-  };
+  const contents: any = {};
   if (output["groupArn"] !== undefined) {
     contents.GroupArn = __expectString(output["groupArn"]);
   }
@@ -61552,9 +61177,7 @@ const deserializeAws_ec2CapacityReservationOptions = (
   output: any,
   context: __SerdeContext
 ): CapacityReservationOptions => {
-  const contents: any = {
-    UsageStrategy: undefined,
-  };
+  const contents: any = {};
   if (output["usageStrategy"] !== undefined) {
     contents.UsageStrategy = __expectString(output["usageStrategy"]);
   }
@@ -61573,10 +61196,7 @@ const deserializeAws_ec2CapacityReservationSpecificationResponse = (
   output: any,
   context: __SerdeContext
 ): CapacityReservationSpecificationResponse => {
-  const contents: any = {
-    CapacityReservationPreference: undefined,
-    CapacityReservationTarget: undefined,
-  };
+  const contents: any = {};
   if (output["capacityReservationPreference"] !== undefined) {
     contents.CapacityReservationPreference = __expectString(output["capacityReservationPreference"]);
   }
@@ -61593,10 +61213,7 @@ const deserializeAws_ec2CapacityReservationTargetResponse = (
   output: any,
   context: __SerdeContext
 ): CapacityReservationTargetResponse => {
-  const contents: any = {
-    CapacityReservationId: undefined,
-    CapacityReservationResourceGroupArn: undefined,
-  };
+  const contents: any = {};
   if (output["capacityReservationId"] !== undefined) {
     contents.CapacityReservationId = __expectString(output["capacityReservationId"]);
   }
@@ -61607,13 +61224,7 @@ const deserializeAws_ec2CapacityReservationTargetResponse = (
 };
 
 const deserializeAws_ec2CarrierGateway = (output: any, context: __SerdeContext): CarrierGateway => {
-  const contents: any = {
-    CarrierGatewayId: undefined,
-    VpcId: undefined,
-    State: undefined,
-    OwnerId: undefined,
-    Tags: undefined,
-  };
+  const contents: any = {};
   if (output["carrierGatewayId"] !== undefined) {
     contents.CarrierGatewayId = __expectString(output["carrierGatewayId"]);
   }
@@ -61646,9 +61257,7 @@ const deserializeAws_ec2CertificateAuthentication = (
   output: any,
   context: __SerdeContext
 ): CertificateAuthentication => {
-  const contents: any = {
-    ClientRootCertificateChain: undefined,
-  };
+  const contents: any = {};
   if (output["clientRootCertificateChain"] !== undefined) {
     contents.ClientRootCertificateChain = __expectString(output["clientRootCertificateChain"]);
   }
@@ -61656,9 +61265,7 @@ const deserializeAws_ec2CertificateAuthentication = (
 };
 
 const deserializeAws_ec2CidrBlock = (output: any, context: __SerdeContext): CidrBlock => {
-  const contents: any = {
-    CidrBlock: undefined,
-  };
+  const contents: any = {};
   if (output["cidrBlock"] !== undefined) {
     contents.CidrBlock = __expectString(output["cidrBlock"]);
   }
@@ -61674,10 +61281,7 @@ const deserializeAws_ec2CidrBlockSet = (output: any, context: __SerdeContext): C
 };
 
 const deserializeAws_ec2ClassicLinkDnsSupport = (output: any, context: __SerdeContext): ClassicLinkDnsSupport => {
-  const contents: any = {
-    ClassicLinkDnsSupported: undefined,
-    VpcId: undefined,
-  };
+  const contents: any = {};
   if (output["classicLinkDnsSupported"] !== undefined) {
     contents.ClassicLinkDnsSupported = __parseBoolean(output["classicLinkDnsSupported"]);
   }
@@ -61696,12 +61300,7 @@ const deserializeAws_ec2ClassicLinkDnsSupportList = (output: any, context: __Ser
 };
 
 const deserializeAws_ec2ClassicLinkInstance = (output: any, context: __SerdeContext): ClassicLinkInstance => {
-  const contents: any = {
-    Groups: undefined,
-    InstanceId: undefined,
-    Tags: undefined,
-    VpcId: undefined,
-  };
+  const contents: any = {};
   if (output.groupSet === "") {
     contents.Groups = [];
   } else if (output["groupSet"] !== undefined && output["groupSet"]["item"] !== undefined) {
@@ -61733,9 +61332,7 @@ const deserializeAws_ec2ClassicLinkInstanceList = (output: any, context: __Serde
 };
 
 const deserializeAws_ec2ClassicLoadBalancer = (output: any, context: __SerdeContext): ClassicLoadBalancer => {
-  const contents: any = {
-    Name: undefined,
-  };
+  const contents: any = {};
   if (output["name"] !== undefined) {
     contents.Name = __expectString(output["name"]);
   }
@@ -61754,9 +61351,7 @@ const deserializeAws_ec2ClassicLoadBalancersConfig = (
   output: any,
   context: __SerdeContext
 ): ClassicLoadBalancersConfig => {
-  const contents: any = {
-    ClassicLoadBalancers: undefined,
-  };
+  const contents: any = {};
   if (output.classicLoadBalancers === "") {
     contents.ClassicLoadBalancers = [];
   } else if (output["classicLoadBalancers"] !== undefined && output["classicLoadBalancers"]["item"] !== undefined) {
@@ -61772,10 +61367,7 @@ const deserializeAws_ec2ClientCertificateRevocationListStatus = (
   output: any,
   context: __SerdeContext
 ): ClientCertificateRevocationListStatus => {
-  const contents: any = {
-    Code: undefined,
-    Message: undefined,
-  };
+  const contents: any = {};
   if (output["code"] !== undefined) {
     contents.Code = __expectString(output["code"]);
   }
@@ -61789,11 +61381,7 @@ const deserializeAws_ec2ClientConnectResponseOptions = (
   output: any,
   context: __SerdeContext
 ): ClientConnectResponseOptions => {
-  const contents: any = {
-    Enabled: undefined,
-    LambdaFunctionArn: undefined,
-    Status: undefined,
-  };
+  const contents: any = {};
   if (output["enabled"] !== undefined) {
     contents.Enabled = __parseBoolean(output["enabled"]);
   }
@@ -61810,10 +61398,7 @@ const deserializeAws_ec2ClientLoginBannerResponseOptions = (
   output: any,
   context: __SerdeContext
 ): ClientLoginBannerResponseOptions => {
-  const contents: any = {
-    Enabled: undefined,
-    BannerText: undefined,
-  };
+  const contents: any = {};
   if (output["enabled"] !== undefined) {
     contents.Enabled = __parseBoolean(output["enabled"]);
   }
@@ -61824,12 +61409,7 @@ const deserializeAws_ec2ClientLoginBannerResponseOptions = (
 };
 
 const deserializeAws_ec2ClientVpnAuthentication = (output: any, context: __SerdeContext): ClientVpnAuthentication => {
-  const contents: any = {
-    Type: undefined,
-    ActiveDirectory: undefined,
-    MutualAuthentication: undefined,
-    FederatedAuthentication: undefined,
-  };
+  const contents: any = {};
   if (output["type"] !== undefined) {
     contents.Type = __expectString(output["type"]);
   }
@@ -61866,10 +61446,7 @@ const deserializeAws_ec2ClientVpnAuthorizationRuleStatus = (
   output: any,
   context: __SerdeContext
 ): ClientVpnAuthorizationRuleStatus => {
-  const contents: any = {
-    Code: undefined,
-    Message: undefined,
-  };
+  const contents: any = {};
   if (output["code"] !== undefined) {
     contents.Code = __expectString(output["code"]);
   }
@@ -61880,22 +61457,7 @@ const deserializeAws_ec2ClientVpnAuthorizationRuleStatus = (
 };
 
 const deserializeAws_ec2ClientVpnConnection = (output: any, context: __SerdeContext): ClientVpnConnection => {
-  const contents: any = {
-    ClientVpnEndpointId: undefined,
-    Timestamp: undefined,
-    ConnectionId: undefined,
-    Username: undefined,
-    ConnectionEstablishedTime: undefined,
-    IngressBytes: undefined,
-    EgressBytes: undefined,
-    IngressPackets: undefined,
-    EgressPackets: undefined,
-    ClientIp: undefined,
-    CommonName: undefined,
-    Status: undefined,
-    ConnectionEndTime: undefined,
-    PostureComplianceStatuses: undefined,
-  };
+  const contents: any = {};
   if (output["clientVpnEndpointId"] !== undefined) {
     contents.ClientVpnEndpointId = __expectString(output["clientVpnEndpointId"]);
   }
@@ -61961,10 +61523,7 @@ const deserializeAws_ec2ClientVpnConnectionStatus = (
   output: any,
   context: __SerdeContext
 ): ClientVpnConnectionStatus => {
-  const contents: any = {
-    Code: undefined,
-    Message: undefined,
-  };
+  const contents: any = {};
   if (output["code"] !== undefined) {
     contents.Code = __expectString(output["code"]);
   }
@@ -61975,31 +61534,7 @@ const deserializeAws_ec2ClientVpnConnectionStatus = (
 };
 
 const deserializeAws_ec2ClientVpnEndpoint = (output: any, context: __SerdeContext): ClientVpnEndpoint => {
-  const contents: any = {
-    ClientVpnEndpointId: undefined,
-    Description: undefined,
-    Status: undefined,
-    CreationTime: undefined,
-    DeletionTime: undefined,
-    DnsName: undefined,
-    ClientCidrBlock: undefined,
-    DnsServers: undefined,
-    SplitTunnel: undefined,
-    VpnProtocol: undefined,
-    TransportProtocol: undefined,
-    VpnPort: undefined,
-    AssociatedTargetNetworks: undefined,
-    ServerCertificateArn: undefined,
-    AuthenticationOptions: undefined,
-    ConnectionLogOptions: undefined,
-    Tags: undefined,
-    SecurityGroupIds: undefined,
-    VpcId: undefined,
-    SelfServicePortalUrl: undefined,
-    ClientConnectOptions: undefined,
-    SessionTimeoutHours: undefined,
-    ClientLoginBannerOptions: undefined,
-  };
+  const contents: any = {};
   if (output["clientVpnEndpointId"] !== undefined) {
     contents.ClientVpnEndpointId = __expectString(output["clientVpnEndpointId"]);
   }
@@ -62110,10 +61645,7 @@ const deserializeAws_ec2ClientVpnEndpointAttributeStatus = (
   output: any,
   context: __SerdeContext
 ): ClientVpnEndpointAttributeStatus => {
-  const contents: any = {
-    Code: undefined,
-    Message: undefined,
-  };
+  const contents: any = {};
   if (output["code"] !== undefined) {
     contents.Code = __expectString(output["code"]);
   }
@@ -62124,10 +61656,7 @@ const deserializeAws_ec2ClientVpnEndpointAttributeStatus = (
 };
 
 const deserializeAws_ec2ClientVpnEndpointStatus = (output: any, context: __SerdeContext): ClientVpnEndpointStatus => {
-  const contents: any = {
-    Code: undefined,
-    Message: undefined,
-  };
+  const contents: any = {};
   if (output["code"] !== undefined) {
     contents.Code = __expectString(output["code"]);
   }
@@ -62138,15 +61667,7 @@ const deserializeAws_ec2ClientVpnEndpointStatus = (output: any, context: __Serde
 };
 
 const deserializeAws_ec2ClientVpnRoute = (output: any, context: __SerdeContext): ClientVpnRoute => {
-  const contents: any = {
-    ClientVpnEndpointId: undefined,
-    DestinationCidr: undefined,
-    TargetSubnet: undefined,
-    Type: undefined,
-    Origin: undefined,
-    Status: undefined,
-    Description: undefined,
-  };
+  const contents: any = {};
   if (output["clientVpnEndpointId"] !== undefined) {
     contents.ClientVpnEndpointId = __expectString(output["clientVpnEndpointId"]);
   }
@@ -62180,10 +61701,7 @@ const deserializeAws_ec2ClientVpnRouteSet = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_ec2ClientVpnRouteStatus = (output: any, context: __SerdeContext): ClientVpnRouteStatus => {
-  const contents: any = {
-    Code: undefined,
-    Message: undefined,
-  };
+  const contents: any = {};
   if (output["code"] !== undefined) {
     contents.Code = __expectString(output["code"]);
   }
@@ -62202,11 +61720,7 @@ const deserializeAws_ec2ClientVpnSecurityGroupIdSet = (output: any, context: __S
 };
 
 const deserializeAws_ec2CloudWatchLogOptions = (output: any, context: __SerdeContext): CloudWatchLogOptions => {
-  const contents: any = {
-    LogEnabled: undefined,
-    LogGroupArn: undefined,
-    LogOutputFormat: undefined,
-  };
+  const contents: any = {};
   if (output["logEnabled"] !== undefined) {
     contents.LogEnabled = __parseBoolean(output["logEnabled"]);
   }
@@ -62220,12 +61734,7 @@ const deserializeAws_ec2CloudWatchLogOptions = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_ec2CoipAddressUsage = (output: any, context: __SerdeContext): CoipAddressUsage => {
-  const contents: any = {
-    AllocationId: undefined,
-    AwsAccountId: undefined,
-    AwsService: undefined,
-    CoIp: undefined,
-  };
+  const contents: any = {};
   if (output["allocationId"] !== undefined) {
     contents.AllocationId = __expectString(output["allocationId"]);
   }
@@ -62250,11 +61759,7 @@ const deserializeAws_ec2CoipAddressUsageSet = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_ec2CoipCidr = (output: any, context: __SerdeContext): CoipCidr => {
-  const contents: any = {
-    Cidr: undefined,
-    CoipPoolId: undefined,
-    LocalGatewayRouteTableId: undefined,
-  };
+  const contents: any = {};
   if (output["cidr"] !== undefined) {
     contents.Cidr = __expectString(output["cidr"]);
   }
@@ -62268,13 +61773,7 @@ const deserializeAws_ec2CoipCidr = (output: any, context: __SerdeContext): CoipC
 };
 
 const deserializeAws_ec2CoipPool = (output: any, context: __SerdeContext): CoipPool => {
-  const contents: any = {
-    PoolId: undefined,
-    PoolCidrs: undefined,
-    LocalGatewayRouteTableId: undefined,
-    Tags: undefined,
-    PoolArn: undefined,
-  };
+  const contents: any = {};
   if (output["poolId"] !== undefined) {
     contents.PoolId = __expectString(output["poolId"]);
   }
@@ -62312,10 +61811,7 @@ const deserializeAws_ec2ConfirmProductInstanceResult = (
   output: any,
   context: __SerdeContext
 ): ConfirmProductInstanceResult => {
-  const contents: any = {
-    OwnerId: undefined,
-    Return: undefined,
-  };
+  const contents: any = {};
   if (output["ownerId"] !== undefined) {
     contents.OwnerId = __expectString(output["ownerId"]);
   }
@@ -62329,11 +61825,7 @@ const deserializeAws_ec2ConnectionLogResponseOptions = (
   output: any,
   context: __SerdeContext
 ): ConnectionLogResponseOptions => {
-  const contents: any = {
-    Enabled: undefined,
-    CloudwatchLogGroup: undefined,
-    CloudwatchLogStream: undefined,
-  };
+  const contents: any = {};
   if (output["Enabled"] !== undefined) {
     contents.Enabled = __parseBoolean(output["Enabled"]);
   }
@@ -62347,15 +61839,7 @@ const deserializeAws_ec2ConnectionLogResponseOptions = (
 };
 
 const deserializeAws_ec2ConnectionNotification = (output: any, context: __SerdeContext): ConnectionNotification => {
-  const contents: any = {
-    ConnectionNotificationId: undefined,
-    ServiceId: undefined,
-    VpcEndpointId: undefined,
-    ConnectionNotificationType: undefined,
-    ConnectionNotificationArn: undefined,
-    ConnectionEvents: undefined,
-    ConnectionNotificationState: undefined,
-  };
+  const contents: any = {};
   if (output["connectionNotificationId"] !== undefined) {
     contents.ConnectionNotificationId = __expectString(output["connectionNotificationId"]);
   }
@@ -62397,15 +61881,7 @@ const deserializeAws_ec2ConnectionNotificationSet = (
 };
 
 const deserializeAws_ec2ConversionTask = (output: any, context: __SerdeContext): ConversionTask => {
-  const contents: any = {
-    ConversionTaskId: undefined,
-    ExpirationTime: undefined,
-    ImportInstance: undefined,
-    ImportVolume: undefined,
-    State: undefined,
-    StatusMessage: undefined,
-    Tags: undefined,
-  };
+  const contents: any = {};
   if (output["conversionTaskId"] !== undefined) {
     contents.ConversionTaskId = __expectString(output["conversionTaskId"]);
   }
@@ -62433,9 +61909,7 @@ const deserializeAws_ec2ConversionTask = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_ec2CopyFpgaImageResult = (output: any, context: __SerdeContext): CopyFpgaImageResult => {
-  const contents: any = {
-    FpgaImageId: undefined,
-  };
+  const contents: any = {};
   if (output["fpgaImageId"] !== undefined) {
     contents.FpgaImageId = __expectString(output["fpgaImageId"]);
   }
@@ -62443,9 +61917,7 @@ const deserializeAws_ec2CopyFpgaImageResult = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_ec2CopyImageResult = (output: any, context: __SerdeContext): CopyImageResult => {
-  const contents: any = {
-    ImageId: undefined,
-  };
+  const contents: any = {};
   if (output["imageId"] !== undefined) {
     contents.ImageId = __expectString(output["imageId"]);
   }
@@ -62453,10 +61925,7 @@ const deserializeAws_ec2CopyImageResult = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_ec2CopySnapshotResult = (output: any, context: __SerdeContext): CopySnapshotResult => {
-  const contents: any = {
-    SnapshotId: undefined,
-    Tags: undefined,
-  };
+  const contents: any = {};
   if (output["snapshotId"] !== undefined) {
     contents.SnapshotId = __expectString(output["snapshotId"]);
   }
@@ -62485,10 +61954,7 @@ const deserializeAws_ec2CpuManufacturerSet = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_ec2CpuOptions = (output: any, context: __SerdeContext): CpuOptions => {
-  const contents: any = {
-    CoreCount: undefined,
-    ThreadsPerCore: undefined,
-  };
+  const contents: any = {};
   if (output["coreCount"] !== undefined) {
     contents.CoreCount = __strictParseInt32(output["coreCount"]) as number;
   }
@@ -62502,19 +61968,7 @@ const deserializeAws_ec2CreateCapacityReservationFleetResult = (
   output: any,
   context: __SerdeContext
 ): CreateCapacityReservationFleetResult => {
-  const contents: any = {
-    CapacityReservationFleetId: undefined,
-    State: undefined,
-    TotalTargetCapacity: undefined,
-    TotalFulfilledCapacity: undefined,
-    InstanceMatchCriteria: undefined,
-    AllocationStrategy: undefined,
-    CreateTime: undefined,
-    EndDate: undefined,
-    Tenancy: undefined,
-    FleetCapacityReservations: undefined,
-    Tags: undefined,
-  };
+  const contents: any = {};
   if (output["capacityReservationFleetId"] !== undefined) {
     contents.CapacityReservationFleetId = __expectString(output["capacityReservationFleetId"]);
   }
@@ -62565,9 +62019,7 @@ const deserializeAws_ec2CreateCapacityReservationResult = (
   output: any,
   context: __SerdeContext
 ): CreateCapacityReservationResult => {
-  const contents: any = {
-    CapacityReservation: undefined,
-  };
+  const contents: any = {};
   if (output["capacityReservation"] !== undefined) {
     contents.CapacityReservation = deserializeAws_ec2CapacityReservation(output["capacityReservation"], context);
   }
@@ -62578,9 +62030,7 @@ const deserializeAws_ec2CreateCarrierGatewayResult = (
   output: any,
   context: __SerdeContext
 ): CreateCarrierGatewayResult => {
-  const contents: any = {
-    CarrierGateway: undefined,
-  };
+  const contents: any = {};
   if (output["carrierGateway"] !== undefined) {
     contents.CarrierGateway = deserializeAws_ec2CarrierGateway(output["carrierGateway"], context);
   }
@@ -62591,11 +62041,7 @@ const deserializeAws_ec2CreateClientVpnEndpointResult = (
   output: any,
   context: __SerdeContext
 ): CreateClientVpnEndpointResult => {
-  const contents: any = {
-    ClientVpnEndpointId: undefined,
-    Status: undefined,
-    DnsName: undefined,
-  };
+  const contents: any = {};
   if (output["clientVpnEndpointId"] !== undefined) {
     contents.ClientVpnEndpointId = __expectString(output["clientVpnEndpointId"]);
   }
@@ -62612,9 +62058,7 @@ const deserializeAws_ec2CreateClientVpnRouteResult = (
   output: any,
   context: __SerdeContext
 ): CreateClientVpnRouteResult => {
-  const contents: any = {
-    Status: undefined,
-  };
+  const contents: any = {};
   if (output["status"] !== undefined) {
     contents.Status = deserializeAws_ec2ClientVpnRouteStatus(output["status"], context);
   }
@@ -62622,9 +62066,7 @@ const deserializeAws_ec2CreateClientVpnRouteResult = (
 };
 
 const deserializeAws_ec2CreateCoipCidrResult = (output: any, context: __SerdeContext): CreateCoipCidrResult => {
-  const contents: any = {
-    CoipCidr: undefined,
-  };
+  const contents: any = {};
   if (output["coipCidr"] !== undefined) {
     contents.CoipCidr = deserializeAws_ec2CoipCidr(output["coipCidr"], context);
   }
@@ -62632,9 +62074,7 @@ const deserializeAws_ec2CreateCoipCidrResult = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_ec2CreateCoipPoolResult = (output: any, context: __SerdeContext): CreateCoipPoolResult => {
-  const contents: any = {
-    CoipPool: undefined,
-  };
+  const contents: any = {};
   if (output["coipPool"] !== undefined) {
     contents.CoipPool = deserializeAws_ec2CoipPool(output["coipPool"], context);
   }
@@ -62645,9 +62085,7 @@ const deserializeAws_ec2CreateCustomerGatewayResult = (
   output: any,
   context: __SerdeContext
 ): CreateCustomerGatewayResult => {
-  const contents: any = {
-    CustomerGateway: undefined,
-  };
+  const contents: any = {};
   if (output["customerGateway"] !== undefined) {
     contents.CustomerGateway = deserializeAws_ec2CustomerGateway(output["customerGateway"], context);
   }
@@ -62658,9 +62096,7 @@ const deserializeAws_ec2CreateDefaultSubnetResult = (
   output: any,
   context: __SerdeContext
 ): CreateDefaultSubnetResult => {
-  const contents: any = {
-    Subnet: undefined,
-  };
+  const contents: any = {};
   if (output["subnet"] !== undefined) {
     contents.Subnet = deserializeAws_ec2Subnet(output["subnet"], context);
   }
@@ -62668,9 +62104,7 @@ const deserializeAws_ec2CreateDefaultSubnetResult = (
 };
 
 const deserializeAws_ec2CreateDefaultVpcResult = (output: any, context: __SerdeContext): CreateDefaultVpcResult => {
-  const contents: any = {
-    Vpc: undefined,
-  };
+  const contents: any = {};
   if (output["vpc"] !== undefined) {
     contents.Vpc = deserializeAws_ec2Vpc(output["vpc"], context);
   }
@@ -62678,9 +62112,7 @@ const deserializeAws_ec2CreateDefaultVpcResult = (output: any, context: __SerdeC
 };
 
 const deserializeAws_ec2CreateDhcpOptionsResult = (output: any, context: __SerdeContext): CreateDhcpOptionsResult => {
-  const contents: any = {
-    DhcpOptions: undefined,
-  };
+  const contents: any = {};
   if (output["dhcpOptions"] !== undefined) {
     contents.DhcpOptions = deserializeAws_ec2DhcpOptions(output["dhcpOptions"], context);
   }
@@ -62691,10 +62123,7 @@ const deserializeAws_ec2CreateEgressOnlyInternetGatewayResult = (
   output: any,
   context: __SerdeContext
 ): CreateEgressOnlyInternetGatewayResult => {
-  const contents: any = {
-    ClientToken: undefined,
-    EgressOnlyInternetGateway: undefined,
-  };
+  const contents: any = {};
   if (output["clientToken"] !== undefined) {
     contents.ClientToken = __expectString(output["clientToken"]);
   }
@@ -62708,12 +62137,7 @@ const deserializeAws_ec2CreateEgressOnlyInternetGatewayResult = (
 };
 
 const deserializeAws_ec2CreateFleetError = (output: any, context: __SerdeContext): CreateFleetError => {
-  const contents: any = {
-    LaunchTemplateAndOverrides: undefined,
-    Lifecycle: undefined,
-    ErrorCode: undefined,
-    ErrorMessage: undefined,
-  };
+  const contents: any = {};
   if (output["launchTemplateAndOverrides"] !== undefined) {
     contents.LaunchTemplateAndOverrides = deserializeAws_ec2LaunchTemplateAndOverridesResponse(
       output["launchTemplateAndOverrides"],
@@ -62741,13 +62165,7 @@ const deserializeAws_ec2CreateFleetErrorsSet = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_ec2CreateFleetInstance = (output: any, context: __SerdeContext): CreateFleetInstance => {
-  const contents: any = {
-    LaunchTemplateAndOverrides: undefined,
-    Lifecycle: undefined,
-    InstanceIds: undefined,
-    InstanceType: undefined,
-    Platform: undefined,
-  };
+  const contents: any = {};
   if (output["launchTemplateAndOverrides"] !== undefined) {
     contents.LaunchTemplateAndOverrides = deserializeAws_ec2LaunchTemplateAndOverridesResponse(
       output["launchTemplateAndOverrides"],
@@ -62783,11 +62201,7 @@ const deserializeAws_ec2CreateFleetInstancesSet = (output: any, context: __Serde
 };
 
 const deserializeAws_ec2CreateFleetResult = (output: any, context: __SerdeContext): CreateFleetResult => {
-  const contents: any = {
-    FleetId: undefined,
-    Errors: undefined,
-    Instances: undefined,
-  };
+  const contents: any = {};
   if (output["fleetId"] !== undefined) {
     contents.FleetId = __expectString(output["fleetId"]);
   }
@@ -62811,11 +62225,7 @@ const deserializeAws_ec2CreateFleetResult = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_ec2CreateFlowLogsResult = (output: any, context: __SerdeContext): CreateFlowLogsResult => {
-  const contents: any = {
-    ClientToken: undefined,
-    FlowLogIds: undefined,
-    Unsuccessful: undefined,
-  };
+  const contents: any = {};
   if (output["clientToken"] !== undefined) {
     contents.ClientToken = __expectString(output["clientToken"]);
   }
@@ -62839,10 +62249,7 @@ const deserializeAws_ec2CreateFlowLogsResult = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_ec2CreateFpgaImageResult = (output: any, context: __SerdeContext): CreateFpgaImageResult => {
-  const contents: any = {
-    FpgaImageId: undefined,
-    FpgaImageGlobalId: undefined,
-  };
+  const contents: any = {};
   if (output["fpgaImageId"] !== undefined) {
     contents.FpgaImageId = __expectString(output["fpgaImageId"]);
   }
@@ -62853,9 +62260,7 @@ const deserializeAws_ec2CreateFpgaImageResult = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_ec2CreateImageResult = (output: any, context: __SerdeContext): CreateImageResult => {
-  const contents: any = {
-    ImageId: undefined,
-  };
+  const contents: any = {};
   if (output["imageId"] !== undefined) {
     contents.ImageId = __expectString(output["imageId"]);
   }
@@ -62866,9 +62271,7 @@ const deserializeAws_ec2CreateInstanceEventWindowResult = (
   output: any,
   context: __SerdeContext
 ): CreateInstanceEventWindowResult => {
-  const contents: any = {
-    InstanceEventWindow: undefined,
-  };
+  const contents: any = {};
   if (output["instanceEventWindow"] !== undefined) {
     contents.InstanceEventWindow = deserializeAws_ec2InstanceEventWindow(output["instanceEventWindow"], context);
   }
@@ -62879,9 +62282,7 @@ const deserializeAws_ec2CreateInstanceExportTaskResult = (
   output: any,
   context: __SerdeContext
 ): CreateInstanceExportTaskResult => {
-  const contents: any = {
-    ExportTask: undefined,
-  };
+  const contents: any = {};
   if (output["exportTask"] !== undefined) {
     contents.ExportTask = deserializeAws_ec2ExportTask(output["exportTask"], context);
   }
@@ -62892,9 +62293,7 @@ const deserializeAws_ec2CreateInternetGatewayResult = (
   output: any,
   context: __SerdeContext
 ): CreateInternetGatewayResult => {
-  const contents: any = {
-    InternetGateway: undefined,
-  };
+  const contents: any = {};
   if (output["internetGateway"] !== undefined) {
     contents.InternetGateway = deserializeAws_ec2InternetGateway(output["internetGateway"], context);
   }
@@ -62902,9 +62301,7 @@ const deserializeAws_ec2CreateInternetGatewayResult = (
 };
 
 const deserializeAws_ec2CreateIpamPoolResult = (output: any, context: __SerdeContext): CreateIpamPoolResult => {
-  const contents: any = {
-    IpamPool: undefined,
-  };
+  const contents: any = {};
   if (output["ipamPool"] !== undefined) {
     contents.IpamPool = deserializeAws_ec2IpamPool(output["ipamPool"], context);
   }
@@ -62915,9 +62312,7 @@ const deserializeAws_ec2CreateIpamResourceDiscoveryResult = (
   output: any,
   context: __SerdeContext
 ): CreateIpamResourceDiscoveryResult => {
-  const contents: any = {
-    IpamResourceDiscovery: undefined,
-  };
+  const contents: any = {};
   if (output["ipamResourceDiscovery"] !== undefined) {
     contents.IpamResourceDiscovery = deserializeAws_ec2IpamResourceDiscovery(output["ipamResourceDiscovery"], context);
   }
@@ -62925,9 +62320,7 @@ const deserializeAws_ec2CreateIpamResourceDiscoveryResult = (
 };
 
 const deserializeAws_ec2CreateIpamResult = (output: any, context: __SerdeContext): CreateIpamResult => {
-  const contents: any = {
-    Ipam: undefined,
-  };
+  const contents: any = {};
   if (output["ipam"] !== undefined) {
     contents.Ipam = deserializeAws_ec2Ipam(output["ipam"], context);
   }
@@ -62935,9 +62328,7 @@ const deserializeAws_ec2CreateIpamResult = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_ec2CreateIpamScopeResult = (output: any, context: __SerdeContext): CreateIpamScopeResult => {
-  const contents: any = {
-    IpamScope: undefined,
-  };
+  const contents: any = {};
   if (output["ipamScope"] !== undefined) {
     contents.IpamScope = deserializeAws_ec2IpamScope(output["ipamScope"], context);
   }
@@ -62948,10 +62339,7 @@ const deserializeAws_ec2CreateLaunchTemplateResult = (
   output: any,
   context: __SerdeContext
 ): CreateLaunchTemplateResult => {
-  const contents: any = {
-    LaunchTemplate: undefined,
-    Warning: undefined,
-  };
+  const contents: any = {};
   if (output["launchTemplate"] !== undefined) {
     contents.LaunchTemplate = deserializeAws_ec2LaunchTemplate(output["launchTemplate"], context);
   }
@@ -62965,10 +62353,7 @@ const deserializeAws_ec2CreateLaunchTemplateVersionResult = (
   output: any,
   context: __SerdeContext
 ): CreateLaunchTemplateVersionResult => {
-  const contents: any = {
-    LaunchTemplateVersion: undefined,
-    Warning: undefined,
-  };
+  const contents: any = {};
   if (output["launchTemplateVersion"] !== undefined) {
     contents.LaunchTemplateVersion = deserializeAws_ec2LaunchTemplateVersion(output["launchTemplateVersion"], context);
   }
@@ -62982,9 +62367,7 @@ const deserializeAws_ec2CreateLocalGatewayRouteResult = (
   output: any,
   context: __SerdeContext
 ): CreateLocalGatewayRouteResult => {
-  const contents: any = {
-    Route: undefined,
-  };
+  const contents: any = {};
   if (output["route"] !== undefined) {
     contents.Route = deserializeAws_ec2LocalGatewayRoute(output["route"], context);
   }
@@ -62995,9 +62378,7 @@ const deserializeAws_ec2CreateLocalGatewayRouteTableResult = (
   output: any,
   context: __SerdeContext
 ): CreateLocalGatewayRouteTableResult => {
-  const contents: any = {
-    LocalGatewayRouteTable: undefined,
-  };
+  const contents: any = {};
   if (output["localGatewayRouteTable"] !== undefined) {
     contents.LocalGatewayRouteTable = deserializeAws_ec2LocalGatewayRouteTable(
       output["localGatewayRouteTable"],
@@ -63011,9 +62392,7 @@ const deserializeAws_ec2CreateLocalGatewayRouteTableVirtualInterfaceGroupAssocia
   output: any,
   context: __SerdeContext
 ): CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult => {
-  const contents: any = {
-    LocalGatewayRouteTableVirtualInterfaceGroupAssociation: undefined,
-  };
+  const contents: any = {};
   if (output["localGatewayRouteTableVirtualInterfaceGroupAssociation"] !== undefined) {
     contents.LocalGatewayRouteTableVirtualInterfaceGroupAssociation =
       deserializeAws_ec2LocalGatewayRouteTableVirtualInterfaceGroupAssociation(
@@ -63028,9 +62407,7 @@ const deserializeAws_ec2CreateLocalGatewayRouteTableVpcAssociationResult = (
   output: any,
   context: __SerdeContext
 ): CreateLocalGatewayRouteTableVpcAssociationResult => {
-  const contents: any = {
-    LocalGatewayRouteTableVpcAssociation: undefined,
-  };
+  const contents: any = {};
   if (output["localGatewayRouteTableVpcAssociation"] !== undefined) {
     contents.LocalGatewayRouteTableVpcAssociation = deserializeAws_ec2LocalGatewayRouteTableVpcAssociation(
       output["localGatewayRouteTableVpcAssociation"],
@@ -63044,9 +62421,7 @@ const deserializeAws_ec2CreateManagedPrefixListResult = (
   output: any,
   context: __SerdeContext
 ): CreateManagedPrefixListResult => {
-  const contents: any = {
-    PrefixList: undefined,
-  };
+  const contents: any = {};
   if (output["prefixList"] !== undefined) {
     contents.PrefixList = deserializeAws_ec2ManagedPrefixList(output["prefixList"], context);
   }
@@ -63054,10 +62429,7 @@ const deserializeAws_ec2CreateManagedPrefixListResult = (
 };
 
 const deserializeAws_ec2CreateNatGatewayResult = (output: any, context: __SerdeContext): CreateNatGatewayResult => {
-  const contents: any = {
-    ClientToken: undefined,
-    NatGateway: undefined,
-  };
+  const contents: any = {};
   if (output["clientToken"] !== undefined) {
     contents.ClientToken = __expectString(output["clientToken"]);
   }
@@ -63068,9 +62440,7 @@ const deserializeAws_ec2CreateNatGatewayResult = (output: any, context: __SerdeC
 };
 
 const deserializeAws_ec2CreateNetworkAclResult = (output: any, context: __SerdeContext): CreateNetworkAclResult => {
-  const contents: any = {
-    NetworkAcl: undefined,
-  };
+  const contents: any = {};
   if (output["networkAcl"] !== undefined) {
     contents.NetworkAcl = deserializeAws_ec2NetworkAcl(output["networkAcl"], context);
   }
@@ -63081,10 +62451,7 @@ const deserializeAws_ec2CreateNetworkInsightsAccessScopeResult = (
   output: any,
   context: __SerdeContext
 ): CreateNetworkInsightsAccessScopeResult => {
-  const contents: any = {
-    NetworkInsightsAccessScope: undefined,
-    NetworkInsightsAccessScopeContent: undefined,
-  };
+  const contents: any = {};
   if (output["networkInsightsAccessScope"] !== undefined) {
     contents.NetworkInsightsAccessScope = deserializeAws_ec2NetworkInsightsAccessScope(
       output["networkInsightsAccessScope"],
@@ -63104,9 +62471,7 @@ const deserializeAws_ec2CreateNetworkInsightsPathResult = (
   output: any,
   context: __SerdeContext
 ): CreateNetworkInsightsPathResult => {
-  const contents: any = {
-    NetworkInsightsPath: undefined,
-  };
+  const contents: any = {};
   if (output["networkInsightsPath"] !== undefined) {
     contents.NetworkInsightsPath = deserializeAws_ec2NetworkInsightsPath(output["networkInsightsPath"], context);
   }
@@ -63117,9 +62482,7 @@ const deserializeAws_ec2CreateNetworkInterfacePermissionResult = (
   output: any,
   context: __SerdeContext
 ): CreateNetworkInterfacePermissionResult => {
-  const contents: any = {
-    InterfacePermission: undefined,
-  };
+  const contents: any = {};
   if (output["interfacePermission"] !== undefined) {
     contents.InterfacePermission = deserializeAws_ec2NetworkInterfacePermission(output["interfacePermission"], context);
   }
@@ -63130,10 +62493,7 @@ const deserializeAws_ec2CreateNetworkInterfaceResult = (
   output: any,
   context: __SerdeContext
 ): CreateNetworkInterfaceResult => {
-  const contents: any = {
-    NetworkInterface: undefined,
-    ClientToken: undefined,
-  };
+  const contents: any = {};
   if (output["networkInterface"] !== undefined) {
     contents.NetworkInterface = deserializeAws_ec2NetworkInterface(output["networkInterface"], context);
   }
@@ -63147,9 +62507,7 @@ const deserializeAws_ec2CreatePlacementGroupResult = (
   output: any,
   context: __SerdeContext
 ): CreatePlacementGroupResult => {
-  const contents: any = {
-    PlacementGroup: undefined,
-  };
+  const contents: any = {};
   if (output["placementGroup"] !== undefined) {
     contents.PlacementGroup = deserializeAws_ec2PlacementGroup(output["placementGroup"], context);
   }
@@ -63160,9 +62518,7 @@ const deserializeAws_ec2CreatePublicIpv4PoolResult = (
   output: any,
   context: __SerdeContext
 ): CreatePublicIpv4PoolResult => {
-  const contents: any = {
-    PoolId: undefined,
-  };
+  const contents: any = {};
   if (output["poolId"] !== undefined) {
     contents.PoolId = __expectString(output["poolId"]);
   }
@@ -63173,9 +62529,7 @@ const deserializeAws_ec2CreateReplaceRootVolumeTaskResult = (
   output: any,
   context: __SerdeContext
 ): CreateReplaceRootVolumeTaskResult => {
-  const contents: any = {
-    ReplaceRootVolumeTask: undefined,
-  };
+  const contents: any = {};
   if (output["replaceRootVolumeTask"] !== undefined) {
     contents.ReplaceRootVolumeTask = deserializeAws_ec2ReplaceRootVolumeTask(output["replaceRootVolumeTask"], context);
   }
@@ -63186,9 +62540,7 @@ const deserializeAws_ec2CreateReservedInstancesListingResult = (
   output: any,
   context: __SerdeContext
 ): CreateReservedInstancesListingResult => {
-  const contents: any = {
-    ReservedInstancesListings: undefined,
-  };
+  const contents: any = {};
   if (output.reservedInstancesListingsSet === "") {
     contents.ReservedInstancesListings = [];
   } else if (
@@ -63207,9 +62559,7 @@ const deserializeAws_ec2CreateRestoreImageTaskResult = (
   output: any,
   context: __SerdeContext
 ): CreateRestoreImageTaskResult => {
-  const contents: any = {
-    ImageId: undefined,
-  };
+  const contents: any = {};
   if (output["imageId"] !== undefined) {
     contents.ImageId = __expectString(output["imageId"]);
   }
@@ -63217,9 +62567,7 @@ const deserializeAws_ec2CreateRestoreImageTaskResult = (
 };
 
 const deserializeAws_ec2CreateRouteResult = (output: any, context: __SerdeContext): CreateRouteResult => {
-  const contents: any = {
-    Return: undefined,
-  };
+  const contents: any = {};
   if (output["return"] !== undefined) {
     contents.Return = __parseBoolean(output["return"]);
   }
@@ -63227,9 +62575,7 @@ const deserializeAws_ec2CreateRouteResult = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_ec2CreateRouteTableResult = (output: any, context: __SerdeContext): CreateRouteTableResult => {
-  const contents: any = {
-    RouteTable: undefined,
-  };
+  const contents: any = {};
   if (output["routeTable"] !== undefined) {
     contents.RouteTable = deserializeAws_ec2RouteTable(output["routeTable"], context);
   }
@@ -63240,10 +62586,7 @@ const deserializeAws_ec2CreateSecurityGroupResult = (
   output: any,
   context: __SerdeContext
 ): CreateSecurityGroupResult => {
-  const contents: any = {
-    GroupId: undefined,
-    Tags: undefined,
-  };
+  const contents: any = {};
   if (output["groupId"] !== undefined) {
     contents.GroupId = __expectString(output["groupId"]);
   }
@@ -63256,9 +62599,7 @@ const deserializeAws_ec2CreateSecurityGroupResult = (
 };
 
 const deserializeAws_ec2CreateSnapshotsResult = (output: any, context: __SerdeContext): CreateSnapshotsResult => {
-  const contents: any = {
-    Snapshots: undefined,
-  };
+  const contents: any = {};
   if (output.snapshotSet === "") {
     contents.Snapshots = [];
   } else if (output["snapshotSet"] !== undefined && output["snapshotSet"]["item"] !== undefined) {
@@ -63271,9 +62612,7 @@ const deserializeAws_ec2CreateSpotDatafeedSubscriptionResult = (
   output: any,
   context: __SerdeContext
 ): CreateSpotDatafeedSubscriptionResult => {
-  const contents: any = {
-    SpotDatafeedSubscription: undefined,
-  };
+  const contents: any = {};
   if (output["spotDatafeedSubscription"] !== undefined) {
     contents.SpotDatafeedSubscription = deserializeAws_ec2SpotDatafeedSubscription(
       output["spotDatafeedSubscription"],
@@ -63287,9 +62626,7 @@ const deserializeAws_ec2CreateStoreImageTaskResult = (
   output: any,
   context: __SerdeContext
 ): CreateStoreImageTaskResult => {
-  const contents: any = {
-    ObjectKey: undefined,
-  };
+  const contents: any = {};
   if (output["objectKey"] !== undefined) {
     contents.ObjectKey = __expectString(output["objectKey"]);
   }
@@ -63300,9 +62637,7 @@ const deserializeAws_ec2CreateSubnetCidrReservationResult = (
   output: any,
   context: __SerdeContext
 ): CreateSubnetCidrReservationResult => {
-  const contents: any = {
-    SubnetCidrReservation: undefined,
-  };
+  const contents: any = {};
   if (output["subnetCidrReservation"] !== undefined) {
     contents.SubnetCidrReservation = deserializeAws_ec2SubnetCidrReservation(output["subnetCidrReservation"], context);
   }
@@ -63310,9 +62645,7 @@ const deserializeAws_ec2CreateSubnetCidrReservationResult = (
 };
 
 const deserializeAws_ec2CreateSubnetResult = (output: any, context: __SerdeContext): CreateSubnetResult => {
-  const contents: any = {
-    Subnet: undefined,
-  };
+  const contents: any = {};
   if (output["subnet"] !== undefined) {
     contents.Subnet = deserializeAws_ec2Subnet(output["subnet"], context);
   }
@@ -63323,10 +62656,7 @@ const deserializeAws_ec2CreateTrafficMirrorFilterResult = (
   output: any,
   context: __SerdeContext
 ): CreateTrafficMirrorFilterResult => {
-  const contents: any = {
-    TrafficMirrorFilter: undefined,
-    ClientToken: undefined,
-  };
+  const contents: any = {};
   if (output["trafficMirrorFilter"] !== undefined) {
     contents.TrafficMirrorFilter = deserializeAws_ec2TrafficMirrorFilter(output["trafficMirrorFilter"], context);
   }
@@ -63340,10 +62670,7 @@ const deserializeAws_ec2CreateTrafficMirrorFilterRuleResult = (
   output: any,
   context: __SerdeContext
 ): CreateTrafficMirrorFilterRuleResult => {
-  const contents: any = {
-    TrafficMirrorFilterRule: undefined,
-    ClientToken: undefined,
-  };
+  const contents: any = {};
   if (output["trafficMirrorFilterRule"] !== undefined) {
     contents.TrafficMirrorFilterRule = deserializeAws_ec2TrafficMirrorFilterRule(
       output["trafficMirrorFilterRule"],
@@ -63360,10 +62687,7 @@ const deserializeAws_ec2CreateTrafficMirrorSessionResult = (
   output: any,
   context: __SerdeContext
 ): CreateTrafficMirrorSessionResult => {
-  const contents: any = {
-    TrafficMirrorSession: undefined,
-    ClientToken: undefined,
-  };
+  const contents: any = {};
   if (output["trafficMirrorSession"] !== undefined) {
     contents.TrafficMirrorSession = deserializeAws_ec2TrafficMirrorSession(output["trafficMirrorSession"], context);
   }
@@ -63377,10 +62701,7 @@ const deserializeAws_ec2CreateTrafficMirrorTargetResult = (
   output: any,
   context: __SerdeContext
 ): CreateTrafficMirrorTargetResult => {
-  const contents: any = {
-    TrafficMirrorTarget: undefined,
-    ClientToken: undefined,
-  };
+  const contents: any = {};
   if (output["trafficMirrorTarget"] !== undefined) {
     contents.TrafficMirrorTarget = deserializeAws_ec2TrafficMirrorTarget(output["trafficMirrorTarget"], context);
   }
@@ -63394,9 +62715,7 @@ const deserializeAws_ec2CreateTransitGatewayConnectPeerResult = (
   output: any,
   context: __SerdeContext
 ): CreateTransitGatewayConnectPeerResult => {
-  const contents: any = {
-    TransitGatewayConnectPeer: undefined,
-  };
+  const contents: any = {};
   if (output["transitGatewayConnectPeer"] !== undefined) {
     contents.TransitGatewayConnectPeer = deserializeAws_ec2TransitGatewayConnectPeer(
       output["transitGatewayConnectPeer"],
@@ -63410,9 +62729,7 @@ const deserializeAws_ec2CreateTransitGatewayConnectResult = (
   output: any,
   context: __SerdeContext
 ): CreateTransitGatewayConnectResult => {
-  const contents: any = {
-    TransitGatewayConnect: undefined,
-  };
+  const contents: any = {};
   if (output["transitGatewayConnect"] !== undefined) {
     contents.TransitGatewayConnect = deserializeAws_ec2TransitGatewayConnect(output["transitGatewayConnect"], context);
   }
@@ -63423,9 +62740,7 @@ const deserializeAws_ec2CreateTransitGatewayMulticastDomainResult = (
   output: any,
   context: __SerdeContext
 ): CreateTransitGatewayMulticastDomainResult => {
-  const contents: any = {
-    TransitGatewayMulticastDomain: undefined,
-  };
+  const contents: any = {};
   if (output["transitGatewayMulticastDomain"] !== undefined) {
     contents.TransitGatewayMulticastDomain = deserializeAws_ec2TransitGatewayMulticastDomain(
       output["transitGatewayMulticastDomain"],
@@ -63439,9 +62754,7 @@ const deserializeAws_ec2CreateTransitGatewayPeeringAttachmentResult = (
   output: any,
   context: __SerdeContext
 ): CreateTransitGatewayPeeringAttachmentResult => {
-  const contents: any = {
-    TransitGatewayPeeringAttachment: undefined,
-  };
+  const contents: any = {};
   if (output["transitGatewayPeeringAttachment"] !== undefined) {
     contents.TransitGatewayPeeringAttachment = deserializeAws_ec2TransitGatewayPeeringAttachment(
       output["transitGatewayPeeringAttachment"],
@@ -63455,9 +62768,7 @@ const deserializeAws_ec2CreateTransitGatewayPolicyTableResult = (
   output: any,
   context: __SerdeContext
 ): CreateTransitGatewayPolicyTableResult => {
-  const contents: any = {
-    TransitGatewayPolicyTable: undefined,
-  };
+  const contents: any = {};
   if (output["transitGatewayPolicyTable"] !== undefined) {
     contents.TransitGatewayPolicyTable = deserializeAws_ec2TransitGatewayPolicyTable(
       output["transitGatewayPolicyTable"],
@@ -63471,9 +62782,7 @@ const deserializeAws_ec2CreateTransitGatewayPrefixListReferenceResult = (
   output: any,
   context: __SerdeContext
 ): CreateTransitGatewayPrefixListReferenceResult => {
-  const contents: any = {
-    TransitGatewayPrefixListReference: undefined,
-  };
+  const contents: any = {};
   if (output["transitGatewayPrefixListReference"] !== undefined) {
     contents.TransitGatewayPrefixListReference = deserializeAws_ec2TransitGatewayPrefixListReference(
       output["transitGatewayPrefixListReference"],
@@ -63487,9 +62796,7 @@ const deserializeAws_ec2CreateTransitGatewayResult = (
   output: any,
   context: __SerdeContext
 ): CreateTransitGatewayResult => {
-  const contents: any = {
-    TransitGateway: undefined,
-  };
+  const contents: any = {};
   if (output["transitGateway"] !== undefined) {
     contents.TransitGateway = deserializeAws_ec2TransitGateway(output["transitGateway"], context);
   }
@@ -63500,9 +62807,7 @@ const deserializeAws_ec2CreateTransitGatewayRouteResult = (
   output: any,
   context: __SerdeContext
 ): CreateTransitGatewayRouteResult => {
-  const contents: any = {
-    Route: undefined,
-  };
+  const contents: any = {};
   if (output["route"] !== undefined) {
     contents.Route = deserializeAws_ec2TransitGatewayRoute(output["route"], context);
   }
@@ -63513,9 +62818,7 @@ const deserializeAws_ec2CreateTransitGatewayRouteTableAnnouncementResult = (
   output: any,
   context: __SerdeContext
 ): CreateTransitGatewayRouteTableAnnouncementResult => {
-  const contents: any = {
-    TransitGatewayRouteTableAnnouncement: undefined,
-  };
+  const contents: any = {};
   if (output["transitGatewayRouteTableAnnouncement"] !== undefined) {
     contents.TransitGatewayRouteTableAnnouncement = deserializeAws_ec2TransitGatewayRouteTableAnnouncement(
       output["transitGatewayRouteTableAnnouncement"],
@@ -63529,9 +62832,7 @@ const deserializeAws_ec2CreateTransitGatewayRouteTableResult = (
   output: any,
   context: __SerdeContext
 ): CreateTransitGatewayRouteTableResult => {
-  const contents: any = {
-    TransitGatewayRouteTable: undefined,
-  };
+  const contents: any = {};
   if (output["transitGatewayRouteTable"] !== undefined) {
     contents.TransitGatewayRouteTable = deserializeAws_ec2TransitGatewayRouteTable(
       output["transitGatewayRouteTable"],
@@ -63545,9 +62846,7 @@ const deserializeAws_ec2CreateTransitGatewayVpcAttachmentResult = (
   output: any,
   context: __SerdeContext
 ): CreateTransitGatewayVpcAttachmentResult => {
-  const contents: any = {
-    TransitGatewayVpcAttachment: undefined,
-  };
+  const contents: any = {};
   if (output["transitGatewayVpcAttachment"] !== undefined) {
     contents.TransitGatewayVpcAttachment = deserializeAws_ec2TransitGatewayVpcAttachment(
       output["transitGatewayVpcAttachment"],
@@ -63561,9 +62860,7 @@ const deserializeAws_ec2CreateVerifiedAccessEndpointResult = (
   output: any,
   context: __SerdeContext
 ): CreateVerifiedAccessEndpointResult => {
-  const contents: any = {
-    VerifiedAccessEndpoint: undefined,
-  };
+  const contents: any = {};
   if (output["verifiedAccessEndpoint"] !== undefined) {
     contents.VerifiedAccessEndpoint = deserializeAws_ec2VerifiedAccessEndpoint(
       output["verifiedAccessEndpoint"],
@@ -63577,9 +62874,7 @@ const deserializeAws_ec2CreateVerifiedAccessGroupResult = (
   output: any,
   context: __SerdeContext
 ): CreateVerifiedAccessGroupResult => {
-  const contents: any = {
-    VerifiedAccessGroup: undefined,
-  };
+  const contents: any = {};
   if (output["verifiedAccessGroup"] !== undefined) {
     contents.VerifiedAccessGroup = deserializeAws_ec2VerifiedAccessGroup(output["verifiedAccessGroup"], context);
   }
@@ -63590,9 +62885,7 @@ const deserializeAws_ec2CreateVerifiedAccessInstanceResult = (
   output: any,
   context: __SerdeContext
 ): CreateVerifiedAccessInstanceResult => {
-  const contents: any = {
-    VerifiedAccessInstance: undefined,
-  };
+  const contents: any = {};
   if (output["verifiedAccessInstance"] !== undefined) {
     contents.VerifiedAccessInstance = deserializeAws_ec2VerifiedAccessInstance(
       output["verifiedAccessInstance"],
@@ -63606,9 +62899,7 @@ const deserializeAws_ec2CreateVerifiedAccessTrustProviderResult = (
   output: any,
   context: __SerdeContext
 ): CreateVerifiedAccessTrustProviderResult => {
-  const contents: any = {
-    VerifiedAccessTrustProvider: undefined,
-  };
+  const contents: any = {};
   if (output["verifiedAccessTrustProvider"] !== undefined) {
     contents.VerifiedAccessTrustProvider = deserializeAws_ec2VerifiedAccessTrustProvider(
       output["verifiedAccessTrustProvider"],
@@ -63619,10 +62910,7 @@ const deserializeAws_ec2CreateVerifiedAccessTrustProviderResult = (
 };
 
 const deserializeAws_ec2CreateVolumePermission = (output: any, context: __SerdeContext): CreateVolumePermission => {
-  const contents: any = {
-    Group: undefined,
-    UserId: undefined,
-  };
+  const contents: any = {};
   if (output["group"] !== undefined) {
     contents.Group = __expectString(output["group"]);
   }
@@ -63647,10 +62935,7 @@ const deserializeAws_ec2CreateVpcEndpointConnectionNotificationResult = (
   output: any,
   context: __SerdeContext
 ): CreateVpcEndpointConnectionNotificationResult => {
-  const contents: any = {
-    ConnectionNotification: undefined,
-    ClientToken: undefined,
-  };
+  const contents: any = {};
   if (output["connectionNotification"] !== undefined) {
     contents.ConnectionNotification = deserializeAws_ec2ConnectionNotification(
       output["connectionNotification"],
@@ -63664,10 +62949,7 @@ const deserializeAws_ec2CreateVpcEndpointConnectionNotificationResult = (
 };
 
 const deserializeAws_ec2CreateVpcEndpointResult = (output: any, context: __SerdeContext): CreateVpcEndpointResult => {
-  const contents: any = {
-    VpcEndpoint: undefined,
-    ClientToken: undefined,
-  };
+  const contents: any = {};
   if (output["vpcEndpoint"] !== undefined) {
     contents.VpcEndpoint = deserializeAws_ec2VpcEndpoint(output["vpcEndpoint"], context);
   }
@@ -63681,10 +62963,7 @@ const deserializeAws_ec2CreateVpcEndpointServiceConfigurationResult = (
   output: any,
   context: __SerdeContext
 ): CreateVpcEndpointServiceConfigurationResult => {
-  const contents: any = {
-    ServiceConfiguration: undefined,
-    ClientToken: undefined,
-  };
+  const contents: any = {};
   if (output["serviceConfiguration"] !== undefined) {
     contents.ServiceConfiguration = deserializeAws_ec2ServiceConfiguration(output["serviceConfiguration"], context);
   }
@@ -63698,9 +62977,7 @@ const deserializeAws_ec2CreateVpcPeeringConnectionResult = (
   output: any,
   context: __SerdeContext
 ): CreateVpcPeeringConnectionResult => {
-  const contents: any = {
-    VpcPeeringConnection: undefined,
-  };
+  const contents: any = {};
   if (output["vpcPeeringConnection"] !== undefined) {
     contents.VpcPeeringConnection = deserializeAws_ec2VpcPeeringConnection(output["vpcPeeringConnection"], context);
   }
@@ -63708,9 +62985,7 @@ const deserializeAws_ec2CreateVpcPeeringConnectionResult = (
 };
 
 const deserializeAws_ec2CreateVpcResult = (output: any, context: __SerdeContext): CreateVpcResult => {
-  const contents: any = {
-    Vpc: undefined,
-  };
+  const contents: any = {};
   if (output["vpc"] !== undefined) {
     contents.Vpc = deserializeAws_ec2Vpc(output["vpc"], context);
   }
@@ -63721,9 +62996,7 @@ const deserializeAws_ec2CreateVpnConnectionResult = (
   output: any,
   context: __SerdeContext
 ): CreateVpnConnectionResult => {
-  const contents: any = {
-    VpnConnection: undefined,
-  };
+  const contents: any = {};
   if (output["vpnConnection"] !== undefined) {
     contents.VpnConnection = deserializeAws_ec2VpnConnection(output["vpnConnection"], context);
   }
@@ -63731,9 +63004,7 @@ const deserializeAws_ec2CreateVpnConnectionResult = (
 };
 
 const deserializeAws_ec2CreateVpnGatewayResult = (output: any, context: __SerdeContext): CreateVpnGatewayResult => {
-  const contents: any = {
-    VpnGateway: undefined,
-  };
+  const contents: any = {};
   if (output["vpnGateway"] !== undefined) {
     contents.VpnGateway = deserializeAws_ec2VpnGateway(output["vpnGateway"], context);
   }
@@ -63741,9 +63012,7 @@ const deserializeAws_ec2CreateVpnGatewayResult = (output: any, context: __SerdeC
 };
 
 const deserializeAws_ec2CreditSpecification = (output: any, context: __SerdeContext): CreditSpecification => {
-  const contents: any = {
-    CpuCredits: undefined,
-  };
+  const contents: any = {};
   if (output["cpuCredits"] !== undefined) {
     contents.CpuCredits = __expectString(output["cpuCredits"]);
   }
@@ -63751,16 +63020,7 @@ const deserializeAws_ec2CreditSpecification = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_ec2CustomerGateway = (output: any, context: __SerdeContext): CustomerGateway => {
-  const contents: any = {
-    BgpAsn: undefined,
-    CustomerGatewayId: undefined,
-    IpAddress: undefined,
-    CertificateArn: undefined,
-    State: undefined,
-    Type: undefined,
-    DeviceName: undefined,
-    Tags: undefined,
-  };
+  const contents: any = {};
   if (output["bgpAsn"] !== undefined) {
     contents.BgpAsn = __expectString(output["bgpAsn"]);
   }
@@ -63799,15 +63059,7 @@ const deserializeAws_ec2CustomerGatewayList = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_ec2DataResponse = (output: any, context: __SerdeContext): DataResponse => {
-  const contents: any = {
-    Id: undefined,
-    Source: undefined,
-    Destination: undefined,
-    Metric: undefined,
-    Statistic: undefined,
-    Period: undefined,
-    MetricPoints: undefined,
-  };
+  const contents: any = {};
   if (output["id"] !== undefined) {
     contents.Id = __expectString(output["id"]);
   }
@@ -63857,9 +63109,7 @@ const deserializeAws_ec2DeleteCarrierGatewayResult = (
   output: any,
   context: __SerdeContext
 ): DeleteCarrierGatewayResult => {
-  const contents: any = {
-    CarrierGateway: undefined,
-  };
+  const contents: any = {};
   if (output["carrierGateway"] !== undefined) {
     contents.CarrierGateway = deserializeAws_ec2CarrierGateway(output["carrierGateway"], context);
   }
@@ -63870,9 +63120,7 @@ const deserializeAws_ec2DeleteClientVpnEndpointResult = (
   output: any,
   context: __SerdeContext
 ): DeleteClientVpnEndpointResult => {
-  const contents: any = {
-    Status: undefined,
-  };
+  const contents: any = {};
   if (output["status"] !== undefined) {
     contents.Status = deserializeAws_ec2ClientVpnEndpointStatus(output["status"], context);
   }
@@ -63883,9 +63131,7 @@ const deserializeAws_ec2DeleteClientVpnRouteResult = (
   output: any,
   context: __SerdeContext
 ): DeleteClientVpnRouteResult => {
-  const contents: any = {
-    Status: undefined,
-  };
+  const contents: any = {};
   if (output["status"] !== undefined) {
     contents.Status = deserializeAws_ec2ClientVpnRouteStatus(output["status"], context);
   }
@@ -63893,9 +63139,7 @@ const deserializeAws_ec2DeleteClientVpnRouteResult = (
 };
 
 const deserializeAws_ec2DeleteCoipCidrResult = (output: any, context: __SerdeContext): DeleteCoipCidrResult => {
-  const contents: any = {
-    CoipCidr: undefined,
-  };
+  const contents: any = {};
   if (output["coipCidr"] !== undefined) {
     contents.CoipCidr = deserializeAws_ec2CoipCidr(output["coipCidr"], context);
   }
@@ -63903,9 +63147,7 @@ const deserializeAws_ec2DeleteCoipCidrResult = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_ec2DeleteCoipPoolResult = (output: any, context: __SerdeContext): DeleteCoipPoolResult => {
-  const contents: any = {
-    CoipPool: undefined,
-  };
+  const contents: any = {};
   if (output["coipPool"] !== undefined) {
     contents.CoipPool = deserializeAws_ec2CoipPool(output["coipPool"], context);
   }
@@ -63916,9 +63158,7 @@ const deserializeAws_ec2DeleteEgressOnlyInternetGatewayResult = (
   output: any,
   context: __SerdeContext
 ): DeleteEgressOnlyInternetGatewayResult => {
-  const contents: any = {
-    ReturnCode: undefined,
-  };
+  const contents: any = {};
   if (output["returnCode"] !== undefined) {
     contents.ReturnCode = __parseBoolean(output["returnCode"]);
   }
@@ -63926,10 +63166,7 @@ const deserializeAws_ec2DeleteEgressOnlyInternetGatewayResult = (
 };
 
 const deserializeAws_ec2DeleteFleetError = (output: any, context: __SerdeContext): DeleteFleetError => {
-  const contents: any = {
-    Code: undefined,
-    Message: undefined,
-  };
+  const contents: any = {};
   if (output["code"] !== undefined) {
     contents.Code = __expectString(output["code"]);
   }
@@ -63940,10 +63177,7 @@ const deserializeAws_ec2DeleteFleetError = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_ec2DeleteFleetErrorItem = (output: any, context: __SerdeContext): DeleteFleetErrorItem => {
-  const contents: any = {
-    Error: undefined,
-    FleetId: undefined,
-  };
+  const contents: any = {};
   if (output["error"] !== undefined) {
     contents.Error = deserializeAws_ec2DeleteFleetError(output["error"], context);
   }
@@ -63962,10 +63196,7 @@ const deserializeAws_ec2DeleteFleetErrorSet = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_ec2DeleteFleetsResult = (output: any, context: __SerdeContext): DeleteFleetsResult => {
-  const contents: any = {
-    SuccessfulFleetDeletions: undefined,
-    UnsuccessfulFleetDeletions: undefined,
-  };
+  const contents: any = {};
   if (output.successfulFleetDeletionSet === "") {
     contents.SuccessfulFleetDeletions = [];
   } else if (
@@ -63992,11 +63223,7 @@ const deserializeAws_ec2DeleteFleetsResult = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_ec2DeleteFleetSuccessItem = (output: any, context: __SerdeContext): DeleteFleetSuccessItem => {
-  const contents: any = {
-    CurrentFleetState: undefined,
-    PreviousFleetState: undefined,
-    FleetId: undefined,
-  };
+  const contents: any = {};
   if (output["currentFleetState"] !== undefined) {
     contents.CurrentFleetState = __expectString(output["currentFleetState"]);
   }
@@ -64018,9 +63245,7 @@ const deserializeAws_ec2DeleteFleetSuccessSet = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_ec2DeleteFlowLogsResult = (output: any, context: __SerdeContext): DeleteFlowLogsResult => {
-  const contents: any = {
-    Unsuccessful: undefined,
-  };
+  const contents: any = {};
   if (output.unsuccessful === "") {
     contents.Unsuccessful = [];
   } else if (output["unsuccessful"] !== undefined && output["unsuccessful"]["item"] !== undefined) {
@@ -64033,9 +63258,7 @@ const deserializeAws_ec2DeleteFlowLogsResult = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_ec2DeleteFpgaImageResult = (output: any, context: __SerdeContext): DeleteFpgaImageResult => {
-  const contents: any = {
-    Return: undefined,
-  };
+  const contents: any = {};
   if (output["return"] !== undefined) {
     contents.Return = __parseBoolean(output["return"]);
   }
@@ -64046,9 +63269,7 @@ const deserializeAws_ec2DeleteInstanceEventWindowResult = (
   output: any,
   context: __SerdeContext
 ): DeleteInstanceEventWindowResult => {
-  const contents: any = {
-    InstanceEventWindowState: undefined,
-  };
+  const contents: any = {};
   if (output["instanceEventWindowState"] !== undefined) {
     contents.InstanceEventWindowState = deserializeAws_ec2InstanceEventWindowStateChange(
       output["instanceEventWindowState"],
@@ -64059,9 +63280,7 @@ const deserializeAws_ec2DeleteInstanceEventWindowResult = (
 };
 
 const deserializeAws_ec2DeleteIpamPoolResult = (output: any, context: __SerdeContext): DeleteIpamPoolResult => {
-  const contents: any = {
-    IpamPool: undefined,
-  };
+  const contents: any = {};
   if (output["ipamPool"] !== undefined) {
     contents.IpamPool = deserializeAws_ec2IpamPool(output["ipamPool"], context);
   }
@@ -64072,9 +63291,7 @@ const deserializeAws_ec2DeleteIpamResourceDiscoveryResult = (
   output: any,
   context: __SerdeContext
 ): DeleteIpamResourceDiscoveryResult => {
-  const contents: any = {
-    IpamResourceDiscovery: undefined,
-  };
+  const contents: any = {};
   if (output["ipamResourceDiscovery"] !== undefined) {
     contents.IpamResourceDiscovery = deserializeAws_ec2IpamResourceDiscovery(output["ipamResourceDiscovery"], context);
   }
@@ -64082,9 +63299,7 @@ const deserializeAws_ec2DeleteIpamResourceDiscoveryResult = (
 };
 
 const deserializeAws_ec2DeleteIpamResult = (output: any, context: __SerdeContext): DeleteIpamResult => {
-  const contents: any = {
-    Ipam: undefined,
-  };
+  const contents: any = {};
   if (output["ipam"] !== undefined) {
     contents.Ipam = deserializeAws_ec2Ipam(output["ipam"], context);
   }
@@ -64092,9 +63307,7 @@ const deserializeAws_ec2DeleteIpamResult = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_ec2DeleteIpamScopeResult = (output: any, context: __SerdeContext): DeleteIpamScopeResult => {
-  const contents: any = {
-    IpamScope: undefined,
-  };
+  const contents: any = {};
   if (output["ipamScope"] !== undefined) {
     contents.IpamScope = deserializeAws_ec2IpamScope(output["ipamScope"], context);
   }
@@ -64105,9 +63318,7 @@ const deserializeAws_ec2DeleteLaunchTemplateResult = (
   output: any,
   context: __SerdeContext
 ): DeleteLaunchTemplateResult => {
-  const contents: any = {
-    LaunchTemplate: undefined,
-  };
+  const contents: any = {};
   if (output["launchTemplate"] !== undefined) {
     contents.LaunchTemplate = deserializeAws_ec2LaunchTemplate(output["launchTemplate"], context);
   }
@@ -64118,12 +63329,7 @@ const deserializeAws_ec2DeleteLaunchTemplateVersionsResponseErrorItem = (
   output: any,
   context: __SerdeContext
 ): DeleteLaunchTemplateVersionsResponseErrorItem => {
-  const contents: any = {
-    LaunchTemplateId: undefined,
-    LaunchTemplateName: undefined,
-    VersionNumber: undefined,
-    ResponseError: undefined,
-  };
+  const contents: any = {};
   if (output["launchTemplateId"] !== undefined) {
     contents.LaunchTemplateId = __expectString(output["launchTemplateId"]);
   }
@@ -64154,11 +63360,7 @@ const deserializeAws_ec2DeleteLaunchTemplateVersionsResponseSuccessItem = (
   output: any,
   context: __SerdeContext
 ): DeleteLaunchTemplateVersionsResponseSuccessItem => {
-  const contents: any = {
-    LaunchTemplateId: undefined,
-    LaunchTemplateName: undefined,
-    VersionNumber: undefined,
-  };
+  const contents: any = {};
   if (output["launchTemplateId"] !== undefined) {
     contents.LaunchTemplateId = __expectString(output["launchTemplateId"]);
   }
@@ -64186,10 +63388,7 @@ const deserializeAws_ec2DeleteLaunchTemplateVersionsResult = (
   output: any,
   context: __SerdeContext
 ): DeleteLaunchTemplateVersionsResult => {
-  const contents: any = {
-    SuccessfullyDeletedLaunchTemplateVersions: undefined,
-    UnsuccessfullyDeletedLaunchTemplateVersions: undefined,
-  };
+  const contents: any = {};
   if (output.successfullyDeletedLaunchTemplateVersionSet === "") {
     contents.SuccessfullyDeletedLaunchTemplateVersions = [];
   } else if (
@@ -64221,9 +63420,7 @@ const deserializeAws_ec2DeleteLocalGatewayRouteResult = (
   output: any,
   context: __SerdeContext
 ): DeleteLocalGatewayRouteResult => {
-  const contents: any = {
-    Route: undefined,
-  };
+  const contents: any = {};
   if (output["route"] !== undefined) {
     contents.Route = deserializeAws_ec2LocalGatewayRoute(output["route"], context);
   }
@@ -64234,9 +63431,7 @@ const deserializeAws_ec2DeleteLocalGatewayRouteTableResult = (
   output: any,
   context: __SerdeContext
 ): DeleteLocalGatewayRouteTableResult => {
-  const contents: any = {
-    LocalGatewayRouteTable: undefined,
-  };
+  const contents: any = {};
   if (output["localGatewayRouteTable"] !== undefined) {
     contents.LocalGatewayRouteTable = deserializeAws_ec2LocalGatewayRouteTable(
       output["localGatewayRouteTable"],
@@ -64250,9 +63445,7 @@ const deserializeAws_ec2DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssocia
   output: any,
   context: __SerdeContext
 ): DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult => {
-  const contents: any = {
-    LocalGatewayRouteTableVirtualInterfaceGroupAssociation: undefined,
-  };
+  const contents: any = {};
   if (output["localGatewayRouteTableVirtualInterfaceGroupAssociation"] !== undefined) {
     contents.LocalGatewayRouteTableVirtualInterfaceGroupAssociation =
       deserializeAws_ec2LocalGatewayRouteTableVirtualInterfaceGroupAssociation(
@@ -64267,9 +63460,7 @@ const deserializeAws_ec2DeleteLocalGatewayRouteTableVpcAssociationResult = (
   output: any,
   context: __SerdeContext
 ): DeleteLocalGatewayRouteTableVpcAssociationResult => {
-  const contents: any = {
-    LocalGatewayRouteTableVpcAssociation: undefined,
-  };
+  const contents: any = {};
   if (output["localGatewayRouteTableVpcAssociation"] !== undefined) {
     contents.LocalGatewayRouteTableVpcAssociation = deserializeAws_ec2LocalGatewayRouteTableVpcAssociation(
       output["localGatewayRouteTableVpcAssociation"],
@@ -64283,9 +63474,7 @@ const deserializeAws_ec2DeleteManagedPrefixListResult = (
   output: any,
   context: __SerdeContext
 ): DeleteManagedPrefixListResult => {
-  const contents: any = {
-    PrefixList: undefined,
-  };
+  const contents: any = {};
   if (output["prefixList"] !== undefined) {
     contents.PrefixList = deserializeAws_ec2ManagedPrefixList(output["prefixList"], context);
   }
@@ -64293,9 +63482,7 @@ const deserializeAws_ec2DeleteManagedPrefixListResult = (
 };
 
 const deserializeAws_ec2DeleteNatGatewayResult = (output: any, context: __SerdeContext): DeleteNatGatewayResult => {
-  const contents: any = {
-    NatGatewayId: undefined,
-  };
+  const contents: any = {};
   if (output["natGatewayId"] !== undefined) {
     contents.NatGatewayId = __expectString(output["natGatewayId"]);
   }
@@ -64306,9 +63493,7 @@ const deserializeAws_ec2DeleteNetworkInsightsAccessScopeAnalysisResult = (
   output: any,
   context: __SerdeContext
 ): DeleteNetworkInsightsAccessScopeAnalysisResult => {
-  const contents: any = {
-    NetworkInsightsAccessScopeAnalysisId: undefined,
-  };
+  const contents: any = {};
   if (output["networkInsightsAccessScopeAnalysisId"] !== undefined) {
     contents.NetworkInsightsAccessScopeAnalysisId = __expectString(output["networkInsightsAccessScopeAnalysisId"]);
   }
@@ -64319,9 +63504,7 @@ const deserializeAws_ec2DeleteNetworkInsightsAccessScopeResult = (
   output: any,
   context: __SerdeContext
 ): DeleteNetworkInsightsAccessScopeResult => {
-  const contents: any = {
-    NetworkInsightsAccessScopeId: undefined,
-  };
+  const contents: any = {};
   if (output["networkInsightsAccessScopeId"] !== undefined) {
     contents.NetworkInsightsAccessScopeId = __expectString(output["networkInsightsAccessScopeId"]);
   }
@@ -64332,9 +63515,7 @@ const deserializeAws_ec2DeleteNetworkInsightsAnalysisResult = (
   output: any,
   context: __SerdeContext
 ): DeleteNetworkInsightsAnalysisResult => {
-  const contents: any = {
-    NetworkInsightsAnalysisId: undefined,
-  };
+  const contents: any = {};
   if (output["networkInsightsAnalysisId"] !== undefined) {
     contents.NetworkInsightsAnalysisId = __expectString(output["networkInsightsAnalysisId"]);
   }
@@ -64345,9 +63526,7 @@ const deserializeAws_ec2DeleteNetworkInsightsPathResult = (
   output: any,
   context: __SerdeContext
 ): DeleteNetworkInsightsPathResult => {
-  const contents: any = {
-    NetworkInsightsPathId: undefined,
-  };
+  const contents: any = {};
   if (output["networkInsightsPathId"] !== undefined) {
     contents.NetworkInsightsPathId = __expectString(output["networkInsightsPathId"]);
   }
@@ -64358,9 +63537,7 @@ const deserializeAws_ec2DeleteNetworkInterfacePermissionResult = (
   output: any,
   context: __SerdeContext
 ): DeleteNetworkInterfacePermissionResult => {
-  const contents: any = {
-    Return: undefined,
-  };
+  const contents: any = {};
   if (output["return"] !== undefined) {
     contents.Return = __parseBoolean(output["return"]);
   }
@@ -64371,9 +63548,7 @@ const deserializeAws_ec2DeletePublicIpv4PoolResult = (
   output: any,
   context: __SerdeContext
 ): DeletePublicIpv4PoolResult => {
-  const contents: any = {
-    ReturnValue: undefined,
-  };
+  const contents: any = {};
   if (output["returnValue"] !== undefined) {
     contents.ReturnValue = __parseBoolean(output["returnValue"]);
   }
@@ -64384,10 +63559,7 @@ const deserializeAws_ec2DeleteQueuedReservedInstancesError = (
   output: any,
   context: __SerdeContext
 ): DeleteQueuedReservedInstancesError => {
-  const contents: any = {
-    Code: undefined,
-    Message: undefined,
-  };
+  const contents: any = {};
   if (output["code"] !== undefined) {
     contents.Code = __expectString(output["code"]);
   }
@@ -64401,10 +63573,7 @@ const deserializeAws_ec2DeleteQueuedReservedInstancesResult = (
   output: any,
   context: __SerdeContext
 ): DeleteQueuedReservedInstancesResult => {
-  const contents: any = {
-    SuccessfulQueuedPurchaseDeletions: undefined,
-    FailedQueuedPurchaseDeletions: undefined,
-  };
+  const contents: any = {};
   if (output.successfulQueuedPurchaseDeletionSet === "") {
     contents.SuccessfulQueuedPurchaseDeletions = [];
   } else if (
@@ -64434,9 +63603,7 @@ const deserializeAws_ec2DeleteSubnetCidrReservationResult = (
   output: any,
   context: __SerdeContext
 ): DeleteSubnetCidrReservationResult => {
-  const contents: any = {
-    DeletedSubnetCidrReservation: undefined,
-  };
+  const contents: any = {};
   if (output["deletedSubnetCidrReservation"] !== undefined) {
     contents.DeletedSubnetCidrReservation = deserializeAws_ec2SubnetCidrReservation(
       output["deletedSubnetCidrReservation"],
@@ -64450,9 +63617,7 @@ const deserializeAws_ec2DeleteTrafficMirrorFilterResult = (
   output: any,
   context: __SerdeContext
 ): DeleteTrafficMirrorFilterResult => {
-  const contents: any = {
-    TrafficMirrorFilterId: undefined,
-  };
+  const contents: any = {};
   if (output["trafficMirrorFilterId"] !== undefined) {
     contents.TrafficMirrorFilterId = __expectString(output["trafficMirrorFilterId"]);
   }
@@ -64463,9 +63628,7 @@ const deserializeAws_ec2DeleteTrafficMirrorFilterRuleResult = (
   output: any,
   context: __SerdeContext
 ): DeleteTrafficMirrorFilterRuleResult => {
-  const contents: any = {
-    TrafficMirrorFilterRuleId: undefined,
-  };
+  const contents: any = {};
   if (output["trafficMirrorFilterRuleId"] !== undefined) {
     contents.TrafficMirrorFilterRuleId = __expectString(output["trafficMirrorFilterRuleId"]);
   }
@@ -64476,9 +63639,7 @@ const deserializeAws_ec2DeleteTrafficMirrorSessionResult = (
   output: any,
   context: __SerdeContext
 ): DeleteTrafficMirrorSessionResult => {
-  const contents: any = {
-    TrafficMirrorSessionId: undefined,
-  };
+  const contents: any = {};
   if (output["trafficMirrorSessionId"] !== undefined) {
     contents.TrafficMirrorSessionId = __expectString(output["trafficMirrorSessionId"]);
   }
@@ -64489,9 +63650,7 @@ const deserializeAws_ec2DeleteTrafficMirrorTargetResult = (
   output: any,
   context: __SerdeContext
 ): DeleteTrafficMirrorTargetResult => {
-  const contents: any = {
-    TrafficMirrorTargetId: undefined,
-  };
+  const contents: any = {};
   if (output["trafficMirrorTargetId"] !== undefined) {
     contents.TrafficMirrorTargetId = __expectString(output["trafficMirrorTargetId"]);
   }
@@ -64502,9 +63661,7 @@ const deserializeAws_ec2DeleteTransitGatewayConnectPeerResult = (
   output: any,
   context: __SerdeContext
 ): DeleteTransitGatewayConnectPeerResult => {
-  const contents: any = {
-    TransitGatewayConnectPeer: undefined,
-  };
+  const contents: any = {};
   if (output["transitGatewayConnectPeer"] !== undefined) {
     contents.TransitGatewayConnectPeer = deserializeAws_ec2TransitGatewayConnectPeer(
       output["transitGatewayConnectPeer"],
@@ -64518,9 +63675,7 @@ const deserializeAws_ec2DeleteTransitGatewayConnectResult = (
   output: any,
   context: __SerdeContext
 ): DeleteTransitGatewayConnectResult => {
-  const contents: any = {
-    TransitGatewayConnect: undefined,
-  };
+  const contents: any = {};
   if (output["transitGatewayConnect"] !== undefined) {
     contents.TransitGatewayConnect = deserializeAws_ec2TransitGatewayConnect(output["transitGatewayConnect"], context);
   }
@@ -64531,9 +63686,7 @@ const deserializeAws_ec2DeleteTransitGatewayMulticastDomainResult = (
   output: any,
   context: __SerdeContext
 ): DeleteTransitGatewayMulticastDomainResult => {
-  const contents: any = {
-    TransitGatewayMulticastDomain: undefined,
-  };
+  const contents: any = {};
   if (output["transitGatewayMulticastDomain"] !== undefined) {
     contents.TransitGatewayMulticastDomain = deserializeAws_ec2TransitGatewayMulticastDomain(
       output["transitGatewayMulticastDomain"],
@@ -64547,9 +63700,7 @@ const deserializeAws_ec2DeleteTransitGatewayPeeringAttachmentResult = (
   output: any,
   context: __SerdeContext
 ): DeleteTransitGatewayPeeringAttachmentResult => {
-  const contents: any = {
-    TransitGatewayPeeringAttachment: undefined,
-  };
+  const contents: any = {};
   if (output["transitGatewayPeeringAttachment"] !== undefined) {
     contents.TransitGatewayPeeringAttachment = deserializeAws_ec2TransitGatewayPeeringAttachment(
       output["transitGatewayPeeringAttachment"],
@@ -64563,9 +63714,7 @@ const deserializeAws_ec2DeleteTransitGatewayPolicyTableResult = (
   output: any,
   context: __SerdeContext
 ): DeleteTransitGatewayPolicyTableResult => {
-  const contents: any = {
-    TransitGatewayPolicyTable: undefined,
-  };
+  const contents: any = {};
   if (output["transitGatewayPolicyTable"] !== undefined) {
     contents.TransitGatewayPolicyTable = deserializeAws_ec2TransitGatewayPolicyTable(
       output["transitGatewayPolicyTable"],
@@ -64579,9 +63728,7 @@ const deserializeAws_ec2DeleteTransitGatewayPrefixListReferenceResult = (
   output: any,
   context: __SerdeContext
 ): DeleteTransitGatewayPrefixListReferenceResult => {
-  const contents: any = {
-    TransitGatewayPrefixListReference: undefined,
-  };
+  const contents: any = {};
   if (output["transitGatewayPrefixListReference"] !== undefined) {
     contents.TransitGatewayPrefixListReference = deserializeAws_ec2TransitGatewayPrefixListReference(
       output["transitGatewayPrefixListReference"],
@@ -64595,9 +63742,7 @@ const deserializeAws_ec2DeleteTransitGatewayResult = (
   output: any,
   context: __SerdeContext
 ): DeleteTransitGatewayResult => {
-  const contents: any = {
-    TransitGateway: undefined,
-  };
+  const contents: any = {};
   if (output["transitGateway"] !== undefined) {
     contents.TransitGateway = deserializeAws_ec2TransitGateway(output["transitGateway"], context);
   }
@@ -64608,9 +63753,7 @@ const deserializeAws_ec2DeleteTransitGatewayRouteResult = (
   output: any,
   context: __SerdeContext
 ): DeleteTransitGatewayRouteResult => {
-  const contents: any = {
-    Route: undefined,
-  };
+  const contents: any = {};
   if (output["route"] !== undefined) {
     contents.Route = deserializeAws_ec2TransitGatewayRoute(output["route"], context);
   }
@@ -64621,9 +63764,7 @@ const deserializeAws_ec2DeleteTransitGatewayRouteTableAnnouncementResult = (
   output: any,
   context: __SerdeContext
 ): DeleteTransitGatewayRouteTableAnnouncementResult => {
-  const contents: any = {
-    TransitGatewayRouteTableAnnouncement: undefined,
-  };
+  const contents: any = {};
   if (output["transitGatewayRouteTableAnnouncement"] !== undefined) {
     contents.TransitGatewayRouteTableAnnouncement = deserializeAws_ec2TransitGatewayRouteTableAnnouncement(
       output["transitGatewayRouteTableAnnouncement"],
@@ -64637,9 +63778,7 @@ const deserializeAws_ec2DeleteTransitGatewayRouteTableResult = (
   output: any,
   context: __SerdeContext
 ): DeleteTransitGatewayRouteTableResult => {
-  const contents: any = {
-    TransitGatewayRouteTable: undefined,
-  };
+  const contents: any = {};
   if (output["transitGatewayRouteTable"] !== undefined) {
     contents.TransitGatewayRouteTable = deserializeAws_ec2TransitGatewayRouteTable(
       output["transitGatewayRouteTable"],
@@ -64653,9 +63792,7 @@ const deserializeAws_ec2DeleteTransitGatewayVpcAttachmentResult = (
   output: any,
   context: __SerdeContext
 ): DeleteTransitGatewayVpcAttachmentResult => {
-  const contents: any = {
-    TransitGatewayVpcAttachment: undefined,
-  };
+  const contents: any = {};
   if (output["transitGatewayVpcAttachment"] !== undefined) {
     contents.TransitGatewayVpcAttachment = deserializeAws_ec2TransitGatewayVpcAttachment(
       output["transitGatewayVpcAttachment"],
@@ -64669,9 +63806,7 @@ const deserializeAws_ec2DeleteVerifiedAccessEndpointResult = (
   output: any,
   context: __SerdeContext
 ): DeleteVerifiedAccessEndpointResult => {
-  const contents: any = {
-    VerifiedAccessEndpoint: undefined,
-  };
+  const contents: any = {};
   if (output["verifiedAccessEndpoint"] !== undefined) {
     contents.VerifiedAccessEndpoint = deserializeAws_ec2VerifiedAccessEndpoint(
       output["verifiedAccessEndpoint"],
@@ -64685,9 +63820,7 @@ const deserializeAws_ec2DeleteVerifiedAccessGroupResult = (
   output: any,
   context: __SerdeContext
 ): DeleteVerifiedAccessGroupResult => {
-  const contents: any = {
-    VerifiedAccessGroup: undefined,
-  };
+  const contents: any = {};
   if (output["verifiedAccessGroup"] !== undefined) {
     contents.VerifiedAccessGroup = deserializeAws_ec2VerifiedAccessGroup(output["verifiedAccessGroup"], context);
   }
@@ -64698,9 +63831,7 @@ const deserializeAws_ec2DeleteVerifiedAccessInstanceResult = (
   output: any,
   context: __SerdeContext
 ): DeleteVerifiedAccessInstanceResult => {
-  const contents: any = {
-    VerifiedAccessInstance: undefined,
-  };
+  const contents: any = {};
   if (output["verifiedAccessInstance"] !== undefined) {
     contents.VerifiedAccessInstance = deserializeAws_ec2VerifiedAccessInstance(
       output["verifiedAccessInstance"],
@@ -64714,9 +63845,7 @@ const deserializeAws_ec2DeleteVerifiedAccessTrustProviderResult = (
   output: any,
   context: __SerdeContext
 ): DeleteVerifiedAccessTrustProviderResult => {
-  const contents: any = {
-    VerifiedAccessTrustProvider: undefined,
-  };
+  const contents: any = {};
   if (output["verifiedAccessTrustProvider"] !== undefined) {
     contents.VerifiedAccessTrustProvider = deserializeAws_ec2VerifiedAccessTrustProvider(
       output["verifiedAccessTrustProvider"],
@@ -64730,9 +63859,7 @@ const deserializeAws_ec2DeleteVpcEndpointConnectionNotificationsResult = (
   output: any,
   context: __SerdeContext
 ): DeleteVpcEndpointConnectionNotificationsResult => {
-  const contents: any = {
-    Unsuccessful: undefined,
-  };
+  const contents: any = {};
   if (output.unsuccessful === "") {
     contents.Unsuccessful = [];
   } else if (output["unsuccessful"] !== undefined && output["unsuccessful"]["item"] !== undefined) {
@@ -64748,9 +63875,7 @@ const deserializeAws_ec2DeleteVpcEndpointServiceConfigurationsResult = (
   output: any,
   context: __SerdeContext
 ): DeleteVpcEndpointServiceConfigurationsResult => {
-  const contents: any = {
-    Unsuccessful: undefined,
-  };
+  const contents: any = {};
   if (output.unsuccessful === "") {
     contents.Unsuccessful = [];
   } else if (output["unsuccessful"] !== undefined && output["unsuccessful"]["item"] !== undefined) {
@@ -64763,9 +63888,7 @@ const deserializeAws_ec2DeleteVpcEndpointServiceConfigurationsResult = (
 };
 
 const deserializeAws_ec2DeleteVpcEndpointsResult = (output: any, context: __SerdeContext): DeleteVpcEndpointsResult => {
-  const contents: any = {
-    Unsuccessful: undefined,
-  };
+  const contents: any = {};
   if (output.unsuccessful === "") {
     contents.Unsuccessful = [];
   } else if (output["unsuccessful"] !== undefined && output["unsuccessful"]["item"] !== undefined) {
@@ -64781,9 +63904,7 @@ const deserializeAws_ec2DeleteVpcPeeringConnectionResult = (
   output: any,
   context: __SerdeContext
 ): DeleteVpcPeeringConnectionResult => {
-  const contents: any = {
-    Return: undefined,
-  };
+  const contents: any = {};
   if (output["return"] !== undefined) {
     contents.Return = __parseBoolean(output["return"]);
   }
@@ -64794,9 +63915,7 @@ const deserializeAws_ec2DeprovisionByoipCidrResult = (
   output: any,
   context: __SerdeContext
 ): DeprovisionByoipCidrResult => {
-  const contents: any = {
-    ByoipCidr: undefined,
-  };
+  const contents: any = {};
   if (output["byoipCidr"] !== undefined) {
     contents.ByoipCidr = deserializeAws_ec2ByoipCidr(output["byoipCidr"], context);
   }
@@ -64815,9 +63934,7 @@ const deserializeAws_ec2DeprovisionIpamPoolCidrResult = (
   output: any,
   context: __SerdeContext
 ): DeprovisionIpamPoolCidrResult => {
-  const contents: any = {
-    IpamPoolCidr: undefined,
-  };
+  const contents: any = {};
   if (output["ipamPoolCidr"] !== undefined) {
     contents.IpamPoolCidr = deserializeAws_ec2IpamPoolCidr(output["ipamPoolCidr"], context);
   }
@@ -64828,10 +63945,7 @@ const deserializeAws_ec2DeprovisionPublicIpv4PoolCidrResult = (
   output: any,
   context: __SerdeContext
 ): DeprovisionPublicIpv4PoolCidrResult => {
-  const contents: any = {
-    PoolId: undefined,
-    DeprovisionedAddresses: undefined,
-  };
+  const contents: any = {};
   if (output["poolId"] !== undefined) {
     contents.PoolId = __expectString(output["poolId"]);
   }
@@ -64853,9 +63967,7 @@ const deserializeAws_ec2DeregisterInstanceEventNotificationAttributesResult = (
   output: any,
   context: __SerdeContext
 ): DeregisterInstanceEventNotificationAttributesResult => {
-  const contents: any = {
-    InstanceTagAttribute: undefined,
-  };
+  const contents: any = {};
   if (output["instanceTagAttribute"] !== undefined) {
     contents.InstanceTagAttribute = deserializeAws_ec2InstanceTagNotificationAttribute(
       output["instanceTagAttribute"],
@@ -64869,9 +63981,7 @@ const deserializeAws_ec2DeregisterTransitGatewayMulticastGroupMembersResult = (
   output: any,
   context: __SerdeContext
 ): DeregisterTransitGatewayMulticastGroupMembersResult => {
-  const contents: any = {
-    DeregisteredMulticastGroupMembers: undefined,
-  };
+  const contents: any = {};
   if (output["deregisteredMulticastGroupMembers"] !== undefined) {
     contents.DeregisteredMulticastGroupMembers = deserializeAws_ec2TransitGatewayMulticastDeregisteredGroupMembers(
       output["deregisteredMulticastGroupMembers"],
@@ -64885,9 +63995,7 @@ const deserializeAws_ec2DeregisterTransitGatewayMulticastGroupSourcesResult = (
   output: any,
   context: __SerdeContext
 ): DeregisterTransitGatewayMulticastGroupSourcesResult => {
-  const contents: any = {
-    DeregisteredMulticastGroupSources: undefined,
-  };
+  const contents: any = {};
   if (output["deregisteredMulticastGroupSources"] !== undefined) {
     contents.DeregisteredMulticastGroupSources = deserializeAws_ec2TransitGatewayMulticastDeregisteredGroupSources(
       output["deregisteredMulticastGroupSources"],
@@ -64901,9 +64009,7 @@ const deserializeAws_ec2DescribeAccountAttributesResult = (
   output: any,
   context: __SerdeContext
 ): DescribeAccountAttributesResult => {
-  const contents: any = {
-    AccountAttributes: undefined,
-  };
+  const contents: any = {};
   if (output.accountAttributeSet === "") {
     contents.AccountAttributes = [];
   } else if (output["accountAttributeSet"] !== undefined && output["accountAttributeSet"]["item"] !== undefined) {
@@ -64919,10 +64025,7 @@ const deserializeAws_ec2DescribeAddressesAttributeResult = (
   output: any,
   context: __SerdeContext
 ): DescribeAddressesAttributeResult => {
-  const contents: any = {
-    Addresses: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.addressSet === "") {
     contents.Addresses = [];
   } else if (output["addressSet"] !== undefined && output["addressSet"]["item"] !== undefined) {
@@ -64935,9 +64038,7 @@ const deserializeAws_ec2DescribeAddressesAttributeResult = (
 };
 
 const deserializeAws_ec2DescribeAddressesResult = (output: any, context: __SerdeContext): DescribeAddressesResult => {
-  const contents: any = {
-    Addresses: undefined,
-  };
+  const contents: any = {};
   if (output.addressesSet === "") {
     contents.Addresses = [];
   } else if (output["addressesSet"] !== undefined && output["addressesSet"]["item"] !== undefined) {
@@ -64950,10 +64051,7 @@ const deserializeAws_ec2DescribeAddressTransfersResult = (
   output: any,
   context: __SerdeContext
 ): DescribeAddressTransfersResult => {
-  const contents: any = {
-    AddressTransfers: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.addressTransferSet === "") {
     contents.AddressTransfers = [];
   } else if (output["addressTransferSet"] !== undefined && output["addressTransferSet"]["item"] !== undefined) {
@@ -64972,10 +64070,7 @@ const deserializeAws_ec2DescribeAggregateIdFormatResult = (
   output: any,
   context: __SerdeContext
 ): DescribeAggregateIdFormatResult => {
-  const contents: any = {
-    UseLongIdsAggregated: undefined,
-    Statuses: undefined,
-  };
+  const contents: any = {};
   if (output["useLongIdsAggregated"] !== undefined) {
     contents.UseLongIdsAggregated = __parseBoolean(output["useLongIdsAggregated"]);
   }
@@ -64991,9 +64086,7 @@ const deserializeAws_ec2DescribeAvailabilityZonesResult = (
   output: any,
   context: __SerdeContext
 ): DescribeAvailabilityZonesResult => {
-  const contents: any = {
-    AvailabilityZones: undefined,
-  };
+  const contents: any = {};
   if (output.availabilityZoneInfo === "") {
     contents.AvailabilityZones = [];
   } else if (output["availabilityZoneInfo"] !== undefined && output["availabilityZoneInfo"]["item"] !== undefined) {
@@ -65009,10 +64102,7 @@ const deserializeAws_ec2DescribeAwsNetworkPerformanceMetricSubscriptionsResult =
   output: any,
   context: __SerdeContext
 ): DescribeAwsNetworkPerformanceMetricSubscriptionsResult => {
-  const contents: any = {
-    NextToken: undefined,
-    Subscriptions: undefined,
-  };
+  const contents: any = {};
   if (output["nextToken"] !== undefined) {
     contents.NextToken = __expectString(output["nextToken"]);
   }
@@ -65031,9 +64121,7 @@ const deserializeAws_ec2DescribeBundleTasksResult = (
   output: any,
   context: __SerdeContext
 ): DescribeBundleTasksResult => {
-  const contents: any = {
-    BundleTasks: undefined,
-  };
+  const contents: any = {};
   if (output.bundleInstanceTasksSet === "") {
     contents.BundleTasks = [];
   } else if (output["bundleInstanceTasksSet"] !== undefined && output["bundleInstanceTasksSet"]["item"] !== undefined) {
@@ -65046,10 +64134,7 @@ const deserializeAws_ec2DescribeBundleTasksResult = (
 };
 
 const deserializeAws_ec2DescribeByoipCidrsResult = (output: any, context: __SerdeContext): DescribeByoipCidrsResult => {
-  const contents: any = {
-    ByoipCidrs: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.byoipCidrSet === "") {
     contents.ByoipCidrs = [];
   } else if (output["byoipCidrSet"] !== undefined && output["byoipCidrSet"]["item"] !== undefined) {
@@ -65068,10 +64153,7 @@ const deserializeAws_ec2DescribeCapacityReservationFleetsResult = (
   output: any,
   context: __SerdeContext
 ): DescribeCapacityReservationFleetsResult => {
-  const contents: any = {
-    CapacityReservationFleets: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.capacityReservationFleetSet === "") {
     contents.CapacityReservationFleets = [];
   } else if (
@@ -65093,10 +64175,7 @@ const deserializeAws_ec2DescribeCapacityReservationsResult = (
   output: any,
   context: __SerdeContext
 ): DescribeCapacityReservationsResult => {
-  const contents: any = {
-    NextToken: undefined,
-    CapacityReservations: undefined,
-  };
+  const contents: any = {};
   if (output["nextToken"] !== undefined) {
     contents.NextToken = __expectString(output["nextToken"]);
   }
@@ -65115,10 +64194,7 @@ const deserializeAws_ec2DescribeCarrierGatewaysResult = (
   output: any,
   context: __SerdeContext
 ): DescribeCarrierGatewaysResult => {
-  const contents: any = {
-    CarrierGateways: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.carrierGatewaySet === "") {
     contents.CarrierGateways = [];
   } else if (output["carrierGatewaySet"] !== undefined && output["carrierGatewaySet"]["item"] !== undefined) {
@@ -65137,10 +64213,7 @@ const deserializeAws_ec2DescribeClassicLinkInstancesResult = (
   output: any,
   context: __SerdeContext
 ): DescribeClassicLinkInstancesResult => {
-  const contents: any = {
-    Instances: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.instancesSet === "") {
     contents.Instances = [];
   } else if (output["instancesSet"] !== undefined && output["instancesSet"]["item"] !== undefined) {
@@ -65159,10 +64232,7 @@ const deserializeAws_ec2DescribeClientVpnAuthorizationRulesResult = (
   output: any,
   context: __SerdeContext
 ): DescribeClientVpnAuthorizationRulesResult => {
-  const contents: any = {
-    AuthorizationRules: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.authorizationRule === "") {
     contents.AuthorizationRules = [];
   } else if (output["authorizationRule"] !== undefined && output["authorizationRule"]["item"] !== undefined) {
@@ -65181,10 +64251,7 @@ const deserializeAws_ec2DescribeClientVpnConnectionsResult = (
   output: any,
   context: __SerdeContext
 ): DescribeClientVpnConnectionsResult => {
-  const contents: any = {
-    Connections: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.connections === "") {
     contents.Connections = [];
   } else if (output["connections"] !== undefined && output["connections"]["item"] !== undefined) {
@@ -65203,10 +64270,7 @@ const deserializeAws_ec2DescribeClientVpnEndpointsResult = (
   output: any,
   context: __SerdeContext
 ): DescribeClientVpnEndpointsResult => {
-  const contents: any = {
-    ClientVpnEndpoints: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.clientVpnEndpoint === "") {
     contents.ClientVpnEndpoints = [];
   } else if (output["clientVpnEndpoint"] !== undefined && output["clientVpnEndpoint"]["item"] !== undefined) {
@@ -65225,10 +64289,7 @@ const deserializeAws_ec2DescribeClientVpnRoutesResult = (
   output: any,
   context: __SerdeContext
 ): DescribeClientVpnRoutesResult => {
-  const contents: any = {
-    Routes: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.routes === "") {
     contents.Routes = [];
   } else if (output["routes"] !== undefined && output["routes"]["item"] !== undefined) {
@@ -65244,10 +64305,7 @@ const deserializeAws_ec2DescribeClientVpnTargetNetworksResult = (
   output: any,
   context: __SerdeContext
 ): DescribeClientVpnTargetNetworksResult => {
-  const contents: any = {
-    ClientVpnTargetNetworks: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.clientVpnTargetNetworks === "") {
     contents.ClientVpnTargetNetworks = [];
   } else if (
@@ -65266,10 +64324,7 @@ const deserializeAws_ec2DescribeClientVpnTargetNetworksResult = (
 };
 
 const deserializeAws_ec2DescribeCoipPoolsResult = (output: any, context: __SerdeContext): DescribeCoipPoolsResult => {
-  const contents: any = {
-    CoipPools: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.coipPoolSet === "") {
     contents.CoipPools = [];
   } else if (output["coipPoolSet"] !== undefined && output["coipPoolSet"]["item"] !== undefined) {
@@ -65293,9 +64348,7 @@ const deserializeAws_ec2DescribeConversionTasksResult = (
   output: any,
   context: __SerdeContext
 ): DescribeConversionTasksResult => {
-  const contents: any = {
-    ConversionTasks: undefined,
-  };
+  const contents: any = {};
   if (output.conversionTasks === "") {
     contents.ConversionTasks = [];
   } else if (output["conversionTasks"] !== undefined && output["conversionTasks"]["item"] !== undefined) {
@@ -65311,9 +64364,7 @@ const deserializeAws_ec2DescribeCustomerGatewaysResult = (
   output: any,
   context: __SerdeContext
 ): DescribeCustomerGatewaysResult => {
-  const contents: any = {
-    CustomerGateways: undefined,
-  };
+  const contents: any = {};
   if (output.customerGatewaySet === "") {
     contents.CustomerGateways = [];
   } else if (output["customerGatewaySet"] !== undefined && output["customerGatewaySet"]["item"] !== undefined) {
@@ -65329,10 +64380,7 @@ const deserializeAws_ec2DescribeDhcpOptionsResult = (
   output: any,
   context: __SerdeContext
 ): DescribeDhcpOptionsResult => {
-  const contents: any = {
-    DhcpOptions: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.dhcpOptionsSet === "") {
     contents.DhcpOptions = [];
   } else if (output["dhcpOptionsSet"] !== undefined && output["dhcpOptionsSet"]["item"] !== undefined) {
@@ -65351,10 +64399,7 @@ const deserializeAws_ec2DescribeEgressOnlyInternetGatewaysResult = (
   output: any,
   context: __SerdeContext
 ): DescribeEgressOnlyInternetGatewaysResult => {
-  const contents: any = {
-    EgressOnlyInternetGateways: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.egressOnlyInternetGatewaySet === "") {
     contents.EgressOnlyInternetGateways = [];
   } else if (
@@ -65376,11 +64421,7 @@ const deserializeAws_ec2DescribeElasticGpusResult = (
   output: any,
   context: __SerdeContext
 ): DescribeElasticGpusResult => {
-  const contents: any = {
-    ElasticGpuSet: undefined,
-    MaxResults: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.elasticGpuSet === "") {
     contents.ElasticGpuSet = [];
   } else if (output["elasticGpuSet"] !== undefined && output["elasticGpuSet"]["item"] !== undefined) {
@@ -65402,10 +64443,7 @@ const deserializeAws_ec2DescribeExportImageTasksResult = (
   output: any,
   context: __SerdeContext
 ): DescribeExportImageTasksResult => {
-  const contents: any = {
-    ExportImageTasks: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.exportImageTaskSet === "") {
     contents.ExportImageTasks = [];
   } else if (output["exportImageTaskSet"] !== undefined && output["exportImageTaskSet"]["item"] !== undefined) {
@@ -65424,9 +64462,7 @@ const deserializeAws_ec2DescribeExportTasksResult = (
   output: any,
   context: __SerdeContext
 ): DescribeExportTasksResult => {
-  const contents: any = {
-    ExportTasks: undefined,
-  };
+  const contents: any = {};
   if (output.exportTaskSet === "") {
     contents.ExportTasks = [];
   } else if (output["exportTaskSet"] !== undefined && output["exportTaskSet"]["item"] !== undefined) {
@@ -65442,10 +64478,7 @@ const deserializeAws_ec2DescribeFastLaunchImagesResult = (
   output: any,
   context: __SerdeContext
 ): DescribeFastLaunchImagesResult => {
-  const contents: any = {
-    FastLaunchImages: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.fastLaunchImageSet === "") {
     contents.FastLaunchImages = [];
   } else if (output["fastLaunchImageSet"] !== undefined && output["fastLaunchImageSet"]["item"] !== undefined) {
@@ -65464,17 +64497,7 @@ const deserializeAws_ec2DescribeFastLaunchImagesSuccessItem = (
   output: any,
   context: __SerdeContext
 ): DescribeFastLaunchImagesSuccessItem => {
-  const contents: any = {
-    ImageId: undefined,
-    ResourceType: undefined,
-    SnapshotConfiguration: undefined,
-    LaunchTemplate: undefined,
-    MaxParallelLaunches: undefined,
-    OwnerId: undefined,
-    State: undefined,
-    StateTransitionReason: undefined,
-    StateTransitionTime: undefined,
-  };
+  const contents: any = {};
   if (output["imageId"] !== undefined) {
     contents.ImageId = __expectString(output["imageId"]);
   }
@@ -65526,10 +64549,7 @@ const deserializeAws_ec2DescribeFastSnapshotRestoresResult = (
   output: any,
   context: __SerdeContext
 ): DescribeFastSnapshotRestoresResult => {
-  const contents: any = {
-    FastSnapshotRestores: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.fastSnapshotRestoreSet === "") {
     contents.FastSnapshotRestores = [];
   } else if (output["fastSnapshotRestoreSet"] !== undefined && output["fastSnapshotRestoreSet"]["item"] !== undefined) {
@@ -65548,19 +64568,7 @@ const deserializeAws_ec2DescribeFastSnapshotRestoreSuccessItem = (
   output: any,
   context: __SerdeContext
 ): DescribeFastSnapshotRestoreSuccessItem => {
-  const contents: any = {
-    SnapshotId: undefined,
-    AvailabilityZone: undefined,
-    State: undefined,
-    StateTransitionReason: undefined,
-    OwnerId: undefined,
-    OwnerAlias: undefined,
-    EnablingTime: undefined,
-    OptimizingTime: undefined,
-    EnabledTime: undefined,
-    DisablingTime: undefined,
-    DisabledTime: undefined,
-  };
+  const contents: any = {};
   if (output["snapshotId"] !== undefined) {
     contents.SnapshotId = __expectString(output["snapshotId"]);
   }
@@ -65609,12 +64617,7 @@ const deserializeAws_ec2DescribeFastSnapshotRestoreSuccessSet = (
 };
 
 const deserializeAws_ec2DescribeFleetError = (output: any, context: __SerdeContext): DescribeFleetError => {
-  const contents: any = {
-    LaunchTemplateAndOverrides: undefined,
-    Lifecycle: undefined,
-    ErrorCode: undefined,
-    ErrorMessage: undefined,
-  };
+  const contents: any = {};
   if (output["launchTemplateAndOverrides"] !== undefined) {
     contents.LaunchTemplateAndOverrides = deserializeAws_ec2LaunchTemplateAndOverridesResponse(
       output["launchTemplateAndOverrides"],
@@ -65637,13 +64640,7 @@ const deserializeAws_ec2DescribeFleetHistoryResult = (
   output: any,
   context: __SerdeContext
 ): DescribeFleetHistoryResult => {
-  const contents: any = {
-    HistoryRecords: undefined,
-    LastEvaluatedTime: undefined,
-    NextToken: undefined,
-    FleetId: undefined,
-    StartTime: undefined,
-  };
+  const contents: any = {};
   if (output.historyRecordSet === "") {
     contents.HistoryRecords = [];
   } else if (output["historyRecordSet"] !== undefined && output["historyRecordSet"]["item"] !== undefined) {
@@ -65671,11 +64668,7 @@ const deserializeAws_ec2DescribeFleetInstancesResult = (
   output: any,
   context: __SerdeContext
 ): DescribeFleetInstancesResult => {
-  const contents: any = {
-    ActiveInstances: undefined,
-    NextToken: undefined,
-    FleetId: undefined,
-  };
+  const contents: any = {};
   if (output.activeInstanceSet === "") {
     contents.ActiveInstances = [];
   } else if (output["activeInstanceSet"] !== undefined && output["activeInstanceSet"]["item"] !== undefined) {
@@ -65702,13 +64695,7 @@ const deserializeAws_ec2DescribeFleetsErrorSet = (output: any, context: __SerdeC
 };
 
 const deserializeAws_ec2DescribeFleetsInstances = (output: any, context: __SerdeContext): DescribeFleetsInstances => {
-  const contents: any = {
-    LaunchTemplateAndOverrides: undefined,
-    Lifecycle: undefined,
-    InstanceIds: undefined,
-    InstanceType: undefined,
-    Platform: undefined,
-  };
+  const contents: any = {};
   if (output["launchTemplateAndOverrides"] !== undefined) {
     contents.LaunchTemplateAndOverrides = deserializeAws_ec2LaunchTemplateAndOverridesResponse(
       output["launchTemplateAndOverrides"],
@@ -65747,10 +64734,7 @@ const deserializeAws_ec2DescribeFleetsInstancesSet = (
 };
 
 const deserializeAws_ec2DescribeFleetsResult = (output: any, context: __SerdeContext): DescribeFleetsResult => {
-  const contents: any = {
-    NextToken: undefined,
-    Fleets: undefined,
-  };
+  const contents: any = {};
   if (output["nextToken"] !== undefined) {
     contents.NextToken = __expectString(output["nextToken"]);
   }
@@ -65763,10 +64747,7 @@ const deserializeAws_ec2DescribeFleetsResult = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_ec2DescribeFlowLogsResult = (output: any, context: __SerdeContext): DescribeFlowLogsResult => {
-  const contents: any = {
-    FlowLogs: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.flowLogSet === "") {
     contents.FlowLogs = [];
   } else if (output["flowLogSet"] !== undefined && output["flowLogSet"]["item"] !== undefined) {
@@ -65782,9 +64763,7 @@ const deserializeAws_ec2DescribeFpgaImageAttributeResult = (
   output: any,
   context: __SerdeContext
 ): DescribeFpgaImageAttributeResult => {
-  const contents: any = {
-    FpgaImageAttribute: undefined,
-  };
+  const contents: any = {};
   if (output["fpgaImageAttribute"] !== undefined) {
     contents.FpgaImageAttribute = deserializeAws_ec2FpgaImageAttribute(output["fpgaImageAttribute"], context);
   }
@@ -65792,10 +64771,7 @@ const deserializeAws_ec2DescribeFpgaImageAttributeResult = (
 };
 
 const deserializeAws_ec2DescribeFpgaImagesResult = (output: any, context: __SerdeContext): DescribeFpgaImagesResult => {
-  const contents: any = {
-    FpgaImages: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.fpgaImageSet === "") {
     contents.FpgaImages = [];
   } else if (output["fpgaImageSet"] !== undefined && output["fpgaImageSet"]["item"] !== undefined) {
@@ -65814,10 +64790,7 @@ const deserializeAws_ec2DescribeHostReservationOfferingsResult = (
   output: any,
   context: __SerdeContext
 ): DescribeHostReservationOfferingsResult => {
-  const contents: any = {
-    NextToken: undefined,
-    OfferingSet: undefined,
-  };
+  const contents: any = {};
   if (output["nextToken"] !== undefined) {
     contents.NextToken = __expectString(output["nextToken"]);
   }
@@ -65836,10 +64809,7 @@ const deserializeAws_ec2DescribeHostReservationsResult = (
   output: any,
   context: __SerdeContext
 ): DescribeHostReservationsResult => {
-  const contents: any = {
-    HostReservationSet: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.hostReservationSet === "") {
     contents.HostReservationSet = [];
   } else if (output["hostReservationSet"] !== undefined && output["hostReservationSet"]["item"] !== undefined) {
@@ -65855,10 +64825,7 @@ const deserializeAws_ec2DescribeHostReservationsResult = (
 };
 
 const deserializeAws_ec2DescribeHostsResult = (output: any, context: __SerdeContext): DescribeHostsResult => {
-  const contents: any = {
-    Hosts: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.hostSet === "") {
     contents.Hosts = [];
   } else if (output["hostSet"] !== undefined && output["hostSet"]["item"] !== undefined) {
@@ -65874,10 +64841,7 @@ const deserializeAws_ec2DescribeIamInstanceProfileAssociationsResult = (
   output: any,
   context: __SerdeContext
 ): DescribeIamInstanceProfileAssociationsResult => {
-  const contents: any = {
-    IamInstanceProfileAssociations: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.iamInstanceProfileAssociationSet === "") {
     contents.IamInstanceProfileAssociations = [];
   } else if (
@@ -65899,9 +64863,7 @@ const deserializeAws_ec2DescribeIdentityIdFormatResult = (
   output: any,
   context: __SerdeContext
 ): DescribeIdentityIdFormatResult => {
-  const contents: any = {
-    Statuses: undefined,
-  };
+  const contents: any = {};
   if (output.statusSet === "") {
     contents.Statuses = [];
   } else if (output["statusSet"] !== undefined && output["statusSet"]["item"] !== undefined) {
@@ -65911,9 +64873,7 @@ const deserializeAws_ec2DescribeIdentityIdFormatResult = (
 };
 
 const deserializeAws_ec2DescribeIdFormatResult = (output: any, context: __SerdeContext): DescribeIdFormatResult => {
-  const contents: any = {
-    Statuses: undefined,
-  };
+  const contents: any = {};
   if (output.statusSet === "") {
     contents.Statuses = [];
   } else if (output["statusSet"] !== undefined && output["statusSet"]["item"] !== undefined) {
@@ -65923,10 +64883,7 @@ const deserializeAws_ec2DescribeIdFormatResult = (output: any, context: __SerdeC
 };
 
 const deserializeAws_ec2DescribeImagesResult = (output: any, context: __SerdeContext): DescribeImagesResult => {
-  const contents: any = {
-    Images: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.imagesSet === "") {
     contents.Images = [];
   } else if (output["imagesSet"] !== undefined && output["imagesSet"]["item"] !== undefined) {
@@ -65942,10 +64899,7 @@ const deserializeAws_ec2DescribeImportImageTasksResult = (
   output: any,
   context: __SerdeContext
 ): DescribeImportImageTasksResult => {
-  const contents: any = {
-    ImportImageTasks: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.importImageTaskSet === "") {
     contents.ImportImageTasks = [];
   } else if (output["importImageTaskSet"] !== undefined && output["importImageTaskSet"]["item"] !== undefined) {
@@ -65964,10 +64918,7 @@ const deserializeAws_ec2DescribeImportSnapshotTasksResult = (
   output: any,
   context: __SerdeContext
 ): DescribeImportSnapshotTasksResult => {
-  const contents: any = {
-    ImportSnapshotTasks: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.importSnapshotTaskSet === "") {
     contents.ImportSnapshotTasks = [];
   } else if (output["importSnapshotTaskSet"] !== undefined && output["importSnapshotTaskSet"]["item"] !== undefined) {
@@ -65986,10 +64937,7 @@ const deserializeAws_ec2DescribeInstanceCreditSpecificationsResult = (
   output: any,
   context: __SerdeContext
 ): DescribeInstanceCreditSpecificationsResult => {
-  const contents: any = {
-    InstanceCreditSpecifications: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.instanceCreditSpecificationSet === "") {
     contents.InstanceCreditSpecifications = [];
   } else if (
@@ -66011,9 +64959,7 @@ const deserializeAws_ec2DescribeInstanceEventNotificationAttributesResult = (
   output: any,
   context: __SerdeContext
 ): DescribeInstanceEventNotificationAttributesResult => {
-  const contents: any = {
-    InstanceTagAttribute: undefined,
-  };
+  const contents: any = {};
   if (output["instanceTagAttribute"] !== undefined) {
     contents.InstanceTagAttribute = deserializeAws_ec2InstanceTagNotificationAttribute(
       output["instanceTagAttribute"],
@@ -66027,10 +64973,7 @@ const deserializeAws_ec2DescribeInstanceEventWindowsResult = (
   output: any,
   context: __SerdeContext
 ): DescribeInstanceEventWindowsResult => {
-  const contents: any = {
-    InstanceEventWindows: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.instanceEventWindowSet === "") {
     contents.InstanceEventWindows = [];
   } else if (output["instanceEventWindowSet"] !== undefined && output["instanceEventWindowSet"]["item"] !== undefined) {
@@ -66046,10 +64989,7 @@ const deserializeAws_ec2DescribeInstanceEventWindowsResult = (
 };
 
 const deserializeAws_ec2DescribeInstancesResult = (output: any, context: __SerdeContext): DescribeInstancesResult => {
-  const contents: any = {
-    Reservations: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.reservationSet === "") {
     contents.Reservations = [];
   } else if (output["reservationSet"] !== undefined && output["reservationSet"]["item"] !== undefined) {
@@ -66068,10 +65008,7 @@ const deserializeAws_ec2DescribeInstanceStatusResult = (
   output: any,
   context: __SerdeContext
 ): DescribeInstanceStatusResult => {
-  const contents: any = {
-    InstanceStatuses: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.instanceStatusSet === "") {
     contents.InstanceStatuses = [];
   } else if (output["instanceStatusSet"] !== undefined && output["instanceStatusSet"]["item"] !== undefined) {
@@ -66090,10 +65027,7 @@ const deserializeAws_ec2DescribeInstanceTypeOfferingsResult = (
   output: any,
   context: __SerdeContext
 ): DescribeInstanceTypeOfferingsResult => {
-  const contents: any = {
-    InstanceTypeOfferings: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.instanceTypeOfferingSet === "") {
     contents.InstanceTypeOfferings = [];
   } else if (
@@ -66115,10 +65049,7 @@ const deserializeAws_ec2DescribeInstanceTypesResult = (
   output: any,
   context: __SerdeContext
 ): DescribeInstanceTypesResult => {
-  const contents: any = {
-    InstanceTypes: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.instanceTypeSet === "") {
     contents.InstanceTypes = [];
   } else if (output["instanceTypeSet"] !== undefined && output["instanceTypeSet"]["item"] !== undefined) {
@@ -66137,10 +65068,7 @@ const deserializeAws_ec2DescribeInternetGatewaysResult = (
   output: any,
   context: __SerdeContext
 ): DescribeInternetGatewaysResult => {
-  const contents: any = {
-    InternetGateways: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.internetGatewaySet === "") {
     contents.InternetGateways = [];
   } else if (output["internetGatewaySet"] !== undefined && output["internetGatewaySet"]["item"] !== undefined) {
@@ -66156,10 +65084,7 @@ const deserializeAws_ec2DescribeInternetGatewaysResult = (
 };
 
 const deserializeAws_ec2DescribeIpamPoolsResult = (output: any, context: __SerdeContext): DescribeIpamPoolsResult => {
-  const contents: any = {
-    NextToken: undefined,
-    IpamPools: undefined,
-  };
+  const contents: any = {};
   if (output["nextToken"] !== undefined) {
     contents.NextToken = __expectString(output["nextToken"]);
   }
@@ -66175,10 +65100,7 @@ const deserializeAws_ec2DescribeIpamResourceDiscoveriesResult = (
   output: any,
   context: __SerdeContext
 ): DescribeIpamResourceDiscoveriesResult => {
-  const contents: any = {
-    IpamResourceDiscoveries: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.ipamResourceDiscoverySet === "") {
     contents.IpamResourceDiscoveries = [];
   } else if (
@@ -66200,10 +65122,7 @@ const deserializeAws_ec2DescribeIpamResourceDiscoveryAssociationsResult = (
   output: any,
   context: __SerdeContext
 ): DescribeIpamResourceDiscoveryAssociationsResult => {
-  const contents: any = {
-    IpamResourceDiscoveryAssociations: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.ipamResourceDiscoveryAssociationSet === "") {
     contents.IpamResourceDiscoveryAssociations = [];
   } else if (
@@ -66222,10 +65141,7 @@ const deserializeAws_ec2DescribeIpamResourceDiscoveryAssociationsResult = (
 };
 
 const deserializeAws_ec2DescribeIpamScopesResult = (output: any, context: __SerdeContext): DescribeIpamScopesResult => {
-  const contents: any = {
-    NextToken: undefined,
-    IpamScopes: undefined,
-  };
+  const contents: any = {};
   if (output["nextToken"] !== undefined) {
     contents.NextToken = __expectString(output["nextToken"]);
   }
@@ -66241,10 +65157,7 @@ const deserializeAws_ec2DescribeIpamScopesResult = (output: any, context: __Serd
 };
 
 const deserializeAws_ec2DescribeIpamsResult = (output: any, context: __SerdeContext): DescribeIpamsResult => {
-  const contents: any = {
-    NextToken: undefined,
-    Ipams: undefined,
-  };
+  const contents: any = {};
   if (output["nextToken"] !== undefined) {
     contents.NextToken = __expectString(output["nextToken"]);
   }
@@ -66257,10 +65170,7 @@ const deserializeAws_ec2DescribeIpamsResult = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_ec2DescribeIpv6PoolsResult = (output: any, context: __SerdeContext): DescribeIpv6PoolsResult => {
-  const contents: any = {
-    Ipv6Pools: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.ipv6PoolSet === "") {
     contents.Ipv6Pools = [];
   } else if (output["ipv6PoolSet"] !== undefined && output["ipv6PoolSet"]["item"] !== undefined) {
@@ -66273,9 +65183,7 @@ const deserializeAws_ec2DescribeIpv6PoolsResult = (output: any, context: __Serde
 };
 
 const deserializeAws_ec2DescribeKeyPairsResult = (output: any, context: __SerdeContext): DescribeKeyPairsResult => {
-  const contents: any = {
-    KeyPairs: undefined,
-  };
+  const contents: any = {};
   if (output.keySet === "") {
     contents.KeyPairs = [];
   } else if (output["keySet"] !== undefined && output["keySet"]["item"] !== undefined) {
@@ -66288,10 +65196,7 @@ const deserializeAws_ec2DescribeLaunchTemplatesResult = (
   output: any,
   context: __SerdeContext
 ): DescribeLaunchTemplatesResult => {
-  const contents: any = {
-    LaunchTemplates: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.launchTemplates === "") {
     contents.LaunchTemplates = [];
   } else if (output["launchTemplates"] !== undefined && output["launchTemplates"]["item"] !== undefined) {
@@ -66310,10 +65215,7 @@ const deserializeAws_ec2DescribeLaunchTemplateVersionsResult = (
   output: any,
   context: __SerdeContext
 ): DescribeLaunchTemplateVersionsResult => {
-  const contents: any = {
-    LaunchTemplateVersions: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.launchTemplateVersionSet === "") {
     contents.LaunchTemplateVersions = [];
   } else if (
@@ -66335,10 +65237,7 @@ const deserializeAws_ec2DescribeLocalGatewayRouteTablesResult = (
   output: any,
   context: __SerdeContext
 ): DescribeLocalGatewayRouteTablesResult => {
-  const contents: any = {
-    LocalGatewayRouteTables: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.localGatewayRouteTableSet === "") {
     contents.LocalGatewayRouteTables = [];
   } else if (
@@ -66360,10 +65259,7 @@ const deserializeAws_ec2DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssoc
   output: any,
   context: __SerdeContext
 ): DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResult => {
-  const contents: any = {
-    LocalGatewayRouteTableVirtualInterfaceGroupAssociations: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.localGatewayRouteTableVirtualInterfaceGroupAssociationSet === "") {
     contents.LocalGatewayRouteTableVirtualInterfaceGroupAssociations = [];
   } else if (
@@ -66386,10 +65282,7 @@ const deserializeAws_ec2DescribeLocalGatewayRouteTableVpcAssociationsResult = (
   output: any,
   context: __SerdeContext
 ): DescribeLocalGatewayRouteTableVpcAssociationsResult => {
-  const contents: any = {
-    LocalGatewayRouteTableVpcAssociations: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.localGatewayRouteTableVpcAssociationSet === "") {
     contents.LocalGatewayRouteTableVpcAssociations = [];
   } else if (
@@ -66411,10 +65304,7 @@ const deserializeAws_ec2DescribeLocalGatewaysResult = (
   output: any,
   context: __SerdeContext
 ): DescribeLocalGatewaysResult => {
-  const contents: any = {
-    LocalGateways: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.localGatewaySet === "") {
     contents.LocalGateways = [];
   } else if (output["localGatewaySet"] !== undefined && output["localGatewaySet"]["item"] !== undefined) {
@@ -66433,10 +65323,7 @@ const deserializeAws_ec2DescribeLocalGatewayVirtualInterfaceGroupsResult = (
   output: any,
   context: __SerdeContext
 ): DescribeLocalGatewayVirtualInterfaceGroupsResult => {
-  const contents: any = {
-    LocalGatewayVirtualInterfaceGroups: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.localGatewayVirtualInterfaceGroupSet === "") {
     contents.LocalGatewayVirtualInterfaceGroups = [];
   } else if (
@@ -66458,10 +65345,7 @@ const deserializeAws_ec2DescribeLocalGatewayVirtualInterfacesResult = (
   output: any,
   context: __SerdeContext
 ): DescribeLocalGatewayVirtualInterfacesResult => {
-  const contents: any = {
-    LocalGatewayVirtualInterfaces: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.localGatewayVirtualInterfaceSet === "") {
     contents.LocalGatewayVirtualInterfaces = [];
   } else if (
@@ -66483,10 +65367,7 @@ const deserializeAws_ec2DescribeManagedPrefixListsResult = (
   output: any,
   context: __SerdeContext
 ): DescribeManagedPrefixListsResult => {
-  const contents: any = {
-    NextToken: undefined,
-    PrefixLists: undefined,
-  };
+  const contents: any = {};
   if (output["nextToken"] !== undefined) {
     contents.NextToken = __expectString(output["nextToken"]);
   }
@@ -66505,10 +65386,7 @@ const deserializeAws_ec2DescribeMovingAddressesResult = (
   output: any,
   context: __SerdeContext
 ): DescribeMovingAddressesResult => {
-  const contents: any = {
-    MovingAddressStatuses: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.movingAddressStatusSet === "") {
     contents.MovingAddressStatuses = [];
   } else if (output["movingAddressStatusSet"] !== undefined && output["movingAddressStatusSet"]["item"] !== undefined) {
@@ -66527,10 +65405,7 @@ const deserializeAws_ec2DescribeNatGatewaysResult = (
   output: any,
   context: __SerdeContext
 ): DescribeNatGatewaysResult => {
-  const contents: any = {
-    NatGateways: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.natGatewaySet === "") {
     contents.NatGateways = [];
   } else if (output["natGatewaySet"] !== undefined && output["natGatewaySet"]["item"] !== undefined) {
@@ -66549,10 +65424,7 @@ const deserializeAws_ec2DescribeNetworkAclsResult = (
   output: any,
   context: __SerdeContext
 ): DescribeNetworkAclsResult => {
-  const contents: any = {
-    NetworkAcls: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.networkAclSet === "") {
     contents.NetworkAcls = [];
   } else if (output["networkAclSet"] !== undefined && output["networkAclSet"]["item"] !== undefined) {
@@ -66571,10 +65443,7 @@ const deserializeAws_ec2DescribeNetworkInsightsAccessScopeAnalysesResult = (
   output: any,
   context: __SerdeContext
 ): DescribeNetworkInsightsAccessScopeAnalysesResult => {
-  const contents: any = {
-    NetworkInsightsAccessScopeAnalyses: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.networkInsightsAccessScopeAnalysisSet === "") {
     contents.NetworkInsightsAccessScopeAnalyses = [];
   } else if (
@@ -66596,10 +65465,7 @@ const deserializeAws_ec2DescribeNetworkInsightsAccessScopesResult = (
   output: any,
   context: __SerdeContext
 ): DescribeNetworkInsightsAccessScopesResult => {
-  const contents: any = {
-    NetworkInsightsAccessScopes: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.networkInsightsAccessScopeSet === "") {
     contents.NetworkInsightsAccessScopes = [];
   } else if (
@@ -66621,10 +65487,7 @@ const deserializeAws_ec2DescribeNetworkInsightsAnalysesResult = (
   output: any,
   context: __SerdeContext
 ): DescribeNetworkInsightsAnalysesResult => {
-  const contents: any = {
-    NetworkInsightsAnalyses: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.networkInsightsAnalysisSet === "") {
     contents.NetworkInsightsAnalyses = [];
   } else if (
@@ -66646,10 +65509,7 @@ const deserializeAws_ec2DescribeNetworkInsightsPathsResult = (
   output: any,
   context: __SerdeContext
 ): DescribeNetworkInsightsPathsResult => {
-  const contents: any = {
-    NetworkInsightsPaths: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.networkInsightsPathSet === "") {
     contents.NetworkInsightsPaths = [];
   } else if (output["networkInsightsPathSet"] !== undefined && output["networkInsightsPathSet"]["item"] !== undefined) {
@@ -66668,13 +65528,7 @@ const deserializeAws_ec2DescribeNetworkInterfaceAttributeResult = (
   output: any,
   context: __SerdeContext
 ): DescribeNetworkInterfaceAttributeResult => {
-  const contents: any = {
-    Attachment: undefined,
-    Description: undefined,
-    Groups: undefined,
-    NetworkInterfaceId: undefined,
-    SourceDestCheck: undefined,
-  };
+  const contents: any = {};
   if (output["attachment"] !== undefined) {
     contents.Attachment = deserializeAws_ec2NetworkInterfaceAttachment(output["attachment"], context);
   }
@@ -66702,10 +65556,7 @@ const deserializeAws_ec2DescribeNetworkInterfacePermissionsResult = (
   output: any,
   context: __SerdeContext
 ): DescribeNetworkInterfacePermissionsResult => {
-  const contents: any = {
-    NetworkInterfacePermissions: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.networkInterfacePermissions === "") {
     contents.NetworkInterfacePermissions = [];
   } else if (
@@ -66727,10 +65578,7 @@ const deserializeAws_ec2DescribeNetworkInterfacesResult = (
   output: any,
   context: __SerdeContext
 ): DescribeNetworkInterfacesResult => {
-  const contents: any = {
-    NetworkInterfaces: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.networkInterfaceSet === "") {
     contents.NetworkInterfaces = [];
   } else if (output["networkInterfaceSet"] !== undefined && output["networkInterfaceSet"]["item"] !== undefined) {
@@ -66749,9 +65597,7 @@ const deserializeAws_ec2DescribePlacementGroupsResult = (
   output: any,
   context: __SerdeContext
 ): DescribePlacementGroupsResult => {
-  const contents: any = {
-    PlacementGroups: undefined,
-  };
+  const contents: any = {};
   if (output.placementGroupSet === "") {
     contents.PlacementGroups = [];
   } else if (output["placementGroupSet"] !== undefined && output["placementGroupSet"]["item"] !== undefined) {
@@ -66767,10 +65613,7 @@ const deserializeAws_ec2DescribePrefixListsResult = (
   output: any,
   context: __SerdeContext
 ): DescribePrefixListsResult => {
-  const contents: any = {
-    NextToken: undefined,
-    PrefixLists: undefined,
-  };
+  const contents: any = {};
   if (output["nextToken"] !== undefined) {
     contents.NextToken = __expectString(output["nextToken"]);
   }
@@ -66789,10 +65632,7 @@ const deserializeAws_ec2DescribePrincipalIdFormatResult = (
   output: any,
   context: __SerdeContext
 ): DescribePrincipalIdFormatResult => {
-  const contents: any = {
-    Principals: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.principalSet === "") {
     contents.Principals = [];
   } else if (output["principalSet"] !== undefined && output["principalSet"]["item"] !== undefined) {
@@ -66811,10 +65651,7 @@ const deserializeAws_ec2DescribePublicIpv4PoolsResult = (
   output: any,
   context: __SerdeContext
 ): DescribePublicIpv4PoolsResult => {
-  const contents: any = {
-    PublicIpv4Pools: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.publicIpv4PoolSet === "") {
     contents.PublicIpv4Pools = [];
   } else if (output["publicIpv4PoolSet"] !== undefined && output["publicIpv4PoolSet"]["item"] !== undefined) {
@@ -66830,9 +65667,7 @@ const deserializeAws_ec2DescribePublicIpv4PoolsResult = (
 };
 
 const deserializeAws_ec2DescribeRegionsResult = (output: any, context: __SerdeContext): DescribeRegionsResult => {
-  const contents: any = {
-    Regions: undefined,
-  };
+  const contents: any = {};
   if (output.regionInfo === "") {
     contents.Regions = [];
   } else if (output["regionInfo"] !== undefined && output["regionInfo"]["item"] !== undefined) {
@@ -66845,10 +65680,7 @@ const deserializeAws_ec2DescribeReplaceRootVolumeTasksResult = (
   output: any,
   context: __SerdeContext
 ): DescribeReplaceRootVolumeTasksResult => {
-  const contents: any = {
-    ReplaceRootVolumeTasks: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.replaceRootVolumeTaskSet === "") {
     contents.ReplaceRootVolumeTasks = [];
   } else if (
@@ -66870,9 +65702,7 @@ const deserializeAws_ec2DescribeReservedInstancesListingsResult = (
   output: any,
   context: __SerdeContext
 ): DescribeReservedInstancesListingsResult => {
-  const contents: any = {
-    ReservedInstancesListings: undefined,
-  };
+  const contents: any = {};
   if (output.reservedInstancesListingsSet === "") {
     contents.ReservedInstancesListings = [];
   } else if (
@@ -66891,10 +65721,7 @@ const deserializeAws_ec2DescribeReservedInstancesModificationsResult = (
   output: any,
   context: __SerdeContext
 ): DescribeReservedInstancesModificationsResult => {
-  const contents: any = {
-    NextToken: undefined,
-    ReservedInstancesModifications: undefined,
-  };
+  const contents: any = {};
   if (output["nextToken"] !== undefined) {
     contents.NextToken = __expectString(output["nextToken"]);
   }
@@ -66916,10 +65743,7 @@ const deserializeAws_ec2DescribeReservedInstancesOfferingsResult = (
   output: any,
   context: __SerdeContext
 ): DescribeReservedInstancesOfferingsResult => {
-  const contents: any = {
-    ReservedInstancesOfferings: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.reservedInstancesOfferingsSet === "") {
     contents.ReservedInstancesOfferings = [];
   } else if (
@@ -66941,9 +65765,7 @@ const deserializeAws_ec2DescribeReservedInstancesResult = (
   output: any,
   context: __SerdeContext
 ): DescribeReservedInstancesResult => {
-  const contents: any = {
-    ReservedInstances: undefined,
-  };
+  const contents: any = {};
   if (output.reservedInstancesSet === "") {
     contents.ReservedInstances = [];
   } else if (output["reservedInstancesSet"] !== undefined && output["reservedInstancesSet"]["item"] !== undefined) {
@@ -66959,10 +65781,7 @@ const deserializeAws_ec2DescribeRouteTablesResult = (
   output: any,
   context: __SerdeContext
 ): DescribeRouteTablesResult => {
-  const contents: any = {
-    RouteTables: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.routeTableSet === "") {
     contents.RouteTables = [];
   } else if (output["routeTableSet"] !== undefined && output["routeTableSet"]["item"] !== undefined) {
@@ -66981,10 +65800,7 @@ const deserializeAws_ec2DescribeScheduledInstanceAvailabilityResult = (
   output: any,
   context: __SerdeContext
 ): DescribeScheduledInstanceAvailabilityResult => {
-  const contents: any = {
-    NextToken: undefined,
-    ScheduledInstanceAvailabilitySet: undefined,
-  };
+  const contents: any = {};
   if (output["nextToken"] !== undefined) {
     contents.NextToken = __expectString(output["nextToken"]);
   }
@@ -67006,10 +65822,7 @@ const deserializeAws_ec2DescribeScheduledInstancesResult = (
   output: any,
   context: __SerdeContext
 ): DescribeScheduledInstancesResult => {
-  const contents: any = {
-    NextToken: undefined,
-    ScheduledInstanceSet: undefined,
-  };
+  const contents: any = {};
   if (output["nextToken"] !== undefined) {
     contents.NextToken = __expectString(output["nextToken"]);
   }
@@ -67028,9 +65841,7 @@ const deserializeAws_ec2DescribeSecurityGroupReferencesResult = (
   output: any,
   context: __SerdeContext
 ): DescribeSecurityGroupReferencesResult => {
-  const contents: any = {
-    SecurityGroupReferenceSet: undefined,
-  };
+  const contents: any = {};
   if (output.securityGroupReferenceSet === "") {
     contents.SecurityGroupReferenceSet = [];
   } else if (
@@ -67049,10 +65860,7 @@ const deserializeAws_ec2DescribeSecurityGroupRulesResult = (
   output: any,
   context: __SerdeContext
 ): DescribeSecurityGroupRulesResult => {
-  const contents: any = {
-    SecurityGroupRules: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.securityGroupRuleSet === "") {
     contents.SecurityGroupRules = [];
   } else if (output["securityGroupRuleSet"] !== undefined && output["securityGroupRuleSet"]["item"] !== undefined) {
@@ -67071,10 +65879,7 @@ const deserializeAws_ec2DescribeSecurityGroupsResult = (
   output: any,
   context: __SerdeContext
 ): DescribeSecurityGroupsResult => {
-  const contents: any = {
-    SecurityGroups: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.securityGroupInfo === "") {
     contents.SecurityGroups = [];
   } else if (output["securityGroupInfo"] !== undefined && output["securityGroupInfo"]["item"] !== undefined) {
@@ -67093,11 +65898,7 @@ const deserializeAws_ec2DescribeSnapshotAttributeResult = (
   output: any,
   context: __SerdeContext
 ): DescribeSnapshotAttributeResult => {
-  const contents: any = {
-    CreateVolumePermissions: undefined,
-    ProductCodes: undefined,
-    SnapshotId: undefined,
-  };
+  const contents: any = {};
   if (output.createVolumePermission === "") {
     contents.CreateVolumePermissions = [];
   } else if (output["createVolumePermission"] !== undefined && output["createVolumePermission"]["item"] !== undefined) {
@@ -67121,10 +65922,7 @@ const deserializeAws_ec2DescribeSnapshotAttributeResult = (
 };
 
 const deserializeAws_ec2DescribeSnapshotsResult = (output: any, context: __SerdeContext): DescribeSnapshotsResult => {
-  const contents: any = {
-    Snapshots: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.snapshotSet === "") {
     contents.Snapshots = [];
   } else if (output["snapshotSet"] !== undefined && output["snapshotSet"]["item"] !== undefined) {
@@ -67140,10 +65938,7 @@ const deserializeAws_ec2DescribeSnapshotTierStatusResult = (
   output: any,
   context: __SerdeContext
 ): DescribeSnapshotTierStatusResult => {
-  const contents: any = {
-    SnapshotTierStatuses: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.snapshotTierStatusSet === "") {
     contents.SnapshotTierStatuses = [];
   } else if (output["snapshotTierStatusSet"] !== undefined && output["snapshotTierStatusSet"]["item"] !== undefined) {
@@ -67162,9 +65957,7 @@ const deserializeAws_ec2DescribeSpotDatafeedSubscriptionResult = (
   output: any,
   context: __SerdeContext
 ): DescribeSpotDatafeedSubscriptionResult => {
-  const contents: any = {
-    SpotDatafeedSubscription: undefined,
-  };
+  const contents: any = {};
   if (output["spotDatafeedSubscription"] !== undefined) {
     contents.SpotDatafeedSubscription = deserializeAws_ec2SpotDatafeedSubscription(
       output["spotDatafeedSubscription"],
@@ -67178,11 +65971,7 @@ const deserializeAws_ec2DescribeSpotFleetInstancesResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeSpotFleetInstancesResponse => {
-  const contents: any = {
-    ActiveInstances: undefined,
-    NextToken: undefined,
-    SpotFleetRequestId: undefined,
-  };
+  const contents: any = {};
   if (output.activeInstanceSet === "") {
     contents.ActiveInstances = [];
   } else if (output["activeInstanceSet"] !== undefined && output["activeInstanceSet"]["item"] !== undefined) {
@@ -67204,13 +65993,7 @@ const deserializeAws_ec2DescribeSpotFleetRequestHistoryResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeSpotFleetRequestHistoryResponse => {
-  const contents: any = {
-    HistoryRecords: undefined,
-    LastEvaluatedTime: undefined,
-    NextToken: undefined,
-    SpotFleetRequestId: undefined,
-    StartTime: undefined,
-  };
+  const contents: any = {};
   if (output.historyRecordSet === "") {
     contents.HistoryRecords = [];
   } else if (output["historyRecordSet"] !== undefined && output["historyRecordSet"]["item"] !== undefined) {
@@ -67238,10 +66021,7 @@ const deserializeAws_ec2DescribeSpotFleetRequestsResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeSpotFleetRequestsResponse => {
-  const contents: any = {
-    NextToken: undefined,
-    SpotFleetRequestConfigs: undefined,
-  };
+  const contents: any = {};
   if (output["nextToken"] !== undefined) {
     contents.NextToken = __expectString(output["nextToken"]);
   }
@@ -67263,10 +66043,7 @@ const deserializeAws_ec2DescribeSpotInstanceRequestsResult = (
   output: any,
   context: __SerdeContext
 ): DescribeSpotInstanceRequestsResult => {
-  const contents: any = {
-    SpotInstanceRequests: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.spotInstanceRequestSet === "") {
     contents.SpotInstanceRequests = [];
   } else if (output["spotInstanceRequestSet"] !== undefined && output["spotInstanceRequestSet"]["item"] !== undefined) {
@@ -67285,10 +66062,7 @@ const deserializeAws_ec2DescribeSpotPriceHistoryResult = (
   output: any,
   context: __SerdeContext
 ): DescribeSpotPriceHistoryResult => {
-  const contents: any = {
-    NextToken: undefined,
-    SpotPriceHistory: undefined,
-  };
+  const contents: any = {};
   if (output["nextToken"] !== undefined) {
     contents.NextToken = __expectString(output["nextToken"]);
   }
@@ -67307,10 +66081,7 @@ const deserializeAws_ec2DescribeStaleSecurityGroupsResult = (
   output: any,
   context: __SerdeContext
 ): DescribeStaleSecurityGroupsResult => {
-  const contents: any = {
-    NextToken: undefined,
-    StaleSecurityGroupSet: undefined,
-  };
+  const contents: any = {};
   if (output["nextToken"] !== undefined) {
     contents.NextToken = __expectString(output["nextToken"]);
   }
@@ -67329,10 +66100,7 @@ const deserializeAws_ec2DescribeStoreImageTasksResult = (
   output: any,
   context: __SerdeContext
 ): DescribeStoreImageTasksResult => {
-  const contents: any = {
-    StoreImageTaskResults: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.storeImageTaskResultSet === "") {
     contents.StoreImageTaskResults = [];
   } else if (
@@ -67351,10 +66119,7 @@ const deserializeAws_ec2DescribeStoreImageTasksResult = (
 };
 
 const deserializeAws_ec2DescribeSubnetsResult = (output: any, context: __SerdeContext): DescribeSubnetsResult => {
-  const contents: any = {
-    Subnets: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.subnetSet === "") {
     contents.Subnets = [];
   } else if (output["subnetSet"] !== undefined && output["subnetSet"]["item"] !== undefined) {
@@ -67367,10 +66132,7 @@ const deserializeAws_ec2DescribeSubnetsResult = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_ec2DescribeTagsResult = (output: any, context: __SerdeContext): DescribeTagsResult => {
-  const contents: any = {
-    NextToken: undefined,
-    Tags: undefined,
-  };
+  const contents: any = {};
   if (output["nextToken"] !== undefined) {
     contents.NextToken = __expectString(output["nextToken"]);
   }
@@ -67386,10 +66148,7 @@ const deserializeAws_ec2DescribeTrafficMirrorFiltersResult = (
   output: any,
   context: __SerdeContext
 ): DescribeTrafficMirrorFiltersResult => {
-  const contents: any = {
-    TrafficMirrorFilters: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.trafficMirrorFilterSet === "") {
     contents.TrafficMirrorFilters = [];
   } else if (output["trafficMirrorFilterSet"] !== undefined && output["trafficMirrorFilterSet"]["item"] !== undefined) {
@@ -67408,10 +66167,7 @@ const deserializeAws_ec2DescribeTrafficMirrorSessionsResult = (
   output: any,
   context: __SerdeContext
 ): DescribeTrafficMirrorSessionsResult => {
-  const contents: any = {
-    TrafficMirrorSessions: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.trafficMirrorSessionSet === "") {
     contents.TrafficMirrorSessions = [];
   } else if (
@@ -67433,10 +66189,7 @@ const deserializeAws_ec2DescribeTrafficMirrorTargetsResult = (
   output: any,
   context: __SerdeContext
 ): DescribeTrafficMirrorTargetsResult => {
-  const contents: any = {
-    TrafficMirrorTargets: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.trafficMirrorTargetSet === "") {
     contents.TrafficMirrorTargets = [];
   } else if (output["trafficMirrorTargetSet"] !== undefined && output["trafficMirrorTargetSet"]["item"] !== undefined) {
@@ -67455,10 +66208,7 @@ const deserializeAws_ec2DescribeTransitGatewayAttachmentsResult = (
   output: any,
   context: __SerdeContext
 ): DescribeTransitGatewayAttachmentsResult => {
-  const contents: any = {
-    TransitGatewayAttachments: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.transitGatewayAttachments === "") {
     contents.TransitGatewayAttachments = [];
   } else if (
@@ -67480,10 +66230,7 @@ const deserializeAws_ec2DescribeTransitGatewayConnectPeersResult = (
   output: any,
   context: __SerdeContext
 ): DescribeTransitGatewayConnectPeersResult => {
-  const contents: any = {
-    TransitGatewayConnectPeers: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.transitGatewayConnectPeerSet === "") {
     contents.TransitGatewayConnectPeers = [];
   } else if (
@@ -67505,10 +66252,7 @@ const deserializeAws_ec2DescribeTransitGatewayConnectsResult = (
   output: any,
   context: __SerdeContext
 ): DescribeTransitGatewayConnectsResult => {
-  const contents: any = {
-    TransitGatewayConnects: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.transitGatewayConnectSet === "") {
     contents.TransitGatewayConnects = [];
   } else if (
@@ -67530,10 +66274,7 @@ const deserializeAws_ec2DescribeTransitGatewayMulticastDomainsResult = (
   output: any,
   context: __SerdeContext
 ): DescribeTransitGatewayMulticastDomainsResult => {
-  const contents: any = {
-    TransitGatewayMulticastDomains: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.transitGatewayMulticastDomains === "") {
     contents.TransitGatewayMulticastDomains = [];
   } else if (
@@ -67555,10 +66296,7 @@ const deserializeAws_ec2DescribeTransitGatewayPeeringAttachmentsResult = (
   output: any,
   context: __SerdeContext
 ): DescribeTransitGatewayPeeringAttachmentsResult => {
-  const contents: any = {
-    TransitGatewayPeeringAttachments: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.transitGatewayPeeringAttachments === "") {
     contents.TransitGatewayPeeringAttachments = [];
   } else if (
@@ -67580,10 +66318,7 @@ const deserializeAws_ec2DescribeTransitGatewayPolicyTablesResult = (
   output: any,
   context: __SerdeContext
 ): DescribeTransitGatewayPolicyTablesResult => {
-  const contents: any = {
-    TransitGatewayPolicyTables: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.transitGatewayPolicyTables === "") {
     contents.TransitGatewayPolicyTables = [];
   } else if (
@@ -67605,10 +66340,7 @@ const deserializeAws_ec2DescribeTransitGatewayRouteTableAnnouncementsResult = (
   output: any,
   context: __SerdeContext
 ): DescribeTransitGatewayRouteTableAnnouncementsResult => {
-  const contents: any = {
-    TransitGatewayRouteTableAnnouncements: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.transitGatewayRouteTableAnnouncements === "") {
     contents.TransitGatewayRouteTableAnnouncements = [];
   } else if (
@@ -67630,10 +66362,7 @@ const deserializeAws_ec2DescribeTransitGatewayRouteTablesResult = (
   output: any,
   context: __SerdeContext
 ): DescribeTransitGatewayRouteTablesResult => {
-  const contents: any = {
-    TransitGatewayRouteTables: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.transitGatewayRouteTables === "") {
     contents.TransitGatewayRouteTables = [];
   } else if (
@@ -67655,10 +66384,7 @@ const deserializeAws_ec2DescribeTransitGatewaysResult = (
   output: any,
   context: __SerdeContext
 ): DescribeTransitGatewaysResult => {
-  const contents: any = {
-    TransitGateways: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.transitGatewaySet === "") {
     contents.TransitGateways = [];
   } else if (output["transitGatewaySet"] !== undefined && output["transitGatewaySet"]["item"] !== undefined) {
@@ -67677,10 +66403,7 @@ const deserializeAws_ec2DescribeTransitGatewayVpcAttachmentsResult = (
   output: any,
   context: __SerdeContext
 ): DescribeTransitGatewayVpcAttachmentsResult => {
-  const contents: any = {
-    TransitGatewayVpcAttachments: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.transitGatewayVpcAttachments === "") {
     contents.TransitGatewayVpcAttachments = [];
   } else if (
@@ -67702,10 +66425,7 @@ const deserializeAws_ec2DescribeTrunkInterfaceAssociationsResult = (
   output: any,
   context: __SerdeContext
 ): DescribeTrunkInterfaceAssociationsResult => {
-  const contents: any = {
-    InterfaceAssociations: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.interfaceAssociationSet === "") {
     contents.InterfaceAssociations = [];
   } else if (
@@ -67727,10 +66447,7 @@ const deserializeAws_ec2DescribeVerifiedAccessEndpointsResult = (
   output: any,
   context: __SerdeContext
 ): DescribeVerifiedAccessEndpointsResult => {
-  const contents: any = {
-    VerifiedAccessEndpoints: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.verifiedAccessEndpointSet === "") {
     contents.VerifiedAccessEndpoints = [];
   } else if (
@@ -67752,10 +66469,7 @@ const deserializeAws_ec2DescribeVerifiedAccessGroupsResult = (
   output: any,
   context: __SerdeContext
 ): DescribeVerifiedAccessGroupsResult => {
-  const contents: any = {
-    VerifiedAccessGroups: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.verifiedAccessGroupSet === "") {
     contents.VerifiedAccessGroups = [];
   } else if (output["verifiedAccessGroupSet"] !== undefined && output["verifiedAccessGroupSet"]["item"] !== undefined) {
@@ -67774,10 +66488,7 @@ const deserializeAws_ec2DescribeVerifiedAccessInstanceLoggingConfigurationsResul
   output: any,
   context: __SerdeContext
 ): DescribeVerifiedAccessInstanceLoggingConfigurationsResult => {
-  const contents: any = {
-    LoggingConfigurations: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.loggingConfigurationSet === "") {
     contents.LoggingConfigurations = [];
   } else if (
@@ -67799,10 +66510,7 @@ const deserializeAws_ec2DescribeVerifiedAccessInstancesResult = (
   output: any,
   context: __SerdeContext
 ): DescribeVerifiedAccessInstancesResult => {
-  const contents: any = {
-    VerifiedAccessInstances: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.verifiedAccessInstanceSet === "") {
     contents.VerifiedAccessInstances = [];
   } else if (
@@ -67824,10 +66532,7 @@ const deserializeAws_ec2DescribeVerifiedAccessTrustProvidersResult = (
   output: any,
   context: __SerdeContext
 ): DescribeVerifiedAccessTrustProvidersResult => {
-  const contents: any = {
-    VerifiedAccessTrustProviders: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.verifiedAccessTrustProviderSet === "") {
     contents.VerifiedAccessTrustProviders = [];
   } else if (
@@ -67849,11 +66554,7 @@ const deserializeAws_ec2DescribeVolumeAttributeResult = (
   output: any,
   context: __SerdeContext
 ): DescribeVolumeAttributeResult => {
-  const contents: any = {
-    AutoEnableIO: undefined,
-    ProductCodes: undefined,
-    VolumeId: undefined,
-  };
+  const contents: any = {};
   if (output["autoEnableIO"] !== undefined) {
     contents.AutoEnableIO = deserializeAws_ec2AttributeBooleanValue(output["autoEnableIO"], context);
   }
@@ -67875,10 +66576,7 @@ const deserializeAws_ec2DescribeVolumesModificationsResult = (
   output: any,
   context: __SerdeContext
 ): DescribeVolumesModificationsResult => {
-  const contents: any = {
-    VolumesModifications: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.volumeModificationSet === "") {
     contents.VolumesModifications = [];
   } else if (output["volumeModificationSet"] !== undefined && output["volumeModificationSet"]["item"] !== undefined) {
@@ -67894,10 +66592,7 @@ const deserializeAws_ec2DescribeVolumesModificationsResult = (
 };
 
 const deserializeAws_ec2DescribeVolumesResult = (output: any, context: __SerdeContext): DescribeVolumesResult => {
-  const contents: any = {
-    Volumes: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.volumeSet === "") {
     contents.Volumes = [];
   } else if (output["volumeSet"] !== undefined && output["volumeSet"]["item"] !== undefined) {
@@ -67913,10 +66608,7 @@ const deserializeAws_ec2DescribeVolumeStatusResult = (
   output: any,
   context: __SerdeContext
 ): DescribeVolumeStatusResult => {
-  const contents: any = {
-    NextToken: undefined,
-    VolumeStatuses: undefined,
-  };
+  const contents: any = {};
   if (output["nextToken"] !== undefined) {
     contents.NextToken = __expectString(output["nextToken"]);
   }
@@ -67935,12 +66627,7 @@ const deserializeAws_ec2DescribeVpcAttributeResult = (
   output: any,
   context: __SerdeContext
 ): DescribeVpcAttributeResult => {
-  const contents: any = {
-    VpcId: undefined,
-    EnableDnsHostnames: undefined,
-    EnableDnsSupport: undefined,
-    EnableNetworkAddressUsageMetrics: undefined,
-  };
+  const contents: any = {};
   if (output["vpcId"] !== undefined) {
     contents.VpcId = __expectString(output["vpcId"]);
   }
@@ -67963,10 +66650,7 @@ const deserializeAws_ec2DescribeVpcClassicLinkDnsSupportResult = (
   output: any,
   context: __SerdeContext
 ): DescribeVpcClassicLinkDnsSupportResult => {
-  const contents: any = {
-    NextToken: undefined,
-    Vpcs: undefined,
-  };
+  const contents: any = {};
   if (output["nextToken"] !== undefined) {
     contents.NextToken = __expectString(output["nextToken"]);
   }
@@ -67985,9 +66669,7 @@ const deserializeAws_ec2DescribeVpcClassicLinkResult = (
   output: any,
   context: __SerdeContext
 ): DescribeVpcClassicLinkResult => {
-  const contents: any = {
-    Vpcs: undefined,
-  };
+  const contents: any = {};
   if (output.vpcSet === "") {
     contents.Vpcs = [];
   } else if (output["vpcSet"] !== undefined && output["vpcSet"]["item"] !== undefined) {
@@ -68000,10 +66682,7 @@ const deserializeAws_ec2DescribeVpcEndpointConnectionNotificationsResult = (
   output: any,
   context: __SerdeContext
 ): DescribeVpcEndpointConnectionNotificationsResult => {
-  const contents: any = {
-    ConnectionNotificationSet: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.connectionNotificationSet === "") {
     contents.ConnectionNotificationSet = [];
   } else if (
@@ -68025,10 +66704,7 @@ const deserializeAws_ec2DescribeVpcEndpointConnectionsResult = (
   output: any,
   context: __SerdeContext
 ): DescribeVpcEndpointConnectionsResult => {
-  const contents: any = {
-    VpcEndpointConnections: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.vpcEndpointConnectionSet === "") {
     contents.VpcEndpointConnections = [];
   } else if (
@@ -68050,10 +66726,7 @@ const deserializeAws_ec2DescribeVpcEndpointServiceConfigurationsResult = (
   output: any,
   context: __SerdeContext
 ): DescribeVpcEndpointServiceConfigurationsResult => {
-  const contents: any = {
-    ServiceConfigurations: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.serviceConfigurationSet === "") {
     contents.ServiceConfigurations = [];
   } else if (
@@ -68075,10 +66748,7 @@ const deserializeAws_ec2DescribeVpcEndpointServicePermissionsResult = (
   output: any,
   context: __SerdeContext
 ): DescribeVpcEndpointServicePermissionsResult => {
-  const contents: any = {
-    AllowedPrincipals: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.allowedPrincipals === "") {
     contents.AllowedPrincipals = [];
   } else if (output["allowedPrincipals"] !== undefined && output["allowedPrincipals"]["item"] !== undefined) {
@@ -68097,11 +66767,7 @@ const deserializeAws_ec2DescribeVpcEndpointServicesResult = (
   output: any,
   context: __SerdeContext
 ): DescribeVpcEndpointServicesResult => {
-  const contents: any = {
-    ServiceNames: undefined,
-    ServiceDetails: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.serviceNameSet === "") {
     contents.ServiceNames = [];
   } else if (output["serviceNameSet"] !== undefined && output["serviceNameSet"]["item"] !== undefined) {
@@ -68128,10 +66794,7 @@ const deserializeAws_ec2DescribeVpcEndpointsResult = (
   output: any,
   context: __SerdeContext
 ): DescribeVpcEndpointsResult => {
-  const contents: any = {
-    VpcEndpoints: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.vpcEndpointSet === "") {
     contents.VpcEndpoints = [];
   } else if (output["vpcEndpointSet"] !== undefined && output["vpcEndpointSet"]["item"] !== undefined) {
@@ -68150,10 +66813,7 @@ const deserializeAws_ec2DescribeVpcPeeringConnectionsResult = (
   output: any,
   context: __SerdeContext
 ): DescribeVpcPeeringConnectionsResult => {
-  const contents: any = {
-    VpcPeeringConnections: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.vpcPeeringConnectionSet === "") {
     contents.VpcPeeringConnections = [];
   } else if (
@@ -68172,10 +66832,7 @@ const deserializeAws_ec2DescribeVpcPeeringConnectionsResult = (
 };
 
 const deserializeAws_ec2DescribeVpcsResult = (output: any, context: __SerdeContext): DescribeVpcsResult => {
-  const contents: any = {
-    Vpcs: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.vpcSet === "") {
     contents.Vpcs = [];
   } else if (output["vpcSet"] !== undefined && output["vpcSet"]["item"] !== undefined) {
@@ -68191,9 +66848,7 @@ const deserializeAws_ec2DescribeVpnConnectionsResult = (
   output: any,
   context: __SerdeContext
 ): DescribeVpnConnectionsResult => {
-  const contents: any = {
-    VpnConnections: undefined,
-  };
+  const contents: any = {};
   if (output.vpnConnectionSet === "") {
     contents.VpnConnections = [];
   } else if (output["vpnConnectionSet"] !== undefined && output["vpnConnectionSet"]["item"] !== undefined) {
@@ -68209,9 +66864,7 @@ const deserializeAws_ec2DescribeVpnGatewaysResult = (
   output: any,
   context: __SerdeContext
 ): DescribeVpnGatewaysResult => {
-  const contents: any = {
-    VpnGateways: undefined,
-  };
+  const contents: any = {};
   if (output.vpnGatewaySet === "") {
     contents.VpnGateways = [];
   } else if (output["vpnGatewaySet"] !== undefined && output["vpnGatewaySet"]["item"] !== undefined) {
@@ -68227,11 +66880,7 @@ const deserializeAws_ec2DestinationOptionsResponse = (
   output: any,
   context: __SerdeContext
 ): DestinationOptionsResponse => {
-  const contents: any = {
-    FileFormat: undefined,
-    HiveCompatiblePartitions: undefined,
-    PerHourPartition: undefined,
-  };
+  const contents: any = {};
   if (output["fileFormat"] !== undefined) {
     contents.FileFormat = __expectString(output["fileFormat"]);
   }
@@ -68248,9 +66897,7 @@ const deserializeAws_ec2DetachClassicLinkVpcResult = (
   output: any,
   context: __SerdeContext
 ): DetachClassicLinkVpcResult => {
-  const contents: any = {
-    Return: undefined,
-  };
+  const contents: any = {};
   if (output["return"] !== undefined) {
     contents.Return = __parseBoolean(output["return"]);
   }
@@ -68261,10 +66908,7 @@ const deserializeAws_ec2DetachVerifiedAccessTrustProviderResult = (
   output: any,
   context: __SerdeContext
 ): DetachVerifiedAccessTrustProviderResult => {
-  const contents: any = {
-    VerifiedAccessTrustProvider: undefined,
-    VerifiedAccessInstance: undefined,
-  };
+  const contents: any = {};
   if (output["verifiedAccessTrustProvider"] !== undefined) {
     contents.VerifiedAccessTrustProvider = deserializeAws_ec2VerifiedAccessTrustProvider(
       output["verifiedAccessTrustProvider"],
@@ -68281,9 +66925,7 @@ const deserializeAws_ec2DetachVerifiedAccessTrustProviderResult = (
 };
 
 const deserializeAws_ec2DeviceOptions = (output: any, context: __SerdeContext): DeviceOptions => {
-  const contents: any = {
-    TenantId: undefined,
-  };
+  const contents: any = {};
   if (output["tenantId"] !== undefined) {
     contents.TenantId = __expectString(output["tenantId"]);
   }
@@ -68291,10 +66933,7 @@ const deserializeAws_ec2DeviceOptions = (output: any, context: __SerdeContext): 
 };
 
 const deserializeAws_ec2DhcpConfiguration = (output: any, context: __SerdeContext): DhcpConfiguration => {
-  const contents: any = {
-    Key: undefined,
-    Values: undefined,
-  };
+  const contents: any = {};
   if (output["key"] !== undefined) {
     contents.Key = __expectString(output["key"]);
   }
@@ -68326,12 +66965,7 @@ const deserializeAws_ec2DhcpConfigurationValueList = (output: any, context: __Se
 };
 
 const deserializeAws_ec2DhcpOptions = (output: any, context: __SerdeContext): DhcpOptions => {
-  const contents: any = {
-    DhcpConfigurations: undefined,
-    DhcpOptionsId: undefined,
-    OwnerId: undefined,
-    Tags: undefined,
-  };
+  const contents: any = {};
   if (output.dhcpConfigurationSet === "") {
     contents.DhcpConfigurations = [];
   } else if (output["dhcpConfigurationSet"] !== undefined && output["dhcpConfigurationSet"]["item"] !== undefined) {
@@ -68366,9 +67000,7 @@ const deserializeAws_ec2DirectoryServiceAuthentication = (
   output: any,
   context: __SerdeContext
 ): DirectoryServiceAuthentication => {
-  const contents: any = {
-    DirectoryId: undefined,
-  };
+  const contents: any = {};
   if (output["directoryId"] !== undefined) {
     contents.DirectoryId = __expectString(output["directoryId"]);
   }
@@ -68379,9 +67011,7 @@ const deserializeAws_ec2DisableAddressTransferResult = (
   output: any,
   context: __SerdeContext
 ): DisableAddressTransferResult => {
-  const contents: any = {
-    AddressTransfer: undefined,
-  };
+  const contents: any = {};
   if (output["addressTransfer"] !== undefined) {
     contents.AddressTransfer = deserializeAws_ec2AddressTransfer(output["addressTransfer"], context);
   }
@@ -68392,9 +67022,7 @@ const deserializeAws_ec2DisableAwsNetworkPerformanceMetricSubscriptionResult = (
   output: any,
   context: __SerdeContext
 ): DisableAwsNetworkPerformanceMetricSubscriptionResult => {
-  const contents: any = {
-    Output: undefined,
-  };
+  const contents: any = {};
   if (output["output"] !== undefined) {
     contents.Output = __parseBoolean(output["output"]);
   }
@@ -68405,9 +67033,7 @@ const deserializeAws_ec2DisableEbsEncryptionByDefaultResult = (
   output: any,
   context: __SerdeContext
 ): DisableEbsEncryptionByDefaultResult => {
-  const contents: any = {
-    EbsEncryptionByDefault: undefined,
-  };
+  const contents: any = {};
   if (output["ebsEncryptionByDefault"] !== undefined) {
     contents.EbsEncryptionByDefault = __parseBoolean(output["ebsEncryptionByDefault"]);
   }
@@ -68415,17 +67041,7 @@ const deserializeAws_ec2DisableEbsEncryptionByDefaultResult = (
 };
 
 const deserializeAws_ec2DisableFastLaunchResult = (output: any, context: __SerdeContext): DisableFastLaunchResult => {
-  const contents: any = {
-    ImageId: undefined,
-    ResourceType: undefined,
-    SnapshotConfiguration: undefined,
-    LaunchTemplate: undefined,
-    MaxParallelLaunches: undefined,
-    OwnerId: undefined,
-    State: undefined,
-    StateTransitionReason: undefined,
-    StateTransitionTime: undefined,
-  };
+  const contents: any = {};
   if (output["imageId"] !== undefined) {
     contents.ImageId = __expectString(output["imageId"]);
   }
@@ -68466,10 +67082,7 @@ const deserializeAws_ec2DisableFastSnapshotRestoreErrorItem = (
   output: any,
   context: __SerdeContext
 ): DisableFastSnapshotRestoreErrorItem => {
-  const contents: any = {
-    SnapshotId: undefined,
-    FastSnapshotRestoreStateErrors: undefined,
-  };
+  const contents: any = {};
   if (output["snapshotId"] !== undefined) {
     contents.SnapshotId = __expectString(output["snapshotId"]);
   }
@@ -68502,10 +67115,7 @@ const deserializeAws_ec2DisableFastSnapshotRestoresResult = (
   output: any,
   context: __SerdeContext
 ): DisableFastSnapshotRestoresResult => {
-  const contents: any = {
-    Successful: undefined,
-    Unsuccessful: undefined,
-  };
+  const contents: any = {};
   if (output.successful === "") {
     contents.Successful = [];
   } else if (output["successful"] !== undefined && output["successful"]["item"] !== undefined) {
@@ -68529,10 +67139,7 @@ const deserializeAws_ec2DisableFastSnapshotRestoreStateError = (
   output: any,
   context: __SerdeContext
 ): DisableFastSnapshotRestoreStateError => {
-  const contents: any = {
-    Code: undefined,
-    Message: undefined,
-  };
+  const contents: any = {};
   if (output["code"] !== undefined) {
     contents.Code = __expectString(output["code"]);
   }
@@ -68546,10 +67153,7 @@ const deserializeAws_ec2DisableFastSnapshotRestoreStateErrorItem = (
   output: any,
   context: __SerdeContext
 ): DisableFastSnapshotRestoreStateErrorItem => {
-  const contents: any = {
-    AvailabilityZone: undefined,
-    Error: undefined,
-  };
+  const contents: any = {};
   if (output["availabilityZone"] !== undefined) {
     contents.AvailabilityZone = __expectString(output["availabilityZone"]);
   }
@@ -68574,19 +67178,7 @@ const deserializeAws_ec2DisableFastSnapshotRestoreSuccessItem = (
   output: any,
   context: __SerdeContext
 ): DisableFastSnapshotRestoreSuccessItem => {
-  const contents: any = {
-    SnapshotId: undefined,
-    AvailabilityZone: undefined,
-    State: undefined,
-    StateTransitionReason: undefined,
-    OwnerId: undefined,
-    OwnerAlias: undefined,
-    EnablingTime: undefined,
-    OptimizingTime: undefined,
-    EnabledTime: undefined,
-    DisablingTime: undefined,
-    DisabledTime: undefined,
-  };
+  const contents: any = {};
   if (output["snapshotId"] !== undefined) {
     contents.SnapshotId = __expectString(output["snapshotId"]);
   }
@@ -68638,9 +67230,7 @@ const deserializeAws_ec2DisableImageDeprecationResult = (
   output: any,
   context: __SerdeContext
 ): DisableImageDeprecationResult => {
-  const contents: any = {
-    Return: undefined,
-  };
+  const contents: any = {};
   if (output["return"] !== undefined) {
     contents.Return = __parseBoolean(output["return"]);
   }
@@ -68651,9 +67241,7 @@ const deserializeAws_ec2DisableIpamOrganizationAdminAccountResult = (
   output: any,
   context: __SerdeContext
 ): DisableIpamOrganizationAdminAccountResult => {
-  const contents: any = {
-    Success: undefined,
-  };
+  const contents: any = {};
   if (output["success"] !== undefined) {
     contents.Success = __parseBoolean(output["success"]);
   }
@@ -68664,9 +67252,7 @@ const deserializeAws_ec2DisableSerialConsoleAccessResult = (
   output: any,
   context: __SerdeContext
 ): DisableSerialConsoleAccessResult => {
-  const contents: any = {
-    SerialConsoleAccessEnabled: undefined,
-  };
+  const contents: any = {};
   if (output["serialConsoleAccessEnabled"] !== undefined) {
     contents.SerialConsoleAccessEnabled = __parseBoolean(output["serialConsoleAccessEnabled"]);
   }
@@ -68677,9 +67263,7 @@ const deserializeAws_ec2DisableTransitGatewayRouteTablePropagationResult = (
   output: any,
   context: __SerdeContext
 ): DisableTransitGatewayRouteTablePropagationResult => {
-  const contents: any = {
-    Propagation: undefined,
-  };
+  const contents: any = {};
   if (output["propagation"] !== undefined) {
     contents.Propagation = deserializeAws_ec2TransitGatewayPropagation(output["propagation"], context);
   }
@@ -68690,9 +67274,7 @@ const deserializeAws_ec2DisableVpcClassicLinkDnsSupportResult = (
   output: any,
   context: __SerdeContext
 ): DisableVpcClassicLinkDnsSupportResult => {
-  const contents: any = {
-    Return: undefined,
-  };
+  const contents: any = {};
   if (output["return"] !== undefined) {
     contents.Return = __parseBoolean(output["return"]);
   }
@@ -68703,9 +67285,7 @@ const deserializeAws_ec2DisableVpcClassicLinkResult = (
   output: any,
   context: __SerdeContext
 ): DisableVpcClassicLinkResult => {
-  const contents: any = {
-    Return: undefined,
-  };
+  const contents: any = {};
   if (output["return"] !== undefined) {
     contents.Return = __parseBoolean(output["return"]);
   }
@@ -68716,10 +67296,7 @@ const deserializeAws_ec2DisassociateClientVpnTargetNetworkResult = (
   output: any,
   context: __SerdeContext
 ): DisassociateClientVpnTargetNetworkResult => {
-  const contents: any = {
-    AssociationId: undefined,
-    Status: undefined,
-  };
+  const contents: any = {};
   if (output["associationId"] !== undefined) {
     contents.AssociationId = __expectString(output["associationId"]);
   }
@@ -68733,9 +67310,7 @@ const deserializeAws_ec2DisassociateEnclaveCertificateIamRoleResult = (
   output: any,
   context: __SerdeContext
 ): DisassociateEnclaveCertificateIamRoleResult => {
-  const contents: any = {
-    Return: undefined,
-  };
+  const contents: any = {};
   if (output["return"] !== undefined) {
     contents.Return = __parseBoolean(output["return"]);
   }
@@ -68746,9 +67321,7 @@ const deserializeAws_ec2DisassociateIamInstanceProfileResult = (
   output: any,
   context: __SerdeContext
 ): DisassociateIamInstanceProfileResult => {
-  const contents: any = {
-    IamInstanceProfileAssociation: undefined,
-  };
+  const contents: any = {};
   if (output["iamInstanceProfileAssociation"] !== undefined) {
     contents.IamInstanceProfileAssociation = deserializeAws_ec2IamInstanceProfileAssociation(
       output["iamInstanceProfileAssociation"],
@@ -68762,9 +67335,7 @@ const deserializeAws_ec2DisassociateInstanceEventWindowResult = (
   output: any,
   context: __SerdeContext
 ): DisassociateInstanceEventWindowResult => {
-  const contents: any = {
-    InstanceEventWindow: undefined,
-  };
+  const contents: any = {};
   if (output["instanceEventWindow"] !== undefined) {
     contents.InstanceEventWindow = deserializeAws_ec2InstanceEventWindow(output["instanceEventWindow"], context);
   }
@@ -68775,9 +67346,7 @@ const deserializeAws_ec2DisassociateIpamResourceDiscoveryResult = (
   output: any,
   context: __SerdeContext
 ): DisassociateIpamResourceDiscoveryResult => {
-  const contents: any = {
-    IpamResourceDiscoveryAssociation: undefined,
-  };
+  const contents: any = {};
   if (output["ipamResourceDiscoveryAssociation"] !== undefined) {
     contents.IpamResourceDiscoveryAssociation = deserializeAws_ec2IpamResourceDiscoveryAssociation(
       output["ipamResourceDiscoveryAssociation"],
@@ -68791,10 +67360,7 @@ const deserializeAws_ec2DisassociateNatGatewayAddressResult = (
   output: any,
   context: __SerdeContext
 ): DisassociateNatGatewayAddressResult => {
-  const contents: any = {
-    NatGatewayId: undefined,
-    NatGatewayAddresses: undefined,
-  };
+  const contents: any = {};
   if (output["natGatewayId"] !== undefined) {
     contents.NatGatewayId = __expectString(output["natGatewayId"]);
   }
@@ -68813,10 +67379,7 @@ const deserializeAws_ec2DisassociateSubnetCidrBlockResult = (
   output: any,
   context: __SerdeContext
 ): DisassociateSubnetCidrBlockResult => {
-  const contents: any = {
-    Ipv6CidrBlockAssociation: undefined,
-    SubnetId: undefined,
-  };
+  const contents: any = {};
   if (output["ipv6CidrBlockAssociation"] !== undefined) {
     contents.Ipv6CidrBlockAssociation = deserializeAws_ec2SubnetIpv6CidrBlockAssociation(
       output["ipv6CidrBlockAssociation"],
@@ -68833,9 +67396,7 @@ const deserializeAws_ec2DisassociateTransitGatewayMulticastDomainResult = (
   output: any,
   context: __SerdeContext
 ): DisassociateTransitGatewayMulticastDomainResult => {
-  const contents: any = {
-    Associations: undefined,
-  };
+  const contents: any = {};
   if (output["associations"] !== undefined) {
     contents.Associations = deserializeAws_ec2TransitGatewayMulticastDomainAssociations(
       output["associations"],
@@ -68849,9 +67410,7 @@ const deserializeAws_ec2DisassociateTransitGatewayPolicyTableResult = (
   output: any,
   context: __SerdeContext
 ): DisassociateTransitGatewayPolicyTableResult => {
-  const contents: any = {
-    Association: undefined,
-  };
+  const contents: any = {};
   if (output["association"] !== undefined) {
     contents.Association = deserializeAws_ec2TransitGatewayPolicyTableAssociation(output["association"], context);
   }
@@ -68862,9 +67421,7 @@ const deserializeAws_ec2DisassociateTransitGatewayRouteTableResult = (
   output: any,
   context: __SerdeContext
 ): DisassociateTransitGatewayRouteTableResult => {
-  const contents: any = {
-    Association: undefined,
-  };
+  const contents: any = {};
   if (output["association"] !== undefined) {
     contents.Association = deserializeAws_ec2TransitGatewayAssociation(output["association"], context);
   }
@@ -68875,10 +67432,7 @@ const deserializeAws_ec2DisassociateTrunkInterfaceResult = (
   output: any,
   context: __SerdeContext
 ): DisassociateTrunkInterfaceResult => {
-  const contents: any = {
-    Return: undefined,
-    ClientToken: undefined,
-  };
+  const contents: any = {};
   if (output["return"] !== undefined) {
     contents.Return = __parseBoolean(output["return"]);
   }
@@ -68892,11 +67446,7 @@ const deserializeAws_ec2DisassociateVpcCidrBlockResult = (
   output: any,
   context: __SerdeContext
 ): DisassociateVpcCidrBlockResult => {
-  const contents: any = {
-    Ipv6CidrBlockAssociation: undefined,
-    CidrBlockAssociation: undefined,
-    VpcId: undefined,
-  };
+  const contents: any = {};
   if (output["ipv6CidrBlockAssociation"] !== undefined) {
     contents.Ipv6CidrBlockAssociation = deserializeAws_ec2VpcIpv6CidrBlockAssociation(
       output["ipv6CidrBlockAssociation"],
@@ -68913,12 +67463,7 @@ const deserializeAws_ec2DisassociateVpcCidrBlockResult = (
 };
 
 const deserializeAws_ec2DiskImageDescription = (output: any, context: __SerdeContext): DiskImageDescription => {
-  const contents: any = {
-    Checksum: undefined,
-    Format: undefined,
-    ImportManifestUrl: undefined,
-    Size: undefined,
-  };
+  const contents: any = {};
   if (output["checksum"] !== undefined) {
     contents.Checksum = __expectString(output["checksum"]);
   }
@@ -68938,10 +67483,7 @@ const deserializeAws_ec2DiskImageVolumeDescription = (
   output: any,
   context: __SerdeContext
 ): DiskImageVolumeDescription => {
-  const contents: any = {
-    Id: undefined,
-    Size: undefined,
-  };
+  const contents: any = {};
   if (output["id"] !== undefined) {
     contents.Id = __expectString(output["id"]);
   }
@@ -68952,11 +67494,7 @@ const deserializeAws_ec2DiskImageVolumeDescription = (
 };
 
 const deserializeAws_ec2DiskInfo = (output: any, context: __SerdeContext): DiskInfo => {
-  const contents: any = {
-    SizeInGB: undefined,
-    Count: undefined,
-    Type: undefined,
-  };
+  const contents: any = {};
   if (output["sizeInGB"] !== undefined) {
     contents.SizeInGB = __strictParseLong(output["sizeInGB"]) as number;
   }
@@ -68978,10 +67516,7 @@ const deserializeAws_ec2DiskInfoList = (output: any, context: __SerdeContext): D
 };
 
 const deserializeAws_ec2DnsEntry = (output: any, context: __SerdeContext): DnsEntry => {
-  const contents: any = {
-    DnsName: undefined,
-    HostedZoneId: undefined,
-  };
+  const contents: any = {};
   if (output["dnsName"] !== undefined) {
     contents.DnsName = __expectString(output["dnsName"]);
   }
@@ -69000,10 +67535,7 @@ const deserializeAws_ec2DnsEntrySet = (output: any, context: __SerdeContext): Dn
 };
 
 const deserializeAws_ec2DnsOptions = (output: any, context: __SerdeContext): DnsOptions => {
-  const contents: any = {
-    DnsRecordIpType: undefined,
-    PrivateDnsOnlyForInboundResolverEndpoint: undefined,
-  };
+  const contents: any = {};
   if (output["dnsRecordIpType"] !== undefined) {
     contents.DnsRecordIpType = __expectString(output["dnsRecordIpType"]);
   }
@@ -69016,17 +67548,7 @@ const deserializeAws_ec2DnsOptions = (output: any, context: __SerdeContext): Dns
 };
 
 const deserializeAws_ec2EbsBlockDevice = (output: any, context: __SerdeContext): EbsBlockDevice => {
-  const contents: any = {
-    DeleteOnTermination: undefined,
-    Iops: undefined,
-    SnapshotId: undefined,
-    VolumeSize: undefined,
-    VolumeType: undefined,
-    KmsKeyId: undefined,
-    Throughput: undefined,
-    OutpostArn: undefined,
-    Encrypted: undefined,
-  };
+  const contents: any = {};
   if (output["deleteOnTermination"] !== undefined) {
     contents.DeleteOnTermination = __parseBoolean(output["deleteOnTermination"]);
   }
@@ -69058,12 +67580,7 @@ const deserializeAws_ec2EbsBlockDevice = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_ec2EbsInfo = (output: any, context: __SerdeContext): EbsInfo => {
-  const contents: any = {
-    EbsOptimizedSupport: undefined,
-    EncryptionSupport: undefined,
-    EbsOptimizedInfo: undefined,
-    NvmeSupport: undefined,
-  };
+  const contents: any = {};
   if (output["ebsOptimizedSupport"] !== undefined) {
     contents.EbsOptimizedSupport = __expectString(output["ebsOptimizedSupport"]);
   }
@@ -69080,12 +67597,7 @@ const deserializeAws_ec2EbsInfo = (output: any, context: __SerdeContext): EbsInf
 };
 
 const deserializeAws_ec2EbsInstanceBlockDevice = (output: any, context: __SerdeContext): EbsInstanceBlockDevice => {
-  const contents: any = {
-    AttachTime: undefined,
-    DeleteOnTermination: undefined,
-    Status: undefined,
-    VolumeId: undefined,
-  };
+  const contents: any = {};
   if (output["attachTime"] !== undefined) {
     contents.AttachTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["attachTime"]));
   }
@@ -69102,14 +67614,7 @@ const deserializeAws_ec2EbsInstanceBlockDevice = (output: any, context: __SerdeC
 };
 
 const deserializeAws_ec2EbsOptimizedInfo = (output: any, context: __SerdeContext): EbsOptimizedInfo => {
-  const contents: any = {
-    BaselineBandwidthInMbps: undefined,
-    BaselineThroughputInMBps: undefined,
-    BaselineIops: undefined,
-    MaximumBandwidthInMbps: undefined,
-    MaximumThroughputInMBps: undefined,
-    MaximumIops: undefined,
-  };
+  const contents: any = {};
   if (output["baselineBandwidthInMbps"] !== undefined) {
     contents.BaselineBandwidthInMbps = __strictParseInt32(output["baselineBandwidthInMbps"]) as number;
   }
@@ -69132,9 +67637,7 @@ const deserializeAws_ec2EbsOptimizedInfo = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_ec2EfaInfo = (output: any, context: __SerdeContext): EfaInfo => {
-  const contents: any = {
-    MaximumEfaInterfaces: undefined,
-  };
+  const contents: any = {};
   if (output["maximumEfaInterfaces"] !== undefined) {
     contents.MaximumEfaInterfaces = __strictParseInt32(output["maximumEfaInterfaces"]) as number;
   }
@@ -69145,11 +67648,7 @@ const deserializeAws_ec2EgressOnlyInternetGateway = (
   output: any,
   context: __SerdeContext
 ): EgressOnlyInternetGateway => {
-  const contents: any = {
-    Attachments: undefined,
-    EgressOnlyInternetGatewayId: undefined,
-    Tags: undefined,
-  };
+  const contents: any = {};
   if (output.attachmentSet === "") {
     contents.Attachments = [];
   } else if (output["attachmentSet"] !== undefined && output["attachmentSet"]["item"] !== undefined) {
@@ -69181,12 +67680,7 @@ const deserializeAws_ec2EgressOnlyInternetGatewayList = (
 };
 
 const deserializeAws_ec2ElasticGpuAssociation = (output: any, context: __SerdeContext): ElasticGpuAssociation => {
-  const contents: any = {
-    ElasticGpuId: undefined,
-    ElasticGpuAssociationId: undefined,
-    ElasticGpuAssociationState: undefined,
-    ElasticGpuAssociationTime: undefined,
-  };
+  const contents: any = {};
   if (output["elasticGpuId"] !== undefined) {
     contents.ElasticGpuId = __expectString(output["elasticGpuId"]);
   }
@@ -69211,9 +67705,7 @@ const deserializeAws_ec2ElasticGpuAssociationList = (output: any, context: __Ser
 };
 
 const deserializeAws_ec2ElasticGpuHealth = (output: any, context: __SerdeContext): ElasticGpuHealth => {
-  const contents: any = {
-    Status: undefined,
-  };
+  const contents: any = {};
   if (output["status"] !== undefined) {
     contents.Status = __expectString(output["status"]);
   }
@@ -69221,15 +67713,7 @@ const deserializeAws_ec2ElasticGpuHealth = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_ec2ElasticGpus = (output: any, context: __SerdeContext): ElasticGpus => {
-  const contents: any = {
-    ElasticGpuId: undefined,
-    AvailabilityZone: undefined,
-    ElasticGpuType: undefined,
-    ElasticGpuHealth: undefined,
-    ElasticGpuState: undefined,
-    InstanceId: undefined,
-    Tags: undefined,
-  };
+  const contents: any = {};
   if (output["elasticGpuId"] !== undefined) {
     contents.ElasticGpuId = __expectString(output["elasticGpuId"]);
   }
@@ -69268,9 +67752,7 @@ const deserializeAws_ec2ElasticGpuSpecificationResponse = (
   output: any,
   context: __SerdeContext
 ): ElasticGpuSpecificationResponse => {
-  const contents: any = {
-    Type: undefined,
-  };
+  const contents: any = {};
   if (output["type"] !== undefined) {
     contents.Type = __expectString(output["type"]);
   }
@@ -69292,12 +67774,7 @@ const deserializeAws_ec2ElasticInferenceAcceleratorAssociation = (
   output: any,
   context: __SerdeContext
 ): ElasticInferenceAcceleratorAssociation => {
-  const contents: any = {
-    ElasticInferenceAcceleratorArn: undefined,
-    ElasticInferenceAcceleratorAssociationId: undefined,
-    ElasticInferenceAcceleratorAssociationState: undefined,
-    ElasticInferenceAcceleratorAssociationTime: undefined,
-  };
+  const contents: any = {};
   if (output["elasticInferenceAcceleratorArn"] !== undefined) {
     contents.ElasticInferenceAcceleratorArn = __expectString(output["elasticInferenceAcceleratorArn"]);
   }
@@ -69334,9 +67811,7 @@ const deserializeAws_ec2EnableAddressTransferResult = (
   output: any,
   context: __SerdeContext
 ): EnableAddressTransferResult => {
-  const contents: any = {
-    AddressTransfer: undefined,
-  };
+  const contents: any = {};
   if (output["addressTransfer"] !== undefined) {
     contents.AddressTransfer = deserializeAws_ec2AddressTransfer(output["addressTransfer"], context);
   }
@@ -69347,9 +67822,7 @@ const deserializeAws_ec2EnableAwsNetworkPerformanceMetricSubscriptionResult = (
   output: any,
   context: __SerdeContext
 ): EnableAwsNetworkPerformanceMetricSubscriptionResult => {
-  const contents: any = {
-    Output: undefined,
-  };
+  const contents: any = {};
   if (output["output"] !== undefined) {
     contents.Output = __parseBoolean(output["output"]);
   }
@@ -69360,9 +67833,7 @@ const deserializeAws_ec2EnableEbsEncryptionByDefaultResult = (
   output: any,
   context: __SerdeContext
 ): EnableEbsEncryptionByDefaultResult => {
-  const contents: any = {
-    EbsEncryptionByDefault: undefined,
-  };
+  const contents: any = {};
   if (output["ebsEncryptionByDefault"] !== undefined) {
     contents.EbsEncryptionByDefault = __parseBoolean(output["ebsEncryptionByDefault"]);
   }
@@ -69370,17 +67841,7 @@ const deserializeAws_ec2EnableEbsEncryptionByDefaultResult = (
 };
 
 const deserializeAws_ec2EnableFastLaunchResult = (output: any, context: __SerdeContext): EnableFastLaunchResult => {
-  const contents: any = {
-    ImageId: undefined,
-    ResourceType: undefined,
-    SnapshotConfiguration: undefined,
-    LaunchTemplate: undefined,
-    MaxParallelLaunches: undefined,
-    OwnerId: undefined,
-    State: undefined,
-    StateTransitionReason: undefined,
-    StateTransitionTime: undefined,
-  };
+  const contents: any = {};
   if (output["imageId"] !== undefined) {
     contents.ImageId = __expectString(output["imageId"]);
   }
@@ -69421,10 +67882,7 @@ const deserializeAws_ec2EnableFastSnapshotRestoreErrorItem = (
   output: any,
   context: __SerdeContext
 ): EnableFastSnapshotRestoreErrorItem => {
-  const contents: any = {
-    SnapshotId: undefined,
-    FastSnapshotRestoreStateErrors: undefined,
-  };
+  const contents: any = {};
   if (output["snapshotId"] !== undefined) {
     contents.SnapshotId = __expectString(output["snapshotId"]);
   }
@@ -69457,10 +67915,7 @@ const deserializeAws_ec2EnableFastSnapshotRestoresResult = (
   output: any,
   context: __SerdeContext
 ): EnableFastSnapshotRestoresResult => {
-  const contents: any = {
-    Successful: undefined,
-    Unsuccessful: undefined,
-  };
+  const contents: any = {};
   if (output.successful === "") {
     contents.Successful = [];
   } else if (output["successful"] !== undefined && output["successful"]["item"] !== undefined) {
@@ -69484,10 +67939,7 @@ const deserializeAws_ec2EnableFastSnapshotRestoreStateError = (
   output: any,
   context: __SerdeContext
 ): EnableFastSnapshotRestoreStateError => {
-  const contents: any = {
-    Code: undefined,
-    Message: undefined,
-  };
+  const contents: any = {};
   if (output["code"] !== undefined) {
     contents.Code = __expectString(output["code"]);
   }
@@ -69501,10 +67953,7 @@ const deserializeAws_ec2EnableFastSnapshotRestoreStateErrorItem = (
   output: any,
   context: __SerdeContext
 ): EnableFastSnapshotRestoreStateErrorItem => {
-  const contents: any = {
-    AvailabilityZone: undefined,
-    Error: undefined,
-  };
+  const contents: any = {};
   if (output["availabilityZone"] !== undefined) {
     contents.AvailabilityZone = __expectString(output["availabilityZone"]);
   }
@@ -69529,19 +67978,7 @@ const deserializeAws_ec2EnableFastSnapshotRestoreSuccessItem = (
   output: any,
   context: __SerdeContext
 ): EnableFastSnapshotRestoreSuccessItem => {
-  const contents: any = {
-    SnapshotId: undefined,
-    AvailabilityZone: undefined,
-    State: undefined,
-    StateTransitionReason: undefined,
-    OwnerId: undefined,
-    OwnerAlias: undefined,
-    EnablingTime: undefined,
-    OptimizingTime: undefined,
-    EnabledTime: undefined,
-    DisablingTime: undefined,
-    DisabledTime: undefined,
-  };
+  const contents: any = {};
   if (output["snapshotId"] !== undefined) {
     contents.SnapshotId = __expectString(output["snapshotId"]);
   }
@@ -69593,9 +68030,7 @@ const deserializeAws_ec2EnableImageDeprecationResult = (
   output: any,
   context: __SerdeContext
 ): EnableImageDeprecationResult => {
-  const contents: any = {
-    Return: undefined,
-  };
+  const contents: any = {};
   if (output["return"] !== undefined) {
     contents.Return = __parseBoolean(output["return"]);
   }
@@ -69606,9 +68041,7 @@ const deserializeAws_ec2EnableIpamOrganizationAdminAccountResult = (
   output: any,
   context: __SerdeContext
 ): EnableIpamOrganizationAdminAccountResult => {
-  const contents: any = {
-    Success: undefined,
-  };
+  const contents: any = {};
   if (output["success"] !== undefined) {
     contents.Success = __parseBoolean(output["success"]);
   }
@@ -69619,9 +68052,7 @@ const deserializeAws_ec2EnableReachabilityAnalyzerOrganizationSharingResult = (
   output: any,
   context: __SerdeContext
 ): EnableReachabilityAnalyzerOrganizationSharingResult => {
-  const contents: any = {
-    ReturnValue: undefined,
-  };
+  const contents: any = {};
   if (output["returnValue"] !== undefined) {
     contents.ReturnValue = __parseBoolean(output["returnValue"]);
   }
@@ -69632,9 +68063,7 @@ const deserializeAws_ec2EnableSerialConsoleAccessResult = (
   output: any,
   context: __SerdeContext
 ): EnableSerialConsoleAccessResult => {
-  const contents: any = {
-    SerialConsoleAccessEnabled: undefined,
-  };
+  const contents: any = {};
   if (output["serialConsoleAccessEnabled"] !== undefined) {
     contents.SerialConsoleAccessEnabled = __parseBoolean(output["serialConsoleAccessEnabled"]);
   }
@@ -69645,9 +68074,7 @@ const deserializeAws_ec2EnableTransitGatewayRouteTablePropagationResult = (
   output: any,
   context: __SerdeContext
 ): EnableTransitGatewayRouteTablePropagationResult => {
-  const contents: any = {
-    Propagation: undefined,
-  };
+  const contents: any = {};
   if (output["propagation"] !== undefined) {
     contents.Propagation = deserializeAws_ec2TransitGatewayPropagation(output["propagation"], context);
   }
@@ -69658,9 +68085,7 @@ const deserializeAws_ec2EnableVpcClassicLinkDnsSupportResult = (
   output: any,
   context: __SerdeContext
 ): EnableVpcClassicLinkDnsSupportResult => {
-  const contents: any = {
-    Return: undefined,
-  };
+  const contents: any = {};
   if (output["return"] !== undefined) {
     contents.Return = __parseBoolean(output["return"]);
   }
@@ -69671,9 +68096,7 @@ const deserializeAws_ec2EnableVpcClassicLinkResult = (
   output: any,
   context: __SerdeContext
 ): EnableVpcClassicLinkResult => {
-  const contents: any = {
-    Return: undefined,
-  };
+  const contents: any = {};
   if (output["return"] !== undefined) {
     contents.Return = __parseBoolean(output["return"]);
   }
@@ -69681,9 +68104,7 @@ const deserializeAws_ec2EnableVpcClassicLinkResult = (
 };
 
 const deserializeAws_ec2EnclaveOptions = (output: any, context: __SerdeContext): EnclaveOptions => {
-  const contents: any = {
-    Enabled: undefined,
-  };
+  const contents: any = {};
   if (output["enabled"] !== undefined) {
     contents.Enabled = __parseBoolean(output["enabled"]);
   }
@@ -69707,11 +68128,7 @@ const deserializeAws_ec2ErrorSet = (output: any, context: __SerdeContext): Valid
 };
 
 const deserializeAws_ec2EventInformation = (output: any, context: __SerdeContext): EventInformation => {
-  const contents: any = {
-    EventDescription: undefined,
-    EventSubType: undefined,
-    InstanceId: undefined,
-  };
+  const contents: any = {};
   if (output["eventDescription"] !== undefined) {
     contents.EventDescription = __expectString(output["eventDescription"]);
   }
@@ -69733,61 +68150,7 @@ const deserializeAws_ec2ExcludedInstanceTypeSet = (output: any, context: __Serde
 };
 
 const deserializeAws_ec2Explanation = (output: any, context: __SerdeContext): Explanation => {
-  const contents: any = {
-    Acl: undefined,
-    AclRule: undefined,
-    Address: undefined,
-    Addresses: undefined,
-    AttachedTo: undefined,
-    AvailabilityZones: undefined,
-    Cidrs: undefined,
-    Component: undefined,
-    CustomerGateway: undefined,
-    Destination: undefined,
-    DestinationVpc: undefined,
-    Direction: undefined,
-    ExplanationCode: undefined,
-    IngressRouteTable: undefined,
-    InternetGateway: undefined,
-    LoadBalancerArn: undefined,
-    ClassicLoadBalancerListener: undefined,
-    LoadBalancerListenerPort: undefined,
-    LoadBalancerTarget: undefined,
-    LoadBalancerTargetGroup: undefined,
-    LoadBalancerTargetGroups: undefined,
-    LoadBalancerTargetPort: undefined,
-    ElasticLoadBalancerListener: undefined,
-    MissingComponent: undefined,
-    NatGateway: undefined,
-    NetworkInterface: undefined,
-    PacketField: undefined,
-    VpcPeeringConnection: undefined,
-    Port: undefined,
-    PortRanges: undefined,
-    PrefixList: undefined,
-    Protocols: undefined,
-    RouteTableRoute: undefined,
-    RouteTable: undefined,
-    SecurityGroup: undefined,
-    SecurityGroupRule: undefined,
-    SecurityGroups: undefined,
-    SourceVpc: undefined,
-    State: undefined,
-    Subnet: undefined,
-    SubnetRouteTable: undefined,
-    Vpc: undefined,
-    VpcEndpoint: undefined,
-    VpnConnection: undefined,
-    VpnGateway: undefined,
-    TransitGateway: undefined,
-    TransitGatewayRouteTable: undefined,
-    TransitGatewayRouteTableRoute: undefined,
-    TransitGatewayAttachment: undefined,
-    ComponentAccount: undefined,
-    ComponentRegion: undefined,
-    FirewallStatelessRule: undefined,
-    FirewallStatefulRule: undefined,
-  };
+  const contents: any = {};
   if (output["acl"] !== undefined) {
     contents.Acl = deserializeAws_ec2AnalysisComponent(output["acl"], context);
   }
@@ -70006,10 +68369,7 @@ const deserializeAws_ec2ExportClientVpnClientCertificateRevocationListResult = (
   output: any,
   context: __SerdeContext
 ): ExportClientVpnClientCertificateRevocationListResult => {
-  const contents: any = {
-    CertificateRevocationList: undefined,
-    Status: undefined,
-  };
+  const contents: any = {};
   if (output["certificateRevocationList"] !== undefined) {
     contents.CertificateRevocationList = __expectString(output["certificateRevocationList"]);
   }
@@ -70023,9 +68383,7 @@ const deserializeAws_ec2ExportClientVpnClientConfigurationResult = (
   output: any,
   context: __SerdeContext
 ): ExportClientVpnClientConfigurationResult => {
-  const contents: any = {
-    ClientConfiguration: undefined,
-  };
+  const contents: any = {};
   if (output["clientConfiguration"] !== undefined) {
     contents.ClientConfiguration = __expectString(output["clientConfiguration"]);
   }
@@ -70033,18 +68391,7 @@ const deserializeAws_ec2ExportClientVpnClientConfigurationResult = (
 };
 
 const deserializeAws_ec2ExportImageResult = (output: any, context: __SerdeContext): ExportImageResult => {
-  const contents: any = {
-    Description: undefined,
-    DiskImageFormat: undefined,
-    ExportImageTaskId: undefined,
-    ImageId: undefined,
-    RoleName: undefined,
-    Progress: undefined,
-    S3ExportLocation: undefined,
-    Status: undefined,
-    StatusMessage: undefined,
-    Tags: undefined,
-  };
+  const contents: any = {};
   if (output["description"] !== undefined) {
     contents.Description = __expectString(output["description"]);
   }
@@ -70081,16 +68428,7 @@ const deserializeAws_ec2ExportImageResult = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_ec2ExportImageTask = (output: any, context: __SerdeContext): ExportImageTask => {
-  const contents: any = {
-    Description: undefined,
-    ExportImageTaskId: undefined,
-    ImageId: undefined,
-    Progress: undefined,
-    S3ExportLocation: undefined,
-    Status: undefined,
-    StatusMessage: undefined,
-    Tags: undefined,
-  };
+  const contents: any = {};
   if (output["description"] !== undefined) {
     contents.Description = __expectString(output["description"]);
   }
@@ -70129,15 +68467,7 @@ const deserializeAws_ec2ExportImageTaskList = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_ec2ExportTask = (output: any, context: __SerdeContext): ExportTask => {
-  const contents: any = {
-    Description: undefined,
-    ExportTaskId: undefined,
-    ExportToS3Task: undefined,
-    InstanceExportDetails: undefined,
-    State: undefined,
-    StatusMessage: undefined,
-    Tags: undefined,
-  };
+  const contents: any = {};
   if (output["description"] !== undefined) {
     contents.Description = __expectString(output["description"]);
   }
@@ -70173,10 +68503,7 @@ const deserializeAws_ec2ExportTaskList = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_ec2ExportTaskS3Location = (output: any, context: __SerdeContext): ExportTaskS3Location => {
-  const contents: any = {
-    S3Bucket: undefined,
-    S3Prefix: undefined,
-  };
+  const contents: any = {};
   if (output["s3Bucket"] !== undefined) {
     contents.S3Bucket = __expectString(output["s3Bucket"]);
   }
@@ -70187,12 +68514,7 @@ const deserializeAws_ec2ExportTaskS3Location = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_ec2ExportToS3Task = (output: any, context: __SerdeContext): ExportToS3Task => {
-  const contents: any = {
-    ContainerFormat: undefined,
-    DiskImageFormat: undefined,
-    S3Bucket: undefined,
-    S3Key: undefined,
-  };
+  const contents: any = {};
   if (output["containerFormat"] !== undefined) {
     contents.ContainerFormat = __expectString(output["containerFormat"]);
   }
@@ -70212,9 +68534,7 @@ const deserializeAws_ec2ExportTransitGatewayRoutesResult = (
   output: any,
   context: __SerdeContext
 ): ExportTransitGatewayRoutesResult => {
-  const contents: any = {
-    S3Location: undefined,
-  };
+  const contents: any = {};
   if (output["s3Location"] !== undefined) {
     contents.S3Location = __expectString(output["s3Location"]);
   }
@@ -70225,10 +68545,7 @@ const deserializeAws_ec2FailedCapacityReservationFleetCancellationResult = (
   output: any,
   context: __SerdeContext
 ): FailedCapacityReservationFleetCancellationResult => {
-  const contents: any = {
-    CapacityReservationFleetId: undefined,
-    CancelCapacityReservationFleetError: undefined,
-  };
+  const contents: any = {};
   if (output["capacityReservationFleetId"] !== undefined) {
     contents.CapacityReservationFleetId = __expectString(output["capacityReservationFleetId"]);
   }
@@ -70256,10 +68573,7 @@ const deserializeAws_ec2FailedQueuedPurchaseDeletion = (
   output: any,
   context: __SerdeContext
 ): FailedQueuedPurchaseDeletion => {
-  const contents: any = {
-    Error: undefined,
-    ReservedInstancesId: undefined,
-  };
+  const contents: any = {};
   if (output["error"] !== undefined) {
     contents.Error = deserializeAws_ec2DeleteQueuedReservedInstancesError(output["error"], context);
   }
@@ -70284,11 +68598,7 @@ const deserializeAws_ec2FastLaunchLaunchTemplateSpecificationResponse = (
   output: any,
   context: __SerdeContext
 ): FastLaunchLaunchTemplateSpecificationResponse => {
-  const contents: any = {
-    LaunchTemplateId: undefined,
-    LaunchTemplateName: undefined,
-    Version: undefined,
-  };
+  const contents: any = {};
   if (output["launchTemplateId"] !== undefined) {
     contents.LaunchTemplateId = __expectString(output["launchTemplateId"]);
   }
@@ -70305,9 +68615,7 @@ const deserializeAws_ec2FastLaunchSnapshotConfigurationResponse = (
   output: any,
   context: __SerdeContext
 ): FastLaunchSnapshotConfigurationResponse => {
-  const contents: any = {
-    TargetResourceCount: undefined,
-  };
+  const contents: any = {};
   if (output["targetResourceCount"] !== undefined) {
     contents.TargetResourceCount = __strictParseInt32(output["targetResourceCount"]) as number;
   }
@@ -70315,10 +68623,7 @@ const deserializeAws_ec2FastLaunchSnapshotConfigurationResponse = (
 };
 
 const deserializeAws_ec2FederatedAuthentication = (output: any, context: __SerdeContext): FederatedAuthentication => {
-  const contents: any = {
-    SamlProviderArn: undefined,
-    SelfServiceSamlProviderArn: undefined,
-  };
+  const contents: any = {};
   if (output["samlProviderArn"] !== undefined) {
     contents.SamlProviderArn = __expectString(output["samlProviderArn"]);
   }
@@ -70329,10 +68634,7 @@ const deserializeAws_ec2FederatedAuthentication = (output: any, context: __Serde
 };
 
 const deserializeAws_ec2FilterPortRange = (output: any, context: __SerdeContext): FilterPortRange => {
-  const contents: any = {
-    FromPort: undefined,
-    ToPort: undefined,
-  };
+  const contents: any = {};
   if (output["fromPort"] !== undefined) {
     contents.FromPort = __strictParseInt32(output["fromPort"]) as number;
   }
@@ -70343,16 +68645,7 @@ const deserializeAws_ec2FilterPortRange = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_ec2FirewallStatefulRule = (output: any, context: __SerdeContext): FirewallStatefulRule => {
-  const contents: any = {
-    RuleGroupArn: undefined,
-    Sources: undefined,
-    Destinations: undefined,
-    SourcePorts: undefined,
-    DestinationPorts: undefined,
-    Protocol: undefined,
-    RuleAction: undefined,
-    Direction: undefined,
-  };
+  const contents: any = {};
   if (output["ruleGroupArn"] !== undefined) {
     contents.RuleGroupArn = __expectString(output["ruleGroupArn"]);
   }
@@ -70398,16 +68691,7 @@ const deserializeAws_ec2FirewallStatefulRule = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_ec2FirewallStatelessRule = (output: any, context: __SerdeContext): FirewallStatelessRule => {
-  const contents: any = {
-    RuleGroupArn: undefined,
-    Sources: undefined,
-    Destinations: undefined,
-    SourcePorts: undefined,
-    DestinationPorts: undefined,
-    Protocols: undefined,
-    RuleAction: undefined,
-    Priority: undefined,
-  };
+  const contents: any = {};
   if (output["ruleGroupArn"] !== undefined) {
     contents.RuleGroupArn = __expectString(output["ruleGroupArn"]);
   }
@@ -70458,19 +68742,7 @@ const deserializeAws_ec2FirewallStatelessRule = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_ec2FleetCapacityReservation = (output: any, context: __SerdeContext): FleetCapacityReservation => {
-  const contents: any = {
-    CapacityReservationId: undefined,
-    AvailabilityZoneId: undefined,
-    InstanceType: undefined,
-    InstancePlatform: undefined,
-    AvailabilityZone: undefined,
-    TotalInstanceCount: undefined,
-    FulfilledCapacity: undefined,
-    EbsOptimized: undefined,
-    CreateDate: undefined,
-    Weight: undefined,
-    Priority: undefined,
-  };
+  const contents: any = {};
   if (output["capacityReservationId"] !== undefined) {
     contents.CapacityReservationId = __expectString(output["capacityReservationId"]);
   }
@@ -70519,29 +68791,7 @@ const deserializeAws_ec2FleetCapacityReservationSet = (
 };
 
 const deserializeAws_ec2FleetData = (output: any, context: __SerdeContext): FleetData => {
-  const contents: any = {
-    ActivityStatus: undefined,
-    CreateTime: undefined,
-    FleetId: undefined,
-    FleetState: undefined,
-    ClientToken: undefined,
-    ExcessCapacityTerminationPolicy: undefined,
-    FulfilledCapacity: undefined,
-    FulfilledOnDemandCapacity: undefined,
-    LaunchTemplateConfigs: undefined,
-    TargetCapacitySpecification: undefined,
-    TerminateInstancesWithExpiration: undefined,
-    Type: undefined,
-    ValidFrom: undefined,
-    ValidUntil: undefined,
-    ReplaceUnhealthyInstances: undefined,
-    SpotOptions: undefined,
-    OnDemandOptions: undefined,
-    Tags: undefined,
-    Errors: undefined,
-    Instances: undefined,
-    Context: undefined,
-  };
+  const contents: any = {};
   if (output["activityStatus"] !== undefined) {
     contents.ActivityStatus = __expectString(output["activityStatus"]);
   }
@@ -70632,10 +68882,7 @@ const deserializeAws_ec2FleetLaunchTemplateConfig = (
   output: any,
   context: __SerdeContext
 ): FleetLaunchTemplateConfig => {
-  const contents: any = {
-    LaunchTemplateSpecification: undefined,
-    Overrides: undefined,
-  };
+  const contents: any = {};
   if (output["launchTemplateSpecification"] !== undefined) {
     contents.LaunchTemplateSpecification = deserializeAws_ec2FleetLaunchTemplateSpecification(
       output["launchTemplateSpecification"],
@@ -70668,17 +68915,7 @@ const deserializeAws_ec2FleetLaunchTemplateOverrides = (
   output: any,
   context: __SerdeContext
 ): FleetLaunchTemplateOverrides => {
-  const contents: any = {
-    InstanceType: undefined,
-    MaxPrice: undefined,
-    SubnetId: undefined,
-    AvailabilityZone: undefined,
-    WeightedCapacity: undefined,
-    Priority: undefined,
-    Placement: undefined,
-    InstanceRequirements: undefined,
-    ImageId: undefined,
-  };
+  const contents: any = {};
   if (output["instanceType"] !== undefined) {
     contents.InstanceType = __expectString(output["instanceType"]);
   }
@@ -70724,11 +68961,7 @@ const deserializeAws_ec2FleetLaunchTemplateSpecification = (
   output: any,
   context: __SerdeContext
 ): FleetLaunchTemplateSpecification => {
-  const contents: any = {
-    LaunchTemplateId: undefined,
-    LaunchTemplateName: undefined,
-    Version: undefined,
-  };
+  const contents: any = {};
   if (output["launchTemplateId"] !== undefined) {
     contents.LaunchTemplateId = __expectString(output["launchTemplateId"]);
   }
@@ -70753,10 +68986,7 @@ const deserializeAws_ec2FleetSpotCapacityRebalance = (
   output: any,
   context: __SerdeContext
 ): FleetSpotCapacityRebalance => {
-  const contents: any = {
-    ReplacementStrategy: undefined,
-    TerminationDelay: undefined,
-  };
+  const contents: any = {};
   if (output["replacementStrategy"] !== undefined) {
     contents.ReplacementStrategy = __expectString(output["replacementStrategy"]);
   }
@@ -70770,9 +69000,7 @@ const deserializeAws_ec2FleetSpotMaintenanceStrategies = (
   output: any,
   context: __SerdeContext
 ): FleetSpotMaintenanceStrategies => {
-  const contents: any = {
-    CapacityRebalance: undefined,
-  };
+  const contents: any = {};
   if (output["capacityRebalance"] !== undefined) {
     contents.CapacityRebalance = deserializeAws_ec2FleetSpotCapacityRebalance(output["capacityRebalance"], context);
   }
@@ -70780,24 +69008,7 @@ const deserializeAws_ec2FleetSpotMaintenanceStrategies = (
 };
 
 const deserializeAws_ec2FlowLog = (output: any, context: __SerdeContext): FlowLog => {
-  const contents: any = {
-    CreationTime: undefined,
-    DeliverLogsErrorMessage: undefined,
-    DeliverLogsPermissionArn: undefined,
-    DeliverCrossAccountRole: undefined,
-    DeliverLogsStatus: undefined,
-    FlowLogId: undefined,
-    FlowLogStatus: undefined,
-    LogGroupName: undefined,
-    ResourceId: undefined,
-    TrafficType: undefined,
-    LogDestinationType: undefined,
-    LogDestination: undefined,
-    LogFormat: undefined,
-    Tags: undefined,
-    MaxAggregationInterval: undefined,
-    DestinationOptions: undefined,
-  };
+  const contents: any = {};
   if (output["creationTime"] !== undefined) {
     contents.CreationTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["creationTime"]));
   }
@@ -70860,12 +69071,7 @@ const deserializeAws_ec2FlowLogSet = (output: any, context: __SerdeContext): Flo
 };
 
 const deserializeAws_ec2FpgaDeviceInfo = (output: any, context: __SerdeContext): FpgaDeviceInfo => {
-  const contents: any = {
-    Name: undefined,
-    Manufacturer: undefined,
-    Count: undefined,
-    MemoryInfo: undefined,
-  };
+  const contents: any = {};
   if (output["name"] !== undefined) {
     contents.Name = __expectString(output["name"]);
   }
@@ -70890,9 +69096,7 @@ const deserializeAws_ec2FpgaDeviceInfoList = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_ec2FpgaDeviceMemoryInfo = (output: any, context: __SerdeContext): FpgaDeviceMemoryInfo => {
-  const contents: any = {
-    SizeInMiB: undefined,
-  };
+  const contents: any = {};
   if (output["sizeInMiB"] !== undefined) {
     contents.SizeInMiB = __strictParseInt32(output["sizeInMiB"]) as number;
   }
@@ -70900,24 +69104,7 @@ const deserializeAws_ec2FpgaDeviceMemoryInfo = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_ec2FpgaImage = (output: any, context: __SerdeContext): FpgaImage => {
-  const contents: any = {
-    FpgaImageId: undefined,
-    FpgaImageGlobalId: undefined,
-    Name: undefined,
-    Description: undefined,
-    ShellVersion: undefined,
-    PciId: undefined,
-    State: undefined,
-    CreateTime: undefined,
-    UpdateTime: undefined,
-    OwnerId: undefined,
-    OwnerAlias: undefined,
-    ProductCodes: undefined,
-    Tags: undefined,
-    Public: undefined,
-    DataRetentionSupport: undefined,
-    InstanceTypes: undefined,
-  };
+  const contents: any = {};
   if (output["fpgaImageId"] !== undefined) {
     contents.FpgaImageId = __expectString(output["fpgaImageId"]);
   }
@@ -70982,13 +69169,7 @@ const deserializeAws_ec2FpgaImage = (output: any, context: __SerdeContext): Fpga
 };
 
 const deserializeAws_ec2FpgaImageAttribute = (output: any, context: __SerdeContext): FpgaImageAttribute => {
-  const contents: any = {
-    FpgaImageId: undefined,
-    Name: undefined,
-    Description: undefined,
-    LoadPermissions: undefined,
-    ProductCodes: undefined,
-  };
+  const contents: any = {};
   if (output["fpgaImageId"] !== undefined) {
     contents.FpgaImageId = __expectString(output["fpgaImageId"]);
   }
@@ -71026,10 +69207,7 @@ const deserializeAws_ec2FpgaImageList = (output: any, context: __SerdeContext): 
 };
 
 const deserializeAws_ec2FpgaImageState = (output: any, context: __SerdeContext): FpgaImageState => {
-  const contents: any = {
-    Code: undefined,
-    Message: undefined,
-  };
+  const contents: any = {};
   if (output["code"] !== undefined) {
     contents.Code = __expectString(output["code"]);
   }
@@ -71040,10 +69218,7 @@ const deserializeAws_ec2FpgaImageState = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_ec2FpgaInfo = (output: any, context: __SerdeContext): FpgaInfo => {
-  const contents: any = {
-    Fpgas: undefined,
-    TotalFpgaMemoryInMiB: undefined,
-  };
+  const contents: any = {};
   if (output.fpgas === "") {
     contents.Fpgas = [];
   } else if (output["fpgas"] !== undefined && output["fpgas"]["item"] !== undefined) {
@@ -71059,9 +69234,7 @@ const deserializeAws_ec2GetAssociatedEnclaveCertificateIamRolesResult = (
   output: any,
   context: __SerdeContext
 ): GetAssociatedEnclaveCertificateIamRolesResult => {
-  const contents: any = {
-    AssociatedRoles: undefined,
-  };
+  const contents: any = {};
   if (output.associatedRoleSet === "") {
     contents.AssociatedRoles = [];
   } else if (output["associatedRoleSet"] !== undefined && output["associatedRoleSet"]["item"] !== undefined) {
@@ -71077,10 +69250,7 @@ const deserializeAws_ec2GetAssociatedIpv6PoolCidrsResult = (
   output: any,
   context: __SerdeContext
 ): GetAssociatedIpv6PoolCidrsResult => {
-  const contents: any = {
-    Ipv6CidrAssociations: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.ipv6CidrAssociationSet === "") {
     contents.Ipv6CidrAssociations = [];
   } else if (output["ipv6CidrAssociationSet"] !== undefined && output["ipv6CidrAssociationSet"]["item"] !== undefined) {
@@ -71099,10 +69269,7 @@ const deserializeAws_ec2GetAwsNetworkPerformanceDataResult = (
   output: any,
   context: __SerdeContext
 ): GetAwsNetworkPerformanceDataResult => {
-  const contents: any = {
-    DataResponses: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.dataResponseSet === "") {
     contents.DataResponses = [];
   } else if (output["dataResponseSet"] !== undefined && output["dataResponseSet"]["item"] !== undefined) {
@@ -71121,15 +69288,7 @@ const deserializeAws_ec2GetCapacityReservationUsageResult = (
   output: any,
   context: __SerdeContext
 ): GetCapacityReservationUsageResult => {
-  const contents: any = {
-    NextToken: undefined,
-    CapacityReservationId: undefined,
-    InstanceType: undefined,
-    TotalInstanceCount: undefined,
-    AvailableInstanceCount: undefined,
-    State: undefined,
-    InstanceUsages: undefined,
-  };
+  const contents: any = {};
   if (output["nextToken"] !== undefined) {
     contents.NextToken = __expectString(output["nextToken"]);
   }
@@ -71160,11 +69319,7 @@ const deserializeAws_ec2GetCapacityReservationUsageResult = (
 };
 
 const deserializeAws_ec2GetCoipPoolUsageResult = (output: any, context: __SerdeContext): GetCoipPoolUsageResult => {
-  const contents: any = {
-    CoipPoolId: undefined,
-    CoipAddressUsages: undefined,
-    LocalGatewayRouteTableId: undefined,
-  };
+  const contents: any = {};
   if (output["coipPoolId"] !== undefined) {
     contents.CoipPoolId = __expectString(output["coipPoolId"]);
   }
@@ -71183,11 +69338,7 @@ const deserializeAws_ec2GetCoipPoolUsageResult = (output: any, context: __SerdeC
 };
 
 const deserializeAws_ec2GetConsoleOutputResult = (output: any, context: __SerdeContext): GetConsoleOutputResult => {
-  const contents: any = {
-    InstanceId: undefined,
-    Output: undefined,
-    Timestamp: undefined,
-  };
+  const contents: any = {};
   if (output["instanceId"] !== undefined) {
     contents.InstanceId = __expectString(output["instanceId"]);
   }
@@ -71204,10 +69355,7 @@ const deserializeAws_ec2GetConsoleScreenshotResult = (
   output: any,
   context: __SerdeContext
 ): GetConsoleScreenshotResult => {
-  const contents: any = {
-    ImageData: undefined,
-    InstanceId: undefined,
-  };
+  const contents: any = {};
   if (output["imageData"] !== undefined) {
     contents.ImageData = __expectString(output["imageData"]);
   }
@@ -71221,9 +69369,7 @@ const deserializeAws_ec2GetDefaultCreditSpecificationResult = (
   output: any,
   context: __SerdeContext
 ): GetDefaultCreditSpecificationResult => {
-  const contents: any = {
-    InstanceFamilyCreditSpecification: undefined,
-  };
+  const contents: any = {};
   if (output["instanceFamilyCreditSpecification"] !== undefined) {
     contents.InstanceFamilyCreditSpecification = deserializeAws_ec2InstanceFamilyCreditSpecification(
       output["instanceFamilyCreditSpecification"],
@@ -71237,9 +69383,7 @@ const deserializeAws_ec2GetEbsDefaultKmsKeyIdResult = (
   output: any,
   context: __SerdeContext
 ): GetEbsDefaultKmsKeyIdResult => {
-  const contents: any = {
-    KmsKeyId: undefined,
-  };
+  const contents: any = {};
   if (output["kmsKeyId"] !== undefined) {
     contents.KmsKeyId = __expectString(output["kmsKeyId"]);
   }
@@ -71250,9 +69394,7 @@ const deserializeAws_ec2GetEbsEncryptionByDefaultResult = (
   output: any,
   context: __SerdeContext
 ): GetEbsEncryptionByDefaultResult => {
-  const contents: any = {
-    EbsEncryptionByDefault: undefined,
-  };
+  const contents: any = {};
   if (output["ebsEncryptionByDefault"] !== undefined) {
     contents.EbsEncryptionByDefault = __parseBoolean(output["ebsEncryptionByDefault"]);
   }
@@ -71263,9 +69405,7 @@ const deserializeAws_ec2GetFlowLogsIntegrationTemplateResult = (
   output: any,
   context: __SerdeContext
 ): GetFlowLogsIntegrationTemplateResult => {
-  const contents: any = {
-    Result: undefined,
-  };
+  const contents: any = {};
   if (output["result"] !== undefined) {
     contents.Result = __expectString(output["result"]);
   }
@@ -71276,10 +69416,7 @@ const deserializeAws_ec2GetGroupsForCapacityReservationResult = (
   output: any,
   context: __SerdeContext
 ): GetGroupsForCapacityReservationResult => {
-  const contents: any = {
-    NextToken: undefined,
-    CapacityReservationGroups: undefined,
-  };
+  const contents: any = {};
   if (output["nextToken"] !== undefined) {
     contents.NextToken = __expectString(output["nextToken"]);
   }
@@ -71301,12 +69438,7 @@ const deserializeAws_ec2GetHostReservationPurchasePreviewResult = (
   output: any,
   context: __SerdeContext
 ): GetHostReservationPurchasePreviewResult => {
-  const contents: any = {
-    CurrencyCode: undefined,
-    Purchase: undefined,
-    TotalHourlyPrice: undefined,
-    TotalUpfrontPrice: undefined,
-  };
+  const contents: any = {};
   if (output["currencyCode"] !== undefined) {
     contents.CurrencyCode = __expectString(output["currencyCode"]);
   }
@@ -71328,10 +69460,7 @@ const deserializeAws_ec2GetInstanceTypesFromInstanceRequirementsResult = (
   output: any,
   context: __SerdeContext
 ): GetInstanceTypesFromInstanceRequirementsResult => {
-  const contents: any = {
-    InstanceTypes: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.instanceTypeSet === "") {
     contents.InstanceTypes = [];
   } else if (output["instanceTypeSet"] !== undefined && output["instanceTypeSet"]["item"] !== undefined) {
@@ -71350,10 +69479,7 @@ const deserializeAws_ec2GetInstanceUefiDataResult = (
   output: any,
   context: __SerdeContext
 ): GetInstanceUefiDataResult => {
-  const contents: any = {
-    InstanceId: undefined,
-    UefiData: undefined,
-  };
+  const contents: any = {};
   if (output["instanceId"] !== undefined) {
     contents.InstanceId = __expectString(output["instanceId"]);
   }
@@ -71367,10 +69493,7 @@ const deserializeAws_ec2GetIpamAddressHistoryResult = (
   output: any,
   context: __SerdeContext
 ): GetIpamAddressHistoryResult => {
-  const contents: any = {
-    HistoryRecords: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.historyRecordSet === "") {
     contents.HistoryRecords = [];
   } else if (output["historyRecordSet"] !== undefined && output["historyRecordSet"]["item"] !== undefined) {
@@ -71389,10 +69512,7 @@ const deserializeAws_ec2GetIpamDiscoveredAccountsResult = (
   output: any,
   context: __SerdeContext
 ): GetIpamDiscoveredAccountsResult => {
-  const contents: any = {
-    IpamDiscoveredAccounts: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.ipamDiscoveredAccountSet === "") {
     contents.IpamDiscoveredAccounts = [];
   } else if (
@@ -71414,10 +69534,7 @@ const deserializeAws_ec2GetIpamDiscoveredResourceCidrsResult = (
   output: any,
   context: __SerdeContext
 ): GetIpamDiscoveredResourceCidrsResult => {
-  const contents: any = {
-    IpamDiscoveredResourceCidrs: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.ipamDiscoveredResourceCidrSet === "") {
     contents.IpamDiscoveredResourceCidrs = [];
   } else if (
@@ -71439,10 +69556,7 @@ const deserializeAws_ec2GetIpamPoolAllocationsResult = (
   output: any,
   context: __SerdeContext
 ): GetIpamPoolAllocationsResult => {
-  const contents: any = {
-    IpamPoolAllocations: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.ipamPoolAllocationSet === "") {
     contents.IpamPoolAllocations = [];
   } else if (output["ipamPoolAllocationSet"] !== undefined && output["ipamPoolAllocationSet"]["item"] !== undefined) {
@@ -71458,10 +69572,7 @@ const deserializeAws_ec2GetIpamPoolAllocationsResult = (
 };
 
 const deserializeAws_ec2GetIpamPoolCidrsResult = (output: any, context: __SerdeContext): GetIpamPoolCidrsResult => {
-  const contents: any = {
-    IpamPoolCidrs: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.ipamPoolCidrSet === "") {
     contents.IpamPoolCidrs = [];
   } else if (output["ipamPoolCidrSet"] !== undefined && output["ipamPoolCidrSet"]["item"] !== undefined) {
@@ -71480,10 +69591,7 @@ const deserializeAws_ec2GetIpamResourceCidrsResult = (
   output: any,
   context: __SerdeContext
 ): GetIpamResourceCidrsResult => {
-  const contents: any = {
-    NextToken: undefined,
-    IpamResourceCidrs: undefined,
-  };
+  const contents: any = {};
   if (output["nextToken"] !== undefined) {
     contents.NextToken = __expectString(output["nextToken"]);
   }
@@ -71502,9 +69610,7 @@ const deserializeAws_ec2GetLaunchTemplateDataResult = (
   output: any,
   context: __SerdeContext
 ): GetLaunchTemplateDataResult => {
-  const contents: any = {
-    LaunchTemplateData: undefined,
-  };
+  const contents: any = {};
   if (output["launchTemplateData"] !== undefined) {
     contents.LaunchTemplateData = deserializeAws_ec2ResponseLaunchTemplateData(output["launchTemplateData"], context);
   }
@@ -71515,10 +69621,7 @@ const deserializeAws_ec2GetManagedPrefixListAssociationsResult = (
   output: any,
   context: __SerdeContext
 ): GetManagedPrefixListAssociationsResult => {
-  const contents: any = {
-    PrefixListAssociations: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.prefixListAssociationSet === "") {
     contents.PrefixListAssociations = [];
   } else if (
@@ -71540,10 +69643,7 @@ const deserializeAws_ec2GetManagedPrefixListEntriesResult = (
   output: any,
   context: __SerdeContext
 ): GetManagedPrefixListEntriesResult => {
-  const contents: any = {
-    Entries: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.entrySet === "") {
     contents.Entries = [];
   } else if (output["entrySet"] !== undefined && output["entrySet"]["item"] !== undefined) {
@@ -71562,12 +69662,7 @@ const deserializeAws_ec2GetNetworkInsightsAccessScopeAnalysisFindingsResult = (
   output: any,
   context: __SerdeContext
 ): GetNetworkInsightsAccessScopeAnalysisFindingsResult => {
-  const contents: any = {
-    NetworkInsightsAccessScopeAnalysisId: undefined,
-    AnalysisStatus: undefined,
-    AnalysisFindings: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output["networkInsightsAccessScopeAnalysisId"] !== undefined) {
     contents.NetworkInsightsAccessScopeAnalysisId = __expectString(output["networkInsightsAccessScopeAnalysisId"]);
   }
@@ -71592,9 +69687,7 @@ const deserializeAws_ec2GetNetworkInsightsAccessScopeContentResult = (
   output: any,
   context: __SerdeContext
 ): GetNetworkInsightsAccessScopeContentResult => {
-  const contents: any = {
-    NetworkInsightsAccessScopeContent: undefined,
-  };
+  const contents: any = {};
   if (output["networkInsightsAccessScopeContent"] !== undefined) {
     contents.NetworkInsightsAccessScopeContent = deserializeAws_ec2NetworkInsightsAccessScopeContent(
       output["networkInsightsAccessScopeContent"],
@@ -71605,11 +69698,7 @@ const deserializeAws_ec2GetNetworkInsightsAccessScopeContentResult = (
 };
 
 const deserializeAws_ec2GetPasswordDataResult = (output: any, context: __SerdeContext): GetPasswordDataResult => {
-  const contents: any = {
-    InstanceId: undefined,
-    PasswordData: undefined,
-    Timestamp: undefined,
-  };
+  const contents: any = {};
   if (output["instanceId"] !== undefined) {
     contents.InstanceId = __expectString(output["instanceId"]);
   }
@@ -71626,17 +69715,7 @@ const deserializeAws_ec2GetReservedInstancesExchangeQuoteResult = (
   output: any,
   context: __SerdeContext
 ): GetReservedInstancesExchangeQuoteResult => {
-  const contents: any = {
-    CurrencyCode: undefined,
-    IsValidExchange: undefined,
-    OutputReservedInstancesWillExpireAt: undefined,
-    PaymentDue: undefined,
-    ReservedInstanceValueRollup: undefined,
-    ReservedInstanceValueSet: undefined,
-    TargetConfigurationValueRollup: undefined,
-    TargetConfigurationValueSet: undefined,
-    ValidationFailureReason: undefined,
-  };
+  const contents: any = {};
   if (output["currencyCode"] !== undefined) {
     contents.CurrencyCode = __expectString(output["currencyCode"]);
   }
@@ -71695,9 +69774,7 @@ const deserializeAws_ec2GetSerialConsoleAccessStatusResult = (
   output: any,
   context: __SerdeContext
 ): GetSerialConsoleAccessStatusResult => {
-  const contents: any = {
-    SerialConsoleAccessEnabled: undefined,
-  };
+  const contents: any = {};
   if (output["serialConsoleAccessEnabled"] !== undefined) {
     contents.SerialConsoleAccessEnabled = __parseBoolean(output["serialConsoleAccessEnabled"]);
   }
@@ -71708,10 +69785,7 @@ const deserializeAws_ec2GetSpotPlacementScoresResult = (
   output: any,
   context: __SerdeContext
 ): GetSpotPlacementScoresResult => {
-  const contents: any = {
-    SpotPlacementScores: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.spotPlacementScoreSet === "") {
     contents.SpotPlacementScores = [];
   } else if (output["spotPlacementScoreSet"] !== undefined && output["spotPlacementScoreSet"]["item"] !== undefined) {
@@ -71730,11 +69804,7 @@ const deserializeAws_ec2GetSubnetCidrReservationsResult = (
   output: any,
   context: __SerdeContext
 ): GetSubnetCidrReservationsResult => {
-  const contents: any = {
-    SubnetIpv4CidrReservations: undefined,
-    SubnetIpv6CidrReservations: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.subnetIpv4CidrReservationSet === "") {
     contents.SubnetIpv4CidrReservations = [];
   } else if (
@@ -71767,10 +69837,7 @@ const deserializeAws_ec2GetTransitGatewayAttachmentPropagationsResult = (
   output: any,
   context: __SerdeContext
 ): GetTransitGatewayAttachmentPropagationsResult => {
-  const contents: any = {
-    TransitGatewayAttachmentPropagations: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.transitGatewayAttachmentPropagations === "") {
     contents.TransitGatewayAttachmentPropagations = [];
   } else if (
@@ -71792,10 +69859,7 @@ const deserializeAws_ec2GetTransitGatewayMulticastDomainAssociationsResult = (
   output: any,
   context: __SerdeContext
 ): GetTransitGatewayMulticastDomainAssociationsResult => {
-  const contents: any = {
-    MulticastDomainAssociations: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.multicastDomainAssociations === "") {
     contents.MulticastDomainAssociations = [];
   } else if (
@@ -71817,10 +69881,7 @@ const deserializeAws_ec2GetTransitGatewayPolicyTableAssociationsResult = (
   output: any,
   context: __SerdeContext
 ): GetTransitGatewayPolicyTableAssociationsResult => {
-  const contents: any = {
-    Associations: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.associations === "") {
     contents.Associations = [];
   } else if (output["associations"] !== undefined && output["associations"]["item"] !== undefined) {
@@ -71839,9 +69900,7 @@ const deserializeAws_ec2GetTransitGatewayPolicyTableEntriesResult = (
   output: any,
   context: __SerdeContext
 ): GetTransitGatewayPolicyTableEntriesResult => {
-  const contents: any = {
-    TransitGatewayPolicyTableEntries: undefined,
-  };
+  const contents: any = {};
   if (output.transitGatewayPolicyTableEntries === "") {
     contents.TransitGatewayPolicyTableEntries = [];
   } else if (
@@ -71860,10 +69919,7 @@ const deserializeAws_ec2GetTransitGatewayPrefixListReferencesResult = (
   output: any,
   context: __SerdeContext
 ): GetTransitGatewayPrefixListReferencesResult => {
-  const contents: any = {
-    TransitGatewayPrefixListReferences: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.transitGatewayPrefixListReferenceSet === "") {
     contents.TransitGatewayPrefixListReferences = [];
   } else if (
@@ -71885,10 +69941,7 @@ const deserializeAws_ec2GetTransitGatewayRouteTableAssociationsResult = (
   output: any,
   context: __SerdeContext
 ): GetTransitGatewayRouteTableAssociationsResult => {
-  const contents: any = {
-    Associations: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.associations === "") {
     contents.Associations = [];
   } else if (output["associations"] !== undefined && output["associations"]["item"] !== undefined) {
@@ -71907,10 +69960,7 @@ const deserializeAws_ec2GetTransitGatewayRouteTablePropagationsResult = (
   output: any,
   context: __SerdeContext
 ): GetTransitGatewayRouteTablePropagationsResult => {
-  const contents: any = {
-    TransitGatewayRouteTablePropagations: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.transitGatewayRouteTablePropagations === "") {
     contents.TransitGatewayRouteTablePropagations = [];
   } else if (
@@ -71932,10 +69982,7 @@ const deserializeAws_ec2GetVerifiedAccessEndpointPolicyResult = (
   output: any,
   context: __SerdeContext
 ): GetVerifiedAccessEndpointPolicyResult => {
-  const contents: any = {
-    PolicyEnabled: undefined,
-    PolicyDocument: undefined,
-  };
+  const contents: any = {};
   if (output["policyEnabled"] !== undefined) {
     contents.PolicyEnabled = __parseBoolean(output["policyEnabled"]);
   }
@@ -71949,10 +69996,7 @@ const deserializeAws_ec2GetVerifiedAccessGroupPolicyResult = (
   output: any,
   context: __SerdeContext
 ): GetVerifiedAccessGroupPolicyResult => {
-  const contents: any = {
-    PolicyEnabled: undefined,
-    PolicyDocument: undefined,
-  };
+  const contents: any = {};
   if (output["policyEnabled"] !== undefined) {
     contents.PolicyEnabled = __parseBoolean(output["policyEnabled"]);
   }
@@ -71966,9 +70010,7 @@ const deserializeAws_ec2GetVpnConnectionDeviceSampleConfigurationResult = (
   output: any,
   context: __SerdeContext
 ): GetVpnConnectionDeviceSampleConfigurationResult => {
-  const contents: any = {
-    VpnConnectionDeviceSampleConfiguration: undefined,
-  };
+  const contents: any = {};
   if (output["vpnConnectionDeviceSampleConfiguration"] !== undefined) {
     contents.VpnConnectionDeviceSampleConfiguration = __expectString(output["vpnConnectionDeviceSampleConfiguration"]);
   }
@@ -71979,10 +70021,7 @@ const deserializeAws_ec2GetVpnConnectionDeviceTypesResult = (
   output: any,
   context: __SerdeContext
 ): GetVpnConnectionDeviceTypesResult => {
-  const contents: any = {
-    VpnConnectionDeviceTypes: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.vpnConnectionDeviceTypeSet === "") {
     contents.VpnConnectionDeviceTypes = [];
   } else if (
@@ -72001,12 +70040,7 @@ const deserializeAws_ec2GetVpnConnectionDeviceTypesResult = (
 };
 
 const deserializeAws_ec2GpuDeviceInfo = (output: any, context: __SerdeContext): GpuDeviceInfo => {
-  const contents: any = {
-    Name: undefined,
-    Manufacturer: undefined,
-    Count: undefined,
-    MemoryInfo: undefined,
-  };
+  const contents: any = {};
   if (output["name"] !== undefined) {
     contents.Name = __expectString(output["name"]);
   }
@@ -72031,9 +70065,7 @@ const deserializeAws_ec2GpuDeviceInfoList = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_ec2GpuDeviceMemoryInfo = (output: any, context: __SerdeContext): GpuDeviceMemoryInfo => {
-  const contents: any = {
-    SizeInMiB: undefined,
-  };
+  const contents: any = {};
   if (output["sizeInMiB"] !== undefined) {
     contents.SizeInMiB = __strictParseInt32(output["sizeInMiB"]) as number;
   }
@@ -72041,10 +70073,7 @@ const deserializeAws_ec2GpuDeviceMemoryInfo = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_ec2GpuInfo = (output: any, context: __SerdeContext): GpuInfo => {
-  const contents: any = {
-    Gpus: undefined,
-    TotalGpuMemoryInMiB: undefined,
-  };
+  const contents: any = {};
   if (output.gpus === "") {
     contents.Gpus = [];
   } else if (output["gpus"] !== undefined && output["gpus"]["item"] !== undefined) {
@@ -72057,10 +70086,7 @@ const deserializeAws_ec2GpuInfo = (output: any, context: __SerdeContext): GpuInf
 };
 
 const deserializeAws_ec2GroupIdentifier = (output: any, context: __SerdeContext): GroupIdentifier => {
-  const contents: any = {
-    GroupName: undefined,
-    GroupId: undefined,
-  };
+  const contents: any = {};
   if (output["groupName"] !== undefined) {
     contents.GroupName = __expectString(output["groupName"]);
   }
@@ -72095,9 +70121,7 @@ const deserializeAws_ec2GroupIdStringList = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_ec2HibernationOptions = (output: any, context: __SerdeContext): HibernationOptions => {
-  const contents: any = {
-    Configured: undefined,
-  };
+  const contents: any = {};
   if (output["configured"] !== undefined) {
     contents.Configured = __parseBoolean(output["configured"]);
   }
@@ -72105,11 +70129,7 @@ const deserializeAws_ec2HibernationOptions = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_ec2HistoryRecord = (output: any, context: __SerdeContext): HistoryRecord => {
-  const contents: any = {
-    EventInformation: undefined,
-    EventType: undefined,
-    Timestamp: undefined,
-  };
+  const contents: any = {};
   if (output["eventInformation"] !== undefined) {
     contents.EventInformation = deserializeAws_ec2EventInformation(output["eventInformation"], context);
   }
@@ -72123,11 +70143,7 @@ const deserializeAws_ec2HistoryRecord = (output: any, context: __SerdeContext): 
 };
 
 const deserializeAws_ec2HistoryRecordEntry = (output: any, context: __SerdeContext): HistoryRecordEntry => {
-  const contents: any = {
-    EventInformation: undefined,
-    EventType: undefined,
-    Timestamp: undefined,
-  };
+  const contents: any = {};
   if (output["eventInformation"] !== undefined) {
     contents.EventInformation = deserializeAws_ec2EventInformation(output["eventInformation"], context);
   }
@@ -72157,27 +70173,7 @@ const deserializeAws_ec2HistoryRecordSet = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_ec2Host = (output: any, context: __SerdeContext): Host => {
-  const contents: any = {
-    AutoPlacement: undefined,
-    AvailabilityZone: undefined,
-    AvailableCapacity: undefined,
-    ClientToken: undefined,
-    HostId: undefined,
-    HostProperties: undefined,
-    HostReservationId: undefined,
-    Instances: undefined,
-    State: undefined,
-    AllocationTime: undefined,
-    ReleaseTime: undefined,
-    Tags: undefined,
-    HostRecovery: undefined,
-    AllowsMultipleInstanceTypes: undefined,
-    OwnerId: undefined,
-    AvailabilityZoneId: undefined,
-    MemberOfServiceLinkedResourceGroup: undefined,
-    OutpostArn: undefined,
-    HostMaintenance: undefined,
-  };
+  const contents: any = {};
   if (output["autoPlacement"] !== undefined) {
     contents.AutoPlacement = __expectString(output["autoPlacement"]);
   }
@@ -72246,11 +70242,7 @@ const deserializeAws_ec2Host = (output: any, context: __SerdeContext): Host => {
 };
 
 const deserializeAws_ec2HostInstance = (output: any, context: __SerdeContext): HostInstance => {
-  const contents: any = {
-    InstanceId: undefined,
-    InstanceType: undefined,
-    OwnerId: undefined,
-  };
+  const contents: any = {};
   if (output["instanceId"] !== undefined) {
     contents.InstanceId = __expectString(output["instanceId"]);
   }
@@ -72280,15 +70272,7 @@ const deserializeAws_ec2HostList = (output: any, context: __SerdeContext): Host[
 };
 
 const deserializeAws_ec2HostOffering = (output: any, context: __SerdeContext): HostOffering => {
-  const contents: any = {
-    CurrencyCode: undefined,
-    Duration: undefined,
-    HourlyPrice: undefined,
-    InstanceFamily: undefined,
-    OfferingId: undefined,
-    PaymentOption: undefined,
-    UpfrontPrice: undefined,
-  };
+  const contents: any = {};
   if (output["currencyCode"] !== undefined) {
     contents.CurrencyCode = __expectString(output["currencyCode"]);
   }
@@ -72322,13 +70306,7 @@ const deserializeAws_ec2HostOfferingSet = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_ec2HostProperties = (output: any, context: __SerdeContext): HostProperties => {
-  const contents: any = {
-    Cores: undefined,
-    InstanceType: undefined,
-    InstanceFamily: undefined,
-    Sockets: undefined,
-    TotalVCpus: undefined,
-  };
+  const contents: any = {};
   if (output["cores"] !== undefined) {
     contents.Cores = __strictParseInt32(output["cores"]) as number;
   }
@@ -72348,22 +70326,7 @@ const deserializeAws_ec2HostProperties = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_ec2HostReservation = (output: any, context: __SerdeContext): HostReservation => {
-  const contents: any = {
-    Count: undefined,
-    CurrencyCode: undefined,
-    Duration: undefined,
-    End: undefined,
-    HostIdSet: undefined,
-    HostReservationId: undefined,
-    HourlyPrice: undefined,
-    InstanceFamily: undefined,
-    OfferingId: undefined,
-    PaymentOption: undefined,
-    Start: undefined,
-    State: undefined,
-    UpfrontPrice: undefined,
-    Tags: undefined,
-  };
+  const contents: any = {};
   if (output["count"] !== undefined) {
     contents.Count = __strictParseInt32(output["count"]) as number;
   }
@@ -72425,10 +70388,7 @@ const deserializeAws_ec2HostReservationSet = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_ec2IamInstanceProfile = (output: any, context: __SerdeContext): IamInstanceProfile => {
-  const contents: any = {
-    Arn: undefined,
-    Id: undefined,
-  };
+  const contents: any = {};
   if (output["arn"] !== undefined) {
     contents.Arn = __expectString(output["arn"]);
   }
@@ -72442,13 +70402,7 @@ const deserializeAws_ec2IamInstanceProfileAssociation = (
   output: any,
   context: __SerdeContext
 ): IamInstanceProfileAssociation => {
-  const contents: any = {
-    AssociationId: undefined,
-    InstanceId: undefined,
-    IamInstanceProfile: undefined,
-    State: undefined,
-    Timestamp: undefined,
-  };
+  const contents: any = {};
   if (output["associationId"] !== undefined) {
     contents.AssociationId = __expectString(output["associationId"]);
   }
@@ -72482,10 +70436,7 @@ const deserializeAws_ec2IamInstanceProfileSpecification = (
   output: any,
   context: __SerdeContext
 ): IamInstanceProfileSpecification => {
-  const contents: any = {
-    Arn: undefined,
-    Name: undefined,
-  };
+  const contents: any = {};
   if (output["arn"] !== undefined) {
     contents.Arn = __expectString(output["arn"]);
   }
@@ -72496,10 +70447,7 @@ const deserializeAws_ec2IamInstanceProfileSpecification = (
 };
 
 const deserializeAws_ec2IcmpTypeCode = (output: any, context: __SerdeContext): IcmpTypeCode => {
-  const contents: any = {
-    Code: undefined,
-    Type: undefined,
-  };
+  const contents: any = {};
   if (output["code"] !== undefined) {
     contents.Code = __strictParseInt32(output["code"]) as number;
   }
@@ -72510,11 +70458,7 @@ const deserializeAws_ec2IcmpTypeCode = (output: any, context: __SerdeContext): I
 };
 
 const deserializeAws_ec2IdFormat = (output: any, context: __SerdeContext): IdFormat => {
-  const contents: any = {
-    Deadline: undefined,
-    Resource: undefined,
-    UseLongIds: undefined,
-  };
+  const contents: any = {};
   if (output["deadline"] !== undefined) {
     contents.Deadline = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["deadline"]));
   }
@@ -72544,9 +70488,7 @@ const deserializeAws_ec2IKEVersionsList = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_ec2IKEVersionsListValue = (output: any, context: __SerdeContext): IKEVersionsListValue => {
-  const contents: any = {
-    Value: undefined,
-  };
+  const contents: any = {};
   if (output["value"] !== undefined) {
     contents.Value = __expectString(output["value"]);
   }
@@ -72554,38 +70496,7 @@ const deserializeAws_ec2IKEVersionsListValue = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_ec2Image = (output: any, context: __SerdeContext): Image => {
-  const contents: any = {
-    Architecture: undefined,
-    CreationDate: undefined,
-    ImageId: undefined,
-    ImageLocation: undefined,
-    ImageType: undefined,
-    Public: undefined,
-    KernelId: undefined,
-    OwnerId: undefined,
-    Platform: undefined,
-    PlatformDetails: undefined,
-    UsageOperation: undefined,
-    ProductCodes: undefined,
-    RamdiskId: undefined,
-    State: undefined,
-    BlockDeviceMappings: undefined,
-    Description: undefined,
-    EnaSupport: undefined,
-    Hypervisor: undefined,
-    ImageOwnerAlias: undefined,
-    Name: undefined,
-    RootDeviceName: undefined,
-    RootDeviceType: undefined,
-    SriovNetSupport: undefined,
-    StateReason: undefined,
-    Tags: undefined,
-    VirtualizationType: undefined,
-    BootMode: undefined,
-    TpmSupport: undefined,
-    DeprecationTime: undefined,
-    ImdsSupport: undefined,
-  };
+  const contents: any = {};
   if (output["architecture"] !== undefined) {
     contents.Architecture = __expectString(output["architecture"]);
   }
@@ -72692,21 +70603,7 @@ const deserializeAws_ec2Image = (output: any, context: __SerdeContext): Image =>
 };
 
 const deserializeAws_ec2ImageAttribute = (output: any, context: __SerdeContext): ImageAttribute => {
-  const contents: any = {
-    BlockDeviceMappings: undefined,
-    ImageId: undefined,
-    LaunchPermissions: undefined,
-    ProductCodes: undefined,
-    Description: undefined,
-    KernelId: undefined,
-    RamdiskId: undefined,
-    SriovNetSupport: undefined,
-    BootMode: undefined,
-    TpmSupport: undefined,
-    UefiData: undefined,
-    LastLaunchedTime: undefined,
-    ImdsSupport: undefined,
-  };
+  const contents: any = {};
   if (output.blockDeviceMapping === "") {
     contents.BlockDeviceMappings = [];
   } else if (output["blockDeviceMapping"] !== undefined && output["blockDeviceMapping"]["item"] !== undefined) {
@@ -72773,13 +70670,7 @@ const deserializeAws_ec2ImageList = (output: any, context: __SerdeContext): Imag
 };
 
 const deserializeAws_ec2ImageRecycleBinInfo = (output: any, context: __SerdeContext): ImageRecycleBinInfo => {
-  const contents: any = {
-    ImageId: undefined,
-    Name: undefined,
-    Description: undefined,
-    RecycleBinEnterTime: undefined,
-    RecycleBinExitTime: undefined,
-  };
+  const contents: any = {};
   if (output["imageId"] !== undefined) {
     contents.ImageId = __expectString(output["imageId"]);
   }
@@ -72810,9 +70701,7 @@ const deserializeAws_ec2ImportClientVpnClientCertificateRevocationListResult = (
   output: any,
   context: __SerdeContext
 ): ImportClientVpnClientCertificateRevocationListResult => {
-  const contents: any = {
-    Return: undefined,
-  };
+  const contents: any = {};
   if (output["return"] !== undefined) {
     contents.Return = __parseBoolean(output["return"]);
   }
@@ -72823,9 +70712,7 @@ const deserializeAws_ec2ImportImageLicenseConfigurationResponse = (
   output: any,
   context: __SerdeContext
 ): ImportImageLicenseConfigurationResponse => {
-  const contents: any = {
-    LicenseConfigurationArn: undefined,
-  };
+  const contents: any = {};
   if (output["licenseConfigurationArn"] !== undefined) {
     contents.LicenseConfigurationArn = __expectString(output["licenseConfigurationArn"]);
   }
@@ -72844,24 +70731,7 @@ const deserializeAws_ec2ImportImageLicenseSpecificationListResponse = (
 };
 
 const deserializeAws_ec2ImportImageResult = (output: any, context: __SerdeContext): ImportImageResult => {
-  const contents: any = {
-    Architecture: undefined,
-    Description: undefined,
-    Encrypted: undefined,
-    Hypervisor: undefined,
-    ImageId: undefined,
-    ImportTaskId: undefined,
-    KmsKeyId: undefined,
-    LicenseType: undefined,
-    Platform: undefined,
-    Progress: undefined,
-    SnapshotDetails: undefined,
-    Status: undefined,
-    StatusMessage: undefined,
-    LicenseSpecifications: undefined,
-    Tags: undefined,
-    UsageOperation: undefined,
-  };
+  const contents: any = {};
   if (output["architecture"] !== undefined) {
     contents.Architecture = __expectString(output["architecture"]);
   }
@@ -72926,25 +70796,7 @@ const deserializeAws_ec2ImportImageResult = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_ec2ImportImageTask = (output: any, context: __SerdeContext): ImportImageTask => {
-  const contents: any = {
-    Architecture: undefined,
-    Description: undefined,
-    Encrypted: undefined,
-    Hypervisor: undefined,
-    ImageId: undefined,
-    ImportTaskId: undefined,
-    KmsKeyId: undefined,
-    LicenseType: undefined,
-    Platform: undefined,
-    Progress: undefined,
-    SnapshotDetails: undefined,
-    Status: undefined,
-    StatusMessage: undefined,
-    Tags: undefined,
-    LicenseSpecifications: undefined,
-    UsageOperation: undefined,
-    BootMode: undefined,
-  };
+  const contents: any = {};
   if (output["architecture"] !== undefined) {
     contents.Architecture = __expectString(output["architecture"]);
   }
@@ -73020,9 +70872,7 @@ const deserializeAws_ec2ImportImageTaskList = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_ec2ImportInstanceResult = (output: any, context: __SerdeContext): ImportInstanceResult => {
-  const contents: any = {
-    ConversionTask: undefined,
-  };
+  const contents: any = {};
   if (output["conversionTask"] !== undefined) {
     contents.ConversionTask = deserializeAws_ec2ConversionTask(output["conversionTask"], context);
   }
@@ -73033,12 +70883,7 @@ const deserializeAws_ec2ImportInstanceTaskDetails = (
   output: any,
   context: __SerdeContext
 ): ImportInstanceTaskDetails => {
-  const contents: any = {
-    Description: undefined,
-    InstanceId: undefined,
-    Platform: undefined,
-    Volumes: undefined,
-  };
+  const contents: any = {};
   if (output["description"] !== undefined) {
     contents.Description = __expectString(output["description"]);
   }
@@ -73063,15 +70908,7 @@ const deserializeAws_ec2ImportInstanceVolumeDetailItem = (
   output: any,
   context: __SerdeContext
 ): ImportInstanceVolumeDetailItem => {
-  const contents: any = {
-    AvailabilityZone: undefined,
-    BytesConverted: undefined,
-    Description: undefined,
-    Image: undefined,
-    Status: undefined,
-    StatusMessage: undefined,
-    Volume: undefined,
-  };
+  const contents: any = {};
   if (output["availabilityZone"] !== undefined) {
     contents.AvailabilityZone = __expectString(output["availabilityZone"]);
   }
@@ -73108,12 +70945,7 @@ const deserializeAws_ec2ImportInstanceVolumeDetailSet = (
 };
 
 const deserializeAws_ec2ImportKeyPairResult = (output: any, context: __SerdeContext): ImportKeyPairResult => {
-  const contents: any = {
-    KeyFingerprint: undefined,
-    KeyName: undefined,
-    KeyPairId: undefined,
-    Tags: undefined,
-  };
+  const contents: any = {};
   if (output["keyFingerprint"] !== undefined) {
     contents.KeyFingerprint = __expectString(output["keyFingerprint"]);
   }
@@ -73132,12 +70964,7 @@ const deserializeAws_ec2ImportKeyPairResult = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_ec2ImportSnapshotResult = (output: any, context: __SerdeContext): ImportSnapshotResult => {
-  const contents: any = {
-    Description: undefined,
-    ImportTaskId: undefined,
-    SnapshotTaskDetail: undefined,
-    Tags: undefined,
-  };
+  const contents: any = {};
   if (output["description"] !== undefined) {
     contents.Description = __expectString(output["description"]);
   }
@@ -73156,12 +70983,7 @@ const deserializeAws_ec2ImportSnapshotResult = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_ec2ImportSnapshotTask = (output: any, context: __SerdeContext): ImportSnapshotTask => {
-  const contents: any = {
-    Description: undefined,
-    ImportTaskId: undefined,
-    SnapshotTaskDetail: undefined,
-    Tags: undefined,
-  };
+  const contents: any = {};
   if (output["description"] !== undefined) {
     contents.Description = __expectString(output["description"]);
   }
@@ -73188,9 +71010,7 @@ const deserializeAws_ec2ImportSnapshotTaskList = (output: any, context: __SerdeC
 };
 
 const deserializeAws_ec2ImportVolumeResult = (output: any, context: __SerdeContext): ImportVolumeResult => {
-  const contents: any = {
-    ConversionTask: undefined,
-  };
+  const contents: any = {};
   if (output["conversionTask"] !== undefined) {
     contents.ConversionTask = deserializeAws_ec2ConversionTask(output["conversionTask"], context);
   }
@@ -73198,13 +71018,7 @@ const deserializeAws_ec2ImportVolumeResult = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_ec2ImportVolumeTaskDetails = (output: any, context: __SerdeContext): ImportVolumeTaskDetails => {
-  const contents: any = {
-    AvailabilityZone: undefined,
-    BytesConverted: undefined,
-    Description: undefined,
-    Image: undefined,
-    Volume: undefined,
-  };
+  const contents: any = {};
   if (output["availabilityZone"] !== undefined) {
     contents.AvailabilityZone = __expectString(output["availabilityZone"]);
   }
@@ -73224,9 +71038,7 @@ const deserializeAws_ec2ImportVolumeTaskDetails = (output: any, context: __Serde
 };
 
 const deserializeAws_ec2InferenceAcceleratorInfo = (output: any, context: __SerdeContext): InferenceAcceleratorInfo => {
-  const contents: any = {
-    Accelerators: undefined,
-  };
+  const contents: any = {};
   if (output.accelerators === "") {
     contents.Accelerators = [];
   } else if (output["accelerators"] !== undefined && output["accelerators"]["member"] !== undefined) {
@@ -73239,11 +71051,7 @@ const deserializeAws_ec2InferenceAcceleratorInfo = (output: any, context: __Serd
 };
 
 const deserializeAws_ec2InferenceDeviceInfo = (output: any, context: __SerdeContext): InferenceDeviceInfo => {
-  const contents: any = {
-    Count: undefined,
-    Name: undefined,
-    Manufacturer: undefined,
-  };
+  const contents: any = {};
   if (output["count"] !== undefined) {
     contents.Count = __strictParseInt32(output["count"]) as number;
   }
@@ -73273,65 +71081,7 @@ const deserializeAws_ec2InsideCidrBlocksStringList = (output: any, context: __Se
 };
 
 const deserializeAws_ec2Instance = (output: any, context: __SerdeContext): Instance => {
-  const contents: any = {
-    AmiLaunchIndex: undefined,
-    ImageId: undefined,
-    InstanceId: undefined,
-    InstanceType: undefined,
-    KernelId: undefined,
-    KeyName: undefined,
-    LaunchTime: undefined,
-    Monitoring: undefined,
-    Placement: undefined,
-    Platform: undefined,
-    PrivateDnsName: undefined,
-    PrivateIpAddress: undefined,
-    ProductCodes: undefined,
-    PublicDnsName: undefined,
-    PublicIpAddress: undefined,
-    RamdiskId: undefined,
-    State: undefined,
-    StateTransitionReason: undefined,
-    SubnetId: undefined,
-    VpcId: undefined,
-    Architecture: undefined,
-    BlockDeviceMappings: undefined,
-    ClientToken: undefined,
-    EbsOptimized: undefined,
-    EnaSupport: undefined,
-    Hypervisor: undefined,
-    IamInstanceProfile: undefined,
-    InstanceLifecycle: undefined,
-    ElasticGpuAssociations: undefined,
-    ElasticInferenceAcceleratorAssociations: undefined,
-    NetworkInterfaces: undefined,
-    OutpostArn: undefined,
-    RootDeviceName: undefined,
-    RootDeviceType: undefined,
-    SecurityGroups: undefined,
-    SourceDestCheck: undefined,
-    SpotInstanceRequestId: undefined,
-    SriovNetSupport: undefined,
-    StateReason: undefined,
-    Tags: undefined,
-    VirtualizationType: undefined,
-    CpuOptions: undefined,
-    CapacityReservationId: undefined,
-    CapacityReservationSpecification: undefined,
-    HibernationOptions: undefined,
-    Licenses: undefined,
-    MetadataOptions: undefined,
-    EnclaveOptions: undefined,
-    BootMode: undefined,
-    PlatformDetails: undefined,
-    UsageOperation: undefined,
-    UsageOperationUpdateTime: undefined,
-    PrivateDnsNameOptions: undefined,
-    Ipv6Address: undefined,
-    TpmSupport: undefined,
-    MaintenanceOptions: undefined,
-    CurrentInstanceBootMode: undefined,
-  };
+  const contents: any = {};
   if (output["amiLaunchIndex"] !== undefined) {
     contents.AmiLaunchIndex = __strictParseInt32(output["amiLaunchIndex"]) as number;
   }
@@ -73555,25 +71305,7 @@ const deserializeAws_ec2Instance = (output: any, context: __SerdeContext): Insta
 };
 
 const deserializeAws_ec2InstanceAttribute = (output: any, context: __SerdeContext): InstanceAttribute => {
-  const contents: any = {
-    Groups: undefined,
-    BlockDeviceMappings: undefined,
-    DisableApiTermination: undefined,
-    EnaSupport: undefined,
-    EnclaveOptions: undefined,
-    EbsOptimized: undefined,
-    InstanceId: undefined,
-    InstanceInitiatedShutdownBehavior: undefined,
-    InstanceType: undefined,
-    KernelId: undefined,
-    ProductCodes: undefined,
-    RamdiskId: undefined,
-    RootDeviceName: undefined,
-    SourceDestCheck: undefined,
-    SriovNetSupport: undefined,
-    UserData: undefined,
-    DisableApiStop: undefined,
-  };
+  const contents: any = {};
   if (output.groupSet === "") {
     contents.Groups = [];
   } else if (output["groupSet"] !== undefined && output["groupSet"]["item"] !== undefined) {
@@ -73650,10 +71382,7 @@ const deserializeAws_ec2InstanceBlockDeviceMapping = (
   output: any,
   context: __SerdeContext
 ): InstanceBlockDeviceMapping => {
-  const contents: any = {
-    DeviceName: undefined,
-    Ebs: undefined,
-  };
+  const contents: any = {};
   if (output["deviceName"] !== undefined) {
     contents.DeviceName = __expectString(output["deviceName"]);
   }
@@ -73675,11 +71404,7 @@ const deserializeAws_ec2InstanceBlockDeviceMappingList = (
 };
 
 const deserializeAws_ec2InstanceCapacity = (output: any, context: __SerdeContext): InstanceCapacity => {
-  const contents: any = {
-    AvailableCapacity: undefined,
-    InstanceType: undefined,
-    TotalCapacity: undefined,
-  };
+  const contents: any = {};
   if (output["availableCapacity"] !== undefined) {
     contents.AvailableCapacity = __strictParseInt32(output["availableCapacity"]) as number;
   }
@@ -73693,10 +71418,7 @@ const deserializeAws_ec2InstanceCapacity = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_ec2InstanceCount = (output: any, context: __SerdeContext): InstanceCount => {
-  const contents: any = {
-    InstanceCount: undefined,
-    State: undefined,
-  };
+  const contents: any = {};
   if (output["instanceCount"] !== undefined) {
     contents.InstanceCount = __strictParseInt32(output["instanceCount"]) as number;
   }
@@ -73718,10 +71440,7 @@ const deserializeAws_ec2InstanceCreditSpecification = (
   output: any,
   context: __SerdeContext
 ): InstanceCreditSpecification => {
-  const contents: any = {
-    InstanceId: undefined,
-    CpuCredits: undefined,
-  };
+  const contents: any = {};
   if (output["instanceId"] !== undefined) {
     contents.InstanceId = __expectString(output["instanceId"]);
   }
@@ -73743,15 +71462,7 @@ const deserializeAws_ec2InstanceCreditSpecificationList = (
 };
 
 const deserializeAws_ec2InstanceEventWindow = (output: any, context: __SerdeContext): InstanceEventWindow => {
-  const contents: any = {
-    InstanceEventWindowId: undefined,
-    TimeRanges: undefined,
-    Name: undefined,
-    CronExpression: undefined,
-    AssociationTarget: undefined,
-    State: undefined,
-    Tags: undefined,
-  };
+  const contents: any = {};
   if (output["instanceEventWindowId"] !== undefined) {
     contents.InstanceEventWindowId = __expectString(output["instanceEventWindowId"]);
   }
@@ -73790,11 +71501,7 @@ const deserializeAws_ec2InstanceEventWindowAssociationTarget = (
   output: any,
   context: __SerdeContext
 ): InstanceEventWindowAssociationTarget => {
-  const contents: any = {
-    InstanceIds: undefined,
-    Tags: undefined,
-    DedicatedHostIds: undefined,
-  };
+  const contents: any = {};
   if (output.instanceIdSet === "") {
     contents.InstanceIds = [];
   } else if (output["instanceIdSet"] !== undefined && output["instanceIdSet"]["item"] !== undefined) {
@@ -73831,10 +71538,7 @@ const deserializeAws_ec2InstanceEventWindowStateChange = (
   output: any,
   context: __SerdeContext
 ): InstanceEventWindowStateChange => {
-  const contents: any = {
-    InstanceEventWindowId: undefined,
-    State: undefined,
-  };
+  const contents: any = {};
   if (output["instanceEventWindowId"] !== undefined) {
     contents.InstanceEventWindowId = __expectString(output["instanceEventWindowId"]);
   }
@@ -73848,12 +71552,7 @@ const deserializeAws_ec2InstanceEventWindowTimeRange = (
   output: any,
   context: __SerdeContext
 ): InstanceEventWindowTimeRange => {
-  const contents: any = {
-    StartWeekDay: undefined,
-    StartHour: undefined,
-    EndWeekDay: undefined,
-    EndHour: undefined,
-  };
+  const contents: any = {};
   if (output["startWeekDay"] !== undefined) {
     contents.StartWeekDay = __expectString(output["startWeekDay"]);
   }
@@ -73881,10 +71580,7 @@ const deserializeAws_ec2InstanceEventWindowTimeRangeList = (
 };
 
 const deserializeAws_ec2InstanceExportDetails = (output: any, context: __SerdeContext): InstanceExportDetails => {
-  const contents: any = {
-    InstanceId: undefined,
-    TargetEnvironment: undefined,
-  };
+  const contents: any = {};
   if (output["instanceId"] !== undefined) {
     contents.InstanceId = __expectString(output["instanceId"]);
   }
@@ -73898,10 +71594,7 @@ const deserializeAws_ec2InstanceFamilyCreditSpecification = (
   output: any,
   context: __SerdeContext
 ): InstanceFamilyCreditSpecification => {
-  const contents: any = {
-    InstanceFamily: undefined,
-    CpuCredits: undefined,
-  };
+  const contents: any = {};
   if (output["instanceFamily"] !== undefined) {
     contents.InstanceFamily = __expectString(output["instanceFamily"]);
   }
@@ -73947,9 +71640,7 @@ const deserializeAws_ec2InstanceIdsSet = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_ec2InstanceIpv4Prefix = (output: any, context: __SerdeContext): InstanceIpv4Prefix => {
-  const contents: any = {
-    Ipv4Prefix: undefined,
-  };
+  const contents: any = {};
   if (output["ipv4Prefix"] !== undefined) {
     contents.Ipv4Prefix = __expectString(output["ipv4Prefix"]);
   }
@@ -73965,9 +71656,7 @@ const deserializeAws_ec2InstanceIpv4PrefixList = (output: any, context: __SerdeC
 };
 
 const deserializeAws_ec2InstanceIpv6Address = (output: any, context: __SerdeContext): InstanceIpv6Address => {
-  const contents: any = {
-    Ipv6Address: undefined,
-  };
+  const contents: any = {};
   if (output["ipv6Address"] !== undefined) {
     contents.Ipv6Address = __expectString(output["ipv6Address"]);
   }
@@ -73983,9 +71672,7 @@ const deserializeAws_ec2InstanceIpv6AddressList = (output: any, context: __Serde
 };
 
 const deserializeAws_ec2InstanceIpv6Prefix = (output: any, context: __SerdeContext): InstanceIpv6Prefix => {
-  const contents: any = {
-    Ipv6Prefix: undefined,
-  };
+  const contents: any = {};
   if (output["ipv6Prefix"] !== undefined) {
     contents.Ipv6Prefix = __expectString(output["ipv6Prefix"]);
   }
@@ -74012,9 +71699,7 @@ const deserializeAws_ec2InstanceMaintenanceOptions = (
   output: any,
   context: __SerdeContext
 ): InstanceMaintenanceOptions => {
-  const contents: any = {
-    AutoRecovery: undefined,
-  };
+  const contents: any = {};
   if (output["autoRecovery"] !== undefined) {
     contents.AutoRecovery = __expectString(output["autoRecovery"]);
   }
@@ -74025,14 +71710,7 @@ const deserializeAws_ec2InstanceMetadataOptionsResponse = (
   output: any,
   context: __SerdeContext
 ): InstanceMetadataOptionsResponse => {
-  const contents: any = {
-    State: undefined,
-    HttpTokens: undefined,
-    HttpPutResponseHopLimit: undefined,
-    HttpEndpoint: undefined,
-    HttpProtocolIpv6: undefined,
-    InstanceMetadataTags: undefined,
-  };
+  const contents: any = {};
   if (output["state"] !== undefined) {
     contents.State = __expectString(output["state"]);
   }
@@ -74055,10 +71733,7 @@ const deserializeAws_ec2InstanceMetadataOptionsResponse = (
 };
 
 const deserializeAws_ec2InstanceMonitoring = (output: any, context: __SerdeContext): InstanceMonitoring => {
-  const contents: any = {
-    InstanceId: undefined,
-    Monitoring: undefined,
-  };
+  const contents: any = {};
   if (output["instanceId"] !== undefined) {
     contents.InstanceId = __expectString(output["instanceId"]);
   }
@@ -74077,26 +71752,7 @@ const deserializeAws_ec2InstanceMonitoringList = (output: any, context: __SerdeC
 };
 
 const deserializeAws_ec2InstanceNetworkInterface = (output: any, context: __SerdeContext): InstanceNetworkInterface => {
-  const contents: any = {
-    Association: undefined,
-    Attachment: undefined,
-    Description: undefined,
-    Groups: undefined,
-    Ipv6Addresses: undefined,
-    MacAddress: undefined,
-    NetworkInterfaceId: undefined,
-    OwnerId: undefined,
-    PrivateDnsName: undefined,
-    PrivateIpAddress: undefined,
-    PrivateIpAddresses: undefined,
-    SourceDestCheck: undefined,
-    Status: undefined,
-    SubnetId: undefined,
-    VpcId: undefined,
-    InterfaceType: undefined,
-    Ipv4Prefixes: undefined,
-    Ipv6Prefixes: undefined,
-  };
+  const contents: any = {};
   if (output["association"] !== undefined) {
     contents.Association = deserializeAws_ec2InstanceNetworkInterfaceAssociation(output["association"], context);
   }
@@ -74183,13 +71839,7 @@ const deserializeAws_ec2InstanceNetworkInterfaceAssociation = (
   output: any,
   context: __SerdeContext
 ): InstanceNetworkInterfaceAssociation => {
-  const contents: any = {
-    CarrierIp: undefined,
-    CustomerOwnedIp: undefined,
-    IpOwnerId: undefined,
-    PublicDnsName: undefined,
-    PublicIp: undefined,
-  };
+  const contents: any = {};
   if (output["carrierIp"] !== undefined) {
     contents.CarrierIp = __expectString(output["carrierIp"]);
   }
@@ -74212,14 +71862,7 @@ const deserializeAws_ec2InstanceNetworkInterfaceAttachment = (
   output: any,
   context: __SerdeContext
 ): InstanceNetworkInterfaceAttachment => {
-  const contents: any = {
-    AttachTime: undefined,
-    AttachmentId: undefined,
-    DeleteOnTermination: undefined,
-    DeviceIndex: undefined,
-    Status: undefined,
-    NetworkCardIndex: undefined,
-  };
+  const contents: any = {};
   if (output["attachTime"] !== undefined) {
     contents.AttachTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["attachTime"]));
   }
@@ -74256,27 +71899,7 @@ const deserializeAws_ec2InstanceNetworkInterfaceSpecification = (
   output: any,
   context: __SerdeContext
 ): InstanceNetworkInterfaceSpecification => {
-  const contents: any = {
-    AssociatePublicIpAddress: undefined,
-    DeleteOnTermination: undefined,
-    Description: undefined,
-    DeviceIndex: undefined,
-    Groups: undefined,
-    Ipv6AddressCount: undefined,
-    Ipv6Addresses: undefined,
-    NetworkInterfaceId: undefined,
-    PrivateIpAddress: undefined,
-    PrivateIpAddresses: undefined,
-    SecondaryPrivateIpAddressCount: undefined,
-    SubnetId: undefined,
-    AssociateCarrierIpAddress: undefined,
-    InterfaceType: undefined,
-    NetworkCardIndex: undefined,
-    Ipv4Prefixes: undefined,
-    Ipv4PrefixCount: undefined,
-    Ipv6Prefixes: undefined,
-    Ipv6PrefixCount: undefined,
-  };
+  const contents: any = {};
   if (output["associatePublicIpAddress"] !== undefined) {
     contents.AssociatePublicIpAddress = __parseBoolean(output["associatePublicIpAddress"]);
   }
@@ -74374,12 +71997,7 @@ const deserializeAws_ec2InstanceNetworkInterfaceSpecificationList = (
 };
 
 const deserializeAws_ec2InstancePrivateIpAddress = (output: any, context: __SerdeContext): InstancePrivateIpAddress => {
-  const contents: any = {
-    Association: undefined,
-    Primary: undefined,
-    PrivateDnsName: undefined,
-    PrivateIpAddress: undefined,
-  };
+  const contents: any = {};
   if (output["association"] !== undefined) {
     contents.Association = deserializeAws_ec2InstanceNetworkInterfaceAssociation(output["association"], context);
   }
@@ -74407,31 +72025,7 @@ const deserializeAws_ec2InstancePrivateIpAddressList = (
 };
 
 const deserializeAws_ec2InstanceRequirements = (output: any, context: __SerdeContext): InstanceRequirements => {
-  const contents: any = {
-    VCpuCount: undefined,
-    MemoryMiB: undefined,
-    CpuManufacturers: undefined,
-    MemoryGiBPerVCpu: undefined,
-    ExcludedInstanceTypes: undefined,
-    InstanceGenerations: undefined,
-    SpotMaxPricePercentageOverLowestPrice: undefined,
-    OnDemandMaxPricePercentageOverLowestPrice: undefined,
-    BareMetal: undefined,
-    BurstablePerformance: undefined,
-    RequireHibernateSupport: undefined,
-    NetworkInterfaceCount: undefined,
-    LocalStorage: undefined,
-    LocalStorageTypes: undefined,
-    TotalLocalStorageGB: undefined,
-    BaselineEbsBandwidthMbps: undefined,
-    AcceleratorTypes: undefined,
-    AcceleratorCount: undefined,
-    AcceleratorManufacturers: undefined,
-    AcceleratorNames: undefined,
-    AcceleratorTotalMemoryMiB: undefined,
-    NetworkBandwidthGbps: undefined,
-    AllowedInstanceTypes: undefined,
-  };
+  const contents: any = {};
   if (output["vCpuCount"] !== undefined) {
     contents.VCpuCount = deserializeAws_ec2VCpuCountRange(output["vCpuCount"], context);
   }
@@ -74561,10 +72155,7 @@ const deserializeAws_ec2InstanceRequirements = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_ec2InstanceState = (output: any, context: __SerdeContext): InstanceState => {
-  const contents: any = {
-    Code: undefined,
-    Name: undefined,
-  };
+  const contents: any = {};
   if (output["code"] !== undefined) {
     contents.Code = __strictParseInt32(output["code"]) as number;
   }
@@ -74575,11 +72166,7 @@ const deserializeAws_ec2InstanceState = (output: any, context: __SerdeContext): 
 };
 
 const deserializeAws_ec2InstanceStateChange = (output: any, context: __SerdeContext): InstanceStateChange => {
-  const contents: any = {
-    CurrentState: undefined,
-    InstanceId: undefined,
-    PreviousState: undefined,
-  };
+  const contents: any = {};
   if (output["currentState"] !== undefined) {
     contents.CurrentState = deserializeAws_ec2InstanceState(output["currentState"], context);
   }
@@ -74601,15 +72188,7 @@ const deserializeAws_ec2InstanceStateChangeList = (output: any, context: __Serde
 };
 
 const deserializeAws_ec2InstanceStatus = (output: any, context: __SerdeContext): InstanceStatus => {
-  const contents: any = {
-    AvailabilityZone: undefined,
-    OutpostArn: undefined,
-    Events: undefined,
-    InstanceId: undefined,
-    InstanceState: undefined,
-    InstanceStatus: undefined,
-    SystemStatus: undefined,
-  };
+  const contents: any = {};
   if (output["availabilityZone"] !== undefined) {
     contents.AvailabilityZone = __expectString(output["availabilityZone"]);
   }
@@ -74640,11 +72219,7 @@ const deserializeAws_ec2InstanceStatus = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_ec2InstanceStatusDetails = (output: any, context: __SerdeContext): InstanceStatusDetails => {
-  const contents: any = {
-    ImpairedSince: undefined,
-    Name: undefined,
-    Status: undefined,
-  };
+  const contents: any = {};
   if (output["impairedSince"] !== undefined) {
     contents.ImpairedSince = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["impairedSince"]));
   }
@@ -74666,14 +72241,7 @@ const deserializeAws_ec2InstanceStatusDetailsList = (output: any, context: __Ser
 };
 
 const deserializeAws_ec2InstanceStatusEvent = (output: any, context: __SerdeContext): InstanceStatusEvent => {
-  const contents: any = {
-    InstanceEventId: undefined,
-    Code: undefined,
-    Description: undefined,
-    NotAfter: undefined,
-    NotBefore: undefined,
-    NotBeforeDeadline: undefined,
-  };
+  const contents: any = {};
   if (output["instanceEventId"] !== undefined) {
     contents.InstanceEventId = __expectString(output["instanceEventId"]);
   }
@@ -74712,10 +72280,7 @@ const deserializeAws_ec2InstanceStatusList = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_ec2InstanceStatusSummary = (output: any, context: __SerdeContext): InstanceStatusSummary => {
-  const contents: any = {
-    Details: undefined,
-    Status: undefined,
-  };
+  const contents: any = {};
   if (output.details === "") {
     contents.Details = [];
   } else if (output["details"] !== undefined && output["details"]["item"] !== undefined) {
@@ -74731,12 +72296,7 @@ const deserializeAws_ec2InstanceStatusSummary = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_ec2InstanceStorageInfo = (output: any, context: __SerdeContext): InstanceStorageInfo => {
-  const contents: any = {
-    TotalSizeInGB: undefined,
-    Disks: undefined,
-    NvmeSupport: undefined,
-    EncryptionSupport: undefined,
-  };
+  const contents: any = {};
   if (output["totalSizeInGB"] !== undefined) {
     contents.TotalSizeInGB = __strictParseLong(output["totalSizeInGB"]) as number;
   }
@@ -74766,10 +72326,7 @@ const deserializeAws_ec2InstanceTagNotificationAttribute = (
   output: any,
   context: __SerdeContext
 ): InstanceTagNotificationAttribute => {
-  const contents: any = {
-    InstanceTagKeys: undefined,
-    IncludeAllTagsOfInstance: undefined,
-  };
+  const contents: any = {};
   if (output.instanceTagKeySet === "") {
     contents.InstanceTagKeys = [];
   } else if (output["instanceTagKeySet"] !== undefined && output["instanceTagKeySet"]["item"] !== undefined) {
@@ -74785,32 +72342,7 @@ const deserializeAws_ec2InstanceTagNotificationAttribute = (
 };
 
 const deserializeAws_ec2InstanceTypeInfo = (output: any, context: __SerdeContext): InstanceTypeInfo => {
-  const contents: any = {
-    InstanceType: undefined,
-    CurrentGeneration: undefined,
-    FreeTierEligible: undefined,
-    SupportedUsageClasses: undefined,
-    SupportedRootDeviceTypes: undefined,
-    SupportedVirtualizationTypes: undefined,
-    BareMetal: undefined,
-    Hypervisor: undefined,
-    ProcessorInfo: undefined,
-    VCpuInfo: undefined,
-    MemoryInfo: undefined,
-    InstanceStorageSupported: undefined,
-    InstanceStorageInfo: undefined,
-    EbsInfo: undefined,
-    NetworkInfo: undefined,
-    GpuInfo: undefined,
-    FpgaInfo: undefined,
-    PlacementGroupInfo: undefined,
-    InferenceAcceleratorInfo: undefined,
-    HibernationSupported: undefined,
-    BurstablePerformanceSupported: undefined,
-    DedicatedHostsSupported: undefined,
-    AutoRecoverySupported: undefined,
-    SupportedBootModes: undefined,
-  };
+  const contents: any = {};
   if (output["instanceType"] !== undefined) {
     contents.InstanceType = __expectString(output["instanceType"]);
   }
@@ -74919,9 +72451,7 @@ const deserializeAws_ec2InstanceTypeInfoFromInstanceRequirements = (
   output: any,
   context: __SerdeContext
 ): InstanceTypeInfoFromInstanceRequirements => {
-  const contents: any = {
-    InstanceType: undefined,
-  };
+  const contents: any = {};
   if (output["instanceType"] !== undefined) {
     contents.InstanceType = __expectString(output["instanceType"]);
   }
@@ -74948,11 +72478,7 @@ const deserializeAws_ec2InstanceTypeInfoList = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_ec2InstanceTypeOffering = (output: any, context: __SerdeContext): InstanceTypeOffering => {
-  const contents: any = {
-    InstanceType: undefined,
-    LocationType: undefined,
-    Location: undefined,
-  };
+  const contents: any = {};
   if (output["instanceType"] !== undefined) {
     contents.InstanceType = __expectString(output["instanceType"]);
   }
@@ -74982,10 +72508,7 @@ const deserializeAws_ec2InstanceTypesList = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_ec2InstanceUsage = (output: any, context: __SerdeContext): InstanceUsage => {
-  const contents: any = {
-    AccountId: undefined,
-    UsedInstanceCount: undefined,
-  };
+  const contents: any = {};
   if (output["accountId"] !== undefined) {
     contents.AccountId = __expectString(output["accountId"]);
   }
@@ -75004,12 +72527,7 @@ const deserializeAws_ec2InstanceUsageSet = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_ec2InternetGateway = (output: any, context: __SerdeContext): InternetGateway => {
-  const contents: any = {
-    Attachments: undefined,
-    InternetGatewayId: undefined,
-    OwnerId: undefined,
-    Tags: undefined,
-  };
+  const contents: any = {};
   if (output.attachmentSet === "") {
     contents.Attachments = [];
   } else if (output["attachmentSet"] !== undefined && output["attachmentSet"]["item"] !== undefined) {
@@ -75036,10 +72554,7 @@ const deserializeAws_ec2InternetGatewayAttachment = (
   output: any,
   context: __SerdeContext
 ): InternetGatewayAttachment => {
-  const contents: any = {
-    State: undefined,
-    VpcId: undefined,
-  };
+  const contents: any = {};
   if (output["state"] !== undefined) {
     contents.State = __expectString(output["state"]);
   }
@@ -75077,22 +72592,7 @@ const deserializeAws_ec2IpAddressList = (output: any, context: __SerdeContext): 
 };
 
 const deserializeAws_ec2Ipam = (output: any, context: __SerdeContext): Ipam => {
-  const contents: any = {
-    OwnerId: undefined,
-    IpamId: undefined,
-    IpamArn: undefined,
-    IpamRegion: undefined,
-    PublicDefaultScopeId: undefined,
-    PrivateDefaultScopeId: undefined,
-    ScopeCount: undefined,
-    Description: undefined,
-    OperatingRegions: undefined,
-    State: undefined,
-    Tags: undefined,
-    DefaultResourceDiscoveryId: undefined,
-    DefaultResourceDiscoveryAssociationId: undefined,
-    ResourceDiscoveryAssociationCount: undefined,
-  };
+  const contents: any = {};
   if (output["ownerId"] !== undefined) {
     contents.OwnerId = __expectString(output["ownerId"]);
   }
@@ -75148,19 +72648,7 @@ const deserializeAws_ec2Ipam = (output: any, context: __SerdeContext): Ipam => {
 };
 
 const deserializeAws_ec2IpamAddressHistoryRecord = (output: any, context: __SerdeContext): IpamAddressHistoryRecord => {
-  const contents: any = {
-    ResourceOwnerId: undefined,
-    ResourceRegion: undefined,
-    ResourceType: undefined,
-    ResourceId: undefined,
-    ResourceCidr: undefined,
-    ResourceName: undefined,
-    ResourceComplianceStatus: undefined,
-    ResourceOverlapStatus: undefined,
-    VpcId: undefined,
-    SampledStartTime: undefined,
-    SampledEndTime: undefined,
-  };
+  const contents: any = {};
   if (output["resourceOwnerId"] !== undefined) {
     contents.ResourceOwnerId = __expectString(output["resourceOwnerId"]);
   }
@@ -75209,13 +72697,7 @@ const deserializeAws_ec2IpamAddressHistoryRecordSet = (
 };
 
 const deserializeAws_ec2IpamDiscoveredAccount = (output: any, context: __SerdeContext): IpamDiscoveredAccount => {
-  const contents: any = {
-    AccountId: undefined,
-    DiscoveryRegion: undefined,
-    FailureReason: undefined,
-    LastAttemptedDiscoveryTime: undefined,
-    LastSuccessfulDiscoveryTime: undefined,
-  };
+  const contents: any = {};
   if (output["accountId"] !== undefined) {
     contents.AccountId = __expectString(output["accountId"]);
   }
@@ -75250,18 +72732,7 @@ const deserializeAws_ec2IpamDiscoveredResourceCidr = (
   output: any,
   context: __SerdeContext
 ): IpamDiscoveredResourceCidr => {
-  const contents: any = {
-    IpamResourceDiscoveryId: undefined,
-    ResourceRegion: undefined,
-    ResourceId: undefined,
-    ResourceOwnerId: undefined,
-    ResourceCidr: undefined,
-    ResourceType: undefined,
-    ResourceTags: undefined,
-    IpUsage: undefined,
-    VpcId: undefined,
-    SampleTime: undefined,
-  };
+  const contents: any = {};
   if (output["ipamResourceDiscoveryId"] !== undefined) {
     contents.IpamResourceDiscoveryId = __expectString(output["ipamResourceDiscoveryId"]);
   }
@@ -75315,10 +72786,7 @@ const deserializeAws_ec2IpamDiscoveryFailureReason = (
   output: any,
   context: __SerdeContext
 ): IpamDiscoveryFailureReason => {
-  const contents: any = {
-    Code: undefined,
-    Message: undefined,
-  };
+  const contents: any = {};
   if (output["code"] !== undefined) {
     contents.Code = __expectString(output["code"]);
   }
@@ -75329,9 +72797,7 @@ const deserializeAws_ec2IpamDiscoveryFailureReason = (
 };
 
 const deserializeAws_ec2IpamOperatingRegion = (output: any, context: __SerdeContext): IpamOperatingRegion => {
-  const contents: any = {
-    RegionName: undefined,
-  };
+  const contents: any = {};
   if (output["regionName"] !== undefined) {
     contents.RegionName = __expectString(output["regionName"]);
   }
@@ -75347,31 +72813,7 @@ const deserializeAws_ec2IpamOperatingRegionSet = (output: any, context: __SerdeC
 };
 
 const deserializeAws_ec2IpamPool = (output: any, context: __SerdeContext): IpamPool => {
-  const contents: any = {
-    OwnerId: undefined,
-    IpamPoolId: undefined,
-    SourceIpamPoolId: undefined,
-    IpamPoolArn: undefined,
-    IpamScopeArn: undefined,
-    IpamScopeType: undefined,
-    IpamArn: undefined,
-    IpamRegion: undefined,
-    Locale: undefined,
-    PoolDepth: undefined,
-    State: undefined,
-    StateMessage: undefined,
-    Description: undefined,
-    AutoImport: undefined,
-    PubliclyAdvertisable: undefined,
-    AddressFamily: undefined,
-    AllocationMinNetmaskLength: undefined,
-    AllocationMaxNetmaskLength: undefined,
-    AllocationDefaultNetmaskLength: undefined,
-    AllocationResourceTags: undefined,
-    Tags: undefined,
-    AwsService: undefined,
-    PublicIpSource: undefined,
-  };
+  const contents: any = {};
   if (output["ownerId"] !== undefined) {
     contents.OwnerId = __expectString(output["ownerId"]);
   }
@@ -75455,15 +72897,7 @@ const deserializeAws_ec2IpamPool = (output: any, context: __SerdeContext): IpamP
 };
 
 const deserializeAws_ec2IpamPoolAllocation = (output: any, context: __SerdeContext): IpamPoolAllocation => {
-  const contents: any = {
-    Cidr: undefined,
-    IpamPoolAllocationId: undefined,
-    Description: undefined,
-    ResourceId: undefined,
-    ResourceType: undefined,
-    ResourceRegion: undefined,
-    ResourceOwner: undefined,
-  };
+  const contents: any = {};
   if (output["cidr"] !== undefined) {
     contents.Cidr = __expectString(output["cidr"]);
   }
@@ -75497,13 +72931,7 @@ const deserializeAws_ec2IpamPoolAllocationSet = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_ec2IpamPoolCidr = (output: any, context: __SerdeContext): IpamPoolCidr => {
-  const contents: any = {
-    Cidr: undefined,
-    State: undefined,
-    FailureReason: undefined,
-    IpamPoolCidrId: undefined,
-    NetmaskLength: undefined,
-  };
+  const contents: any = {};
   if (output["cidr"] !== undefined) {
     contents.Cidr = __expectString(output["cidr"]);
   }
@@ -75526,10 +72954,7 @@ const deserializeAws_ec2IpamPoolCidrFailureReason = (
   output: any,
   context: __SerdeContext
 ): IpamPoolCidrFailureReason => {
-  const contents: any = {
-    Code: undefined,
-    Message: undefined,
-  };
+  const contents: any = {};
   if (output["code"] !== undefined) {
     contents.Code = __expectString(output["code"]);
   }
@@ -75556,23 +72981,7 @@ const deserializeAws_ec2IpamPoolSet = (output: any, context: __SerdeContext): Ip
 };
 
 const deserializeAws_ec2IpamResourceCidr = (output: any, context: __SerdeContext): IpamResourceCidr => {
-  const contents: any = {
-    IpamId: undefined,
-    IpamScopeId: undefined,
-    IpamPoolId: undefined,
-    ResourceRegion: undefined,
-    ResourceOwnerId: undefined,
-    ResourceId: undefined,
-    ResourceName: undefined,
-    ResourceCidr: undefined,
-    ResourceType: undefined,
-    ResourceTags: undefined,
-    IpUsage: undefined,
-    ComplianceStatus: undefined,
-    ManagementState: undefined,
-    OverlapStatus: undefined,
-    VpcId: undefined,
-  };
+  const contents: any = {};
   if (output["ipamId"] !== undefined) {
     contents.IpamId = __expectString(output["ipamId"]);
   }
@@ -75635,17 +73044,7 @@ const deserializeAws_ec2IpamResourceCidrSet = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_ec2IpamResourceDiscovery = (output: any, context: __SerdeContext): IpamResourceDiscovery => {
-  const contents: any = {
-    OwnerId: undefined,
-    IpamResourceDiscoveryId: undefined,
-    IpamResourceDiscoveryArn: undefined,
-    IpamResourceDiscoveryRegion: undefined,
-    Description: undefined,
-    OperatingRegions: undefined,
-    IsDefault: undefined,
-    State: undefined,
-    Tags: undefined,
-  };
+  const contents: any = {};
   if (output["ownerId"] !== undefined) {
     contents.OwnerId = __expectString(output["ownerId"]);
   }
@@ -75687,19 +73086,7 @@ const deserializeAws_ec2IpamResourceDiscoveryAssociation = (
   output: any,
   context: __SerdeContext
 ): IpamResourceDiscoveryAssociation => {
-  const contents: any = {
-    OwnerId: undefined,
-    IpamResourceDiscoveryAssociationId: undefined,
-    IpamResourceDiscoveryAssociationArn: undefined,
-    IpamResourceDiscoveryId: undefined,
-    IpamId: undefined,
-    IpamArn: undefined,
-    IpamRegion: undefined,
-    IsDefault: undefined,
-    ResourceDiscoveryStatus: undefined,
-    State: undefined,
-    Tags: undefined,
-  };
+  const contents: any = {};
   if (output["ownerId"] !== undefined) {
     contents.OwnerId = __expectString(output["ownerId"]);
   }
@@ -75758,10 +73145,7 @@ const deserializeAws_ec2IpamResourceDiscoverySet = (output: any, context: __Serd
 };
 
 const deserializeAws_ec2IpamResourceTag = (output: any, context: __SerdeContext): IpamResourceTag => {
-  const contents: any = {
-    Key: undefined,
-    Value: undefined,
-  };
+  const contents: any = {};
   if (output["key"] !== undefined) {
     contents.Key = __expectString(output["key"]);
   }
@@ -75780,19 +73164,7 @@ const deserializeAws_ec2IpamResourceTagList = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_ec2IpamScope = (output: any, context: __SerdeContext): IpamScope => {
-  const contents: any = {
-    OwnerId: undefined,
-    IpamScopeId: undefined,
-    IpamScopeArn: undefined,
-    IpamArn: undefined,
-    IpamRegion: undefined,
-    IpamScopeType: undefined,
-    IsDefault: undefined,
-    Description: undefined,
-    PoolCount: undefined,
-    State: undefined,
-    Tags: undefined,
-  };
+  const contents: any = {};
   if (output["ownerId"] !== undefined) {
     contents.OwnerId = __expectString(output["ownerId"]);
   }
@@ -75848,15 +73220,7 @@ const deserializeAws_ec2IpamSet = (output: any, context: __SerdeContext): Ipam[]
 };
 
 const deserializeAws_ec2IpPermission = (output: any, context: __SerdeContext): IpPermission => {
-  const contents: any = {
-    FromPort: undefined,
-    IpProtocol: undefined,
-    IpRanges: undefined,
-    Ipv6Ranges: undefined,
-    PrefixListIds: undefined,
-    ToPort: undefined,
-    UserIdGroupPairs: undefined,
-  };
+  const contents: any = {};
   if (output["fromPort"] !== undefined) {
     contents.FromPort = __strictParseInt32(output["fromPort"]) as number;
   }
@@ -75915,10 +73279,7 @@ const deserializeAws_ec2IpPrefixList = (output: any, context: __SerdeContext): s
 };
 
 const deserializeAws_ec2IpRange = (output: any, context: __SerdeContext): IpRange => {
-  const contents: any = {
-    CidrIp: undefined,
-    Description: undefined,
-  };
+  const contents: any = {};
   if (output["cidrIp"] !== undefined) {
     contents.CidrIp = __expectString(output["cidrIp"]);
   }
@@ -75972,9 +73333,7 @@ const deserializeAws_ec2Ipv4PrefixListResponse = (
 };
 
 const deserializeAws_ec2Ipv4PrefixSpecification = (output: any, context: __SerdeContext): Ipv4PrefixSpecification => {
-  const contents: any = {
-    Ipv4Prefix: undefined,
-  };
+  const contents: any = {};
   if (output["ipv4Prefix"] !== undefined) {
     contents.Ipv4Prefix = __expectString(output["ipv4Prefix"]);
   }
@@ -75985,9 +73344,7 @@ const deserializeAws_ec2Ipv4PrefixSpecificationRequest = (
   output: any,
   context: __SerdeContext
 ): Ipv4PrefixSpecificationRequest => {
-  const contents: any = {
-    Ipv4Prefix: undefined,
-  };
+  const contents: any = {};
   if (output["Ipv4Prefix"] !== undefined) {
     contents.Ipv4Prefix = __expectString(output["Ipv4Prefix"]);
   }
@@ -75998,9 +73355,7 @@ const deserializeAws_ec2Ipv4PrefixSpecificationResponse = (
   output: any,
   context: __SerdeContext
 ): Ipv4PrefixSpecificationResponse => {
-  const contents: any = {
-    Ipv4Prefix: undefined,
-  };
+  const contents: any = {};
   if (output["ipv4Prefix"] !== undefined) {
     contents.Ipv4Prefix = __expectString(output["ipv4Prefix"]);
   }
@@ -76016,10 +73371,7 @@ const deserializeAws_ec2Ipv6AddressList = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_ec2Ipv6CidrAssociation = (output: any, context: __SerdeContext): Ipv6CidrAssociation => {
-  const contents: any = {
-    Ipv6Cidr: undefined,
-    AssociatedResource: undefined,
-  };
+  const contents: any = {};
   if (output["ipv6Cidr"] !== undefined) {
     contents.Ipv6Cidr = __expectString(output["ipv6Cidr"]);
   }
@@ -76038,9 +73390,7 @@ const deserializeAws_ec2Ipv6CidrAssociationSet = (output: any, context: __SerdeC
 };
 
 const deserializeAws_ec2Ipv6CidrBlock = (output: any, context: __SerdeContext): Ipv6CidrBlock => {
-  const contents: any = {
-    Ipv6CidrBlock: undefined,
-  };
+  const contents: any = {};
   if (output["ipv6CidrBlock"] !== undefined) {
     contents.Ipv6CidrBlock = __expectString(output["ipv6CidrBlock"]);
   }
@@ -76056,12 +73406,7 @@ const deserializeAws_ec2Ipv6CidrBlockSet = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_ec2Ipv6Pool = (output: any, context: __SerdeContext): Ipv6Pool => {
-  const contents: any = {
-    PoolId: undefined,
-    Description: undefined,
-    PoolCidrBlocks: undefined,
-    Tags: undefined,
-  };
+  const contents: any = {};
   if (output["poolId"] !== undefined) {
     contents.PoolId = __expectString(output["poolId"]);
   }
@@ -76120,9 +73465,7 @@ const deserializeAws_ec2Ipv6PrefixListResponse = (
 };
 
 const deserializeAws_ec2Ipv6PrefixSpecification = (output: any, context: __SerdeContext): Ipv6PrefixSpecification => {
-  const contents: any = {
-    Ipv6Prefix: undefined,
-  };
+  const contents: any = {};
   if (output["ipv6Prefix"] !== undefined) {
     contents.Ipv6Prefix = __expectString(output["ipv6Prefix"]);
   }
@@ -76133,9 +73476,7 @@ const deserializeAws_ec2Ipv6PrefixSpecificationRequest = (
   output: any,
   context: __SerdeContext
 ): Ipv6PrefixSpecificationRequest => {
-  const contents: any = {
-    Ipv6Prefix: undefined,
-  };
+  const contents: any = {};
   if (output["Ipv6Prefix"] !== undefined) {
     contents.Ipv6Prefix = __expectString(output["Ipv6Prefix"]);
   }
@@ -76146,9 +73487,7 @@ const deserializeAws_ec2Ipv6PrefixSpecificationResponse = (
   output: any,
   context: __SerdeContext
 ): Ipv6PrefixSpecificationResponse => {
-  const contents: any = {
-    Ipv6Prefix: undefined,
-  };
+  const contents: any = {};
   if (output["ipv6Prefix"] !== undefined) {
     contents.Ipv6Prefix = __expectString(output["ipv6Prefix"]);
   }
@@ -76156,10 +73495,7 @@ const deserializeAws_ec2Ipv6PrefixSpecificationResponse = (
 };
 
 const deserializeAws_ec2Ipv6Range = (output: any, context: __SerdeContext): Ipv6Range => {
-  const contents: any = {
-    CidrIpv6: undefined,
-    Description: undefined,
-  };
+  const contents: any = {};
   if (output["cidrIpv6"] !== undefined) {
     contents.CidrIpv6 = __expectString(output["cidrIpv6"]);
   }
@@ -76178,13 +73514,7 @@ const deserializeAws_ec2Ipv6RangeList = (output: any, context: __SerdeContext): 
 };
 
 const deserializeAws_ec2KeyPair = (output: any, context: __SerdeContext): KeyPair => {
-  const contents: any = {
-    KeyFingerprint: undefined,
-    KeyMaterial: undefined,
-    KeyName: undefined,
-    KeyPairId: undefined,
-    Tags: undefined,
-  };
+  const contents: any = {};
   if (output["keyFingerprint"] !== undefined) {
     contents.KeyFingerprint = __expectString(output["keyFingerprint"]);
   }
@@ -76206,15 +73536,7 @@ const deserializeAws_ec2KeyPair = (output: any, context: __SerdeContext): KeyPai
 };
 
 const deserializeAws_ec2KeyPairInfo = (output: any, context: __SerdeContext): KeyPairInfo => {
-  const contents: any = {
-    KeyPairId: undefined,
-    KeyFingerprint: undefined,
-    KeyName: undefined,
-    KeyType: undefined,
-    Tags: undefined,
-    PublicKey: undefined,
-    CreateTime: undefined,
-  };
+  const contents: any = {};
   if (output["keyPairId"] !== undefined) {
     contents.KeyPairId = __expectString(output["keyPairId"]);
   }
@@ -76250,10 +73572,7 @@ const deserializeAws_ec2KeyPairList = (output: any, context: __SerdeContext): Ke
 };
 
 const deserializeAws_ec2LastError = (output: any, context: __SerdeContext): LastError => {
-  const contents: any = {
-    Message: undefined,
-    Code: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.Message = __expectString(output["message"]);
   }
@@ -76264,12 +73583,7 @@ const deserializeAws_ec2LastError = (output: any, context: __SerdeContext): Last
 };
 
 const deserializeAws_ec2LaunchPermission = (output: any, context: __SerdeContext): LaunchPermission => {
-  const contents: any = {
-    Group: undefined,
-    UserId: undefined,
-    OrganizationArn: undefined,
-    OrganizationalUnitArn: undefined,
-  };
+  const contents: any = {};
   if (output["group"] !== undefined) {
     contents.Group = __expectString(output["group"]);
   }
@@ -76294,23 +73608,7 @@ const deserializeAws_ec2LaunchPermissionList = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_ec2LaunchSpecification = (output: any, context: __SerdeContext): LaunchSpecification => {
-  const contents: any = {
-    UserData: undefined,
-    SecurityGroups: undefined,
-    AddressingType: undefined,
-    BlockDeviceMappings: undefined,
-    EbsOptimized: undefined,
-    IamInstanceProfile: undefined,
-    ImageId: undefined,
-    InstanceType: undefined,
-    KernelId: undefined,
-    KeyName: undefined,
-    NetworkInterfaces: undefined,
-    Placement: undefined,
-    RamdiskId: undefined,
-    SubnetId: undefined,
-    Monitoring: undefined,
-  };
+  const contents: any = {};
   if (output["userData"] !== undefined) {
     contents.UserData = __expectString(output["userData"]);
   }
@@ -76386,15 +73684,7 @@ const deserializeAws_ec2LaunchSpecsList = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_ec2LaunchTemplate = (output: any, context: __SerdeContext): LaunchTemplate => {
-  const contents: any = {
-    LaunchTemplateId: undefined,
-    LaunchTemplateName: undefined,
-    CreateTime: undefined,
-    CreatedBy: undefined,
-    DefaultVersionNumber: undefined,
-    LatestVersionNumber: undefined,
-    Tags: undefined,
-  };
+  const contents: any = {};
   if (output["launchTemplateId"] !== undefined) {
     contents.LaunchTemplateId = __expectString(output["launchTemplateId"]);
   }
@@ -76425,10 +73715,7 @@ const deserializeAws_ec2LaunchTemplateAndOverridesResponse = (
   output: any,
   context: __SerdeContext
 ): LaunchTemplateAndOverridesResponse => {
-  const contents: any = {
-    LaunchTemplateSpecification: undefined,
-    Overrides: undefined,
-  };
+  const contents: any = {};
   if (output["launchTemplateSpecification"] !== undefined) {
     contents.LaunchTemplateSpecification = deserializeAws_ec2FleetLaunchTemplateSpecification(
       output["launchTemplateSpecification"],
@@ -76445,12 +73732,7 @@ const deserializeAws_ec2LaunchTemplateBlockDeviceMapping = (
   output: any,
   context: __SerdeContext
 ): LaunchTemplateBlockDeviceMapping => {
-  const contents: any = {
-    DeviceName: undefined,
-    VirtualName: undefined,
-    Ebs: undefined,
-    NoDevice: undefined,
-  };
+  const contents: any = {};
   if (output["deviceName"] !== undefined) {
     contents.DeviceName = __expectString(output["deviceName"]);
   }
@@ -76481,10 +73763,7 @@ const deserializeAws_ec2LaunchTemplateCapacityReservationSpecificationResponse =
   output: any,
   context: __SerdeContext
 ): LaunchTemplateCapacityReservationSpecificationResponse => {
-  const contents: any = {
-    CapacityReservationPreference: undefined,
-    CapacityReservationTarget: undefined,
-  };
+  const contents: any = {};
   if (output["capacityReservationPreference"] !== undefined) {
     contents.CapacityReservationPreference = __expectString(output["capacityReservationPreference"]);
   }
@@ -76498,10 +73777,7 @@ const deserializeAws_ec2LaunchTemplateCapacityReservationSpecificationResponse =
 };
 
 const deserializeAws_ec2LaunchTemplateConfig = (output: any, context: __SerdeContext): LaunchTemplateConfig => {
-  const contents: any = {
-    LaunchTemplateSpecification: undefined,
-    Overrides: undefined,
-  };
+  const contents: any = {};
   if (output["launchTemplateSpecification"] !== undefined) {
     contents.LaunchTemplateSpecification = deserializeAws_ec2FleetLaunchTemplateSpecification(
       output["launchTemplateSpecification"],
@@ -76528,10 +73804,7 @@ const deserializeAws_ec2LaunchTemplateConfigList = (output: any, context: __Serd
 };
 
 const deserializeAws_ec2LaunchTemplateCpuOptions = (output: any, context: __SerdeContext): LaunchTemplateCpuOptions => {
-  const contents: any = {
-    CoreCount: undefined,
-    ThreadsPerCore: undefined,
-  };
+  const contents: any = {};
   if (output["coreCount"] !== undefined) {
     contents.CoreCount = __strictParseInt32(output["coreCount"]) as number;
   }
@@ -76545,16 +73818,7 @@ const deserializeAws_ec2LaunchTemplateEbsBlockDevice = (
   output: any,
   context: __SerdeContext
 ): LaunchTemplateEbsBlockDevice => {
-  const contents: any = {
-    Encrypted: undefined,
-    DeleteOnTermination: undefined,
-    Iops: undefined,
-    KmsKeyId: undefined,
-    SnapshotId: undefined,
-    VolumeSize: undefined,
-    VolumeType: undefined,
-    Throughput: undefined,
-  };
+  const contents: any = {};
   if (output["encrypted"] !== undefined) {
     contents.Encrypted = __parseBoolean(output["encrypted"]);
   }
@@ -76586,10 +73850,7 @@ const deserializeAws_ec2LaunchTemplateElasticInferenceAcceleratorResponse = (
   output: any,
   context: __SerdeContext
 ): LaunchTemplateElasticInferenceAcceleratorResponse => {
-  const contents: any = {
-    Type: undefined,
-    Count: undefined,
-  };
+  const contents: any = {};
   if (output["type"] !== undefined) {
     contents.Type = __expectString(output["type"]);
   }
@@ -76614,9 +73875,7 @@ const deserializeAws_ec2LaunchTemplateEnclaveOptions = (
   output: any,
   context: __SerdeContext
 ): LaunchTemplateEnclaveOptions => {
-  const contents: any = {
-    Enabled: undefined,
-  };
+  const contents: any = {};
   if (output["enabled"] !== undefined) {
     contents.Enabled = __parseBoolean(output["enabled"]);
   }
@@ -76627,9 +73886,7 @@ const deserializeAws_ec2LaunchTemplateHibernationOptions = (
   output: any,
   context: __SerdeContext
 ): LaunchTemplateHibernationOptions => {
-  const contents: any = {
-    Configured: undefined,
-  };
+  const contents: any = {};
   if (output["configured"] !== undefined) {
     contents.Configured = __parseBoolean(output["configured"]);
   }
@@ -76640,10 +73897,7 @@ const deserializeAws_ec2LaunchTemplateIamInstanceProfileSpecification = (
   output: any,
   context: __SerdeContext
 ): LaunchTemplateIamInstanceProfileSpecification => {
-  const contents: any = {
-    Arn: undefined,
-    Name: undefined,
-  };
+  const contents: any = {};
   if (output["arn"] !== undefined) {
     contents.Arn = __expectString(output["arn"]);
   }
@@ -76657,9 +73911,7 @@ const deserializeAws_ec2LaunchTemplateInstanceMaintenanceOptions = (
   output: any,
   context: __SerdeContext
 ): LaunchTemplateInstanceMaintenanceOptions => {
-  const contents: any = {
-    AutoRecovery: undefined,
-  };
+  const contents: any = {};
   if (output["autoRecovery"] !== undefined) {
     contents.AutoRecovery = __expectString(output["autoRecovery"]);
   }
@@ -76670,10 +73922,7 @@ const deserializeAws_ec2LaunchTemplateInstanceMarketOptions = (
   output: any,
   context: __SerdeContext
 ): LaunchTemplateInstanceMarketOptions => {
-  const contents: any = {
-    MarketType: undefined,
-    SpotOptions: undefined,
-  };
+  const contents: any = {};
   if (output["marketType"] !== undefined) {
     contents.MarketType = __expectString(output["marketType"]);
   }
@@ -76687,14 +73936,7 @@ const deserializeAws_ec2LaunchTemplateInstanceMetadataOptions = (
   output: any,
   context: __SerdeContext
 ): LaunchTemplateInstanceMetadataOptions => {
-  const contents: any = {
-    State: undefined,
-    HttpTokens: undefined,
-    HttpPutResponseHopLimit: undefined,
-    HttpEndpoint: undefined,
-    HttpProtocolIpv6: undefined,
-    InstanceMetadataTags: undefined,
-  };
+  const contents: any = {};
   if (output["state"] !== undefined) {
     contents.State = __expectString(output["state"]);
   }
@@ -76720,27 +73962,7 @@ const deserializeAws_ec2LaunchTemplateInstanceNetworkInterfaceSpecification = (
   output: any,
   context: __SerdeContext
 ): LaunchTemplateInstanceNetworkInterfaceSpecification => {
-  const contents: any = {
-    AssociateCarrierIpAddress: undefined,
-    AssociatePublicIpAddress: undefined,
-    DeleteOnTermination: undefined,
-    Description: undefined,
-    DeviceIndex: undefined,
-    Groups: undefined,
-    InterfaceType: undefined,
-    Ipv6AddressCount: undefined,
-    Ipv6Addresses: undefined,
-    NetworkInterfaceId: undefined,
-    PrivateIpAddress: undefined,
-    PrivateIpAddresses: undefined,
-    SecondaryPrivateIpAddressCount: undefined,
-    SubnetId: undefined,
-    NetworkCardIndex: undefined,
-    Ipv4Prefixes: undefined,
-    Ipv4PrefixCount: undefined,
-    Ipv6Prefixes: undefined,
-    Ipv6PrefixCount: undefined,
-  };
+  const contents: any = {};
   if (output["associateCarrierIpAddress"] !== undefined) {
     contents.AssociateCarrierIpAddress = __parseBoolean(output["associateCarrierIpAddress"]);
   }
@@ -76841,9 +74063,7 @@ const deserializeAws_ec2LaunchTemplateLicenseConfiguration = (
   output: any,
   context: __SerdeContext
 ): LaunchTemplateLicenseConfiguration => {
-  const contents: any = {
-    LicenseConfigurationArn: undefined,
-  };
+  const contents: any = {};
   if (output["licenseConfigurationArn"] !== undefined) {
     contents.LicenseConfigurationArn = __expectString(output["licenseConfigurationArn"]);
   }
@@ -76862,15 +74082,7 @@ const deserializeAws_ec2LaunchTemplateLicenseList = (
 };
 
 const deserializeAws_ec2LaunchTemplateOverrides = (output: any, context: __SerdeContext): LaunchTemplateOverrides => {
-  const contents: any = {
-    InstanceType: undefined,
-    SpotPrice: undefined,
-    SubnetId: undefined,
-    AvailabilityZone: undefined,
-    WeightedCapacity: undefined,
-    Priority: undefined,
-    InstanceRequirements: undefined,
-  };
+  const contents: any = {};
   if (output["instanceType"] !== undefined) {
     contents.InstanceType = __expectString(output["instanceType"]);
   }
@@ -76907,17 +74119,7 @@ const deserializeAws_ec2LaunchTemplateOverridesList = (
 };
 
 const deserializeAws_ec2LaunchTemplatePlacement = (output: any, context: __SerdeContext): LaunchTemplatePlacement => {
-  const contents: any = {
-    AvailabilityZone: undefined,
-    Affinity: undefined,
-    GroupName: undefined,
-    HostId: undefined,
-    Tenancy: undefined,
-    SpreadDomain: undefined,
-    HostResourceGroupArn: undefined,
-    PartitionNumber: undefined,
-    GroupId: undefined,
-  };
+  const contents: any = {};
   if (output["availabilityZone"] !== undefined) {
     contents.AvailabilityZone = __expectString(output["availabilityZone"]);
   }
@@ -76952,11 +74154,7 @@ const deserializeAws_ec2LaunchTemplatePrivateDnsNameOptions = (
   output: any,
   context: __SerdeContext
 ): LaunchTemplatePrivateDnsNameOptions => {
-  const contents: any = {
-    HostnameType: undefined,
-    EnableResourceNameDnsARecord: undefined,
-    EnableResourceNameDnsAAAARecord: undefined,
-  };
+  const contents: any = {};
   if (output["hostnameType"] !== undefined) {
     contents.HostnameType = __expectString(output["hostnameType"]);
   }
@@ -76981,9 +74179,7 @@ const deserializeAws_ec2LaunchTemplatesMonitoring = (
   output: any,
   context: __SerdeContext
 ): LaunchTemplatesMonitoring => {
-  const contents: any = {
-    Enabled: undefined,
-  };
+  const contents: any = {};
   if (output["enabled"] !== undefined) {
     contents.Enabled = __parseBoolean(output["enabled"]);
   }
@@ -76994,13 +74190,7 @@ const deserializeAws_ec2LaunchTemplateSpotMarketOptions = (
   output: any,
   context: __SerdeContext
 ): LaunchTemplateSpotMarketOptions => {
-  const contents: any = {
-    MaxPrice: undefined,
-    SpotInstanceType: undefined,
-    BlockDurationMinutes: undefined,
-    ValidUntil: undefined,
-    InstanceInterruptionBehavior: undefined,
-  };
+  const contents: any = {};
   if (output["maxPrice"] !== undefined) {
     contents.MaxPrice = __expectString(output["maxPrice"]);
   }
@@ -77023,10 +74213,7 @@ const deserializeAws_ec2LaunchTemplateTagSpecification = (
   output: any,
   context: __SerdeContext
 ): LaunchTemplateTagSpecification => {
-  const contents: any = {
-    ResourceType: undefined,
-    Tags: undefined,
-  };
+  const contents: any = {};
   if (output["resourceType"] !== undefined) {
     contents.ResourceType = __expectString(output["resourceType"]);
   }
@@ -77050,16 +74237,7 @@ const deserializeAws_ec2LaunchTemplateTagSpecificationList = (
 };
 
 const deserializeAws_ec2LaunchTemplateVersion = (output: any, context: __SerdeContext): LaunchTemplateVersion => {
-  const contents: any = {
-    LaunchTemplateId: undefined,
-    LaunchTemplateName: undefined,
-    VersionNumber: undefined,
-    VersionDescription: undefined,
-    CreateTime: undefined,
-    CreatedBy: undefined,
-    DefaultVersion: undefined,
-    LaunchTemplateData: undefined,
-  };
+  const contents: any = {};
   if (output["launchTemplateId"] !== undefined) {
     contents.LaunchTemplateId = __expectString(output["launchTemplateId"]);
   }
@@ -77096,9 +74274,7 @@ const deserializeAws_ec2LaunchTemplateVersionSet = (output: any, context: __Serd
 };
 
 const deserializeAws_ec2LicenseConfiguration = (output: any, context: __SerdeContext): LicenseConfiguration => {
-  const contents: any = {
-    LicenseConfigurationArn: undefined,
-  };
+  const contents: any = {};
   if (output["licenseConfigurationArn"] !== undefined) {
     contents.LicenseConfigurationArn = __expectString(output["licenseConfigurationArn"]);
   }
@@ -77117,10 +74293,7 @@ const deserializeAws_ec2ListImagesInRecycleBinResult = (
   output: any,
   context: __SerdeContext
 ): ListImagesInRecycleBinResult => {
-  const contents: any = {
-    Images: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.imageSet === "") {
     contents.Images = [];
   } else if (output["imageSet"] !== undefined && output["imageSet"]["item"] !== undefined) {
@@ -77139,10 +74312,7 @@ const deserializeAws_ec2ListSnapshotsInRecycleBinResult = (
   output: any,
   context: __SerdeContext
 ): ListSnapshotsInRecycleBinResult => {
-  const contents: any = {
-    Snapshots: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.snapshotSet === "") {
     contents.Snapshots = [];
   } else if (output["snapshotSet"] !== undefined && output["snapshotSet"]["item"] !== undefined) {
@@ -77158,10 +74328,7 @@ const deserializeAws_ec2ListSnapshotsInRecycleBinResult = (
 };
 
 const deserializeAws_ec2LoadBalancersConfig = (output: any, context: __SerdeContext): LoadBalancersConfig => {
-  const contents: any = {
-    ClassicLoadBalancersConfig: undefined,
-    TargetGroupsConfig: undefined,
-  };
+  const contents: any = {};
   if (output["classicLoadBalancersConfig"] !== undefined) {
     contents.ClassicLoadBalancersConfig = deserializeAws_ec2ClassicLoadBalancersConfig(
       output["classicLoadBalancersConfig"],
@@ -77175,10 +74342,7 @@ const deserializeAws_ec2LoadBalancersConfig = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_ec2LoadPermission = (output: any, context: __SerdeContext): LoadPermission => {
-  const contents: any = {
-    UserId: undefined,
-    Group: undefined,
-  };
+  const contents: any = {};
   if (output["userId"] !== undefined) {
     contents.UserId = __expectString(output["userId"]);
   }
@@ -77197,13 +74361,7 @@ const deserializeAws_ec2LoadPermissionList = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_ec2LocalGateway = (output: any, context: __SerdeContext): LocalGateway => {
-  const contents: any = {
-    LocalGatewayId: undefined,
-    OutpostArn: undefined,
-    OwnerId: undefined,
-    State: undefined,
-    Tags: undefined,
-  };
+  const contents: any = {};
   if (output["localGatewayId"] !== undefined) {
     contents.LocalGatewayId = __expectString(output["localGatewayId"]);
   }
@@ -77225,19 +74383,7 @@ const deserializeAws_ec2LocalGateway = (output: any, context: __SerdeContext): L
 };
 
 const deserializeAws_ec2LocalGatewayRoute = (output: any, context: __SerdeContext): LocalGatewayRoute => {
-  const contents: any = {
-    DestinationCidrBlock: undefined,
-    LocalGatewayVirtualInterfaceGroupId: undefined,
-    Type: undefined,
-    State: undefined,
-    LocalGatewayRouteTableId: undefined,
-    LocalGatewayRouteTableArn: undefined,
-    OwnerId: undefined,
-    SubnetId: undefined,
-    CoipPoolId: undefined,
-    NetworkInterfaceId: undefined,
-    DestinationPrefixListId: undefined,
-  };
+  const contents: any = {};
   if (output["destinationCidrBlock"] !== undefined) {
     contents.DestinationCidrBlock = __expectString(output["destinationCidrBlock"]);
   }
@@ -77283,17 +74429,7 @@ const deserializeAws_ec2LocalGatewayRouteList = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_ec2LocalGatewayRouteTable = (output: any, context: __SerdeContext): LocalGatewayRouteTable => {
-  const contents: any = {
-    LocalGatewayRouteTableId: undefined,
-    LocalGatewayRouteTableArn: undefined,
-    LocalGatewayId: undefined,
-    OutpostArn: undefined,
-    OwnerId: undefined,
-    State: undefined,
-    Tags: undefined,
-    Mode: undefined,
-    StateReason: undefined,
-  };
+  const contents: any = {};
   if (output["localGatewayRouteTableId"] !== undefined) {
     contents.LocalGatewayRouteTableId = __expectString(output["localGatewayRouteTableId"]);
   }
@@ -77341,16 +74477,7 @@ const deserializeAws_ec2LocalGatewayRouteTableVirtualInterfaceGroupAssociation =
   output: any,
   context: __SerdeContext
 ): LocalGatewayRouteTableVirtualInterfaceGroupAssociation => {
-  const contents: any = {
-    LocalGatewayRouteTableVirtualInterfaceGroupAssociationId: undefined,
-    LocalGatewayVirtualInterfaceGroupId: undefined,
-    LocalGatewayId: undefined,
-    LocalGatewayRouteTableId: undefined,
-    LocalGatewayRouteTableArn: undefined,
-    OwnerId: undefined,
-    State: undefined,
-    Tags: undefined,
-  };
+  const contents: any = {};
   if (output["localGatewayRouteTableVirtualInterfaceGroupAssociationId"] !== undefined) {
     contents.LocalGatewayRouteTableVirtualInterfaceGroupAssociationId = __expectString(
       output["localGatewayRouteTableVirtualInterfaceGroupAssociationId"]
@@ -77397,16 +74524,7 @@ const deserializeAws_ec2LocalGatewayRouteTableVpcAssociation = (
   output: any,
   context: __SerdeContext
 ): LocalGatewayRouteTableVpcAssociation => {
-  const contents: any = {
-    LocalGatewayRouteTableVpcAssociationId: undefined,
-    LocalGatewayRouteTableId: undefined,
-    LocalGatewayRouteTableArn: undefined,
-    LocalGatewayId: undefined,
-    VpcId: undefined,
-    OwnerId: undefined,
-    State: undefined,
-    Tags: undefined,
-  };
+  const contents: any = {};
   if (output["localGatewayRouteTableVpcAssociationId"] !== undefined) {
     contents.LocalGatewayRouteTableVpcAssociationId = __expectString(output["localGatewayRouteTableVpcAssociationId"]);
   }
@@ -77459,17 +74577,7 @@ const deserializeAws_ec2LocalGatewayVirtualInterface = (
   output: any,
   context: __SerdeContext
 ): LocalGatewayVirtualInterface => {
-  const contents: any = {
-    LocalGatewayVirtualInterfaceId: undefined,
-    LocalGatewayId: undefined,
-    Vlan: undefined,
-    LocalAddress: undefined,
-    PeerAddress: undefined,
-    LocalBgpAsn: undefined,
-    PeerBgpAsn: undefined,
-    OwnerId: undefined,
-    Tags: undefined,
-  };
+  const contents: any = {};
   if (output["localGatewayVirtualInterfaceId"] !== undefined) {
     contents.LocalGatewayVirtualInterfaceId = __expectString(output["localGatewayVirtualInterfaceId"]);
   }
@@ -77506,13 +74614,7 @@ const deserializeAws_ec2LocalGatewayVirtualInterfaceGroup = (
   output: any,
   context: __SerdeContext
 ): LocalGatewayVirtualInterfaceGroup => {
-  const contents: any = {
-    LocalGatewayVirtualInterfaceGroupId: undefined,
-    LocalGatewayVirtualInterfaceIds: undefined,
-    LocalGatewayId: undefined,
-    OwnerId: undefined,
-    Tags: undefined,
-  };
+  const contents: any = {};
   if (output["localGatewayVirtualInterfaceGroupId"] !== undefined) {
     contents.LocalGatewayVirtualInterfaceGroupId = __expectString(output["localGatewayVirtualInterfaceGroupId"]);
   }
@@ -77580,18 +74682,7 @@ const deserializeAws_ec2LocalStorageTypeSet = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_ec2ManagedPrefixList = (output: any, context: __SerdeContext): ManagedPrefixList => {
-  const contents: any = {
-    PrefixListId: undefined,
-    AddressFamily: undefined,
-    State: undefined,
-    StateMessage: undefined,
-    PrefixListArn: undefined,
-    PrefixListName: undefined,
-    MaxEntries: undefined,
-    Version: undefined,
-    Tags: undefined,
-    OwnerId: undefined,
-  };
+  const contents: any = {};
   if (output["prefixListId"] !== undefined) {
     contents.PrefixListId = __expectString(output["prefixListId"]);
   }
@@ -77636,10 +74727,7 @@ const deserializeAws_ec2ManagedPrefixListSet = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_ec2MemoryGiBPerVCpu = (output: any, context: __SerdeContext): MemoryGiBPerVCpu => {
-  const contents: any = {
-    Min: undefined,
-    Max: undefined,
-  };
+  const contents: any = {};
   if (output["min"] !== undefined) {
     contents.Min = __strictParseFloat(output["min"]) as number;
   }
@@ -77650,9 +74738,7 @@ const deserializeAws_ec2MemoryGiBPerVCpu = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_ec2MemoryInfo = (output: any, context: __SerdeContext): MemoryInfo => {
-  const contents: any = {
-    SizeInMiB: undefined,
-  };
+  const contents: any = {};
   if (output["sizeInMiB"] !== undefined) {
     contents.SizeInMiB = __strictParseLong(output["sizeInMiB"]) as number;
   }
@@ -77660,10 +74746,7 @@ const deserializeAws_ec2MemoryInfo = (output: any, context: __SerdeContext): Mem
 };
 
 const deserializeAws_ec2MemoryMiB = (output: any, context: __SerdeContext): MemoryMiB => {
-  const contents: any = {
-    Min: undefined,
-    Max: undefined,
-  };
+  const contents: any = {};
   if (output["min"] !== undefined) {
     contents.Min = __strictParseInt32(output["min"]) as number;
   }
@@ -77674,12 +74757,7 @@ const deserializeAws_ec2MemoryMiB = (output: any, context: __SerdeContext): Memo
 };
 
 const deserializeAws_ec2MetricPoint = (output: any, context: __SerdeContext): MetricPoint => {
-  const contents: any = {
-    StartDate: undefined,
-    EndDate: undefined,
-    Value: undefined,
-    Status: undefined,
-  };
+  const contents: any = {};
   if (output["startDate"] !== undefined) {
     contents.StartDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["startDate"]));
   }
@@ -77707,9 +74785,7 @@ const deserializeAws_ec2ModifyAddressAttributeResult = (
   output: any,
   context: __SerdeContext
 ): ModifyAddressAttributeResult => {
-  const contents: any = {
-    Address: undefined,
-  };
+  const contents: any = {};
   if (output["address"] !== undefined) {
     contents.Address = deserializeAws_ec2AddressAttribute(output["address"], context);
   }
@@ -77720,9 +74796,7 @@ const deserializeAws_ec2ModifyAvailabilityZoneGroupResult = (
   output: any,
   context: __SerdeContext
 ): ModifyAvailabilityZoneGroupResult => {
-  const contents: any = {
-    Return: undefined,
-  };
+  const contents: any = {};
   if (output["return"] !== undefined) {
     contents.Return = __parseBoolean(output["return"]);
   }
@@ -77733,9 +74807,7 @@ const deserializeAws_ec2ModifyCapacityReservationFleetResult = (
   output: any,
   context: __SerdeContext
 ): ModifyCapacityReservationFleetResult => {
-  const contents: any = {
-    Return: undefined,
-  };
+  const contents: any = {};
   if (output["return"] !== undefined) {
     contents.Return = __parseBoolean(output["return"]);
   }
@@ -77746,9 +74818,7 @@ const deserializeAws_ec2ModifyCapacityReservationResult = (
   output: any,
   context: __SerdeContext
 ): ModifyCapacityReservationResult => {
-  const contents: any = {
-    Return: undefined,
-  };
+  const contents: any = {};
   if (output["return"] !== undefined) {
     contents.Return = __parseBoolean(output["return"]);
   }
@@ -77759,9 +74829,7 @@ const deserializeAws_ec2ModifyClientVpnEndpointResult = (
   output: any,
   context: __SerdeContext
 ): ModifyClientVpnEndpointResult => {
-  const contents: any = {
-    Return: undefined,
-  };
+  const contents: any = {};
   if (output["return"] !== undefined) {
     contents.Return = __parseBoolean(output["return"]);
   }
@@ -77772,9 +74840,7 @@ const deserializeAws_ec2ModifyDefaultCreditSpecificationResult = (
   output: any,
   context: __SerdeContext
 ): ModifyDefaultCreditSpecificationResult => {
-  const contents: any = {
-    InstanceFamilyCreditSpecification: undefined,
-  };
+  const contents: any = {};
   if (output["instanceFamilyCreditSpecification"] !== undefined) {
     contents.InstanceFamilyCreditSpecification = deserializeAws_ec2InstanceFamilyCreditSpecification(
       output["instanceFamilyCreditSpecification"],
@@ -77788,9 +74854,7 @@ const deserializeAws_ec2ModifyEbsDefaultKmsKeyIdResult = (
   output: any,
   context: __SerdeContext
 ): ModifyEbsDefaultKmsKeyIdResult => {
-  const contents: any = {
-    KmsKeyId: undefined,
-  };
+  const contents: any = {};
   if (output["kmsKeyId"] !== undefined) {
     contents.KmsKeyId = __expectString(output["kmsKeyId"]);
   }
@@ -77798,9 +74862,7 @@ const deserializeAws_ec2ModifyEbsDefaultKmsKeyIdResult = (
 };
 
 const deserializeAws_ec2ModifyFleetResult = (output: any, context: __SerdeContext): ModifyFleetResult => {
-  const contents: any = {
-    Return: undefined,
-  };
+  const contents: any = {};
   if (output["return"] !== undefined) {
     contents.Return = __parseBoolean(output["return"]);
   }
@@ -77811,9 +74873,7 @@ const deserializeAws_ec2ModifyFpgaImageAttributeResult = (
   output: any,
   context: __SerdeContext
 ): ModifyFpgaImageAttributeResult => {
-  const contents: any = {
-    FpgaImageAttribute: undefined,
-  };
+  const contents: any = {};
   if (output["fpgaImageAttribute"] !== undefined) {
     contents.FpgaImageAttribute = deserializeAws_ec2FpgaImageAttribute(output["fpgaImageAttribute"], context);
   }
@@ -77821,10 +74881,7 @@ const deserializeAws_ec2ModifyFpgaImageAttributeResult = (
 };
 
 const deserializeAws_ec2ModifyHostsResult = (output: any, context: __SerdeContext): ModifyHostsResult => {
-  const contents: any = {
-    Successful: undefined,
-    Unsuccessful: undefined,
-  };
+  const contents: any = {};
   if (output.successful === "") {
     contents.Successful = [];
   } else if (output["successful"] !== undefined && output["successful"]["item"] !== undefined) {
@@ -77848,9 +74905,7 @@ const deserializeAws_ec2ModifyInstanceCapacityReservationAttributesResult = (
   output: any,
   context: __SerdeContext
 ): ModifyInstanceCapacityReservationAttributesResult => {
-  const contents: any = {
-    Return: undefined,
-  };
+  const contents: any = {};
   if (output["return"] !== undefined) {
     contents.Return = __parseBoolean(output["return"]);
   }
@@ -77861,10 +74916,7 @@ const deserializeAws_ec2ModifyInstanceCreditSpecificationResult = (
   output: any,
   context: __SerdeContext
 ): ModifyInstanceCreditSpecificationResult => {
-  const contents: any = {
-    SuccessfulInstanceCreditSpecifications: undefined,
-    UnsuccessfulInstanceCreditSpecifications: undefined,
-  };
+  const contents: any = {};
   if (output.successfulInstanceCreditSpecificationSet === "") {
     contents.SuccessfulInstanceCreditSpecifications = [];
   } else if (
@@ -77894,9 +74946,7 @@ const deserializeAws_ec2ModifyInstanceEventStartTimeResult = (
   output: any,
   context: __SerdeContext
 ): ModifyInstanceEventStartTimeResult => {
-  const contents: any = {
-    Event: undefined,
-  };
+  const contents: any = {};
   if (output["event"] !== undefined) {
     contents.Event = deserializeAws_ec2InstanceStatusEvent(output["event"], context);
   }
@@ -77907,9 +74957,7 @@ const deserializeAws_ec2ModifyInstanceEventWindowResult = (
   output: any,
   context: __SerdeContext
 ): ModifyInstanceEventWindowResult => {
-  const contents: any = {
-    InstanceEventWindow: undefined,
-  };
+  const contents: any = {};
   if (output["instanceEventWindow"] !== undefined) {
     contents.InstanceEventWindow = deserializeAws_ec2InstanceEventWindow(output["instanceEventWindow"], context);
   }
@@ -77920,10 +74968,7 @@ const deserializeAws_ec2ModifyInstanceMaintenanceOptionsResult = (
   output: any,
   context: __SerdeContext
 ): ModifyInstanceMaintenanceOptionsResult => {
-  const contents: any = {
-    InstanceId: undefined,
-    AutoRecovery: undefined,
-  };
+  const contents: any = {};
   if (output["instanceId"] !== undefined) {
     contents.InstanceId = __expectString(output["instanceId"]);
   }
@@ -77937,10 +74982,7 @@ const deserializeAws_ec2ModifyInstanceMetadataOptionsResult = (
   output: any,
   context: __SerdeContext
 ): ModifyInstanceMetadataOptionsResult => {
-  const contents: any = {
-    InstanceId: undefined,
-    InstanceMetadataOptions: undefined,
-  };
+  const contents: any = {};
   if (output["instanceId"] !== undefined) {
     contents.InstanceId = __expectString(output["instanceId"]);
   }
@@ -77957,9 +74999,7 @@ const deserializeAws_ec2ModifyInstancePlacementResult = (
   output: any,
   context: __SerdeContext
 ): ModifyInstancePlacementResult => {
-  const contents: any = {
-    Return: undefined,
-  };
+  const contents: any = {};
   if (output["return"] !== undefined) {
     contents.Return = __parseBoolean(output["return"]);
   }
@@ -77967,9 +75007,7 @@ const deserializeAws_ec2ModifyInstancePlacementResult = (
 };
 
 const deserializeAws_ec2ModifyIpamPoolResult = (output: any, context: __SerdeContext): ModifyIpamPoolResult => {
-  const contents: any = {
-    IpamPool: undefined,
-  };
+  const contents: any = {};
   if (output["ipamPool"] !== undefined) {
     contents.IpamPool = deserializeAws_ec2IpamPool(output["ipamPool"], context);
   }
@@ -77980,9 +75018,7 @@ const deserializeAws_ec2ModifyIpamResourceCidrResult = (
   output: any,
   context: __SerdeContext
 ): ModifyIpamResourceCidrResult => {
-  const contents: any = {
-    IpamResourceCidr: undefined,
-  };
+  const contents: any = {};
   if (output["ipamResourceCidr"] !== undefined) {
     contents.IpamResourceCidr = deserializeAws_ec2IpamResourceCidr(output["ipamResourceCidr"], context);
   }
@@ -77993,9 +75029,7 @@ const deserializeAws_ec2ModifyIpamResourceDiscoveryResult = (
   output: any,
   context: __SerdeContext
 ): ModifyIpamResourceDiscoveryResult => {
-  const contents: any = {
-    IpamResourceDiscovery: undefined,
-  };
+  const contents: any = {};
   if (output["ipamResourceDiscovery"] !== undefined) {
     contents.IpamResourceDiscovery = deserializeAws_ec2IpamResourceDiscovery(output["ipamResourceDiscovery"], context);
   }
@@ -78003,9 +75037,7 @@ const deserializeAws_ec2ModifyIpamResourceDiscoveryResult = (
 };
 
 const deserializeAws_ec2ModifyIpamResult = (output: any, context: __SerdeContext): ModifyIpamResult => {
-  const contents: any = {
-    Ipam: undefined,
-  };
+  const contents: any = {};
   if (output["ipam"] !== undefined) {
     contents.Ipam = deserializeAws_ec2Ipam(output["ipam"], context);
   }
@@ -78013,9 +75045,7 @@ const deserializeAws_ec2ModifyIpamResult = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_ec2ModifyIpamScopeResult = (output: any, context: __SerdeContext): ModifyIpamScopeResult => {
-  const contents: any = {
-    IpamScope: undefined,
-  };
+  const contents: any = {};
   if (output["ipamScope"] !== undefined) {
     contents.IpamScope = deserializeAws_ec2IpamScope(output["ipamScope"], context);
   }
@@ -78026,9 +75056,7 @@ const deserializeAws_ec2ModifyLaunchTemplateResult = (
   output: any,
   context: __SerdeContext
 ): ModifyLaunchTemplateResult => {
-  const contents: any = {
-    LaunchTemplate: undefined,
-  };
+  const contents: any = {};
   if (output["launchTemplate"] !== undefined) {
     contents.LaunchTemplate = deserializeAws_ec2LaunchTemplate(output["launchTemplate"], context);
   }
@@ -78039,9 +75067,7 @@ const deserializeAws_ec2ModifyLocalGatewayRouteResult = (
   output: any,
   context: __SerdeContext
 ): ModifyLocalGatewayRouteResult => {
-  const contents: any = {
-    Route: undefined,
-  };
+  const contents: any = {};
   if (output["route"] !== undefined) {
     contents.Route = deserializeAws_ec2LocalGatewayRoute(output["route"], context);
   }
@@ -78052,9 +75078,7 @@ const deserializeAws_ec2ModifyManagedPrefixListResult = (
   output: any,
   context: __SerdeContext
 ): ModifyManagedPrefixListResult => {
-  const contents: any = {
-    PrefixList: undefined,
-  };
+  const contents: any = {};
   if (output["prefixList"] !== undefined) {
     contents.PrefixList = deserializeAws_ec2ManagedPrefixList(output["prefixList"], context);
   }
@@ -78065,9 +75089,7 @@ const deserializeAws_ec2ModifyPrivateDnsNameOptionsResult = (
   output: any,
   context: __SerdeContext
 ): ModifyPrivateDnsNameOptionsResult => {
-  const contents: any = {
-    Return: undefined,
-  };
+  const contents: any = {};
   if (output["return"] !== undefined) {
     contents.Return = __parseBoolean(output["return"]);
   }
@@ -78078,9 +75100,7 @@ const deserializeAws_ec2ModifyReservedInstancesResult = (
   output: any,
   context: __SerdeContext
 ): ModifyReservedInstancesResult => {
-  const contents: any = {
-    ReservedInstancesModificationId: undefined,
-  };
+  const contents: any = {};
   if (output["reservedInstancesModificationId"] !== undefined) {
     contents.ReservedInstancesModificationId = __expectString(output["reservedInstancesModificationId"]);
   }
@@ -78091,9 +75111,7 @@ const deserializeAws_ec2ModifySecurityGroupRulesResult = (
   output: any,
   context: __SerdeContext
 ): ModifySecurityGroupRulesResult => {
-  const contents: any = {
-    Return: undefined,
-  };
+  const contents: any = {};
   if (output["return"] !== undefined) {
     contents.Return = __parseBoolean(output["return"]);
   }
@@ -78101,10 +75119,7 @@ const deserializeAws_ec2ModifySecurityGroupRulesResult = (
 };
 
 const deserializeAws_ec2ModifySnapshotTierResult = (output: any, context: __SerdeContext): ModifySnapshotTierResult => {
-  const contents: any = {
-    SnapshotId: undefined,
-    TieringStartTime: undefined,
-  };
+  const contents: any = {};
   if (output["snapshotId"] !== undefined) {
     contents.SnapshotId = __expectString(output["snapshotId"]);
   }
@@ -78118,9 +75133,7 @@ const deserializeAws_ec2ModifySpotFleetRequestResponse = (
   output: any,
   context: __SerdeContext
 ): ModifySpotFleetRequestResponse => {
-  const contents: any = {
-    Return: undefined,
-  };
+  const contents: any = {};
   if (output["return"] !== undefined) {
     contents.Return = __parseBoolean(output["return"]);
   }
@@ -78131,9 +75144,7 @@ const deserializeAws_ec2ModifyTrafficMirrorFilterNetworkServicesResult = (
   output: any,
   context: __SerdeContext
 ): ModifyTrafficMirrorFilterNetworkServicesResult => {
-  const contents: any = {
-    TrafficMirrorFilter: undefined,
-  };
+  const contents: any = {};
   if (output["trafficMirrorFilter"] !== undefined) {
     contents.TrafficMirrorFilter = deserializeAws_ec2TrafficMirrorFilter(output["trafficMirrorFilter"], context);
   }
@@ -78144,9 +75155,7 @@ const deserializeAws_ec2ModifyTrafficMirrorFilterRuleResult = (
   output: any,
   context: __SerdeContext
 ): ModifyTrafficMirrorFilterRuleResult => {
-  const contents: any = {
-    TrafficMirrorFilterRule: undefined,
-  };
+  const contents: any = {};
   if (output["trafficMirrorFilterRule"] !== undefined) {
     contents.TrafficMirrorFilterRule = deserializeAws_ec2TrafficMirrorFilterRule(
       output["trafficMirrorFilterRule"],
@@ -78160,9 +75169,7 @@ const deserializeAws_ec2ModifyTrafficMirrorSessionResult = (
   output: any,
   context: __SerdeContext
 ): ModifyTrafficMirrorSessionResult => {
-  const contents: any = {
-    TrafficMirrorSession: undefined,
-  };
+  const contents: any = {};
   if (output["trafficMirrorSession"] !== undefined) {
     contents.TrafficMirrorSession = deserializeAws_ec2TrafficMirrorSession(output["trafficMirrorSession"], context);
   }
@@ -78173,9 +75180,7 @@ const deserializeAws_ec2ModifyTransitGatewayPrefixListReferenceResult = (
   output: any,
   context: __SerdeContext
 ): ModifyTransitGatewayPrefixListReferenceResult => {
-  const contents: any = {
-    TransitGatewayPrefixListReference: undefined,
-  };
+  const contents: any = {};
   if (output["transitGatewayPrefixListReference"] !== undefined) {
     contents.TransitGatewayPrefixListReference = deserializeAws_ec2TransitGatewayPrefixListReference(
       output["transitGatewayPrefixListReference"],
@@ -78189,9 +75194,7 @@ const deserializeAws_ec2ModifyTransitGatewayResult = (
   output: any,
   context: __SerdeContext
 ): ModifyTransitGatewayResult => {
-  const contents: any = {
-    TransitGateway: undefined,
-  };
+  const contents: any = {};
   if (output["transitGateway"] !== undefined) {
     contents.TransitGateway = deserializeAws_ec2TransitGateway(output["transitGateway"], context);
   }
@@ -78202,9 +75205,7 @@ const deserializeAws_ec2ModifyTransitGatewayVpcAttachmentResult = (
   output: any,
   context: __SerdeContext
 ): ModifyTransitGatewayVpcAttachmentResult => {
-  const contents: any = {
-    TransitGatewayVpcAttachment: undefined,
-  };
+  const contents: any = {};
   if (output["transitGatewayVpcAttachment"] !== undefined) {
     contents.TransitGatewayVpcAttachment = deserializeAws_ec2TransitGatewayVpcAttachment(
       output["transitGatewayVpcAttachment"],
@@ -78218,10 +75219,7 @@ const deserializeAws_ec2ModifyVerifiedAccessEndpointPolicyResult = (
   output: any,
   context: __SerdeContext
 ): ModifyVerifiedAccessEndpointPolicyResult => {
-  const contents: any = {
-    PolicyEnabled: undefined,
-    PolicyDocument: undefined,
-  };
+  const contents: any = {};
   if (output["policyEnabled"] !== undefined) {
     contents.PolicyEnabled = __parseBoolean(output["policyEnabled"]);
   }
@@ -78235,9 +75233,7 @@ const deserializeAws_ec2ModifyVerifiedAccessEndpointResult = (
   output: any,
   context: __SerdeContext
 ): ModifyVerifiedAccessEndpointResult => {
-  const contents: any = {
-    VerifiedAccessEndpoint: undefined,
-  };
+  const contents: any = {};
   if (output["verifiedAccessEndpoint"] !== undefined) {
     contents.VerifiedAccessEndpoint = deserializeAws_ec2VerifiedAccessEndpoint(
       output["verifiedAccessEndpoint"],
@@ -78251,10 +75247,7 @@ const deserializeAws_ec2ModifyVerifiedAccessGroupPolicyResult = (
   output: any,
   context: __SerdeContext
 ): ModifyVerifiedAccessGroupPolicyResult => {
-  const contents: any = {
-    PolicyEnabled: undefined,
-    PolicyDocument: undefined,
-  };
+  const contents: any = {};
   if (output["policyEnabled"] !== undefined) {
     contents.PolicyEnabled = __parseBoolean(output["policyEnabled"]);
   }
@@ -78268,9 +75261,7 @@ const deserializeAws_ec2ModifyVerifiedAccessGroupResult = (
   output: any,
   context: __SerdeContext
 ): ModifyVerifiedAccessGroupResult => {
-  const contents: any = {
-    VerifiedAccessGroup: undefined,
-  };
+  const contents: any = {};
   if (output["verifiedAccessGroup"] !== undefined) {
     contents.VerifiedAccessGroup = deserializeAws_ec2VerifiedAccessGroup(output["verifiedAccessGroup"], context);
   }
@@ -78281,9 +75272,7 @@ const deserializeAws_ec2ModifyVerifiedAccessInstanceLoggingConfigurationResult =
   output: any,
   context: __SerdeContext
 ): ModifyVerifiedAccessInstanceLoggingConfigurationResult => {
-  const contents: any = {
-    LoggingConfiguration: undefined,
-  };
+  const contents: any = {};
   if (output["loggingConfiguration"] !== undefined) {
     contents.LoggingConfiguration = deserializeAws_ec2VerifiedAccessInstanceLoggingConfiguration(
       output["loggingConfiguration"],
@@ -78297,9 +75286,7 @@ const deserializeAws_ec2ModifyVerifiedAccessInstanceResult = (
   output: any,
   context: __SerdeContext
 ): ModifyVerifiedAccessInstanceResult => {
-  const contents: any = {
-    VerifiedAccessInstance: undefined,
-  };
+  const contents: any = {};
   if (output["verifiedAccessInstance"] !== undefined) {
     contents.VerifiedAccessInstance = deserializeAws_ec2VerifiedAccessInstance(
       output["verifiedAccessInstance"],
@@ -78313,9 +75300,7 @@ const deserializeAws_ec2ModifyVerifiedAccessTrustProviderResult = (
   output: any,
   context: __SerdeContext
 ): ModifyVerifiedAccessTrustProviderResult => {
-  const contents: any = {
-    VerifiedAccessTrustProvider: undefined,
-  };
+  const contents: any = {};
   if (output["verifiedAccessTrustProvider"] !== undefined) {
     contents.VerifiedAccessTrustProvider = deserializeAws_ec2VerifiedAccessTrustProvider(
       output["verifiedAccessTrustProvider"],
@@ -78326,9 +75311,7 @@ const deserializeAws_ec2ModifyVerifiedAccessTrustProviderResult = (
 };
 
 const deserializeAws_ec2ModifyVolumeResult = (output: any, context: __SerdeContext): ModifyVolumeResult => {
-  const contents: any = {
-    VolumeModification: undefined,
-  };
+  const contents: any = {};
   if (output["volumeModification"] !== undefined) {
     contents.VolumeModification = deserializeAws_ec2VolumeModification(output["volumeModification"], context);
   }
@@ -78339,9 +75322,7 @@ const deserializeAws_ec2ModifyVpcEndpointConnectionNotificationResult = (
   output: any,
   context: __SerdeContext
 ): ModifyVpcEndpointConnectionNotificationResult => {
-  const contents: any = {
-    ReturnValue: undefined,
-  };
+  const contents: any = {};
   if (output["return"] !== undefined) {
     contents.ReturnValue = __parseBoolean(output["return"]);
   }
@@ -78349,9 +75330,7 @@ const deserializeAws_ec2ModifyVpcEndpointConnectionNotificationResult = (
 };
 
 const deserializeAws_ec2ModifyVpcEndpointResult = (output: any, context: __SerdeContext): ModifyVpcEndpointResult => {
-  const contents: any = {
-    Return: undefined,
-  };
+  const contents: any = {};
   if (output["return"] !== undefined) {
     contents.Return = __parseBoolean(output["return"]);
   }
@@ -78362,9 +75341,7 @@ const deserializeAws_ec2ModifyVpcEndpointServiceConfigurationResult = (
   output: any,
   context: __SerdeContext
 ): ModifyVpcEndpointServiceConfigurationResult => {
-  const contents: any = {
-    Return: undefined,
-  };
+  const contents: any = {};
   if (output["return"] !== undefined) {
     contents.Return = __parseBoolean(output["return"]);
   }
@@ -78375,9 +75352,7 @@ const deserializeAws_ec2ModifyVpcEndpointServicePayerResponsibilityResult = (
   output: any,
   context: __SerdeContext
 ): ModifyVpcEndpointServicePayerResponsibilityResult => {
-  const contents: any = {
-    ReturnValue: undefined,
-  };
+  const contents: any = {};
   if (output["return"] !== undefined) {
     contents.ReturnValue = __parseBoolean(output["return"]);
   }
@@ -78388,10 +75363,7 @@ const deserializeAws_ec2ModifyVpcEndpointServicePermissionsResult = (
   output: any,
   context: __SerdeContext
 ): ModifyVpcEndpointServicePermissionsResult => {
-  const contents: any = {
-    AddedPrincipals: undefined,
-    ReturnValue: undefined,
-  };
+  const contents: any = {};
   if (output.addedPrincipalSet === "") {
     contents.AddedPrincipals = [];
   } else if (output["addedPrincipalSet"] !== undefined && output["addedPrincipalSet"]["item"] !== undefined) {
@@ -78410,10 +75382,7 @@ const deserializeAws_ec2ModifyVpcPeeringConnectionOptionsResult = (
   output: any,
   context: __SerdeContext
 ): ModifyVpcPeeringConnectionOptionsResult => {
-  const contents: any = {
-    AccepterPeeringConnectionOptions: undefined,
-    RequesterPeeringConnectionOptions: undefined,
-  };
+  const contents: any = {};
   if (output["accepterPeeringConnectionOptions"] !== undefined) {
     contents.AccepterPeeringConnectionOptions = deserializeAws_ec2PeeringConnectionOptions(
       output["accepterPeeringConnectionOptions"],
@@ -78430,9 +75399,7 @@ const deserializeAws_ec2ModifyVpcPeeringConnectionOptionsResult = (
 };
 
 const deserializeAws_ec2ModifyVpcTenancyResult = (output: any, context: __SerdeContext): ModifyVpcTenancyResult => {
-  const contents: any = {
-    ReturnValue: undefined,
-  };
+  const contents: any = {};
   if (output["return"] !== undefined) {
     contents.ReturnValue = __parseBoolean(output["return"]);
   }
@@ -78443,9 +75410,7 @@ const deserializeAws_ec2ModifyVpnConnectionOptionsResult = (
   output: any,
   context: __SerdeContext
 ): ModifyVpnConnectionOptionsResult => {
-  const contents: any = {
-    VpnConnection: undefined,
-  };
+  const contents: any = {};
   if (output["vpnConnection"] !== undefined) {
     contents.VpnConnection = deserializeAws_ec2VpnConnection(output["vpnConnection"], context);
   }
@@ -78456,9 +75421,7 @@ const deserializeAws_ec2ModifyVpnConnectionResult = (
   output: any,
   context: __SerdeContext
 ): ModifyVpnConnectionResult => {
-  const contents: any = {
-    VpnConnection: undefined,
-  };
+  const contents: any = {};
   if (output["vpnConnection"] !== undefined) {
     contents.VpnConnection = deserializeAws_ec2VpnConnection(output["vpnConnection"], context);
   }
@@ -78469,9 +75432,7 @@ const deserializeAws_ec2ModifyVpnTunnelCertificateResult = (
   output: any,
   context: __SerdeContext
 ): ModifyVpnTunnelCertificateResult => {
-  const contents: any = {
-    VpnConnection: undefined,
-  };
+  const contents: any = {};
   if (output["vpnConnection"] !== undefined) {
     contents.VpnConnection = deserializeAws_ec2VpnConnection(output["vpnConnection"], context);
   }
@@ -78482,9 +75443,7 @@ const deserializeAws_ec2ModifyVpnTunnelOptionsResult = (
   output: any,
   context: __SerdeContext
 ): ModifyVpnTunnelOptionsResult => {
-  const contents: any = {
-    VpnConnection: undefined,
-  };
+  const contents: any = {};
   if (output["vpnConnection"] !== undefined) {
     contents.VpnConnection = deserializeAws_ec2VpnConnection(output["vpnConnection"], context);
   }
@@ -78492,9 +75451,7 @@ const deserializeAws_ec2ModifyVpnTunnelOptionsResult = (
 };
 
 const deserializeAws_ec2Monitoring = (output: any, context: __SerdeContext): Monitoring => {
-  const contents: any = {
-    State: undefined,
-  };
+  const contents: any = {};
   if (output["state"] !== undefined) {
     contents.State = __expectString(output["state"]);
   }
@@ -78502,9 +75459,7 @@ const deserializeAws_ec2Monitoring = (output: any, context: __SerdeContext): Mon
 };
 
 const deserializeAws_ec2MonitorInstancesResult = (output: any, context: __SerdeContext): MonitorInstancesResult => {
-  const contents: any = {
-    InstanceMonitorings: undefined,
-  };
+  const contents: any = {};
   if (output.instancesSet === "") {
     contents.InstanceMonitorings = [];
   } else if (output["instancesSet"] !== undefined && output["instancesSet"]["item"] !== undefined) {
@@ -78517,10 +75472,7 @@ const deserializeAws_ec2MonitorInstancesResult = (output: any, context: __SerdeC
 };
 
 const deserializeAws_ec2MoveAddressToVpcResult = (output: any, context: __SerdeContext): MoveAddressToVpcResult => {
-  const contents: any = {
-    AllocationId: undefined,
-    Status: undefined,
-  };
+  const contents: any = {};
   if (output["allocationId"] !== undefined) {
     contents.AllocationId = __expectString(output["allocationId"]);
   }
@@ -78534,9 +75486,7 @@ const deserializeAws_ec2MoveByoipCidrToIpamResult = (
   output: any,
   context: __SerdeContext
 ): MoveByoipCidrToIpamResult => {
-  const contents: any = {
-    ByoipCidr: undefined,
-  };
+  const contents: any = {};
   if (output["byoipCidr"] !== undefined) {
     contents.ByoipCidr = deserializeAws_ec2ByoipCidr(output["byoipCidr"], context);
   }
@@ -78544,10 +75494,7 @@ const deserializeAws_ec2MoveByoipCidrToIpamResult = (
 };
 
 const deserializeAws_ec2MovingAddressStatus = (output: any, context: __SerdeContext): MovingAddressStatus => {
-  const contents: any = {
-    MoveStatus: undefined,
-    PublicIp: undefined,
-  };
+  const contents: any = {};
   if (output["moveStatus"] !== undefined) {
     contents.MoveStatus = __expectString(output["moveStatus"]);
   }
@@ -78566,20 +75513,7 @@ const deserializeAws_ec2MovingAddressStatusSet = (output: any, context: __SerdeC
 };
 
 const deserializeAws_ec2NatGateway = (output: any, context: __SerdeContext): NatGateway => {
-  const contents: any = {
-    CreateTime: undefined,
-    DeleteTime: undefined,
-    FailureCode: undefined,
-    FailureMessage: undefined,
-    NatGatewayAddresses: undefined,
-    NatGatewayId: undefined,
-    ProvisionedBandwidth: undefined,
-    State: undefined,
-    SubnetId: undefined,
-    VpcId: undefined,
-    Tags: undefined,
-    ConnectivityType: undefined,
-  };
+  const contents: any = {};
   if (output["createTime"] !== undefined) {
     contents.CreateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["createTime"]));
   }
@@ -78627,16 +75561,7 @@ const deserializeAws_ec2NatGateway = (output: any, context: __SerdeContext): Nat
 };
 
 const deserializeAws_ec2NatGatewayAddress = (output: any, context: __SerdeContext): NatGatewayAddress => {
-  const contents: any = {
-    AllocationId: undefined,
-    NetworkInterfaceId: undefined,
-    PrivateIp: undefined,
-    PublicIp: undefined,
-    AssociationId: undefined,
-    IsPrimary: undefined,
-    FailureMessage: undefined,
-    Status: undefined,
-  };
+  const contents: any = {};
   if (output["allocationId"] !== undefined) {
     contents.AllocationId = __expectString(output["allocationId"]);
   }
@@ -78681,15 +75606,7 @@ const deserializeAws_ec2NatGatewayList = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_ec2NetworkAcl = (output: any, context: __SerdeContext): NetworkAcl => {
-  const contents: any = {
-    Associations: undefined,
-    Entries: undefined,
-    IsDefault: undefined,
-    NetworkAclId: undefined,
-    Tags: undefined,
-    VpcId: undefined,
-    OwnerId: undefined,
-  };
+  const contents: any = {};
   if (output.associationSet === "") {
     contents.Associations = [];
   } else if (output["associationSet"] !== undefined && output["associationSet"]["item"] !== undefined) {
@@ -78727,11 +75644,7 @@ const deserializeAws_ec2NetworkAcl = (output: any, context: __SerdeContext): Net
 };
 
 const deserializeAws_ec2NetworkAclAssociation = (output: any, context: __SerdeContext): NetworkAclAssociation => {
-  const contents: any = {
-    NetworkAclAssociationId: undefined,
-    NetworkAclId: undefined,
-    SubnetId: undefined,
-  };
+  const contents: any = {};
   if (output["networkAclAssociationId"] !== undefined) {
     contents.NetworkAclAssociationId = __expectString(output["networkAclAssociationId"]);
   }
@@ -78753,16 +75666,7 @@ const deserializeAws_ec2NetworkAclAssociationList = (output: any, context: __Ser
 };
 
 const deserializeAws_ec2NetworkAclEntry = (output: any, context: __SerdeContext): NetworkAclEntry => {
-  const contents: any = {
-    CidrBlock: undefined,
-    Egress: undefined,
-    IcmpTypeCode: undefined,
-    Ipv6CidrBlock: undefined,
-    PortRange: undefined,
-    Protocol: undefined,
-    RuleAction: undefined,
-    RuleNumber: undefined,
-  };
+  const contents: any = {};
   if (output["cidrBlock"] !== undefined) {
     contents.CidrBlock = __expectString(output["cidrBlock"]);
   }
@@ -78807,10 +75711,7 @@ const deserializeAws_ec2NetworkAclList = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_ec2NetworkBandwidthGbps = (output: any, context: __SerdeContext): NetworkBandwidthGbps => {
-  const contents: any = {
-    Min: undefined,
-    Max: undefined,
-  };
+  const contents: any = {};
   if (output["min"] !== undefined) {
     contents.Min = __strictParseFloat(output["min"]) as number;
   }
@@ -78821,11 +75722,7 @@ const deserializeAws_ec2NetworkBandwidthGbps = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_ec2NetworkCardInfo = (output: any, context: __SerdeContext): NetworkCardInfo => {
-  const contents: any = {
-    NetworkCardIndex: undefined,
-    NetworkPerformance: undefined,
-    MaximumNetworkInterfaces: undefined,
-  };
+  const contents: any = {};
   if (output["networkCardIndex"] !== undefined) {
     contents.NetworkCardIndex = __strictParseInt32(output["networkCardIndex"]) as number;
   }
@@ -78847,21 +75744,7 @@ const deserializeAws_ec2NetworkCardInfoList = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_ec2NetworkInfo = (output: any, context: __SerdeContext): NetworkInfo => {
-  const contents: any = {
-    NetworkPerformance: undefined,
-    MaximumNetworkInterfaces: undefined,
-    MaximumNetworkCards: undefined,
-    DefaultNetworkCardIndex: undefined,
-    NetworkCards: undefined,
-    Ipv4AddressesPerInterface: undefined,
-    Ipv6AddressesPerInterface: undefined,
-    Ipv6Supported: undefined,
-    EnaSupport: undefined,
-    EfaSupported: undefined,
-    EfaInfo: undefined,
-    EncryptionInTransitSupported: undefined,
-    EnaSrdSupported: undefined,
-  };
+  const contents: any = {};
   if (output["networkPerformance"] !== undefined) {
     contents.NetworkPerformance = __expectString(output["networkPerformance"]);
   }
@@ -78913,13 +75796,7 @@ const deserializeAws_ec2NetworkInsightsAccessScope = (
   output: any,
   context: __SerdeContext
 ): NetworkInsightsAccessScope => {
-  const contents: any = {
-    NetworkInsightsAccessScopeId: undefined,
-    NetworkInsightsAccessScopeArn: undefined,
-    CreatedDate: undefined,
-    UpdatedDate: undefined,
-    Tags: undefined,
-  };
+  const contents: any = {};
   if (output["networkInsightsAccessScopeId"] !== undefined) {
     contents.NetworkInsightsAccessScopeId = __expectString(output["networkInsightsAccessScopeId"]);
   }
@@ -78944,19 +75821,7 @@ const deserializeAws_ec2NetworkInsightsAccessScopeAnalysis = (
   output: any,
   context: __SerdeContext
 ): NetworkInsightsAccessScopeAnalysis => {
-  const contents: any = {
-    NetworkInsightsAccessScopeAnalysisId: undefined,
-    NetworkInsightsAccessScopeAnalysisArn: undefined,
-    NetworkInsightsAccessScopeId: undefined,
-    Status: undefined,
-    StatusMessage: undefined,
-    WarningMessage: undefined,
-    StartDate: undefined,
-    EndDate: undefined,
-    FindingsFound: undefined,
-    AnalyzedEniCount: undefined,
-    Tags: undefined,
-  };
+  const contents: any = {};
   if (output["networkInsightsAccessScopeAnalysisId"] !== undefined) {
     contents.NetworkInsightsAccessScopeAnalysisId = __expectString(output["networkInsightsAccessScopeAnalysisId"]);
   }
@@ -79010,11 +75875,7 @@ const deserializeAws_ec2NetworkInsightsAccessScopeContent = (
   output: any,
   context: __SerdeContext
 ): NetworkInsightsAccessScopeContent => {
-  const contents: any = {
-    NetworkInsightsAccessScopeId: undefined,
-    MatchPaths: undefined,
-    ExcludePaths: undefined,
-  };
+  const contents: any = {};
   if (output["networkInsightsAccessScopeId"] !== undefined) {
     contents.NetworkInsightsAccessScopeId = __expectString(output["networkInsightsAccessScopeId"]);
   }
@@ -79049,24 +75910,7 @@ const deserializeAws_ec2NetworkInsightsAccessScopeList = (
 };
 
 const deserializeAws_ec2NetworkInsightsAnalysis = (output: any, context: __SerdeContext): NetworkInsightsAnalysis => {
-  const contents: any = {
-    NetworkInsightsAnalysisId: undefined,
-    NetworkInsightsAnalysisArn: undefined,
-    NetworkInsightsPathId: undefined,
-    AdditionalAccounts: undefined,
-    FilterInArns: undefined,
-    StartDate: undefined,
-    Status: undefined,
-    StatusMessage: undefined,
-    WarningMessage: undefined,
-    NetworkPathFound: undefined,
-    ForwardPathComponents: undefined,
-    ReturnPathComponents: undefined,
-    Explanations: undefined,
-    AlternatePathHints: undefined,
-    SuggestedAccounts: undefined,
-    Tags: undefined,
-  };
+  const contents: any = {};
   if (output["networkInsightsAnalysisId"] !== undefined) {
     contents.NetworkInsightsAnalysisId = __expectString(output["networkInsightsAnalysisId"]);
   }
@@ -79170,22 +76014,7 @@ const deserializeAws_ec2NetworkInsightsAnalysisList = (
 };
 
 const deserializeAws_ec2NetworkInsightsPath = (output: any, context: __SerdeContext): NetworkInsightsPath => {
-  const contents: any = {
-    NetworkInsightsPathId: undefined,
-    NetworkInsightsPathArn: undefined,
-    CreatedDate: undefined,
-    Source: undefined,
-    Destination: undefined,
-    SourceArn: undefined,
-    DestinationArn: undefined,
-    SourceIp: undefined,
-    DestinationIp: undefined,
-    Protocol: undefined,
-    DestinationPort: undefined,
-    Tags: undefined,
-    FilterAtSource: undefined,
-    FilterAtDestination: undefined,
-  };
+  const contents: any = {};
   if (output["networkInsightsPathId"] !== undefined) {
     contents.NetworkInsightsPathId = __expectString(output["networkInsightsPathId"]);
   }
@@ -79242,34 +76071,7 @@ const deserializeAws_ec2NetworkInsightsPathList = (output: any, context: __Serde
 };
 
 const deserializeAws_ec2NetworkInterface = (output: any, context: __SerdeContext): NetworkInterface => {
-  const contents: any = {
-    Association: undefined,
-    Attachment: undefined,
-    AvailabilityZone: undefined,
-    Description: undefined,
-    Groups: undefined,
-    InterfaceType: undefined,
-    Ipv6Addresses: undefined,
-    MacAddress: undefined,
-    NetworkInterfaceId: undefined,
-    OutpostArn: undefined,
-    OwnerId: undefined,
-    PrivateDnsName: undefined,
-    PrivateIpAddress: undefined,
-    PrivateIpAddresses: undefined,
-    Ipv4Prefixes: undefined,
-    Ipv6Prefixes: undefined,
-    RequesterId: undefined,
-    RequesterManaged: undefined,
-    SourceDestCheck: undefined,
-    Status: undefined,
-    SubnetId: undefined,
-    TagSet: undefined,
-    VpcId: undefined,
-    DenyAllIgwTraffic: undefined,
-    Ipv6Native: undefined,
-    Ipv6Address: undefined,
-  };
+  const contents: any = {};
   if (output["association"] !== undefined) {
     contents.Association = deserializeAws_ec2NetworkInterfaceAssociation(output["association"], context);
   }
@@ -79382,15 +76184,7 @@ const deserializeAws_ec2NetworkInterfaceAssociation = (
   output: any,
   context: __SerdeContext
 ): NetworkInterfaceAssociation => {
-  const contents: any = {
-    AllocationId: undefined,
-    AssociationId: undefined,
-    IpOwnerId: undefined,
-    PublicDnsName: undefined,
-    PublicIp: undefined,
-    CustomerOwnedIp: undefined,
-    CarrierIp: undefined,
-  };
+  const contents: any = {};
   if (output["allocationId"] !== undefined) {
     contents.AllocationId = __expectString(output["allocationId"]);
   }
@@ -79419,17 +76213,7 @@ const deserializeAws_ec2NetworkInterfaceAttachment = (
   output: any,
   context: __SerdeContext
 ): NetworkInterfaceAttachment => {
-  const contents: any = {
-    AttachTime: undefined,
-    AttachmentId: undefined,
-    DeleteOnTermination: undefined,
-    DeviceIndex: undefined,
-    NetworkCardIndex: undefined,
-    InstanceId: undefined,
-    InstanceOwnerId: undefined,
-    Status: undefined,
-    EnaSrdSpecification: undefined,
-  };
+  const contents: any = {};
   if (output["attachTime"] !== undefined) {
     contents.AttachTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["attachTime"]));
   }
@@ -79464,10 +76248,7 @@ const deserializeAws_ec2NetworkInterfaceAttachment = (
 };
 
 const deserializeAws_ec2NetworkInterfaceCount = (output: any, context: __SerdeContext): NetworkInterfaceCount => {
-  const contents: any = {
-    Min: undefined,
-    Max: undefined,
-  };
+  const contents: any = {};
   if (output["min"] !== undefined) {
     contents.Min = __strictParseInt32(output["min"]) as number;
   }
@@ -79481,9 +76262,7 @@ const deserializeAws_ec2NetworkInterfaceIpv6Address = (
   output: any,
   context: __SerdeContext
 ): NetworkInterfaceIpv6Address => {
-  const contents: any = {
-    Ipv6Address: undefined,
-  };
+  const contents: any = {};
   if (output["ipv6Address"] !== undefined) {
     contents.Ipv6Address = __expectString(output["ipv6Address"]);
   }
@@ -79513,14 +76292,7 @@ const deserializeAws_ec2NetworkInterfacePermission = (
   output: any,
   context: __SerdeContext
 ): NetworkInterfacePermission => {
-  const contents: any = {
-    NetworkInterfacePermissionId: undefined,
-    NetworkInterfaceId: undefined,
-    AwsAccountId: undefined,
-    AwsService: undefined,
-    Permission: undefined,
-    PermissionState: undefined,
-  };
+  const contents: any = {};
   if (output["networkInterfacePermissionId"] !== undefined) {
     contents.NetworkInterfacePermissionId = __expectString(output["networkInterfacePermissionId"]);
   }
@@ -79557,10 +76329,7 @@ const deserializeAws_ec2NetworkInterfacePermissionState = (
   output: any,
   context: __SerdeContext
 ): NetworkInterfacePermissionState => {
-  const contents: any = {
-    State: undefined,
-    StatusMessage: undefined,
-  };
+  const contents: any = {};
   if (output["state"] !== undefined) {
     contents.State = __expectString(output["state"]);
   }
@@ -79574,12 +76343,7 @@ const deserializeAws_ec2NetworkInterfacePrivateIpAddress = (
   output: any,
   context: __SerdeContext
 ): NetworkInterfacePrivateIpAddress => {
-  const contents: any = {
-    Association: undefined,
-    Primary: undefined,
-    PrivateDnsName: undefined,
-    PrivateIpAddress: undefined,
-  };
+  const contents: any = {};
   if (output["association"] !== undefined) {
     contents.Association = deserializeAws_ec2NetworkInterfaceAssociation(output["association"], context);
   }
@@ -79615,15 +76379,7 @@ const deserializeAws_ec2OccurrenceDaySet = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_ec2OidcOptions = (output: any, context: __SerdeContext): OidcOptions => {
-  const contents: any = {
-    Issuer: undefined,
-    AuthorizationEndpoint: undefined,
-    TokenEndpoint: undefined,
-    UserInfoEndpoint: undefined,
-    ClientId: undefined,
-    ClientSecret: undefined,
-    Scope: undefined,
-  };
+  const contents: any = {};
   if (output["issuer"] !== undefined) {
     contents.Issuer = __expectString(output["issuer"]);
   }
@@ -79649,14 +76405,7 @@ const deserializeAws_ec2OidcOptions = (output: any, context: __SerdeContext): Oi
 };
 
 const deserializeAws_ec2OnDemandOptions = (output: any, context: __SerdeContext): OnDemandOptions => {
-  const contents: any = {
-    AllocationStrategy: undefined,
-    CapacityReservationOptions: undefined,
-    SingleInstanceType: undefined,
-    SingleAvailabilityZone: undefined,
-    MinTargetCapacity: undefined,
-    MaxTotalPrice: undefined,
-  };
+  const contents: any = {};
   if (output["allocationStrategy"] !== undefined) {
     contents.AllocationStrategy = __expectString(output["allocationStrategy"]);
   }
@@ -79682,15 +76431,7 @@ const deserializeAws_ec2OnDemandOptions = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_ec2PacketHeaderStatement = (output: any, context: __SerdeContext): PacketHeaderStatement => {
-  const contents: any = {
-    SourceAddresses: undefined,
-    DestinationAddresses: undefined,
-    SourcePorts: undefined,
-    DestinationPorts: undefined,
-    SourcePrefixLists: undefined,
-    DestinationPrefixLists: undefined,
-    Protocols: undefined,
-  };
+  const contents: any = {};
   if (output.sourceAddressSet === "") {
     contents.SourceAddresses = [];
   } else if (output["sourceAddressSet"] !== undefined && output["sourceAddressSet"]["item"] !== undefined) {
@@ -79751,28 +76492,7 @@ const deserializeAws_ec2PacketHeaderStatement = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_ec2PathComponent = (output: any, context: __SerdeContext): PathComponent => {
-  const contents: any = {
-    SequenceNumber: undefined,
-    AclRule: undefined,
-    AttachedTo: undefined,
-    Component: undefined,
-    DestinationVpc: undefined,
-    OutboundHeader: undefined,
-    InboundHeader: undefined,
-    RouteTableRoute: undefined,
-    SecurityGroupRule: undefined,
-    SourceVpc: undefined,
-    Subnet: undefined,
-    Vpc: undefined,
-    AdditionalDetails: undefined,
-    TransitGateway: undefined,
-    TransitGatewayRouteTableRoute: undefined,
-    Explanations: undefined,
-    ElasticLoadBalancerListener: undefined,
-    FirewallStatelessRule: undefined,
-    FirewallStatefulRule: undefined,
-    ServiceName: undefined,
-  };
+  const contents: any = {};
   if (output["sequenceNumber"] !== undefined) {
     contents.SequenceNumber = __strictParseInt32(output["sequenceNumber"]) as number;
   }
@@ -79861,12 +76581,7 @@ const deserializeAws_ec2PathComponentList = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_ec2PathFilter = (output: any, context: __SerdeContext): PathFilter => {
-  const contents: any = {
-    SourceAddress: undefined,
-    SourcePortRange: undefined,
-    DestinationAddress: undefined,
-    DestinationPortRange: undefined,
-  };
+  const contents: any = {};
   if (output["sourceAddress"] !== undefined) {
     contents.SourceAddress = __expectString(output["sourceAddress"]);
   }
@@ -79883,10 +76598,7 @@ const deserializeAws_ec2PathFilter = (output: any, context: __SerdeContext): Pat
 };
 
 const deserializeAws_ec2PathStatement = (output: any, context: __SerdeContext): PathStatement => {
-  const contents: any = {
-    PacketHeaderStatement: undefined,
-    ResourceStatement: undefined,
-  };
+  const contents: any = {};
   if (output["packetHeaderStatement"] !== undefined) {
     contents.PacketHeaderStatement = deserializeAws_ec2PacketHeaderStatement(output["packetHeaderStatement"], context);
   }
@@ -79897,12 +76609,7 @@ const deserializeAws_ec2PathStatement = (output: any, context: __SerdeContext): 
 };
 
 const deserializeAws_ec2PciId = (output: any, context: __SerdeContext): PciId => {
-  const contents: any = {
-    DeviceId: undefined,
-    VendorId: undefined,
-    SubsystemId: undefined,
-    SubsystemVendorId: undefined,
-  };
+  const contents: any = {};
   if (output["DeviceId"] !== undefined) {
     contents.DeviceId = __expectString(output["DeviceId"]);
   }
@@ -79919,10 +76626,7 @@ const deserializeAws_ec2PciId = (output: any, context: __SerdeContext): PciId =>
 };
 
 const deserializeAws_ec2PeeringAttachmentStatus = (output: any, context: __SerdeContext): PeeringAttachmentStatus => {
-  const contents: any = {
-    Code: undefined,
-    Message: undefined,
-  };
+  const contents: any = {};
   if (output["code"] !== undefined) {
     contents.Code = __expectString(output["code"]);
   }
@@ -79933,11 +76637,7 @@ const deserializeAws_ec2PeeringAttachmentStatus = (output: any, context: __Serde
 };
 
 const deserializeAws_ec2PeeringConnectionOptions = (output: any, context: __SerdeContext): PeeringConnectionOptions => {
-  const contents: any = {
-    AllowDnsResolutionFromRemoteVpc: undefined,
-    AllowEgressFromLocalClassicLinkToRemoteVpc: undefined,
-    AllowEgressFromLocalVpcToRemoteClassicLink: undefined,
-  };
+  const contents: any = {};
   if (output["allowDnsResolutionFromRemoteVpc"] !== undefined) {
     contents.AllowDnsResolutionFromRemoteVpc = __parseBoolean(output["allowDnsResolutionFromRemoteVpc"]);
   }
@@ -79955,12 +76655,7 @@ const deserializeAws_ec2PeeringConnectionOptions = (output: any, context: __Serd
 };
 
 const deserializeAws_ec2PeeringTgwInfo = (output: any, context: __SerdeContext): PeeringTgwInfo => {
-  const contents: any = {
-    TransitGatewayId: undefined,
-    CoreNetworkId: undefined,
-    OwnerId: undefined,
-    Region: undefined,
-  };
+  const contents: any = {};
   if (output["transitGatewayId"] !== undefined) {
     contents.TransitGatewayId = __expectString(output["transitGatewayId"]);
   }
@@ -79991,9 +76686,7 @@ const deserializeAws_ec2Phase1DHGroupNumbersListValue = (
   output: any,
   context: __SerdeContext
 ): Phase1DHGroupNumbersListValue => {
-  const contents: any = {
-    Value: undefined,
-  };
+  const contents: any = {};
   if (output["value"] !== undefined) {
     contents.Value = __strictParseInt32(output["value"]) as number;
   }
@@ -80015,9 +76708,7 @@ const deserializeAws_ec2Phase1EncryptionAlgorithmsListValue = (
   output: any,
   context: __SerdeContext
 ): Phase1EncryptionAlgorithmsListValue => {
-  const contents: any = {
-    Value: undefined,
-  };
+  const contents: any = {};
   if (output["value"] !== undefined) {
     contents.Value = __expectString(output["value"]);
   }
@@ -80039,9 +76730,7 @@ const deserializeAws_ec2Phase1IntegrityAlgorithmsListValue = (
   output: any,
   context: __SerdeContext
 ): Phase1IntegrityAlgorithmsListValue => {
-  const contents: any = {
-    Value: undefined,
-  };
+  const contents: any = {};
   if (output["value"] !== undefined) {
     contents.Value = __expectString(output["value"]);
   }
@@ -80063,9 +76752,7 @@ const deserializeAws_ec2Phase2DHGroupNumbersListValue = (
   output: any,
   context: __SerdeContext
 ): Phase2DHGroupNumbersListValue => {
-  const contents: any = {
-    Value: undefined,
-  };
+  const contents: any = {};
   if (output["value"] !== undefined) {
     contents.Value = __strictParseInt32(output["value"]) as number;
   }
@@ -80087,9 +76774,7 @@ const deserializeAws_ec2Phase2EncryptionAlgorithmsListValue = (
   output: any,
   context: __SerdeContext
 ): Phase2EncryptionAlgorithmsListValue => {
-  const contents: any = {
-    Value: undefined,
-  };
+  const contents: any = {};
   if (output["value"] !== undefined) {
     contents.Value = __expectString(output["value"]);
   }
@@ -80111,9 +76796,7 @@ const deserializeAws_ec2Phase2IntegrityAlgorithmsListValue = (
   output: any,
   context: __SerdeContext
 ): Phase2IntegrityAlgorithmsListValue => {
-  const contents: any = {
-    Value: undefined,
-  };
+  const contents: any = {};
   if (output["value"] !== undefined) {
     contents.Value = __expectString(output["value"]);
   }
@@ -80121,17 +76804,7 @@ const deserializeAws_ec2Phase2IntegrityAlgorithmsListValue = (
 };
 
 const deserializeAws_ec2Placement = (output: any, context: __SerdeContext): Placement => {
-  const contents: any = {
-    AvailabilityZone: undefined,
-    Affinity: undefined,
-    GroupName: undefined,
-    PartitionNumber: undefined,
-    HostId: undefined,
-    Tenancy: undefined,
-    SpreadDomain: undefined,
-    HostResourceGroupArn: undefined,
-    GroupId: undefined,
-  };
+  const contents: any = {};
   if (output["availabilityZone"] !== undefined) {
     contents.AvailabilityZone = __expectString(output["availabilityZone"]);
   }
@@ -80163,16 +76836,7 @@ const deserializeAws_ec2Placement = (output: any, context: __SerdeContext): Plac
 };
 
 const deserializeAws_ec2PlacementGroup = (output: any, context: __SerdeContext): PlacementGroup => {
-  const contents: any = {
-    GroupName: undefined,
-    State: undefined,
-    Strategy: undefined,
-    PartitionCount: undefined,
-    GroupId: undefined,
-    Tags: undefined,
-    GroupArn: undefined,
-    SpreadLevel: undefined,
-  };
+  const contents: any = {};
   if (output["groupName"] !== undefined) {
     contents.GroupName = __expectString(output["groupName"]);
   }
@@ -80203,9 +76867,7 @@ const deserializeAws_ec2PlacementGroup = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_ec2PlacementGroupInfo = (output: any, context: __SerdeContext): PlacementGroupInfo => {
-  const contents: any = {
-    SupportedStrategies: undefined,
-  };
+  const contents: any = {};
   if (output.supportedStrategies === "") {
     contents.SupportedStrategies = [];
   } else if (output["supportedStrategies"] !== undefined && output["supportedStrategies"]["item"] !== undefined) {
@@ -80237,9 +76899,7 @@ const deserializeAws_ec2PlacementGroupStrategyList = (
 };
 
 const deserializeAws_ec2PlacementResponse = (output: any, context: __SerdeContext): PlacementResponse => {
-  const contents: any = {
-    GroupName: undefined,
-  };
+  const contents: any = {};
   if (output["groupName"] !== undefined) {
     contents.GroupName = __expectString(output["groupName"]);
   }
@@ -80247,9 +76907,7 @@ const deserializeAws_ec2PlacementResponse = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_ec2PoolCidrBlock = (output: any, context: __SerdeContext): PoolCidrBlock => {
-  const contents: any = {
-    Cidr: undefined,
-  };
+  const contents: any = {};
   if (output["poolCidrBlock"] !== undefined) {
     contents.Cidr = __expectString(output["poolCidrBlock"]);
   }
@@ -80265,10 +76923,7 @@ const deserializeAws_ec2PoolCidrBlocksSet = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_ec2PortRange = (output: any, context: __SerdeContext): PortRange => {
-  const contents: any = {
-    From: undefined,
-    To: undefined,
-  };
+  const contents: any = {};
   if (output["from"] !== undefined) {
     contents.From = __strictParseInt32(output["from"]) as number;
   }
@@ -80287,11 +76942,7 @@ const deserializeAws_ec2PortRangeList = (output: any, context: __SerdeContext): 
 };
 
 const deserializeAws_ec2PrefixList = (output: any, context: __SerdeContext): PrefixList => {
-  const contents: any = {
-    Cidrs: undefined,
-    PrefixListId: undefined,
-    PrefixListName: undefined,
-  };
+  const contents: any = {};
   if (output.cidrSet === "") {
     contents.Cidrs = [];
   } else if (output["cidrSet"] !== undefined && output["cidrSet"]["item"] !== undefined) {
@@ -80307,10 +76958,7 @@ const deserializeAws_ec2PrefixList = (output: any, context: __SerdeContext): Pre
 };
 
 const deserializeAws_ec2PrefixListAssociation = (output: any, context: __SerdeContext): PrefixListAssociation => {
-  const contents: any = {
-    ResourceId: undefined,
-    ResourceOwner: undefined,
-  };
+  const contents: any = {};
   if (output["resourceId"] !== undefined) {
     contents.ResourceId = __expectString(output["resourceId"]);
   }
@@ -80329,10 +76977,7 @@ const deserializeAws_ec2PrefixListAssociationSet = (output: any, context: __Serd
 };
 
 const deserializeAws_ec2PrefixListEntry = (output: any, context: __SerdeContext): PrefixListEntry => {
-  const contents: any = {
-    Cidr: undefined,
-    Description: undefined,
-  };
+  const contents: any = {};
   if (output["cidr"] !== undefined) {
     contents.Cidr = __expectString(output["cidr"]);
   }
@@ -80351,10 +76996,7 @@ const deserializeAws_ec2PrefixListEntrySet = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_ec2PrefixListId = (output: any, context: __SerdeContext): PrefixListId => {
-  const contents: any = {
-    Description: undefined,
-    PrefixListId: undefined,
-  };
+  const contents: any = {};
   if (output["description"] !== undefined) {
     contents.Description = __expectString(output["description"]);
   }
@@ -80389,12 +77031,7 @@ const deserializeAws_ec2PrefixListSet = (output: any, context: __SerdeContext): 
 };
 
 const deserializeAws_ec2PriceSchedule = (output: any, context: __SerdeContext): PriceSchedule => {
-  const contents: any = {
-    Active: undefined,
-    CurrencyCode: undefined,
-    Price: undefined,
-    Term: undefined,
-  };
+  const contents: any = {};
   if (output["active"] !== undefined) {
     contents.Active = __parseBoolean(output["active"]);
   }
@@ -80419,10 +77056,7 @@ const deserializeAws_ec2PriceScheduleList = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_ec2PricingDetail = (output: any, context: __SerdeContext): PricingDetail => {
-  const contents: any = {
-    Count: undefined,
-    Price: undefined,
-  };
+  const contents: any = {};
   if (output["count"] !== undefined) {
     contents.Count = __strictParseInt32(output["count"]) as number;
   }
@@ -80441,10 +77075,7 @@ const deserializeAws_ec2PricingDetailsList = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_ec2PrincipalIdFormat = (output: any, context: __SerdeContext): PrincipalIdFormat => {
-  const contents: any = {
-    Arn: undefined,
-    Statuses: undefined,
-  };
+  const contents: any = {};
   if (output["arn"] !== undefined) {
     contents.Arn = __expectString(output["arn"]);
   }
@@ -80465,9 +77096,7 @@ const deserializeAws_ec2PrincipalIdFormatList = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_ec2PrivateDnsDetails = (output: any, context: __SerdeContext): PrivateDnsDetails => {
-  const contents: any = {
-    PrivateDnsName: undefined,
-  };
+  const contents: any = {};
   if (output["privateDnsName"] !== undefined) {
     contents.PrivateDnsName = __expectString(output["privateDnsName"]);
   }
@@ -80486,12 +77115,7 @@ const deserializeAws_ec2PrivateDnsNameConfiguration = (
   output: any,
   context: __SerdeContext
 ): PrivateDnsNameConfiguration => {
-  const contents: any = {
-    State: undefined,
-    Type: undefined,
-    Value: undefined,
-    Name: undefined,
-  };
+  const contents: any = {};
   if (output["state"] !== undefined) {
     contents.State = __expectString(output["state"]);
   }
@@ -80511,11 +77135,7 @@ const deserializeAws_ec2PrivateDnsNameOptionsOnLaunch = (
   output: any,
   context: __SerdeContext
 ): PrivateDnsNameOptionsOnLaunch => {
-  const contents: any = {
-    HostnameType: undefined,
-    EnableResourceNameDnsARecord: undefined,
-    EnableResourceNameDnsAAAARecord: undefined,
-  };
+  const contents: any = {};
   if (output["hostnameType"] !== undefined) {
     contents.HostnameType = __expectString(output["hostnameType"]);
   }
@@ -80532,11 +77152,7 @@ const deserializeAws_ec2PrivateDnsNameOptionsResponse = (
   output: any,
   context: __SerdeContext
 ): PrivateDnsNameOptionsResponse => {
-  const contents: any = {
-    HostnameType: undefined,
-    EnableResourceNameDnsARecord: undefined,
-    EnableResourceNameDnsAAAARecord: undefined,
-  };
+  const contents: any = {};
   if (output["hostnameType"] !== undefined) {
     contents.HostnameType = __expectString(output["hostnameType"]);
   }
@@ -80553,10 +77169,7 @@ const deserializeAws_ec2PrivateIpAddressSpecification = (
   output: any,
   context: __SerdeContext
 ): PrivateIpAddressSpecification => {
-  const contents: any = {
-    Primary: undefined,
-    PrivateIpAddress: undefined,
-  };
+  const contents: any = {};
   if (output["primary"] !== undefined) {
     contents.Primary = __parseBoolean(output["primary"]);
   }
@@ -80578,10 +77191,7 @@ const deserializeAws_ec2PrivateIpAddressSpecificationList = (
 };
 
 const deserializeAws_ec2ProcessorInfo = (output: any, context: __SerdeContext): ProcessorInfo => {
-  const contents: any = {
-    SupportedArchitectures: undefined,
-    SustainedClockSpeedInGhz: undefined,
-  };
+  const contents: any = {};
   if (output.supportedArchitectures === "") {
     contents.SupportedArchitectures = [];
   } else if (output["supportedArchitectures"] !== undefined && output["supportedArchitectures"]["item"] !== undefined) {
@@ -80597,10 +77207,7 @@ const deserializeAws_ec2ProcessorInfo = (output: any, context: __SerdeContext): 
 };
 
 const deserializeAws_ec2ProductCode = (output: any, context: __SerdeContext): ProductCode => {
-  const contents: any = {
-    ProductCodeId: undefined,
-    ProductCodeType: undefined,
-  };
+  const contents: any = {};
   if (output["productCode"] !== undefined) {
     contents.ProductCodeId = __expectString(output["productCode"]);
   }
@@ -80619,9 +77226,7 @@ const deserializeAws_ec2ProductCodeList = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_ec2PropagatingVgw = (output: any, context: __SerdeContext): PropagatingVgw => {
-  const contents: any = {
-    GatewayId: undefined,
-  };
+  const contents: any = {};
   if (output["gatewayId"] !== undefined) {
     contents.GatewayId = __expectString(output["gatewayId"]);
   }
@@ -80653,9 +77258,7 @@ const deserializeAws_ec2ProtocolList = (output: any, context: __SerdeContext): (
 };
 
 const deserializeAws_ec2ProvisionByoipCidrResult = (output: any, context: __SerdeContext): ProvisionByoipCidrResult => {
-  const contents: any = {
-    ByoipCidr: undefined,
-  };
+  const contents: any = {};
   if (output["byoipCidr"] !== undefined) {
     contents.ByoipCidr = deserializeAws_ec2ByoipCidr(output["byoipCidr"], context);
   }
@@ -80663,13 +77266,7 @@ const deserializeAws_ec2ProvisionByoipCidrResult = (output: any, context: __Serd
 };
 
 const deserializeAws_ec2ProvisionedBandwidth = (output: any, context: __SerdeContext): ProvisionedBandwidth => {
-  const contents: any = {
-    ProvisionTime: undefined,
-    Provisioned: undefined,
-    RequestTime: undefined,
-    Requested: undefined,
-    Status: undefined,
-  };
+  const contents: any = {};
   if (output["provisionTime"] !== undefined) {
     contents.ProvisionTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["provisionTime"]));
   }
@@ -80692,9 +77289,7 @@ const deserializeAws_ec2ProvisionIpamPoolCidrResult = (
   output: any,
   context: __SerdeContext
 ): ProvisionIpamPoolCidrResult => {
-  const contents: any = {
-    IpamPoolCidr: undefined,
-  };
+  const contents: any = {};
   if (output["ipamPoolCidr"] !== undefined) {
     contents.IpamPoolCidr = deserializeAws_ec2IpamPoolCidr(output["ipamPoolCidr"], context);
   }
@@ -80705,10 +77300,7 @@ const deserializeAws_ec2ProvisionPublicIpv4PoolCidrResult = (
   output: any,
   context: __SerdeContext
 ): ProvisionPublicIpv4PoolCidrResult => {
-  const contents: any = {
-    PoolId: undefined,
-    PoolAddressRange: undefined,
-  };
+  const contents: any = {};
   if (output["poolId"] !== undefined) {
     contents.PoolId = __expectString(output["poolId"]);
   }
@@ -80719,11 +77311,7 @@ const deserializeAws_ec2ProvisionPublicIpv4PoolCidrResult = (
 };
 
 const deserializeAws_ec2PtrUpdateStatus = (output: any, context: __SerdeContext): PtrUpdateStatus => {
-  const contents: any = {
-    Value: undefined,
-    Status: undefined,
-    Reason: undefined,
-  };
+  const contents: any = {};
   if (output["value"] !== undefined) {
     contents.Value = __expectString(output["value"]);
   }
@@ -80737,15 +77325,7 @@ const deserializeAws_ec2PtrUpdateStatus = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_ec2PublicIpv4Pool = (output: any, context: __SerdeContext): PublicIpv4Pool => {
-  const contents: any = {
-    PoolId: undefined,
-    Description: undefined,
-    PoolAddressRanges: undefined,
-    TotalAddressCount: undefined,
-    TotalAvailableAddressCount: undefined,
-    NetworkBorderGroup: undefined,
-    Tags: undefined,
-  };
+  const contents: any = {};
   if (output["poolId"] !== undefined) {
     contents.PoolId = __expectString(output["poolId"]);
   }
@@ -80778,12 +77358,7 @@ const deserializeAws_ec2PublicIpv4Pool = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_ec2PublicIpv4PoolRange = (output: any, context: __SerdeContext): PublicIpv4PoolRange => {
-  const contents: any = {
-    FirstAddress: undefined,
-    LastAddress: undefined,
-    AddressCount: undefined,
-    AvailableAddressCount: undefined,
-  };
+  const contents: any = {};
   if (output["firstAddress"] !== undefined) {
     contents.FirstAddress = __expectString(output["firstAddress"]);
   }
@@ -80816,16 +77391,7 @@ const deserializeAws_ec2PublicIpv4PoolSet = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_ec2Purchase = (output: any, context: __SerdeContext): Purchase => {
-  const contents: any = {
-    CurrencyCode: undefined,
-    Duration: undefined,
-    HostIdSet: undefined,
-    HostReservationId: undefined,
-    HourlyPrice: undefined,
-    InstanceFamily: undefined,
-    PaymentOption: undefined,
-    UpfrontPrice: undefined,
-  };
+  const contents: any = {};
   if (output["currencyCode"] !== undefined) {
     contents.CurrencyCode = __expectString(output["currencyCode"]);
   }
@@ -80870,13 +77436,7 @@ const deserializeAws_ec2PurchaseHostReservationResult = (
   output: any,
   context: __SerdeContext
 ): PurchaseHostReservationResult => {
-  const contents: any = {
-    ClientToken: undefined,
-    CurrencyCode: undefined,
-    Purchase: undefined,
-    TotalHourlyPrice: undefined,
-    TotalUpfrontPrice: undefined,
-  };
+  const contents: any = {};
   if (output["clientToken"] !== undefined) {
     contents.ClientToken = __expectString(output["clientToken"]);
   }
@@ -80901,9 +77461,7 @@ const deserializeAws_ec2PurchaseReservedInstancesOfferingResult = (
   output: any,
   context: __SerdeContext
 ): PurchaseReservedInstancesOfferingResult => {
-  const contents: any = {
-    ReservedInstancesId: undefined,
-  };
+  const contents: any = {};
   if (output["reservedInstancesId"] !== undefined) {
     contents.ReservedInstancesId = __expectString(output["reservedInstancesId"]);
   }
@@ -80914,9 +77472,7 @@ const deserializeAws_ec2PurchaseScheduledInstancesResult = (
   output: any,
   context: __SerdeContext
 ): PurchaseScheduledInstancesResult => {
-  const contents: any = {
-    ScheduledInstanceSet: undefined,
-  };
+  const contents: any = {};
   if (output.scheduledInstanceSet === "") {
     contents.ScheduledInstanceSet = [];
   } else if (output["scheduledInstanceSet"] !== undefined && output["scheduledInstanceSet"]["item"] !== undefined) {
@@ -80937,10 +77493,7 @@ const deserializeAws_ec2PurchaseSet = (output: any, context: __SerdeContext): Pu
 };
 
 const deserializeAws_ec2RecurringCharge = (output: any, context: __SerdeContext): RecurringCharge => {
-  const contents: any = {
-    Amount: undefined,
-    Frequency: undefined,
-  };
+  const contents: any = {};
   if (output["amount"] !== undefined) {
     contents.Amount = __strictParseFloat(output["amount"]) as number;
   }
@@ -80959,13 +77512,7 @@ const deserializeAws_ec2RecurringChargesList = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_ec2ReferencedSecurityGroup = (output: any, context: __SerdeContext): ReferencedSecurityGroup => {
-  const contents: any = {
-    GroupId: undefined,
-    PeeringStatus: undefined,
-    UserId: undefined,
-    VpcId: undefined,
-    VpcPeeringConnectionId: undefined,
-  };
+  const contents: any = {};
   if (output["groupId"] !== undefined) {
     contents.GroupId = __expectString(output["groupId"]);
   }
@@ -80985,11 +77532,7 @@ const deserializeAws_ec2ReferencedSecurityGroup = (output: any, context: __Serde
 };
 
 const deserializeAws_ec2Region = (output: any, context: __SerdeContext): Region => {
-  const contents: any = {
-    Endpoint: undefined,
-    RegionName: undefined,
-    OptInStatus: undefined,
-  };
+  const contents: any = {};
   if (output["regionEndpoint"] !== undefined) {
     contents.Endpoint = __expectString(output["regionEndpoint"]);
   }
@@ -81011,9 +77554,7 @@ const deserializeAws_ec2RegionList = (output: any, context: __SerdeContext): Reg
 };
 
 const deserializeAws_ec2RegisterImageResult = (output: any, context: __SerdeContext): RegisterImageResult => {
-  const contents: any = {
-    ImageId: undefined,
-  };
+  const contents: any = {};
   if (output["imageId"] !== undefined) {
     contents.ImageId = __expectString(output["imageId"]);
   }
@@ -81024,9 +77565,7 @@ const deserializeAws_ec2RegisterInstanceEventNotificationAttributesResult = (
   output: any,
   context: __SerdeContext
 ): RegisterInstanceEventNotificationAttributesResult => {
-  const contents: any = {
-    InstanceTagAttribute: undefined,
-  };
+  const contents: any = {};
   if (output["instanceTagAttribute"] !== undefined) {
     contents.InstanceTagAttribute = deserializeAws_ec2InstanceTagNotificationAttribute(
       output["instanceTagAttribute"],
@@ -81040,9 +77579,7 @@ const deserializeAws_ec2RegisterTransitGatewayMulticastGroupMembersResult = (
   output: any,
   context: __SerdeContext
 ): RegisterTransitGatewayMulticastGroupMembersResult => {
-  const contents: any = {
-    RegisteredMulticastGroupMembers: undefined,
-  };
+  const contents: any = {};
   if (output["registeredMulticastGroupMembers"] !== undefined) {
     contents.RegisteredMulticastGroupMembers = deserializeAws_ec2TransitGatewayMulticastRegisteredGroupMembers(
       output["registeredMulticastGroupMembers"],
@@ -81056,9 +77593,7 @@ const deserializeAws_ec2RegisterTransitGatewayMulticastGroupSourcesResult = (
   output: any,
   context: __SerdeContext
 ): RegisterTransitGatewayMulticastGroupSourcesResult => {
-  const contents: any = {
-    RegisteredMulticastGroupSources: undefined,
-  };
+  const contents: any = {};
   if (output["registeredMulticastGroupSources"] !== undefined) {
     contents.RegisteredMulticastGroupSources = deserializeAws_ec2TransitGatewayMulticastRegisteredGroupSources(
       output["registeredMulticastGroupSources"],
@@ -81072,9 +77607,7 @@ const deserializeAws_ec2RejectTransitGatewayMulticastDomainAssociationsResult = 
   output: any,
   context: __SerdeContext
 ): RejectTransitGatewayMulticastDomainAssociationsResult => {
-  const contents: any = {
-    Associations: undefined,
-  };
+  const contents: any = {};
   if (output["associations"] !== undefined) {
     contents.Associations = deserializeAws_ec2TransitGatewayMulticastDomainAssociations(
       output["associations"],
@@ -81088,9 +77621,7 @@ const deserializeAws_ec2RejectTransitGatewayPeeringAttachmentResult = (
   output: any,
   context: __SerdeContext
 ): RejectTransitGatewayPeeringAttachmentResult => {
-  const contents: any = {
-    TransitGatewayPeeringAttachment: undefined,
-  };
+  const contents: any = {};
   if (output["transitGatewayPeeringAttachment"] !== undefined) {
     contents.TransitGatewayPeeringAttachment = deserializeAws_ec2TransitGatewayPeeringAttachment(
       output["transitGatewayPeeringAttachment"],
@@ -81104,9 +77635,7 @@ const deserializeAws_ec2RejectTransitGatewayVpcAttachmentResult = (
   output: any,
   context: __SerdeContext
 ): RejectTransitGatewayVpcAttachmentResult => {
-  const contents: any = {
-    TransitGatewayVpcAttachment: undefined,
-  };
+  const contents: any = {};
   if (output["transitGatewayVpcAttachment"] !== undefined) {
     contents.TransitGatewayVpcAttachment = deserializeAws_ec2TransitGatewayVpcAttachment(
       output["transitGatewayVpcAttachment"],
@@ -81120,9 +77649,7 @@ const deserializeAws_ec2RejectVpcEndpointConnectionsResult = (
   output: any,
   context: __SerdeContext
 ): RejectVpcEndpointConnectionsResult => {
-  const contents: any = {
-    Unsuccessful: undefined,
-  };
+  const contents: any = {};
   if (output.unsuccessful === "") {
     contents.Unsuccessful = [];
   } else if (output["unsuccessful"] !== undefined && output["unsuccessful"]["item"] !== undefined) {
@@ -81138,9 +77665,7 @@ const deserializeAws_ec2RejectVpcPeeringConnectionResult = (
   output: any,
   context: __SerdeContext
 ): RejectVpcPeeringConnectionResult => {
-  const contents: any = {
-    Return: undefined,
-  };
+  const contents: any = {};
   if (output["return"] !== undefined) {
     contents.Return = __parseBoolean(output["return"]);
   }
@@ -81148,10 +77673,7 @@ const deserializeAws_ec2RejectVpcPeeringConnectionResult = (
 };
 
 const deserializeAws_ec2ReleaseHostsResult = (output: any, context: __SerdeContext): ReleaseHostsResult => {
-  const contents: any = {
-    Successful: undefined,
-    Unsuccessful: undefined,
-  };
+  const contents: any = {};
   if (output.successful === "") {
     contents.Successful = [];
   } else if (output["successful"] !== undefined && output["successful"]["item"] !== undefined) {
@@ -81175,9 +77697,7 @@ const deserializeAws_ec2ReleaseIpamPoolAllocationResult = (
   output: any,
   context: __SerdeContext
 ): ReleaseIpamPoolAllocationResult => {
-  const contents: any = {
-    Success: undefined,
-  };
+  const contents: any = {};
   if (output["success"] !== undefined) {
     contents.Success = __parseBoolean(output["success"]);
   }
@@ -81188,9 +77708,7 @@ const deserializeAws_ec2ReplaceIamInstanceProfileAssociationResult = (
   output: any,
   context: __SerdeContext
 ): ReplaceIamInstanceProfileAssociationResult => {
-  const contents: any = {
-    IamInstanceProfileAssociation: undefined,
-  };
+  const contents: any = {};
   if (output["iamInstanceProfileAssociation"] !== undefined) {
     contents.IamInstanceProfileAssociation = deserializeAws_ec2IamInstanceProfileAssociation(
       output["iamInstanceProfileAssociation"],
@@ -81204,9 +77722,7 @@ const deserializeAws_ec2ReplaceNetworkAclAssociationResult = (
   output: any,
   context: __SerdeContext
 ): ReplaceNetworkAclAssociationResult => {
-  const contents: any = {
-    NewAssociationId: undefined,
-  };
+  const contents: any = {};
   if (output["newAssociationId"] !== undefined) {
     contents.NewAssociationId = __expectString(output["newAssociationId"]);
   }
@@ -81214,17 +77730,7 @@ const deserializeAws_ec2ReplaceNetworkAclAssociationResult = (
 };
 
 const deserializeAws_ec2ReplaceRootVolumeTask = (output: any, context: __SerdeContext): ReplaceRootVolumeTask => {
-  const contents: any = {
-    ReplaceRootVolumeTaskId: undefined,
-    InstanceId: undefined,
-    TaskState: undefined,
-    StartTime: undefined,
-    CompleteTime: undefined,
-    Tags: undefined,
-    ImageId: undefined,
-    SnapshotId: undefined,
-    DeleteReplacedRootVolume: undefined,
-  };
+  const contents: any = {};
   if (output["replaceRootVolumeTaskId"] !== undefined) {
     contents.ReplaceRootVolumeTaskId = __expectString(output["replaceRootVolumeTaskId"]);
   }
@@ -81269,10 +77775,7 @@ const deserializeAws_ec2ReplaceRouteTableAssociationResult = (
   output: any,
   context: __SerdeContext
 ): ReplaceRouteTableAssociationResult => {
-  const contents: any = {
-    NewAssociationId: undefined,
-    AssociationState: undefined,
-  };
+  const contents: any = {};
   if (output["newAssociationId"] !== undefined) {
     contents.NewAssociationId = __expectString(output["newAssociationId"]);
   }
@@ -81286,9 +77789,7 @@ const deserializeAws_ec2ReplaceTransitGatewayRouteResult = (
   output: any,
   context: __SerdeContext
 ): ReplaceTransitGatewayRouteResult => {
-  const contents: any = {
-    Route: undefined,
-  };
+  const contents: any = {};
   if (output["route"] !== undefined) {
     contents.Route = deserializeAws_ec2TransitGatewayRoute(output["route"], context);
   }
@@ -81296,9 +77797,7 @@ const deserializeAws_ec2ReplaceTransitGatewayRouteResult = (
 };
 
 const deserializeAws_ec2RequestSpotFleetResponse = (output: any, context: __SerdeContext): RequestSpotFleetResponse => {
-  const contents: any = {
-    SpotFleetRequestId: undefined,
-  };
+  const contents: any = {};
   if (output["spotFleetRequestId"] !== undefined) {
     contents.SpotFleetRequestId = __expectString(output["spotFleetRequestId"]);
   }
@@ -81309,9 +77808,7 @@ const deserializeAws_ec2RequestSpotInstancesResult = (
   output: any,
   context: __SerdeContext
 ): RequestSpotInstancesResult => {
-  const contents: any = {
-    SpotInstanceRequests: undefined,
-  };
+  const contents: any = {};
   if (output.spotInstanceRequestSet === "") {
     contents.SpotInstanceRequests = [];
   } else if (output["spotInstanceRequestSet"] !== undefined && output["spotInstanceRequestSet"]["item"] !== undefined) {
@@ -81324,13 +77821,7 @@ const deserializeAws_ec2RequestSpotInstancesResult = (
 };
 
 const deserializeAws_ec2Reservation = (output: any, context: __SerdeContext): Reservation => {
-  const contents: any = {
-    Groups: undefined,
-    Instances: undefined,
-    OwnerId: undefined,
-    RequesterId: undefined,
-    ReservationId: undefined,
-  };
+  const contents: any = {};
   if (output.groupSet === "") {
     contents.Groups = [];
   } else if (output["groupSet"] !== undefined && output["groupSet"]["item"] !== undefined) {
@@ -81368,11 +77859,7 @@ const deserializeAws_ec2ReservationList = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_ec2ReservationValue = (output: any, context: __SerdeContext): ReservationValue => {
-  const contents: any = {
-    HourlyPrice: undefined,
-    RemainingTotalValue: undefined,
-    RemainingUpfrontValue: undefined,
-  };
+  const contents: any = {};
   if (output["hourlyPrice"] !== undefined) {
     contents.HourlyPrice = __expectString(output["hourlyPrice"]);
   }
@@ -81389,10 +77876,7 @@ const deserializeAws_ec2ReservedInstanceReservationValue = (
   output: any,
   context: __SerdeContext
 ): ReservedInstanceReservationValue => {
-  const contents: any = {
-    ReservationValue: undefined,
-    ReservedInstanceId: undefined,
-  };
+  const contents: any = {};
   if (output["reservationValue"] !== undefined) {
     contents.ReservationValue = deserializeAws_ec2ReservationValue(output["reservationValue"], context);
   }
@@ -81414,26 +77898,7 @@ const deserializeAws_ec2ReservedInstanceReservationValueSet = (
 };
 
 const deserializeAws_ec2ReservedInstances = (output: any, context: __SerdeContext): ReservedInstances => {
-  const contents: any = {
-    AvailabilityZone: undefined,
-    Duration: undefined,
-    End: undefined,
-    FixedPrice: undefined,
-    InstanceCount: undefined,
-    InstanceType: undefined,
-    ProductDescription: undefined,
-    ReservedInstancesId: undefined,
-    Start: undefined,
-    State: undefined,
-    UsagePrice: undefined,
-    CurrencyCode: undefined,
-    InstanceTenancy: undefined,
-    OfferingClass: undefined,
-    OfferingType: undefined,
-    RecurringCharges: undefined,
-    Scope: undefined,
-    Tags: undefined,
-  };
+  const contents: any = {};
   if (output["availabilityZone"] !== undefined) {
     contents.AvailabilityZone = __expectString(output["availabilityZone"]);
   }
@@ -81502,13 +77967,7 @@ const deserializeAws_ec2ReservedInstancesConfiguration = (
   output: any,
   context: __SerdeContext
 ): ReservedInstancesConfiguration => {
-  const contents: any = {
-    AvailabilityZone: undefined,
-    InstanceCount: undefined,
-    InstanceType: undefined,
-    Platform: undefined,
-    Scope: undefined,
-  };
+  const contents: any = {};
   if (output["availabilityZone"] !== undefined) {
     contents.AvailabilityZone = __expectString(output["availabilityZone"]);
   }
@@ -81528,9 +77987,7 @@ const deserializeAws_ec2ReservedInstancesConfiguration = (
 };
 
 const deserializeAws_ec2ReservedInstancesId = (output: any, context: __SerdeContext): ReservedInstancesId => {
-  const contents: any = {
-    ReservedInstancesId: undefined,
-  };
+  const contents: any = {};
   if (output["reservedInstancesId"] !== undefined) {
     contents.ReservedInstancesId = __expectString(output["reservedInstancesId"]);
   }
@@ -81546,18 +78003,7 @@ const deserializeAws_ec2ReservedInstancesList = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_ec2ReservedInstancesListing = (output: any, context: __SerdeContext): ReservedInstancesListing => {
-  const contents: any = {
-    ClientToken: undefined,
-    CreateDate: undefined,
-    InstanceCounts: undefined,
-    PriceSchedules: undefined,
-    ReservedInstancesId: undefined,
-    ReservedInstancesListingId: undefined,
-    Status: undefined,
-    StatusMessage: undefined,
-    Tags: undefined,
-    UpdateDate: undefined,
-  };
+  const contents: any = {};
   if (output["clientToken"] !== undefined) {
     contents.ClientToken = __expectString(output["clientToken"]);
   }
@@ -81618,17 +78064,7 @@ const deserializeAws_ec2ReservedInstancesModification = (
   output: any,
   context: __SerdeContext
 ): ReservedInstancesModification => {
-  const contents: any = {
-    ClientToken: undefined,
-    CreateDate: undefined,
-    EffectiveDate: undefined,
-    ModificationResults: undefined,
-    ReservedInstancesIds: undefined,
-    ReservedInstancesModificationId: undefined,
-    Status: undefined,
-    StatusMessage: undefined,
-    UpdateDate: undefined,
-  };
+  const contents: any = {};
   if (output["clientToken"] !== undefined) {
     contents.ClientToken = __expectString(output["clientToken"]);
   }
@@ -81684,10 +78120,7 @@ const deserializeAws_ec2ReservedInstancesModificationResult = (
   output: any,
   context: __SerdeContext
 ): ReservedInstancesModificationResult => {
-  const contents: any = {
-    ReservedInstancesId: undefined,
-    TargetConfiguration: undefined,
-  };
+  const contents: any = {};
   if (output["reservedInstancesId"] !== undefined) {
     contents.ReservedInstancesId = __expectString(output["reservedInstancesId"]);
   }
@@ -81715,23 +78148,7 @@ const deserializeAws_ec2ReservedInstancesOffering = (
   output: any,
   context: __SerdeContext
 ): ReservedInstancesOffering => {
-  const contents: any = {
-    AvailabilityZone: undefined,
-    Duration: undefined,
-    FixedPrice: undefined,
-    InstanceType: undefined,
-    ProductDescription: undefined,
-    ReservedInstancesOfferingId: undefined,
-    UsagePrice: undefined,
-    CurrencyCode: undefined,
-    InstanceTenancy: undefined,
-    Marketplace: undefined,
-    OfferingClass: undefined,
-    OfferingType: undefined,
-    PricingDetails: undefined,
-    RecurringCharges: undefined,
-    Scope: undefined,
-  };
+  const contents: any = {};
   if (output["availabilityZone"] !== undefined) {
     contents.AvailabilityZone = __expectString(output["availabilityZone"]);
   }
@@ -81813,9 +78230,7 @@ const deserializeAws_ec2ResetAddressAttributeResult = (
   output: any,
   context: __SerdeContext
 ): ResetAddressAttributeResult => {
-  const contents: any = {
-    Address: undefined,
-  };
+  const contents: any = {};
   if (output["address"] !== undefined) {
     contents.Address = deserializeAws_ec2AddressAttribute(output["address"], context);
   }
@@ -81826,9 +78241,7 @@ const deserializeAws_ec2ResetEbsDefaultKmsKeyIdResult = (
   output: any,
   context: __SerdeContext
 ): ResetEbsDefaultKmsKeyIdResult => {
-  const contents: any = {
-    KmsKeyId: undefined,
-  };
+  const contents: any = {};
   if (output["kmsKeyId"] !== undefined) {
     contents.KmsKeyId = __expectString(output["kmsKeyId"]);
   }
@@ -81839,9 +78252,7 @@ const deserializeAws_ec2ResetFpgaImageAttributeResult = (
   output: any,
   context: __SerdeContext
 ): ResetFpgaImageAttributeResult => {
-  const contents: any = {
-    Return: undefined,
-  };
+  const contents: any = {};
   if (output["return"] !== undefined) {
     contents.Return = __parseBoolean(output["return"]);
   }
@@ -81849,10 +78260,7 @@ const deserializeAws_ec2ResetFpgaImageAttributeResult = (
 };
 
 const deserializeAws_ec2ResourceStatement = (output: any, context: __SerdeContext): ResourceStatement => {
-  const contents: any = {
-    Resources: undefined,
-    ResourceTypes: undefined,
-  };
+  const contents: any = {};
   if (output.resourceSet === "") {
     contents.Resources = [];
   } else if (output["resourceSet"] !== undefined && output["resourceSet"]["item"] !== undefined) {
@@ -81873,10 +78281,7 @@ const deserializeAws_ec2ResourceStatement = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_ec2ResponseError = (output: any, context: __SerdeContext): ResponseError => {
-  const contents: any = {
-    Code: undefined,
-    Message: undefined,
-  };
+  const contents: any = {};
   if (output["code"] !== undefined) {
     contents.Code = __expectString(output["code"]);
   }
@@ -81906,39 +78311,7 @@ const deserializeAws_ec2ResponseLaunchTemplateData = (
   output: any,
   context: __SerdeContext
 ): ResponseLaunchTemplateData => {
-  const contents: any = {
-    KernelId: undefined,
-    EbsOptimized: undefined,
-    IamInstanceProfile: undefined,
-    BlockDeviceMappings: undefined,
-    NetworkInterfaces: undefined,
-    ImageId: undefined,
-    InstanceType: undefined,
-    KeyName: undefined,
-    Monitoring: undefined,
-    Placement: undefined,
-    RamDiskId: undefined,
-    DisableApiTermination: undefined,
-    InstanceInitiatedShutdownBehavior: undefined,
-    UserData: undefined,
-    TagSpecifications: undefined,
-    ElasticGpuSpecifications: undefined,
-    ElasticInferenceAccelerators: undefined,
-    SecurityGroupIds: undefined,
-    SecurityGroups: undefined,
-    InstanceMarketOptions: undefined,
-    CreditSpecification: undefined,
-    CpuOptions: undefined,
-    CapacityReservationSpecification: undefined,
-    LicenseSpecifications: undefined,
-    HibernationOptions: undefined,
-    MetadataOptions: undefined,
-    EnclaveOptions: undefined,
-    InstanceRequirements: undefined,
-    PrivateDnsNameOptions: undefined,
-    MaintenanceOptions: undefined,
-    DisableApiStop: undefined,
-  };
+  const contents: any = {};
   if (output["kernelId"] !== undefined) {
     contents.KernelId = __expectString(output["kernelId"]);
   }
@@ -82107,10 +78480,7 @@ const deserializeAws_ec2RestoreAddressToClassicResult = (
   output: any,
   context: __SerdeContext
 ): RestoreAddressToClassicResult => {
-  const contents: any = {
-    PublicIp: undefined,
-    Status: undefined,
-  };
+  const contents: any = {};
   if (output["publicIp"] !== undefined) {
     contents.PublicIp = __expectString(output["publicIp"]);
   }
@@ -82124,9 +78494,7 @@ const deserializeAws_ec2RestoreImageFromRecycleBinResult = (
   output: any,
   context: __SerdeContext
 ): RestoreImageFromRecycleBinResult => {
-  const contents: any = {
-    Return: undefined,
-  };
+  const contents: any = {};
   if (output["return"] !== undefined) {
     contents.Return = __parseBoolean(output["return"]);
   }
@@ -82137,9 +78505,7 @@ const deserializeAws_ec2RestoreManagedPrefixListVersionResult = (
   output: any,
   context: __SerdeContext
 ): RestoreManagedPrefixListVersionResult => {
-  const contents: any = {
-    PrefixList: undefined,
-  };
+  const contents: any = {};
   if (output["prefixList"] !== undefined) {
     contents.PrefixList = deserializeAws_ec2ManagedPrefixList(output["prefixList"], context);
   }
@@ -82150,18 +78516,7 @@ const deserializeAws_ec2RestoreSnapshotFromRecycleBinResult = (
   output: any,
   context: __SerdeContext
 ): RestoreSnapshotFromRecycleBinResult => {
-  const contents: any = {
-    SnapshotId: undefined,
-    OutpostArn: undefined,
-    Description: undefined,
-    Encrypted: undefined,
-    OwnerId: undefined,
-    Progress: undefined,
-    StartTime: undefined,
-    State: undefined,
-    VolumeId: undefined,
-    VolumeSize: undefined,
-  };
+  const contents: any = {};
   if (output["snapshotId"] !== undefined) {
     contents.SnapshotId = __expectString(output["snapshotId"]);
   }
@@ -82199,12 +78554,7 @@ const deserializeAws_ec2RestoreSnapshotTierResult = (
   output: any,
   context: __SerdeContext
 ): RestoreSnapshotTierResult => {
-  const contents: any = {
-    SnapshotId: undefined,
-    RestoreStartTime: undefined,
-    RestoreDuration: undefined,
-    IsPermanentRestore: undefined,
-  };
+  const contents: any = {};
   if (output["snapshotId"] !== undefined) {
     contents.SnapshotId = __expectString(output["snapshotId"]);
   }
@@ -82224,9 +78574,7 @@ const deserializeAws_ec2RevokeClientVpnIngressResult = (
   output: any,
   context: __SerdeContext
 ): RevokeClientVpnIngressResult => {
-  const contents: any = {
-    Status: undefined,
-  };
+  const contents: any = {};
   if (output["status"] !== undefined) {
     contents.Status = deserializeAws_ec2ClientVpnAuthorizationRuleStatus(output["status"], context);
   }
@@ -82237,10 +78585,7 @@ const deserializeAws_ec2RevokeSecurityGroupEgressResult = (
   output: any,
   context: __SerdeContext
 ): RevokeSecurityGroupEgressResult => {
-  const contents: any = {
-    Return: undefined,
-    UnknownIpPermissions: undefined,
-  };
+  const contents: any = {};
   if (output["return"] !== undefined) {
     contents.Return = __parseBoolean(output["return"]);
   }
@@ -82259,10 +78604,7 @@ const deserializeAws_ec2RevokeSecurityGroupIngressResult = (
   output: any,
   context: __SerdeContext
 ): RevokeSecurityGroupIngressResult => {
-  const contents: any = {
-    Return: undefined,
-    UnknownIpPermissions: undefined,
-  };
+  const contents: any = {};
   if (output["return"] !== undefined) {
     contents.Return = __parseBoolean(output["return"]);
   }
@@ -82286,24 +78628,7 @@ const deserializeAws_ec2RootDeviceTypeList = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_ec2Route = (output: any, context: __SerdeContext): Route => {
-  const contents: any = {
-    DestinationCidrBlock: undefined,
-    DestinationIpv6CidrBlock: undefined,
-    DestinationPrefixListId: undefined,
-    EgressOnlyInternetGatewayId: undefined,
-    GatewayId: undefined,
-    InstanceId: undefined,
-    InstanceOwnerId: undefined,
-    NatGatewayId: undefined,
-    TransitGatewayId: undefined,
-    LocalGatewayId: undefined,
-    CarrierGatewayId: undefined,
-    NetworkInterfaceId: undefined,
-    Origin: undefined,
-    State: undefined,
-    VpcPeeringConnectionId: undefined,
-    CoreNetworkArn: undefined,
-  };
+  const contents: any = {};
   if (output["destinationCidrBlock"] !== undefined) {
     contents.DestinationCidrBlock = __expectString(output["destinationCidrBlock"]);
   }
@@ -82364,15 +78689,7 @@ const deserializeAws_ec2RouteList = (output: any, context: __SerdeContext): Rout
 };
 
 const deserializeAws_ec2RouteTable = (output: any, context: __SerdeContext): RouteTable => {
-  const contents: any = {
-    Associations: undefined,
-    PropagatingVgws: undefined,
-    RouteTableId: undefined,
-    Routes: undefined,
-    Tags: undefined,
-    VpcId: undefined,
-    OwnerId: undefined,
-  };
+  const contents: any = {};
   if (output.associationSet === "") {
     contents.Associations = [];
   } else if (output["associationSet"] !== undefined && output["associationSet"]["item"] !== undefined) {
@@ -82412,14 +78729,7 @@ const deserializeAws_ec2RouteTable = (output: any, context: __SerdeContext): Rou
 };
 
 const deserializeAws_ec2RouteTableAssociation = (output: any, context: __SerdeContext): RouteTableAssociation => {
-  const contents: any = {
-    Main: undefined,
-    RouteTableAssociationId: undefined,
-    RouteTableId: undefined,
-    SubnetId: undefined,
-    GatewayId: undefined,
-    AssociationState: undefined,
-  };
+  const contents: any = {};
   if (output["main"] !== undefined) {
     contents.Main = __parseBoolean(output["main"]);
   }
@@ -82453,10 +78763,7 @@ const deserializeAws_ec2RouteTableAssociationState = (
   output: any,
   context: __SerdeContext
 ): RouteTableAssociationState => {
-  const contents: any = {
-    State: undefined,
-    StatusMessage: undefined,
-  };
+  const contents: any = {};
   if (output["state"] !== undefined) {
     contents.State = __expectString(output["state"]);
   }
@@ -82475,10 +78782,7 @@ const deserializeAws_ec2RouteTableList = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_ec2RuleGroupRuleOptionsPair = (output: any, context: __SerdeContext): RuleGroupRuleOptionsPair => {
-  const contents: any = {
-    RuleGroupArn: undefined,
-    RuleOptions: undefined,
-  };
+  const contents: any = {};
   if (output["ruleGroupArn"] !== undefined) {
     contents.RuleGroupArn = __expectString(output["ruleGroupArn"]);
   }
@@ -82505,10 +78809,7 @@ const deserializeAws_ec2RuleGroupRuleOptionsPairList = (
 };
 
 const deserializeAws_ec2RuleGroupTypePair = (output: any, context: __SerdeContext): RuleGroupTypePair => {
-  const contents: any = {
-    RuleGroupArn: undefined,
-    RuleGroupType: undefined,
-  };
+  const contents: any = {};
   if (output["ruleGroupArn"] !== undefined) {
     contents.RuleGroupArn = __expectString(output["ruleGroupArn"]);
   }
@@ -82527,10 +78828,7 @@ const deserializeAws_ec2RuleGroupTypePairList = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_ec2RuleOption = (output: any, context: __SerdeContext): RuleOption => {
-  const contents: any = {
-    Keyword: undefined,
-    Settings: undefined,
-  };
+  const contents: any = {};
   if (output["keyword"] !== undefined) {
     contents.Keyword = __expectString(output["keyword"]);
   }
@@ -82554,9 +78852,7 @@ const deserializeAws_ec2RunInstancesMonitoringEnabled = (
   output: any,
   context: __SerdeContext
 ): RunInstancesMonitoringEnabled => {
-  const contents: any = {
-    Enabled: undefined,
-  };
+  const contents: any = {};
   if (output["enabled"] !== undefined) {
     contents.Enabled = __parseBoolean(output["enabled"]);
   }
@@ -82567,9 +78863,7 @@ const deserializeAws_ec2RunScheduledInstancesResult = (
   output: any,
   context: __SerdeContext
 ): RunScheduledInstancesResult => {
-  const contents: any = {
-    InstanceIdSet: undefined,
-  };
+  const contents: any = {};
   if (output.instanceIdSet === "") {
     contents.InstanceIdSet = [];
   } else if (output["instanceIdSet"] !== undefined && output["instanceIdSet"]["item"] !== undefined) {
@@ -82582,13 +78876,7 @@ const deserializeAws_ec2RunScheduledInstancesResult = (
 };
 
 const deserializeAws_ec2S3Storage = (output: any, context: __SerdeContext): S3Storage => {
-  const contents: any = {
-    AWSAccessKeyId: undefined,
-    Bucket: undefined,
-    Prefix: undefined,
-    UploadPolicy: undefined,
-    UploadPolicySignature: undefined,
-  };
+  const contents: any = {};
   if (output["AWSAccessKeyId"] !== undefined) {
     contents.AWSAccessKeyId = __expectString(output["AWSAccessKeyId"]);
   }
@@ -82608,23 +78896,7 @@ const deserializeAws_ec2S3Storage = (output: any, context: __SerdeContext): S3St
 };
 
 const deserializeAws_ec2ScheduledInstance = (output: any, context: __SerdeContext): ScheduledInstance => {
-  const contents: any = {
-    AvailabilityZone: undefined,
-    CreateDate: undefined,
-    HourlyPrice: undefined,
-    InstanceCount: undefined,
-    InstanceType: undefined,
-    NetworkPlatform: undefined,
-    NextSlotStartTime: undefined,
-    Platform: undefined,
-    PreviousSlotEndTime: undefined,
-    Recurrence: undefined,
-    ScheduledInstanceId: undefined,
-    SlotDurationInHours: undefined,
-    TermEndDate: undefined,
-    TermStartDate: undefined,
-    TotalScheduledInstanceHours: undefined,
-  };
+  const contents: any = {};
   if (output["availabilityZone"] !== undefined) {
     contents.AvailabilityZone = __expectString(output["availabilityZone"]);
   }
@@ -82677,21 +78949,7 @@ const deserializeAws_ec2ScheduledInstanceAvailability = (
   output: any,
   context: __SerdeContext
 ): ScheduledInstanceAvailability => {
-  const contents: any = {
-    AvailabilityZone: undefined,
-    AvailableInstanceCount: undefined,
-    FirstSlotStartTime: undefined,
-    HourlyPrice: undefined,
-    InstanceType: undefined,
-    MaxTermDurationInDays: undefined,
-    MinTermDurationInDays: undefined,
-    NetworkPlatform: undefined,
-    Platform: undefined,
-    PurchaseToken: undefined,
-    Recurrence: undefined,
-    SlotDurationInHours: undefined,
-    TotalScheduledInstanceHours: undefined,
-  };
+  const contents: any = {};
   if (output["availabilityZone"] !== undefined) {
     contents.AvailabilityZone = __expectString(output["availabilityZone"]);
   }
@@ -82749,13 +79007,7 @@ const deserializeAws_ec2ScheduledInstanceRecurrence = (
   output: any,
   context: __SerdeContext
 ): ScheduledInstanceRecurrence => {
-  const contents: any = {
-    Frequency: undefined,
-    Interval: undefined,
-    OccurrenceDaySet: undefined,
-    OccurrenceRelativeToEnd: undefined,
-    OccurrenceUnit: undefined,
-  };
+  const contents: any = {};
   if (output["frequency"] !== undefined) {
     contents.Frequency = __expectString(output["frequency"]);
   }
@@ -82791,10 +79043,7 @@ const deserializeAws_ec2SearchLocalGatewayRoutesResult = (
   output: any,
   context: __SerdeContext
 ): SearchLocalGatewayRoutesResult => {
-  const contents: any = {
-    Routes: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.routeSet === "") {
     contents.Routes = [];
   } else if (output["routeSet"] !== undefined && output["routeSet"]["item"] !== undefined) {
@@ -82813,10 +79062,7 @@ const deserializeAws_ec2SearchTransitGatewayMulticastGroupsResult = (
   output: any,
   context: __SerdeContext
 ): SearchTransitGatewayMulticastGroupsResult => {
-  const contents: any = {
-    MulticastGroups: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.multicastGroups === "") {
     contents.MulticastGroups = [];
   } else if (output["multicastGroups"] !== undefined && output["multicastGroups"]["item"] !== undefined) {
@@ -82835,10 +79081,7 @@ const deserializeAws_ec2SearchTransitGatewayRoutesResult = (
   output: any,
   context: __SerdeContext
 ): SearchTransitGatewayRoutesResult => {
-  const contents: any = {
-    Routes: undefined,
-    AdditionalRoutesAvailable: undefined,
-  };
+  const contents: any = {};
   if (output.routeSet === "") {
     contents.Routes = [];
   } else if (output["routeSet"] !== undefined && output["routeSet"]["item"] !== undefined) {
@@ -82854,16 +79097,7 @@ const deserializeAws_ec2SearchTransitGatewayRoutesResult = (
 };
 
 const deserializeAws_ec2SecurityGroup = (output: any, context: __SerdeContext): SecurityGroup => {
-  const contents: any = {
-    Description: undefined,
-    GroupName: undefined,
-    IpPermissions: undefined,
-    OwnerId: undefined,
-    GroupId: undefined,
-    IpPermissionsEgress: undefined,
-    Tags: undefined,
-    VpcId: undefined,
-  };
+  const contents: any = {};
   if (output["groupDescription"] !== undefined) {
     contents.Description = __expectString(output["groupDescription"]);
   }
@@ -82904,10 +79138,7 @@ const deserializeAws_ec2SecurityGroup = (output: any, context: __SerdeContext): 
 };
 
 const deserializeAws_ec2SecurityGroupIdentifier = (output: any, context: __SerdeContext): SecurityGroupIdentifier => {
-  const contents: any = {
-    GroupId: undefined,
-    GroupName: undefined,
-  };
+  const contents: any = {};
   if (output["groupId"] !== undefined) {
     contents.GroupId = __expectString(output["groupId"]);
   }
@@ -82942,11 +79173,7 @@ const deserializeAws_ec2SecurityGroupList = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_ec2SecurityGroupReference = (output: any, context: __SerdeContext): SecurityGroupReference => {
-  const contents: any = {
-    GroupId: undefined,
-    ReferencingVpcId: undefined,
-    VpcPeeringConnectionId: undefined,
-  };
+  const contents: any = {};
   if (output["groupId"] !== undefined) {
     contents.GroupId = __expectString(output["groupId"]);
   }
@@ -82968,21 +79195,7 @@ const deserializeAws_ec2SecurityGroupReferences = (output: any, context: __Serde
 };
 
 const deserializeAws_ec2SecurityGroupRule = (output: any, context: __SerdeContext): SecurityGroupRule => {
-  const contents: any = {
-    SecurityGroupRuleId: undefined,
-    GroupId: undefined,
-    GroupOwnerId: undefined,
-    IsEgress: undefined,
-    IpProtocol: undefined,
-    FromPort: undefined,
-    ToPort: undefined,
-    CidrIpv4: undefined,
-    CidrIpv6: undefined,
-    PrefixListId: undefined,
-    ReferencedGroupInfo: undefined,
-    Description: undefined,
-    Tags: undefined,
-  };
+  const contents: any = {};
   if (output["securityGroupRuleId"] !== undefined) {
     contents.SecurityGroupRuleId = __expectString(output["securityGroupRuleId"]);
   }
@@ -83036,23 +79249,7 @@ const deserializeAws_ec2SecurityGroupRuleList = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_ec2ServiceConfiguration = (output: any, context: __SerdeContext): ServiceConfiguration => {
-  const contents: any = {
-    ServiceType: undefined,
-    ServiceId: undefined,
-    ServiceName: undefined,
-    ServiceState: undefined,
-    AvailabilityZones: undefined,
-    AcceptanceRequired: undefined,
-    ManagesVpcEndpoints: undefined,
-    NetworkLoadBalancerArns: undefined,
-    GatewayLoadBalancerArns: undefined,
-    SupportedIpAddressTypes: undefined,
-    BaseEndpointDnsNames: undefined,
-    PrivateDnsName: undefined,
-    PrivateDnsNameConfiguration: undefined,
-    PayerResponsibility: undefined,
-    Tags: undefined,
-  };
+  const contents: any = {};
   if (output.serviceType === "") {
     contents.ServiceType = [];
   } else if (output["serviceType"] !== undefined && output["serviceType"]["item"] !== undefined) {
@@ -83154,23 +79351,7 @@ const deserializeAws_ec2ServiceConfigurationSet = (output: any, context: __Serde
 };
 
 const deserializeAws_ec2ServiceDetail = (output: any, context: __SerdeContext): ServiceDetail => {
-  const contents: any = {
-    ServiceName: undefined,
-    ServiceId: undefined,
-    ServiceType: undefined,
-    AvailabilityZones: undefined,
-    Owner: undefined,
-    BaseEndpointDnsNames: undefined,
-    PrivateDnsName: undefined,
-    PrivateDnsNames: undefined,
-    VpcEndpointPolicySupported: undefined,
-    AcceptanceRequired: undefined,
-    ManagesVpcEndpoints: undefined,
-    PayerResponsibility: undefined,
-    Tags: undefined,
-    PrivateDnsNameVerificationState: undefined,
-    SupportedIpAddressTypes: undefined,
-  };
+  const contents: any = {};
   if (output["serviceName"] !== undefined) {
     contents.ServiceName = __expectString(output["serviceName"]);
   }
@@ -83258,9 +79439,7 @@ const deserializeAws_ec2ServiceDetailSet = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_ec2ServiceTypeDetail = (output: any, context: __SerdeContext): ServiceTypeDetail => {
-  const contents: any = {
-    ServiceType: undefined,
-  };
+  const contents: any = {};
   if (output["serviceType"] !== undefined) {
     contents.ServiceType = __expectString(output["serviceType"]);
   }
@@ -83276,25 +79455,7 @@ const deserializeAws_ec2ServiceTypeDetailSet = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_ec2Snapshot = (output: any, context: __SerdeContext): Snapshot => {
-  const contents: any = {
-    DataEncryptionKeyId: undefined,
-    Description: undefined,
-    Encrypted: undefined,
-    KmsKeyId: undefined,
-    OwnerId: undefined,
-    Progress: undefined,
-    SnapshotId: undefined,
-    StartTime: undefined,
-    State: undefined,
-    StateMessage: undefined,
-    VolumeId: undefined,
-    VolumeSize: undefined,
-    OwnerAlias: undefined,
-    OutpostArn: undefined,
-    Tags: undefined,
-    StorageTier: undefined,
-    RestoreExpiryTime: undefined,
-  };
+  const contents: any = {};
   if (output["dataEncryptionKeyId"] !== undefined) {
     contents.DataEncryptionKeyId = __expectString(output["dataEncryptionKeyId"]);
   }
@@ -83352,18 +79513,7 @@ const deserializeAws_ec2Snapshot = (output: any, context: __SerdeContext): Snaps
 };
 
 const deserializeAws_ec2SnapshotDetail = (output: any, context: __SerdeContext): SnapshotDetail => {
-  const contents: any = {
-    Description: undefined,
-    DeviceName: undefined,
-    DiskImageSize: undefined,
-    Format: undefined,
-    Progress: undefined,
-    SnapshotId: undefined,
-    Status: undefined,
-    StatusMessage: undefined,
-    Url: undefined,
-    UserBucket: undefined,
-  };
+  const contents: any = {};
   if (output["description"] !== undefined) {
     contents.Description = __expectString(output["description"]);
   }
@@ -83406,19 +79556,7 @@ const deserializeAws_ec2SnapshotDetailList = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_ec2SnapshotInfo = (output: any, context: __SerdeContext): SnapshotInfo => {
-  const contents: any = {
-    Description: undefined,
-    Tags: undefined,
-    Encrypted: undefined,
-    VolumeId: undefined,
-    State: undefined,
-    VolumeSize: undefined,
-    StartTime: undefined,
-    Progress: undefined,
-    OwnerId: undefined,
-    SnapshotId: undefined,
-    OutpostArn: undefined,
-  };
+  const contents: any = {};
   if (output["description"] !== undefined) {
     contents.Description = __expectString(output["description"]);
   }
@@ -83466,13 +79604,7 @@ const deserializeAws_ec2SnapshotList = (output: any, context: __SerdeContext): S
 };
 
 const deserializeAws_ec2SnapshotRecycleBinInfo = (output: any, context: __SerdeContext): SnapshotRecycleBinInfo => {
-  const contents: any = {
-    SnapshotId: undefined,
-    RecycleBinEnterTime: undefined,
-    RecycleBinExitTime: undefined,
-    Description: undefined,
-    VolumeId: undefined,
-  };
+  const contents: any = {};
   if (output["snapshotId"] !== undefined) {
     contents.SnapshotId = __expectString(output["snapshotId"]);
   }
@@ -83511,19 +79643,7 @@ const deserializeAws_ec2SnapshotSet = (output: any, context: __SerdeContext): Sn
 };
 
 const deserializeAws_ec2SnapshotTaskDetail = (output: any, context: __SerdeContext): SnapshotTaskDetail => {
-  const contents: any = {
-    Description: undefined,
-    DiskImageSize: undefined,
-    Encrypted: undefined,
-    Format: undefined,
-    KmsKeyId: undefined,
-    Progress: undefined,
-    SnapshotId: undefined,
-    Status: undefined,
-    StatusMessage: undefined,
-    Url: undefined,
-    UserBucket: undefined,
-  };
+  const contents: any = {};
   if (output["description"] !== undefined) {
     contents.Description = __expectString(output["description"]);
   }
@@ -83561,20 +79681,7 @@ const deserializeAws_ec2SnapshotTaskDetail = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_ec2SnapshotTierStatus = (output: any, context: __SerdeContext): SnapshotTierStatus => {
-  const contents: any = {
-    SnapshotId: undefined,
-    VolumeId: undefined,
-    Status: undefined,
-    OwnerId: undefined,
-    Tags: undefined,
-    StorageTier: undefined,
-    LastTieringStartTime: undefined,
-    LastTieringProgress: undefined,
-    LastTieringOperationStatus: undefined,
-    LastTieringOperationStatusDetail: undefined,
-    ArchivalCompleteTime: undefined,
-    RestoreExpiryTime: undefined,
-  };
+  const contents: any = {};
   if (output["snapshotId"] !== undefined) {
     contents.SnapshotId = __expectString(output["snapshotId"]);
   }
@@ -83625,10 +79732,7 @@ const deserializeAws_ec2snapshotTierStatusSet = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_ec2SpotCapacityRebalance = (output: any, context: __SerdeContext): SpotCapacityRebalance => {
-  const contents: any = {
-    ReplacementStrategy: undefined,
-    TerminationDelay: undefined,
-  };
+  const contents: any = {};
   if (output["replacementStrategy"] !== undefined) {
     contents.ReplacementStrategy = __expectString(output["replacementStrategy"]);
   }
@@ -83639,13 +79743,7 @@ const deserializeAws_ec2SpotCapacityRebalance = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_ec2SpotDatafeedSubscription = (output: any, context: __SerdeContext): SpotDatafeedSubscription => {
-  const contents: any = {
-    Bucket: undefined,
-    Fault: undefined,
-    OwnerId: undefined,
-    Prefix: undefined,
-    State: undefined,
-  };
+  const contents: any = {};
   if (output["bucket"] !== undefined) {
     contents.Bucket = __expectString(output["bucket"]);
   }
@@ -83668,27 +79766,7 @@ const deserializeAws_ec2SpotFleetLaunchSpecification = (
   output: any,
   context: __SerdeContext
 ): SpotFleetLaunchSpecification => {
-  const contents: any = {
-    SecurityGroups: undefined,
-    AddressingType: undefined,
-    BlockDeviceMappings: undefined,
-    EbsOptimized: undefined,
-    IamInstanceProfile: undefined,
-    ImageId: undefined,
-    InstanceType: undefined,
-    KernelId: undefined,
-    KeyName: undefined,
-    Monitoring: undefined,
-    NetworkInterfaces: undefined,
-    Placement: undefined,
-    RamdiskId: undefined,
-    SpotPrice: undefined,
-    SubnetId: undefined,
-    UserData: undefined,
-    WeightedCapacity: undefined,
-    TagSpecifications: undefined,
-    InstanceRequirements: undefined,
-  };
+  const contents: any = {};
   if (output.groupSet === "") {
     contents.SecurityGroups = [];
   } else if (output["groupSet"] !== undefined && output["groupSet"]["item"] !== undefined) {
@@ -83773,9 +79851,7 @@ const deserializeAws_ec2SpotFleetLaunchSpecification = (
 };
 
 const deserializeAws_ec2SpotFleetMonitoring = (output: any, context: __SerdeContext): SpotFleetMonitoring => {
-  const contents: any = {
-    Enabled: undefined,
-  };
+  const contents: any = {};
   if (output["enabled"] !== undefined) {
     contents.Enabled = __parseBoolean(output["enabled"]);
   }
@@ -83783,14 +79859,7 @@ const deserializeAws_ec2SpotFleetMonitoring = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_ec2SpotFleetRequestConfig = (output: any, context: __SerdeContext): SpotFleetRequestConfig => {
-  const contents: any = {
-    ActivityStatus: undefined,
-    CreateTime: undefined,
-    SpotFleetRequestConfig: undefined,
-    SpotFleetRequestId: undefined,
-    SpotFleetRequestState: undefined,
-    Tags: undefined,
-  };
+  const contents: any = {};
   if (output["activityStatus"] !== undefined) {
     contents.ActivityStatus = __expectString(output["activityStatus"]);
   }
@@ -83821,34 +79890,7 @@ const deserializeAws_ec2SpotFleetRequestConfigData = (
   output: any,
   context: __SerdeContext
 ): SpotFleetRequestConfigData => {
-  const contents: any = {
-    AllocationStrategy: undefined,
-    OnDemandAllocationStrategy: undefined,
-    SpotMaintenanceStrategies: undefined,
-    ClientToken: undefined,
-    ExcessCapacityTerminationPolicy: undefined,
-    FulfilledCapacity: undefined,
-    OnDemandFulfilledCapacity: undefined,
-    IamFleetRole: undefined,
-    LaunchSpecifications: undefined,
-    LaunchTemplateConfigs: undefined,
-    SpotPrice: undefined,
-    TargetCapacity: undefined,
-    OnDemandTargetCapacity: undefined,
-    OnDemandMaxTotalPrice: undefined,
-    SpotMaxTotalPrice: undefined,
-    TerminateInstancesWithExpiration: undefined,
-    Type: undefined,
-    ValidFrom: undefined,
-    ValidUntil: undefined,
-    ReplaceUnhealthyInstances: undefined,
-    InstanceInterruptionBehavior: undefined,
-    LoadBalancersConfig: undefined,
-    InstancePoolsToUseCount: undefined,
-    Context: undefined,
-    TargetCapacityUnitType: undefined,
-    TagSpecifications: undefined,
-  };
+  const contents: any = {};
   if (output["allocationStrategy"] !== undefined) {
     contents.AllocationStrategy = __expectString(output["allocationStrategy"]);
   }
@@ -83963,10 +80005,7 @@ const deserializeAws_ec2SpotFleetTagSpecification = (
   output: any,
   context: __SerdeContext
 ): SpotFleetTagSpecification => {
-  const contents: any = {
-    ResourceType: undefined,
-    Tags: undefined,
-  };
+  const contents: any = {};
   if (output["resourceType"] !== undefined) {
     contents.ResourceType = __expectString(output["resourceType"]);
   }
@@ -83990,27 +80029,7 @@ const deserializeAws_ec2SpotFleetTagSpecificationList = (
 };
 
 const deserializeAws_ec2SpotInstanceRequest = (output: any, context: __SerdeContext): SpotInstanceRequest => {
-  const contents: any = {
-    ActualBlockHourlyPrice: undefined,
-    AvailabilityZoneGroup: undefined,
-    BlockDurationMinutes: undefined,
-    CreateTime: undefined,
-    Fault: undefined,
-    InstanceId: undefined,
-    LaunchGroup: undefined,
-    LaunchSpecification: undefined,
-    LaunchedAvailabilityZone: undefined,
-    ProductDescription: undefined,
-    SpotInstanceRequestId: undefined,
-    SpotPrice: undefined,
-    State: undefined,
-    Status: undefined,
-    Tags: undefined,
-    Type: undefined,
-    ValidFrom: undefined,
-    ValidUntil: undefined,
-    InstanceInterruptionBehavior: undefined,
-  };
+  const contents: any = {};
   if (output["actualBlockHourlyPrice"] !== undefined) {
     contents.ActualBlockHourlyPrice = __expectString(output["actualBlockHourlyPrice"]);
   }
@@ -84082,10 +80101,7 @@ const deserializeAws_ec2SpotInstanceRequestList = (output: any, context: __Serde
 };
 
 const deserializeAws_ec2SpotInstanceStateFault = (output: any, context: __SerdeContext): SpotInstanceStateFault => {
-  const contents: any = {
-    Code: undefined,
-    Message: undefined,
-  };
+  const contents: any = {};
   if (output["code"] !== undefined) {
     contents.Code = __expectString(output["code"]);
   }
@@ -84096,11 +80112,7 @@ const deserializeAws_ec2SpotInstanceStateFault = (output: any, context: __SerdeC
 };
 
 const deserializeAws_ec2SpotInstanceStatus = (output: any, context: __SerdeContext): SpotInstanceStatus => {
-  const contents: any = {
-    Code: undefined,
-    Message: undefined,
-    UpdateTime: undefined,
-  };
+  const contents: any = {};
   if (output["code"] !== undefined) {
     contents.Code = __expectString(output["code"]);
   }
@@ -84117,9 +80129,7 @@ const deserializeAws_ec2SpotMaintenanceStrategies = (
   output: any,
   context: __SerdeContext
 ): SpotMaintenanceStrategies => {
-  const contents: any = {
-    CapacityRebalance: undefined,
-  };
+  const contents: any = {};
   if (output["capacityRebalance"] !== undefined) {
     contents.CapacityRebalance = deserializeAws_ec2SpotCapacityRebalance(output["capacityRebalance"], context);
   }
@@ -84127,16 +80137,7 @@ const deserializeAws_ec2SpotMaintenanceStrategies = (
 };
 
 const deserializeAws_ec2SpotOptions = (output: any, context: __SerdeContext): SpotOptions => {
-  const contents: any = {
-    AllocationStrategy: undefined,
-    MaintenanceStrategies: undefined,
-    InstanceInterruptionBehavior: undefined,
-    InstancePoolsToUseCount: undefined,
-    SingleInstanceType: undefined,
-    SingleAvailabilityZone: undefined,
-    MinTargetCapacity: undefined,
-    MaxTotalPrice: undefined,
-  };
+  const contents: any = {};
   if (output["allocationStrategy"] !== undefined) {
     contents.AllocationStrategy = __expectString(output["allocationStrategy"]);
   }
@@ -84168,11 +80169,7 @@ const deserializeAws_ec2SpotOptions = (output: any, context: __SerdeContext): Sp
 };
 
 const deserializeAws_ec2SpotPlacement = (output: any, context: __SerdeContext): SpotPlacement => {
-  const contents: any = {
-    AvailabilityZone: undefined,
-    GroupName: undefined,
-    Tenancy: undefined,
-  };
+  const contents: any = {};
   if (output["availabilityZone"] !== undefined) {
     contents.AvailabilityZone = __expectString(output["availabilityZone"]);
   }
@@ -84186,11 +80183,7 @@ const deserializeAws_ec2SpotPlacement = (output: any, context: __SerdeContext): 
 };
 
 const deserializeAws_ec2SpotPlacementScore = (output: any, context: __SerdeContext): SpotPlacementScore => {
-  const contents: any = {
-    Region: undefined,
-    AvailabilityZoneId: undefined,
-    Score: undefined,
-  };
+  const contents: any = {};
   if (output["region"] !== undefined) {
     contents.Region = __expectString(output["region"]);
   }
@@ -84212,13 +80205,7 @@ const deserializeAws_ec2SpotPlacementScores = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_ec2SpotPrice = (output: any, context: __SerdeContext): SpotPrice => {
-  const contents: any = {
-    AvailabilityZone: undefined,
-    InstanceType: undefined,
-    ProductDescription: undefined,
-    SpotPrice: undefined,
-    Timestamp: undefined,
-  };
+  const contents: any = {};
   if (output["availabilityZone"] !== undefined) {
     contents.AvailabilityZone = __expectString(output["availabilityZone"]);
   }
@@ -84246,14 +80233,7 @@ const deserializeAws_ec2SpotPriceHistoryList = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_ec2StaleIpPermission = (output: any, context: __SerdeContext): StaleIpPermission => {
-  const contents: any = {
-    FromPort: undefined,
-    IpProtocol: undefined,
-    IpRanges: undefined,
-    PrefixListIds: undefined,
-    ToPort: undefined,
-    UserIdGroupPairs: undefined,
-  };
+  const contents: any = {};
   if (output["fromPort"] !== undefined) {
     contents.FromPort = __strictParseInt32(output["fromPort"]) as number;
   }
@@ -84296,14 +80276,7 @@ const deserializeAws_ec2StaleIpPermissionSet = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_ec2StaleSecurityGroup = (output: any, context: __SerdeContext): StaleSecurityGroup => {
-  const contents: any = {
-    Description: undefined,
-    GroupId: undefined,
-    GroupName: undefined,
-    StaleIpPermissions: undefined,
-    StaleIpPermissionsEgress: undefined,
-    VpcId: undefined,
-  };
+  const contents: any = {};
   if (output["description"] !== undefined) {
     contents.Description = __expectString(output["description"]);
   }
@@ -84347,9 +80320,7 @@ const deserializeAws_ec2StaleSecurityGroupSet = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_ec2StartInstancesResult = (output: any, context: __SerdeContext): StartInstancesResult => {
-  const contents: any = {
-    StartingInstances: undefined,
-  };
+  const contents: any = {};
   if (output.instancesSet === "") {
     contents.StartingInstances = [];
   } else if (output["instancesSet"] !== undefined && output["instancesSet"]["item"] !== undefined) {
@@ -84365,9 +80336,7 @@ const deserializeAws_ec2StartNetworkInsightsAccessScopeAnalysisResult = (
   output: any,
   context: __SerdeContext
 ): StartNetworkInsightsAccessScopeAnalysisResult => {
-  const contents: any = {
-    NetworkInsightsAccessScopeAnalysis: undefined,
-  };
+  const contents: any = {};
   if (output["networkInsightsAccessScopeAnalysis"] !== undefined) {
     contents.NetworkInsightsAccessScopeAnalysis = deserializeAws_ec2NetworkInsightsAccessScopeAnalysis(
       output["networkInsightsAccessScopeAnalysis"],
@@ -84381,9 +80350,7 @@ const deserializeAws_ec2StartNetworkInsightsAnalysisResult = (
   output: any,
   context: __SerdeContext
 ): StartNetworkInsightsAnalysisResult => {
-  const contents: any = {
-    NetworkInsightsAnalysis: undefined,
-  };
+  const contents: any = {};
   if (output["networkInsightsAnalysis"] !== undefined) {
     contents.NetworkInsightsAnalysis = deserializeAws_ec2NetworkInsightsAnalysis(
       output["networkInsightsAnalysis"],
@@ -84397,9 +80364,7 @@ const deserializeAws_ec2StartVpcEndpointServicePrivateDnsVerificationResult = (
   output: any,
   context: __SerdeContext
 ): StartVpcEndpointServicePrivateDnsVerificationResult => {
-  const contents: any = {
-    ReturnValue: undefined,
-  };
+  const contents: any = {};
   if (output["return"] !== undefined) {
     contents.ReturnValue = __parseBoolean(output["return"]);
   }
@@ -84407,10 +80372,7 @@ const deserializeAws_ec2StartVpcEndpointServicePrivateDnsVerificationResult = (
 };
 
 const deserializeAws_ec2StateReason = (output: any, context: __SerdeContext): StateReason => {
-  const contents: any = {
-    Code: undefined,
-    Message: undefined,
-  };
+  const contents: any = {};
   if (output["code"] !== undefined) {
     contents.Code = __expectString(output["code"]);
   }
@@ -84421,9 +80383,7 @@ const deserializeAws_ec2StateReason = (output: any, context: __SerdeContext): St
 };
 
 const deserializeAws_ec2StopInstancesResult = (output: any, context: __SerdeContext): StopInstancesResult => {
-  const contents: any = {
-    StoppingInstances: undefined,
-  };
+  const contents: any = {};
   if (output.instancesSet === "") {
     contents.StoppingInstances = [];
   } else if (output["instancesSet"] !== undefined && output["instancesSet"]["item"] !== undefined) {
@@ -84436,9 +80396,7 @@ const deserializeAws_ec2StopInstancesResult = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_ec2Storage = (output: any, context: __SerdeContext): Storage => {
-  const contents: any = {
-    S3: undefined,
-  };
+  const contents: any = {};
   if (output["S3"] !== undefined) {
     contents.S3 = deserializeAws_ec2S3Storage(output["S3"], context);
   }
@@ -84446,15 +80404,7 @@ const deserializeAws_ec2Storage = (output: any, context: __SerdeContext): Storag
 };
 
 const deserializeAws_ec2StoreImageTaskResult = (output: any, context: __SerdeContext): StoreImageTaskResult => {
-  const contents: any = {
-    AmiId: undefined,
-    TaskStartTime: undefined,
-    Bucket: undefined,
-    S3objectKey: undefined,
-    ProgressPercentage: undefined,
-    StoreTaskState: undefined,
-    StoreTaskFailureReason: undefined,
-  };
+  const contents: any = {};
   if (output["amiId"] !== undefined) {
     contents.AmiId = __expectString(output["amiId"]);
   }
@@ -84496,29 +80446,7 @@ const deserializeAws_ec2StringList = (output: any, context: __SerdeContext): str
 };
 
 const deserializeAws_ec2Subnet = (output: any, context: __SerdeContext): Subnet => {
-  const contents: any = {
-    AvailabilityZone: undefined,
-    AvailabilityZoneId: undefined,
-    AvailableIpAddressCount: undefined,
-    CidrBlock: undefined,
-    DefaultForAz: undefined,
-    EnableLniAtDeviceIndex: undefined,
-    MapPublicIpOnLaunch: undefined,
-    MapCustomerOwnedIpOnLaunch: undefined,
-    CustomerOwnedIpv4Pool: undefined,
-    State: undefined,
-    SubnetId: undefined,
-    VpcId: undefined,
-    OwnerId: undefined,
-    AssignIpv6AddressOnCreation: undefined,
-    Ipv6CidrBlockAssociationSet: undefined,
-    Tags: undefined,
-    SubnetArn: undefined,
-    OutpostArn: undefined,
-    EnableDns64: undefined,
-    Ipv6Native: undefined,
-    PrivateDnsNameOptionsOnLaunch: undefined,
-  };
+  const contents: any = {};
   if (output["availabilityZone"] !== undefined) {
     contents.AvailabilityZone = __expectString(output["availabilityZone"]);
   }
@@ -84599,10 +80527,7 @@ const deserializeAws_ec2Subnet = (output: any, context: __SerdeContext): Subnet 
 };
 
 const deserializeAws_ec2SubnetAssociation = (output: any, context: __SerdeContext): SubnetAssociation => {
-  const contents: any = {
-    SubnetId: undefined,
-    State: undefined,
-  };
+  const contents: any = {};
   if (output["subnetId"] !== undefined) {
     contents.SubnetId = __expectString(output["subnetId"]);
   }
@@ -84621,10 +80546,7 @@ const deserializeAws_ec2SubnetAssociationList = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_ec2SubnetCidrBlockState = (output: any, context: __SerdeContext): SubnetCidrBlockState => {
-  const contents: any = {
-    State: undefined,
-    StatusMessage: undefined,
-  };
+  const contents: any = {};
   if (output["state"] !== undefined) {
     contents.State = __expectString(output["state"]);
   }
@@ -84635,15 +80557,7 @@ const deserializeAws_ec2SubnetCidrBlockState = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_ec2SubnetCidrReservation = (output: any, context: __SerdeContext): SubnetCidrReservation => {
-  const contents: any = {
-    SubnetCidrReservationId: undefined,
-    SubnetId: undefined,
-    Cidr: undefined,
-    ReservationType: undefined,
-    OwnerId: undefined,
-    Description: undefined,
-    Tags: undefined,
-  };
+  const contents: any = {};
   if (output["subnetCidrReservationId"] !== undefined) {
     contents.SubnetCidrReservationId = __expectString(output["subnetCidrReservationId"]);
   }
@@ -84682,11 +80596,7 @@ const deserializeAws_ec2SubnetIpv6CidrBlockAssociation = (
   output: any,
   context: __SerdeContext
 ): SubnetIpv6CidrBlockAssociation => {
-  const contents: any = {
-    AssociationId: undefined,
-    Ipv6CidrBlock: undefined,
-    Ipv6CidrBlockState: undefined,
-  };
+  const contents: any = {};
   if (output["associationId"] !== undefined) {
     contents.AssociationId = __expectString(output["associationId"]);
   }
@@ -84719,13 +80629,7 @@ const deserializeAws_ec2SubnetList = (output: any, context: __SerdeContext): Sub
 };
 
 const deserializeAws_ec2Subscription = (output: any, context: __SerdeContext): Subscription => {
-  const contents: any = {
-    Source: undefined,
-    Destination: undefined,
-    Metric: undefined,
-    Statistic: undefined,
-    Period: undefined,
-  };
+  const contents: any = {};
   if (output["source"] !== undefined) {
     contents.Source = __expectString(output["source"]);
   }
@@ -84756,9 +80660,7 @@ const deserializeAws_ec2SuccessfulInstanceCreditSpecificationItem = (
   output: any,
   context: __SerdeContext
 ): SuccessfulInstanceCreditSpecificationItem => {
-  const contents: any = {
-    InstanceId: undefined,
-  };
+  const contents: any = {};
   if (output["instanceId"] !== undefined) {
     contents.InstanceId = __expectString(output["instanceId"]);
   }
@@ -84780,9 +80682,7 @@ const deserializeAws_ec2SuccessfulQueuedPurchaseDeletion = (
   output: any,
   context: __SerdeContext
 ): SuccessfulQueuedPurchaseDeletion => {
-  const contents: any = {
-    ReservedInstancesId: undefined,
-  };
+  const contents: any = {};
   if (output["reservedInstancesId"] !== undefined) {
     contents.ReservedInstancesId = __expectString(output["reservedInstancesId"]);
   }
@@ -84812,10 +80712,7 @@ const deserializeAws_ec2SupportedIpAddressTypes = (
 };
 
 const deserializeAws_ec2Tag = (output: any, context: __SerdeContext): Tag => {
-  const contents: any = {
-    Key: undefined,
-    Value: undefined,
-  };
+  const contents: any = {};
   if (output["key"] !== undefined) {
     contents.Key = __expectString(output["key"]);
   }
@@ -84826,12 +80723,7 @@ const deserializeAws_ec2Tag = (output: any, context: __SerdeContext): Tag => {
 };
 
 const deserializeAws_ec2TagDescription = (output: any, context: __SerdeContext): TagDescription => {
-  const contents: any = {
-    Key: undefined,
-    ResourceId: undefined,
-    ResourceType: undefined,
-    Value: undefined,
-  };
+  const contents: any = {};
   if (output["key"] !== undefined) {
     contents.Key = __expectString(output["key"]);
   }
@@ -84864,10 +80756,7 @@ const deserializeAws_ec2TagList = (output: any, context: __SerdeContext): Tag[] 
 };
 
 const deserializeAws_ec2TagSpecification = (output: any, context: __SerdeContext): TagSpecification => {
-  const contents: any = {
-    ResourceType: undefined,
-    Tags: undefined,
-  };
+  const contents: any = {};
   if (output["resourceType"] !== undefined) {
     contents.ResourceType = __expectString(output["resourceType"]);
   }
@@ -84891,13 +80780,7 @@ const deserializeAws_ec2TargetCapacitySpecification = (
   output: any,
   context: __SerdeContext
 ): TargetCapacitySpecification => {
-  const contents: any = {
-    TotalTargetCapacity: undefined,
-    OnDemandTargetCapacity: undefined,
-    SpotTargetCapacity: undefined,
-    DefaultTargetCapacityType: undefined,
-    TargetCapacityUnitType: undefined,
-  };
+  const contents: any = {};
   if (output["totalTargetCapacity"] !== undefined) {
     contents.TotalTargetCapacity = __strictParseInt32(output["totalTargetCapacity"]) as number;
   }
@@ -84917,10 +80800,7 @@ const deserializeAws_ec2TargetCapacitySpecification = (
 };
 
 const deserializeAws_ec2TargetConfiguration = (output: any, context: __SerdeContext): TargetConfiguration => {
-  const contents: any = {
-    InstanceCount: undefined,
-    OfferingId: undefined,
-  };
+  const contents: any = {};
   if (output["instanceCount"] !== undefined) {
     contents.InstanceCount = __strictParseInt32(output["instanceCount"]) as number;
   }
@@ -84931,9 +80811,7 @@ const deserializeAws_ec2TargetConfiguration = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_ec2TargetGroup = (output: any, context: __SerdeContext): TargetGroup => {
-  const contents: any = {
-    Arn: undefined,
-  };
+  const contents: any = {};
   if (output["arn"] !== undefined) {
     contents.Arn = __expectString(output["arn"]);
   }
@@ -84949,9 +80827,7 @@ const deserializeAws_ec2TargetGroups = (output: any, context: __SerdeContext): T
 };
 
 const deserializeAws_ec2TargetGroupsConfig = (output: any, context: __SerdeContext): TargetGroupsConfig => {
-  const contents: any = {
-    TargetGroups: undefined,
-  };
+  const contents: any = {};
   if (output.targetGroups === "") {
     contents.TargetGroups = [];
   } else if (output["targetGroups"] !== undefined && output["targetGroups"]["item"] !== undefined) {
@@ -84964,14 +80840,7 @@ const deserializeAws_ec2TargetGroupsConfig = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_ec2TargetNetwork = (output: any, context: __SerdeContext): TargetNetwork => {
-  const contents: any = {
-    AssociationId: undefined,
-    VpcId: undefined,
-    TargetNetworkId: undefined,
-    ClientVpnEndpointId: undefined,
-    Status: undefined,
-    SecurityGroups: undefined,
-  };
+  const contents: any = {};
   if (output["associationId"] !== undefined) {
     contents.AssociationId = __expectString(output["associationId"]);
   }
@@ -85007,10 +80876,7 @@ const deserializeAws_ec2TargetNetworkSet = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_ec2TargetReservationValue = (output: any, context: __SerdeContext): TargetReservationValue => {
-  const contents: any = {
-    ReservationValue: undefined,
-    TargetConfiguration: undefined,
-  };
+  const contents: any = {};
   if (output["reservationValue"] !== undefined) {
     contents.ReservationValue = deserializeAws_ec2ReservationValue(output["reservationValue"], context);
   }
@@ -85035,11 +80901,7 @@ const deserializeAws_ec2TerminateClientVpnConnectionsResult = (
   output: any,
   context: __SerdeContext
 ): TerminateClientVpnConnectionsResult => {
-  const contents: any = {
-    ClientVpnEndpointId: undefined,
-    Username: undefined,
-    ConnectionStatuses: undefined,
-  };
+  const contents: any = {};
   if (output["clientVpnEndpointId"] !== undefined) {
     contents.ClientVpnEndpointId = __expectString(output["clientVpnEndpointId"]);
   }
@@ -85061,11 +80923,7 @@ const deserializeAws_ec2TerminateConnectionStatus = (
   output: any,
   context: __SerdeContext
 ): TerminateConnectionStatus => {
-  const contents: any = {
-    ConnectionId: undefined,
-    PreviousStatus: undefined,
-    CurrentStatus: undefined,
-  };
+  const contents: any = {};
   if (output["connectionId"] !== undefined) {
     contents.ConnectionId = __expectString(output["connectionId"]);
   }
@@ -85090,9 +80948,7 @@ const deserializeAws_ec2TerminateConnectionStatusSet = (
 };
 
 const deserializeAws_ec2TerminateInstancesResult = (output: any, context: __SerdeContext): TerminateInstancesResult => {
-  const contents: any = {
-    TerminatingInstances: undefined,
-  };
+  const contents: any = {};
   if (output.instancesSet === "") {
     contents.TerminatingInstances = [];
   } else if (output["instancesSet"] !== undefined && output["instancesSet"]["item"] !== undefined) {
@@ -85116,9 +80972,7 @@ const deserializeAws_ec2ThroughResourcesStatement = (
   output: any,
   context: __SerdeContext
 ): ThroughResourcesStatement => {
-  const contents: any = {
-    ResourceStatement: undefined,
-  };
+  const contents: any = {};
   if (output["resourceStatement"] !== undefined) {
     contents.ResourceStatement = deserializeAws_ec2ResourceStatement(output["resourceStatement"], context);
   }
@@ -85137,10 +80991,7 @@ const deserializeAws_ec2ThroughResourcesStatementList = (
 };
 
 const deserializeAws_ec2TotalLocalStorageGB = (output: any, context: __SerdeContext): TotalLocalStorageGB => {
-  const contents: any = {
-    Min: undefined,
-    Max: undefined,
-  };
+  const contents: any = {};
   if (output["min"] !== undefined) {
     contents.Min = __strictParseFloat(output["min"]) as number;
   }
@@ -85151,14 +81002,7 @@ const deserializeAws_ec2TotalLocalStorageGB = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_ec2TrafficMirrorFilter = (output: any, context: __SerdeContext): TrafficMirrorFilter => {
-  const contents: any = {
-    TrafficMirrorFilterId: undefined,
-    IngressFilterRules: undefined,
-    EgressFilterRules: undefined,
-    NetworkServices: undefined,
-    Description: undefined,
-    Tags: undefined,
-  };
+  const contents: any = {};
   if (output["trafficMirrorFilterId"] !== undefined) {
     contents.TrafficMirrorFilterId = __expectString(output["trafficMirrorFilterId"]);
   }
@@ -85198,19 +81042,7 @@ const deserializeAws_ec2TrafficMirrorFilter = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_ec2TrafficMirrorFilterRule = (output: any, context: __SerdeContext): TrafficMirrorFilterRule => {
-  const contents: any = {
-    TrafficMirrorFilterRuleId: undefined,
-    TrafficMirrorFilterId: undefined,
-    TrafficDirection: undefined,
-    RuleNumber: undefined,
-    RuleAction: undefined,
-    Protocol: undefined,
-    DestinationPortRange: undefined,
-    SourcePortRange: undefined,
-    DestinationCidrBlock: undefined,
-    SourceCidrBlock: undefined,
-    Description: undefined,
-  };
+  const contents: any = {};
   if (output["trafficMirrorFilterRuleId"] !== undefined) {
     contents.TrafficMirrorFilterRuleId = __expectString(output["trafficMirrorFilterRuleId"]);
   }
@@ -85278,10 +81110,7 @@ const deserializeAws_ec2TrafficMirrorNetworkServiceList = (
 };
 
 const deserializeAws_ec2TrafficMirrorPortRange = (output: any, context: __SerdeContext): TrafficMirrorPortRange => {
-  const contents: any = {
-    FromPort: undefined,
-    ToPort: undefined,
-  };
+  const contents: any = {};
   if (output["fromPort"] !== undefined) {
     contents.FromPort = __strictParseInt32(output["fromPort"]) as number;
   }
@@ -85292,18 +81121,7 @@ const deserializeAws_ec2TrafficMirrorPortRange = (output: any, context: __SerdeC
 };
 
 const deserializeAws_ec2TrafficMirrorSession = (output: any, context: __SerdeContext): TrafficMirrorSession => {
-  const contents: any = {
-    TrafficMirrorSessionId: undefined,
-    TrafficMirrorTargetId: undefined,
-    TrafficMirrorFilterId: undefined,
-    NetworkInterfaceId: undefined,
-    OwnerId: undefined,
-    PacketLength: undefined,
-    SessionNumber: undefined,
-    VirtualNetworkId: undefined,
-    Description: undefined,
-    Tags: undefined,
-  };
+  const contents: any = {};
   if (output["trafficMirrorSessionId"] !== undefined) {
     contents.TrafficMirrorSessionId = __expectString(output["trafficMirrorSessionId"]);
   }
@@ -85348,16 +81166,7 @@ const deserializeAws_ec2TrafficMirrorSessionSet = (output: any, context: __Serde
 };
 
 const deserializeAws_ec2TrafficMirrorTarget = (output: any, context: __SerdeContext): TrafficMirrorTarget => {
-  const contents: any = {
-    TrafficMirrorTargetId: undefined,
-    NetworkInterfaceId: undefined,
-    NetworkLoadBalancerArn: undefined,
-    Type: undefined,
-    Description: undefined,
-    OwnerId: undefined,
-    Tags: undefined,
-    GatewayLoadBalancerEndpointId: undefined,
-  };
+  const contents: any = {};
   if (output["trafficMirrorTargetId"] !== undefined) {
     contents.TrafficMirrorTargetId = __expectString(output["trafficMirrorTargetId"]);
   }
@@ -85396,16 +81205,7 @@ const deserializeAws_ec2TrafficMirrorTargetSet = (output: any, context: __SerdeC
 };
 
 const deserializeAws_ec2TransitGateway = (output: any, context: __SerdeContext): TransitGateway => {
-  const contents: any = {
-    TransitGatewayId: undefined,
-    TransitGatewayArn: undefined,
-    State: undefined,
-    OwnerId: undefined,
-    Description: undefined,
-    CreationTime: undefined,
-    Options: undefined,
-    Tags: undefined,
-  };
+  const contents: any = {};
   if (output["transitGatewayId"] !== undefined) {
     contents.TransitGatewayId = __expectString(output["transitGatewayId"]);
   }
@@ -85439,13 +81239,7 @@ const deserializeAws_ec2TransitGatewayAssociation = (
   output: any,
   context: __SerdeContext
 ): TransitGatewayAssociation => {
-  const contents: any = {
-    TransitGatewayRouteTableId: undefined,
-    TransitGatewayAttachmentId: undefined,
-    ResourceId: undefined,
-    ResourceType: undefined,
-    State: undefined,
-  };
+  const contents: any = {};
   if (output["transitGatewayRouteTableId"] !== undefined) {
     contents.TransitGatewayRouteTableId = __expectString(output["transitGatewayRouteTableId"]);
   }
@@ -85465,18 +81259,7 @@ const deserializeAws_ec2TransitGatewayAssociation = (
 };
 
 const deserializeAws_ec2TransitGatewayAttachment = (output: any, context: __SerdeContext): TransitGatewayAttachment => {
-  const contents: any = {
-    TransitGatewayAttachmentId: undefined,
-    TransitGatewayId: undefined,
-    TransitGatewayOwnerId: undefined,
-    ResourceOwnerId: undefined,
-    ResourceType: undefined,
-    ResourceId: undefined,
-    State: undefined,
-    Association: undefined,
-    CreationTime: undefined,
-    Tags: undefined,
-  };
+  const contents: any = {};
   if (output["transitGatewayAttachmentId"] !== undefined) {
     contents.TransitGatewayAttachmentId = __expectString(output["transitGatewayAttachmentId"]);
   }
@@ -85516,10 +81299,7 @@ const deserializeAws_ec2TransitGatewayAttachmentAssociation = (
   output: any,
   context: __SerdeContext
 ): TransitGatewayAttachmentAssociation => {
-  const contents: any = {
-    TransitGatewayRouteTableId: undefined,
-    State: undefined,
-  };
+  const contents: any = {};
   if (output["transitGatewayRouteTableId"] !== undefined) {
     contents.TransitGatewayRouteTableId = __expectString(output["transitGatewayRouteTableId"]);
   }
@@ -85533,13 +81313,7 @@ const deserializeAws_ec2TransitGatewayAttachmentBgpConfiguration = (
   output: any,
   context: __SerdeContext
 ): TransitGatewayAttachmentBgpConfiguration => {
-  const contents: any = {
-    TransitGatewayAsn: undefined,
-    PeerAsn: undefined,
-    TransitGatewayAddress: undefined,
-    PeerAddress: undefined,
-    BgpStatus: undefined,
-  };
+  const contents: any = {};
   if (output["transitGatewayAsn"] !== undefined) {
     contents.TransitGatewayAsn = __strictParseLong(output["transitGatewayAsn"]) as number;
   }
@@ -85584,10 +81358,7 @@ const deserializeAws_ec2TransitGatewayAttachmentPropagation = (
   output: any,
   context: __SerdeContext
 ): TransitGatewayAttachmentPropagation => {
-  const contents: any = {
-    TransitGatewayRouteTableId: undefined,
-    State: undefined,
-  };
+  const contents: any = {};
   if (output["transitGatewayRouteTableId"] !== undefined) {
     contents.TransitGatewayRouteTableId = __expectString(output["transitGatewayRouteTableId"]);
   }
@@ -85609,15 +81380,7 @@ const deserializeAws_ec2TransitGatewayAttachmentPropagationList = (
 };
 
 const deserializeAws_ec2TransitGatewayConnect = (output: any, context: __SerdeContext): TransitGatewayConnect => {
-  const contents: any = {
-    TransitGatewayAttachmentId: undefined,
-    TransportTransitGatewayAttachmentId: undefined,
-    TransitGatewayId: undefined,
-    State: undefined,
-    CreationTime: undefined,
-    Options: undefined,
-    Tags: undefined,
-  };
+  const contents: any = {};
   if (output["transitGatewayAttachmentId"] !== undefined) {
     contents.TransitGatewayAttachmentId = __expectString(output["transitGatewayAttachmentId"]);
   }
@@ -85656,9 +81419,7 @@ const deserializeAws_ec2TransitGatewayConnectOptions = (
   output: any,
   context: __SerdeContext
 ): TransitGatewayConnectOptions => {
-  const contents: any = {
-    Protocol: undefined,
-  };
+  const contents: any = {};
   if (output["protocol"] !== undefined) {
     contents.Protocol = __expectString(output["protocol"]);
   }
@@ -85669,14 +81430,7 @@ const deserializeAws_ec2TransitGatewayConnectPeer = (
   output: any,
   context: __SerdeContext
 ): TransitGatewayConnectPeer => {
-  const contents: any = {
-    TransitGatewayAttachmentId: undefined,
-    TransitGatewayConnectPeerId: undefined,
-    State: undefined,
-    CreationTime: undefined,
-    ConnectPeerConfiguration: undefined,
-    Tags: undefined,
-  };
+  const contents: any = {};
   if (output["transitGatewayAttachmentId"] !== undefined) {
     contents.TransitGatewayAttachmentId = __expectString(output["transitGatewayAttachmentId"]);
   }
@@ -85707,13 +81461,7 @@ const deserializeAws_ec2TransitGatewayConnectPeerConfiguration = (
   output: any,
   context: __SerdeContext
 ): TransitGatewayConnectPeerConfiguration => {
-  const contents: any = {
-    TransitGatewayAddress: undefined,
-    PeerAddress: undefined,
-    InsideCidrBlocks: undefined,
-    Protocol: undefined,
-    BgpConfigurations: undefined,
-  };
+  const contents: any = {};
   if (output["transitGatewayAddress"] !== undefined) {
     contents.TransitGatewayAddress = __expectString(output["transitGatewayAddress"]);
   }
@@ -85765,11 +81513,7 @@ const deserializeAws_ec2TransitGatewayMulticastDeregisteredGroupMembers = (
   output: any,
   context: __SerdeContext
 ): TransitGatewayMulticastDeregisteredGroupMembers => {
-  const contents: any = {
-    TransitGatewayMulticastDomainId: undefined,
-    DeregisteredNetworkInterfaceIds: undefined,
-    GroupIpAddress: undefined,
-  };
+  const contents: any = {};
   if (output["transitGatewayMulticastDomainId"] !== undefined) {
     contents.TransitGatewayMulticastDomainId = __expectString(output["transitGatewayMulticastDomainId"]);
   }
@@ -85794,11 +81538,7 @@ const deserializeAws_ec2TransitGatewayMulticastDeregisteredGroupSources = (
   output: any,
   context: __SerdeContext
 ): TransitGatewayMulticastDeregisteredGroupSources => {
-  const contents: any = {
-    TransitGatewayMulticastDomainId: undefined,
-    DeregisteredNetworkInterfaceIds: undefined,
-    GroupIpAddress: undefined,
-  };
+  const contents: any = {};
   if (output["transitGatewayMulticastDomainId"] !== undefined) {
     contents.TransitGatewayMulticastDomainId = __expectString(output["transitGatewayMulticastDomainId"]);
   }
@@ -85823,16 +81563,7 @@ const deserializeAws_ec2TransitGatewayMulticastDomain = (
   output: any,
   context: __SerdeContext
 ): TransitGatewayMulticastDomain => {
-  const contents: any = {
-    TransitGatewayMulticastDomainId: undefined,
-    TransitGatewayId: undefined,
-    TransitGatewayMulticastDomainArn: undefined,
-    OwnerId: undefined,
-    Options: undefined,
-    State: undefined,
-    CreationTime: undefined,
-    Tags: undefined,
-  };
+  const contents: any = {};
   if (output["transitGatewayMulticastDomainId"] !== undefined) {
     contents.TransitGatewayMulticastDomainId = __expectString(output["transitGatewayMulticastDomainId"]);
   }
@@ -85866,13 +81597,7 @@ const deserializeAws_ec2TransitGatewayMulticastDomainAssociation = (
   output: any,
   context: __SerdeContext
 ): TransitGatewayMulticastDomainAssociation => {
-  const contents: any = {
-    TransitGatewayAttachmentId: undefined,
-    ResourceId: undefined,
-    ResourceType: undefined,
-    ResourceOwnerId: undefined,
-    Subnet: undefined,
-  };
+  const contents: any = {};
   if (output["transitGatewayAttachmentId"] !== undefined) {
     contents.TransitGatewayAttachmentId = __expectString(output["transitGatewayAttachmentId"]);
   }
@@ -85906,14 +81631,7 @@ const deserializeAws_ec2TransitGatewayMulticastDomainAssociations = (
   output: any,
   context: __SerdeContext
 ): TransitGatewayMulticastDomainAssociations => {
-  const contents: any = {
-    TransitGatewayMulticastDomainId: undefined,
-    TransitGatewayAttachmentId: undefined,
-    ResourceId: undefined,
-    ResourceType: undefined,
-    ResourceOwnerId: undefined,
-    Subnets: undefined,
-  };
+  const contents: any = {};
   if (output["transitGatewayMulticastDomainId"] !== undefined) {
     contents.TransitGatewayMulticastDomainId = __expectString(output["transitGatewayMulticastDomainId"]);
   }
@@ -85955,11 +81673,7 @@ const deserializeAws_ec2TransitGatewayMulticastDomainOptions = (
   output: any,
   context: __SerdeContext
 ): TransitGatewayMulticastDomainOptions => {
-  const contents: any = {
-    Igmpv2Support: undefined,
-    StaticSourcesSupport: undefined,
-    AutoAcceptSharedAssociations: undefined,
-  };
+  const contents: any = {};
   if (output["igmpv2Support"] !== undefined) {
     contents.Igmpv2Support = __expectString(output["igmpv2Support"]);
   }
@@ -85976,19 +81690,7 @@ const deserializeAws_ec2TransitGatewayMulticastGroup = (
   output: any,
   context: __SerdeContext
 ): TransitGatewayMulticastGroup => {
-  const contents: any = {
-    GroupIpAddress: undefined,
-    TransitGatewayAttachmentId: undefined,
-    SubnetId: undefined,
-    ResourceId: undefined,
-    ResourceType: undefined,
-    ResourceOwnerId: undefined,
-    NetworkInterfaceId: undefined,
-    GroupMember: undefined,
-    GroupSource: undefined,
-    MemberType: undefined,
-    SourceType: undefined,
-  };
+  const contents: any = {};
   if (output["groupIpAddress"] !== undefined) {
     contents.GroupIpAddress = __expectString(output["groupIpAddress"]);
   }
@@ -86040,11 +81742,7 @@ const deserializeAws_ec2TransitGatewayMulticastRegisteredGroupMembers = (
   output: any,
   context: __SerdeContext
 ): TransitGatewayMulticastRegisteredGroupMembers => {
-  const contents: any = {
-    TransitGatewayMulticastDomainId: undefined,
-    RegisteredNetworkInterfaceIds: undefined,
-    GroupIpAddress: undefined,
-  };
+  const contents: any = {};
   if (output["transitGatewayMulticastDomainId"] !== undefined) {
     contents.TransitGatewayMulticastDomainId = __expectString(output["transitGatewayMulticastDomainId"]);
   }
@@ -86069,11 +81767,7 @@ const deserializeAws_ec2TransitGatewayMulticastRegisteredGroupSources = (
   output: any,
   context: __SerdeContext
 ): TransitGatewayMulticastRegisteredGroupSources => {
-  const contents: any = {
-    TransitGatewayMulticastDomainId: undefined,
-    RegisteredNetworkInterfaceIds: undefined,
-    GroupIpAddress: undefined,
-  };
+  const contents: any = {};
   if (output["transitGatewayMulticastDomainId"] !== undefined) {
     contents.TransitGatewayMulticastDomainId = __expectString(output["transitGatewayMulticastDomainId"]);
   }
@@ -86095,18 +81789,7 @@ const deserializeAws_ec2TransitGatewayMulticastRegisteredGroupSources = (
 };
 
 const deserializeAws_ec2TransitGatewayOptions = (output: any, context: __SerdeContext): TransitGatewayOptions => {
-  const contents: any = {
-    AmazonSideAsn: undefined,
-    TransitGatewayCidrBlocks: undefined,
-    AutoAcceptSharedAttachments: undefined,
-    DefaultRouteTableAssociation: undefined,
-    AssociationDefaultRouteTableId: undefined,
-    DefaultRouteTablePropagation: undefined,
-    PropagationDefaultRouteTableId: undefined,
-    VpnEcmpSupport: undefined,
-    DnsSupport: undefined,
-    MulticastSupport: undefined,
-  };
+  const contents: any = {};
   if (output["amazonSideAsn"] !== undefined) {
     contents.AmazonSideAsn = __strictParseLong(output["amazonSideAsn"]) as number;
   }
@@ -86152,17 +81835,7 @@ const deserializeAws_ec2TransitGatewayPeeringAttachment = (
   output: any,
   context: __SerdeContext
 ): TransitGatewayPeeringAttachment => {
-  const contents: any = {
-    TransitGatewayAttachmentId: undefined,
-    AccepterTransitGatewayAttachmentId: undefined,
-    RequesterTgwInfo: undefined,
-    AccepterTgwInfo: undefined,
-    Options: undefined,
-    Status: undefined,
-    State: undefined,
-    CreationTime: undefined,
-    Tags: undefined,
-  };
+  const contents: any = {};
   if (output["transitGatewayAttachmentId"] !== undefined) {
     contents.TransitGatewayAttachmentId = __expectString(output["transitGatewayAttachmentId"]);
   }
@@ -86210,9 +81883,7 @@ const deserializeAws_ec2TransitGatewayPeeringAttachmentOptions = (
   output: any,
   context: __SerdeContext
 ): TransitGatewayPeeringAttachmentOptions => {
-  const contents: any = {
-    DynamicRouting: undefined,
-  };
+  const contents: any = {};
   if (output["dynamicRouting"] !== undefined) {
     contents.DynamicRouting = __expectString(output["dynamicRouting"]);
   }
@@ -86220,14 +81891,7 @@ const deserializeAws_ec2TransitGatewayPeeringAttachmentOptions = (
 };
 
 const deserializeAws_ec2TransitGatewayPolicyRule = (output: any, context: __SerdeContext): TransitGatewayPolicyRule => {
-  const contents: any = {
-    SourceCidrBlock: undefined,
-    SourcePortRange: undefined,
-    DestinationCidrBlock: undefined,
-    DestinationPortRange: undefined,
-    Protocol: undefined,
-    MetaData: undefined,
-  };
+  const contents: any = {};
   if (output["sourceCidrBlock"] !== undefined) {
     contents.SourceCidrBlock = __expectString(output["sourceCidrBlock"]);
   }
@@ -86253,10 +81917,7 @@ const deserializeAws_ec2TransitGatewayPolicyRuleMetaData = (
   output: any,
   context: __SerdeContext
 ): TransitGatewayPolicyRuleMetaData => {
-  const contents: any = {
-    MetaDataKey: undefined,
-    MetaDataValue: undefined,
-  };
+  const contents: any = {};
   if (output["metaDataKey"] !== undefined) {
     contents.MetaDataKey = __expectString(output["metaDataKey"]);
   }
@@ -86270,13 +81931,7 @@ const deserializeAws_ec2TransitGatewayPolicyTable = (
   output: any,
   context: __SerdeContext
 ): TransitGatewayPolicyTable => {
-  const contents: any = {
-    TransitGatewayPolicyTableId: undefined,
-    TransitGatewayId: undefined,
-    State: undefined,
-    CreationTime: undefined,
-    Tags: undefined,
-  };
+  const contents: any = {};
   if (output["transitGatewayPolicyTableId"] !== undefined) {
     contents.TransitGatewayPolicyTableId = __expectString(output["transitGatewayPolicyTableId"]);
   }
@@ -86301,13 +81956,7 @@ const deserializeAws_ec2TransitGatewayPolicyTableAssociation = (
   output: any,
   context: __SerdeContext
 ): TransitGatewayPolicyTableAssociation => {
-  const contents: any = {
-    TransitGatewayPolicyTableId: undefined,
-    TransitGatewayAttachmentId: undefined,
-    ResourceId: undefined,
-    ResourceType: undefined,
-    State: undefined,
-  };
+  const contents: any = {};
   if (output["transitGatewayPolicyTableId"] !== undefined) {
     contents.TransitGatewayPolicyTableId = __expectString(output["transitGatewayPolicyTableId"]);
   }
@@ -86341,11 +81990,7 @@ const deserializeAws_ec2TransitGatewayPolicyTableEntry = (
   output: any,
   context: __SerdeContext
 ): TransitGatewayPolicyTableEntry => {
-  const contents: any = {
-    PolicyRuleNumber: undefined,
-    PolicyRule: undefined,
-    TargetRouteTableId: undefined,
-  };
+  const contents: any = {};
   if (output["policyRuleNumber"] !== undefined) {
     contents.PolicyRuleNumber = __expectString(output["policyRuleNumber"]);
   }
@@ -86384,11 +82029,7 @@ const deserializeAws_ec2TransitGatewayPrefixListAttachment = (
   output: any,
   context: __SerdeContext
 ): TransitGatewayPrefixListAttachment => {
-  const contents: any = {
-    TransitGatewayAttachmentId: undefined,
-    ResourceType: undefined,
-    ResourceId: undefined,
-  };
+  const contents: any = {};
   if (output["transitGatewayAttachmentId"] !== undefined) {
     contents.TransitGatewayAttachmentId = __expectString(output["transitGatewayAttachmentId"]);
   }
@@ -86405,14 +82046,7 @@ const deserializeAws_ec2TransitGatewayPrefixListReference = (
   output: any,
   context: __SerdeContext
 ): TransitGatewayPrefixListReference => {
-  const contents: any = {
-    TransitGatewayRouteTableId: undefined,
-    PrefixListId: undefined,
-    PrefixListOwnerId: undefined,
-    State: undefined,
-    Blackhole: undefined,
-    TransitGatewayAttachment: undefined,
-  };
+  const contents: any = {};
   if (output["transitGatewayRouteTableId"] !== undefined) {
     contents.TransitGatewayRouteTableId = __expectString(output["transitGatewayRouteTableId"]);
   }
@@ -86452,14 +82086,7 @@ const deserializeAws_ec2TransitGatewayPropagation = (
   output: any,
   context: __SerdeContext
 ): TransitGatewayPropagation => {
-  const contents: any = {
-    TransitGatewayAttachmentId: undefined,
-    ResourceId: undefined,
-    ResourceType: undefined,
-    TransitGatewayRouteTableId: undefined,
-    State: undefined,
-    TransitGatewayRouteTableAnnouncementId: undefined,
-  };
+  const contents: any = {};
   if (output["transitGatewayAttachmentId"] !== undefined) {
     contents.TransitGatewayAttachmentId = __expectString(output["transitGatewayAttachmentId"]);
   }
@@ -86482,14 +82109,7 @@ const deserializeAws_ec2TransitGatewayPropagation = (
 };
 
 const deserializeAws_ec2TransitGatewayRoute = (output: any, context: __SerdeContext): TransitGatewayRoute => {
-  const contents: any = {
-    DestinationCidrBlock: undefined,
-    PrefixListId: undefined,
-    TransitGatewayRouteTableAnnouncementId: undefined,
-    TransitGatewayAttachments: undefined,
-    Type: undefined,
-    State: undefined,
-  };
+  const contents: any = {};
   if (output["destinationCidrBlock"] !== undefined) {
     contents.DestinationCidrBlock = __expectString(output["destinationCidrBlock"]);
   }
@@ -86523,11 +82143,7 @@ const deserializeAws_ec2TransitGatewayRouteAttachment = (
   output: any,
   context: __SerdeContext
 ): TransitGatewayRouteAttachment => {
-  const contents: any = {
-    ResourceId: undefined,
-    TransitGatewayAttachmentId: undefined,
-    ResourceType: undefined,
-  };
+  const contents: any = {};
   if (output["resourceId"] !== undefined) {
     contents.ResourceId = __expectString(output["resourceId"]);
   }
@@ -86560,15 +82176,7 @@ const deserializeAws_ec2TransitGatewayRouteList = (output: any, context: __Serde
 };
 
 const deserializeAws_ec2TransitGatewayRouteTable = (output: any, context: __SerdeContext): TransitGatewayRouteTable => {
-  const contents: any = {
-    TransitGatewayRouteTableId: undefined,
-    TransitGatewayId: undefined,
-    State: undefined,
-    DefaultAssociationRouteTable: undefined,
-    DefaultPropagationRouteTable: undefined,
-    CreationTime: undefined,
-    Tags: undefined,
-  };
+  const contents: any = {};
   if (output["transitGatewayRouteTableId"] !== undefined) {
     contents.TransitGatewayRouteTableId = __expectString(output["transitGatewayRouteTableId"]);
   }
@@ -86599,19 +82207,7 @@ const deserializeAws_ec2TransitGatewayRouteTableAnnouncement = (
   output: any,
   context: __SerdeContext
 ): TransitGatewayRouteTableAnnouncement => {
-  const contents: any = {
-    TransitGatewayRouteTableAnnouncementId: undefined,
-    TransitGatewayId: undefined,
-    CoreNetworkId: undefined,
-    PeerTransitGatewayId: undefined,
-    PeerCoreNetworkId: undefined,
-    PeeringAttachmentId: undefined,
-    AnnouncementDirection: undefined,
-    TransitGatewayRouteTableId: undefined,
-    State: undefined,
-    CreationTime: undefined,
-    Tags: undefined,
-  };
+  const contents: any = {};
   if (output["transitGatewayRouteTableAnnouncementId"] !== undefined) {
     contents.TransitGatewayRouteTableAnnouncementId = __expectString(output["transitGatewayRouteTableAnnouncementId"]);
   }
@@ -86665,12 +82261,7 @@ const deserializeAws_ec2TransitGatewayRouteTableAssociation = (
   output: any,
   context: __SerdeContext
 ): TransitGatewayRouteTableAssociation => {
-  const contents: any = {
-    TransitGatewayAttachmentId: undefined,
-    ResourceId: undefined,
-    ResourceType: undefined,
-    State: undefined,
-  };
+  const contents: any = {};
   if (output["transitGatewayAttachmentId"] !== undefined) {
     contents.TransitGatewayAttachmentId = __expectString(output["transitGatewayAttachmentId"]);
   }
@@ -86712,13 +82303,7 @@ const deserializeAws_ec2TransitGatewayRouteTablePropagation = (
   output: any,
   context: __SerdeContext
 ): TransitGatewayRouteTablePropagation => {
-  const contents: any = {
-    TransitGatewayAttachmentId: undefined,
-    ResourceId: undefined,
-    ResourceType: undefined,
-    State: undefined,
-    TransitGatewayRouteTableAnnouncementId: undefined,
-  };
+  const contents: any = {};
   if (output["transitGatewayAttachmentId"] !== undefined) {
     contents.TransitGatewayAttachmentId = __expectString(output["transitGatewayAttachmentId"]);
   }
@@ -86752,15 +82337,7 @@ const deserializeAws_ec2TransitGatewayRouteTableRoute = (
   output: any,
   context: __SerdeContext
 ): TransitGatewayRouteTableRoute => {
-  const contents: any = {
-    DestinationCidr: undefined,
-    State: undefined,
-    RouteOrigin: undefined,
-    PrefixListId: undefined,
-    AttachmentId: undefined,
-    ResourceId: undefined,
-    ResourceType: undefined,
-  };
+  const contents: any = {};
   if (output["destinationCidr"] !== undefined) {
     contents.DestinationCidr = __expectString(output["destinationCidr"]);
   }
@@ -86789,17 +82366,7 @@ const deserializeAws_ec2TransitGatewayVpcAttachment = (
   output: any,
   context: __SerdeContext
 ): TransitGatewayVpcAttachment => {
-  const contents: any = {
-    TransitGatewayAttachmentId: undefined,
-    TransitGatewayId: undefined,
-    VpcId: undefined,
-    VpcOwnerId: undefined,
-    State: undefined,
-    SubnetIds: undefined,
-    CreationTime: undefined,
-    Options: undefined,
-    Tags: undefined,
-  };
+  const contents: any = {};
   if (output["transitGatewayAttachmentId"] !== undefined) {
     contents.TransitGatewayAttachmentId = __expectString(output["transitGatewayAttachmentId"]);
   }
@@ -86852,11 +82419,7 @@ const deserializeAws_ec2TransitGatewayVpcAttachmentOptions = (
   output: any,
   context: __SerdeContext
 ): TransitGatewayVpcAttachmentOptions => {
-  const contents: any = {
-    DnsSupport: undefined,
-    Ipv6Support: undefined,
-    ApplianceModeSupport: undefined,
-  };
+  const contents: any = {};
   if (output["dnsSupport"] !== undefined) {
     contents.DnsSupport = __expectString(output["dnsSupport"]);
   }
@@ -86873,15 +82436,7 @@ const deserializeAws_ec2TrunkInterfaceAssociation = (
   output: any,
   context: __SerdeContext
 ): TrunkInterfaceAssociation => {
-  const contents: any = {
-    AssociationId: undefined,
-    BranchInterfaceId: undefined,
-    TrunkInterfaceId: undefined,
-    InterfaceProtocol: undefined,
-    VlanId: undefined,
-    GreKey: undefined,
-    Tags: undefined,
-  };
+  const contents: any = {};
   if (output["associationId"] !== undefined) {
     contents.AssociationId = __expectString(output["associationId"]);
   }
@@ -86920,28 +82475,7 @@ const deserializeAws_ec2TrunkInterfaceAssociationList = (
 };
 
 const deserializeAws_ec2TunnelOption = (output: any, context: __SerdeContext): TunnelOption => {
-  const contents: any = {
-    OutsideIpAddress: undefined,
-    TunnelInsideCidr: undefined,
-    TunnelInsideIpv6Cidr: undefined,
-    PreSharedKey: undefined,
-    Phase1LifetimeSeconds: undefined,
-    Phase2LifetimeSeconds: undefined,
-    RekeyMarginTimeSeconds: undefined,
-    RekeyFuzzPercentage: undefined,
-    ReplayWindowSize: undefined,
-    DpdTimeoutSeconds: undefined,
-    DpdTimeoutAction: undefined,
-    Phase1EncryptionAlgorithms: undefined,
-    Phase2EncryptionAlgorithms: undefined,
-    Phase1IntegrityAlgorithms: undefined,
-    Phase2IntegrityAlgorithms: undefined,
-    Phase1DHGroupNumbers: undefined,
-    Phase2DHGroupNumbers: undefined,
-    IkeVersions: undefined,
-    StartupAction: undefined,
-    LogOptions: undefined,
-  };
+  const contents: any = {};
   if (output["outsideIpAddress"] !== undefined) {
     contents.OutsideIpAddress = __expectString(output["outsideIpAddress"]);
   }
@@ -87064,11 +82598,7 @@ const deserializeAws_ec2UnassignIpv6AddressesResult = (
   output: any,
   context: __SerdeContext
 ): UnassignIpv6AddressesResult => {
-  const contents: any = {
-    NetworkInterfaceId: undefined,
-    UnassignedIpv6Addresses: undefined,
-    UnassignedIpv6Prefixes: undefined,
-  };
+  const contents: any = {};
   if (output["networkInterfaceId"] !== undefined) {
     contents.NetworkInterfaceId = __expectString(output["networkInterfaceId"]);
   }
@@ -87101,10 +82631,7 @@ const deserializeAws_ec2UnassignPrivateNatGatewayAddressResult = (
   output: any,
   context: __SerdeContext
 ): UnassignPrivateNatGatewayAddressResult => {
-  const contents: any = {
-    NatGatewayId: undefined,
-    NatGatewayAddresses: undefined,
-  };
+  const contents: any = {};
   if (output["natGatewayId"] !== undefined) {
     contents.NatGatewayId = __expectString(output["natGatewayId"]);
   }
@@ -87120,9 +82647,7 @@ const deserializeAws_ec2UnassignPrivateNatGatewayAddressResult = (
 };
 
 const deserializeAws_ec2UnmonitorInstancesResult = (output: any, context: __SerdeContext): UnmonitorInstancesResult => {
-  const contents: any = {
-    InstanceMonitorings: undefined,
-  };
+  const contents: any = {};
   if (output.instancesSet === "") {
     contents.InstanceMonitorings = [];
   } else if (output["instancesSet"] !== undefined && output["instancesSet"]["item"] !== undefined) {
@@ -87138,10 +82663,7 @@ const deserializeAws_ec2UnsuccessfulInstanceCreditSpecificationItem = (
   output: any,
   context: __SerdeContext
 ): UnsuccessfulInstanceCreditSpecificationItem => {
-  const contents: any = {
-    InstanceId: undefined,
-    Error: undefined,
-  };
+  const contents: any = {};
   if (output["instanceId"] !== undefined) {
     contents.InstanceId = __expectString(output["instanceId"]);
   }
@@ -87155,10 +82677,7 @@ const deserializeAws_ec2UnsuccessfulInstanceCreditSpecificationItemError = (
   output: any,
   context: __SerdeContext
 ): UnsuccessfulInstanceCreditSpecificationItemError => {
-  const contents: any = {
-    Code: undefined,
-    Message: undefined,
-  };
+  const contents: any = {};
   if (output["code"] !== undefined) {
     contents.Code = __expectString(output["code"]);
   }
@@ -87180,10 +82699,7 @@ const deserializeAws_ec2UnsuccessfulInstanceCreditSpecificationSet = (
 };
 
 const deserializeAws_ec2UnsuccessfulItem = (output: any, context: __SerdeContext): UnsuccessfulItem => {
-  const contents: any = {
-    Error: undefined,
-    ResourceId: undefined,
-  };
+  const contents: any = {};
   if (output["error"] !== undefined) {
     contents.Error = deserializeAws_ec2UnsuccessfulItemError(output["error"], context);
   }
@@ -87194,10 +82710,7 @@ const deserializeAws_ec2UnsuccessfulItem = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_ec2UnsuccessfulItemError = (output: any, context: __SerdeContext): UnsuccessfulItemError => {
-  const contents: any = {
-    Code: undefined,
-    Message: undefined,
-  };
+  const contents: any = {};
   if (output["code"] !== undefined) {
     contents.Code = __expectString(output["code"]);
   }
@@ -87227,9 +82740,7 @@ const deserializeAws_ec2UpdateSecurityGroupRuleDescriptionsEgressResult = (
   output: any,
   context: __SerdeContext
 ): UpdateSecurityGroupRuleDescriptionsEgressResult => {
-  const contents: any = {
-    Return: undefined,
-  };
+  const contents: any = {};
   if (output["return"] !== undefined) {
     contents.Return = __parseBoolean(output["return"]);
   }
@@ -87240,9 +82751,7 @@ const deserializeAws_ec2UpdateSecurityGroupRuleDescriptionsIngressResult = (
   output: any,
   context: __SerdeContext
 ): UpdateSecurityGroupRuleDescriptionsIngressResult => {
-  const contents: any = {
-    Return: undefined,
-  };
+  const contents: any = {};
   if (output["return"] !== undefined) {
     contents.Return = __parseBoolean(output["return"]);
   }
@@ -87258,10 +82767,7 @@ const deserializeAws_ec2UsageClassTypeList = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_ec2UserBucketDetails = (output: any, context: __SerdeContext): UserBucketDetails => {
-  const contents: any = {
-    S3Bucket: undefined,
-    S3Key: undefined,
-  };
+  const contents: any = {};
   if (output["s3Bucket"] !== undefined) {
     contents.S3Bucket = __expectString(output["s3Bucket"]);
   }
@@ -87272,15 +82778,7 @@ const deserializeAws_ec2UserBucketDetails = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_ec2UserIdGroupPair = (output: any, context: __SerdeContext): UserIdGroupPair => {
-  const contents: any = {
-    Description: undefined,
-    GroupId: undefined,
-    GroupName: undefined,
-    PeeringStatus: undefined,
-    UserId: undefined,
-    VpcId: undefined,
-    VpcPeeringConnectionId: undefined,
-  };
+  const contents: any = {};
   if (output["description"] !== undefined) {
     contents.Description = __expectString(output["description"]);
   }
@@ -87322,10 +82820,7 @@ const deserializeAws_ec2UserIdGroupPairSet = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_ec2ValidationError = (output: any, context: __SerdeContext): ValidationError => {
-  const contents: any = {
-    Code: undefined,
-    Message: undefined,
-  };
+  const contents: any = {};
   if (output["code"] !== undefined) {
     contents.Code = __expectString(output["code"]);
   }
@@ -87336,9 +82831,7 @@ const deserializeAws_ec2ValidationError = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_ec2ValidationWarning = (output: any, context: __SerdeContext): ValidationWarning => {
-  const contents: any = {
-    Errors: undefined,
-  };
+  const contents: any = {};
   if (output.errorSet === "") {
     contents.Errors = [];
   } else if (output["errorSet"] !== undefined && output["errorSet"]["item"] !== undefined) {
@@ -87356,10 +82849,7 @@ const deserializeAws_ec2ValueStringList = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_ec2VCpuCountRange = (output: any, context: __SerdeContext): VCpuCountRange => {
-  const contents: any = {
-    Min: undefined,
-    Max: undefined,
-  };
+  const contents: any = {};
   if (output["min"] !== undefined) {
     contents.Min = __strictParseInt32(output["min"]) as number;
   }
@@ -87370,13 +82860,7 @@ const deserializeAws_ec2VCpuCountRange = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_ec2VCpuInfo = (output: any, context: __SerdeContext): VCpuInfo => {
-  const contents: any = {
-    DefaultVCpus: undefined,
-    DefaultCores: undefined,
-    DefaultThreadsPerCore: undefined,
-    ValidCores: undefined,
-    ValidThreadsPerCore: undefined,
-  };
+  const contents: any = {};
   if (output["defaultVCpus"] !== undefined) {
     contents.DefaultVCpus = __strictParseInt32(output["defaultVCpus"]) as number;
   }
@@ -87406,26 +82890,7 @@ const deserializeAws_ec2VCpuInfo = (output: any, context: __SerdeContext): VCpuI
 };
 
 const deserializeAws_ec2VerifiedAccessEndpoint = (output: any, context: __SerdeContext): VerifiedAccessEndpoint => {
-  const contents: any = {
-    VerifiedAccessInstanceId: undefined,
-    VerifiedAccessGroupId: undefined,
-    VerifiedAccessEndpointId: undefined,
-    ApplicationDomain: undefined,
-    EndpointType: undefined,
-    AttachmentType: undefined,
-    DomainCertificateArn: undefined,
-    EndpointDomain: undefined,
-    DeviceValidationDomain: undefined,
-    SecurityGroupIds: undefined,
-    LoadBalancerOptions: undefined,
-    NetworkInterfaceOptions: undefined,
-    Status: undefined,
-    Description: undefined,
-    CreationTime: undefined,
-    LastUpdatedTime: undefined,
-    DeletionTime: undefined,
-    Tags: undefined,
-  };
+  const contents: any = {};
   if (output["verifiedAccessInstanceId"] !== undefined) {
     contents.VerifiedAccessInstanceId = __expectString(output["verifiedAccessInstanceId"]);
   }
@@ -87500,11 +82965,7 @@ const deserializeAws_ec2VerifiedAccessEndpointEniOptions = (
   output: any,
   context: __SerdeContext
 ): VerifiedAccessEndpointEniOptions => {
-  const contents: any = {
-    NetworkInterfaceId: undefined,
-    Protocol: undefined,
-    Port: undefined,
-  };
+  const contents: any = {};
   if (output["networkInterfaceId"] !== undefined) {
     contents.NetworkInterfaceId = __expectString(output["networkInterfaceId"]);
   }
@@ -87532,12 +82993,7 @@ const deserializeAws_ec2VerifiedAccessEndpointLoadBalancerOptions = (
   output: any,
   context: __SerdeContext
 ): VerifiedAccessEndpointLoadBalancerOptions => {
-  const contents: any = {
-    Protocol: undefined,
-    Port: undefined,
-    LoadBalancerArn: undefined,
-    SubnetIds: undefined,
-  };
+  const contents: any = {};
   if (output["protocol"] !== undefined) {
     contents.Protocol = __expectString(output["protocol"]);
   }
@@ -87562,10 +83018,7 @@ const deserializeAws_ec2VerifiedAccessEndpointStatus = (
   output: any,
   context: __SerdeContext
 ): VerifiedAccessEndpointStatus => {
-  const contents: any = {
-    Code: undefined,
-    Message: undefined,
-  };
+  const contents: any = {};
   if (output["code"] !== undefined) {
     contents.Code = __expectString(output["code"]);
   }
@@ -87584,17 +83037,7 @@ const deserializeAws_ec2VerifiedAccessEndpointSubnetIdList = (output: any, conte
 };
 
 const deserializeAws_ec2VerifiedAccessGroup = (output: any, context: __SerdeContext): VerifiedAccessGroup => {
-  const contents: any = {
-    VerifiedAccessGroupId: undefined,
-    VerifiedAccessInstanceId: undefined,
-    Description: undefined,
-    Owner: undefined,
-    VerifiedAccessGroupArn: undefined,
-    CreationTime: undefined,
-    LastUpdatedTime: undefined,
-    DeletionTime: undefined,
-    Tags: undefined,
-  };
+  const contents: any = {};
   if (output["verifiedAccessGroupId"] !== undefined) {
     contents.VerifiedAccessGroupId = __expectString(output["verifiedAccessGroupId"]);
   }
@@ -87636,14 +83079,7 @@ const deserializeAws_ec2VerifiedAccessGroupList = (output: any, context: __Serde
 };
 
 const deserializeAws_ec2VerifiedAccessInstance = (output: any, context: __SerdeContext): VerifiedAccessInstance => {
-  const contents: any = {
-    VerifiedAccessInstanceId: undefined,
-    Description: undefined,
-    VerifiedAccessTrustProviders: undefined,
-    CreationTime: undefined,
-    LastUpdatedTime: undefined,
-    Tags: undefined,
-  };
+  const contents: any = {};
   if (output["verifiedAccessInstanceId"] !== undefined) {
     contents.VerifiedAccessInstanceId = __expectString(output["verifiedAccessInstanceId"]);
   }
@@ -87690,10 +83126,7 @@ const deserializeAws_ec2VerifiedAccessInstanceLoggingConfiguration = (
   output: any,
   context: __SerdeContext
 ): VerifiedAccessInstanceLoggingConfiguration => {
-  const contents: any = {
-    VerifiedAccessInstanceId: undefined,
-    AccessLogs: undefined,
-  };
+  const contents: any = {};
   if (output["verifiedAccessInstanceId"] !== undefined) {
     contents.VerifiedAccessInstanceId = __expectString(output["verifiedAccessInstanceId"]);
   }
@@ -87718,11 +83151,7 @@ const deserializeAws_ec2VerifiedAccessLogCloudWatchLogsDestination = (
   output: any,
   context: __SerdeContext
 ): VerifiedAccessLogCloudWatchLogsDestination => {
-  const contents: any = {
-    Enabled: undefined,
-    DeliveryStatus: undefined,
-    LogGroup: undefined,
-  };
+  const contents: any = {};
   if (output["enabled"] !== undefined) {
     contents.Enabled = __parseBoolean(output["enabled"]);
   }
@@ -87739,10 +83168,7 @@ const deserializeAws_ec2VerifiedAccessLogDeliveryStatus = (
   output: any,
   context: __SerdeContext
 ): VerifiedAccessLogDeliveryStatus => {
-  const contents: any = {
-    Code: undefined,
-    Message: undefined,
-  };
+  const contents: any = {};
   if (output["code"] !== undefined) {
     contents.Code = __expectString(output["code"]);
   }
@@ -87756,11 +83182,7 @@ const deserializeAws_ec2VerifiedAccessLogKinesisDataFirehoseDestination = (
   output: any,
   context: __SerdeContext
 ): VerifiedAccessLogKinesisDataFirehoseDestination => {
-  const contents: any = {
-    Enabled: undefined,
-    DeliveryStatus: undefined,
-    DeliveryStream: undefined,
-  };
+  const contents: any = {};
   if (output["enabled"] !== undefined) {
     contents.Enabled = __parseBoolean(output["enabled"]);
   }
@@ -87774,11 +83196,7 @@ const deserializeAws_ec2VerifiedAccessLogKinesisDataFirehoseDestination = (
 };
 
 const deserializeAws_ec2VerifiedAccessLogs = (output: any, context: __SerdeContext): VerifiedAccessLogs => {
-  const contents: any = {
-    S3: undefined,
-    CloudWatchLogs: undefined,
-    KinesisDataFirehose: undefined,
-  };
+  const contents: any = {};
   if (output["s3"] !== undefined) {
     contents.S3 = deserializeAws_ec2VerifiedAccessLogS3Destination(output["s3"], context);
   }
@@ -87801,13 +83219,7 @@ const deserializeAws_ec2VerifiedAccessLogS3Destination = (
   output: any,
   context: __SerdeContext
 ): VerifiedAccessLogS3Destination => {
-  const contents: any = {
-    Enabled: undefined,
-    DeliveryStatus: undefined,
-    BucketName: undefined,
-    Prefix: undefined,
-    BucketOwner: undefined,
-  };
+  const contents: any = {};
   if (output["enabled"] !== undefined) {
     contents.Enabled = __parseBoolean(output["enabled"]);
   }
@@ -87830,19 +83242,7 @@ const deserializeAws_ec2VerifiedAccessTrustProvider = (
   output: any,
   context: __SerdeContext
 ): VerifiedAccessTrustProvider => {
-  const contents: any = {
-    VerifiedAccessTrustProviderId: undefined,
-    Description: undefined,
-    TrustProviderType: undefined,
-    UserTrustProviderType: undefined,
-    DeviceTrustProviderType: undefined,
-    OidcOptions: undefined,
-    DeviceOptions: undefined,
-    PolicyReferenceName: undefined,
-    CreationTime: undefined,
-    LastUpdatedTime: undefined,
-    Tags: undefined,
-  };
+  const contents: any = {};
   if (output["verifiedAccessTrustProviderId"] !== undefined) {
     contents.VerifiedAccessTrustProviderId = __expectString(output["verifiedAccessTrustProviderId"]);
   }
@@ -87885,13 +83285,7 @@ const deserializeAws_ec2VerifiedAccessTrustProviderCondensed = (
   output: any,
   context: __SerdeContext
 ): VerifiedAccessTrustProviderCondensed => {
-  const contents: any = {
-    VerifiedAccessTrustProviderId: undefined,
-    Description: undefined,
-    TrustProviderType: undefined,
-    UserTrustProviderType: undefined,
-    DeviceTrustProviderType: undefined,
-  };
+  const contents: any = {};
   if (output["verifiedAccessTrustProviderId"] !== undefined) {
     contents.VerifiedAccessTrustProviderId = __expectString(output["verifiedAccessTrustProviderId"]);
   }
@@ -87933,14 +83327,7 @@ const deserializeAws_ec2VerifiedAccessTrustProviderList = (
 };
 
 const deserializeAws_ec2VgwTelemetry = (output: any, context: __SerdeContext): VgwTelemetry => {
-  const contents: any = {
-    AcceptedRouteCount: undefined,
-    LastStatusChange: undefined,
-    OutsideIpAddress: undefined,
-    Status: undefined,
-    StatusMessage: undefined,
-    CertificateArn: undefined,
-  };
+  const contents: any = {};
   if (output["acceptedRouteCount"] !== undefined) {
     contents.AcceptedRouteCount = __strictParseInt32(output["acceptedRouteCount"]) as number;
   }
@@ -87982,24 +83369,7 @@ const deserializeAws_ec2VirtualizationTypeList = (
 };
 
 const deserializeAws_ec2Volume = (output: any, context: __SerdeContext): Volume => {
-  const contents: any = {
-    Attachments: undefined,
-    AvailabilityZone: undefined,
-    CreateTime: undefined,
-    Encrypted: undefined,
-    KmsKeyId: undefined,
-    OutpostArn: undefined,
-    Size: undefined,
-    SnapshotId: undefined,
-    State: undefined,
-    VolumeId: undefined,
-    Iops: undefined,
-    Tags: undefined,
-    VolumeType: undefined,
-    FastRestored: undefined,
-    MultiAttachEnabled: undefined,
-    Throughput: undefined,
-  };
+  const contents: any = {};
   if (output.attachmentSet === "") {
     contents.Attachments = [];
   } else if (output["attachmentSet"] !== undefined && output["attachmentSet"]["item"] !== undefined) {
@@ -88059,14 +83429,7 @@ const deserializeAws_ec2Volume = (output: any, context: __SerdeContext): Volume 
 };
 
 const deserializeAws_ec2VolumeAttachment = (output: any, context: __SerdeContext): VolumeAttachment => {
-  const contents: any = {
-    AttachTime: undefined,
-    Device: undefined,
-    InstanceId: undefined,
-    State: undefined,
-    VolumeId: undefined,
-    DeleteOnTermination: undefined,
-  };
+  const contents: any = {};
   if (output["attachTime"] !== undefined) {
     contents.AttachTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["attachTime"]));
   }
@@ -88105,24 +83468,7 @@ const deserializeAws_ec2VolumeList = (output: any, context: __SerdeContext): Vol
 };
 
 const deserializeAws_ec2VolumeModification = (output: any, context: __SerdeContext): VolumeModification => {
-  const contents: any = {
-    VolumeId: undefined,
-    ModificationState: undefined,
-    StatusMessage: undefined,
-    TargetSize: undefined,
-    TargetIops: undefined,
-    TargetVolumeType: undefined,
-    TargetThroughput: undefined,
-    TargetMultiAttachEnabled: undefined,
-    OriginalSize: undefined,
-    OriginalIops: undefined,
-    OriginalVolumeType: undefined,
-    OriginalThroughput: undefined,
-    OriginalMultiAttachEnabled: undefined,
-    Progress: undefined,
-    StartTime: undefined,
-    EndTime: undefined,
-  };
+  const contents: any = {};
   if (output["volumeId"] !== undefined) {
     contents.VolumeId = __expectString(output["volumeId"]);
   }
@@ -88183,12 +83529,7 @@ const deserializeAws_ec2VolumeModificationList = (output: any, context: __SerdeC
 };
 
 const deserializeAws_ec2VolumeStatusAction = (output: any, context: __SerdeContext): VolumeStatusAction => {
-  const contents: any = {
-    Code: undefined,
-    Description: undefined,
-    EventId: undefined,
-    EventType: undefined,
-  };
+  const contents: any = {};
   if (output["code"] !== undefined) {
     contents.Code = __expectString(output["code"]);
   }
@@ -88216,10 +83557,7 @@ const deserializeAws_ec2VolumeStatusAttachmentStatus = (
   output: any,
   context: __SerdeContext
 ): VolumeStatusAttachmentStatus => {
-  const contents: any = {
-    IoPerformance: undefined,
-    InstanceId: undefined,
-  };
+  const contents: any = {};
   if (output["ioPerformance"] !== undefined) {
     contents.IoPerformance = __expectString(output["ioPerformance"]);
   }
@@ -88241,10 +83579,7 @@ const deserializeAws_ec2VolumeStatusAttachmentStatusList = (
 };
 
 const deserializeAws_ec2VolumeStatusDetails = (output: any, context: __SerdeContext): VolumeStatusDetails => {
-  const contents: any = {
-    Name: undefined,
-    Status: undefined,
-  };
+  const contents: any = {};
   if (output["name"] !== undefined) {
     contents.Name = __expectString(output["name"]);
   }
@@ -88263,14 +83598,7 @@ const deserializeAws_ec2VolumeStatusDetailsList = (output: any, context: __Serde
 };
 
 const deserializeAws_ec2VolumeStatusEvent = (output: any, context: __SerdeContext): VolumeStatusEvent => {
-  const contents: any = {
-    Description: undefined,
-    EventId: undefined,
-    EventType: undefined,
-    NotAfter: undefined,
-    NotBefore: undefined,
-    InstanceId: undefined,
-  };
+  const contents: any = {};
   if (output["description"] !== undefined) {
     contents.Description = __expectString(output["description"]);
   }
@@ -88301,10 +83629,7 @@ const deserializeAws_ec2VolumeStatusEventsList = (output: any, context: __SerdeC
 };
 
 const deserializeAws_ec2VolumeStatusInfo = (output: any, context: __SerdeContext): VolumeStatusInfo => {
-  const contents: any = {
-    Details: undefined,
-    Status: undefined,
-  };
+  const contents: any = {};
   if (output.details === "") {
     contents.Details = [];
   } else if (output["details"] !== undefined && output["details"]["item"] !== undefined) {
@@ -88320,15 +83645,7 @@ const deserializeAws_ec2VolumeStatusInfo = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_ec2VolumeStatusItem = (output: any, context: __SerdeContext): VolumeStatusItem => {
-  const contents: any = {
-    Actions: undefined,
-    AvailabilityZone: undefined,
-    OutpostArn: undefined,
-    Events: undefined,
-    VolumeId: undefined,
-    VolumeStatus: undefined,
-    AttachmentStatuses: undefined,
-  };
+  const contents: any = {};
   if (output.actionsSet === "") {
     contents.Actions = [];
   } else if (output["actionsSet"] !== undefined && output["actionsSet"]["item"] !== undefined) {
@@ -88377,18 +83694,7 @@ const deserializeAws_ec2VolumeStatusList = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_ec2Vpc = (output: any, context: __SerdeContext): Vpc => {
-  const contents: any = {
-    CidrBlock: undefined,
-    DhcpOptionsId: undefined,
-    State: undefined,
-    VpcId: undefined,
-    OwnerId: undefined,
-    InstanceTenancy: undefined,
-    Ipv6CidrBlockAssociationSet: undefined,
-    CidrBlockAssociationSet: undefined,
-    IsDefault: undefined,
-    Tags: undefined,
-  };
+  const contents: any = {};
   if (output["cidrBlock"] !== undefined) {
     contents.CidrBlock = __expectString(output["cidrBlock"]);
   }
@@ -88441,10 +83747,7 @@ const deserializeAws_ec2Vpc = (output: any, context: __SerdeContext): Vpc => {
 };
 
 const deserializeAws_ec2VpcAttachment = (output: any, context: __SerdeContext): VpcAttachment => {
-  const contents: any = {
-    State: undefined,
-    VpcId: undefined,
-  };
+  const contents: any = {};
   if (output["state"] !== undefined) {
     contents.State = __expectString(output["state"]);
   }
@@ -88463,11 +83766,7 @@ const deserializeAws_ec2VpcAttachmentList = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_ec2VpcCidrBlockAssociation = (output: any, context: __SerdeContext): VpcCidrBlockAssociation => {
-  const contents: any = {
-    AssociationId: undefined,
-    CidrBlock: undefined,
-    CidrBlockState: undefined,
-  };
+  const contents: any = {};
   if (output["associationId"] !== undefined) {
     contents.AssociationId = __expectString(output["associationId"]);
   }
@@ -88492,10 +83791,7 @@ const deserializeAws_ec2VpcCidrBlockAssociationSet = (
 };
 
 const deserializeAws_ec2VpcCidrBlockState = (output: any, context: __SerdeContext): VpcCidrBlockState => {
-  const contents: any = {
-    State: undefined,
-    StatusMessage: undefined,
-  };
+  const contents: any = {};
   if (output["state"] !== undefined) {
     contents.State = __expectString(output["state"]);
   }
@@ -88506,11 +83802,7 @@ const deserializeAws_ec2VpcCidrBlockState = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_ec2VpcClassicLink = (output: any, context: __SerdeContext): VpcClassicLink => {
-  const contents: any = {
-    ClassicLinkEnabled: undefined,
-    Tags: undefined,
-    VpcId: undefined,
-  };
+  const contents: any = {};
   if (output["classicLinkEnabled"] !== undefined) {
     contents.ClassicLinkEnabled = __parseBoolean(output["classicLinkEnabled"]);
   }
@@ -88534,27 +83826,7 @@ const deserializeAws_ec2VpcClassicLinkList = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_ec2VpcEndpoint = (output: any, context: __SerdeContext): VpcEndpoint => {
-  const contents: any = {
-    VpcEndpointId: undefined,
-    VpcEndpointType: undefined,
-    VpcId: undefined,
-    ServiceName: undefined,
-    State: undefined,
-    PolicyDocument: undefined,
-    RouteTableIds: undefined,
-    SubnetIds: undefined,
-    Groups: undefined,
-    IpAddressType: undefined,
-    DnsOptions: undefined,
-    PrivateDnsEnabled: undefined,
-    RequesterManaged: undefined,
-    NetworkInterfaceIds: undefined,
-    DnsEntries: undefined,
-    CreationTimestamp: undefined,
-    Tags: undefined,
-    OwnerId: undefined,
-    LastError: undefined,
-  };
+  const contents: any = {};
   if (output["vpcEndpointId"] !== undefined) {
     contents.VpcEndpointId = __expectString(output["vpcEndpointId"]);
   }
@@ -88637,19 +83909,7 @@ const deserializeAws_ec2VpcEndpoint = (output: any, context: __SerdeContext): Vp
 };
 
 const deserializeAws_ec2VpcEndpointConnection = (output: any, context: __SerdeContext): VpcEndpointConnection => {
-  const contents: any = {
-    ServiceId: undefined,
-    VpcEndpointId: undefined,
-    VpcEndpointOwner: undefined,
-    VpcEndpointState: undefined,
-    CreationTimestamp: undefined,
-    DnsEntries: undefined,
-    NetworkLoadBalancerArns: undefined,
-    GatewayLoadBalancerArns: undefined,
-    IpAddressType: undefined,
-    VpcEndpointConnectionId: undefined,
-    Tags: undefined,
-  };
+  const contents: any = {};
   if (output["serviceId"] !== undefined) {
     contents.ServiceId = __expectString(output["serviceId"]);
   }
@@ -88726,13 +83986,7 @@ const deserializeAws_ec2VpcIpv6CidrBlockAssociation = (
   output: any,
   context: __SerdeContext
 ): VpcIpv6CidrBlockAssociation => {
-  const contents: any = {
-    AssociationId: undefined,
-    Ipv6CidrBlock: undefined,
-    Ipv6CidrBlockState: undefined,
-    NetworkBorderGroup: undefined,
-    Ipv6Pool: undefined,
-  };
+  const contents: any = {};
   if (output["associationId"] !== undefined) {
     contents.AssociationId = __expectString(output["associationId"]);
   }
@@ -88771,14 +84025,7 @@ const deserializeAws_ec2VpcList = (output: any, context: __SerdeContext): Vpc[] 
 };
 
 const deserializeAws_ec2VpcPeeringConnection = (output: any, context: __SerdeContext): VpcPeeringConnection => {
-  const contents: any = {
-    AccepterVpcInfo: undefined,
-    ExpirationTime: undefined,
-    RequesterVpcInfo: undefined,
-    Status: undefined,
-    Tags: undefined,
-    VpcPeeringConnectionId: undefined,
-  };
+  const contents: any = {};
   if (output["accepterVpcInfo"] !== undefined) {
     contents.AccepterVpcInfo = deserializeAws_ec2VpcPeeringConnectionVpcInfo(output["accepterVpcInfo"], context);
   }
@@ -88814,11 +84061,7 @@ const deserializeAws_ec2VpcPeeringConnectionOptionsDescription = (
   output: any,
   context: __SerdeContext
 ): VpcPeeringConnectionOptionsDescription => {
-  const contents: any = {
-    AllowDnsResolutionFromRemoteVpc: undefined,
-    AllowEgressFromLocalClassicLinkToRemoteVpc: undefined,
-    AllowEgressFromLocalVpcToRemoteClassicLink: undefined,
-  };
+  const contents: any = {};
   if (output["allowDnsResolutionFromRemoteVpc"] !== undefined) {
     contents.AllowDnsResolutionFromRemoteVpc = __parseBoolean(output["allowDnsResolutionFromRemoteVpc"]);
   }
@@ -88839,10 +84082,7 @@ const deserializeAws_ec2VpcPeeringConnectionStateReason = (
   output: any,
   context: __SerdeContext
 ): VpcPeeringConnectionStateReason => {
-  const contents: any = {
-    Code: undefined,
-    Message: undefined,
-  };
+  const contents: any = {};
   if (output["code"] !== undefined) {
     contents.Code = __expectString(output["code"]);
   }
@@ -88856,15 +84096,7 @@ const deserializeAws_ec2VpcPeeringConnectionVpcInfo = (
   output: any,
   context: __SerdeContext
 ): VpcPeeringConnectionVpcInfo => {
-  const contents: any = {
-    CidrBlock: undefined,
-    Ipv6CidrBlockSet: undefined,
-    CidrBlockSet: undefined,
-    OwnerId: undefined,
-    PeeringOptions: undefined,
-    VpcId: undefined,
-    Region: undefined,
-  };
+  const contents: any = {};
   if (output["cidrBlock"] !== undefined) {
     contents.CidrBlock = __expectString(output["cidrBlock"]);
   }
@@ -88903,23 +84135,7 @@ const deserializeAws_ec2VpcPeeringConnectionVpcInfo = (
 };
 
 const deserializeAws_ec2VpnConnection = (output: any, context: __SerdeContext): VpnConnection => {
-  const contents: any = {
-    CustomerGatewayConfiguration: undefined,
-    CustomerGatewayId: undefined,
-    Category: undefined,
-    State: undefined,
-    Type: undefined,
-    VpnConnectionId: undefined,
-    VpnGatewayId: undefined,
-    TransitGatewayId: undefined,
-    CoreNetworkArn: undefined,
-    CoreNetworkAttachmentArn: undefined,
-    GatewayAssociationState: undefined,
-    Options: undefined,
-    Routes: undefined,
-    Tags: undefined,
-    VgwTelemetry: undefined,
-  };
+  const contents: any = {};
   if (output["customerGatewayConfiguration"] !== undefined) {
     contents.CustomerGatewayConfiguration = __expectString(output["customerGatewayConfiguration"]);
   }
@@ -88978,12 +84194,7 @@ const deserializeAws_ec2VpnConnection = (output: any, context: __SerdeContext): 
 };
 
 const deserializeAws_ec2VpnConnectionDeviceType = (output: any, context: __SerdeContext): VpnConnectionDeviceType => {
-  const contents: any = {
-    VpnConnectionDeviceTypeId: undefined,
-    Vendor: undefined,
-    Platform: undefined,
-    Software: undefined,
-  };
+  const contents: any = {};
   if (output["vpnConnectionDeviceTypeId"] !== undefined) {
     contents.VpnConnectionDeviceTypeId = __expectString(output["vpnConnectionDeviceTypeId"]);
   }
@@ -89019,18 +84230,7 @@ const deserializeAws_ec2VpnConnectionList = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_ec2VpnConnectionOptions = (output: any, context: __SerdeContext): VpnConnectionOptions => {
-  const contents: any = {
-    EnableAcceleration: undefined,
-    StaticRoutesOnly: undefined,
-    LocalIpv4NetworkCidr: undefined,
-    RemoteIpv4NetworkCidr: undefined,
-    LocalIpv6NetworkCidr: undefined,
-    RemoteIpv6NetworkCidr: undefined,
-    OutsideIpAddressType: undefined,
-    TransportTransitGatewayAttachmentId: undefined,
-    TunnelInsideIpVersion: undefined,
-    TunnelOptions: undefined,
-  };
+  const contents: any = {};
   if (output["enableAcceleration"] !== undefined) {
     contents.EnableAcceleration = __parseBoolean(output["enableAcceleration"]);
   }
@@ -89070,15 +84270,7 @@ const deserializeAws_ec2VpnConnectionOptions = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_ec2VpnGateway = (output: any, context: __SerdeContext): VpnGateway => {
-  const contents: any = {
-    AvailabilityZone: undefined,
-    State: undefined,
-    Type: undefined,
-    VpcAttachments: undefined,
-    VpnGatewayId: undefined,
-    AmazonSideAsn: undefined,
-    Tags: undefined,
-  };
+  const contents: any = {};
   if (output["availabilityZone"] !== undefined) {
     contents.AvailabilityZone = __expectString(output["availabilityZone"]);
   }
@@ -89119,11 +84311,7 @@ const deserializeAws_ec2VpnGatewayList = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_ec2VpnStaticRoute = (output: any, context: __SerdeContext): VpnStaticRoute => {
-  const contents: any = {
-    DestinationCidrBlock: undefined,
-    Source: undefined,
-    State: undefined,
-  };
+  const contents: any = {};
   if (output["destinationCidrBlock"] !== undefined) {
     contents.DestinationCidrBlock = __expectString(output["destinationCidrBlock"]);
   }
@@ -89145,9 +84333,7 @@ const deserializeAws_ec2VpnStaticRouteList = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_ec2VpnTunnelLogOptions = (output: any, context: __SerdeContext): VpnTunnelLogOptions => {
-  const contents: any = {
-    CloudWatchLogOptions: undefined,
-  };
+  const contents: any = {};
   if (output["cloudWatchLogOptions"] !== undefined) {
     contents.CloudWatchLogOptions = deserializeAws_ec2CloudWatchLogOptions(output["cloudWatchLogOptions"], context);
   }
@@ -89155,9 +84341,7 @@ const deserializeAws_ec2VpnTunnelLogOptions = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_ec2WithdrawByoipCidrResult = (output: any, context: __SerdeContext): WithdrawByoipCidrResult => {
-  const contents: any = {
-    ByoipCidr: undefined,
-  };
+  const contents: any = {};
   if (output["byoipCidr"] !== undefined) {
     contents.ByoipCidr = deserializeAws_ec2ByoipCidr(output["byoipCidr"], context);
   }

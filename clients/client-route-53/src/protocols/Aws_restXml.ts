@@ -7823,10 +7823,7 @@ const serializeAws_restXmlVPC = (input: VPC, context: __SerdeContext): any => {
 };
 
 const deserializeAws_restXmlAccountLimit = (output: any, context: __SerdeContext): AccountLimit => {
-  const contents: any = {
-    Type: undefined,
-    Value: undefined,
-  };
+  const contents: any = {};
   if (output["Type"] !== undefined) {
     contents.Type = __expectString(output["Type"]);
   }
@@ -7837,10 +7834,7 @@ const deserializeAws_restXmlAccountLimit = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_restXmlAlarmIdentifier = (output: any, context: __SerdeContext): AlarmIdentifier => {
-  const contents: any = {
-    Region: undefined,
-    Name: undefined,
-  };
+  const contents: any = {};
   if (output["Region"] !== undefined) {
     contents.Region = __expectString(output["Region"]);
   }
@@ -7851,11 +7845,7 @@ const deserializeAws_restXmlAlarmIdentifier = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_restXmlAliasTarget = (output: any, context: __SerdeContext): AliasTarget => {
-  const contents: any = {
-    HostedZoneId: undefined,
-    DNSName: undefined,
-    EvaluateTargetHealth: undefined,
-  };
+  const contents: any = {};
   if (output["HostedZoneId"] !== undefined) {
     contents.HostedZoneId = __expectString(output["HostedZoneId"]);
   }
@@ -7869,12 +7859,7 @@ const deserializeAws_restXmlAliasTarget = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_restXmlChangeInfo = (output: any, context: __SerdeContext): ChangeInfo => {
-  const contents: any = {
-    Id: undefined,
-    Status: undefined,
-    SubmittedAt: undefined,
-    Comment: undefined,
-  };
+  const contents: any = {};
   if (output["Id"] !== undefined) {
     contents.Id = __expectString(output["Id"]);
   }
@@ -7915,10 +7900,7 @@ const deserializeAws_restXmlCidrBlockSummaries = (output: any, context: __SerdeC
 };
 
 const deserializeAws_restXmlCidrBlockSummary = (output: any, context: __SerdeContext): CidrBlockSummary => {
-  const contents: any = {
-    CidrBlock: undefined,
-    LocationName: undefined,
-  };
+  const contents: any = {};
   if (output["CidrBlock"] !== undefined) {
     contents.CidrBlock = __expectString(output["CidrBlock"]);
   }
@@ -7929,12 +7911,7 @@ const deserializeAws_restXmlCidrBlockSummary = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_restXmlCidrCollection = (output: any, context: __SerdeContext): CidrCollection => {
-  const contents: any = {
-    Arn: undefined,
-    Id: undefined,
-    Name: undefined,
-    Version: undefined,
-  };
+  const contents: any = {};
   if (output["Arn"] !== undefined) {
     contents.Arn = __expectString(output["Arn"]);
   }
@@ -7951,10 +7928,7 @@ const deserializeAws_restXmlCidrCollection = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_restXmlCidrRoutingConfig = (output: any, context: __SerdeContext): CidrRoutingConfig => {
-  const contents: any = {
-    CollectionId: undefined,
-    LocationName: undefined,
-  };
+  const contents: any = {};
   if (output["CollectionId"] !== undefined) {
     contents.CollectionId = __expectString(output["CollectionId"]);
   }
@@ -7968,16 +7942,7 @@ const deserializeAws_restXmlCloudWatchAlarmConfiguration = (
   output: any,
   context: __SerdeContext
 ): CloudWatchAlarmConfiguration => {
-  const contents: any = {
-    EvaluationPeriods: undefined,
-    Threshold: undefined,
-    ComparisonOperator: undefined,
-    Period: undefined,
-    MetricName: undefined,
-    Namespace: undefined,
-    Statistic: undefined,
-    Dimensions: undefined,
-  };
+  const contents: any = {};
   if (output["EvaluationPeriods"] !== undefined) {
     contents.EvaluationPeriods = __strictParseInt32(output["EvaluationPeriods"]) as number;
   }
@@ -8019,12 +7984,7 @@ const deserializeAws_restXmlCollectionSummaries = (output: any, context: __Serde
 };
 
 const deserializeAws_restXmlCollectionSummary = (output: any, context: __SerdeContext): CollectionSummary => {
-  const contents: any = {
-    Arn: undefined,
-    Id: undefined,
-    Name: undefined,
-    Version: undefined,
-  };
+  const contents: any = {};
   if (output["Arn"] !== undefined) {
     contents.Arn = __expectString(output["Arn"]);
   }
@@ -8041,11 +8001,7 @@ const deserializeAws_restXmlCollectionSummary = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_restXmlDelegationSet = (output: any, context: __SerdeContext): DelegationSet => {
-  const contents: any = {
-    Id: undefined,
-    CallerReference: undefined,
-    NameServers: undefined,
-  };
+  const contents: any = {};
   if (output["Id"] !== undefined) {
     contents.Id = __expectString(output["Id"]);
   }
@@ -8080,10 +8036,7 @@ const deserializeAws_restXmlDelegationSets = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_restXmlDimension = (output: any, context: __SerdeContext): Dimension => {
-  const contents: any = {
-    Name: undefined,
-    Value: undefined,
-  };
+  const contents: any = {};
   if (output["Name"] !== undefined) {
     contents.Name = __expectString(output["Name"]);
   }
@@ -8102,10 +8055,7 @@ const deserializeAws_restXmlDimensionList = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_restXmlDNSSECStatus = (output: any, context: __SerdeContext): DNSSECStatus => {
-  const contents: any = {
-    ServeSignature: undefined,
-    StatusMessage: undefined,
-  };
+  const contents: any = {};
   if (output["ServeSignature"] !== undefined) {
     contents.ServeSignature = __expectString(output["ServeSignature"]);
   }
@@ -8124,11 +8074,7 @@ const deserializeAws_restXmlErrorMessages = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_restXmlGeoLocation = (output: any, context: __SerdeContext): GeoLocation => {
-  const contents: any = {
-    ContinentCode: undefined,
-    CountryCode: undefined,
-    SubdivisionCode: undefined,
-  };
+  const contents: any = {};
   if (output["ContinentCode"] !== undefined) {
     contents.ContinentCode = __expectString(output["ContinentCode"]);
   }
@@ -8142,14 +8088,7 @@ const deserializeAws_restXmlGeoLocation = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_restXmlGeoLocationDetails = (output: any, context: __SerdeContext): GeoLocationDetails => {
-  const contents: any = {
-    ContinentCode: undefined,
-    ContinentName: undefined,
-    CountryCode: undefined,
-    CountryName: undefined,
-    SubdivisionCode: undefined,
-    SubdivisionName: undefined,
-  };
+  const contents: any = {};
   if (output["ContinentCode"] !== undefined) {
     contents.ContinentCode = __expectString(output["ContinentCode"]);
   }
@@ -8180,14 +8119,7 @@ const deserializeAws_restXmlGeoLocationDetailsList = (output: any, context: __Se
 };
 
 const deserializeAws_restXmlHealthCheck = (output: any, context: __SerdeContext): HealthCheck => {
-  const contents: any = {
-    Id: undefined,
-    CallerReference: undefined,
-    LinkedService: undefined,
-    HealthCheckConfig: undefined,
-    HealthCheckVersion: undefined,
-    CloudWatchAlarmConfiguration: undefined,
-  };
+  const contents: any = {};
   if (output["Id"] !== undefined) {
     contents.Id = __expectString(output["Id"]);
   }
@@ -8213,26 +8145,7 @@ const deserializeAws_restXmlHealthCheck = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_restXmlHealthCheckConfig = (output: any, context: __SerdeContext): HealthCheckConfig => {
-  const contents: any = {
-    IPAddress: undefined,
-    Port: undefined,
-    Type: undefined,
-    ResourcePath: undefined,
-    FullyQualifiedDomainName: undefined,
-    SearchString: undefined,
-    RequestInterval: undefined,
-    FailureThreshold: undefined,
-    MeasureLatency: undefined,
-    Inverted: undefined,
-    Disabled: undefined,
-    HealthThreshold: undefined,
-    ChildHealthChecks: undefined,
-    EnableSNI: undefined,
-    Regions: undefined,
-    AlarmIdentifier: undefined,
-    InsufficientDataHealthStatus: undefined,
-    RoutingControlArn: undefined,
-  };
+  const contents: any = {};
   if (output["IPAddress"] !== undefined) {
     contents.IPAddress = __expectString(output["IPAddress"]);
   }
@@ -8304,11 +8217,7 @@ const deserializeAws_restXmlHealthCheckConfig = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_restXmlHealthCheckObservation = (output: any, context: __SerdeContext): HealthCheckObservation => {
-  const contents: any = {
-    Region: undefined,
-    IPAddress: undefined,
-    StatusReport: undefined,
-  };
+  const contents: any = {};
   if (output["Region"] !== undefined) {
     contents.Region = __expectString(output["Region"]);
   }
@@ -8352,14 +8261,7 @@ const deserializeAws_restXmlHealthChecks = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_restXmlHostedZone = (output: any, context: __SerdeContext): HostedZone => {
-  const contents: any = {
-    Id: undefined,
-    Name: undefined,
-    CallerReference: undefined,
-    Config: undefined,
-    ResourceRecordSetCount: undefined,
-    LinkedService: undefined,
-  };
+  const contents: any = {};
   if (output["Id"] !== undefined) {
     contents.Id = __expectString(output["Id"]);
   }
@@ -8382,10 +8284,7 @@ const deserializeAws_restXmlHostedZone = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_restXmlHostedZoneConfig = (output: any, context: __SerdeContext): HostedZoneConfig => {
-  const contents: any = {
-    Comment: undefined,
-    PrivateZone: undefined,
-  };
+  const contents: any = {};
   if (output["Comment"] !== undefined) {
     contents.Comment = __expectString(output["Comment"]);
   }
@@ -8396,10 +8295,7 @@ const deserializeAws_restXmlHostedZoneConfig = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_restXmlHostedZoneLimit = (output: any, context: __SerdeContext): HostedZoneLimit => {
-  const contents: any = {
-    Type: undefined,
-    Value: undefined,
-  };
+  const contents: any = {};
   if (output["Type"] !== undefined) {
     contents.Type = __expectString(output["Type"]);
   }
@@ -8410,10 +8306,7 @@ const deserializeAws_restXmlHostedZoneLimit = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_restXmlHostedZoneOwner = (output: any, context: __SerdeContext): HostedZoneOwner => {
-  const contents: any = {
-    OwningAccount: undefined,
-    OwningService: undefined,
-  };
+  const contents: any = {};
   if (output["OwningAccount"] !== undefined) {
     contents.OwningAccount = __expectString(output["OwningAccount"]);
   }
@@ -8440,11 +8333,7 @@ const deserializeAws_restXmlHostedZoneSummaries = (output: any, context: __Serde
 };
 
 const deserializeAws_restXmlHostedZoneSummary = (output: any, context: __SerdeContext): HostedZoneSummary => {
-  const contents: any = {
-    HostedZoneId: undefined,
-    Name: undefined,
-    Owner: undefined,
-  };
+  const contents: any = {};
   if (output["HostedZoneId"] !== undefined) {
     contents.HostedZoneId = __expectString(output["HostedZoneId"]);
   }
@@ -8458,24 +8347,7 @@ const deserializeAws_restXmlHostedZoneSummary = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_restXmlKeySigningKey = (output: any, context: __SerdeContext): KeySigningKey => {
-  const contents: any = {
-    Name: undefined,
-    KmsArn: undefined,
-    Flag: undefined,
-    SigningAlgorithmMnemonic: undefined,
-    SigningAlgorithmType: undefined,
-    DigestAlgorithmMnemonic: undefined,
-    DigestAlgorithmType: undefined,
-    KeyTag: undefined,
-    DigestValue: undefined,
-    PublicKey: undefined,
-    DSRecord: undefined,
-    DNSKEYRecord: undefined,
-    Status: undefined,
-    StatusMessage: undefined,
-    CreatedDate: undefined,
-    LastModifiedDate: undefined,
-  };
+  const contents: any = {};
   if (output["Name"] !== undefined) {
     contents.Name = __expectString(output["Name"]);
   }
@@ -8536,10 +8408,7 @@ const deserializeAws_restXmlKeySigningKeys = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_restXmlLinkedService = (output: any, context: __SerdeContext): LinkedService => {
-  const contents: any = {
-    ServicePrincipal: undefined,
-    Description: undefined,
-  };
+  const contents: any = {};
   if (output["ServicePrincipal"] !== undefined) {
     contents.ServicePrincipal = __expectString(output["ServicePrincipal"]);
   }
@@ -8558,9 +8427,7 @@ const deserializeAws_restXmlLocationSummaries = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_restXmlLocationSummary = (output: any, context: __SerdeContext): LocationSummary => {
-  const contents: any = {
-    LocationName: undefined,
-  };
+  const contents: any = {};
   if (output["LocationName"] !== undefined) {
     contents.LocationName = __expectString(output["LocationName"]);
   }
@@ -8568,11 +8435,7 @@ const deserializeAws_restXmlLocationSummary = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_restXmlQueryLoggingConfig = (output: any, context: __SerdeContext): QueryLoggingConfig => {
-  const contents: any = {
-    Id: undefined,
-    HostedZoneId: undefined,
-    CloudWatchLogsLogGroupArn: undefined,
-  };
+  const contents: any = {};
   if (output["Id"] !== undefined) {
     contents.Id = __expectString(output["Id"]);
   }
@@ -8602,9 +8465,7 @@ const deserializeAws_restXmlRecordData = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_restXmlResourceRecord = (output: any, context: __SerdeContext): ResourceRecord => {
-  const contents: any = {
-    Value: undefined,
-  };
+  const contents: any = {};
   if (output["Value"] !== undefined) {
     contents.Value = __expectString(output["Value"]);
   }
@@ -8620,22 +8481,7 @@ const deserializeAws_restXmlResourceRecords = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_restXmlResourceRecordSet = (output: any, context: __SerdeContext): ResourceRecordSet => {
-  const contents: any = {
-    Name: undefined,
-    Type: undefined,
-    SetIdentifier: undefined,
-    Weight: undefined,
-    Region: undefined,
-    GeoLocation: undefined,
-    Failover: undefined,
-    MultiValueAnswer: undefined,
-    TTL: undefined,
-    ResourceRecords: undefined,
-    AliasTarget: undefined,
-    HealthCheckId: undefined,
-    TrafficPolicyInstanceId: undefined,
-    CidrRoutingConfig: undefined,
-  };
+  const contents: any = {};
   if (output["Name"] !== undefined) {
     contents.Name = __expectString(output["Name"]);
   }
@@ -8695,11 +8541,7 @@ const deserializeAws_restXmlResourceRecordSets = (output: any, context: __SerdeC
 };
 
 const deserializeAws_restXmlResourceTagSet = (output: any, context: __SerdeContext): ResourceTagSet => {
-  const contents: any = {
-    ResourceType: undefined,
-    ResourceId: undefined,
-    Tags: undefined,
-  };
+  const contents: any = {};
   if (output["ResourceType"] !== undefined) {
     contents.ResourceType = __expectString(output["ResourceType"]);
   }
@@ -8726,10 +8568,7 @@ const deserializeAws_restXmlReusableDelegationSetLimit = (
   output: any,
   context: __SerdeContext
 ): ReusableDelegationSetLimit => {
-  const contents: any = {
-    Type: undefined,
-    Value: undefined,
-  };
+  const contents: any = {};
   if (output["Type"] !== undefined) {
     contents.Type = __expectString(output["Type"]);
   }
@@ -8740,10 +8579,7 @@ const deserializeAws_restXmlReusableDelegationSetLimit = (
 };
 
 const deserializeAws_restXmlStatusReport = (output: any, context: __SerdeContext): StatusReport => {
-  const contents: any = {
-    Status: undefined,
-    CheckedTime: undefined,
-  };
+  const contents: any = {};
   if (output["Status"] !== undefined) {
     contents.Status = __expectString(output["Status"]);
   }
@@ -8754,10 +8590,7 @@ const deserializeAws_restXmlStatusReport = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_restXmlTag = (output: any, context: __SerdeContext): Tag => {
-  const contents: any = {
-    Key: undefined,
-    Value: undefined,
-  };
+  const contents: any = {};
   if (output["Key"] !== undefined) {
     contents.Key = __expectString(output["Key"]);
   }
@@ -8784,14 +8617,7 @@ const deserializeAws_restXmlTrafficPolicies = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_restXmlTrafficPolicy = (output: any, context: __SerdeContext): TrafficPolicy => {
-  const contents: any = {
-    Id: undefined,
-    Version: undefined,
-    Name: undefined,
-    Type: undefined,
-    Document: undefined,
-    Comment: undefined,
-  };
+  const contents: any = {};
   if (output["Id"] !== undefined) {
     contents.Id = __expectString(output["Id"]);
   }
@@ -8814,17 +8640,7 @@ const deserializeAws_restXmlTrafficPolicy = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_restXmlTrafficPolicyInstance = (output: any, context: __SerdeContext): TrafficPolicyInstance => {
-  const contents: any = {
-    Id: undefined,
-    HostedZoneId: undefined,
-    Name: undefined,
-    TTL: undefined,
-    State: undefined,
-    Message: undefined,
-    TrafficPolicyId: undefined,
-    TrafficPolicyVersion: undefined,
-    TrafficPolicyType: undefined,
-  };
+  const contents: any = {};
   if (output["Id"] !== undefined) {
     contents.Id = __expectString(output["Id"]);
   }
@@ -8875,13 +8691,7 @@ const deserializeAws_restXmlTrafficPolicySummaries = (output: any, context: __Se
 };
 
 const deserializeAws_restXmlTrafficPolicySummary = (output: any, context: __SerdeContext): TrafficPolicySummary => {
-  const contents: any = {
-    Id: undefined,
-    Name: undefined,
-    Type: undefined,
-    LatestVersion: undefined,
-    TrafficPolicyCount: undefined,
-  };
+  const contents: any = {};
   if (output["Id"] !== undefined) {
     contents.Id = __expectString(output["Id"]);
   }
@@ -8901,10 +8711,7 @@ const deserializeAws_restXmlTrafficPolicySummary = (output: any, context: __Serd
 };
 
 const deserializeAws_restXmlVPC = (output: any, context: __SerdeContext): VPC => {
-  const contents: any = {
-    VPCRegion: undefined,
-    VPCId: undefined,
-  };
+  const contents: any = {};
   if (output["VPCRegion"] !== undefined) {
     contents.VPCRegion = __expectString(output["VPCRegion"]);
   }
