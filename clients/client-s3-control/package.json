@@ -13,7 +13,8 @@
     "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
     "generate:client": "node ../../scripts/generate-clients/single-service --solo s3-control",
     "test": "yarn test:unit",
-    "test:unit": "ts-mocha test/**/*.spec.ts"
+    "test:unit": "ts-mocha test/**/*.spec.ts",
+    "extract:docs": "api-extractor run --local"
   },
   "main": "./dist-cjs/index.js",
   "types": "./dist-types/index.d.ts",

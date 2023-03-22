@@ -12,7 +12,8 @@
     "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
     "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
     "generate:client": "node ../../scripts/generate-clients/single-service --solo transcribe-streaming",
-    "test:integration": "jest --config jest.integ.config.js"
+    "test:integration": "jest --config jest.integ.config.js",
+    "extract:docs": "api-extractor run --local"
   },
   "main": "./dist-cjs/index.js",
   "types": "./dist-types/index.d.ts",
