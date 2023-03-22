@@ -15,7 +15,6 @@ import {
 
 import {
   GetEnvironmentTemplateVersionInput,
-  GetEnvironmentTemplateVersionInputFilterSensitiveLog,
   GetEnvironmentTemplateVersionOutput,
   GetEnvironmentTemplateVersionOutputFilterSensitiveLog,
 } from "../models/models_0";
@@ -124,7 +123,7 @@ export class GetEnvironmentTemplateVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetEnvironmentTemplateVersionInputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetEnvironmentTemplateVersionOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

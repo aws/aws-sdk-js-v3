@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  DeleteCrawlerRequest,
-  DeleteCrawlerRequestFilterSensitiveLog,
-  DeleteCrawlerResponse,
-  DeleteCrawlerResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { DeleteCrawlerRequest, DeleteCrawlerResponse } from "../models/models_1";
 import {
   deserializeAws_json1_1DeleteCrawlerCommand,
   serializeAws_json1_1DeleteCrawlerCommand,
@@ -118,8 +113,8 @@ export class DeleteCrawlerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteCrawlerRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteCrawlerResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

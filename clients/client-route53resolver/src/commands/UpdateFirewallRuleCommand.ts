@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateFirewallRuleRequest,
-  UpdateFirewallRuleRequestFilterSensitiveLog,
-  UpdateFirewallRuleResponse,
-  UpdateFirewallRuleResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateFirewallRuleRequest, UpdateFirewallRuleResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateFirewallRuleCommand,
   serializeAws_json1_1UpdateFirewallRuleCommand,
@@ -128,8 +123,8 @@ export class UpdateFirewallRuleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateFirewallRuleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateFirewallRuleResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

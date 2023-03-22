@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
-import {
-  AllocateTransitVirtualInterfaceRequest,
-  AllocateTransitVirtualInterfaceRequestFilterSensitiveLog,
-  AllocateTransitVirtualInterfaceResult,
-  AllocateTransitVirtualInterfaceResultFilterSensitiveLog,
-} from "../models/models_0";
+import { AllocateTransitVirtualInterfaceRequest, AllocateTransitVirtualInterfaceResult } from "../models/models_0";
 import {
   deserializeAws_json1_1AllocateTransitVirtualInterfaceCommand,
   serializeAws_json1_1AllocateTransitVirtualInterfaceCommand,
@@ -123,8 +118,8 @@ export class AllocateTransitVirtualInterfaceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AllocateTransitVirtualInterfaceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AllocateTransitVirtualInterfaceResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

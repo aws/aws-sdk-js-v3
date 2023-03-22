@@ -16,7 +16,6 @@ import {
 import { GrafanaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GrafanaClient";
 import {
   DescribeWorkspaceRequest,
-  DescribeWorkspaceRequestFilterSensitiveLog,
   DescribeWorkspaceResponse,
   DescribeWorkspaceResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -122,7 +121,7 @@ export class DescribeWorkspaceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeWorkspaceRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeWorkspaceResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetEnvironmentInput,
-  GetEnvironmentInputFilterSensitiveLog,
-  GetEnvironmentOutput,
-  GetEnvironmentOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { GetEnvironmentInput, GetEnvironmentOutput, GetEnvironmentOutputFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_json1_0GetEnvironmentCommand,
   serializeAws_json1_0GetEnvironmentCommand,
@@ -122,7 +117,7 @@ export class GetEnvironmentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetEnvironmentInputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetEnvironmentOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

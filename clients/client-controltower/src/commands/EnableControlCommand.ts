@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ControlTowerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ControlTowerClient";
-import {
-  EnableControlInput,
-  EnableControlInputFilterSensitiveLog,
-  EnableControlOutput,
-  EnableControlOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { EnableControlInput, EnableControlOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1EnableControlCommand,
   serializeAws_restJson1EnableControlCommand,
@@ -129,8 +124,8 @@ export class EnableControlCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: EnableControlInputFilterSensitiveLog,
-      outputFilterSensitiveLog: EnableControlOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

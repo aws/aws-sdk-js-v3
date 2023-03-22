@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetEmailTemplateRequest,
-  GetEmailTemplateRequestFilterSensitiveLog,
-  GetEmailTemplateResponse,
-  GetEmailTemplateResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { GetEmailTemplateRequest, GetEmailTemplateResponse } from "../models/models_1";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
 import {
   deserializeAws_restJson1GetEmailTemplateCommand,
@@ -128,8 +123,8 @@ export class GetEmailTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetEmailTemplateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetEmailTemplateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

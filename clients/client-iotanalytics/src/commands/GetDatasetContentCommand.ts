@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTAnalyticsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTAnalyticsClient";
-import {
-  GetDatasetContentRequest,
-  GetDatasetContentRequestFilterSensitiveLog,
-  GetDatasetContentResponse,
-  GetDatasetContentResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetDatasetContentRequest, GetDatasetContentResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetDatasetContentCommand,
   serializeAws_restJson1GetDatasetContentCommand,
@@ -122,8 +117,8 @@ export class GetDatasetContentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDatasetContentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetDatasetContentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

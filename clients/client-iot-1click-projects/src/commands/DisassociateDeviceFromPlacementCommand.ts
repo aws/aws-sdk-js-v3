@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../IoT1ClickProjectsClient";
-import {
-  DisassociateDeviceFromPlacementRequest,
-  DisassociateDeviceFromPlacementRequestFilterSensitiveLog,
-  DisassociateDeviceFromPlacementResponse,
-  DisassociateDeviceFromPlacementResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DisassociateDeviceFromPlacementRequest, DisassociateDeviceFromPlacementResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DisassociateDeviceFromPlacementCommand,
   serializeAws_restJson1DisassociateDeviceFromPlacementCommand,
@@ -125,8 +120,8 @@ export class DisassociateDeviceFromPlacementCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateDeviceFromPlacementRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateDeviceFromPlacementResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import {
-  DeleteSkillAuthorizationRequest,
-  DeleteSkillAuthorizationRequestFilterSensitiveLog,
-  DeleteSkillAuthorizationResponse,
-  DeleteSkillAuthorizationResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteSkillAuthorizationRequest, DeleteSkillAuthorizationResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteSkillAuthorizationCommand,
   serializeAws_json1_1DeleteSkillAuthorizationCommand,
@@ -113,8 +108,8 @@ export class DeleteSkillAuthorizationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteSkillAuthorizationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteSkillAuthorizationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

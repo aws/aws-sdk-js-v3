@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  PutCodeBindingRequest,
-  PutCodeBindingRequestFilterSensitiveLog,
-  PutCodeBindingResponse,
-  PutCodeBindingResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { PutCodeBindingRequest, PutCodeBindingResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1PutCodeBindingCommand,
   serializeAws_restJson1PutCodeBindingCommand,
@@ -121,8 +116,8 @@ export class PutCodeBindingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutCodeBindingRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutCodeBindingResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

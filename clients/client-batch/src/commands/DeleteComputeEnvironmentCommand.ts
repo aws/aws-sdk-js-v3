@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { BatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BatchClient";
-import {
-  DeleteComputeEnvironmentRequest,
-  DeleteComputeEnvironmentRequestFilterSensitiveLog,
-  DeleteComputeEnvironmentResponse,
-  DeleteComputeEnvironmentResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteComputeEnvironmentRequest, DeleteComputeEnvironmentResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteComputeEnvironmentCommand,
   serializeAws_restJson1DeleteComputeEnvironmentCommand,
@@ -129,8 +124,8 @@ export class DeleteComputeEnvironmentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteComputeEnvironmentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteComputeEnvironmentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

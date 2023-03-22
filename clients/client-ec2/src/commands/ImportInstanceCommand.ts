@@ -18,7 +18,6 @@ import {
   ImportInstanceRequest,
   ImportInstanceRequestFilterSensitiveLog,
   ImportInstanceResult,
-  ImportInstanceResultFilterSensitiveLog,
 } from "../models/models_5";
 import { deserializeAws_ec2ImportInstanceCommand, serializeAws_ec2ImportInstanceCommand } from "../protocols/Aws_ec2";
 
@@ -111,7 +110,7 @@ export class ImportInstanceCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: ImportInstanceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ImportInstanceResultFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

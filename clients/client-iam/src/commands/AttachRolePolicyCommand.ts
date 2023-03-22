@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { AttachRolePolicyRequest, AttachRolePolicyRequestFilterSensitiveLog } from "../models/models_0";
+import { AttachRolePolicyRequest } from "../models/models_0";
 import {
   deserializeAws_queryAttachRolePolicyCommand,
   serializeAws_queryAttachRolePolicyCommand,
@@ -154,8 +154,8 @@ export class AttachRolePolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AttachRolePolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

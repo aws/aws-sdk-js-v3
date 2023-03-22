@@ -14,12 +14,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListBatchLoadTasksRequest,
-  ListBatchLoadTasksRequestFilterSensitiveLog,
-  ListBatchLoadTasksResponse,
-  ListBatchLoadTasksResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListBatchLoadTasksRequest, ListBatchLoadTasksResponse } from "../models/models_0";
 import {
   deserializeAws_json1_0ListBatchLoadTasksCommand,
   serializeAws_json1_0ListBatchLoadTasksCommand,
@@ -131,8 +126,8 @@ export class ListBatchLoadTasksCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListBatchLoadTasksRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListBatchLoadTasksResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

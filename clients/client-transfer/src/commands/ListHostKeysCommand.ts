@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListHostKeysRequest,
-  ListHostKeysRequestFilterSensitiveLog,
-  ListHostKeysResponse,
-  ListHostKeysResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListHostKeysRequest, ListHostKeysResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ListHostKeysCommand,
   serializeAws_json1_1ListHostKeysCommand,
@@ -122,8 +117,8 @@ export class ListHostKeysCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListHostKeysRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListHostKeysResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

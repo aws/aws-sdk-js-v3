@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  ModifyVpnTunnelCertificateRequest,
-  ModifyVpnTunnelCertificateRequestFilterSensitiveLog,
-  ModifyVpnTunnelCertificateResult,
-  ModifyVpnTunnelCertificateResultFilterSensitiveLog,
-} from "../models/models_6";
+import { ModifyVpnTunnelCertificateRequest, ModifyVpnTunnelCertificateResult } from "../models/models_6";
 import {
   deserializeAws_ec2ModifyVpnTunnelCertificateCommand,
   serializeAws_ec2ModifyVpnTunnelCertificateCommand,
@@ -107,8 +102,8 @@ export class ModifyVpnTunnelCertificateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyVpnTunnelCertificateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifyVpnTunnelCertificateResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

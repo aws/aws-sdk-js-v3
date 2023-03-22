@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTThingsGraphClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTThingsGraphClient";
-import {
-  DeleteSystemInstanceRequest,
-  DeleteSystemInstanceRequestFilterSensitiveLog,
-  DeleteSystemInstanceResponse,
-  DeleteSystemInstanceResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteSystemInstanceRequest, DeleteSystemInstanceResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteSystemInstanceCommand,
   serializeAws_json1_1DeleteSystemInstanceCommand,
@@ -123,8 +118,8 @@ export class DeleteSystemInstanceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteSystemInstanceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteSystemInstanceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

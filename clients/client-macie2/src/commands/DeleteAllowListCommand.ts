@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
-import {
-  DeleteAllowListRequest,
-  DeleteAllowListRequestFilterSensitiveLog,
-  DeleteAllowListResponse,
-  DeleteAllowListResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteAllowListRequest, DeleteAllowListResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteAllowListCommand,
   serializeAws_restJson1DeleteAllowListCommand,
@@ -122,8 +117,8 @@ export class DeleteAllowListCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAllowListRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteAllowListResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

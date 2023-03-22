@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
-import {
-  AssumeDecoratedRoleWithSAMLRequest,
-  AssumeDecoratedRoleWithSAMLRequestFilterSensitiveLog,
-  AssumeDecoratedRoleWithSAMLResponse,
-  AssumeDecoratedRoleWithSAMLResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { AssumeDecoratedRoleWithSAMLRequest, AssumeDecoratedRoleWithSAMLResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1AssumeDecoratedRoleWithSAMLCommand,
   serializeAws_restJson1AssumeDecoratedRoleWithSAMLCommand,
@@ -129,8 +124,8 @@ export class AssumeDecoratedRoleWithSAMLCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssumeDecoratedRoleWithSAMLRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssumeDecoratedRoleWithSAMLResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

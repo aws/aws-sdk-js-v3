@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { BatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BatchClient";
-import {
-  UpdateComputeEnvironmentRequest,
-  UpdateComputeEnvironmentRequestFilterSensitiveLog,
-  UpdateComputeEnvironmentResponse,
-  UpdateComputeEnvironmentResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateComputeEnvironmentRequest, UpdateComputeEnvironmentResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateComputeEnvironmentCommand,
   serializeAws_restJson1UpdateComputeEnvironmentCommand,
@@ -133,8 +128,8 @@ export class UpdateComputeEnvironmentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateComputeEnvironmentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateComputeEnvironmentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

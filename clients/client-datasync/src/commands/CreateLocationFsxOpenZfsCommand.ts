@@ -18,7 +18,6 @@ import {
   CreateLocationFsxOpenZfsRequest,
   CreateLocationFsxOpenZfsRequestFilterSensitiveLog,
   CreateLocationFsxOpenZfsResponse,
-  CreateLocationFsxOpenZfsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateLocationFsxOpenZfsCommand,
@@ -119,7 +118,7 @@ export class CreateLocationFsxOpenZfsCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateLocationFsxOpenZfsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateLocationFsxOpenZfsResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

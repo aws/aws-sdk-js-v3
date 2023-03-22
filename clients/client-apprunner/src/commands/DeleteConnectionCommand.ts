@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AppRunnerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppRunnerClient";
-import {
-  DeleteConnectionRequest,
-  DeleteConnectionRequestFilterSensitiveLog,
-  DeleteConnectionResponse,
-  DeleteConnectionResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteConnectionRequest, DeleteConnectionResponse } from "../models/models_0";
 import {
   deserializeAws_json1_0DeleteConnectionCommand,
   serializeAws_json1_0DeleteConnectionCommand,
@@ -117,8 +112,8 @@ export class DeleteConnectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteConnectionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteConnectionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

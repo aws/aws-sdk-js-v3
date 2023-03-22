@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { Cloud9ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Cloud9Client";
-import {
-  DeleteEnvironmentMembershipRequest,
-  DeleteEnvironmentMembershipRequestFilterSensitiveLog,
-  DeleteEnvironmentMembershipResult,
-  DeleteEnvironmentMembershipResultFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteEnvironmentMembershipRequest, DeleteEnvironmentMembershipResult } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteEnvironmentMembershipCommand,
   serializeAws_json1_1DeleteEnvironmentMembershipCommand,
@@ -140,8 +135,8 @@ export class DeleteEnvironmentMembershipCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteEnvironmentMembershipRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteEnvironmentMembershipResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

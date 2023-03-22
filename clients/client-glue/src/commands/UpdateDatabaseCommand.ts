@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  UpdateDatabaseRequest,
-  UpdateDatabaseRequestFilterSensitiveLog,
-  UpdateDatabaseResponse,
-  UpdateDatabaseResponseFilterSensitiveLog,
-} from "../models/models_2";
+import { UpdateDatabaseRequest, UpdateDatabaseResponse } from "../models/models_2";
 import {
   deserializeAws_json1_1UpdateDatabaseCommand,
   serializeAws_json1_1UpdateDatabaseCommand,
@@ -125,8 +120,8 @@ export class UpdateDatabaseCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateDatabaseRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateDatabaseResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

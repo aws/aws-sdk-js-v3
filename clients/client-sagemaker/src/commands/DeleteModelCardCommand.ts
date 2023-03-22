@@ -13,7 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteModelCardRequest, DeleteModelCardRequestFilterSensitiveLog } from "../models/models_1";
+import { DeleteModelCardRequest } from "../models/models_1";
 import {
   deserializeAws_json1_1DeleteModelCardCommand,
   serializeAws_json1_1DeleteModelCardCommand,
@@ -109,8 +109,8 @@ export class DeleteModelCardCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteModelCardRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

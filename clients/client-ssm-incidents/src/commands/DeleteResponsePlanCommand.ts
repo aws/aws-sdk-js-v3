@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteResponsePlanInput,
-  DeleteResponsePlanInputFilterSensitiveLog,
-  DeleteResponsePlanOutput,
-  DeleteResponsePlanOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteResponsePlanInput, DeleteResponsePlanOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteResponsePlanCommand,
   serializeAws_restJson1DeleteResponsePlanCommand,
@@ -122,8 +117,8 @@ export class DeleteResponsePlanCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteResponsePlanInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteResponsePlanOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

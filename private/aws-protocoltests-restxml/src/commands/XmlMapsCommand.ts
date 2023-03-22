@@ -12,20 +12,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { XmlMapsInputOutput, XmlMapsInputOutputFilterSensitiveLog } from "../models/models_0";
+import { XmlMapsInputOutput } from "../models/models_0";
 import { deserializeAws_restXmlXmlMapsCommand, serializeAws_restXmlXmlMapsCommand } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 
 /**
+ * @public
+ *
  * The input for {@link XmlMapsCommand}.
  */
 export interface XmlMapsCommandInput extends XmlMapsInputOutput {}
 /**
+ * @public
+ *
  * The output of {@link XmlMapsCommand}.
  */
 export interface XmlMapsCommandOutput extends XmlMapsInputOutput, __MetadataBearer {}
 
 /**
+ * @public
  * The example tests basic map serialization.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -37,6 +42,8 @@ export interface XmlMapsCommandOutput extends XmlMapsInputOutput, __MetadataBear
  * const response = await client.send(command);
  * ```
  *
+ * @param XmlMapsCommandInput - {@link XmlMapsCommandInput}
+ * @returns {@link XmlMapsCommandOutput}
  * @see {@link XmlMapsCommandInput} for command's `input` shape.
  * @see {@link XmlMapsCommandOutput} for command's `response` shape.
  * @see {@link RestXmlProtocolClientResolvedConfig | config} for RestXmlProtocolClient's `config` shape.
@@ -51,6 +58,9 @@ export class XmlMapsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: XmlMapsCommandInput) {
     // Start section: command_constructor
     super();
@@ -76,8 +86,8 @@ export class XmlMapsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: XmlMapsInputOutputFilterSensitiveLog,
-      outputFilterSensitiveLog: XmlMapsInputOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -87,10 +97,16 @@ export class XmlMapsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: XmlMapsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlXmlMapsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<XmlMapsCommandOutput> {
     return deserializeAws_restXmlXmlMapsCommand(output, context);
   }

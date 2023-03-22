@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
-import { DisableKeyRequest, DisableKeyRequestFilterSensitiveLog } from "../models/models_0";
+import { DisableKeyRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1DisableKeyCommand,
   serializeAws_json1_1DisableKeyCommand,
@@ -159,8 +159,8 @@ export class DisableKeyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisableKeyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

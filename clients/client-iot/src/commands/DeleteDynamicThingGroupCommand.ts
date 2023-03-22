@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  DeleteDynamicThingGroupRequest,
-  DeleteDynamicThingGroupRequestFilterSensitiveLog,
-  DeleteDynamicThingGroupResponse,
-  DeleteDynamicThingGroupResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteDynamicThingGroupRequest, DeleteDynamicThingGroupResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteDynamicThingGroupCommand,
   serializeAws_restJson1DeleteDynamicThingGroupCommand,
@@ -122,8 +117,8 @@ export class DeleteDynamicThingGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDynamicThingGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteDynamicThingGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

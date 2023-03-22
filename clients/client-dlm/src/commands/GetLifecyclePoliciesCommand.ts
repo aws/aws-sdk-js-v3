@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DLMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DLMClient";
-import {
-  GetLifecyclePoliciesRequest,
-  GetLifecyclePoliciesRequestFilterSensitiveLog,
-  GetLifecyclePoliciesResponse,
-  GetLifecyclePoliciesResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetLifecyclePoliciesRequest, GetLifecyclePoliciesResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetLifecyclePoliciesCommand,
   serializeAws_restJson1GetLifecyclePoliciesCommand,
@@ -121,8 +116,8 @@ export class GetLifecyclePoliciesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetLifecyclePoliciesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetLifecyclePoliciesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

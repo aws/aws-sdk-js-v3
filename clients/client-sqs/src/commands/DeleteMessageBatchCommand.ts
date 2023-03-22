@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteMessageBatchRequest,
-  DeleteMessageBatchRequestFilterSensitiveLog,
-  DeleteMessageBatchResult,
-  DeleteMessageBatchResultFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteMessageBatchRequest, DeleteMessageBatchResult } from "../models/models_0";
 import {
   deserializeAws_queryDeleteMessageBatchCommand,
   serializeAws_queryDeleteMessageBatchCommand,
@@ -130,8 +125,8 @@ export class DeleteMessageBatchCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteMessageBatchRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteMessageBatchResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

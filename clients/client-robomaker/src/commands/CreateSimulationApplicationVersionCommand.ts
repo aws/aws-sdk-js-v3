@@ -15,9 +15,7 @@ import {
 
 import {
   CreateSimulationApplicationVersionRequest,
-  CreateSimulationApplicationVersionRequestFilterSensitiveLog,
   CreateSimulationApplicationVersionResponse,
-  CreateSimulationApplicationVersionResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateSimulationApplicationVersionCommand,
@@ -127,8 +125,8 @@ export class CreateSimulationApplicationVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateSimulationApplicationVersionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateSimulationApplicationVersionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

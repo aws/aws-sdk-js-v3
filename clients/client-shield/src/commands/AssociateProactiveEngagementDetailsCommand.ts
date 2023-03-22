@@ -15,9 +15,7 @@ import {
 
 import {
   AssociateProactiveEngagementDetailsRequest,
-  AssociateProactiveEngagementDetailsRequestFilterSensitiveLog,
   AssociateProactiveEngagementDetailsResponse,
-  AssociateProactiveEngagementDetailsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1AssociateProactiveEngagementDetailsCommand,
@@ -130,8 +128,8 @@ export class AssociateProactiveEngagementDetailsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateProactiveEngagementDetailsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssociateProactiveEngagementDetailsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

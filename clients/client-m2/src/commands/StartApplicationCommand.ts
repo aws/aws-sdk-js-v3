@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { M2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../M2Client";
-import {
-  StartApplicationRequest,
-  StartApplicationRequestFilterSensitiveLog,
-  StartApplicationResponse,
-  StartApplicationResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { StartApplicationRequest, StartApplicationResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1StartApplicationCommand,
   serializeAws_restJson1StartApplicationCommand,
@@ -125,8 +120,8 @@ export class StartApplicationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartApplicationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartApplicationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

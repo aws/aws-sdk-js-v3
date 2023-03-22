@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DeleteCoipPoolRequest,
-  DeleteCoipPoolRequestFilterSensitiveLog,
-  DeleteCoipPoolResult,
-  DeleteCoipPoolResultFilterSensitiveLog,
-} from "../models/models_2";
+import { DeleteCoipPoolRequest, DeleteCoipPoolResult } from "../models/models_2";
 import { deserializeAws_ec2DeleteCoipPoolCommand, serializeAws_ec2DeleteCoipPoolCommand } from "../protocols/Aws_ec2";
 
 /**
@@ -104,8 +99,8 @@ export class DeleteCoipPoolCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteCoipPoolRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteCoipPoolResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

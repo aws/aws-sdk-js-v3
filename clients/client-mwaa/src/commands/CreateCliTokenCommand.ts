@@ -15,7 +15,6 @@ import {
 
 import {
   CreateCliTokenRequest,
-  CreateCliTokenRequestFilterSensitiveLog,
   CreateCliTokenResponse,
   CreateCliTokenResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -110,7 +109,7 @@ export class CreateCliTokenCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateCliTokenRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: CreateCliTokenResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

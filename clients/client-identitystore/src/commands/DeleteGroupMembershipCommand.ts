@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IdentitystoreClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IdentitystoreClient";
-import {
-  DeleteGroupMembershipRequest,
-  DeleteGroupMembershipRequestFilterSensitiveLog,
-  DeleteGroupMembershipResponse,
-  DeleteGroupMembershipResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteGroupMembershipRequest, DeleteGroupMembershipResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteGroupMembershipCommand,
   serializeAws_json1_1DeleteGroupMembershipCommand,
@@ -133,8 +128,8 @@ export class DeleteGroupMembershipCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteGroupMembershipRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteGroupMembershipResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

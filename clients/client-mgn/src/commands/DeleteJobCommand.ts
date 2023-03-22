@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
-import {
-  DeleteJobRequest,
-  DeleteJobRequestFilterSensitiveLog,
-  DeleteJobResponse,
-  DeleteJobResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteJobRequest, DeleteJobResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteJobCommand,
   serializeAws_restJson1DeleteJobCommand,
@@ -110,8 +105,8 @@ export class DeleteJobCommand extends $Command<DeleteJobCommandInput, DeleteJobC
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../IoT1ClickProjectsClient";
-import {
-  GetDevicesInPlacementRequest,
-  GetDevicesInPlacementRequestFilterSensitiveLog,
-  GetDevicesInPlacementResponse,
-  GetDevicesInPlacementResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetDevicesInPlacementRequest, GetDevicesInPlacementResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetDevicesInPlacementCommand,
   serializeAws_restJson1GetDevicesInPlacementCommand,
@@ -120,8 +115,8 @@ export class GetDevicesInPlacementCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDevicesInPlacementRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetDevicesInPlacementResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

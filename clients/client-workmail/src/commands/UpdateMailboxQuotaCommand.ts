@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateMailboxQuotaRequest,
-  UpdateMailboxQuotaRequestFilterSensitiveLog,
-  UpdateMailboxQuotaResponse,
-  UpdateMailboxQuotaResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateMailboxQuotaRequest, UpdateMailboxQuotaResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateMailboxQuotaCommand,
   serializeAws_json1_1UpdateMailboxQuotaCommand,
@@ -127,8 +122,8 @@ export class UpdateMailboxQuotaCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateMailboxQuotaRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateMailboxQuotaResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

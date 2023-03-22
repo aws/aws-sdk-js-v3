@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AmplifyUIBuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyUIBuilderClient";
-import {
-  GetFormRequest,
-  GetFormRequestFilterSensitiveLog,
-  GetFormResponse,
-  GetFormResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetFormRequest, GetFormResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetFormCommand,
   serializeAws_restJson1GetFormCommand,
@@ -114,8 +109,8 @@ export class GetFormCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetFormRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetFormResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

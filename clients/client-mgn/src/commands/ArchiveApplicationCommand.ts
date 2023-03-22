@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
-import {
-  Application,
-  ApplicationFilterSensitiveLog,
-  ArchiveApplicationRequest,
-  ArchiveApplicationRequestFilterSensitiveLog,
-} from "../models/models_0";
+import { Application, ApplicationFilterSensitiveLog, ArchiveApplicationRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1ArchiveApplicationCommand,
   serializeAws_restJson1ArchiveApplicationCommand,
@@ -119,7 +114,7 @@ export class ArchiveApplicationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ArchiveApplicationRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ApplicationFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

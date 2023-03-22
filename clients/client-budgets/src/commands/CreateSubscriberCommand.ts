@@ -18,7 +18,6 @@ import {
   CreateSubscriberRequest,
   CreateSubscriberRequestFilterSensitiveLog,
   CreateSubscriberResponse,
-  CreateSubscriberResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateSubscriberCommand,
@@ -131,7 +130,7 @@ export class CreateSubscriberCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateSubscriberRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateSubscriberResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

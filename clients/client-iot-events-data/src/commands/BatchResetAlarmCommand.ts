@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTEventsDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTEventsDataClient";
-import {
-  BatchResetAlarmRequest,
-  BatchResetAlarmRequestFilterSensitiveLog,
-  BatchResetAlarmResponse,
-  BatchResetAlarmResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { BatchResetAlarmRequest, BatchResetAlarmResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1BatchResetAlarmCommand,
   serializeAws_restJson1BatchResetAlarmCommand,
@@ -120,8 +115,8 @@ export class BatchResetAlarmCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchResetAlarmRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchResetAlarmResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

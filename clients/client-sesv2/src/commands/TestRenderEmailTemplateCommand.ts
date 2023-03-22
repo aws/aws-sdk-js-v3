@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  TestRenderEmailTemplateRequest,
-  TestRenderEmailTemplateRequestFilterSensitiveLog,
-  TestRenderEmailTemplateResponse,
-  TestRenderEmailTemplateResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { TestRenderEmailTemplateRequest, TestRenderEmailTemplateResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1TestRenderEmailTemplateCommand,
   serializeAws_restJson1TestRenderEmailTemplateCommand,
@@ -118,8 +113,8 @@ export class TestRenderEmailTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TestRenderEmailTemplateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: TestRenderEmailTemplateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

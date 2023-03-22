@@ -16,9 +16,7 @@ import {
 
 import {
   ListTrafficPolicyInstancesByHostedZoneRequest,
-  ListTrafficPolicyInstancesByHostedZoneRequestFilterSensitiveLog,
   ListTrafficPolicyInstancesByHostedZoneResponse,
-  ListTrafficPolicyInstancesByHostedZoneResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restXmlListTrafficPolicyInstancesByHostedZoneCommand,
@@ -132,8 +130,8 @@ export class ListTrafficPolicyInstancesByHostedZoneCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTrafficPolicyInstancesByHostedZoneRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListTrafficPolicyInstancesByHostedZoneResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

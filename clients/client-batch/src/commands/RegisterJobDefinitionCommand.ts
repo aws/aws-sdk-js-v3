@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { BatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BatchClient";
-import {
-  RegisterJobDefinitionRequest,
-  RegisterJobDefinitionRequestFilterSensitiveLog,
-  RegisterJobDefinitionResponse,
-  RegisterJobDefinitionResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { RegisterJobDefinitionRequest, RegisterJobDefinitionResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1RegisterJobDefinitionCommand,
   serializeAws_restJson1RegisterJobDefinitionCommand,
@@ -191,8 +186,8 @@ export class RegisterJobDefinitionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RegisterJobDefinitionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RegisterJobDefinitionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

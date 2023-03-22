@@ -15,7 +15,6 @@ import {
 
 import {
   GetMaintenanceWindowExecutionTaskInvocationRequest,
-  GetMaintenanceWindowExecutionTaskInvocationRequestFilterSensitiveLog,
   GetMaintenanceWindowExecutionTaskInvocationResult,
   GetMaintenanceWindowExecutionTaskInvocationResultFilterSensitiveLog,
 } from "../models/models_1";
@@ -125,7 +124,7 @@ export class GetMaintenanceWindowExecutionTaskInvocationCommand extends $Command
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetMaintenanceWindowExecutionTaskInvocationRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetMaintenanceWindowExecutionTaskInvocationResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

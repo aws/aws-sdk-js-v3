@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LookoutMetricsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutMetricsClient";
-import {
-  GetDataQualityMetricsRequest,
-  GetDataQualityMetricsRequestFilterSensitiveLog,
-  GetDataQualityMetricsResponse,
-  GetDataQualityMetricsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetDataQualityMetricsRequest, GetDataQualityMetricsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetDataQualityMetricsCommand,
   serializeAws_restJson1GetDataQualityMetricsCommand,
@@ -123,8 +118,8 @@ export class GetDataQualityMetricsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDataQualityMetricsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetDataQualityMetricsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

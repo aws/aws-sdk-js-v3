@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteWorkteamRequest,
-  DeleteWorkteamRequestFilterSensitiveLog,
-  DeleteWorkteamResponse,
-  DeleteWorkteamResponseFilterSensitiveLog,
-} from "../models/models_2";
+import { DeleteWorkteamRequest, DeleteWorkteamResponse } from "../models/models_2";
 import {
   deserializeAws_json1_1DeleteWorkteamCommand,
   serializeAws_json1_1DeleteWorkteamCommand,
@@ -111,8 +106,8 @@ export class DeleteWorkteamCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteWorkteamRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteWorkteamResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

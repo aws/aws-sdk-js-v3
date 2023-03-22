@@ -16,7 +16,6 @@ import {
 import { FinspaceDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FinspaceDataClient";
 import {
   ResetUserPasswordRequest,
-  ResetUserPasswordRequestFilterSensitiveLog,
   ResetUserPasswordResponse,
   ResetUserPasswordResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -126,7 +125,7 @@ export class ResetUserPasswordCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ResetUserPasswordRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ResetUserPasswordResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

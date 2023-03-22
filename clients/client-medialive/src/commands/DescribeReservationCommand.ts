@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
-import {
-  DescribeReservationRequest,
-  DescribeReservationRequestFilterSensitiveLog,
-  DescribeReservationResponse,
-  DescribeReservationResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { DescribeReservationRequest, DescribeReservationResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1DescribeReservationCommand,
   serializeAws_restJson1DescribeReservationCommand,
@@ -128,8 +123,8 @@ export class DescribeReservationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeReservationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeReservationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

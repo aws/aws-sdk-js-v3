@@ -18,7 +18,6 @@ import {
   CreateForecastExportJobRequest,
   CreateForecastExportJobRequestFilterSensitiveLog,
   CreateForecastExportJobResponse,
-  CreateForecastExportJobResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateForecastExportJobCommand,
@@ -138,7 +137,7 @@ export class CreateForecastExportJobCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateForecastExportJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateForecastExportJobResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

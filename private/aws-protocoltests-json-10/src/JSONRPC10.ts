@@ -44,8 +44,12 @@ import {
 } from "./commands/SimpleScalarPropertiesCommand";
 import { JSONRPC10Client } from "./JSONRPC10Client";
 
+/**
+ * @public
+ */
 export class JSONRPC10 extends JSONRPC10Client {
   /**
+   * @public
    * The example tests how requests and responses are serialized when there's
    * no request or response payload because the operation has an empty input
    * and empty output structure that reuses the same shape. While this should
@@ -80,6 +84,9 @@ export class JSONRPC10 extends JSONRPC10Client {
     }
   }
 
+  /**
+   * @public
+   */
   public endpointOperation(
     args: EndpointOperationCommandInput,
     options?: __HttpHandlerOptions
@@ -109,6 +116,9 @@ export class JSONRPC10 extends JSONRPC10Client {
     }
   }
 
+  /**
+   * @public
+   */
   public endpointWithHostLabelOperation(
     args: EndpointWithHostLabelOperationCommandInput,
     options?: __HttpHandlerOptions
@@ -139,6 +149,7 @@ export class JSONRPC10 extends JSONRPC10Client {
   }
 
   /**
+   * @public
    * This operation has three possible return values:
    *
    * 1. A successful response in the form of GreetingWithErrorsOutput
@@ -177,6 +188,9 @@ export class JSONRPC10 extends JSONRPC10Client {
     }
   }
 
+  /**
+   * @public
+   */
   public hostWithPathOperation(
     args: HostWithPathOperationCommandInput,
     options?: __HttpHandlerOptions
@@ -207,6 +221,7 @@ export class JSONRPC10 extends JSONRPC10Client {
   }
 
   /**
+   * @public
    * This operation uses unions for inputs and outputs.
    */
   public jsonUnions(args: JsonUnionsCommandInput, options?: __HttpHandlerOptions): Promise<JsonUnionsCommandOutput>;
@@ -233,6 +248,7 @@ export class JSONRPC10 extends JSONRPC10Client {
   }
 
   /**
+   * @public
    * The example tests how requests and responses are serialized when there's
    * no request or response payload because the operation has no input or output.
    * While this should be rare, code generators must support this.
@@ -267,6 +283,7 @@ export class JSONRPC10 extends JSONRPC10Client {
   }
 
   /**
+   * @public
    * The example tests how requests and responses are serialized when there's
    * no request or response payload because the operation has no input and the
    * output is empty. While this should be rare, code generators must support
@@ -301,6 +318,9 @@ export class JSONRPC10 extends JSONRPC10Client {
     }
   }
 
+  /**
+   * @public
+   */
   public simpleScalarProperties(
     args: SimpleScalarPropertiesCommandInput,
     options?: __HttpHandlerOptions

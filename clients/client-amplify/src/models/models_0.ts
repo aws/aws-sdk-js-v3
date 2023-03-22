@@ -2590,13 +2590,6 @@ export const AutoBranchCreationConfigFilterSensitiveLog = (obj: AutoBranchCreati
 /**
  * @internal
  */
-export const CustomRuleFilterSensitiveLog = (obj: CustomRule): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const CreateAppRequestFilterSensitiveLog = (obj: CreateAppRequest): any => ({
   ...obj,
   ...(obj.oauthToken && { oauthToken: SENSITIVE_STRING }),
@@ -2606,13 +2599,6 @@ export const CreateAppRequestFilterSensitiveLog = (obj: CreateAppRequest): any =
   ...(obj.autoBranchCreationConfig && {
     autoBranchCreationConfig: AutoBranchCreationConfigFilterSensitiveLog(obj.autoBranchCreationConfig),
   }),
-});
-
-/**
- * @internal
- */
-export const ProductionBranchFilterSensitiveLog = (obj: ProductionBranch): any => ({
-  ...obj,
 });
 
 /**
@@ -2633,27 +2619,6 @@ export const AppFilterSensitiveLog = (obj: App): any => ({
 export const CreateAppResultFilterSensitiveLog = (obj: CreateAppResult): any => ({
   ...obj,
   ...(obj.app && { app: AppFilterSensitiveLog(obj.app) }),
-});
-
-/**
- * @internal
- */
-export const CreateBackendEnvironmentRequestFilterSensitiveLog = (obj: CreateBackendEnvironmentRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BackendEnvironmentFilterSensitiveLog = (obj: BackendEnvironment): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateBackendEnvironmentResultFilterSensitiveLog = (obj: CreateBackendEnvironmentResult): any => ({
-  ...obj,
 });
 
 /**
@@ -2685,107 +2650,9 @@ export const CreateBranchResultFilterSensitiveLog = (obj: CreateBranchResult): a
 /**
  * @internal
  */
-export const CreateDeploymentRequestFilterSensitiveLog = (obj: CreateDeploymentRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateDeploymentResultFilterSensitiveLog = (obj: CreateDeploymentResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SubDomainSettingFilterSensitiveLog = (obj: SubDomainSetting): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateDomainAssociationRequestFilterSensitiveLog = (obj: CreateDomainAssociationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SubDomainFilterSensitiveLog = (obj: SubDomain): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DomainAssociationFilterSensitiveLog = (obj: DomainAssociation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateDomainAssociationResultFilterSensitiveLog = (obj: CreateDomainAssociationResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateWebhookRequestFilterSensitiveLog = (obj: CreateWebhookRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const WebhookFilterSensitiveLog = (obj: Webhook): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateWebhookResultFilterSensitiveLog = (obj: CreateWebhookResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteAppRequestFilterSensitiveLog = (obj: DeleteAppRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const DeleteAppResultFilterSensitiveLog = (obj: DeleteAppResult): any => ({
   ...obj,
   ...(obj.app && { app: AppFilterSensitiveLog(obj.app) }),
-});
-
-/**
- * @internal
- */
-export const DeleteBackendEnvironmentRequestFilterSensitiveLog = (obj: DeleteBackendEnvironmentRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteBackendEnvironmentResultFilterSensitiveLog = (obj: DeleteBackendEnvironmentResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteBranchRequestFilterSensitiveLog = (obj: DeleteBranchRequest): any => ({
-  ...obj,
 });
 
 /**
@@ -2799,114 +2666,9 @@ export const DeleteBranchResultFilterSensitiveLog = (obj: DeleteBranchResult): a
 /**
  * @internal
  */
-export const DeleteDomainAssociationRequestFilterSensitiveLog = (obj: DeleteDomainAssociationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteDomainAssociationResultFilterSensitiveLog = (obj: DeleteDomainAssociationResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteJobRequestFilterSensitiveLog = (obj: DeleteJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const JobSummaryFilterSensitiveLog = (obj: JobSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteJobResultFilterSensitiveLog = (obj: DeleteJobResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteWebhookRequestFilterSensitiveLog = (obj: DeleteWebhookRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteWebhookResultFilterSensitiveLog = (obj: DeleteWebhookResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GenerateAccessLogsRequestFilterSensitiveLog = (obj: GenerateAccessLogsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GenerateAccessLogsResultFilterSensitiveLog = (obj: GenerateAccessLogsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetAppRequestFilterSensitiveLog = (obj: GetAppRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const GetAppResultFilterSensitiveLog = (obj: GetAppResult): any => ({
   ...obj,
   ...(obj.app && { app: AppFilterSensitiveLog(obj.app) }),
-});
-
-/**
- * @internal
- */
-export const GetArtifactUrlRequestFilterSensitiveLog = (obj: GetArtifactUrlRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetArtifactUrlResultFilterSensitiveLog = (obj: GetArtifactUrlResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetBackendEnvironmentRequestFilterSensitiveLog = (obj: GetBackendEnvironmentRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetBackendEnvironmentResultFilterSensitiveLog = (obj: GetBackendEnvironmentResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetBranchRequestFilterSensitiveLog = (obj: GetBranchRequest): any => ({
-  ...obj,
 });
 
 /**
@@ -2920,69 +2682,6 @@ export const GetBranchResultFilterSensitiveLog = (obj: GetBranchResult): any => 
 /**
  * @internal
  */
-export const GetDomainAssociationRequestFilterSensitiveLog = (obj: GetDomainAssociationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDomainAssociationResultFilterSensitiveLog = (obj: GetDomainAssociationResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetJobRequestFilterSensitiveLog = (obj: GetJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StepFilterSensitiveLog = (obj: Step): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const JobFilterSensitiveLog = (obj: Job): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetJobResultFilterSensitiveLog = (obj: GetJobResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetWebhookRequestFilterSensitiveLog = (obj: GetWebhookRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetWebhookResultFilterSensitiveLog = (obj: GetWebhookResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListAppsRequestFilterSensitiveLog = (obj: ListAppsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const ListAppsResultFilterSensitiveLog = (obj: ListAppsResult): any => ({
   ...obj,
   ...(obj.apps && { apps: obj.apps.map((item) => AppFilterSensitiveLog(item)) }),
@@ -2991,177 +2690,9 @@ export const ListAppsResultFilterSensitiveLog = (obj: ListAppsResult): any => ({
 /**
  * @internal
  */
-export const ListArtifactsRequestFilterSensitiveLog = (obj: ListArtifactsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ArtifactFilterSensitiveLog = (obj: Artifact): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListArtifactsResultFilterSensitiveLog = (obj: ListArtifactsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListBackendEnvironmentsRequestFilterSensitiveLog = (obj: ListBackendEnvironmentsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListBackendEnvironmentsResultFilterSensitiveLog = (obj: ListBackendEnvironmentsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListBranchesRequestFilterSensitiveLog = (obj: ListBranchesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const ListBranchesResultFilterSensitiveLog = (obj: ListBranchesResult): any => ({
   ...obj,
   ...(obj.branches && { branches: obj.branches.map((item) => BranchFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const ListDomainAssociationsRequestFilterSensitiveLog = (obj: ListDomainAssociationsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDomainAssociationsResultFilterSensitiveLog = (obj: ListDomainAssociationsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListJobsRequestFilterSensitiveLog = (obj: ListJobsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListJobsResultFilterSensitiveLog = (obj: ListJobsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListWebhooksRequestFilterSensitiveLog = (obj: ListWebhooksRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListWebhooksResultFilterSensitiveLog = (obj: ListWebhooksResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartDeploymentRequestFilterSensitiveLog = (obj: StartDeploymentRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartDeploymentResultFilterSensitiveLog = (obj: StartDeploymentResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartJobRequestFilterSensitiveLog = (obj: StartJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartJobResultFilterSensitiveLog = (obj: StartJobResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopJobRequestFilterSensitiveLog = (obj: StopJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopJobResultFilterSensitiveLog = (obj: StopJobResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
-  ...obj,
 });
 
 /**
@@ -3201,32 +2732,4 @@ export const UpdateBranchRequestFilterSensitiveLog = (obj: UpdateBranchRequest):
 export const UpdateBranchResultFilterSensitiveLog = (obj: UpdateBranchResult): any => ({
   ...obj,
   ...(obj.branch && { branch: BranchFilterSensitiveLog(obj.branch) }),
-});
-
-/**
- * @internal
- */
-export const UpdateDomainAssociationRequestFilterSensitiveLog = (obj: UpdateDomainAssociationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateDomainAssociationResultFilterSensitiveLog = (obj: UpdateDomainAssociationResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateWebhookRequestFilterSensitiveLog = (obj: UpdateWebhookRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateWebhookResultFilterSensitiveLog = (obj: UpdateWebhookResult): any => ({
-  ...obj,
 });

@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetAccountRequest,
-  GetAccountRequestFilterSensitiveLog,
-  GetAccountResponse,
-  GetAccountResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetAccountRequest, GetAccountResponse, GetAccountResponseFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1GetAccountCommand,
   serializeAws_restJson1GetAccountCommand,
@@ -112,7 +107,7 @@ export class GetAccountCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAccountRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetAccountResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

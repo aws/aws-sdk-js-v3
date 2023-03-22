@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListReferencesRequest,
-  ListReferencesRequestFilterSensitiveLog,
-  ListReferencesResponse,
-  ListReferencesResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListReferencesRequest, ListReferencesResponse } from "../models/models_0";
 import { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
 import {
   deserializeAws_restJson1ListReferencesCommand,
@@ -125,8 +120,8 @@ export class ListReferencesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListReferencesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListReferencesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

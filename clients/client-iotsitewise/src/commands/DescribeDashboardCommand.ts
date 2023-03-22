@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
-import {
-  DescribeDashboardRequest,
-  DescribeDashboardRequestFilterSensitiveLog,
-  DescribeDashboardResponse,
-  DescribeDashboardResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeDashboardRequest, DescribeDashboardResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeDashboardCommand,
   serializeAws_restJson1DescribeDashboardCommand,
@@ -123,8 +118,8 @@ export class DescribeDashboardCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDashboardRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeDashboardResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

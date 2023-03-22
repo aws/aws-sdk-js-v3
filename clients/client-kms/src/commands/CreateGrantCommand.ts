@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
-import {
-  CreateGrantRequest,
-  CreateGrantRequestFilterSensitiveLog,
-  CreateGrantResponse,
-  CreateGrantResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateGrantRequest, CreateGrantResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateGrantCommand,
   serializeAws_json1_1CreateGrantCommand,
@@ -232,8 +227,8 @@ export class CreateGrantCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateGrantRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateGrantResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

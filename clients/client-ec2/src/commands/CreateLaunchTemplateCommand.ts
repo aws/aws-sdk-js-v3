@@ -18,7 +18,6 @@ import {
   CreateLaunchTemplateRequest,
   CreateLaunchTemplateRequestFilterSensitiveLog,
   CreateLaunchTemplateResult,
-  CreateLaunchTemplateResultFilterSensitiveLog,
 } from "../models/models_1";
 import {
   deserializeAws_ec2CreateLaunchTemplateCommand,
@@ -164,7 +163,7 @@ export class CreateLaunchTemplateCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateLaunchTemplateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateLaunchTemplateResultFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

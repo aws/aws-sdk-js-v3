@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  ModifyInstanceCreditSpecificationRequest,
-  ModifyInstanceCreditSpecificationRequestFilterSensitiveLog,
-  ModifyInstanceCreditSpecificationResult,
-  ModifyInstanceCreditSpecificationResultFilterSensitiveLog,
-} from "../models/models_6";
+import { ModifyInstanceCreditSpecificationRequest, ModifyInstanceCreditSpecificationResult } from "../models/models_6";
 import {
   deserializeAws_ec2ModifyInstanceCreditSpecificationCommand,
   serializeAws_ec2ModifyInstanceCreditSpecificationCommand,
@@ -113,8 +108,8 @@ export class ModifyInstanceCreditSpecificationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyInstanceCreditSpecificationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifyInstanceCreditSpecificationResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

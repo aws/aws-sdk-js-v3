@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
-import {
-  ChangeServerLifeCycleStateRequest,
-  ChangeServerLifeCycleStateRequestFilterSensitiveLog,
-  SourceServer,
-  SourceServerFilterSensitiveLog,
-} from "../models/models_0";
+import { ChangeServerLifeCycleStateRequest, SourceServer, SourceServerFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1ChangeServerLifeCycleStateCommand,
   serializeAws_restJson1ChangeServerLifeCycleStateCommand,
@@ -119,7 +114,7 @@ export class ChangeServerLifeCycleStateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ChangeServerLifeCycleStateRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: SourceServerFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

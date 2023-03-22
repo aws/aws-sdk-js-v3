@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../LicenseManagerUserSubscriptionsClient";
-import {
-  StopProductSubscriptionRequest,
-  StopProductSubscriptionRequestFilterSensitiveLog,
-  StopProductSubscriptionResponse,
-  StopProductSubscriptionResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { StopProductSubscriptionRequest, StopProductSubscriptionResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1StopProductSubscriptionCommand,
   serializeAws_restJson1StopProductSubscriptionCommand,
@@ -133,8 +128,8 @@ export class StopProductSubscriptionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopProductSubscriptionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StopProductSubscriptionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

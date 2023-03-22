@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListRoutingControlsRequest,
-  ListRoutingControlsRequestFilterSensitiveLog,
-  ListRoutingControlsResponse,
-  ListRoutingControlsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListRoutingControlsRequest, ListRoutingControlsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_0ListRoutingControlsCommand,
   serializeAws_json1_0ListRoutingControlsCommand,
@@ -160,8 +155,8 @@ export class ListRoutingControlsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListRoutingControlsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListRoutingControlsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

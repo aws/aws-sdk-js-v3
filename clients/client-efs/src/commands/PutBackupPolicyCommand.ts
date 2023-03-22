@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient";
-import {
-  BackupPolicyDescription,
-  BackupPolicyDescriptionFilterSensitiveLog,
-  PutBackupPolicyRequest,
-  PutBackupPolicyRequestFilterSensitiveLog,
-} from "../models/models_0";
+import { BackupPolicyDescription, PutBackupPolicyRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1PutBackupPolicyCommand,
   serializeAws_restJson1PutBackupPolicyCommand,
@@ -124,8 +119,8 @@ export class PutBackupPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutBackupPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BackupPolicyDescriptionFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

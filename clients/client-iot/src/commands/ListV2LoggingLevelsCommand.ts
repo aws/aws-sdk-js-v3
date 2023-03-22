@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  ListV2LoggingLevelsRequest,
-  ListV2LoggingLevelsRequestFilterSensitiveLog,
-  ListV2LoggingLevelsResponse,
-  ListV2LoggingLevelsResponseFilterSensitiveLog,
-} from "../models/models_2";
+import { ListV2LoggingLevelsRequest, ListV2LoggingLevelsResponse } from "../models/models_2";
 import {
   deserializeAws_restJson1ListV2LoggingLevelsCommand,
   serializeAws_restJson1ListV2LoggingLevelsCommand,
@@ -120,8 +115,8 @@ export class ListV2LoggingLevelsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListV2LoggingLevelsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListV2LoggingLevelsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

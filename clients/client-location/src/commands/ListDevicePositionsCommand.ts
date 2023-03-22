@@ -16,7 +16,6 @@ import {
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
 import {
   ListDevicePositionsRequest,
-  ListDevicePositionsRequestFilterSensitiveLog,
   ListDevicePositionsResponse,
   ListDevicePositionsResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -120,7 +119,7 @@ export class ListDevicePositionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDevicePositionsRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListDevicePositionsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

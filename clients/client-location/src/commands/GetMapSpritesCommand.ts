@@ -18,7 +18,6 @@ import {
   GetMapSpritesRequest,
   GetMapSpritesRequestFilterSensitiveLog,
   GetMapSpritesResponse,
-  GetMapSpritesResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1GetMapSpritesCommand,
@@ -124,7 +123,7 @@ export class GetMapSpritesCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: GetMapSpritesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetMapSpritesResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

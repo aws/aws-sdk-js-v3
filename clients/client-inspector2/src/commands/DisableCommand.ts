@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { Inspector2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Inspector2Client";
-import {
-  DisableRequest,
-  DisableRequestFilterSensitiveLog,
-  DisableResponse,
-  DisableResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DisableRequest, DisableResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DisableCommand,
   serializeAws_restJson1DisableCommand,
@@ -122,8 +117,8 @@ export class DisableCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisableRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisableResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

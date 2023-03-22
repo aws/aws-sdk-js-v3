@@ -16,9 +16,7 @@ import {
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import {
   AssociateSigninDelegateGroupsWithAccountRequest,
-  AssociateSigninDelegateGroupsWithAccountRequestFilterSensitiveLog,
   AssociateSigninDelegateGroupsWithAccountResponse,
-  AssociateSigninDelegateGroupsWithAccountResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1AssociateSigninDelegateGroupsWithAccountCommand,
@@ -137,8 +135,8 @@ export class AssociateSigninDelegateGroupsWithAccountCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateSigninDelegateGroupsWithAccountRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssociateSigninDelegateGroupsWithAccountResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

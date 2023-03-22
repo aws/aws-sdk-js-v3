@@ -278,13 +278,6 @@ export interface LogoutRequest {
 /**
  * @internal
  */
-export const AccountInfoFilterSensitiveLog = (obj: AccountInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const GetRoleCredentialsRequestFilterSensitiveLog = (obj: GetRoleCredentialsRequest): any => ({
   ...obj,
   ...(obj.accessToken && { accessToken: SENSITIVE_STRING }),
@@ -318,30 +311,9 @@ export const ListAccountRolesRequestFilterSensitiveLog = (obj: ListAccountRolesR
 /**
  * @internal
  */
-export const RoleInfoFilterSensitiveLog = (obj: RoleInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListAccountRolesResponseFilterSensitiveLog = (obj: ListAccountRolesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const ListAccountsRequestFilterSensitiveLog = (obj: ListAccountsRequest): any => ({
   ...obj,
   ...(obj.accessToken && { accessToken: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ListAccountsResponseFilterSensitiveLog = (obj: ListAccountsResponse): any => ({
-  ...obj,
 });
 
 /**

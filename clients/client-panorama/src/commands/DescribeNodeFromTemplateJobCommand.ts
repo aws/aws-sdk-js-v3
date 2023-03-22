@@ -15,7 +15,6 @@ import {
 
 import {
   DescribeNodeFromTemplateJobRequest,
-  DescribeNodeFromTemplateJobRequestFilterSensitiveLog,
   DescribeNodeFromTemplateJobResponse,
   DescribeNodeFromTemplateJobResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -121,7 +120,7 @@ export class DescribeNodeFromTemplateJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeNodeFromTemplateJobRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeNodeFromTemplateJobResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
-import {
-  DeleteAccountSettingRequest,
-  DeleteAccountSettingRequestFilterSensitiveLog,
-  DeleteAccountSettingResponse,
-  DeleteAccountSettingResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteAccountSettingRequest, DeleteAccountSettingResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteAccountSettingCommand,
   serializeAws_json1_1DeleteAccountSettingCommand,
@@ -161,8 +156,8 @@ export class DeleteAccountSettingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAccountSettingRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteAccountSettingResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

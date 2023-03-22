@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import {
-  DescribeRuleRequest,
-  DescribeRuleRequestFilterSensitiveLog,
-  DescribeRuleResponse,
-  DescribeRuleResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeRuleRequest, DescribeRuleResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeRuleCommand,
   serializeAws_restJson1DescribeRuleCommand,
@@ -120,8 +115,8 @@ export class DescribeRuleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeRuleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeRuleResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

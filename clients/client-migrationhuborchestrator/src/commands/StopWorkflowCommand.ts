@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MigrationHubOrchestratorClient";
-import {
-  StopMigrationWorkflowRequest,
-  StopMigrationWorkflowRequestFilterSensitiveLog,
-  StopMigrationWorkflowResponse,
-  StopMigrationWorkflowResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { StopMigrationWorkflowRequest, StopMigrationWorkflowResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1StopWorkflowCommand,
   serializeAws_restJson1StopWorkflowCommand,
@@ -124,8 +119,8 @@ export class StopWorkflowCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopMigrationWorkflowRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StopMigrationWorkflowResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

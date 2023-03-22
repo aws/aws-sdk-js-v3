@@ -15,7 +15,6 @@ import {
 
 import {
   GetServiceInstanceInput,
-  GetServiceInstanceInputFilterSensitiveLog,
   GetServiceInstanceOutput,
   GetServiceInstanceOutputFilterSensitiveLog,
 } from "../models/models_0";
@@ -122,7 +121,7 @@ export class GetServiceInstanceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetServiceInstanceInputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetServiceInstanceOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

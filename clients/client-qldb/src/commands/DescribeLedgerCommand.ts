@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeLedgerRequest,
-  DescribeLedgerRequestFilterSensitiveLog,
-  DescribeLedgerResponse,
-  DescribeLedgerResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeLedgerRequest, DescribeLedgerResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeLedgerCommand,
   serializeAws_restJson1DescribeLedgerCommand,
@@ -114,8 +109,8 @@ export class DescribeLedgerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeLedgerRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeLedgerResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

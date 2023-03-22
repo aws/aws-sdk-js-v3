@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
-import {
-  EvaluateCodeRequest,
-  EvaluateCodeRequestFilterSensitiveLog,
-  EvaluateCodeResponse,
-  EvaluateCodeResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { EvaluateCodeRequest, EvaluateCodeResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1EvaluateCodeCommand,
   serializeAws_restJson1EvaluateCodeCommand,
@@ -119,8 +114,8 @@ export class EvaluateCodeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: EvaluateCodeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: EvaluateCodeResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

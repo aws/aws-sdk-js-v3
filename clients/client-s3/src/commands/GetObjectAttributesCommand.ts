@@ -16,7 +16,6 @@ import {
 
 import {
   GetObjectAttributesOutput,
-  GetObjectAttributesOutputFilterSensitiveLog,
   GetObjectAttributesRequest,
   GetObjectAttributesRequestFilterSensitiveLog,
 } from "../models/models_0";
@@ -268,7 +267,7 @@ export class GetObjectAttributesCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: GetObjectAttributesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetObjectAttributesOutputFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

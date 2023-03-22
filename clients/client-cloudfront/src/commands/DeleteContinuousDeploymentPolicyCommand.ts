@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import {
-  DeleteContinuousDeploymentPolicyRequest,
-  DeleteContinuousDeploymentPolicyRequestFilterSensitiveLog,
-} from "../models/models_1";
+import { DeleteContinuousDeploymentPolicyRequest } from "../models/models_1";
 import {
   deserializeAws_restXmlDeleteContinuousDeploymentPolicyCommand,
   serializeAws_restXmlDeleteContinuousDeploymentPolicyCommand,
@@ -128,8 +125,8 @@ export class DeleteContinuousDeploymentPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteContinuousDeploymentPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

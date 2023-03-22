@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { ResetInstanceAttributeRequest, ResetInstanceAttributeRequestFilterSensitiveLog } from "../models/models_6";
+import { ResetInstanceAttributeRequest } from "../models/models_6";
 import {
   deserializeAws_ec2ResetInstanceAttributeCommand,
   serializeAws_ec2ResetInstanceAttributeCommand,
@@ -122,8 +122,8 @@ export class ResetInstanceAttributeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ResetInstanceAttributeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

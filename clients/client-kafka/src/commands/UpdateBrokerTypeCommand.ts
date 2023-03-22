@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { KafkaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaClient";
-import {
-  UpdateBrokerTypeRequest,
-  UpdateBrokerTypeRequestFilterSensitiveLog,
-  UpdateBrokerTypeResponse,
-  UpdateBrokerTypeResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateBrokerTypeRequest, UpdateBrokerTypeResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateBrokerTypeCommand,
   serializeAws_restJson1UpdateBrokerTypeCommand,
@@ -128,8 +123,8 @@ export class UpdateBrokerTypeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateBrokerTypeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateBrokerTypeResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

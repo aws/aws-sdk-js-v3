@@ -16,9 +16,7 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   DeleteTransitGatewayRouteTableAnnouncementRequest,
-  DeleteTransitGatewayRouteTableAnnouncementRequestFilterSensitiveLog,
   DeleteTransitGatewayRouteTableAnnouncementResult,
-  DeleteTransitGatewayRouteTableAnnouncementResultFilterSensitiveLog,
 } from "../models/models_3";
 import {
   deserializeAws_ec2DeleteTransitGatewayRouteTableAnnouncementCommand,
@@ -116,8 +114,8 @@ export class DeleteTransitGatewayRouteTableAnnouncementCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteTransitGatewayRouteTableAnnouncementRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteTransitGatewayRouteTableAnnouncementResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

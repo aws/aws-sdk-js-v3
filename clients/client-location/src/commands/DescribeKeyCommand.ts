@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
-import {
-  DescribeKeyRequest,
-  DescribeKeyRequestFilterSensitiveLog,
-  DescribeKeyResponse,
-  DescribeKeyResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeKeyRequest, DescribeKeyResponse, DescribeKeyResponseFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeKeyCommand,
   serializeAws_restJson1DescribeKeyCommand,
@@ -126,7 +121,7 @@ export class DescribeKeyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeKeyRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeKeyResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

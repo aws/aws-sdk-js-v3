@@ -15,9 +15,7 @@ import {
 
 import {
   DeletePermissionsBoundaryFromPermissionSetRequest,
-  DeletePermissionsBoundaryFromPermissionSetRequestFilterSensitiveLog,
   DeletePermissionsBoundaryFromPermissionSetResponse,
-  DeletePermissionsBoundaryFromPermissionSetResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1DeletePermissionsBoundaryFromPermissionSetCommand,
@@ -133,8 +131,8 @@ export class DeletePermissionsBoundaryFromPermissionSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeletePermissionsBoundaryFromPermissionSetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeletePermissionsBoundaryFromPermissionSetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

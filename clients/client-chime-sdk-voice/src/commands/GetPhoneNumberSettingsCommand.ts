@@ -81,7 +81,7 @@ export class GetPhoneNumberSettingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (input: any) => input,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetPhoneNumberSettingsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

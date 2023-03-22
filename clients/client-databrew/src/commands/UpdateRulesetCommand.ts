@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DataBrewClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataBrewClient";
-import {
-  UpdateRulesetRequest,
-  UpdateRulesetRequestFilterSensitiveLog,
-  UpdateRulesetResponse,
-  UpdateRulesetResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateRulesetRequest, UpdateRulesetResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateRulesetCommand,
   serializeAws_restJson1UpdateRulesetCommand,
@@ -111,8 +106,8 @@ export class UpdateRulesetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateRulesetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateRulesetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

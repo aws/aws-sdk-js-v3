@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
-import {
-  DescribePrincipalMappingRequest,
-  DescribePrincipalMappingRequestFilterSensitiveLog,
-  DescribePrincipalMappingResponse,
-  DescribePrincipalMappingResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribePrincipalMappingRequest, DescribePrincipalMappingResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribePrincipalMappingCommand,
   serializeAws_json1_1DescribePrincipalMappingCommand,
@@ -135,8 +130,8 @@ export class DescribePrincipalMappingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribePrincipalMappingRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribePrincipalMappingResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

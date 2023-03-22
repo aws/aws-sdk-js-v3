@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListDashboardsRequest,
-  ListDashboardsRequestFilterSensitiveLog,
-  ListDashboardsResponse,
-  ListDashboardsResponseFilterSensitiveLog,
-} from "../models/models_3";
+import { ListDashboardsRequest, ListDashboardsResponse } from "../models/models_3";
 import {
   deserializeAws_restJson1ListDashboardsCommand,
   serializeAws_restJson1ListDashboardsCommand,
@@ -122,8 +117,8 @@ export class ListDashboardsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDashboardsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListDashboardsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

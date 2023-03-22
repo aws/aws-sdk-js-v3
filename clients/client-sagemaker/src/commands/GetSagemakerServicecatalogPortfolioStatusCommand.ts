@@ -15,9 +15,7 @@ import {
 
 import {
   GetSagemakerServicecatalogPortfolioStatusInput,
-  GetSagemakerServicecatalogPortfolioStatusInputFilterSensitiveLog,
   GetSagemakerServicecatalogPortfolioStatusOutput,
-  GetSagemakerServicecatalogPortfolioStatusOutputFilterSensitiveLog,
 } from "../models/models_2";
 import {
   deserializeAws_json1_1GetSagemakerServicecatalogPortfolioStatusCommand,
@@ -117,8 +115,8 @@ export class GetSagemakerServicecatalogPortfolioStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSagemakerServicecatalogPortfolioStatusInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetSagemakerServicecatalogPortfolioStatusOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

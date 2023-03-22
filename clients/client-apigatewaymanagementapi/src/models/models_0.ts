@@ -144,38 +144,3 @@ export interface PostToConnectionRequest {
    */
   ConnectionId: string | undefined;
 }
-
-/**
- * @internal
- */
-export const DeleteConnectionRequestFilterSensitiveLog = (obj: DeleteConnectionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetConnectionRequestFilterSensitiveLog = (obj: GetConnectionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const IdentityFilterSensitiveLog = (obj: Identity): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetConnectionResponseFilterSensitiveLog = (obj: GetConnectionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PostToConnectionRequestFilterSensitiveLog = (obj: PostToConnectionRequest): any => ({
-  ...obj,
-});

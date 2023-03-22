@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { FirehoseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FirehoseClient";
-import {
-  PutRecordBatchInput,
-  PutRecordBatchInputFilterSensitiveLog,
-  PutRecordBatchOutput,
-  PutRecordBatchOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { PutRecordBatchInput, PutRecordBatchOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1PutRecordBatchCommand,
   serializeAws_json1_1PutRecordBatchCommand,
@@ -176,8 +171,8 @@ export class PutRecordBatchCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutRecordBatchInputFilterSensitiveLog,
-      outputFilterSensitiveLog: PutRecordBatchOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

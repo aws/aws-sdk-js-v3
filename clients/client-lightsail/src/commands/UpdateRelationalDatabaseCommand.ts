@@ -18,7 +18,6 @@ import {
   UpdateRelationalDatabaseRequest,
   UpdateRelationalDatabaseRequestFilterSensitiveLog,
   UpdateRelationalDatabaseResult,
-  UpdateRelationalDatabaseResultFilterSensitiveLog,
 } from "../models/models_1";
 import {
   deserializeAws_json1_1UpdateRelationalDatabaseCommand,
@@ -143,7 +142,7 @@ export class UpdateRelationalDatabaseCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: UpdateRelationalDatabaseRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateRelationalDatabaseResultFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

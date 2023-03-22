@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ECRPUBLICClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRPUBLICClient";
-import {
-  DeleteRepositoryPolicyRequest,
-  DeleteRepositoryPolicyRequestFilterSensitiveLog,
-  DeleteRepositoryPolicyResponse,
-  DeleteRepositoryPolicyResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteRepositoryPolicyRequest, DeleteRepositoryPolicyResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteRepositoryPolicyCommand,
   serializeAws_json1_1DeleteRepositoryPolicyCommand,
@@ -125,8 +120,8 @@ export class DeleteRepositoryPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteRepositoryPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteRepositoryPolicyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { XmlAttributesInputOutput, XmlAttributesInputOutputFilterSensitiveLog } from "../models/models_0";
+import { XmlAttributesInputOutput } from "../models/models_0";
 import {
   deserializeAws_restXmlXmlAttributesCommand,
   serializeAws_restXmlXmlAttributesCommand,
@@ -20,15 +20,20 @@ import {
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 
 /**
+ * @public
+ *
  * The input for {@link XmlAttributesCommand}.
  */
 export interface XmlAttributesCommandInput extends XmlAttributesInputOutput {}
 /**
+ * @public
+ *
  * The output of {@link XmlAttributesCommand}.
  */
 export interface XmlAttributesCommandOutput extends XmlAttributesInputOutput, __MetadataBearer {}
 
 /**
+ * @public
  * This example serializes an XML attributes on synthesized document.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,6 +45,8 @@ export interface XmlAttributesCommandOutput extends XmlAttributesInputOutput, __
  * const response = await client.send(command);
  * ```
  *
+ * @param XmlAttributesCommandInput - {@link XmlAttributesCommandInput}
+ * @returns {@link XmlAttributesCommandOutput}
  * @see {@link XmlAttributesCommandInput} for command's `input` shape.
  * @see {@link XmlAttributesCommandOutput} for command's `response` shape.
  * @see {@link RestXmlProtocolClientResolvedConfig | config} for RestXmlProtocolClient's `config` shape.
@@ -54,6 +61,9 @@ export class XmlAttributesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: XmlAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -79,8 +89,8 @@ export class XmlAttributesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: XmlAttributesInputOutputFilterSensitiveLog,
-      outputFilterSensitiveLog: XmlAttributesInputOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -90,10 +100,16 @@ export class XmlAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: XmlAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlXmlAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<XmlAttributesCommandOutput> {
     return deserializeAws_restXmlXmlAttributesCommand(output, context);
   }

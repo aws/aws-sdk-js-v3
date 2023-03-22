@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { SendDiagnosticInterruptRequest, SendDiagnosticInterruptRequestFilterSensitiveLog } from "../models/models_6";
+import { SendDiagnosticInterruptRequest } from "../models/models_6";
 import {
   deserializeAws_ec2SendDiagnosticInterruptCommand,
   serializeAws_ec2SendDiagnosticInterruptCommand,
@@ -116,8 +116,8 @@ export class SendDiagnosticInterruptCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SendDiagnosticInterruptRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

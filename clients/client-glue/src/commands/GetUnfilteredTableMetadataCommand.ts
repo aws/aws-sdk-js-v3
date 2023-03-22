@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  GetUnfilteredTableMetadataRequest,
-  GetUnfilteredTableMetadataRequestFilterSensitiveLog,
-  GetUnfilteredTableMetadataResponse,
-  GetUnfilteredTableMetadataResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { GetUnfilteredTableMetadataRequest, GetUnfilteredTableMetadataResponse } from "../models/models_1";
 import {
   deserializeAws_json1_1GetUnfilteredTableMetadataCommand,
   serializeAws_json1_1GetUnfilteredTableMetadataCommand,
@@ -126,8 +121,8 @@ export class GetUnfilteredTableMetadataCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetUnfilteredTableMetadataRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetUnfilteredTableMetadataResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

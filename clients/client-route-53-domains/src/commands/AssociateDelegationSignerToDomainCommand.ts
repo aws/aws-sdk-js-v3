@@ -15,9 +15,7 @@ import {
 
 import {
   AssociateDelegationSignerToDomainRequest,
-  AssociateDelegationSignerToDomainRequestFilterSensitiveLog,
   AssociateDelegationSignerToDomainResponse,
-  AssociateDelegationSignerToDomainResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1AssociateDelegationSignerToDomainCommand,
@@ -140,8 +138,8 @@ export class AssociateDelegationSignerToDomainCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateDelegationSignerToDomainRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssociateDelegationSignerToDomainResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

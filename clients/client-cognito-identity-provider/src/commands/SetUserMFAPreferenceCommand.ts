@@ -23,7 +23,6 @@ import {
   SetUserMFAPreferenceRequest,
   SetUserMFAPreferenceRequestFilterSensitiveLog,
   SetUserMFAPreferenceResponse,
-  SetUserMFAPreferenceResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1SetUserMFAPreferenceCommand,
@@ -148,7 +147,7 @@ export class SetUserMFAPreferenceCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: SetUserMFAPreferenceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SetUserMFAPreferenceResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

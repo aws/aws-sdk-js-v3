@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import {
-  ListRolesRequest,
-  ListRolesRequestFilterSensitiveLog,
-  ListRolesResponse,
-  ListRolesResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListRolesRequest, ListRolesResponse } from "../models/models_0";
 import { deserializeAws_queryListRolesCommand, serializeAws_queryListRolesCommand } from "../protocols/Aws_query";
 
 /**
@@ -110,8 +105,8 @@ export class ListRolesCommand extends $Command<ListRolesCommandInput, ListRolesC
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListRolesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListRolesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

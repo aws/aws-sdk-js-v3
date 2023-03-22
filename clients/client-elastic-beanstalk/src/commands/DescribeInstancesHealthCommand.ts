@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
-import {
-  DescribeInstancesHealthRequest,
-  DescribeInstancesHealthRequestFilterSensitiveLog,
-  DescribeInstancesHealthResult,
-  DescribeInstancesHealthResultFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeInstancesHealthRequest, DescribeInstancesHealthResult } from "../models/models_0";
 import {
   deserializeAws_queryDescribeInstancesHealthCommand,
   serializeAws_queryDescribeInstancesHealthCommand,
@@ -180,8 +175,8 @@ export class DescribeInstancesHealthCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeInstancesHealthRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeInstancesHealthResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

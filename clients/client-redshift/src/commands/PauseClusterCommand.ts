@@ -13,8 +13,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { PauseClusterMessage, PauseClusterMessageFilterSensitiveLog } from "../models/models_0";
-import { PauseClusterResult, PauseClusterResultFilterSensitiveLog } from "../models/models_1";
+import { PauseClusterMessage } from "../models/models_0";
+import { PauseClusterResult } from "../models/models_1";
 import { deserializeAws_queryPauseClusterCommand, serializeAws_queryPauseClusterCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
@@ -105,8 +105,8 @@ export class PauseClusterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PauseClusterMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: PauseClusterResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

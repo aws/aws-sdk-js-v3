@@ -16,7 +16,6 @@ import {
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
 import {
   RequestUploadCredentialsInput,
-  RequestUploadCredentialsInputFilterSensitiveLog,
   RequestUploadCredentialsOutput,
   RequestUploadCredentialsOutputFilterSensitiveLog,
 } from "../models/models_0";
@@ -135,7 +134,7 @@ export class RequestUploadCredentialsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RequestUploadCredentialsInputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: RequestUploadCredentialsOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaStoreClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaStoreClient";
-import {
-  StartAccessLoggingInput,
-  StartAccessLoggingInputFilterSensitiveLog,
-  StartAccessLoggingOutput,
-  StartAccessLoggingOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { StartAccessLoggingInput, StartAccessLoggingOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1StartAccessLoggingCommand,
   serializeAws_json1_1StartAccessLoggingCommand,
@@ -117,8 +112,8 @@ export class StartAccessLoggingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartAccessLoggingInputFilterSensitiveLog,
-      outputFilterSensitiveLog: StartAccessLoggingOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

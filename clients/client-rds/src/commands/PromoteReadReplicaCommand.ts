@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  PromoteReadReplicaMessage,
-  PromoteReadReplicaMessageFilterSensitiveLog,
-  PromoteReadReplicaResult,
-  PromoteReadReplicaResultFilterSensitiveLog,
-} from "../models/models_1";
+import { PromoteReadReplicaMessage, PromoteReadReplicaResult } from "../models/models_1";
 import {
   deserializeAws_queryPromoteReadReplicaCommand,
   serializeAws_queryPromoteReadReplicaCommand,
@@ -149,8 +144,8 @@ export class PromoteReadReplicaCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PromoteReadReplicaMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: PromoteReadReplicaResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

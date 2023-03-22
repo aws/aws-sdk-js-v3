@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CostExplorerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CostExplorerClient";
-import {
-  DeleteAnomalySubscriptionRequest,
-  DeleteAnomalySubscriptionRequestFilterSensitiveLog,
-  DeleteAnomalySubscriptionResponse,
-  DeleteAnomalySubscriptionResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteAnomalySubscriptionRequest, DeleteAnomalySubscriptionResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteAnomalySubscriptionCommand,
   serializeAws_json1_1DeleteAnomalySubscriptionCommand,
@@ -113,8 +108,8 @@ export class DeleteAnomalySubscriptionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAnomalySubscriptionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteAnomalySubscriptionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

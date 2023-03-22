@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  SearchDashboardsRequest,
-  SearchDashboardsRequestFilterSensitiveLog,
-  SearchDashboardsResponse,
-  SearchDashboardsResponseFilterSensitiveLog,
-} from "../models/models_3";
+import { SearchDashboardsRequest, SearchDashboardsResponse } from "../models/models_3";
 import {
   deserializeAws_restJson1SearchDashboardsCommand,
   serializeAws_restJson1SearchDashboardsCommand,
@@ -131,8 +126,8 @@ export class SearchDashboardsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SearchDashboardsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SearchDashboardsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

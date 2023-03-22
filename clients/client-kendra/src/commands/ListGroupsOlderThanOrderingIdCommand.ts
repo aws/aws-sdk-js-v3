@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
-import {
-  ListGroupsOlderThanOrderingIdRequest,
-  ListGroupsOlderThanOrderingIdRequestFilterSensitiveLog,
-  ListGroupsOlderThanOrderingIdResponse,
-  ListGroupsOlderThanOrderingIdResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListGroupsOlderThanOrderingIdRequest, ListGroupsOlderThanOrderingIdResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ListGroupsOlderThanOrderingIdCommand,
   serializeAws_json1_1ListGroupsOlderThanOrderingIdCommand,
@@ -137,8 +132,8 @@ export class ListGroupsOlderThanOrderingIdCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListGroupsOlderThanOrderingIdRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListGroupsOlderThanOrderingIdResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

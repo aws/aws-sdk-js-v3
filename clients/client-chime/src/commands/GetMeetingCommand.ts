@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import {
-  GetMeetingRequest,
-  GetMeetingRequestFilterSensitiveLog,
-  GetMeetingResponse,
-  GetMeetingResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetMeetingRequest, GetMeetingResponse, GetMeetingResponseFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1GetMeetingCommand,
   serializeAws_restJson1GetMeetingCommand,
@@ -132,7 +127,7 @@ export class GetMeetingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetMeetingRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetMeetingResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

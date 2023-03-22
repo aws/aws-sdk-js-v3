@@ -18,7 +18,6 @@ import {
   CreateSipMediaApplicationCallRequest,
   CreateSipMediaApplicationCallRequestFilterSensitiveLog,
   CreateSipMediaApplicationCallResponse,
-  CreateSipMediaApplicationCallResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateSipMediaApplicationCallCommand,
@@ -135,7 +134,7 @@ export class CreateSipMediaApplicationCallCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateSipMediaApplicationCallRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateSipMediaApplicationCallResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

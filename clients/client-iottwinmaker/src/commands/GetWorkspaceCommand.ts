@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTTwinMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTTwinMakerClient";
-import {
-  GetWorkspaceRequest,
-  GetWorkspaceRequestFilterSensitiveLog,
-  GetWorkspaceResponse,
-  GetWorkspaceResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetWorkspaceRequest, GetWorkspaceResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetWorkspaceCommand,
   serializeAws_restJson1GetWorkspaceCommand,
@@ -120,8 +115,8 @@ export class GetWorkspaceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetWorkspaceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetWorkspaceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

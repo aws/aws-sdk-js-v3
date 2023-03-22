@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import {
-  Stage,
-  StageFilterSensitiveLog,
-  UpdateStageRequest,
-  UpdateStageRequestFilterSensitiveLog,
-} from "../models/models_0";
+import { Stage, UpdateStageRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateStageCommand,
   serializeAws_restJson1UpdateStageCommand,
@@ -123,8 +118,8 @@ export class UpdateStageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateStageRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StageFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

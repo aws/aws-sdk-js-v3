@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateEmailIdentityPolicyRequest,
-  CreateEmailIdentityPolicyRequestFilterSensitiveLog,
-  CreateEmailIdentityPolicyResponse,
-  CreateEmailIdentityPolicyResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateEmailIdentityPolicyRequest, CreateEmailIdentityPolicyResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateEmailIdentityPolicyCommand,
   serializeAws_restJson1CreateEmailIdentityPolicyCommand,
@@ -132,8 +127,8 @@ export class CreateEmailIdentityPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateEmailIdentityPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateEmailIdentityPolicyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -18,10 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../LexModelBuildingServiceClient";
-import {
-  DeleteBotChannelAssociationRequest,
-  DeleteBotChannelAssociationRequestFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteBotChannelAssociationRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteBotChannelAssociationCommand,
   serializeAws_restJson1DeleteBotChannelAssociationCommand,
@@ -131,8 +128,8 @@ export class DeleteBotChannelAssociationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteBotChannelAssociationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

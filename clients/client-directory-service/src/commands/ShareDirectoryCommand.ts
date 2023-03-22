@@ -18,7 +18,6 @@ import {
   ShareDirectoryRequest,
   ShareDirectoryRequestFilterSensitiveLog,
   ShareDirectoryResult,
-  ShareDirectoryResultFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1ShareDirectoryCommand,
@@ -151,7 +150,7 @@ export class ShareDirectoryCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: ShareDirectoryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ShareDirectoryResultFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

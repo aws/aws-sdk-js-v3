@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AppflowClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppflowClient";
-import {
-  DescribeConnectorProfilesRequest,
-  DescribeConnectorProfilesRequestFilterSensitiveLog,
-  DescribeConnectorProfilesResponse,
-  DescribeConnectorProfilesResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeConnectorProfilesRequest, DescribeConnectorProfilesResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeConnectorProfilesCommand,
   serializeAws_restJson1DescribeConnectorProfilesCommand,
@@ -118,8 +113,8 @@ export class DescribeConnectorProfilesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeConnectorProfilesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeConnectorProfilesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

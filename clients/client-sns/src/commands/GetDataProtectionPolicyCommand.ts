@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetDataProtectionPolicyInput,
-  GetDataProtectionPolicyInputFilterSensitiveLog,
-  GetDataProtectionPolicyResponse,
-  GetDataProtectionPolicyResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetDataProtectionPolicyInput, GetDataProtectionPolicyResponse } from "../models/models_0";
 import {
   deserializeAws_queryGetDataProtectionPolicyCommand,
   serializeAws_queryGetDataProtectionPolicyCommand,
@@ -125,8 +120,8 @@ export class GetDataProtectionPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDataProtectionPolicyInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetDataProtectionPolicyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

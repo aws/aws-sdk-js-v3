@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DisassociateOpsItemRelatedItemRequest,
-  DisassociateOpsItemRelatedItemRequestFilterSensitiveLog,
-  DisassociateOpsItemRelatedItemResponse,
-  DisassociateOpsItemRelatedItemResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { DisassociateOpsItemRelatedItemRequest, DisassociateOpsItemRelatedItemResponse } from "../models/models_1";
 import {
   deserializeAws_json1_1DisassociateOpsItemRelatedItemCommand,
   serializeAws_json1_1DisassociateOpsItemRelatedItemCommand,
@@ -125,8 +120,8 @@ export class DisassociateOpsItemRelatedItemCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateOpsItemRelatedItemRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateOpsItemRelatedItemResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

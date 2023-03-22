@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
-import {
-  PutSourceServerActionRequest,
-  PutSourceServerActionRequestFilterSensitiveLog,
-  SourceServerActionDocument,
-  SourceServerActionDocumentFilterSensitiveLog,
-} from "../models/models_0";
+import { PutSourceServerActionRequest, SourceServerActionDocument } from "../models/models_0";
 import {
   deserializeAws_restJson1PutSourceServerActionCommand,
   serializeAws_restJson1PutSourceServerActionCommand,
@@ -119,8 +114,8 @@ export class PutSourceServerActionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutSourceServerActionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SourceServerActionDocumentFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

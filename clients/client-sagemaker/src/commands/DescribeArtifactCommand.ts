@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeArtifactRequest,
-  DescribeArtifactRequestFilterSensitiveLog,
-  DescribeArtifactResponse,
-  DescribeArtifactResponseFilterSensitiveLog,
-} from "../models/models_2";
+import { DescribeArtifactRequest, DescribeArtifactResponse } from "../models/models_2";
 import {
   deserializeAws_json1_1DescribeArtifactCommand,
   serializeAws_json1_1DescribeArtifactCommand,
@@ -110,8 +105,8 @@ export class DescribeArtifactCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeArtifactRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeArtifactResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

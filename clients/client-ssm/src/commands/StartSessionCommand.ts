@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  StartSessionRequest,
-  StartSessionRequestFilterSensitiveLog,
-  StartSessionResponse,
-  StartSessionResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { StartSessionRequest, StartSessionResponse } from "../models/models_1";
 import {
   deserializeAws_json1_1StartSessionCommand,
   serializeAws_json1_1StartSessionCommand,
@@ -127,8 +122,8 @@ export class StartSessionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartSessionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartSessionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

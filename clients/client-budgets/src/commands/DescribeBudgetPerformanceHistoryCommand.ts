@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { BudgetsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BudgetsClient";
-import {
-  DescribeBudgetPerformanceHistoryRequest,
-  DescribeBudgetPerformanceHistoryRequestFilterSensitiveLog,
-  DescribeBudgetPerformanceHistoryResponse,
-  DescribeBudgetPerformanceHistoryResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeBudgetPerformanceHistoryRequest, DescribeBudgetPerformanceHistoryResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeBudgetPerformanceHistoryCommand,
   serializeAws_json1_1DescribeBudgetPerformanceHistoryCommand,
@@ -132,8 +127,8 @@ export class DescribeBudgetPerformanceHistoryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeBudgetPerformanceHistoryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeBudgetPerformanceHistoryResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

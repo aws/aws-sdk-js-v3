@@ -20,9 +20,7 @@ import {
 } from "../ElasticsearchServiceClient";
 import {
   CancelElasticsearchServiceSoftwareUpdateRequest,
-  CancelElasticsearchServiceSoftwareUpdateRequestFilterSensitiveLog,
   CancelElasticsearchServiceSoftwareUpdateResponse,
-  CancelElasticsearchServiceSoftwareUpdateResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1CancelElasticsearchServiceSoftwareUpdateCommand,
@@ -132,8 +130,8 @@ export class CancelElasticsearchServiceSoftwareUpdateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelElasticsearchServiceSoftwareUpdateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CancelElasticsearchServiceSoftwareUpdateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

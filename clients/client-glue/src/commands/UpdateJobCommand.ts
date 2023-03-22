@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  UpdateJobRequest,
-  UpdateJobRequestFilterSensitiveLog,
-  UpdateJobResponse,
-  UpdateJobResponseFilterSensitiveLog,
-} from "../models/models_2";
+import { UpdateJobRequest, UpdateJobRequestFilterSensitiveLog, UpdateJobResponse } from "../models/models_2";
 import { deserializeAws_json1_1UpdateJobCommand, serializeAws_json1_1UpdateJobCommand } from "../protocols/Aws_json1_1";
 
 /**
@@ -118,7 +113,7 @@ export class UpdateJobCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: UpdateJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateJobResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

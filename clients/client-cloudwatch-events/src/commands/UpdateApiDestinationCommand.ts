@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchEventsClient";
-import {
-  UpdateApiDestinationRequest,
-  UpdateApiDestinationRequestFilterSensitiveLog,
-  UpdateApiDestinationResponse,
-  UpdateApiDestinationResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateApiDestinationRequest, UpdateApiDestinationResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateApiDestinationCommand,
   serializeAws_json1_1UpdateApiDestinationCommand,
@@ -120,8 +115,8 @@ export class UpdateApiDestinationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateApiDestinationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateApiDestinationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

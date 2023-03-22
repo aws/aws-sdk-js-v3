@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  BatchDeletePartitionRequest,
-  BatchDeletePartitionRequestFilterSensitiveLog,
-  BatchDeletePartitionResponse,
-  BatchDeletePartitionResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { BatchDeletePartitionRequest, BatchDeletePartitionResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1BatchDeletePartitionCommand,
   serializeAws_json1_1BatchDeletePartitionCommand,
@@ -119,8 +114,8 @@ export class BatchDeletePartitionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchDeletePartitionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchDeletePartitionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

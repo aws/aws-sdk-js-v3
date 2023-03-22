@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
-import {
-  ListServicesByNamespaceRequest,
-  ListServicesByNamespaceRequestFilterSensitiveLog,
-  ListServicesByNamespaceResponse,
-  ListServicesByNamespaceResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListServicesByNamespaceRequest, ListServicesByNamespaceResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ListServicesByNamespaceCommand,
   serializeAws_json1_1ListServicesByNamespaceCommand,
@@ -126,8 +121,8 @@ export class ListServicesByNamespaceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListServicesByNamespaceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListServicesByNamespaceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

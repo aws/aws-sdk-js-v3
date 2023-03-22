@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
-import {
-  DeleteImportedKeyMaterialRequest,
-  DeleteImportedKeyMaterialRequestFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteImportedKeyMaterialRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteImportedKeyMaterialCommand,
   serializeAws_json1_1DeleteImportedKeyMaterialCommand,
@@ -182,8 +179,8 @@ export class DeleteImportedKeyMaterialCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteImportedKeyMaterialRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

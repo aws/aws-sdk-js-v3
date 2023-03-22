@@ -16,7 +16,6 @@ import {
 import { ChimeSDKVoiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKVoiceClient";
 import {
   ListSipMediaApplicationsRequest,
-  ListSipMediaApplicationsRequestFilterSensitiveLog,
   ListSipMediaApplicationsResponse,
   ListSipMediaApplicationsResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -86,7 +85,7 @@ export class ListSipMediaApplicationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListSipMediaApplicationsRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListSipMediaApplicationsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

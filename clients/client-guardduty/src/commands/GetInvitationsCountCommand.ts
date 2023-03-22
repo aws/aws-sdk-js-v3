@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
-import {
-  GetInvitationsCountRequest,
-  GetInvitationsCountRequestFilterSensitiveLog,
-  GetInvitationsCountResponse,
-  GetInvitationsCountResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetInvitationsCountRequest, GetInvitationsCountResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetInvitationsCountCommand,
   serializeAws_restJson1GetInvitationsCountCommand,
@@ -114,8 +109,8 @@ export class GetInvitationsCountCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetInvitationsCountRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetInvitationsCountResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { SetSubscriptionAttributesInput, SetSubscriptionAttributesInputFilterSensitiveLog } from "../models/models_0";
+import { SetSubscriptionAttributesInput } from "../models/models_0";
 import {
   deserializeAws_querySetSubscriptionAttributesCommand,
   serializeAws_querySetSubscriptionAttributesCommand,
@@ -121,8 +121,8 @@ export class SetSubscriptionAttributesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SetSubscriptionAttributesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -17,9 +17,7 @@ import {
 
 import {
   SubmitMultiRegionAccessPointRoutesRequest,
-  SubmitMultiRegionAccessPointRoutesRequestFilterSensitiveLog,
   SubmitMultiRegionAccessPointRoutesResult,
-  SubmitMultiRegionAccessPointRoutesResultFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restXmlSubmitMultiRegionAccessPointRoutesCommand,
@@ -160,8 +158,8 @@ export class SubmitMultiRegionAccessPointRoutesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SubmitMultiRegionAccessPointRoutesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SubmitMultiRegionAccessPointRoutesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

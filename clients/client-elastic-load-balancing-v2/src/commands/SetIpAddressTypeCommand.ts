@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingV2Client";
-import {
-  SetIpAddressTypeInput,
-  SetIpAddressTypeInputFilterSensitiveLog,
-  SetIpAddressTypeOutput,
-  SetIpAddressTypeOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { SetIpAddressTypeInput, SetIpAddressTypeOutput } from "../models/models_0";
 import {
   deserializeAws_querySetIpAddressTypeCommand,
   serializeAws_querySetIpAddressTypeCommand,
@@ -120,8 +115,8 @@ export class SetIpAddressTypeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SetIpAddressTypeInputFilterSensitiveLog,
-      outputFilterSensitiveLog: SetIpAddressTypeOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  StartCanaryRequest,
-  StartCanaryRequestFilterSensitiveLog,
-  StartCanaryResponse,
-  StartCanaryResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { StartCanaryRequest, StartCanaryResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1StartCanaryCommand,
   serializeAws_restJson1StartCanaryCommand,
@@ -119,8 +114,8 @@ export class StartCanaryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartCanaryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartCanaryResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

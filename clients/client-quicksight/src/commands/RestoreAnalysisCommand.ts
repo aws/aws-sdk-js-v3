@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  RestoreAnalysisRequest,
-  RestoreAnalysisRequestFilterSensitiveLog,
-  RestoreAnalysisResponse,
-  RestoreAnalysisResponseFilterSensitiveLog,
-} from "../models/models_3";
+import { RestoreAnalysisRequest, RestoreAnalysisResponse } from "../models/models_3";
 import {
   deserializeAws_restJson1RestoreAnalysisCommand,
   serializeAws_restJson1RestoreAnalysisCommand,
@@ -128,8 +123,8 @@ export class RestoreAnalysisCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RestoreAnalysisRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RestoreAnalysisResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

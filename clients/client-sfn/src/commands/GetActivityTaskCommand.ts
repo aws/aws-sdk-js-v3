@@ -15,7 +15,6 @@ import {
 
 import {
   GetActivityTaskInput,
-  GetActivityTaskInputFilterSensitiveLog,
   GetActivityTaskOutput,
   GetActivityTaskOutputFilterSensitiveLog,
 } from "../models/models_0";
@@ -134,7 +133,7 @@ export class GetActivityTaskCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetActivityTaskInputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetActivityTaskOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

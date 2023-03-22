@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
-import {
-  CreateExportRequest,
-  CreateExportRequestFilterSensitiveLog,
-  CreateExportResponse,
-  CreateExportResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateExportRequest, CreateExportRequestFilterSensitiveLog, CreateExportResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateExportCommand,
   serializeAws_restJson1CreateExportCommand,
@@ -139,7 +134,7 @@ export class CreateExportCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateExportRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateExportResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

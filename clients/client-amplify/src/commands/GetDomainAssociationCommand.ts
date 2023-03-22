@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AmplifyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyClient";
-import {
-  GetDomainAssociationRequest,
-  GetDomainAssociationRequestFilterSensitiveLog,
-  GetDomainAssociationResult,
-  GetDomainAssociationResultFilterSensitiveLog,
-} from "../models/models_0";
+import { GetDomainAssociationRequest, GetDomainAssociationResult } from "../models/models_0";
 import {
   deserializeAws_restJson1GetDomainAssociationCommand,
   serializeAws_restJson1GetDomainAssociationCommand,
@@ -119,8 +114,8 @@ export class GetDomainAssociationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDomainAssociationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetDomainAssociationResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,10 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  StopHyperParameterTuningJobRequest,
-  StopHyperParameterTuningJobRequestFilterSensitiveLog,
-} from "../models/models_3";
+import { StopHyperParameterTuningJobRequest } from "../models/models_3";
 import {
   deserializeAws_json1_1StopHyperParameterTuningJobCommand,
   serializeAws_json1_1StopHyperParameterTuningJobCommand,
@@ -114,8 +111,8 @@ export class StopHyperParameterTuningJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopHyperParameterTuningJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

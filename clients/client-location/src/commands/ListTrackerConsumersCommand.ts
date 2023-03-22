@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
-import {
-  ListTrackerConsumersRequest,
-  ListTrackerConsumersRequestFilterSensitiveLog,
-  ListTrackerConsumersResponse,
-  ListTrackerConsumersResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListTrackerConsumersRequest, ListTrackerConsumersResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListTrackerConsumersCommand,
   serializeAws_restJson1ListTrackerConsumersCommand,
@@ -123,8 +118,8 @@ export class ListTrackerConsumersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTrackerConsumersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListTrackerConsumersResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

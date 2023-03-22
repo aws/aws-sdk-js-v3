@@ -22,7 +22,6 @@ import {
   VerifyUserAttributeRequest,
   VerifyUserAttributeRequestFilterSensitiveLog,
   VerifyUserAttributeResponse,
-  VerifyUserAttributeResponseFilterSensitiveLog,
 } from "../models/models_1";
 import {
   deserializeAws_json1_1VerifyUserAttributeCommand,
@@ -166,7 +165,7 @@ export class VerifyUserAttributeCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: VerifyUserAttributeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: VerifyUserAttributeResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

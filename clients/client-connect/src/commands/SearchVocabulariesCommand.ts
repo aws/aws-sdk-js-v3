@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import {
-  SearchVocabulariesRequest,
-  SearchVocabulariesRequestFilterSensitiveLog,
-  SearchVocabulariesResponse,
-  SearchVocabulariesResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { SearchVocabulariesRequest, SearchVocabulariesResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1SearchVocabulariesCommand,
   serializeAws_restJson1SearchVocabulariesCommand,
@@ -120,8 +115,8 @@ export class SearchVocabulariesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SearchVocabulariesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SearchVocabulariesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

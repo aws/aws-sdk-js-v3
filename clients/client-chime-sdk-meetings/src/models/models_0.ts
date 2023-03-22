@@ -1517,31 +1517,10 @@ export interface UpdateAttendeeCapabilitiesResponse {
 /**
  * @internal
  */
-export const AttendeeCapabilitiesFilterSensitiveLog = (obj: AttendeeCapabilities): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const AttendeeFilterSensitiveLog = (obj: Attendee): any => ({
   ...obj,
   ...(obj.ExternalUserId && { ExternalUserId: SENSITIVE_STRING }),
   ...(obj.JoinToken && { JoinToken: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const AttendeeIdItemFilterSensitiveLog = (obj: AttendeeIdItem): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AudioFeaturesFilterSensitiveLog = (obj: AudioFeatures): any => ({
-  ...obj,
 });
 
 /**
@@ -1580,15 +1559,6 @@ export const BatchCreateAttendeeResponseFilterSensitiveLog = (obj: BatchCreateAt
 /**
  * @internal
  */
-export const BatchUpdateAttendeeCapabilitiesExceptRequestFilterSensitiveLog = (
-  obj: BatchUpdateAttendeeCapabilitiesExceptRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const CreateAttendeeRequestFilterSensitiveLog = (obj: CreateAttendeeRequest): any => ({
   ...obj,
   ...(obj.ExternalUserId && { ExternalUserId: SENSITIVE_STRING }),
@@ -1605,25 +1575,11 @@ export const CreateAttendeeResponseFilterSensitiveLog = (obj: CreateAttendeeResp
 /**
  * @internal
  */
-export const MeetingFeaturesConfigurationFilterSensitiveLog = (obj: MeetingFeaturesConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const NotificationsConfigurationFilterSensitiveLog = (obj: NotificationsConfiguration): any => ({
   ...obj,
   ...(obj.LambdaFunctionArn && { LambdaFunctionArn: SENSITIVE_STRING }),
   ...(obj.SnsTopicArn && { SnsTopicArn: SENSITIVE_STRING }),
   ...(obj.SqsQueueArn && { SqsQueueArn: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const TagFilterSensitiveLog = (obj: Tag): any => ({
-  ...obj,
 });
 
 /**
@@ -1637,13 +1593,6 @@ export const CreateMeetingRequestFilterSensitiveLog = (obj: CreateMeetingRequest
   ...(obj.NotificationsConfiguration && {
     NotificationsConfiguration: NotificationsConfigurationFilterSensitiveLog(obj.NotificationsConfiguration),
   }),
-});
-
-/**
- * @internal
- */
-export const MediaPlacementFilterSensitiveLog = (obj: MediaPlacement): any => ({
-  ...obj,
 });
 
 /**
@@ -1690,37 +1639,9 @@ export const CreateMeetingWithAttendeesResponseFilterSensitiveLog = (obj: Create
 /**
  * @internal
  */
-export const DeleteAttendeeRequestFilterSensitiveLog = (obj: DeleteAttendeeRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteMeetingRequestFilterSensitiveLog = (obj: DeleteMeetingRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetAttendeeRequestFilterSensitiveLog = (obj: GetAttendeeRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const GetAttendeeResponseFilterSensitiveLog = (obj: GetAttendeeResponse): any => ({
   ...obj,
   ...(obj.Attendee && { Attendee: AttendeeFilterSensitiveLog(obj.Attendee) }),
-});
-
-/**
- * @internal
- */
-export const GetMeetingRequestFilterSensitiveLog = (obj: GetMeetingRequest): any => ({
-  ...obj,
 });
 
 /**
@@ -1734,100 +1655,9 @@ export const GetMeetingResponseFilterSensitiveLog = (obj: GetMeetingResponse): a
 /**
  * @internal
  */
-export const ListAttendeesRequestFilterSensitiveLog = (obj: ListAttendeesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const ListAttendeesResponseFilterSensitiveLog = (obj: ListAttendeesResponse): any => ({
   ...obj,
   ...(obj.Attendees && { Attendees: obj.Attendees.map((item) => AttendeeFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EngineTranscribeMedicalSettingsFilterSensitiveLog = (obj: EngineTranscribeMedicalSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EngineTranscribeSettingsFilterSensitiveLog = (obj: EngineTranscribeSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TranscriptionConfigurationFilterSensitiveLog = (obj: TranscriptionConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartMeetingTranscriptionRequestFilterSensitiveLog = (obj: StartMeetingTranscriptionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopMeetingTranscriptionRequestFilterSensitiveLog = (obj: StopMeetingTranscriptionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateAttendeeCapabilitiesRequestFilterSensitiveLog = (obj: UpdateAttendeeCapabilitiesRequest): any => ({
-  ...obj,
 });
 
 /**

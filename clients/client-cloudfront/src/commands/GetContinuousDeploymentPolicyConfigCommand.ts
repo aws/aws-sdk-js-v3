@@ -16,9 +16,7 @@ import {
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import {
   GetContinuousDeploymentPolicyConfigRequest,
-  GetContinuousDeploymentPolicyConfigRequestFilterSensitiveLog,
   GetContinuousDeploymentPolicyConfigResult,
-  GetContinuousDeploymentPolicyConfigResultFilterSensitiveLog,
 } from "../models/models_1";
 import {
   deserializeAws_restXmlGetContinuousDeploymentPolicyConfigCommand,
@@ -115,8 +113,8 @@ export class GetContinuousDeploymentPolicyConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetContinuousDeploymentPolicyConfigRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetContinuousDeploymentPolicyConfigResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

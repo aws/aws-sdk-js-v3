@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaConvertClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConvertClient";
-import {
-  UpdateQueueRequest,
-  UpdateQueueRequestFilterSensitiveLog,
-  UpdateQueueResponse,
-  UpdateQueueResponseFilterSensitiveLog,
-} from "../models/models_2";
+import { UpdateQueueRequest, UpdateQueueResponse } from "../models/models_2";
 import {
   deserializeAws_restJson1UpdateQueueCommand,
   serializeAws_restJson1UpdateQueueCommand,
@@ -123,8 +118,8 @@ export class UpdateQueueCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateQueueRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateQueueResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

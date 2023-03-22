@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdatePackageRequest,
-  UpdatePackageRequestFilterSensitiveLog,
-  UpdatePackageResponse,
-  UpdatePackageResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdatePackageRequest, UpdatePackageResponse } from "../models/models_0";
 import { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
 import {
   deserializeAws_restJson1UpdatePackageCommand,
@@ -124,8 +119,8 @@ export class UpdatePackageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdatePackageRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdatePackageResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import {
-  ApiKeyIds,
-  ApiKeyIdsFilterSensitiveLog,
-  ImportApiKeysRequest,
-  ImportApiKeysRequestFilterSensitiveLog,
-} from "../models/models_0";
+import { ApiKeyIds, ImportApiKeysRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1ImportApiKeysCommand,
   serializeAws_restJson1ImportApiKeysCommand,
@@ -123,8 +118,8 @@ export class ImportApiKeysCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ImportApiKeysRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ApiKeyIdsFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

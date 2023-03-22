@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import {
-  CreateVocabularyRequest,
-  CreateVocabularyRequestFilterSensitiveLog,
-  CreateVocabularyResponse,
-  CreateVocabularyResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateVocabularyRequest, CreateVocabularyResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateVocabularyCommand,
   serializeAws_restJson1CreateVocabularyCommand,
@@ -130,8 +125,8 @@ export class CreateVocabularyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateVocabularyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateVocabularyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

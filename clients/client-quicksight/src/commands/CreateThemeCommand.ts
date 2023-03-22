@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateThemeRequest,
-  CreateThemeRequestFilterSensitiveLog,
-  CreateThemeResponse,
-  CreateThemeResponseFilterSensitiveLog,
-} from "../models/models_2";
+import { CreateThemeRequest, CreateThemeResponse } from "../models/models_2";
 import {
   deserializeAws_restJson1CreateThemeCommand,
   serializeAws_restJson1CreateThemeCommand,
@@ -138,8 +133,8 @@ export class CreateThemeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateThemeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateThemeResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

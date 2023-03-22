@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  CancelMLTaskRunRequest,
-  CancelMLTaskRunRequestFilterSensitiveLog,
-  CancelMLTaskRunResponse,
-  CancelMLTaskRunResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CancelMLTaskRunRequest, CancelMLTaskRunResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1CancelMLTaskRunCommand,
   serializeAws_json1_1CancelMLTaskRunCommand,
@@ -121,8 +116,8 @@ export class CancelMLTaskRunCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelMLTaskRunRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CancelMLTaskRunResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteWebACLRequest,
-  DeleteWebACLRequestFilterSensitiveLog,
-  DeleteWebACLResponse,
-  DeleteWebACLResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteWebACLRequest, DeleteWebACLResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteWebACLCommand,
   serializeAws_json1_1DeleteWebACLCommand,
@@ -187,8 +182,8 @@ export class DeleteWebACLCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteWebACLRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteWebACLResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

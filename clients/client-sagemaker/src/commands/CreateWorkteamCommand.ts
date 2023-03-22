@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateWorkteamRequest,
-  CreateWorkteamRequestFilterSensitiveLog,
-  CreateWorkteamResponse,
-  CreateWorkteamResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { CreateWorkteamRequest, CreateWorkteamResponse } from "../models/models_1";
 import {
   deserializeAws_json1_1CreateWorkteamCommand,
   serializeAws_json1_1CreateWorkteamCommand,
@@ -117,8 +112,8 @@ export class CreateWorkteamCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateWorkteamRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateWorkteamResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

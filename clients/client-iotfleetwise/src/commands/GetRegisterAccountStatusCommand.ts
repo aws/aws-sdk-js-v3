@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTFleetWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTFleetWiseClient";
-import {
-  GetRegisterAccountStatusRequest,
-  GetRegisterAccountStatusRequestFilterSensitiveLog,
-  GetRegisterAccountStatusResponse,
-  GetRegisterAccountStatusResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetRegisterAccountStatusRequest, GetRegisterAccountStatusResponse } from "../models/models_0";
 import {
   deserializeAws_json1_0GetRegisterAccountStatusCommand,
   serializeAws_json1_0GetRegisterAccountStatusCommand,
@@ -128,8 +123,8 @@ export class GetRegisterAccountStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetRegisterAccountStatusRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetRegisterAccountStatusResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

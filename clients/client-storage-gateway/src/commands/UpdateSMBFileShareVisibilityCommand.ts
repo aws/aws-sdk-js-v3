@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateSMBFileShareVisibilityInput,
-  UpdateSMBFileShareVisibilityInputFilterSensitiveLog,
-  UpdateSMBFileShareVisibilityOutput,
-  UpdateSMBFileShareVisibilityOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateSMBFileShareVisibilityInput, UpdateSMBFileShareVisibilityOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateSMBFileShareVisibilityCommand,
   serializeAws_json1_1UpdateSMBFileShareVisibilityCommand,
@@ -118,8 +113,8 @@ export class UpdateSMBFileShareVisibilityCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateSMBFileShareVisibilityInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateSMBFileShareVisibilityOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

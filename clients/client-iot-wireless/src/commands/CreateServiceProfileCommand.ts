@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
-import {
-  CreateServiceProfileRequest,
-  CreateServiceProfileRequestFilterSensitiveLog,
-  CreateServiceProfileResponse,
-  CreateServiceProfileResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateServiceProfileRequest, CreateServiceProfileResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateServiceProfileCommand,
   serializeAws_restJson1CreateServiceProfileCommand,
@@ -122,8 +117,8 @@ export class CreateServiceProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateServiceProfileRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateServiceProfileResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

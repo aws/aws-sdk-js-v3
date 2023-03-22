@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
-import {
-  ReleaseFileSystemNfsV3LocksRequest,
-  ReleaseFileSystemNfsV3LocksRequestFilterSensitiveLog,
-  ReleaseFileSystemNfsV3LocksResponse,
-  ReleaseFileSystemNfsV3LocksResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ReleaseFileSystemNfsV3LocksRequest, ReleaseFileSystemNfsV3LocksResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ReleaseFileSystemNfsV3LocksCommand,
   serializeAws_json1_1ReleaseFileSystemNfsV3LocksCommand,
@@ -128,8 +123,8 @@ export class ReleaseFileSystemNfsV3LocksCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ReleaseFileSystemNfsV3LocksRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ReleaseFileSystemNfsV3LocksResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

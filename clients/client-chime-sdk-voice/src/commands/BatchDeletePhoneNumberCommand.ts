@@ -16,7 +16,6 @@ import {
 import { ChimeSDKVoiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKVoiceClient";
 import {
   BatchDeletePhoneNumberRequest,
-  BatchDeletePhoneNumberRequestFilterSensitiveLog,
   BatchDeletePhoneNumberResponse,
   BatchDeletePhoneNumberResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -86,7 +85,7 @@ export class BatchDeletePhoneNumberCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchDeletePhoneNumberRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: BatchDeletePhoneNumberResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

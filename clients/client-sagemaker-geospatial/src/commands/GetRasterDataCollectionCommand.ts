@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetRasterDataCollectionInput,
-  GetRasterDataCollectionInputFilterSensitiveLog,
-  GetRasterDataCollectionOutput,
-  GetRasterDataCollectionOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { GetRasterDataCollectionInput, GetRasterDataCollectionOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1GetRasterDataCollectionCommand,
   serializeAws_restJson1GetRasterDataCollectionCommand,
@@ -126,8 +121,8 @@ export class GetRasterDataCollectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetRasterDataCollectionInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetRasterDataCollectionOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
-import {
-  ListBotLocalesRequest,
-  ListBotLocalesRequestFilterSensitiveLog,
-  ListBotLocalesResponse,
-  ListBotLocalesResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListBotLocalesRequest, ListBotLocalesResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListBotLocalesCommand,
   serializeAws_restJson1ListBotLocalesCommand,
@@ -122,8 +117,8 @@ export class ListBotLocalesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListBotLocalesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListBotLocalesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateKeySigningKeyRequest,
-  CreateKeySigningKeyRequestFilterSensitiveLog,
-  CreateKeySigningKeyResponse,
-  CreateKeySigningKeyResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateKeySigningKeyRequest, CreateKeySigningKeyResponse } from "../models/models_0";
 import {
   deserializeAws_restXmlCreateKeySigningKeyCommand,
   serializeAws_restXmlCreateKeySigningKeyCommand,
@@ -145,8 +140,8 @@ export class CreateKeySigningKeyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateKeySigningKeyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateKeySigningKeyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

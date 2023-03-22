@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CloudSearchDomainClient";
-import {
-  SuggestRequest,
-  SuggestRequestFilterSensitiveLog,
-  SuggestResponse,
-  SuggestResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { SuggestRequest, SuggestResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1SuggestCommand,
   serializeAws_restJson1SuggestCommand,
@@ -115,8 +110,8 @@ export class SuggestCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SuggestRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SuggestResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

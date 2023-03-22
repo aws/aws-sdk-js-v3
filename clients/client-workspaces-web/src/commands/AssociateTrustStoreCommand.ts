@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  AssociateTrustStoreRequest,
-  AssociateTrustStoreRequestFilterSensitiveLog,
-  AssociateTrustStoreResponse,
-  AssociateTrustStoreResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { AssociateTrustStoreRequest, AssociateTrustStoreResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1AssociateTrustStoreCommand,
   serializeAws_restJson1AssociateTrustStoreCommand,
@@ -122,8 +117,8 @@ export class AssociateTrustStoreCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateTrustStoreRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssociateTrustStoreResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

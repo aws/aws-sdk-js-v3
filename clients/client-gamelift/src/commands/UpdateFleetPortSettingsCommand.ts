@@ -14,8 +14,8 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import { UpdateFleetPortSettingsInput, UpdateFleetPortSettingsInputFilterSensitiveLog } from "../models/models_0";
-import { UpdateFleetPortSettingsOutput, UpdateFleetPortSettingsOutputFilterSensitiveLog } from "../models/models_1";
+import { UpdateFleetPortSettingsInput } from "../models/models_0";
+import { UpdateFleetPortSettingsOutput } from "../models/models_1";
 import {
   deserializeAws_json1_1UpdateFleetPortSettingsCommand,
   serializeAws_json1_1UpdateFleetPortSettingsCommand,
@@ -149,8 +149,8 @@ export class UpdateFleetPortSettingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateFleetPortSettingsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateFleetPortSettingsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

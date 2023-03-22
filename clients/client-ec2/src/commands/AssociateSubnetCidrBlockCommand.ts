@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  AssociateSubnetCidrBlockRequest,
-  AssociateSubnetCidrBlockRequestFilterSensitiveLog,
-  AssociateSubnetCidrBlockResult,
-  AssociateSubnetCidrBlockResultFilterSensitiveLog,
-} from "../models/models_0";
+import { AssociateSubnetCidrBlockRequest, AssociateSubnetCidrBlockResult } from "../models/models_0";
 import {
   deserializeAws_ec2AssociateSubnetCidrBlockCommand,
   serializeAws_ec2AssociateSubnetCidrBlockCommand,
@@ -108,8 +103,8 @@ export class AssociateSubnetCidrBlockCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateSubnetCidrBlockRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssociateSubnetCidrBlockResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

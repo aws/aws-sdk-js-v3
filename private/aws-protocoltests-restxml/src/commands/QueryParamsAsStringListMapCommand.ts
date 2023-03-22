@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { QueryParamsAsStringListMapInput, QueryParamsAsStringListMapInputFilterSensitiveLog } from "../models/models_0";
+import { QueryParamsAsStringListMapInput } from "../models/models_0";
 import {
   deserializeAws_restXmlQueryParamsAsStringListMapCommand,
   serializeAws_restXmlQueryParamsAsStringListMapCommand,
@@ -20,10 +20,14 @@ import {
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 
 /**
+ * @public
+ *
  * The input for {@link QueryParamsAsStringListMapCommand}.
  */
 export interface QueryParamsAsStringListMapCommandInput extends QueryParamsAsStringListMapInput {}
 /**
+ * @public
+ *
  * The output of {@link QueryParamsAsStringListMapCommand}.
  */
 export interface QueryParamsAsStringListMapCommandOutput extends __MetadataBearer {}
@@ -36,6 +40,9 @@ export class QueryParamsAsStringListMapCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: QueryParamsAsStringListMapCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,8 +68,8 @@ export class QueryParamsAsStringListMapCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: QueryParamsAsStringListMapInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -72,10 +79,16 @@ export class QueryParamsAsStringListMapCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: QueryParamsAsStringListMapCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlQueryParamsAsStringListMapCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

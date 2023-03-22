@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import {
-  CreateRestApiRequest,
-  CreateRestApiRequestFilterSensitiveLog,
-  RestApi,
-  RestApiFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateRestApiRequest, RestApi } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateRestApiCommand,
   serializeAws_restJson1CreateRestApiCommand,
@@ -120,8 +115,8 @@ export class CreateRestApiCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateRestApiRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RestApiFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

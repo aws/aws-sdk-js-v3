@@ -16,9 +16,7 @@ import {
 import { LicenseManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LicenseManagerClient";
 import {
   ListAssociationsForLicenseConfigurationRequest,
-  ListAssociationsForLicenseConfigurationRequestFilterSensitiveLog,
   ListAssociationsForLicenseConfigurationResponse,
-  ListAssociationsForLicenseConfigurationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1ListAssociationsForLicenseConfigurationCommand,
@@ -138,8 +136,8 @@ export class ListAssociationsForLicenseConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAssociationsForLicenseConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAssociationsForLicenseConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

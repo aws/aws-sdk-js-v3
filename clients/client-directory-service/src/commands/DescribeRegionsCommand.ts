@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
-import {
-  DescribeRegionsRequest,
-  DescribeRegionsRequestFilterSensitiveLog,
-  DescribeRegionsResult,
-  DescribeRegionsResultFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeRegionsRequest, DescribeRegionsResult } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeRegionsCommand,
   serializeAws_json1_1DescribeRegionsCommand,
@@ -129,8 +124,8 @@ export class DescribeRegionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeRegionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeRegionsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

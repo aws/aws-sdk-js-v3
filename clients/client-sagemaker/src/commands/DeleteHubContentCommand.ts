@@ -13,7 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteHubContentRequest, DeleteHubContentRequestFilterSensitiveLog } from "../models/models_1";
+import { DeleteHubContentRequest } from "../models/models_1";
 import {
   deserializeAws_json1_1DeleteHubContentCommand,
   serializeAws_json1_1DeleteHubContentCommand,
@@ -111,8 +111,8 @@ export class DeleteHubContentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteHubContentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

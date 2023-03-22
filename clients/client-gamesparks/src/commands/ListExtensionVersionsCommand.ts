@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GameSparksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameSparksClient";
-import {
-  ListExtensionVersionsRequest,
-  ListExtensionVersionsRequestFilterSensitiveLog,
-  ListExtensionVersionsResult,
-  ListExtensionVersionsResultFilterSensitiveLog,
-} from "../models/models_0";
+import { ListExtensionVersionsRequest, ListExtensionVersionsResult } from "../models/models_0";
 import {
   deserializeAws_restJson1ListExtensionVersionsCommand,
   serializeAws_restJson1ListExtensionVersionsCommand,
@@ -126,8 +121,8 @@ export class ListExtensionVersionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListExtensionVersionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListExtensionVersionsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

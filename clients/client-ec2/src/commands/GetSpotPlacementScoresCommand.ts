@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  GetSpotPlacementScoresRequest,
-  GetSpotPlacementScoresRequestFilterSensitiveLog,
-  GetSpotPlacementScoresResult,
-  GetSpotPlacementScoresResultFilterSensitiveLog,
-} from "../models/models_5";
+import { GetSpotPlacementScoresRequest, GetSpotPlacementScoresResult } from "../models/models_5";
 import {
   deserializeAws_ec2GetSpotPlacementScoresCommand,
   serializeAws_ec2GetSpotPlacementScoresCommand,
@@ -114,8 +109,8 @@ export class GetSpotPlacementScoresCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSpotPlacementScoresRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetSpotPlacementScoresResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

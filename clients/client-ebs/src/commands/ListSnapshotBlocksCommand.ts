@@ -16,7 +16,6 @@ import {
 import { EBSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EBSClient";
 import {
   ListSnapshotBlocksRequest,
-  ListSnapshotBlocksRequestFilterSensitiveLog,
   ListSnapshotBlocksResponse,
   ListSnapshotBlocksResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -126,7 +125,7 @@ export class ListSnapshotBlocksCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListSnapshotBlocksRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListSnapshotBlocksResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

@@ -18,7 +18,6 @@ import {
   DisassociatePhoneNumbersFromVoiceConnectorGroupRequest,
   DisassociatePhoneNumbersFromVoiceConnectorGroupRequestFilterSensitiveLog,
   DisassociatePhoneNumbersFromVoiceConnectorGroupResponse,
-  DisassociatePhoneNumbersFromVoiceConnectorGroupResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1DisassociatePhoneNumbersFromVoiceConnectorGroupCommand,
@@ -138,7 +137,7 @@ export class DisassociatePhoneNumbersFromVoiceConnectorGroupCommand extends $Com
       clientName,
       commandName,
       inputFilterSensitiveLog: DisassociatePhoneNumbersFromVoiceConnectorGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisassociatePhoneNumbersFromVoiceConnectorGroupResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

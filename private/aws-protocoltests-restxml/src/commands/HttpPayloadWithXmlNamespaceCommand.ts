@@ -12,10 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  HttpPayloadWithXmlNamespaceInputOutput,
-  HttpPayloadWithXmlNamespaceInputOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { HttpPayloadWithXmlNamespaceInputOutput } from "../models/models_0";
 import {
   deserializeAws_restXmlHttpPayloadWithXmlNamespaceCommand,
   serializeAws_restXmlHttpPayloadWithXmlNamespaceCommand,
@@ -23,10 +20,14 @@ import {
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 
 /**
+ * @public
+ *
  * The input for {@link HttpPayloadWithXmlNamespaceCommand}.
  */
 export interface HttpPayloadWithXmlNamespaceCommandInput extends HttpPayloadWithXmlNamespaceInputOutput {}
 /**
+ * @public
+ *
  * The output of {@link HttpPayloadWithXmlNamespaceCommand}.
  */
 export interface HttpPayloadWithXmlNamespaceCommandOutput
@@ -34,6 +35,7 @@ export interface HttpPayloadWithXmlNamespaceCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * The following example serializes a payload that uses an XML namespace.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -45,6 +47,8 @@ export interface HttpPayloadWithXmlNamespaceCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param HttpPayloadWithXmlNamespaceCommandInput - {@link HttpPayloadWithXmlNamespaceCommandInput}
+ * @returns {@link HttpPayloadWithXmlNamespaceCommandOutput}
  * @see {@link HttpPayloadWithXmlNamespaceCommandInput} for command's `input` shape.
  * @see {@link HttpPayloadWithXmlNamespaceCommandOutput} for command's `response` shape.
  * @see {@link RestXmlProtocolClientResolvedConfig | config} for RestXmlProtocolClient's `config` shape.
@@ -59,6 +63,9 @@ export class HttpPayloadWithXmlNamespaceCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: HttpPayloadWithXmlNamespaceCommandInput) {
     // Start section: command_constructor
     super();
@@ -84,8 +91,8 @@ export class HttpPayloadWithXmlNamespaceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: HttpPayloadWithXmlNamespaceInputOutputFilterSensitiveLog,
-      outputFilterSensitiveLog: HttpPayloadWithXmlNamespaceInputOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -95,10 +102,16 @@ export class HttpPayloadWithXmlNamespaceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: HttpPayloadWithXmlNamespaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlHttpPayloadWithXmlNamespaceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

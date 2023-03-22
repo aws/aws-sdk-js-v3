@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeSDKVoiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKVoiceClient";
-import {
-  ListAvailableVoiceConnectorRegionsResponse,
-  ListAvailableVoiceConnectorRegionsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListAvailableVoiceConnectorRegionsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListAvailableVoiceConnectorRegionsCommand,
   serializeAws_restJson1ListAvailableVoiceConnectorRegionsCommand,
@@ -86,8 +83,8 @@ export class ListAvailableVoiceConnectorRegionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: ListAvailableVoiceConnectorRegionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
-import {
-  StartDBClusterMessage,
-  StartDBClusterMessageFilterSensitiveLog,
-  StartDBClusterResult,
-  StartDBClusterResultFilterSensitiveLog,
-} from "../models/models_0";
+import { StartDBClusterMessage, StartDBClusterResult } from "../models/models_0";
 import {
   deserializeAws_queryStartDBClusterCommand,
   serializeAws_queryStartDBClusterCommand,
@@ -120,8 +115,8 @@ export class StartDBClusterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartDBClusterMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: StartDBClusterResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

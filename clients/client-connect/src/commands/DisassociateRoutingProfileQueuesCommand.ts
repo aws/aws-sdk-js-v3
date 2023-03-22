@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import {
-  DisassociateRoutingProfileQueuesRequest,
-  DisassociateRoutingProfileQueuesRequestFilterSensitiveLog,
-} from "../models/models_0";
+import { DisassociateRoutingProfileQueuesRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1DisassociateRoutingProfileQueuesCommand,
   serializeAws_restJson1DisassociateRoutingProfileQueuesCommand,
@@ -120,8 +117,8 @@ export class DisassociateRoutingProfileQueuesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateRoutingProfileQueuesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

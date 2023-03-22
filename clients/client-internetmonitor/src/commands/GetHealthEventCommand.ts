@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { InternetMonitorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InternetMonitorClient";
-import {
-  GetHealthEventInput,
-  GetHealthEventInputFilterSensitiveLog,
-  GetHealthEventOutput,
-  GetHealthEventOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { GetHealthEventInput, GetHealthEventOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1GetHealthEventCommand,
   serializeAws_restJson1GetHealthEventCommand,
@@ -122,8 +117,8 @@ export class GetHealthEventCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetHealthEventInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetHealthEventOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

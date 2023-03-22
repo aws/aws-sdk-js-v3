@@ -16,7 +16,6 @@ import {
 import { CloudControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudControlClient";
 import {
   ListResourceRequestsInput,
-  ListResourceRequestsInputFilterSensitiveLog,
   ListResourceRequestsOutput,
   ListResourceRequestsOutputFilterSensitiveLog,
 } from "../models/models_0";
@@ -112,7 +111,7 @@ export class ListResourceRequestsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListResourceRequestsInputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListResourceRequestsOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

@@ -13,10 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteBucketOwnershipControlsRequest,
-  DeleteBucketOwnershipControlsRequestFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteBucketOwnershipControlsRequest } from "../models/models_0";
 import {
   deserializeAws_restXmlDeleteBucketOwnershipControlsCommand,
   serializeAws_restXmlDeleteBucketOwnershipControlsCommand,
@@ -129,8 +126,8 @@ export class DeleteBucketOwnershipControlsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteBucketOwnershipControlsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

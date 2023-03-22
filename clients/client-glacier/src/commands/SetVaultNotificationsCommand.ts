@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient";
-import { SetVaultNotificationsInput, SetVaultNotificationsInputFilterSensitiveLog } from "../models/models_0";
+import { SetVaultNotificationsInput } from "../models/models_0";
 import {
   deserializeAws_restJson1SetVaultNotificationsCommand,
   serializeAws_restJson1SetVaultNotificationsCommand,
@@ -171,8 +171,8 @@ export class SetVaultNotificationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SetVaultNotificationsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

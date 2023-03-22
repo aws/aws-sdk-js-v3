@@ -16,7 +16,6 @@ import {
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import {
   UpdateRoomMembershipRequest,
-  UpdateRoomMembershipRequestFilterSensitiveLog,
   UpdateRoomMembershipResponse,
   UpdateRoomMembershipResponseFilterSensitiveLog,
 } from "../models/models_1";
@@ -131,7 +130,7 @@ export class UpdateRoomMembershipCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateRoomMembershipRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: UpdateRoomMembershipResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

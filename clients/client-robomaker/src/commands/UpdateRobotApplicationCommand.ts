@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateRobotApplicationRequest,
-  UpdateRobotApplicationRequestFilterSensitiveLog,
-  UpdateRobotApplicationResponse,
-  UpdateRobotApplicationResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateRobotApplicationRequest, UpdateRobotApplicationResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateRobotApplicationCommand,
   serializeAws_restJson1UpdateRobotApplicationCommand,
@@ -124,8 +119,8 @@ export class UpdateRobotApplicationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateRobotApplicationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateRobotApplicationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

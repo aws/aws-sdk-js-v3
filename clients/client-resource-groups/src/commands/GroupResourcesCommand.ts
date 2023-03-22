@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GroupResourcesInput,
-  GroupResourcesInputFilterSensitiveLog,
-  GroupResourcesOutput,
-  GroupResourcesOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { GroupResourcesInput, GroupResourcesOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1GroupResourcesCommand,
   serializeAws_restJson1GroupResourcesCommand,
@@ -155,8 +150,8 @@ export class GroupResourcesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GroupResourcesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GroupResourcesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

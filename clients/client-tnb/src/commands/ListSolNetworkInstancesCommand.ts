@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListSolNetworkInstancesInput,
-  ListSolNetworkInstancesInputFilterSensitiveLog,
-  ListSolNetworkInstancesOutput,
-  ListSolNetworkInstancesOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { ListSolNetworkInstancesInput, ListSolNetworkInstancesOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1ListSolNetworkInstancesCommand,
   serializeAws_restJson1ListSolNetworkInstancesCommand,
@@ -120,8 +115,8 @@ export class ListSolNetworkInstancesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListSolNetworkInstancesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListSolNetworkInstancesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

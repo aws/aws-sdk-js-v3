@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeSpaceRequest,
-  DescribeSpaceRequestFilterSensitiveLog,
-  DescribeSpaceResponse,
-  DescribeSpaceResponseFilterSensitiveLog,
-} from "../models/models_2";
+import { DescribeSpaceRequest, DescribeSpaceResponse } from "../models/models_2";
 import {
   deserializeAws_json1_1DescribeSpaceCommand,
   serializeAws_json1_1DescribeSpaceCommand,
@@ -108,8 +103,8 @@ export class DescribeSpaceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeSpaceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeSpaceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -16,9 +16,7 @@ import {
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import {
   DescribeAccountAuditConfigurationRequest,
-  DescribeAccountAuditConfigurationRequestFilterSensitiveLog,
   DescribeAccountAuditConfigurationResponse,
-  DescribeAccountAuditConfigurationResponseFilterSensitiveLog,
 } from "../models/models_1";
 import {
   deserializeAws_restJson1DescribeAccountAuditConfigurationCommand,
@@ -118,8 +116,8 @@ export class DescribeAccountAuditConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeAccountAuditConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeAccountAuditConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

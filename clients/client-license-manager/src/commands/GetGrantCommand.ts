@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LicenseManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LicenseManagerClient";
-import {
-  GetGrantRequest,
-  GetGrantRequestFilterSensitiveLog,
-  GetGrantResponse,
-  GetGrantResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetGrantRequest, GetGrantResponse } from "../models/models_0";
 import { deserializeAws_json1_1GetGrantCommand, serializeAws_json1_1GetGrantCommand } from "../protocols/Aws_json1_1";
 
 /**
@@ -124,8 +119,8 @@ export class GetGrantCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetGrantRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetGrantResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

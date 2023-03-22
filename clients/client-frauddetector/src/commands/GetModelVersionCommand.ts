@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
-import {
-  GetModelVersionRequest,
-  GetModelVersionRequestFilterSensitiveLog,
-  GetModelVersionResult,
-  GetModelVersionResultFilterSensitiveLog,
-} from "../models/models_0";
+import { GetModelVersionRequest, GetModelVersionResult } from "../models/models_0";
 import {
   deserializeAws_json1_1GetModelVersionCommand,
   serializeAws_json1_1GetModelVersionCommand,
@@ -122,8 +117,8 @@ export class GetModelVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetModelVersionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetModelVersionResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

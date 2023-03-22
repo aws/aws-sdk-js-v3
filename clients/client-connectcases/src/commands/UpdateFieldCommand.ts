@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectCasesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCasesClient";
-import {
-  UpdateFieldRequest,
-  UpdateFieldRequestFilterSensitiveLog,
-  UpdateFieldResponse,
-  UpdateFieldResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateFieldRequest, UpdateFieldResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateFieldCommand,
   serializeAws_restJson1UpdateFieldCommand,
@@ -127,8 +122,8 @@ export class UpdateFieldCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateFieldRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateFieldResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

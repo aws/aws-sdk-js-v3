@@ -230,38 +230,3 @@ export class UnsupportedOperationException extends __BaseException {
     Object.setPrototypeOf(this, UnsupportedOperationException.prototype);
   }
 }
-
-/**
- * @internal
- */
-export const AuditEventFilterSensitiveLog = (obj: AuditEvent): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AuditEventResultEntryFilterSensitiveLog = (obj: AuditEventResultEntry): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutAuditEventsRequestFilterSensitiveLog = (obj: PutAuditEventsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResultErrorEntryFilterSensitiveLog = (obj: ResultErrorEntry): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutAuditEventsResponseFilterSensitiveLog = (obj: PutAuditEventsResponse): any => ({
-  ...obj,
-});

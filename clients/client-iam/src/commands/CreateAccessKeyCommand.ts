@@ -16,7 +16,6 @@ import {
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import {
   CreateAccessKeyRequest,
-  CreateAccessKeyRequestFilterSensitiveLog,
   CreateAccessKeyResponse,
   CreateAccessKeyResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -154,7 +153,7 @@ export class CreateAccessKeyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateAccessKeyRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: CreateAccessKeyResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

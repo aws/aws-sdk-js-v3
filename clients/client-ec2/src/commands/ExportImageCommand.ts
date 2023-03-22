@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  ExportImageRequest,
-  ExportImageRequestFilterSensitiveLog,
-  ExportImageResult,
-  ExportImageResultFilterSensitiveLog,
-} from "../models/models_5";
+import { ExportImageRequest, ExportImageResult } from "../models/models_5";
 import { deserializeAws_ec2ExportImageCommand, serializeAws_ec2ExportImageCommand } from "../protocols/Aws_ec2";
 
 /**
@@ -104,8 +99,8 @@ export class ExportImageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ExportImageRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ExportImageResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

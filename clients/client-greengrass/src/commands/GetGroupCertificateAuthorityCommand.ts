@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
-import {
-  GetGroupCertificateAuthorityRequest,
-  GetGroupCertificateAuthorityRequestFilterSensitiveLog,
-  GetGroupCertificateAuthorityResponse,
-  GetGroupCertificateAuthorityResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetGroupCertificateAuthorityRequest, GetGroupCertificateAuthorityResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetGroupCertificateAuthorityCommand,
   serializeAws_restJson1GetGroupCertificateAuthorityCommand,
@@ -115,8 +110,8 @@ export class GetGroupCertificateAuthorityCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetGroupCertificateAuthorityRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetGroupCertificateAuthorityResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

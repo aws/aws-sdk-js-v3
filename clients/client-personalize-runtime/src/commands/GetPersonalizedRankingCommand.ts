@@ -17,7 +17,6 @@ import {
   GetPersonalizedRankingRequest,
   GetPersonalizedRankingRequestFilterSensitiveLog,
   GetPersonalizedRankingResponse,
-  GetPersonalizedRankingResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   PersonalizeRuntimeClientResolvedConfig,
@@ -123,7 +122,7 @@ export class GetPersonalizedRankingCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: GetPersonalizedRankingRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetPersonalizedRankingResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import {
-  SuspendGameServerGroupInput,
-  SuspendGameServerGroupInputFilterSensitiveLog,
-  SuspendGameServerGroupOutput,
-  SuspendGameServerGroupOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { SuspendGameServerGroupInput, SuspendGameServerGroupOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1SuspendGameServerGroupCommand,
   serializeAws_json1_1SuspendGameServerGroupCommand,
@@ -150,8 +145,8 @@ export class SuspendGameServerGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SuspendGameServerGroupInputFilterSensitiveLog,
-      outputFilterSensitiveLog: SuspendGameServerGroupOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

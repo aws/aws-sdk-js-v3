@@ -20,9 +20,7 @@ import {
 } from "../ApplicationInsightsClient";
 import {
   DescribeComponentConfigurationRecommendationRequest,
-  DescribeComponentConfigurationRecommendationRequestFilterSensitiveLog,
   DescribeComponentConfigurationRecommendationResponse,
-  DescribeComponentConfigurationRecommendationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeComponentConfigurationRecommendationCommand,
@@ -129,8 +127,8 @@ export class DescribeComponentConfigurationRecommendationCommand extends $Comman
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeComponentConfigurationRecommendationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeComponentConfigurationRecommendationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

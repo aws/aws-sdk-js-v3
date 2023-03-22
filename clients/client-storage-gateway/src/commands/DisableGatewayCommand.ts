@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DisableGatewayInput,
-  DisableGatewayInputFilterSensitiveLog,
-  DisableGatewayOutput,
-  DisableGatewayOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { DisableGatewayInput, DisableGatewayOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1DisableGatewayCommand,
   serializeAws_json1_1DisableGatewayCommand,
@@ -139,8 +134,8 @@ export class DisableGatewayCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisableGatewayInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DisableGatewayOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

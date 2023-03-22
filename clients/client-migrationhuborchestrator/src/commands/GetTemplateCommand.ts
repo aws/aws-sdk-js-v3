@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MigrationHubOrchestratorClient";
-import {
-  GetMigrationWorkflowTemplateRequest,
-  GetMigrationWorkflowTemplateRequestFilterSensitiveLog,
-  GetMigrationWorkflowTemplateResponse,
-  GetMigrationWorkflowTemplateResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetMigrationWorkflowTemplateRequest, GetMigrationWorkflowTemplateResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetTemplateCommand,
   serializeAws_restJson1GetTemplateCommand,
@@ -121,8 +116,8 @@ export class GetTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetMigrationWorkflowTemplateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetMigrationWorkflowTemplateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

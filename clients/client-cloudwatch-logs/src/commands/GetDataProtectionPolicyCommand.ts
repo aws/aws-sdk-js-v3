@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
-import {
-  GetDataProtectionPolicyRequest,
-  GetDataProtectionPolicyRequestFilterSensitiveLog,
-  GetDataProtectionPolicyResponse,
-  GetDataProtectionPolicyResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetDataProtectionPolicyRequest, GetDataProtectionPolicyResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GetDataProtectionPolicyCommand,
   serializeAws_json1_1GetDataProtectionPolicyCommand,
@@ -119,8 +114,8 @@ export class GetDataProtectionPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDataProtectionPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetDataProtectionPolicyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

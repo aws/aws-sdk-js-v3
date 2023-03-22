@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  StartInstancesRequest,
-  StartInstancesRequestFilterSensitiveLog,
-  StartInstancesResult,
-  StartInstancesResultFilterSensitiveLog,
-} from "../models/models_6";
+import { StartInstancesRequest, StartInstancesResult } from "../models/models_6";
 import { deserializeAws_ec2StartInstancesCommand, serializeAws_ec2StartInstancesCommand } from "../protocols/Aws_ec2";
 
 /**
@@ -152,8 +147,8 @@ export class StartInstancesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartInstancesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartInstancesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

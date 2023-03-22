@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GreengrassV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassV2Client";
-import {
-  GetConnectivityInfoRequest,
-  GetConnectivityInfoRequestFilterSensitiveLog,
-  GetConnectivityInfoResponse,
-  GetConnectivityInfoResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetConnectivityInfoRequest, GetConnectivityInfoResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetConnectivityInfoCommand,
   serializeAws_restJson1GetConnectivityInfoCommand,
@@ -120,8 +115,8 @@ export class GetConnectivityInfoCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetConnectivityInfoRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetConnectivityInfoResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

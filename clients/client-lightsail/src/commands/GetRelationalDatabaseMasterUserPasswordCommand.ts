@@ -16,7 +16,6 @@ import {
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import {
   GetRelationalDatabaseMasterUserPasswordRequest,
-  GetRelationalDatabaseMasterUserPasswordRequestFilterSensitiveLog,
   GetRelationalDatabaseMasterUserPasswordResult,
   GetRelationalDatabaseMasterUserPasswordResultFilterSensitiveLog,
 } from "../models/models_1";
@@ -150,7 +149,7 @@ export class GetRelationalDatabaseMasterUserPasswordCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetRelationalDatabaseMasterUserPasswordRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetRelationalDatabaseMasterUserPasswordResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

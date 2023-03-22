@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  DeleteUserDefinedFunctionRequest,
-  DeleteUserDefinedFunctionRequestFilterSensitiveLog,
-  DeleteUserDefinedFunctionResponse,
-  DeleteUserDefinedFunctionResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { DeleteUserDefinedFunctionRequest, DeleteUserDefinedFunctionResponse } from "../models/models_1";
 import {
   deserializeAws_json1_1DeleteUserDefinedFunctionCommand,
   serializeAws_json1_1DeleteUserDefinedFunctionCommand,
@@ -119,8 +114,8 @@ export class DeleteUserDefinedFunctionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteUserDefinedFunctionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteUserDefinedFunctionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

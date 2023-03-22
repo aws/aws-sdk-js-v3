@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetNetworkRequest,
-  GetNetworkRequestFilterSensitiveLog,
-  GetNetworkResponse,
-  GetNetworkResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetNetworkRequest, GetNetworkResponse, GetNetworkResponseFilterSensitiveLog } from "../models/models_0";
 import { PrivateNetworksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PrivateNetworksClient";
 import {
   deserializeAws_restJson1GetNetworkCommand,
@@ -114,7 +109,7 @@ export class GetNetworkCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetNetworkRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetNetworkResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

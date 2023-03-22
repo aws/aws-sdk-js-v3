@@ -16,7 +16,6 @@ import {
 import { IvsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IvsClient";
 import {
   BatchGetStreamKeyRequest,
-  BatchGetStreamKeyRequestFilterSensitiveLog,
   BatchGetStreamKeyResponse,
   BatchGetStreamKeyResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -107,7 +106,7 @@ export class BatchGetStreamKeyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchGetStreamKeyRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: BatchGetStreamKeyResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

@@ -18,7 +18,6 @@ import {
   FunctionConfiguration,
   FunctionConfigurationFilterSensitiveLog,
   PublishVersionRequest,
-  PublishVersionRequestFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1PublishVersionCommand,
@@ -135,7 +134,7 @@ export class PublishVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PublishVersionRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: FunctionConfigurationFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

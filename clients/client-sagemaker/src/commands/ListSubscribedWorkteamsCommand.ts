@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListSubscribedWorkteamsRequest,
-  ListSubscribedWorkteamsRequestFilterSensitiveLog,
-  ListSubscribedWorkteamsResponse,
-  ListSubscribedWorkteamsResponseFilterSensitiveLog,
-} from "../models/models_3";
+import { ListSubscribedWorkteamsRequest, ListSubscribedWorkteamsResponse } from "../models/models_3";
 import {
   deserializeAws_json1_1ListSubscribedWorkteamsCommand,
   serializeAws_json1_1ListSubscribedWorkteamsCommand,
@@ -109,8 +104,8 @@ export class ListSubscribedWorkteamsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListSubscribedWorkteamsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListSubscribedWorkteamsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

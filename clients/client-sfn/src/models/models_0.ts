@@ -3137,20 +3137,6 @@ export const ActivityFailedEventDetailsFilterSensitiveLog = (obj: ActivityFailed
 /**
  * @internal
  */
-export const ActivityListItemFilterSensitiveLog = (obj: ActivityListItem): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const HistoryEventExecutionDataDetailsFilterSensitiveLog = (obj: HistoryEventExecutionDataDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const ActivityScheduledEventDetailsFilterSensitiveLog = (obj: ActivityScheduledEventDetails): any => ({
   ...obj,
   ...(obj.input && { input: SENSITIVE_STRING }),
@@ -3163,13 +3149,6 @@ export const ActivityScheduleFailedEventDetailsFilterSensitiveLog = (obj: Activi
   ...obj,
   ...(obj.error && { error: SENSITIVE_STRING }),
   ...(obj.cause && { cause: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ActivityStartedEventDetailsFilterSensitiveLog = (obj: ActivityStartedEventDetails): any => ({
-  ...obj,
 });
 
 /**
@@ -3192,123 +3171,9 @@ export const ActivityTimedOutEventDetailsFilterSensitiveLog = (obj: ActivityTime
 /**
  * @internal
  */
-export const TagFilterSensitiveLog = (obj: Tag): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateActivityInputFilterSensitiveLog = (obj: CreateActivityInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateActivityOutputFilterSensitiveLog = (obj: CreateActivityOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CloudWatchLogsLogGroupFilterSensitiveLog = (obj: CloudWatchLogsLogGroup): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LogDestinationFilterSensitiveLog = (obj: LogDestination): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LoggingConfigurationFilterSensitiveLog = (obj: LoggingConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TracingConfigurationFilterSensitiveLog = (obj: TracingConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const CreateStateMachineInputFilterSensitiveLog = (obj: CreateStateMachineInput): any => ({
   ...obj,
   ...(obj.definition && { definition: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const CreateStateMachineOutputFilterSensitiveLog = (obj: CreateStateMachineOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteActivityInputFilterSensitiveLog = (obj: DeleteActivityInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteActivityOutputFilterSensitiveLog = (obj: DeleteActivityOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteStateMachineInputFilterSensitiveLog = (obj: DeleteStateMachineInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteStateMachineOutputFilterSensitiveLog = (obj: DeleteStateMachineOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeActivityInputFilterSensitiveLog = (obj: DescribeActivityInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeActivityOutputFilterSensitiveLog = (obj: DescribeActivityOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeExecutionInputFilterSensitiveLog = (obj: DescribeExecutionInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CloudWatchEventsExecutionDataDetailsFilterSensitiveLog = (
-  obj: CloudWatchEventsExecutionDataDetails
-): any => ({
-  ...obj,
 });
 
 /**
@@ -3325,53 +3190,9 @@ export const DescribeExecutionOutputFilterSensitiveLog = (obj: DescribeExecution
 /**
  * @internal
  */
-export const DescribeMapRunInputFilterSensitiveLog = (obj: DescribeMapRunInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MapRunExecutionCountsFilterSensitiveLog = (obj: MapRunExecutionCounts): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MapRunItemCountsFilterSensitiveLog = (obj: MapRunItemCounts): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeMapRunOutputFilterSensitiveLog = (obj: DescribeMapRunOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeStateMachineInputFilterSensitiveLog = (obj: DescribeStateMachineInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const DescribeStateMachineOutputFilterSensitiveLog = (obj: DescribeStateMachineOutput): any => ({
   ...obj,
   ...(obj.definition && { definition: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const DescribeStateMachineForExecutionInputFilterSensitiveLog = (
-  obj: DescribeStateMachineForExecutionInput
-): any => ({
-  ...obj,
 });
 
 /**
@@ -3387,23 +3208,9 @@ export const DescribeStateMachineForExecutionOutputFilterSensitiveLog = (
 /**
  * @internal
  */
-export const GetActivityTaskInputFilterSensitiveLog = (obj: GetActivityTaskInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const GetActivityTaskOutputFilterSensitiveLog = (obj: GetActivityTaskOutput): any => ({
   ...obj,
   ...(obj.input && { input: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const GetExecutionHistoryInputFilterSensitiveLog = (obj: GetExecutionHistoryInput): any => ({
-  ...obj,
 });
 
 /**
@@ -3461,13 +3268,6 @@ export const LambdaFunctionFailedEventDetailsFilterSensitiveLog = (obj: LambdaFu
 /**
  * @internal
  */
-export const TaskCredentialsFilterSensitiveLog = (obj: TaskCredentials): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const LambdaFunctionScheduledEventDetailsFilterSensitiveLog = (
   obj: LambdaFunctionScheduledEventDetails
 ): any => ({
@@ -3519,31 +3319,10 @@ export const LambdaFunctionTimedOutEventDetailsFilterSensitiveLog = (obj: Lambda
 /**
  * @internal
  */
-export const MapIterationEventDetailsFilterSensitiveLog = (obj: MapIterationEventDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const MapRunFailedEventDetailsFilterSensitiveLog = (obj: MapRunFailedEventDetails): any => ({
   ...obj,
   ...(obj.error && { error: SENSITIVE_STRING }),
   ...(obj.cause && { cause: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const MapRunStartedEventDetailsFilterSensitiveLog = (obj: MapRunStartedEventDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MapStateStartedEventDetailsFilterSensitiveLog = (obj: MapStateStartedEventDetails): any => ({
-  ...obj,
 });
 
 /**
@@ -3577,13 +3356,6 @@ export const TaskFailedEventDetailsFilterSensitiveLog = (obj: TaskFailedEventDet
 export const TaskScheduledEventDetailsFilterSensitiveLog = (obj: TaskScheduledEventDetails): any => ({
   ...obj,
   ...(obj.parameters && { parameters: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const TaskStartedEventDetailsFilterSensitiveLog = (obj: TaskStartedEventDetails): any => ({
-  ...obj,
 });
 
 /**
@@ -3741,122 +3513,10 @@ export const GetExecutionHistoryOutputFilterSensitiveLog = (obj: GetExecutionHis
 /**
  * @internal
  */
-export const ListActivitiesInputFilterSensitiveLog = (obj: ListActivitiesInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListActivitiesOutputFilterSensitiveLog = (obj: ListActivitiesOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListExecutionsInputFilterSensitiveLog = (obj: ListExecutionsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExecutionListItemFilterSensitiveLog = (obj: ExecutionListItem): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListExecutionsOutputFilterSensitiveLog = (obj: ListExecutionsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListMapRunsInputFilterSensitiveLog = (obj: ListMapRunsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MapRunListItemFilterSensitiveLog = (obj: MapRunListItem): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListMapRunsOutputFilterSensitiveLog = (obj: ListMapRunsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListStateMachinesInputFilterSensitiveLog = (obj: ListStateMachinesInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StateMachineListItemFilterSensitiveLog = (obj: StateMachineListItem): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListStateMachinesOutputFilterSensitiveLog = (obj: ListStateMachinesOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceInputFilterSensitiveLog = (obj: ListTagsForResourceInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceOutputFilterSensitiveLog = (obj: ListTagsForResourceOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const SendTaskFailureInputFilterSensitiveLog = (obj: SendTaskFailureInput): any => ({
   ...obj,
   ...(obj.error && { error: SENSITIVE_STRING }),
   ...(obj.cause && { cause: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const SendTaskFailureOutputFilterSensitiveLog = (obj: SendTaskFailureOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SendTaskHeartbeatInputFilterSensitiveLog = (obj: SendTaskHeartbeatInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SendTaskHeartbeatOutputFilterSensitiveLog = (obj: SendTaskHeartbeatOutput): any => ({
-  ...obj,
 });
 
 /**
@@ -3870,13 +3530,6 @@ export const SendTaskSuccessInputFilterSensitiveLog = (obj: SendTaskSuccessInput
 /**
  * @internal
  */
-export const SendTaskSuccessOutputFilterSensitiveLog = (obj: SendTaskSuccessOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const StartExecutionInputFilterSensitiveLog = (obj: StartExecutionInput): any => ({
   ...obj,
   ...(obj.input && { input: SENSITIVE_STRING }),
@@ -3885,23 +3538,9 @@ export const StartExecutionInputFilterSensitiveLog = (obj: StartExecutionInput):
 /**
  * @internal
  */
-export const StartExecutionOutputFilterSensitiveLog = (obj: StartExecutionOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const StartSyncExecutionInputFilterSensitiveLog = (obj: StartSyncExecutionInput): any => ({
   ...obj,
   ...(obj.input && { input: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const BillingDetailsFilterSensitiveLog = (obj: BillingDetails): any => ({
-  ...obj,
 });
 
 /**
@@ -3927,63 +3566,7 @@ export const StopExecutionInputFilterSensitiveLog = (obj: StopExecutionInput): a
 /**
  * @internal
  */
-export const StopExecutionOutputFilterSensitiveLog = (obj: StopExecutionOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceInputFilterSensitiveLog = (obj: TagResourceInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceOutputFilterSensitiveLog = (obj: TagResourceOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceInputFilterSensitiveLog = (obj: UntagResourceInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceOutputFilterSensitiveLog = (obj: UntagResourceOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateMapRunInputFilterSensitiveLog = (obj: UpdateMapRunInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateMapRunOutputFilterSensitiveLog = (obj: UpdateMapRunOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const UpdateStateMachineInputFilterSensitiveLog = (obj: UpdateStateMachineInput): any => ({
   ...obj,
   ...(obj.definition && { definition: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const UpdateStateMachineOutputFilterSensitiveLog = (obj: UpdateStateMachineOutput): any => ({
-  ...obj,
 });

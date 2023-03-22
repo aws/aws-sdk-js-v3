@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DevOpsGuruClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DevOpsGuruClient";
-import {
-  UpdateResourceCollectionRequest,
-  UpdateResourceCollectionRequestFilterSensitiveLog,
-  UpdateResourceCollectionResponse,
-  UpdateResourceCollectionResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateResourceCollectionRequest, UpdateResourceCollectionResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateResourceCollectionCommand,
   serializeAws_restJson1UpdateResourceCollectionCommand,
@@ -130,8 +125,8 @@ export class UpdateResourceCollectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateResourceCollectionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateResourceCollectionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

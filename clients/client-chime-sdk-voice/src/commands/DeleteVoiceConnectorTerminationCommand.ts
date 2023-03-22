@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeSDKVoiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKVoiceClient";
-import {
-  DeleteVoiceConnectorTerminationRequest,
-  DeleteVoiceConnectorTerminationRequestFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteVoiceConnectorTerminationRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteVoiceConnectorTerminationCommand,
   serializeAws_restJson1DeleteVoiceConnectorTerminationCommand,
@@ -84,8 +81,8 @@ export class DeleteVoiceConnectorTerminationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteVoiceConnectorTerminationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

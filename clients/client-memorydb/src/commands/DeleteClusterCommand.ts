@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MemoryDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MemoryDBClient";
-import {
-  DeleteClusterRequest,
-  DeleteClusterRequestFilterSensitiveLog,
-  DeleteClusterResponse,
-  DeleteClusterResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteClusterRequest, DeleteClusterResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteClusterCommand,
   serializeAws_json1_1DeleteClusterCommand,
@@ -123,8 +118,8 @@ export class DeleteClusterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteClusterRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteClusterResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

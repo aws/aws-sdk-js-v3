@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetAccountSettingsRequest,
-  GetAccountSettingsRequestFilterSensitiveLog,
-  GetAccountSettingsResponse,
-  GetAccountSettingsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetAccountSettingsRequest, GetAccountSettingsResponse } from "../models/models_0";
 import {
   OpenSearchServerlessClientResolvedConfig,
   ServiceInputTypes,
@@ -118,8 +113,8 @@ export class GetAccountSettingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAccountSettingsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetAccountSettingsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
-import {
-  DescribeExperienceRequest,
-  DescribeExperienceRequestFilterSensitiveLog,
-  DescribeExperienceResponse,
-  DescribeExperienceResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeExperienceRequest, DescribeExperienceResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeExperienceCommand,
   serializeAws_json1_1DescribeExperienceCommand,
@@ -130,8 +125,8 @@ export class DescribeExperienceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeExperienceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeExperienceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

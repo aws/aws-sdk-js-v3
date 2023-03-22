@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ImportServerCatalogRequest,
-  ImportServerCatalogRequestFilterSensitiveLog,
-  ImportServerCatalogResponse,
-  ImportServerCatalogResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ImportServerCatalogRequest, ImportServerCatalogResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ImportServerCatalogCommand,
   serializeAws_json1_1ImportServerCatalogCommand,
@@ -126,8 +121,8 @@ export class ImportServerCatalogCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ImportServerCatalogRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ImportServerCatalogResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

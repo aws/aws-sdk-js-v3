@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
-import {
-  UpdateWaveRequest,
-  UpdateWaveRequestFilterSensitiveLog,
-  Wave,
-  WaveFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateWaveRequest, Wave, WaveFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateWaveCommand,
   serializeAws_restJson1UpdateWaveCommand,
@@ -114,7 +109,7 @@ export class UpdateWaveCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateWaveRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: WaveFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

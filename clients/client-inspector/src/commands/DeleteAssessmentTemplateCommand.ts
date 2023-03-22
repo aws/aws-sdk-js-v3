@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient";
-import { DeleteAssessmentTemplateRequest, DeleteAssessmentTemplateRequestFilterSensitiveLog } from "../models/models_0";
+import { DeleteAssessmentTemplateRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteAssessmentTemplateCommand,
   serializeAws_json1_1DeleteAssessmentTemplateCommand,
@@ -135,8 +135,8 @@ export class DeleteAssessmentTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAssessmentTemplateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -18,7 +18,6 @@ import {
   CreateCustomLineItemInput,
   CreateCustomLineItemInputFilterSensitiveLog,
   CreateCustomLineItemOutput,
-  CreateCustomLineItemOutputFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateCustomLineItemCommand,
@@ -133,7 +132,7 @@ export class CreateCustomLineItemCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateCustomLineItemInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateCustomLineItemOutputFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

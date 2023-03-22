@@ -15,7 +15,6 @@ import {
 
 import {
   DescribeSpeakerEnrollmentJobRequest,
-  DescribeSpeakerEnrollmentJobRequestFilterSensitiveLog,
   DescribeSpeakerEnrollmentJobResponse,
   DescribeSpeakerEnrollmentJobResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -130,7 +129,7 @@ export class DescribeSpeakerEnrollmentJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeSpeakerEnrollmentJobRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeSpeakerEnrollmentJobResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

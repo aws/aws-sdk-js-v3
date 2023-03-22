@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
-import {
-  DeleteCustomDataIdentifierRequest,
-  DeleteCustomDataIdentifierRequestFilterSensitiveLog,
-  DeleteCustomDataIdentifierResponse,
-  DeleteCustomDataIdentifierResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteCustomDataIdentifierRequest, DeleteCustomDataIdentifierResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteCustomDataIdentifierCommand,
   serializeAws_restJson1DeleteCustomDataIdentifierCommand,
@@ -128,8 +123,8 @@ export class DeleteCustomDataIdentifierCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteCustomDataIdentifierRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteCustomDataIdentifierResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

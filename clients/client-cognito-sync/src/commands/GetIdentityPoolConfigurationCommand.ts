@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CognitoSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CognitoSyncClient";
-import {
-  GetIdentityPoolConfigurationRequest,
-  GetIdentityPoolConfigurationRequestFilterSensitiveLog,
-  GetIdentityPoolConfigurationResponse,
-  GetIdentityPoolConfigurationResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetIdentityPoolConfigurationRequest, GetIdentityPoolConfigurationResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetIdentityPoolConfigurationCommand,
   serializeAws_restJson1GetIdentityPoolConfigurationCommand,
@@ -175,8 +170,8 @@ export class GetIdentityPoolConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetIdentityPoolConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetIdentityPoolConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

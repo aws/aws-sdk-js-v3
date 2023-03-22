@@ -15,7 +15,6 @@ import {
 
 import {
   GetExecutionHistoryInput,
-  GetExecutionHistoryInputFilterSensitiveLog,
   GetExecutionHistoryOutput,
   GetExecutionHistoryOutputFilterSensitiveLog,
 } from "../models/models_0";
@@ -121,7 +120,7 @@ export class GetExecutionHistoryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetExecutionHistoryInputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetExecutionHistoryOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

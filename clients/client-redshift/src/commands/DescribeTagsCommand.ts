@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeTagsMessage,
-  DescribeTagsMessageFilterSensitiveLog,
-  TaggedResourceListMessage,
-  TaggedResourceListMessageFilterSensitiveLog,
-} from "../models/models_1";
+import { DescribeTagsMessage, TaggedResourceListMessage } from "../models/models_1";
 import { deserializeAws_queryDescribeTagsCommand, serializeAws_queryDescribeTagsCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
@@ -132,8 +127,8 @@ export class DescribeTagsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeTagsMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: TaggedResourceListMessageFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

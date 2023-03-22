@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateInAppTemplateRequest,
-  CreateInAppTemplateRequestFilterSensitiveLog,
-  CreateInAppTemplateResponse,
-  CreateInAppTemplateResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateInAppTemplateRequest, CreateInAppTemplateResponse } from "../models/models_0";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
 import {
   deserializeAws_restJson1CreateInAppTemplateCommand,
@@ -122,8 +117,8 @@ export class CreateInAppTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateInAppTemplateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateInAppTemplateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -20,7 +20,6 @@ import {
 } from "../ChimeSDKMessagingClient";
 import {
   DescribeChannelMembershipRequest,
-  DescribeChannelMembershipRequestFilterSensitiveLog,
   DescribeChannelMembershipResponse,
   DescribeChannelMembershipResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -137,7 +136,7 @@ export class DescribeChannelMembershipCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeChannelMembershipRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeChannelMembershipResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

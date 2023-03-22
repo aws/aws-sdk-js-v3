@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetAccountBalanceRequest,
-  GetAccountBalanceRequestFilterSensitiveLog,
-  GetAccountBalanceResponse,
-  GetAccountBalanceResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetAccountBalanceRequest, GetAccountBalanceResponse } from "../models/models_0";
 import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
 import {
   deserializeAws_json1_1GetAccountBalanceCommand,
@@ -115,8 +110,8 @@ export class GetAccountBalanceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAccountBalanceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetAccountBalanceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

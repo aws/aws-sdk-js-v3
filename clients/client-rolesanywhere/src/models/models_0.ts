@@ -883,85 +883,10 @@ export const CreateProfileRequestFilterSensitiveLog = (obj: CreateProfileRequest
 /**
  * @internal
  */
-export const ProfileDetailFilterSensitiveLog = (obj: ProfileDetail): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ProfileDetailResponseFilterSensitiveLog = (obj: ProfileDetailResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SourceDataFilterSensitiveLog = (obj: SourceData): any => {
-  if (obj.x509CertificateData !== undefined) return { x509CertificateData: obj.x509CertificateData };
-  if (obj.acmPcaArn !== undefined) return { acmPcaArn: obj.acmPcaArn };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const SourceFilterSensitiveLog = (obj: Source): any => ({
-  ...obj,
-  ...(obj.sourceData && { sourceData: SourceDataFilterSensitiveLog(obj.sourceData) }),
-});
-
-/**
- * @internal
- */
 export const CreateTrustAnchorRequestFilterSensitiveLog = (obj: CreateTrustAnchorRequest): any => ({
   ...obj,
-  ...(obj.source && { source: SourceFilterSensitiveLog(obj.source) }),
+  ...(obj.source && { source: obj.source }),
   ...(obj.tags && { tags: obj.tags.map((item) => TagFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const TrustAnchorDetailFilterSensitiveLog = (obj: TrustAnchorDetail): any => ({
-  ...obj,
-  ...(obj.source && { source: SourceFilterSensitiveLog(obj.source) }),
-});
-
-/**
- * @internal
- */
-export const TrustAnchorDetailResponseFilterSensitiveLog = (obj: TrustAnchorDetailResponse): any => ({
-  ...obj,
-  ...(obj.trustAnchor && { trustAnchor: TrustAnchorDetailFilterSensitiveLog(obj.trustAnchor) }),
-});
-
-/**
- * @internal
- */
-export const CredentialSummaryFilterSensitiveLog = (obj: CredentialSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CrlDetailFilterSensitiveLog = (obj: CrlDetail): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CrlDetailResponseFilterSensitiveLog = (obj: CrlDetailResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ScalarCrlRequestFilterSensitiveLog = (obj: ScalarCrlRequest): any => ({
-  ...obj,
 });
 
 /**
@@ -975,115 +900,9 @@ export const ImportCrlRequestFilterSensitiveLog = (obj: ImportCrlRequest): any =
 /**
  * @internal
  */
-export const ListCrlsResponseFilterSensitiveLog = (obj: ListCrlsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListRequestFilterSensitiveLog = (obj: ListRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateCrlRequestFilterSensitiveLog = (obj: UpdateCrlRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ScalarProfileRequestFilterSensitiveLog = (obj: ScalarProfileRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ScalarTrustAnchorRequestFilterSensitiveLog = (obj: ScalarTrustAnchorRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ScalarSubjectRequestFilterSensitiveLog = (obj: ScalarSubjectRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstancePropertyFilterSensitiveLog = (obj: InstanceProperty): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SubjectDetailFilterSensitiveLog = (obj: SubjectDetail): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SubjectDetailResponseFilterSensitiveLog = (obj: SubjectDetailResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListProfilesResponseFilterSensitiveLog = (obj: ListProfilesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SubjectSummaryFilterSensitiveLog = (obj: SubjectSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListSubjectsResponseFilterSensitiveLog = (obj: ListSubjectsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
   ...obj,
   ...(obj.tags && { tags: obj.tags.map((item) => TagFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const ListTrustAnchorsResponseFilterSensitiveLog = (obj: ListTrustAnchorsResponse): any => ({
-  ...obj,
-  ...(obj.trustAnchors && { trustAnchors: obj.trustAnchors.map((item) => TrustAnchorDetailFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const UpdateProfileRequestFilterSensitiveLog = (obj: UpdateProfileRequest): any => ({
-  ...obj,
 });
 
 /**
@@ -1097,29 +916,7 @@ export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): a
 /**
  * @internal
  */
-export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateTrustAnchorRequestFilterSensitiveLog = (obj: UpdateTrustAnchorRequest): any => ({
-  ...obj,
-  ...(obj.source && { source: SourceFilterSensitiveLog(obj.source) }),
-});
-
-/**
- * @internal
- */
 export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
   ...obj,
   ...(obj.tagKeys && { tagKeys: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
-  ...obj,
 });

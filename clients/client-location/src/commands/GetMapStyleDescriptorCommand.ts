@@ -18,7 +18,6 @@ import {
   GetMapStyleDescriptorRequest,
   GetMapStyleDescriptorRequestFilterSensitiveLog,
   GetMapStyleDescriptorResponse,
-  GetMapStyleDescriptorResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1GetMapStyleDescriptorCommand,
@@ -127,7 +126,7 @@ export class GetMapStyleDescriptorCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: GetMapStyleDescriptorRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetMapStyleDescriptorResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

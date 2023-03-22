@@ -15,7 +15,6 @@ import {
 
 import {
   ListHandshakesForAccountRequest,
-  ListHandshakesForAccountRequestFilterSensitiveLog,
   ListHandshakesForAccountResponse,
   ListHandshakesForAccountResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -304,7 +303,7 @@ export class ListHandshakesForAccountCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListHandshakesForAccountRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListHandshakesForAccountResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

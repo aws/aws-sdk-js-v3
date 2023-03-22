@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  ResumeWorkflowRunRequest,
-  ResumeWorkflowRunRequestFilterSensitiveLog,
-  ResumeWorkflowRunResponse,
-  ResumeWorkflowRunResponseFilterSensitiveLog,
-} from "../models/models_2";
+import { ResumeWorkflowRunRequest, ResumeWorkflowRunResponse } from "../models/models_2";
 import {
   deserializeAws_json1_1ResumeWorkflowRunCommand,
   serializeAws_json1_1ResumeWorkflowRunCommand,
@@ -125,8 +120,8 @@ export class ResumeWorkflowRunCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ResumeWorkflowRunRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ResumeWorkflowRunResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

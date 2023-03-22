@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConnectClient";
-import {
-  PurchaseOfferingRequest,
-  PurchaseOfferingRequestFilterSensitiveLog,
-  PurchaseOfferingResponse,
-  PurchaseOfferingResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { PurchaseOfferingRequest, PurchaseOfferingResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1PurchaseOfferingCommand,
   serializeAws_restJson1PurchaseOfferingCommand,
@@ -125,8 +120,8 @@ export class PurchaseOfferingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PurchaseOfferingRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PurchaseOfferingResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
-import {
-  BatchStopRequest,
-  BatchStopRequestFilterSensitiveLog,
-  BatchStopResponse,
-  BatchStopResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { BatchStopRequest, BatchStopResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1BatchStopCommand,
   serializeAws_restJson1BatchStopCommand,
@@ -129,8 +124,8 @@ export class BatchStopCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchStopRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchStopResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

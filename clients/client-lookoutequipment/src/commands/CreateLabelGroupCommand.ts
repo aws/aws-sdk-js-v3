@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LookoutEquipmentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutEquipmentClient";
-import {
-  CreateLabelGroupRequest,
-  CreateLabelGroupRequestFilterSensitiveLog,
-  CreateLabelGroupResponse,
-  CreateLabelGroupResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateLabelGroupRequest, CreateLabelGroupResponse } from "../models/models_0";
 import {
   deserializeAws_json1_0CreateLabelGroupCommand,
   serializeAws_json1_0CreateLabelGroupCommand,
@@ -131,8 +126,8 @@ export class CreateLabelGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateLabelGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateLabelGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

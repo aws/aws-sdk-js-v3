@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
-import {
-  StopCalculationExecutionRequest,
-  StopCalculationExecutionRequestFilterSensitiveLog,
-  StopCalculationExecutionResponse,
-  StopCalculationExecutionResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { StopCalculationExecutionRequest, StopCalculationExecutionResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1StopCalculationExecutionCommand,
   serializeAws_json1_1StopCalculationExecutionCommand,
@@ -127,8 +122,8 @@ export class StopCalculationExecutionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopCalculationExecutionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StopCalculationExecutionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

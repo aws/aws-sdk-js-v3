@@ -695,23 +695,9 @@ export interface ListRegionsResponse {
 /**
  * @internal
  */
-export const DeleteAlternateContactRequestFilterSensitiveLog = (obj: DeleteAlternateContactRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const ValidationExceptionFieldFilterSensitiveLog = (obj: ValidationExceptionField): any => ({
   ...obj,
   ...(obj.message && { message: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const GetAlternateContactRequestFilterSensitiveLog = (obj: GetAlternateContactRequest): any => ({
-  ...obj,
 });
 
 /**
@@ -747,13 +733,6 @@ export const PutAlternateContactRequestFilterSensitiveLog = (obj: PutAlternateCo
 /**
  * @internal
  */
-export const GetContactInformationRequestFilterSensitiveLog = (obj: GetContactInformationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const ContactInformationFilterSensitiveLog = (obj: ContactInformation): any => ({
   ...obj,
   ...(obj.FullName && { FullName: SENSITIVE_STRING }),
@@ -784,53 +763,4 @@ export const GetContactInformationResponseFilterSensitiveLog = (obj: GetContactI
 export const PutContactInformationRequestFilterSensitiveLog = (obj: PutContactInformationRequest): any => ({
   ...obj,
   ...(obj.ContactInformation && { ContactInformation: ContactInformationFilterSensitiveLog(obj.ContactInformation) }),
-});
-
-/**
- * @internal
- */
-export const DisableRegionRequestFilterSensitiveLog = (obj: DisableRegionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnableRegionRequestFilterSensitiveLog = (obj: EnableRegionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetRegionOptStatusRequestFilterSensitiveLog = (obj: GetRegionOptStatusRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetRegionOptStatusResponseFilterSensitiveLog = (obj: GetRegionOptStatusResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListRegionsRequestFilterSensitiveLog = (obj: ListRegionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RegionFilterSensitiveLog = (obj: Region): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListRegionsResponseFilterSensitiveLog = (obj: ListRegionsResponse): any => ({
-  ...obj,
 });

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  MoveByoipCidrToIpamRequest,
-  MoveByoipCidrToIpamRequestFilterSensitiveLog,
-  MoveByoipCidrToIpamResult,
-  MoveByoipCidrToIpamResultFilterSensitiveLog,
-} from "../models/models_6";
+import { MoveByoipCidrToIpamRequest, MoveByoipCidrToIpamResult } from "../models/models_6";
 import {
   deserializeAws_ec2MoveByoipCidrToIpamCommand,
   serializeAws_ec2MoveByoipCidrToIpamCommand,
@@ -108,8 +103,8 @@ export class MoveByoipCidrToIpamCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: MoveByoipCidrToIpamRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: MoveByoipCidrToIpamResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

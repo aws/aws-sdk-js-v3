@@ -13,22 +13,27 @@ import {
 } from "@aws-sdk/types";
 
 import { JSONRPC10ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../JSONRPC10Client";
-import { NoInputAndOutputOutput, NoInputAndOutputOutputFilterSensitiveLog } from "../models/models_0";
+import { NoInputAndOutputOutput } from "../models/models_0";
 import {
   deserializeAws_json1_0NoInputAndOutputCommand,
   serializeAws_json1_0NoInputAndOutputCommand,
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link NoInputAndOutputCommand}.
  */
 export interface NoInputAndOutputCommandInput {}
 /**
+ * @public
+ *
  * The output of {@link NoInputAndOutputCommand}.
  */
 export interface NoInputAndOutputCommandOutput extends NoInputAndOutputOutput, __MetadataBearer {}
 
 /**
+ * @public
  * The example tests how requests and responses are serialized when there's
  * no request or response payload because the operation has no input and the
  * output is empty. While this should be rare, code generators must support
@@ -43,6 +48,8 @@ export interface NoInputAndOutputCommandOutput extends NoInputAndOutputOutput, _
  * const response = await client.send(command);
  * ```
  *
+ * @param NoInputAndOutputCommandInput - {@link NoInputAndOutputCommandInput}
+ * @returns {@link NoInputAndOutputCommandOutput}
  * @see {@link NoInputAndOutputCommandInput} for command's `input` shape.
  * @see {@link NoInputAndOutputCommandOutput} for command's `response` shape.
  * @see {@link JSONRPC10ClientResolvedConfig | config} for JSONRPC10Client's `config` shape.
@@ -57,6 +64,9 @@ export class NoInputAndOutputCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: NoInputAndOutputCommandInput) {
     // Start section: command_constructor
     super();
@@ -82,8 +92,8 @@ export class NoInputAndOutputCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: NoInputAndOutputOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -93,10 +103,16 @@ export class NoInputAndOutputCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: NoInputAndOutputCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0NoInputAndOutputCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<NoInputAndOutputCommandOutput> {
     return deserializeAws_json1_0NoInputAndOutputCommand(output, context);
   }

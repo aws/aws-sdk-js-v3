@@ -23,7 +23,6 @@ import {
   AdminSetUserMFAPreferenceRequest,
   AdminSetUserMFAPreferenceRequestFilterSensitiveLog,
   AdminSetUserMFAPreferenceResponse,
-  AdminSetUserMFAPreferenceResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1AdminSetUserMFAPreferenceCommand,
@@ -141,7 +140,7 @@ export class AdminSetUserMFAPreferenceCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: AdminSetUserMFAPreferenceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AdminSetUserMFAPreferenceResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

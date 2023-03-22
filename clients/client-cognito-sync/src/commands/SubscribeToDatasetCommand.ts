@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CognitoSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CognitoSyncClient";
-import {
-  SubscribeToDatasetRequest,
-  SubscribeToDatasetRequestFilterSensitiveLog,
-  SubscribeToDatasetResponse,
-  SubscribeToDatasetResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { SubscribeToDatasetRequest, SubscribeToDatasetResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1SubscribeToDatasetCommand,
   serializeAws_restJson1SubscribeToDatasetCommand,
@@ -172,8 +167,8 @@ export class SubscribeToDatasetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SubscribeToDatasetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SubscribeToDatasetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

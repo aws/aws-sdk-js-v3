@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateControlPanelRequest,
-  UpdateControlPanelRequestFilterSensitiveLog,
-  UpdateControlPanelResponse,
-  UpdateControlPanelResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateControlPanelRequest, UpdateControlPanelResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateControlPanelCommand,
   serializeAws_restJson1UpdateControlPanelCommand,
@@ -129,8 +124,8 @@ export class UpdateControlPanelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateControlPanelRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateControlPanelResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

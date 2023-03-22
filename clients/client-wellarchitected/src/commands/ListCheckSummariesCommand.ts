@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListCheckSummariesInput,
-  ListCheckSummariesInputFilterSensitiveLog,
-  ListCheckSummariesOutput,
-  ListCheckSummariesOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { ListCheckSummariesInput, ListCheckSummariesOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1ListCheckSummariesCommand,
   serializeAws_restJson1ListCheckSummariesCommand,
@@ -122,8 +117,8 @@ export class ListCheckSummariesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListCheckSummariesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListCheckSummariesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

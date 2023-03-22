@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListLaunchPathsInput,
-  ListLaunchPathsInputFilterSensitiveLog,
-  ListLaunchPathsOutput,
-  ListLaunchPathsOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { ListLaunchPathsInput, ListLaunchPathsOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1ListLaunchPathsCommand,
   serializeAws_json1_1ListLaunchPathsCommand,
@@ -138,8 +133,8 @@ export class ListLaunchPathsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListLaunchPathsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListLaunchPathsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

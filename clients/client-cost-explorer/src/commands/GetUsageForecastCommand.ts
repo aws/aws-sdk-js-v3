@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CostExplorerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CostExplorerClient";
-import {
-  GetUsageForecastRequest,
-  GetUsageForecastRequestFilterSensitiveLog,
-  GetUsageForecastResponse,
-  GetUsageForecastResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetUsageForecastRequest, GetUsageForecastResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GetUsageForecastCommand,
   serializeAws_json1_1GetUsageForecastCommand,
@@ -119,8 +114,8 @@ export class GetUsageForecastCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetUsageForecastRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetUsageForecastResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

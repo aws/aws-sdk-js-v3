@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateDatasetExportJobRequest,
-  CreateDatasetExportJobRequestFilterSensitiveLog,
-  CreateDatasetExportJobResponse,
-  CreateDatasetExportJobResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateDatasetExportJobRequest, CreateDatasetExportJobResponse } from "../models/models_0";
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
 import {
   deserializeAws_json1_1CreateDatasetExportJobCommand,
@@ -143,8 +138,8 @@ export class CreateDatasetExportJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDatasetExportJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateDatasetExportJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

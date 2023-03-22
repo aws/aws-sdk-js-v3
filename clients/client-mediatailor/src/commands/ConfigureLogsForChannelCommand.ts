@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaTailorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaTailorClient";
-import {
-  ConfigureLogsForChannelRequest,
-  ConfigureLogsForChannelRequestFilterSensitiveLog,
-  ConfigureLogsForChannelResponse,
-  ConfigureLogsForChannelResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ConfigureLogsForChannelRequest, ConfigureLogsForChannelResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ConfigureLogsForChannelCommand,
   serializeAws_restJson1ConfigureLogsForChannelCommand,
@@ -107,8 +102,8 @@ export class ConfigureLogsForChannelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ConfigureLogsForChannelRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ConfigureLogsForChannelResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

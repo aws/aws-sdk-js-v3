@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
-import {
-  ListLayersRequest,
-  ListLayersRequestFilterSensitiveLog,
-  ListLayersResponse,
-  ListLayersResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListLayersRequest, ListLayersResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListLayersCommand,
   serializeAws_restJson1ListLayersCommand,
@@ -119,8 +114,8 @@ export class ListLayersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListLayersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListLayersResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

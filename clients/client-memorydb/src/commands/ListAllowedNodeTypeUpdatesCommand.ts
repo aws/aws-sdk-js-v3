@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MemoryDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MemoryDBClient";
-import {
-  ListAllowedNodeTypeUpdatesRequest,
-  ListAllowedNodeTypeUpdatesRequestFilterSensitiveLog,
-  ListAllowedNodeTypeUpdatesResponse,
-  ListAllowedNodeTypeUpdatesResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListAllowedNodeTypeUpdatesRequest, ListAllowedNodeTypeUpdatesResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ListAllowedNodeTypeUpdatesCommand,
   serializeAws_json1_1ListAllowedNodeTypeUpdatesCommand,
@@ -121,8 +116,8 @@ export class ListAllowedNodeTypeUpdatesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAllowedNodeTypeUpdatesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAllowedNodeTypeUpdatesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

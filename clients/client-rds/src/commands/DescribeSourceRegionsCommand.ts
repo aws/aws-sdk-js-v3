@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeSourceRegionsMessage,
-  DescribeSourceRegionsMessageFilterSensitiveLog,
-  SourceRegionMessage,
-  SourceRegionMessageFilterSensitiveLog,
-} from "../models/models_1";
+import { DescribeSourceRegionsMessage, SourceRegionMessage } from "../models/models_1";
 import {
   deserializeAws_queryDescribeSourceRegionsCommand,
   serializeAws_queryDescribeSourceRegionsCommand,
@@ -179,8 +174,8 @@ export class DescribeSourceRegionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeSourceRegionsMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: SourceRegionMessageFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

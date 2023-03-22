@@ -15,7 +15,6 @@ import {
 
 import {
   ListIdentityProvidersRequest,
-  ListIdentityProvidersRequestFilterSensitiveLog,
   ListIdentityProvidersResponse,
   ListIdentityProvidersResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -119,7 +118,7 @@ export class ListIdentityProvidersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListIdentityProvidersRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListIdentityProvidersResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
-import {
-  CreateWorkGroupInput,
-  CreateWorkGroupInputFilterSensitiveLog,
-  CreateWorkGroupOutput,
-  CreateWorkGroupOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateWorkGroupInput, CreateWorkGroupOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateWorkGroupCommand,
   serializeAws_json1_1CreateWorkGroupCommand,
@@ -118,8 +113,8 @@ export class CreateWorkGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateWorkGroupInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateWorkGroupOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

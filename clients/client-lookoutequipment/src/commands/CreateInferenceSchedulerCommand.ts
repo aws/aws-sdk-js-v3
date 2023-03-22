@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LookoutEquipmentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutEquipmentClient";
-import {
-  CreateInferenceSchedulerRequest,
-  CreateInferenceSchedulerRequestFilterSensitiveLog,
-  CreateInferenceSchedulerResponse,
-  CreateInferenceSchedulerResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateInferenceSchedulerRequest, CreateInferenceSchedulerResponse } from "../models/models_0";
 import {
   deserializeAws_json1_0CreateInferenceSchedulerCommand,
   serializeAws_json1_0CreateInferenceSchedulerCommand,
@@ -137,8 +132,8 @@ export class CreateInferenceSchedulerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateInferenceSchedulerRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateInferenceSchedulerResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

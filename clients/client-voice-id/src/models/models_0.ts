@@ -1877,23 +1877,9 @@ export interface UntagResourceResponse {}
 /**
  * @internal
  */
-export const AuthenticationConfigurationFilterSensitiveLog = (obj: AuthenticationConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const AuthenticationResultFilterSensitiveLog = (obj: AuthenticationResult): any => ({
   ...obj,
   ...(obj.CustomerSpeakerId && { CustomerSpeakerId: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ServerSideEncryptionConfigurationFilterSensitiveLog = (obj: ServerSideEncryptionConfiguration): any => ({
-  ...obj,
 });
 
 /**
@@ -1918,13 +1904,6 @@ export const CreateDomainRequestFilterSensitiveLog = (obj: CreateDomainRequest):
 /**
  * @internal
  */
-export const ServerSideEncryptionUpdateDetailsFilterSensitiveLog = (obj: ServerSideEncryptionUpdateDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const DomainFilterSensitiveLog = (obj: Domain): any => ({
   ...obj,
   ...(obj.Name && { Name: SENSITIVE_STRING }),
@@ -1937,13 +1916,6 @@ export const DomainFilterSensitiveLog = (obj: Domain): any => ({
 export const CreateDomainResponseFilterSensitiveLog = (obj: CreateDomainResponse): any => ({
   ...obj,
   ...(obj.Domain && { Domain: DomainFilterSensitiveLog(obj.Domain) }),
-});
-
-/**
- * @internal
- */
-export const DeleteDomainRequestFilterSensitiveLog = (obj: DeleteDomainRequest): any => ({
-  ...obj,
 });
 
 /**
@@ -1965,13 +1937,6 @@ export const DeleteSpeakerRequestFilterSensitiveLog = (obj: DeleteSpeakerRequest
 /**
  * @internal
  */
-export const DescribeDomainRequestFilterSensitiveLog = (obj: DescribeDomainRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const DescribeDomainResponseFilterSensitiveLog = (obj: DescribeDomainResponse): any => ({
   ...obj,
   ...(obj.Domain && { Domain: DomainFilterSensitiveLog(obj.Domain) }),
@@ -1983,64 +1948,6 @@ export const DescribeDomainResponseFilterSensitiveLog = (obj: DescribeDomainResp
 export const DescribeFraudsterRequestFilterSensitiveLog = (obj: DescribeFraudsterRequest): any => ({
   ...obj,
   ...(obj.FraudsterId && { FraudsterId: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const FraudsterFilterSensitiveLog = (obj: Fraudster): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeFraudsterResponseFilterSensitiveLog = (obj: DescribeFraudsterResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeFraudsterRegistrationJobRequestFilterSensitiveLog = (
-  obj: DescribeFraudsterRegistrationJobRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FailureDetailsFilterSensitiveLog = (obj: FailureDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InputDataConfigFilterSensitiveLog = (obj: InputDataConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const JobProgressFilterSensitiveLog = (obj: JobProgress): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OutputDataConfigFilterSensitiveLog = (obj: OutputDataConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RegistrationConfigFilterSensitiveLog = (obj: RegistrationConfig): any => ({
-  ...obj,
 });
 
 /**
@@ -2088,29 +1995,6 @@ export const DescribeSpeakerResponseFilterSensitiveLog = (obj: DescribeSpeakerRe
 /**
  * @internal
  */
-export const DescribeSpeakerEnrollmentJobRequestFilterSensitiveLog = (
-  obj: DescribeSpeakerEnrollmentJobRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnrollmentJobFraudDetectionConfigFilterSensitiveLog = (obj: EnrollmentJobFraudDetectionConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnrollmentConfigFilterSensitiveLog = (obj: EnrollmentConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const SpeakerEnrollmentJobFilterSensitiveLog = (obj: SpeakerEnrollmentJob): any => ({
   ...obj,
   ...(obj.JobName && { JobName: SENSITIVE_STRING }),
@@ -2124,13 +2008,6 @@ export const DescribeSpeakerEnrollmentJobResponseFilterSensitiveLog = (
 ): any => ({
   ...obj,
   ...(obj.Job && { Job: SpeakerEnrollmentJobFilterSensitiveLog(obj.Job) }),
-});
-
-/**
- * @internal
- */
-export const ListDomainsRequestFilterSensitiveLog = (obj: ListDomainsRequest): any => ({
-  ...obj,
 });
 
 /**
@@ -2172,48 +2049,6 @@ export const UpdateDomainResponseFilterSensitiveLog = (obj: UpdateDomainResponse
 /**
  * @internal
  */
-export const EvaluateSessionRequestFilterSensitiveLog = (obj: EvaluateSessionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FraudDetectionConfigurationFilterSensitiveLog = (obj: FraudDetectionConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const KnownFraudsterRiskFilterSensitiveLog = (obj: KnownFraudsterRisk): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VoiceSpoofingRiskFilterSensitiveLog = (obj: VoiceSpoofingRisk): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FraudRiskDetailsFilterSensitiveLog = (obj: FraudRiskDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FraudDetectionResultFilterSensitiveLog = (obj: FraudDetectionResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const EvaluateSessionResponseFilterSensitiveLog = (obj: EvaluateSessionResponse): any => ({
   ...obj,
   ...(obj.AuthenticationResult && {
@@ -2232,15 +2067,6 @@ export const FraudsterRegistrationJobSummaryFilterSensitiveLog = (obj: Fraudster
 /**
  * @internal
  */
-export const ListFraudsterRegistrationJobsRequestFilterSensitiveLog = (
-  obj: ListFraudsterRegistrationJobsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const ListFraudsterRegistrationJobsResponseFilterSensitiveLog = (
   obj: ListFraudsterRegistrationJobsResponse
 ): any => ({
@@ -2248,13 +2074,6 @@ export const ListFraudsterRegistrationJobsResponseFilterSensitiveLog = (
   ...(obj.JobSummaries && {
     JobSummaries: obj.JobSummaries.map((item) => FraudsterRegistrationJobSummaryFilterSensitiveLog(item)),
   }),
-});
-
-/**
- * @internal
- */
-export const ListSpeakerEnrollmentJobsRequestFilterSensitiveLog = (obj: ListSpeakerEnrollmentJobsRequest): any => ({
-  ...obj,
 });
 
 /**
@@ -2278,13 +2097,6 @@ export const ListSpeakerEnrollmentJobsResponseFilterSensitiveLog = (obj: ListSpe
 /**
  * @internal
  */
-export const ListSpeakersRequestFilterSensitiveLog = (obj: ListSpeakersRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const SpeakerSummaryFilterSensitiveLog = (obj: SpeakerSummary): any => ({
   ...obj,
   ...(obj.CustomerSpeakerId && { CustomerSpeakerId: SENSITIVE_STRING }),
@@ -2298,13 +2110,6 @@ export const ListSpeakersResponseFilterSensitiveLog = (obj: ListSpeakersResponse
   ...(obj.SpeakerSummaries && {
     SpeakerSummaries: obj.SpeakerSummaries.map((item) => SpeakerSummaryFilterSensitiveLog(item)),
   }),
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-  ...obj,
 });
 
 /**
@@ -2378,21 +2183,7 @@ export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): a
 /**
  * @internal
  */
-export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
   ...obj,
   ...(obj.TagKeys && { TagKeys: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
-  ...obj,
 });

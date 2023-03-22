@@ -15,7 +15,6 @@ import {
 
 import {
   DescribeChapCredentialsInput,
-  DescribeChapCredentialsInputFilterSensitiveLog,
   DescribeChapCredentialsOutput,
   DescribeChapCredentialsOutputFilterSensitiveLog,
 } from "../models/models_0";
@@ -140,7 +139,7 @@ export class DescribeChapCredentialsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeChapCredentialsInputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeChapCredentialsOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

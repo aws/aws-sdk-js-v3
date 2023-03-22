@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
-import {
-  ApplyPendingMaintenanceActionMessage,
-  ApplyPendingMaintenanceActionMessageFilterSensitiveLog,
-  ApplyPendingMaintenanceActionResponse,
-  ApplyPendingMaintenanceActionResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ApplyPendingMaintenanceActionMessage, ApplyPendingMaintenanceActionResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ApplyPendingMaintenanceActionCommand,
   serializeAws_json1_1ApplyPendingMaintenanceActionCommand,
@@ -116,8 +111,8 @@ export class ApplyPendingMaintenanceActionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ApplyPendingMaintenanceActionMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: ApplyPendingMaintenanceActionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

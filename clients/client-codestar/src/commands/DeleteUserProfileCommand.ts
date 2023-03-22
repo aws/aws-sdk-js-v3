@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeStarClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeStarClient";
-import {
-  DeleteUserProfileRequest,
-  DeleteUserProfileRequestFilterSensitiveLog,
-  DeleteUserProfileResult,
-  DeleteUserProfileResultFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteUserProfileRequest, DeleteUserProfileResult } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteUserProfileCommand,
   serializeAws_json1_1DeleteUserProfileCommand,
@@ -112,8 +107,8 @@ export class DeleteUserProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteUserProfileRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteUserProfileResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

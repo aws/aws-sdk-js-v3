@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
-import {
-  DeleteLabelRequest,
-  DeleteLabelRequestFilterSensitiveLog,
-  DeleteLabelResult,
-  DeleteLabelResultFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteLabelRequest, DeleteLabelResult } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteLabelCommand,
   serializeAws_json1_1DeleteLabelCommand,
@@ -120,8 +115,8 @@ export class DeleteLabelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteLabelRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteLabelResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

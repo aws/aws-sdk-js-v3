@@ -18,7 +18,6 @@ import {
   CreateFileSystemRequest,
   CreateFileSystemRequestFilterSensitiveLog,
   CreateFileSystemResponse,
-  CreateFileSystemResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateFileSystemCommand,
@@ -261,7 +260,7 @@ export class CreateFileSystemCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateFileSystemRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateFileSystemResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

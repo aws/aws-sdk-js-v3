@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import {
-  GetDiscoveredResourceCountsRequest,
-  GetDiscoveredResourceCountsRequestFilterSensitiveLog,
-  GetDiscoveredResourceCountsResponse,
-  GetDiscoveredResourceCountsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetDiscoveredResourceCountsRequest, GetDiscoveredResourceCountsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GetDiscoveredResourceCountsCommand,
   serializeAws_json1_1GetDiscoveredResourceCountsCommand,
@@ -179,8 +174,8 @@ export class GetDiscoveredResourceCountsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDiscoveredResourceCountsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetDiscoveredResourceCountsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

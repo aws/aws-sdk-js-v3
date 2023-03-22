@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ForecastqueryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastqueryClient";
-import {
-  QueryForecastRequest,
-  QueryForecastRequestFilterSensitiveLog,
-  QueryForecastResponse,
-  QueryForecastResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { QueryForecastRequest, QueryForecastResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1QueryForecastCommand,
   serializeAws_json1_1QueryForecastCommand,
@@ -132,8 +127,8 @@ export class QueryForecastCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: QueryForecastRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: QueryForecastResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

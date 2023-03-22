@@ -16,9 +16,7 @@ import {
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import {
   UpdateRelationalDatabaseParametersRequest,
-  UpdateRelationalDatabaseParametersRequestFilterSensitiveLog,
   UpdateRelationalDatabaseParametersResult,
-  UpdateRelationalDatabaseParametersResultFilterSensitiveLog,
 } from "../models/models_1";
 import {
   deserializeAws_json1_1UpdateRelationalDatabaseParametersCommand,
@@ -148,8 +146,8 @@ export class UpdateRelationalDatabaseParametersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateRelationalDatabaseParametersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateRelationalDatabaseParametersResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

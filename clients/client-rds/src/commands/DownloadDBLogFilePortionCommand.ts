@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DownloadDBLogFilePortionDetails,
-  DownloadDBLogFilePortionDetailsFilterSensitiveLog,
-  DownloadDBLogFilePortionMessage,
-  DownloadDBLogFilePortionMessageFilterSensitiveLog,
-} from "../models/models_1";
+import { DownloadDBLogFilePortionDetails, DownloadDBLogFilePortionMessage } from "../models/models_1";
 import {
   deserializeAws_queryDownloadDBLogFilePortionCommand,
   serializeAws_queryDownloadDBLogFilePortionCommand,
@@ -128,8 +123,8 @@ export class DownloadDBLogFilePortionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DownloadDBLogFilePortionMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: DownloadDBLogFilePortionDetailsFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

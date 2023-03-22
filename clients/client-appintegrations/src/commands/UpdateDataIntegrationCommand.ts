@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AppIntegrationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppIntegrationsClient";
-import {
-  UpdateDataIntegrationRequest,
-  UpdateDataIntegrationRequestFilterSensitiveLog,
-  UpdateDataIntegrationResponse,
-  UpdateDataIntegrationResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateDataIntegrationRequest, UpdateDataIntegrationResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateDataIntegrationCommand,
   serializeAws_restJson1UpdateDataIntegrationCommand,
@@ -127,8 +122,8 @@ export class UpdateDataIntegrationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateDataIntegrationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateDataIntegrationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

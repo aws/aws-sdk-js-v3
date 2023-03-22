@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LookoutMetricsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutMetricsClient";
-import {
-  BackTestAnomalyDetectorRequest,
-  BackTestAnomalyDetectorRequestFilterSensitiveLog,
-  BackTestAnomalyDetectorResponse,
-  BackTestAnomalyDetectorResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { BackTestAnomalyDetectorRequest, BackTestAnomalyDetectorResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1BackTestAnomalyDetectorCommand,
   serializeAws_restJson1BackTestAnomalyDetectorCommand,
@@ -123,8 +118,8 @@ export class BackTestAnomalyDetectorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BackTestAnomalyDetectorRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BackTestAnomalyDetectorResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

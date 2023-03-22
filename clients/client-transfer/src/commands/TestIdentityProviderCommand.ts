@@ -17,7 +17,6 @@ import {
   TestIdentityProviderRequest,
   TestIdentityProviderRequestFilterSensitiveLog,
   TestIdentityProviderResponse,
-  TestIdentityProviderResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1TestIdentityProviderCommand,
@@ -159,7 +158,7 @@ export class TestIdentityProviderCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: TestIdentityProviderRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: TestIdentityProviderResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

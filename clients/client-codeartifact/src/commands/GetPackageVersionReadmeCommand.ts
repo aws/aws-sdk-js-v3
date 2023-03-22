@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient";
-import {
-  GetPackageVersionReadmeRequest,
-  GetPackageVersionReadmeRequestFilterSensitiveLog,
-  GetPackageVersionReadmeResult,
-  GetPackageVersionReadmeResultFilterSensitiveLog,
-} from "../models/models_0";
+import { GetPackageVersionReadmeRequest, GetPackageVersionReadmeResult } from "../models/models_0";
 import {
   deserializeAws_restJson1GetPackageVersionReadmeCommand,
   serializeAws_restJson1GetPackageVersionReadmeCommand,
@@ -135,8 +130,8 @@ export class GetPackageVersionReadmeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetPackageVersionReadmeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetPackageVersionReadmeResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

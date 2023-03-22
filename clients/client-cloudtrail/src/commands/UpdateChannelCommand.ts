@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
-import {
-  UpdateChannelRequest,
-  UpdateChannelRequestFilterSensitiveLog,
-  UpdateChannelResponse,
-  UpdateChannelResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateChannelRequest, UpdateChannelResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateChannelCommand,
   serializeAws_json1_1UpdateChannelCommand,
@@ -140,8 +135,8 @@ export class UpdateChannelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateChannelRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateChannelResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -16,9 +16,7 @@ import {
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
 import {
   DescribeDirectConnectGatewayAssociationProposalsRequest,
-  DescribeDirectConnectGatewayAssociationProposalsRequestFilterSensitiveLog,
   DescribeDirectConnectGatewayAssociationProposalsResult,
-  DescribeDirectConnectGatewayAssociationProposalsResultFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeDirectConnectGatewayAssociationProposalsCommand,
@@ -122,8 +120,8 @@ export class DescribeDirectConnectGatewayAssociationProposalsCommand extends $Co
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDirectConnectGatewayAssociationProposalsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeDirectConnectGatewayAssociationProposalsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

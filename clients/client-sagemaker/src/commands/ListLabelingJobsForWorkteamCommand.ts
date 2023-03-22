@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListLabelingJobsForWorkteamRequest,
-  ListLabelingJobsForWorkteamRequestFilterSensitiveLog,
-  ListLabelingJobsForWorkteamResponse,
-  ListLabelingJobsForWorkteamResponseFilterSensitiveLog,
-} from "../models/models_3";
+import { ListLabelingJobsForWorkteamRequest, ListLabelingJobsForWorkteamResponse } from "../models/models_3";
 import {
   deserializeAws_json1_1ListLabelingJobsForWorkteamCommand,
   serializeAws_json1_1ListLabelingJobsForWorkteamCommand,
@@ -112,8 +107,8 @@ export class ListLabelingJobsForWorkteamCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListLabelingJobsForWorkteamRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListLabelingJobsForWorkteamResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

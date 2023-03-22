@@ -17,7 +17,6 @@ import {
   ListBucketInventoryConfigurationsOutput,
   ListBucketInventoryConfigurationsOutputFilterSensitiveLog,
   ListBucketInventoryConfigurationsRequest,
-  ListBucketInventoryConfigurationsRequestFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restXmlListBucketInventoryConfigurationsCommand,
@@ -149,7 +148,7 @@ export class ListBucketInventoryConfigurationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListBucketInventoryConfigurationsRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListBucketInventoryConfigurationsOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

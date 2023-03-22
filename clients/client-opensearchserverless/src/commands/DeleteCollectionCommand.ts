@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteCollectionRequest,
-  DeleteCollectionRequestFilterSensitiveLog,
-  DeleteCollectionResponse,
-  DeleteCollectionResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteCollectionRequest, DeleteCollectionResponse } from "../models/models_0";
 import {
   OpenSearchServerlessClientResolvedConfig,
   ServiceInputTypes,
@@ -127,8 +122,8 @@ export class DeleteCollectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteCollectionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteCollectionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

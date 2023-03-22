@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DescribeInstanceAttributeRequest,
-  DescribeInstanceAttributeRequestFilterSensitiveLog,
-  InstanceAttribute,
-  InstanceAttributeFilterSensitiveLog,
-} from "../models/models_3";
+import { DescribeInstanceAttributeRequest, InstanceAttribute } from "../models/models_3";
 import {
   deserializeAws_ec2DescribeInstanceAttributeCommand,
   serializeAws_ec2DescribeInstanceAttributeCommand,
@@ -194,8 +189,8 @@ export class DescribeInstanceAttributeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeInstanceAttributeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: InstanceAttributeFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

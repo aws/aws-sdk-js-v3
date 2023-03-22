@@ -16,9 +16,7 @@ import {
 import { AutoScalingPlansClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingPlansClient";
 import {
   GetScalingPlanResourceForecastDataRequest,
-  GetScalingPlanResourceForecastDataRequestFilterSensitiveLog,
   GetScalingPlanResourceForecastDataResponse,
-  GetScalingPlanResourceForecastDataResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1GetScalingPlanResourceForecastDataCommand,
@@ -118,8 +116,8 @@ export class GetScalingPlanResourceForecastDataCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetScalingPlanResourceForecastDataRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetScalingPlanResourceForecastDataResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

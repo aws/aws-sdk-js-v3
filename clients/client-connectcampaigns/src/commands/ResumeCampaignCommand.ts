@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectCampaignsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCampaignsClient";
-import { ResumeCampaignRequest, ResumeCampaignRequestFilterSensitiveLog } from "../models/models_0";
+import { ResumeCampaignRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1ResumeCampaignCommand,
   serializeAws_restJson1ResumeCampaignCommand,
@@ -123,8 +123,8 @@ export class ResumeCampaignCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ResumeCampaignRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
-import {
-  EncryptRequest,
-  EncryptRequestFilterSensitiveLog,
-  EncryptResponse,
-  EncryptResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { EncryptRequest, EncryptRequestFilterSensitiveLog, EncryptResponse } from "../models/models_0";
 import { deserializeAws_json1_1EncryptCommand, serializeAws_json1_1EncryptCommand } from "../protocols/Aws_json1_1";
 
 /**
@@ -287,7 +282,7 @@ export class EncryptCommand extends $Command<EncryptCommandInput, EncryptCommand
       clientName,
       commandName,
       inputFilterSensitiveLog: EncryptRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: EncryptResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

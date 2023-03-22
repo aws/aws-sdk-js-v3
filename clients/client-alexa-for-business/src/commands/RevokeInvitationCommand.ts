@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import {
-  RevokeInvitationRequest,
-  RevokeInvitationRequestFilterSensitiveLog,
-  RevokeInvitationResponse,
-  RevokeInvitationResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { RevokeInvitationRequest, RevokeInvitationResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1RevokeInvitationCommand,
   serializeAws_json1_1RevokeInvitationCommand,
@@ -113,8 +108,8 @@ export class RevokeInvitationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RevokeInvitationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RevokeInvitationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

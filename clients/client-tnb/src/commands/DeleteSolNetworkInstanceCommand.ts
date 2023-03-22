@@ -13,7 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteSolNetworkInstanceInput, DeleteSolNetworkInstanceInputFilterSensitiveLog } from "../models/models_0";
+import { DeleteSolNetworkInstanceInput } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteSolNetworkInstanceCommand,
   serializeAws_restJson1DeleteSolNetworkInstanceCommand,
@@ -119,8 +119,8 @@ export class DeleteSolNetworkInstanceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteSolNetworkInstanceInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

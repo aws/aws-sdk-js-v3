@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
-import {
-  DeleteIntegrationResponseRequest,
-  DeleteIntegrationResponseRequestFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteIntegrationResponseRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteIntegrationResponseCommand,
   serializeAws_restJson1DeleteIntegrationResponseCommand,
@@ -111,8 +108,8 @@ export class DeleteIntegrationResponseCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteIntegrationResponseRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

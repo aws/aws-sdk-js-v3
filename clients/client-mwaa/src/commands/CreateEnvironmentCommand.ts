@@ -17,7 +17,6 @@ import {
   CreateEnvironmentInput,
   CreateEnvironmentInputFilterSensitiveLog,
   CreateEnvironmentOutput,
-  CreateEnvironmentOutputFilterSensitiveLog,
 } from "../models/models_0";
 import { MWAAClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MWAAClient";
 import {
@@ -114,7 +113,7 @@ export class CreateEnvironmentCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateEnvironmentInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateEnvironmentOutputFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

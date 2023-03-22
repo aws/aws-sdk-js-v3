@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
-import {
-  DeleteConfiguredTableAnalysisRuleInput,
-  DeleteConfiguredTableAnalysisRuleInputFilterSensitiveLog,
-  DeleteConfiguredTableAnalysisRuleOutput,
-  DeleteConfiguredTableAnalysisRuleOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteConfiguredTableAnalysisRuleInput, DeleteConfiguredTableAnalysisRuleOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteConfiguredTableAnalysisRuleCommand,
   serializeAws_restJson1DeleteConfiguredTableAnalysisRuleCommand,
@@ -127,8 +122,8 @@ export class DeleteConfiguredTableAnalysisRuleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteConfiguredTableAnalysisRuleInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteConfiguredTableAnalysisRuleOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

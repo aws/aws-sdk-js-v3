@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingV2Client";
-import {
-  DescribeAccountLimitsInput,
-  DescribeAccountLimitsInputFilterSensitiveLog,
-  DescribeAccountLimitsOutput,
-  DescribeAccountLimitsOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeAccountLimitsInput, DescribeAccountLimitsOutput } from "../models/models_0";
 import {
   deserializeAws_queryDescribeAccountLimitsCommand,
   serializeAws_queryDescribeAccountLimitsCommand,
@@ -133,8 +128,8 @@ export class DescribeAccountLimitsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeAccountLimitsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeAccountLimitsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

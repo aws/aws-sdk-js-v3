@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { TagInstanceProfileRequest, TagInstanceProfileRequestFilterSensitiveLog } from "../models/models_0";
+import { TagInstanceProfileRequest } from "../models/models_0";
 import {
   deserializeAws_queryTagInstanceProfileCommand,
   serializeAws_queryTagInstanceProfileCommand,
@@ -157,8 +157,8 @@ export class TagInstanceProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TagInstanceProfileRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

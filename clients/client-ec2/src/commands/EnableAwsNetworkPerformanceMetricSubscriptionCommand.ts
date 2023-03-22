@@ -16,9 +16,7 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   EnableAwsNetworkPerformanceMetricSubscriptionRequest,
-  EnableAwsNetworkPerformanceMetricSubscriptionRequestFilterSensitiveLog,
   EnableAwsNetworkPerformanceMetricSubscriptionResult,
-  EnableAwsNetworkPerformanceMetricSubscriptionResultFilterSensitiveLog,
 } from "../models/models_5";
 import {
   deserializeAws_ec2EnableAwsNetworkPerformanceMetricSubscriptionCommand,
@@ -116,8 +114,8 @@ export class EnableAwsNetworkPerformanceMetricSubscriptionCommand extends $Comma
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: EnableAwsNetworkPerformanceMetricSubscriptionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: EnableAwsNetworkPerformanceMetricSubscriptionResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

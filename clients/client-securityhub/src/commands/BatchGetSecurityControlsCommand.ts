@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  BatchGetSecurityControlsRequest,
-  BatchGetSecurityControlsRequestFilterSensitiveLog,
-  BatchGetSecurityControlsResponse,
-  BatchGetSecurityControlsResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { BatchGetSecurityControlsRequest, BatchGetSecurityControlsResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1BatchGetSecurityControlsCommand,
   serializeAws_restJson1BatchGetSecurityControlsCommand,
@@ -123,8 +118,8 @@ export class BatchGetSecurityControlsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchGetSecurityControlsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchGetSecurityControlsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

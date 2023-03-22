@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ModifyEventSubscriptionMessage,
-  ModifyEventSubscriptionMessageFilterSensitiveLog,
-  ModifyEventSubscriptionResult,
-  ModifyEventSubscriptionResultFilterSensitiveLog,
-} from "../models/models_1";
+import { ModifyEventSubscriptionMessage, ModifyEventSubscriptionResult } from "../models/models_1";
 import {
   deserializeAws_queryModifyEventSubscriptionCommand,
   serializeAws_queryModifyEventSubscriptionCommand,
@@ -151,8 +146,8 @@ export class ModifyEventSubscriptionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyEventSubscriptionMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifyEventSubscriptionResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

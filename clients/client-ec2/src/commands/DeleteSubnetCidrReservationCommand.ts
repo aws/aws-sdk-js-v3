@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DeleteSubnetCidrReservationRequest,
-  DeleteSubnetCidrReservationRequestFilterSensitiveLog,
-  DeleteSubnetCidrReservationResult,
-  DeleteSubnetCidrReservationResultFilterSensitiveLog,
-} from "../models/models_3";
+import { DeleteSubnetCidrReservationRequest, DeleteSubnetCidrReservationResult } from "../models/models_3";
 import {
   deserializeAws_ec2DeleteSubnetCidrReservationCommand,
   serializeAws_ec2DeleteSubnetCidrReservationCommand,
@@ -107,8 +102,8 @@ export class DeleteSubnetCidrReservationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteSubnetCidrReservationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteSubnetCidrReservationResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

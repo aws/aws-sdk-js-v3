@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeletePipeRequest,
-  DeletePipeRequestFilterSensitiveLog,
-  DeletePipeResponse,
-  DeletePipeResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeletePipeRequest, DeletePipeResponse } from "../models/models_0";
 import { PipesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PipesClient";
 import {
   deserializeAws_restJson1DeletePipeCommand,
@@ -120,8 +115,8 @@ export class DeletePipeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeletePipeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeletePipeResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

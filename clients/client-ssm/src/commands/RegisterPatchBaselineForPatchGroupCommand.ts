@@ -15,9 +15,7 @@ import {
 
 import {
   RegisterPatchBaselineForPatchGroupRequest,
-  RegisterPatchBaselineForPatchGroupRequestFilterSensitiveLog,
   RegisterPatchBaselineForPatchGroupResult,
-  RegisterPatchBaselineForPatchGroupResultFilterSensitiveLog,
 } from "../models/models_1";
 import {
   deserializeAws_json1_1RegisterPatchBaselineForPatchGroupCommand,
@@ -131,8 +129,8 @@ export class RegisterPatchBaselineForPatchGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RegisterPatchBaselineForPatchGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RegisterPatchBaselineForPatchGroupResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient";
-import {
-  GetVaultAccessPolicyInput,
-  GetVaultAccessPolicyInputFilterSensitiveLog,
-  GetVaultAccessPolicyOutput,
-  GetVaultAccessPolicyOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { GetVaultAccessPolicyInput, GetVaultAccessPolicyOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1GetVaultAccessPolicyCommand,
   serializeAws_restJson1GetVaultAccessPolicyCommand,
@@ -144,8 +139,8 @@ export class GetVaultAccessPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetVaultAccessPolicyInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetVaultAccessPolicyOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

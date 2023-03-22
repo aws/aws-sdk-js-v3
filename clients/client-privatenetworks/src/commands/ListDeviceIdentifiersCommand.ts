@@ -15,7 +15,6 @@ import {
 
 import {
   ListDeviceIdentifiersRequest,
-  ListDeviceIdentifiersRequestFilterSensitiveLog,
   ListDeviceIdentifiersResponse,
   ListDeviceIdentifiersResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -120,7 +119,7 @@ export class ListDeviceIdentifiersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDeviceIdentifiersRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListDeviceIdentifiersResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

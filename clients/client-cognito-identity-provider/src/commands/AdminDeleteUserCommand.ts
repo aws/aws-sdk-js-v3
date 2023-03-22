@@ -131,7 +131,7 @@ export class AdminDeleteUserCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: AdminDeleteUserRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

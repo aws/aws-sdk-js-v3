@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ModifyDBInstanceMessage,
-  ModifyDBInstanceMessageFilterSensitiveLog,
-  ModifyDBInstanceResult,
-  ModifyDBInstanceResultFilterSensitiveLog,
-} from "../models/models_0";
+import { ModifyDBInstanceMessage, ModifyDBInstanceResult } from "../models/models_0";
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
 import {
   deserializeAws_queryModifyDBInstanceCommand,
@@ -167,8 +162,8 @@ export class ModifyDBInstanceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyDBInstanceMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifyDBInstanceResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

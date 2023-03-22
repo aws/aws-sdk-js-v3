@@ -15,7 +15,6 @@ import {
 
 import {
   GetBrowserSettingsRequest,
-  GetBrowserSettingsRequestFilterSensitiveLog,
   GetBrowserSettingsResponse,
   GetBrowserSettingsResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -122,7 +121,7 @@ export class GetBrowserSettingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetBrowserSettingsRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetBrowserSettingsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

@@ -17,7 +17,6 @@ import {
   CreateBrowserSettingsRequest,
   CreateBrowserSettingsRequestFilterSensitiveLog,
   CreateBrowserSettingsResponse,
-  CreateBrowserSettingsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateBrowserSettingsCommand,
@@ -131,7 +130,7 @@ export class CreateBrowserSettingsCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateBrowserSettingsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateBrowserSettingsResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

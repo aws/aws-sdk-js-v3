@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  RejectPortfolioShareInput,
-  RejectPortfolioShareInputFilterSensitiveLog,
-  RejectPortfolioShareOutput,
-  RejectPortfolioShareOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { RejectPortfolioShareInput, RejectPortfolioShareOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1RejectPortfolioShareCommand,
   serializeAws_json1_1RejectPortfolioShareCommand,
@@ -110,8 +105,8 @@ export class RejectPortfolioShareCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RejectPortfolioShareInputFilterSensitiveLog,
-      outputFilterSensitiveLog: RejectPortfolioShareOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

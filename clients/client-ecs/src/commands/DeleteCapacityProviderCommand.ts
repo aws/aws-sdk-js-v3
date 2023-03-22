@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
-import {
-  DeleteCapacityProviderRequest,
-  DeleteCapacityProviderRequestFilterSensitiveLog,
-  DeleteCapacityProviderResponse,
-  DeleteCapacityProviderResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteCapacityProviderRequest, DeleteCapacityProviderResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteCapacityProviderCommand,
   serializeAws_json1_1DeleteCapacityProviderCommand,
@@ -133,8 +128,8 @@ export class DeleteCapacityProviderCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteCapacityProviderRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteCapacityProviderResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

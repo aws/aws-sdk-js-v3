@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
-import {
-  AliasConfiguration,
-  AliasConfigurationFilterSensitiveLog,
-  GetAliasRequest,
-  GetAliasRequestFilterSensitiveLog,
-} from "../models/models_0";
+import { AliasConfiguration, GetAliasRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1GetAliasCommand,
   serializeAws_restJson1GetAliasCommand,
@@ -113,8 +108,8 @@ export class GetAliasCommand extends $Command<GetAliasCommandInput, GetAliasComm
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAliasRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AliasConfigurationFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

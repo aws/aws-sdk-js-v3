@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient";
-import {
-  GetTelemetryMetadataRequest,
-  GetTelemetryMetadataRequestFilterSensitiveLog,
-  GetTelemetryMetadataResponse,
-  GetTelemetryMetadataResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetTelemetryMetadataRequest, GetTelemetryMetadataResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GetTelemetryMetadataCommand,
   serializeAws_json1_1GetTelemetryMetadataCommand,
@@ -284,8 +279,8 @@ export class GetTelemetryMetadataCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetTelemetryMetadataRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetTelemetryMetadataResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

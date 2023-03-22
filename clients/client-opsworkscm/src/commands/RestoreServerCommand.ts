@@ -15,7 +15,6 @@ import {
 
 import {
   RestoreServerRequest,
-  RestoreServerRequestFilterSensitiveLog,
   RestoreServerResponse,
   RestoreServerResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -131,7 +130,7 @@ export class RestoreServerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RestoreServerRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: RestoreServerResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListReviewableHITsRequest,
-  ListReviewableHITsRequestFilterSensitiveLog,
-  ListReviewableHITsResponse,
-  ListReviewableHITsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListReviewableHITsRequest, ListReviewableHITsResponse } from "../models/models_0";
 import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
 import {
   deserializeAws_json1_1ListReviewableHITsCommand,
@@ -116,8 +111,8 @@ export class ListReviewableHITsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListReviewableHITsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListReviewableHITsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

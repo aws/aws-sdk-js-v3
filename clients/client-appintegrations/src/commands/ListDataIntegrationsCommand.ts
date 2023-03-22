@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AppIntegrationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppIntegrationsClient";
-import {
-  ListDataIntegrationsRequest,
-  ListDataIntegrationsRequestFilterSensitiveLog,
-  ListDataIntegrationsResponse,
-  ListDataIntegrationsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListDataIntegrationsRequest, ListDataIntegrationsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListDataIntegrationsCommand,
   serializeAws_restJson1ListDataIntegrationsCommand,
@@ -124,8 +119,8 @@ export class ListDataIntegrationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDataIntegrationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListDataIntegrationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

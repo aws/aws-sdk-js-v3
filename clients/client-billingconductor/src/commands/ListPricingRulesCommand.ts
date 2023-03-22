@@ -16,7 +16,6 @@ import {
 import { BillingconductorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BillingconductorClient";
 import {
   ListPricingRulesInput,
-  ListPricingRulesInputFilterSensitiveLog,
   ListPricingRulesOutput,
   ListPricingRulesOutputFilterSensitiveLog,
 } from "../models/models_0";
@@ -124,7 +123,7 @@ export class ListPricingRulesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListPricingRulesInputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListPricingRulesOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

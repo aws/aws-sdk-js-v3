@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetQualificationScoreRequest,
-  GetQualificationScoreRequestFilterSensitiveLog,
-  GetQualificationScoreResponse,
-  GetQualificationScoreResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetQualificationScoreRequest, GetQualificationScoreResponse } from "../models/models_0";
 import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
 import {
   deserializeAws_json1_1GetQualificationScoreCommand,
@@ -126,8 +121,8 @@ export class GetQualificationScoreCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetQualificationScoreRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetQualificationScoreResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

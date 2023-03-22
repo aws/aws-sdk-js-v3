@@ -19,12 +19,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
-import {
-  UpdateUserPoolDomainRequest,
-  UpdateUserPoolDomainRequestFilterSensitiveLog,
-  UpdateUserPoolDomainResponse,
-  UpdateUserPoolDomainResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { UpdateUserPoolDomainRequest, UpdateUserPoolDomainResponse } from "../models/models_1";
 import {
   deserializeAws_json1_1UpdateUserPoolDomainCommand,
   serializeAws_json1_1UpdateUserPoolDomainCommand,
@@ -149,8 +144,8 @@ export class UpdateUserPoolDomainCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateUserPoolDomainRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateUserPoolDomainResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

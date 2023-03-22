@@ -330,50 +330,6 @@ export interface GetLatestConfigurationResponse {
 /**
  * @internal
  */
-export const InvalidParameterDetailFilterSensitiveLog = (obj: InvalidParameterDetail): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BadRequestDetailsFilterSensitiveLog = (obj: BadRequestDetails): any => {
-  if (obj.InvalidParameters !== undefined)
-    return {
-      InvalidParameters: Object.entries(obj.InvalidParameters).reduce(
-        (acc: any, [key, value]: [string, InvalidParameterDetail]) => (
-          (acc[key] = InvalidParameterDetailFilterSensitiveLog(value)), acc
-        ),
-        {}
-      ),
-    };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const StartConfigurationSessionRequestFilterSensitiveLog = (obj: StartConfigurationSessionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartConfigurationSessionResponseFilterSensitiveLog = (obj: StartConfigurationSessionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetLatestConfigurationRequestFilterSensitiveLog = (obj: GetLatestConfigurationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const GetLatestConfigurationResponseFilterSensitiveLog = (obj: GetLatestConfigurationResponse): any => ({
   ...obj,
   ...(obj.Configuration && { Configuration: SENSITIVE_STRING }),

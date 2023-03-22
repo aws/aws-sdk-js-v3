@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { CancelConversionRequest, CancelConversionRequestFilterSensitiveLog } from "../models/models_0";
+import { CancelConversionRequest } from "../models/models_0";
 import {
   deserializeAws_ec2CancelConversionTaskCommand,
   serializeAws_ec2CancelConversionTaskCommand,
@@ -106,8 +106,8 @@ export class CancelConversionTaskCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelConversionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

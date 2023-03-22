@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
-import {
-  StopImageBuilderRequest,
-  StopImageBuilderRequestFilterSensitiveLog,
-  StopImageBuilderResult,
-  StopImageBuilderResultFilterSensitiveLog,
-} from "../models/models_0";
+import { StopImageBuilderRequest, StopImageBuilderResult } from "../models/models_0";
 import {
   deserializeAws_json1_1StopImageBuilderCommand,
   serializeAws_json1_1StopImageBuilderCommand,
@@ -116,8 +111,8 @@ export class StopImageBuilderCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopImageBuilderRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StopImageBuilderResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

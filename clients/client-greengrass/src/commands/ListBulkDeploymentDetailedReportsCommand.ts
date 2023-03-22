@@ -16,9 +16,7 @@ import {
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
 import {
   ListBulkDeploymentDetailedReportsRequest,
-  ListBulkDeploymentDetailedReportsRequestFilterSensitiveLog,
   ListBulkDeploymentDetailedReportsResponse,
-  ListBulkDeploymentDetailedReportsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1ListBulkDeploymentDetailedReportsCommand,
@@ -112,8 +110,8 @@ export class ListBulkDeploymentDetailedReportsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListBulkDeploymentDetailedReportsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListBulkDeploymentDetailedReportsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

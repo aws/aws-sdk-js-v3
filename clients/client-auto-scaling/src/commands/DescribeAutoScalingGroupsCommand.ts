@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import {
-  AutoScalingGroupNamesType,
-  AutoScalingGroupNamesTypeFilterSensitiveLog,
-  AutoScalingGroupsType,
-  AutoScalingGroupsTypeFilterSensitiveLog,
-} from "../models/models_0";
+import { AutoScalingGroupNamesType, AutoScalingGroupsType } from "../models/models_0";
 import {
   deserializeAws_queryDescribeAutoScalingGroupsCommand,
   serializeAws_queryDescribeAutoScalingGroupsCommand,
@@ -173,8 +168,8 @@ export class DescribeAutoScalingGroupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AutoScalingGroupNamesTypeFilterSensitiveLog,
-      outputFilterSensitiveLog: AutoScalingGroupsTypeFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

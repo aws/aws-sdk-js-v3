@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  AuthorizeVpcEndpointAccessRequest,
-  AuthorizeVpcEndpointAccessRequestFilterSensitiveLog,
-  AuthorizeVpcEndpointAccessResponse,
-  AuthorizeVpcEndpointAccessResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { AuthorizeVpcEndpointAccessRequest, AuthorizeVpcEndpointAccessResponse } from "../models/models_0";
 import { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
 import {
   deserializeAws_restJson1AuthorizeVpcEndpointAccessCommand,
@@ -126,8 +121,8 @@ export class AuthorizeVpcEndpointAccessCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AuthorizeVpcEndpointAccessRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AuthorizeVpcEndpointAccessResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -18,7 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../GlobalAcceleratorClient";
-import { RemoveEndpointsRequest, RemoveEndpointsRequestFilterSensitiveLog } from "../models/models_0";
+import { RemoveEndpointsRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1RemoveEndpointsCommand,
   serializeAws_json1_1RemoveEndpointsCommand,
@@ -137,8 +137,8 @@ export class RemoveEndpointsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RemoveEndpointsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListAccessPoliciesRequest,
-  ListAccessPoliciesRequestFilterSensitiveLog,
-  ListAccessPoliciesResponse,
-  ListAccessPoliciesResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListAccessPoliciesRequest, ListAccessPoliciesResponse } from "../models/models_0";
 import {
   OpenSearchServerlessClientResolvedConfig,
   ServiceInputTypes,
@@ -118,8 +113,8 @@ export class ListAccessPoliciesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAccessPoliciesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAccessPoliciesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

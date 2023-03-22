@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DescribeByoipCidrsRequest,
-  DescribeByoipCidrsRequestFilterSensitiveLog,
-  DescribeByoipCidrsResult,
-  DescribeByoipCidrsResultFilterSensitiveLog,
-} from "../models/models_3";
+import { DescribeByoipCidrsRequest, DescribeByoipCidrsResult } from "../models/models_3";
 import {
   deserializeAws_ec2DescribeByoipCidrsCommand,
   serializeAws_ec2DescribeByoipCidrsCommand,
@@ -109,8 +104,8 @@ export class DescribeByoipCidrsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeByoipCidrsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeByoipCidrsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

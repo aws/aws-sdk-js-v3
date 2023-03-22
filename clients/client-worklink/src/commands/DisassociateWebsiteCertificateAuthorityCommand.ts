@@ -15,9 +15,7 @@ import {
 
 import {
   DisassociateWebsiteCertificateAuthorityRequest,
-  DisassociateWebsiteCertificateAuthorityRequestFilterSensitiveLog,
   DisassociateWebsiteCertificateAuthorityResponse,
-  DisassociateWebsiteCertificateAuthorityResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1DisassociateWebsiteCertificateAuthorityCommand,
@@ -133,8 +131,8 @@ export class DisassociateWebsiteCertificateAuthorityCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateWebsiteCertificateAuthorityRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateWebsiteCertificateAuthorityResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

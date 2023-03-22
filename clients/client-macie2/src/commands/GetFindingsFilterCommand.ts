@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
-import {
-  GetFindingsFilterRequest,
-  GetFindingsFilterRequestFilterSensitiveLog,
-  GetFindingsFilterResponse,
-  GetFindingsFilterResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetFindingsFilterRequest, GetFindingsFilterResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetFindingsFilterCommand,
   serializeAws_restJson1GetFindingsFilterCommand,
@@ -128,8 +123,8 @@ export class GetFindingsFilterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetFindingsFilterRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetFindingsFilterResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  DeleteDomainConfigurationRequest,
-  DeleteDomainConfigurationRequestFilterSensitiveLog,
-  DeleteDomainConfigurationResponse,
-  DeleteDomainConfigurationResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteDomainConfigurationRequest, DeleteDomainConfigurationResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteDomainConfigurationCommand,
   serializeAws_restJson1DeleteDomainConfigurationCommand,
@@ -126,8 +121,8 @@ export class DeleteDomainConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDomainConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteDomainConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

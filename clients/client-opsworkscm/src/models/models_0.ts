@@ -1759,13 +1759,6 @@ export interface UpdateServerEngineAttributesResponse {
 /**
  * @internal
  */
-export const AccountAttributeFilterSensitiveLog = (obj: AccountAttribute): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const EngineAttributeFilterSensitiveLog = (obj: EngineAttribute): any => ({
   ...obj,
   ...(obj.Value && { Value: SENSITIVE_STRING }),
@@ -1779,41 +1772,6 @@ export const AssociateNodeRequestFilterSensitiveLog = (obj: AssociateNodeRequest
   ...(obj.EngineAttributes && {
     EngineAttributes: obj.EngineAttributes.map((item) => EngineAttributeFilterSensitiveLog(item)),
   }),
-});
-
-/**
- * @internal
- */
-export const AssociateNodeResponseFilterSensitiveLog = (obj: AssociateNodeResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BackupFilterSensitiveLog = (obj: Backup): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagFilterSensitiveLog = (obj: Tag): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateBackupRequestFilterSensitiveLog = (obj: CreateBackupRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateBackupResponseFilterSensitiveLog = (obj: CreateBackupResponse): any => ({
-  ...obj,
 });
 
 /**
@@ -1848,92 +1806,6 @@ export const CreateServerResponseFilterSensitiveLog = (obj: CreateServerResponse
 /**
  * @internal
  */
-export const DeleteBackupRequestFilterSensitiveLog = (obj: DeleteBackupRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteBackupResponseFilterSensitiveLog = (obj: DeleteBackupResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteServerRequestFilterSensitiveLog = (obj: DeleteServerRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteServerResponseFilterSensitiveLog = (obj: DeleteServerResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeAccountAttributesRequestFilterSensitiveLog = (obj: DescribeAccountAttributesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeAccountAttributesResponseFilterSensitiveLog = (obj: DescribeAccountAttributesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeBackupsRequestFilterSensitiveLog = (obj: DescribeBackupsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeBackupsResponseFilterSensitiveLog = (obj: DescribeBackupsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeEventsRequestFilterSensitiveLog = (obj: DescribeEventsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ServerEventFilterSensitiveLog = (obj: ServerEvent): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeEventsResponseFilterSensitiveLog = (obj: DescribeEventsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeNodeAssociationStatusRequestFilterSensitiveLog = (
-  obj: DescribeNodeAssociationStatusRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const DescribeNodeAssociationStatusResponseFilterSensitiveLog = (
   obj: DescribeNodeAssociationStatusResponse
 ): any => ({
@@ -1941,13 +1813,6 @@ export const DescribeNodeAssociationStatusResponseFilterSensitiveLog = (
   ...(obj.EngineAttributes && {
     EngineAttributes: obj.EngineAttributes.map((item) => EngineAttributeFilterSensitiveLog(item)),
   }),
-});
-
-/**
- * @internal
- */
-export const DescribeServersRequestFilterSensitiveLog = (obj: DescribeServersRequest): any => ({
-  ...obj,
 });
 
 /**
@@ -1970,13 +1835,6 @@ export const DisassociateNodeRequestFilterSensitiveLog = (obj: DisassociateNodeR
 /**
  * @internal
  */
-export const DisassociateNodeResponseFilterSensitiveLog = (obj: DisassociateNodeResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const ExportServerEngineAttributeRequestFilterSensitiveLog = (obj: ExportServerEngineAttributeRequest): any => ({
   ...obj,
   ...(obj.InputAttributes && {
@@ -1992,27 +1850,6 @@ export const ExportServerEngineAttributeResponseFilterSensitiveLog = (
 ): any => ({
   ...obj,
   ...(obj.EngineAttribute && { EngineAttribute: EngineAttributeFilterSensitiveLog(obj.EngineAttribute) }),
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RestoreServerRequestFilterSensitiveLog = (obj: RestoreServerRequest): any => ({
-  ...obj,
 });
 
 /**
@@ -2044,53 +1881,9 @@ export const StartMaintenanceResponseFilterSensitiveLog = (obj: StartMaintenance
 /**
  * @internal
  */
-export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateServerRequestFilterSensitiveLog = (obj: UpdateServerRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const UpdateServerResponseFilterSensitiveLog = (obj: UpdateServerResponse): any => ({
   ...obj,
   ...(obj.Server && { Server: ServerFilterSensitiveLog(obj.Server) }),
-});
-
-/**
- * @internal
- */
-export const UpdateServerEngineAttributesRequestFilterSensitiveLog = (
-  obj: UpdateServerEngineAttributesRequest
-): any => ({
-  ...obj,
 });
 
 /**

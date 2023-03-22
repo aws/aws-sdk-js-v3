@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  ProvisionIpamPoolCidrRequest,
-  ProvisionIpamPoolCidrRequestFilterSensitiveLog,
-  ProvisionIpamPoolCidrResult,
-  ProvisionIpamPoolCidrResultFilterSensitiveLog,
-} from "../models/models_6";
+import { ProvisionIpamPoolCidrRequest, ProvisionIpamPoolCidrResult } from "../models/models_6";
 import {
   deserializeAws_ec2ProvisionIpamPoolCidrCommand,
   serializeAws_ec2ProvisionIpamPoolCidrCommand,
@@ -109,8 +104,8 @@ export class ProvisionIpamPoolCidrCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ProvisionIpamPoolCidrRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ProvisionIpamPoolCidrResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

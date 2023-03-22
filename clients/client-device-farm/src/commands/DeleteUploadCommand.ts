@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import {
-  DeleteUploadRequest,
-  DeleteUploadRequestFilterSensitiveLog,
-  DeleteUploadResult,
-  DeleteUploadResultFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteUploadRequest, DeleteUploadResult } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteUploadCommand,
   serializeAws_json1_1DeleteUploadCommand,
@@ -128,8 +123,8 @@ export class DeleteUploadCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteUploadRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteUploadResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

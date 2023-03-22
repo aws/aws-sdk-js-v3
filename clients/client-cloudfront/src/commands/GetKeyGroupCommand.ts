@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import {
-  GetKeyGroupRequest,
-  GetKeyGroupRequestFilterSensitiveLog,
-  GetKeyGroupResult,
-  GetKeyGroupResultFilterSensitiveLog,
-} from "../models/models_1";
+import { GetKeyGroupRequest, GetKeyGroupResult } from "../models/models_1";
 import {
   deserializeAws_restXmlGetKeyGroupCommand,
   serializeAws_restXmlGetKeyGroupCommand,
@@ -114,8 +109,8 @@ export class GetKeyGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetKeyGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetKeyGroupResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

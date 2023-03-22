@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import {
-  GetSdkRequest,
-  GetSdkRequestFilterSensitiveLog,
-  SdkResponse,
-  SdkResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetSdkRequest, SdkResponse } from "../models/models_0";
 import { deserializeAws_restJson1GetSdkCommand, serializeAws_restJson1GetSdkCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -116,8 +111,8 @@ export class GetSdkCommand extends $Command<GetSdkCommandInput, GetSdkCommandOut
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSdkRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SdkResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

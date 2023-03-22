@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ModifyClusterDbRevisionMessage,
-  ModifyClusterDbRevisionMessageFilterSensitiveLog,
-  ModifyClusterDbRevisionResult,
-  ModifyClusterDbRevisionResultFilterSensitiveLog,
-} from "../models/models_1";
+import { ModifyClusterDbRevisionMessage, ModifyClusterDbRevisionResult } from "../models/models_1";
 import {
   deserializeAws_queryModifyClusterDbRevisionCommand,
   serializeAws_queryModifyClusterDbRevisionCommand,
@@ -118,8 +113,8 @@ export class ModifyClusterDbRevisionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyClusterDbRevisionMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifyClusterDbRevisionResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

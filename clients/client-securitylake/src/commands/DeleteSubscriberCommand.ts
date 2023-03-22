@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteSubscriberRequest,
-  DeleteSubscriberRequestFilterSensitiveLog,
-  DeleteSubscriberResponse,
-  DeleteSubscriberResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteSubscriberRequest, DeleteSubscriberResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteSubscriberCommand,
   serializeAws_restJson1DeleteSubscriberCommand,
@@ -141,8 +136,8 @@ export class DeleteSubscriberCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteSubscriberRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteSubscriberResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

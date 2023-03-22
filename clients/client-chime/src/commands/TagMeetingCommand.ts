@@ -125,7 +125,7 @@ export class TagMeetingCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: TagMeetingRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

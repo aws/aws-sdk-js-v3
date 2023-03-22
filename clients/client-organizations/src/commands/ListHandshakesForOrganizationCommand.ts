@@ -15,7 +15,6 @@ import {
 
 import {
   ListHandshakesForOrganizationRequest,
-  ListHandshakesForOrganizationRequestFilterSensitiveLog,
   ListHandshakesForOrganizationResponse,
   ListHandshakesForOrganizationResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -355,7 +354,7 @@ export class ListHandshakesForOrganizationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListHandshakesForOrganizationRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListHandshakesForOrganizationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

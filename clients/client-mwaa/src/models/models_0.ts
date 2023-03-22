@@ -1024,37 +1024,9 @@ export interface UpdateEnvironmentOutput {
 /**
  * @internal
  */
-export const CreateCliTokenRequestFilterSensitiveLog = (obj: CreateCliTokenRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const CreateCliTokenResponseFilterSensitiveLog = (obj: CreateCliTokenResponse): any => ({
   ...obj,
   ...(obj.CliToken && { CliToken: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ModuleLoggingConfigurationInputFilterSensitiveLog = (obj: ModuleLoggingConfigurationInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LoggingConfigurationInputFilterSensitiveLog = (obj: LoggingConfigurationInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NetworkConfigurationFilterSensitiveLog = (obj: NetworkConfiguration): any => ({
-  ...obj,
 });
 
 /**
@@ -1068,72 +1040,9 @@ export const CreateEnvironmentInputFilterSensitiveLog = (obj: CreateEnvironmentI
 /**
  * @internal
  */
-export const CreateEnvironmentOutputFilterSensitiveLog = (obj: CreateEnvironmentOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateWebLoginTokenRequestFilterSensitiveLog = (obj: CreateWebLoginTokenRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const CreateWebLoginTokenResponseFilterSensitiveLog = (obj: CreateWebLoginTokenResponse): any => ({
   ...obj,
   ...(obj.WebToken && { WebToken: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const DeleteEnvironmentInputFilterSensitiveLog = (obj: DeleteEnvironmentInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteEnvironmentOutputFilterSensitiveLog = (obj: DeleteEnvironmentOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetEnvironmentInputFilterSensitiveLog = (obj: GetEnvironmentInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateErrorFilterSensitiveLog = (obj: UpdateError): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LastUpdateFilterSensitiveLog = (obj: LastUpdate): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModuleLoggingConfigurationFilterSensitiveLog = (obj: ModuleLoggingConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LoggingConfigurationFilterSensitiveLog = (obj: LoggingConfiguration): any => ({
-  ...obj,
 });
 
 /**
@@ -1155,112 +1064,7 @@ export const GetEnvironmentOutputFilterSensitiveLog = (obj: GetEnvironmentOutput
 /**
  * @internal
  */
-export const ListEnvironmentsInputFilterSensitiveLog = (obj: ListEnvironmentsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListEnvironmentsOutputFilterSensitiveLog = (obj: ListEnvironmentsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceInputFilterSensitiveLog = (obj: ListTagsForResourceInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceOutputFilterSensitiveLog = (obj: ListTagsForResourceOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DimensionFilterSensitiveLog = (obj: Dimension): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StatisticSetFilterSensitiveLog = (obj: StatisticSet): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MetricDatumFilterSensitiveLog = (obj: MetricDatum): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PublishMetricsInputFilterSensitiveLog = (obj: PublishMetricsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PublishMetricsOutputFilterSensitiveLog = (obj: PublishMetricsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceInputFilterSensitiveLog = (obj: TagResourceInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceOutputFilterSensitiveLog = (obj: TagResourceOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceInputFilterSensitiveLog = (obj: UntagResourceInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceOutputFilterSensitiveLog = (obj: UntagResourceOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateNetworkConfigurationInputFilterSensitiveLog = (obj: UpdateNetworkConfigurationInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const UpdateEnvironmentInputFilterSensitiveLog = (obj: UpdateEnvironmentInput): any => ({
   ...obj,
   ...(obj.AirflowConfigurationOptions && { AirflowConfigurationOptions: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const UpdateEnvironmentOutputFilterSensitiveLog = (obj: UpdateEnvironmentOutput): any => ({
-  ...obj,
 });

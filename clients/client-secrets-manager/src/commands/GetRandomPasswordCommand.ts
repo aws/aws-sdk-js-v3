@@ -15,7 +15,6 @@ import {
 
 import {
   GetRandomPasswordRequest,
-  GetRandomPasswordRequestFilterSensitiveLog,
   GetRandomPasswordResponse,
   GetRandomPasswordResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -158,7 +157,7 @@ export class GetRandomPasswordCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetRandomPasswordRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetRandomPasswordResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

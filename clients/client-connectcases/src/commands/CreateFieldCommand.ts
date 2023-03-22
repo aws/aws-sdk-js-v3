@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectCasesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCasesClient";
-import {
-  CreateFieldRequest,
-  CreateFieldRequestFilterSensitiveLog,
-  CreateFieldResponse,
-  CreateFieldResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateFieldRequest, CreateFieldResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateFieldCommand,
   serializeAws_restJson1CreateFieldCommand,
@@ -132,8 +127,8 @@ export class CreateFieldCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateFieldRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateFieldResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateSafetyRuleRequest,
-  UpdateSafetyRuleRequestFilterSensitiveLog,
-  UpdateSafetyRuleResponse,
-  UpdateSafetyRuleResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateSafetyRuleRequest, UpdateSafetyRuleResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateSafetyRuleCommand,
   serializeAws_restJson1UpdateSafetyRuleCommand,
@@ -120,8 +115,8 @@ export class UpdateSafetyRuleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateSafetyRuleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateSafetyRuleResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

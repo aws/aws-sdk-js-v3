@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
-import {
-  EnableInsightRulesInput,
-  EnableInsightRulesInputFilterSensitiveLog,
-  EnableInsightRulesOutput,
-  EnableInsightRulesOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { EnableInsightRulesInput, EnableInsightRulesOutput } from "../models/models_0";
 import {
   deserializeAws_queryEnableInsightRulesCommand,
   serializeAws_queryEnableInsightRulesCommand,
@@ -116,8 +111,8 @@ export class EnableInsightRulesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: EnableInsightRulesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: EnableInsightRulesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

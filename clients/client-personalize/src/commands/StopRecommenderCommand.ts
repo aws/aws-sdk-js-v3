@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  StopRecommenderRequest,
-  StopRecommenderRequestFilterSensitiveLog,
-  StopRecommenderResponse,
-  StopRecommenderResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { StopRecommenderRequest, StopRecommenderResponse } from "../models/models_0";
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
 import {
   deserializeAws_json1_1StopRecommenderCommand,
@@ -116,8 +111,8 @@ export class StopRecommenderCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopRecommenderRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StopRecommenderResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

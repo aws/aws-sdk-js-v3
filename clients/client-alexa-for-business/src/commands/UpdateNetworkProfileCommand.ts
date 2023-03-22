@@ -18,7 +18,6 @@ import {
   UpdateNetworkProfileRequest,
   UpdateNetworkProfileRequestFilterSensitiveLog,
   UpdateNetworkProfileResponse,
-  UpdateNetworkProfileResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateNetworkProfileCommand,
@@ -123,7 +122,7 @@ export class UpdateNetworkProfileCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: UpdateNetworkProfileRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateNetworkProfileResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

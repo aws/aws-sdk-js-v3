@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { KinesisVideoClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisVideoClient";
-import {
-  UpdateMediaStorageConfigurationInput,
-  UpdateMediaStorageConfigurationInputFilterSensitiveLog,
-  UpdateMediaStorageConfigurationOutput,
-  UpdateMediaStorageConfigurationOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateMediaStorageConfigurationInput, UpdateMediaStorageConfigurationOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateMediaStorageConfigurationCommand,
   serializeAws_restJson1UpdateMediaStorageConfigurationCommand,
@@ -156,8 +151,8 @@ export class UpdateMediaStorageConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateMediaStorageConfigurationInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateMediaStorageConfigurationOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

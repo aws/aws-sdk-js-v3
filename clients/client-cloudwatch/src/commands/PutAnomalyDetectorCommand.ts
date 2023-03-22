@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
-import {
-  PutAnomalyDetectorInput,
-  PutAnomalyDetectorInputFilterSensitiveLog,
-  PutAnomalyDetectorOutput,
-  PutAnomalyDetectorOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { PutAnomalyDetectorInput, PutAnomalyDetectorOutput } from "../models/models_0";
 import {
   deserializeAws_queryPutAnomalyDetectorCommand,
   serializeAws_queryPutAnomalyDetectorCommand,
@@ -124,8 +119,8 @@ export class PutAnomalyDetectorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutAnomalyDetectorInputFilterSensitiveLog,
-      outputFilterSensitiveLog: PutAnomalyDetectorOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

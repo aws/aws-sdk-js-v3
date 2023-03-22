@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
-import {
-  CreateBackupRequest,
-  CreateBackupRequestFilterSensitiveLog,
-  CreateBackupResponse,
-  CreateBackupResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateBackupRequest, CreateBackupResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateBackupCommand,
   serializeAws_json1_1CreateBackupCommand,
@@ -234,8 +229,8 @@ export class CreateBackupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateBackupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateBackupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

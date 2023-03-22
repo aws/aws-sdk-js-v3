@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ConnectParticipantClient";
-import {
-  GetTranscriptRequest,
-  GetTranscriptRequestFilterSensitiveLog,
-  GetTranscriptResponse,
-  GetTranscriptResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetTranscriptRequest, GetTranscriptResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetTranscriptCommand,
   serializeAws_restJson1GetTranscriptCommand,
@@ -131,8 +126,8 @@ export class GetTranscriptCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetTranscriptRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetTranscriptResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

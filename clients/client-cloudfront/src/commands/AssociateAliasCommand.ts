@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import { AssociateAliasRequest, AssociateAliasRequestFilterSensitiveLog } from "../models/models_0";
+import { AssociateAliasRequest } from "../models/models_0";
 import {
   deserializeAws_restXmlAssociateAliasCommand,
   serializeAws_restXmlAssociateAliasCommand,
@@ -127,8 +127,8 @@ export class AssociateAliasCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateAliasRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

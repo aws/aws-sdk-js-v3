@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
-import {
-  GetBackupVaultNotificationsInput,
-  GetBackupVaultNotificationsInputFilterSensitiveLog,
-  GetBackupVaultNotificationsOutput,
-  GetBackupVaultNotificationsOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { GetBackupVaultNotificationsInput, GetBackupVaultNotificationsOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1GetBackupVaultNotificationsCommand,
   serializeAws_restJson1GetBackupVaultNotificationsCommand,
@@ -120,8 +115,8 @@ export class GetBackupVaultNotificationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetBackupVaultNotificationsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetBackupVaultNotificationsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

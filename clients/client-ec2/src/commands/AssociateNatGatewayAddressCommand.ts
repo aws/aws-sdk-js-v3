@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  AssociateNatGatewayAddressRequest,
-  AssociateNatGatewayAddressRequestFilterSensitiveLog,
-  AssociateNatGatewayAddressResult,
-  AssociateNatGatewayAddressResultFilterSensitiveLog,
-} from "../models/models_0";
+import { AssociateNatGatewayAddressRequest, AssociateNatGatewayAddressResult } from "../models/models_0";
 import {
   deserializeAws_ec2AssociateNatGatewayAddressCommand,
   serializeAws_ec2AssociateNatGatewayAddressCommand,
@@ -108,8 +103,8 @@ export class AssociateNatGatewayAddressCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateNatGatewayAddressRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssociateNatGatewayAddressResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

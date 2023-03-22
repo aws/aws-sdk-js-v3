@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateVocabularyFilterRequest,
-  CreateVocabularyFilterRequestFilterSensitiveLog,
-  CreateVocabularyFilterResponse,
-  CreateVocabularyFilterResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateVocabularyFilterRequest, CreateVocabularyFilterResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateVocabularyFilterCommand,
   serializeAws_json1_1CreateVocabularyFilterCommand,
@@ -134,8 +129,8 @@ export class CreateVocabularyFilterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateVocabularyFilterRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateVocabularyFilterResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
-import {
-  DeleteDBInstanceMessage,
-  DeleteDBInstanceMessageFilterSensitiveLog,
-  DeleteDBInstanceResult,
-  DeleteDBInstanceResultFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteDBInstanceMessage, DeleteDBInstanceResult } from "../models/models_0";
 import {
   deserializeAws_queryDeleteDBInstanceCommand,
   serializeAws_queryDeleteDBInstanceCommand,
@@ -125,8 +120,8 @@ export class DeleteDBInstanceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDBInstanceMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteDBInstanceResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

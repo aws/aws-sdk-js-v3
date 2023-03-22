@@ -1325,58 +1325,9 @@ export interface SynthesizeSpeechOutput {
 /**
  * @internal
  */
-export const DeleteLexiconInputFilterSensitiveLog = (obj: DeleteLexiconInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteLexiconOutputFilterSensitiveLog = (obj: DeleteLexiconOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeVoicesInputFilterSensitiveLog = (obj: DescribeVoicesInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VoiceFilterSensitiveLog = (obj: Voice): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeVoicesOutputFilterSensitiveLog = (obj: DescribeVoicesOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetLexiconInputFilterSensitiveLog = (obj: GetLexiconInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const LexiconFilterSensitiveLog = (obj: Lexicon): any => ({
   ...obj,
   ...(obj.Content && { Content: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const LexiconAttributesFilterSensitiveLog = (obj: LexiconAttributes): any => ({
-  ...obj,
 });
 
 /**
@@ -1390,93 +1341,9 @@ export const GetLexiconOutputFilterSensitiveLog = (obj: GetLexiconOutput): any =
 /**
  * @internal
  */
-export const GetSpeechSynthesisTaskInputFilterSensitiveLog = (obj: GetSpeechSynthesisTaskInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SynthesisTaskFilterSensitiveLog = (obj: SynthesisTask): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetSpeechSynthesisTaskOutputFilterSensitiveLog = (obj: GetSpeechSynthesisTaskOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LexiconDescriptionFilterSensitiveLog = (obj: LexiconDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListLexiconsInputFilterSensitiveLog = (obj: ListLexiconsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListLexiconsOutputFilterSensitiveLog = (obj: ListLexiconsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListSpeechSynthesisTasksInputFilterSensitiveLog = (obj: ListSpeechSynthesisTasksInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListSpeechSynthesisTasksOutputFilterSensitiveLog = (obj: ListSpeechSynthesisTasksOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const PutLexiconInputFilterSensitiveLog = (obj: PutLexiconInput): any => ({
   ...obj,
   ...(obj.Content && { Content: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const PutLexiconOutputFilterSensitiveLog = (obj: PutLexiconOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartSpeechSynthesisTaskInputFilterSensitiveLog = (obj: StartSpeechSynthesisTaskInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartSpeechSynthesisTaskOutputFilterSensitiveLog = (obj: StartSpeechSynthesisTaskOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SynthesizeSpeechInputFilterSensitiveLog = (obj: SynthesizeSpeechInput): any => ({
-  ...obj,
 });
 
 /**

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient";
-import {
-  PutRepositoryPermissionsPolicyRequest,
-  PutRepositoryPermissionsPolicyRequestFilterSensitiveLog,
-  PutRepositoryPermissionsPolicyResult,
-  PutRepositoryPermissionsPolicyResultFilterSensitiveLog,
-} from "../models/models_0";
+import { PutRepositoryPermissionsPolicyRequest, PutRepositoryPermissionsPolicyResult } from "../models/models_0";
 import {
   deserializeAws_restJson1PutRepositoryPermissionsPolicyCommand,
   serializeAws_restJson1PutRepositoryPermissionsPolicyCommand,
@@ -149,8 +144,8 @@ export class PutRepositoryPermissionsPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutRepositoryPermissionsPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutRepositoryPermissionsPolicyResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

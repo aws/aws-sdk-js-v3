@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectCampaignsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCampaignsClient";
-import {
-  GetInstanceOnboardingJobStatusRequest,
-  GetInstanceOnboardingJobStatusRequestFilterSensitiveLog,
-  GetInstanceOnboardingJobStatusResponse,
-  GetInstanceOnboardingJobStatusResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetInstanceOnboardingJobStatusRequest, GetInstanceOnboardingJobStatusResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetInstanceOnboardingJobStatusCommand,
   serializeAws_restJson1GetInstanceOnboardingJobStatusCommand,
@@ -121,8 +116,8 @@ export class GetInstanceOnboardingJobStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetInstanceOnboardingJobStatusRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetInstanceOnboardingJobStatusResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

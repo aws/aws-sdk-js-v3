@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DetectiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DetectiveClient";
-import { DeleteGraphRequest, DeleteGraphRequestFilterSensitiveLog } from "../models/models_0";
+import { DeleteGraphRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteGraphCommand,
   serializeAws_restJson1DeleteGraphCommand,
@@ -117,8 +117,8 @@ export class DeleteGraphCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteGraphRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

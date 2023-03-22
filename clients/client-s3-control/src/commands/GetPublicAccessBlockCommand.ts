@@ -14,12 +14,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetPublicAccessBlockOutput,
-  GetPublicAccessBlockOutputFilterSensitiveLog,
-  GetPublicAccessBlockRequest,
-  GetPublicAccessBlockRequestFilterSensitiveLog,
-} from "../models/models_0";
+import { GetPublicAccessBlockOutput, GetPublicAccessBlockRequest } from "../models/models_0";
 import {
   deserializeAws_restXmlGetPublicAccessBlockCommand,
   serializeAws_restXmlGetPublicAccessBlockCommand,
@@ -132,8 +127,8 @@ export class GetPublicAccessBlockCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetPublicAccessBlockRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetPublicAccessBlockOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

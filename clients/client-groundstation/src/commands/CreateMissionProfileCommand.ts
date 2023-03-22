@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GroundStationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GroundStationClient";
-import {
-  CreateMissionProfileRequest,
-  CreateMissionProfileRequestFilterSensitiveLog,
-  MissionProfileIdResponse,
-  MissionProfileIdResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateMissionProfileRequest, MissionProfileIdResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateMissionProfileCommand,
   serializeAws_restJson1CreateMissionProfileCommand,
@@ -119,8 +114,8 @@ export class CreateMissionProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateMissionProfileRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: MissionProfileIdResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

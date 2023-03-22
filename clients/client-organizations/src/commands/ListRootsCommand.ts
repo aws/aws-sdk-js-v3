@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListRootsRequest,
-  ListRootsRequestFilterSensitiveLog,
-  ListRootsResponse,
-  ListRootsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListRootsRequest, ListRootsResponse } from "../models/models_0";
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
 import { deserializeAws_json1_1ListRootsCommand, serializeAws_json1_1ListRootsCommand } from "../protocols/Aws_json1_1";
 
@@ -271,8 +266,8 @@ export class ListRootsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListRootsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListRootsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

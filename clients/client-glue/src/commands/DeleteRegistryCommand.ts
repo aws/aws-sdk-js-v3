@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  DeleteRegistryInput,
-  DeleteRegistryInputFilterSensitiveLog,
-  DeleteRegistryResponse,
-  DeleteRegistryResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { DeleteRegistryInput, DeleteRegistryResponse } from "../models/models_1";
 import {
   deserializeAws_json1_1DeleteRegistryCommand,
   serializeAws_json1_1DeleteRegistryCommand,
@@ -119,8 +114,8 @@ export class DeleteRegistryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteRegistryInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteRegistryResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

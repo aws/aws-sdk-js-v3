@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  ConfirmProductInstanceRequest,
-  ConfirmProductInstanceRequestFilterSensitiveLog,
-  ConfirmProductInstanceResult,
-  ConfirmProductInstanceResultFilterSensitiveLog,
-} from "../models/models_0";
+import { ConfirmProductInstanceRequest, ConfirmProductInstanceResult } from "../models/models_0";
 import {
   deserializeAws_ec2ConfirmProductInstanceCommand,
   serializeAws_ec2ConfirmProductInstanceCommand,
@@ -126,8 +121,8 @@ export class ConfirmProductInstanceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ConfirmProductInstanceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ConfirmProductInstanceResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

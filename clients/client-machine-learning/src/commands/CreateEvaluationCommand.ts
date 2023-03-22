@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MachineLearningClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MachineLearningClient";
-import {
-  CreateEvaluationInput,
-  CreateEvaluationInputFilterSensitiveLog,
-  CreateEvaluationOutput,
-  CreateEvaluationOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateEvaluationInput, CreateEvaluationOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateEvaluationCommand,
   serializeAws_json1_1CreateEvaluationCommand,
@@ -127,8 +122,8 @@ export class CreateEvaluationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateEvaluationInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateEvaluationOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

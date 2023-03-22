@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MigrationHubRefactorSpacesClient";
-import {
-  DeleteResourcePolicyRequest,
-  DeleteResourcePolicyRequestFilterSensitiveLog,
-  DeleteResourcePolicyResponse,
-  DeleteResourcePolicyResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteResourcePolicyRequest, DeleteResourcePolicyResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteResourcePolicyCommand,
   serializeAws_restJson1DeleteResourcePolicyCommand,
@@ -127,8 +122,8 @@ export class DeleteResourcePolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteResourcePolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteResourcePolicyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

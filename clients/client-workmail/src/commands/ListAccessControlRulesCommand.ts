@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListAccessControlRulesRequest,
-  ListAccessControlRulesRequestFilterSensitiveLog,
-  ListAccessControlRulesResponse,
-  ListAccessControlRulesResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListAccessControlRulesRequest, ListAccessControlRulesResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ListAccessControlRulesCommand,
   serializeAws_json1_1ListAccessControlRulesCommand,
@@ -115,8 +110,8 @@ export class ListAccessControlRulesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAccessControlRulesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAccessControlRulesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

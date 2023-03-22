@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IvschatClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IvschatClient";
-import {
-  ListLoggingConfigurationsRequest,
-  ListLoggingConfigurationsRequestFilterSensitiveLog,
-  ListLoggingConfigurationsResponse,
-  ListLoggingConfigurationsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListLoggingConfigurationsRequest, ListLoggingConfigurationsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListLoggingConfigurationsCommand,
   serializeAws_restJson1ListLoggingConfigurationsCommand,
@@ -114,8 +109,8 @@ export class ListLoggingConfigurationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListLoggingConfigurationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListLoggingConfigurationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

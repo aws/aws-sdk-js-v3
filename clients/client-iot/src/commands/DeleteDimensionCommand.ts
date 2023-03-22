@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  DeleteDimensionRequest,
-  DeleteDimensionRequestFilterSensitiveLog,
-  DeleteDimensionResponse,
-  DeleteDimensionResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteDimensionRequest, DeleteDimensionResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteDimensionCommand,
   serializeAws_restJson1DeleteDimensionCommand,
@@ -117,8 +112,8 @@ export class DeleteDimensionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDimensionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteDimensionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

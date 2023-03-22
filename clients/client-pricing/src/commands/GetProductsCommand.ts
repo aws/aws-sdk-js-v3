@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetProductsRequest,
-  GetProductsRequestFilterSensitiveLog,
-  GetProductsResponse,
-  GetProductsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetProductsRequest, GetProductsResponse } from "../models/models_0";
 import { PricingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PricingClient";
 import {
   deserializeAws_json1_1GetProductsCommand,
@@ -120,8 +115,8 @@ export class GetProductsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetProductsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetProductsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

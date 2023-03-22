@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../IoT1ClickProjectsClient";
-import {
-  ListProjectsRequest,
-  ListProjectsRequestFilterSensitiveLog,
-  ListProjectsResponse,
-  ListProjectsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListProjectsRequest, ListProjectsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListProjectsCommand,
   serializeAws_restJson1ListProjectsCommand,
@@ -115,8 +110,8 @@ export class ListProjectsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListProjectsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListProjectsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

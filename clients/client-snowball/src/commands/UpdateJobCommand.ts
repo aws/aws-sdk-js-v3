@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateJobRequest,
-  UpdateJobRequestFilterSensitiveLog,
-  UpdateJobResult,
-  UpdateJobResultFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateJobRequest, UpdateJobResult } from "../models/models_0";
 import { deserializeAws_json1_1UpdateJobCommand, serializeAws_json1_1UpdateJobCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } from "../SnowballClient";
 
@@ -143,8 +138,8 @@ export class UpdateJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateJobResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

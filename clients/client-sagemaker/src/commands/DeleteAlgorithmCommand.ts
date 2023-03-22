@@ -13,7 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteAlgorithmInput, DeleteAlgorithmInputFilterSensitiveLog } from "../models/models_1";
+import { DeleteAlgorithmInput } from "../models/models_1";
 import {
   deserializeAws_json1_1DeleteAlgorithmCommand,
   serializeAws_json1_1DeleteAlgorithmCommand,
@@ -102,8 +102,8 @@ export class DeleteAlgorithmCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAlgorithmInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

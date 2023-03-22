@@ -298,31 +298,3 @@ export interface StartSupportDataExportResult {
    */
   dataSetRequestId?: string;
 }
-
-/**
- * @internal
- */
-export const GenerateDataSetRequestFilterSensitiveLog = (obj: GenerateDataSetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GenerateDataSetResultFilterSensitiveLog = (obj: GenerateDataSetResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartSupportDataExportRequestFilterSensitiveLog = (obj: StartSupportDataExportRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartSupportDataExportResultFilterSensitiveLog = (obj: StartSupportDataExportResult): any => ({
-  ...obj,
-});

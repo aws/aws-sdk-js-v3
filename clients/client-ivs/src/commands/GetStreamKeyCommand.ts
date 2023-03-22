@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IvsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IvsClient";
-import {
-  GetStreamKeyRequest,
-  GetStreamKeyRequestFilterSensitiveLog,
-  GetStreamKeyResponse,
-  GetStreamKeyResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetStreamKeyRequest, GetStreamKeyResponse, GetStreamKeyResponseFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1GetStreamKeyCommand,
   serializeAws_restJson1GetStreamKeyCommand,
@@ -114,7 +109,7 @@ export class GetStreamKeyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetStreamKeyRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetStreamKeyResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

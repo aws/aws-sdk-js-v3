@@ -16,7 +16,6 @@ import {
 import { HoneycodeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../HoneycodeClient";
 import {
   DescribeTableDataImportJobRequest,
-  DescribeTableDataImportJobRequestFilterSensitiveLog,
   DescribeTableDataImportJobResult,
   DescribeTableDataImportJobResultFilterSensitiveLog,
 } from "../models/models_0";
@@ -135,7 +134,7 @@ export class DescribeTableDataImportJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeTableDataImportJobRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeTableDataImportJobResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
-import {
-  CreateThreatIntelSetRequest,
-  CreateThreatIntelSetRequestFilterSensitiveLog,
-  CreateThreatIntelSetResponse,
-  CreateThreatIntelSetResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateThreatIntelSetRequest, CreateThreatIntelSetResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateThreatIntelSetCommand,
   serializeAws_restJson1CreateThreatIntelSetCommand,
@@ -115,8 +110,8 @@ export class CreateThreatIntelSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateThreatIntelSetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateThreatIntelSetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AuditManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AuditManagerClient";
-import {
-  GetEvidenceFolderRequest,
-  GetEvidenceFolderRequestFilterSensitiveLog,
-  GetEvidenceFolderResponse,
-  GetEvidenceFolderResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetEvidenceFolderRequest, GetEvidenceFolderResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetEvidenceFolderCommand,
   serializeAws_restJson1GetEvidenceFolderCommand,
@@ -122,8 +117,8 @@ export class GetEvidenceFolderCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetEvidenceFolderRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetEvidenceFolderResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

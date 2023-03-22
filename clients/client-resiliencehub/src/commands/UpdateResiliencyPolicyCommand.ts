@@ -15,7 +15,6 @@ import {
 
 import {
   UpdateResiliencyPolicyRequest,
-  UpdateResiliencyPolicyRequestFilterSensitiveLog,
   UpdateResiliencyPolicyResponse,
   UpdateResiliencyPolicyResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -131,7 +130,7 @@ export class UpdateResiliencyPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateResiliencyPolicyRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: UpdateResiliencyPolicyResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

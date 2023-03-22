@@ -15,9 +15,7 @@ import {
 
 import {
   PutEmailIdentityMailFromAttributesRequest,
-  PutEmailIdentityMailFromAttributesRequestFilterSensitiveLog,
   PutEmailIdentityMailFromAttributesResponse,
-  PutEmailIdentityMailFromAttributesResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1PutEmailIdentityMailFromAttributesCommand,
@@ -119,8 +117,8 @@ export class PutEmailIdentityMailFromAttributesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutEmailIdentityMailFromAttributesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutEmailIdentityMailFromAttributesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

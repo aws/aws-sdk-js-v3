@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MigrationHubOrchestratorClient";
-import {
-  UpdateWorkflowStepGroupRequest,
-  UpdateWorkflowStepGroupRequestFilterSensitiveLog,
-  UpdateWorkflowStepGroupResponse,
-  UpdateWorkflowStepGroupResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateWorkflowStepGroupRequest, UpdateWorkflowStepGroupResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateWorkflowStepGroupCommand,
   serializeAws_restJson1UpdateWorkflowStepGroupCommand,
@@ -126,8 +121,8 @@ export class UpdateWorkflowStepGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateWorkflowStepGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateWorkflowStepGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

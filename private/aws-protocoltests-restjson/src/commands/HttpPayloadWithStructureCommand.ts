@@ -12,10 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  HttpPayloadWithStructureInputOutput,
-  HttpPayloadWithStructureInputOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { HttpPayloadWithStructureInputOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1HttpPayloadWithStructureCommand,
   serializeAws_restJson1HttpPayloadWithStructureCommand,
@@ -23,15 +20,20 @@ import {
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
 /**
+ * @public
+ *
  * The input for {@link HttpPayloadWithStructureCommand}.
  */
 export interface HttpPayloadWithStructureCommandInput extends HttpPayloadWithStructureInputOutput {}
 /**
+ * @public
+ *
  * The output of {@link HttpPayloadWithStructureCommand}.
  */
 export interface HttpPayloadWithStructureCommandOutput extends HttpPayloadWithStructureInputOutput, __MetadataBearer {}
 
 /**
+ * @public
  * This examples serializes a structure in the payload.
  *
  * Note that serializing a structure changes the wrapper element name
@@ -46,6 +48,8 @@ export interface HttpPayloadWithStructureCommandOutput extends HttpPayloadWithSt
  * const response = await client.send(command);
  * ```
  *
+ * @param HttpPayloadWithStructureCommandInput - {@link HttpPayloadWithStructureCommandInput}
+ * @returns {@link HttpPayloadWithStructureCommandOutput}
  * @see {@link HttpPayloadWithStructureCommandInput} for command's `input` shape.
  * @see {@link HttpPayloadWithStructureCommandOutput} for command's `response` shape.
  * @see {@link RestJsonProtocolClientResolvedConfig | config} for RestJsonProtocolClient's `config` shape.
@@ -60,6 +64,9 @@ export class HttpPayloadWithStructureCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: HttpPayloadWithStructureCommandInput) {
     // Start section: command_constructor
     super();
@@ -85,8 +92,8 @@ export class HttpPayloadWithStructureCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: HttpPayloadWithStructureInputOutputFilterSensitiveLog,
-      outputFilterSensitiveLog: HttpPayloadWithStructureInputOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -96,10 +103,16 @@ export class HttpPayloadWithStructureCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: HttpPayloadWithStructureCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1HttpPayloadWithStructureCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<HttpPayloadWithStructureCommandOutput> {
     return deserializeAws_restJson1HttpPayloadWithStructureCommand(output, context);
   }

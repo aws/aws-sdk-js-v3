@@ -12,12 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  HttpPrefixHeadersInResponseInput,
-  HttpPrefixHeadersInResponseInputFilterSensitiveLog,
-  HttpPrefixHeadersInResponseOutput,
-  HttpPrefixHeadersInResponseOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { HttpPrefixHeadersInResponseInput, HttpPrefixHeadersInResponseOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1HttpPrefixHeadersInResponseCommand,
   serializeAws_restJson1HttpPrefixHeadersInResponseCommand,
@@ -25,15 +20,20 @@ import {
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
 /**
+ * @public
+ *
  * The input for {@link HttpPrefixHeadersInResponseCommand}.
  */
 export interface HttpPrefixHeadersInResponseCommandInput extends HttpPrefixHeadersInResponseInput {}
 /**
+ * @public
+ *
  * The output of {@link HttpPrefixHeadersInResponseCommand}.
  */
 export interface HttpPrefixHeadersInResponseCommandOutput extends HttpPrefixHeadersInResponseOutput, __MetadataBearer {}
 
 /**
+ * @public
  * Clients that perform this test extract all headers from the response.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -45,6 +45,8 @@ export interface HttpPrefixHeadersInResponseCommandOutput extends HttpPrefixHead
  * const response = await client.send(command);
  * ```
  *
+ * @param HttpPrefixHeadersInResponseCommandInput - {@link HttpPrefixHeadersInResponseCommandInput}
+ * @returns {@link HttpPrefixHeadersInResponseCommandOutput}
  * @see {@link HttpPrefixHeadersInResponseCommandInput} for command's `input` shape.
  * @see {@link HttpPrefixHeadersInResponseCommandOutput} for command's `response` shape.
  * @see {@link RestJsonProtocolClientResolvedConfig | config} for RestJsonProtocolClient's `config` shape.
@@ -59,6 +61,9 @@ export class HttpPrefixHeadersInResponseCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: HttpPrefixHeadersInResponseCommandInput) {
     // Start section: command_constructor
     super();
@@ -84,8 +89,8 @@ export class HttpPrefixHeadersInResponseCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: HttpPrefixHeadersInResponseInputFilterSensitiveLog,
-      outputFilterSensitiveLog: HttpPrefixHeadersInResponseOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -95,10 +100,16 @@ export class HttpPrefixHeadersInResponseCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: HttpPrefixHeadersInResponseCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1HttpPrefixHeadersInResponseCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

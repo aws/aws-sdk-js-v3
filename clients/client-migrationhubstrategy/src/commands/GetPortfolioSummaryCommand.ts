@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MigrationHubStrategyClient";
-import {
-  GetPortfolioSummaryRequest,
-  GetPortfolioSummaryRequestFilterSensitiveLog,
-  GetPortfolioSummaryResponse,
-  GetPortfolioSummaryResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetPortfolioSummaryRequest, GetPortfolioSummaryResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetPortfolioSummaryCommand,
   serializeAws_restJson1GetPortfolioSummaryCommand,
@@ -122,8 +117,8 @@ export class GetPortfolioSummaryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetPortfolioSummaryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetPortfolioSummaryResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

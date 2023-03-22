@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
-import {
-  DescribeJobFlowsInput,
-  DescribeJobFlowsInputFilterSensitiveLog,
-  DescribeJobFlowsOutput,
-  DescribeJobFlowsOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeJobFlowsInput, DescribeJobFlowsOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeJobFlowsCommand,
   serializeAws_json1_1DescribeJobFlowsCommand,
@@ -133,8 +128,8 @@ export class DescribeJobFlowsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeJobFlowsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeJobFlowsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

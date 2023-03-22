@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetBucketCorsOutput,
-  GetBucketCorsOutputFilterSensitiveLog,
-  GetBucketCorsRequest,
-  GetBucketCorsRequestFilterSensitiveLog,
-} from "../models/models_0";
+import { GetBucketCorsOutput, GetBucketCorsRequest } from "../models/models_0";
 import {
   deserializeAws_restXmlGetBucketCorsCommand,
   serializeAws_restXmlGetBucketCorsCommand,
@@ -159,8 +154,8 @@ export class GetBucketCorsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetBucketCorsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetBucketCorsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

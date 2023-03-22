@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { MalformedIntegerInput, MalformedIntegerInputFilterSensitiveLog } from "../models/models_0";
+import { MalformedIntegerInput } from "../models/models_0";
 import {
   deserializeAws_restJson1MalformedIntegerCommand,
   serializeAws_restJson1MalformedIntegerCommand,
@@ -20,10 +20,14 @@ import {
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
 /**
+ * @public
+ *
  * The input for {@link MalformedIntegerCommand}.
  */
 export interface MalformedIntegerCommandInput extends MalformedIntegerInput {}
 /**
+ * @public
+ *
  * The output of {@link MalformedIntegerCommand}.
  */
 export interface MalformedIntegerCommandOutput extends __MetadataBearer {}
@@ -36,6 +40,9 @@ export class MalformedIntegerCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: MalformedIntegerCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,8 +68,8 @@ export class MalformedIntegerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: MalformedIntegerInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -72,10 +79,16 @@ export class MalformedIntegerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: MalformedIntegerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1MalformedIntegerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<MalformedIntegerCommandOutput> {
     return deserializeAws_restJson1MalformedIntegerCommand(output, context);
   }

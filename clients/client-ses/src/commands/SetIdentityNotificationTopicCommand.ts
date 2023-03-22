@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  SetIdentityNotificationTopicRequest,
-  SetIdentityNotificationTopicRequestFilterSensitiveLog,
-  SetIdentityNotificationTopicResponse,
-  SetIdentityNotificationTopicResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { SetIdentityNotificationTopicRequest, SetIdentityNotificationTopicResponse } from "../models/models_0";
 import {
   deserializeAws_querySetIdentityNotificationTopicCommand,
   serializeAws_querySetIdentityNotificationTopicCommand,
@@ -130,8 +125,8 @@ export class SetIdentityNotificationTopicCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SetIdentityNotificationTopicRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SetIdentityNotificationTopicResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

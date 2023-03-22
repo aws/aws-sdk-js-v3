@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  ListIndicesRequest,
-  ListIndicesRequestFilterSensitiveLog,
-  ListIndicesResponse,
-  ListIndicesResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { ListIndicesRequest, ListIndicesResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1ListIndicesCommand,
   serializeAws_restJson1ListIndicesCommand,
@@ -121,8 +116,8 @@ export class ListIndicesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListIndicesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListIndicesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

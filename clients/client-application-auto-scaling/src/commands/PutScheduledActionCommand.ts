@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApplicationAutoScalingClient";
-import {
-  PutScheduledActionRequest,
-  PutScheduledActionRequestFilterSensitiveLog,
-  PutScheduledActionResponse,
-  PutScheduledActionResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { PutScheduledActionRequest, PutScheduledActionResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1PutScheduledActionCommand,
   serializeAws_json1_1PutScheduledActionCommand,
@@ -164,8 +159,8 @@ export class PutScheduledActionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutScheduledActionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutScheduledActionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

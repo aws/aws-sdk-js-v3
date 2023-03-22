@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
-import {
-  CreateTrackerRequest,
-  CreateTrackerRequestFilterSensitiveLog,
-  CreateTrackerResponse,
-  CreateTrackerResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateTrackerRequest, CreateTrackerResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateTrackerCommand,
   serializeAws_restJson1CreateTrackerCommand,
@@ -122,8 +117,8 @@ export class CreateTrackerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateTrackerRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateTrackerResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

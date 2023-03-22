@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
-import {
-  PutManagedScalingPolicyInput,
-  PutManagedScalingPolicyInputFilterSensitiveLog,
-  PutManagedScalingPolicyOutput,
-  PutManagedScalingPolicyOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { PutManagedScalingPolicyInput, PutManagedScalingPolicyOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1PutManagedScalingPolicyCommand,
   serializeAws_json1_1PutManagedScalingPolicyCommand,
@@ -110,8 +105,8 @@ export class PutManagedScalingPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutManagedScalingPolicyInputFilterSensitiveLog,
-      outputFilterSensitiveLog: PutManagedScalingPolicyOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

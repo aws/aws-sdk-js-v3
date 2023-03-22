@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
-import {
-  PutDestinationRequest,
-  PutDestinationRequestFilterSensitiveLog,
-  PutDestinationResponse,
-  PutDestinationResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { PutDestinationRequest, PutDestinationResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1PutDestinationCommand,
   serializeAws_json1_1PutDestinationCommand,
@@ -125,8 +120,8 @@ export class PutDestinationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutDestinationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutDestinationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

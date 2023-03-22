@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  AnalyzeExpenseRequest,
-  AnalyzeExpenseRequestFilterSensitiveLog,
-  AnalyzeExpenseResponse,
-  AnalyzeExpenseResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { AnalyzeExpenseRequest, AnalyzeExpenseResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1AnalyzeExpenseCommand,
   serializeAws_json1_1AnalyzeExpenseCommand,
@@ -164,8 +159,8 @@ export class AnalyzeExpenseCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AnalyzeExpenseRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AnalyzeExpenseResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -16,9 +16,7 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   ModifyTransitGatewayPrefixListReferenceRequest,
-  ModifyTransitGatewayPrefixListReferenceRequestFilterSensitiveLog,
   ModifyTransitGatewayPrefixListReferenceResult,
-  ModifyTransitGatewayPrefixListReferenceResultFilterSensitiveLog,
 } from "../models/models_6";
 import {
   deserializeAws_ec2ModifyTransitGatewayPrefixListReferenceCommand,
@@ -116,8 +114,8 @@ export class ModifyTransitGatewayPrefixListReferenceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyTransitGatewayPrefixListReferenceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifyTransitGatewayPrefixListReferenceResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

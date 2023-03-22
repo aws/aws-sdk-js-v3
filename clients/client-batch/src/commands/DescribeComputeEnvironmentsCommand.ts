@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { BatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BatchClient";
-import {
-  DescribeComputeEnvironmentsRequest,
-  DescribeComputeEnvironmentsRequestFilterSensitiveLog,
-  DescribeComputeEnvironmentsResponse,
-  DescribeComputeEnvironmentsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeComputeEnvironmentsRequest, DescribeComputeEnvironmentsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeComputeEnvironmentsCommand,
   serializeAws_restJson1DescribeComputeEnvironmentsCommand,
@@ -171,8 +166,8 @@ export class DescribeComputeEnvironmentsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeComputeEnvironmentsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeComputeEnvironmentsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

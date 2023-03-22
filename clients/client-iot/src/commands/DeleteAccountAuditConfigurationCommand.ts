@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  DeleteAccountAuditConfigurationRequest,
-  DeleteAccountAuditConfigurationRequestFilterSensitiveLog,
-  DeleteAccountAuditConfigurationResponse,
-  DeleteAccountAuditConfigurationResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteAccountAuditConfigurationRequest, DeleteAccountAuditConfigurationResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteAccountAuditConfigurationCommand,
   serializeAws_restJson1DeleteAccountAuditConfigurationCommand,
@@ -124,8 +119,8 @@ export class DeleteAccountAuditConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAccountAuditConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteAccountAuditConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

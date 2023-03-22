@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import {
-  StartContactStreamingRequest,
-  StartContactStreamingRequestFilterSensitiveLog,
-  StartContactStreamingResponse,
-  StartContactStreamingResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { StartContactStreamingRequest, StartContactStreamingResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1StartContactStreamingCommand,
   serializeAws_restJson1StartContactStreamingCommand,
@@ -124,8 +119,8 @@ export class StartContactStreamingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartContactStreamingRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartContactStreamingResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

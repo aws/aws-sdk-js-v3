@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  DescribeManagedJobTemplateRequest,
-  DescribeManagedJobTemplateRequestFilterSensitiveLog,
-  DescribeManagedJobTemplateResponse,
-  DescribeManagedJobTemplateResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { DescribeManagedJobTemplateRequest, DescribeManagedJobTemplateResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1DescribeManagedJobTemplateCommand,
   serializeAws_restJson1DescribeManagedJobTemplateCommand,
@@ -120,8 +115,8 @@ export class DescribeManagedJobTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeManagedJobTemplateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeManagedJobTemplateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EMRContainersClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRContainersClient";
-import {
-  DeleteVirtualClusterRequest,
-  DeleteVirtualClusterRequestFilterSensitiveLog,
-  DeleteVirtualClusterResponse,
-  DeleteVirtualClusterResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteVirtualClusterRequest, DeleteVirtualClusterResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteVirtualClusterCommand,
   serializeAws_restJson1DeleteVirtualClusterCommand,
@@ -116,8 +111,8 @@ export class DeleteVirtualClusterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteVirtualClusterRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteVirtualClusterResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

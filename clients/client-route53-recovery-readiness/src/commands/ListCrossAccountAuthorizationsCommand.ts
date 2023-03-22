@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListCrossAccountAuthorizationsRequest,
-  ListCrossAccountAuthorizationsRequestFilterSensitiveLog,
-  ListCrossAccountAuthorizationsResponse,
-  ListCrossAccountAuthorizationsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListCrossAccountAuthorizationsRequest, ListCrossAccountAuthorizationsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListCrossAccountAuthorizationsCommand,
   serializeAws_restJson1ListCrossAccountAuthorizationsCommand,
@@ -125,8 +120,8 @@ export class ListCrossAccountAuthorizationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListCrossAccountAuthorizationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListCrossAccountAuthorizationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

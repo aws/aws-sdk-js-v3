@@ -20,7 +20,6 @@ import {
 } from "../DatabaseMigrationServiceClient";
 import {
   DescribeEndpointsMessage,
-  DescribeEndpointsMessageFilterSensitiveLog,
   DescribeEndpointsResponse,
   DescribeEndpointsResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -141,7 +140,7 @@ export class DescribeEndpointsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeEndpointsMessageFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeEndpointsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  CreateNetworkInterfaceRequest,
-  CreateNetworkInterfaceRequestFilterSensitiveLog,
-  CreateNetworkInterfaceResult,
-  CreateNetworkInterfaceResultFilterSensitiveLog,
-} from "../models/models_1";
+import { CreateNetworkInterfaceRequest, CreateNetworkInterfaceResult } from "../models/models_1";
 import {
   deserializeAws_ec2CreateNetworkInterfaceCommand,
   serializeAws_ec2CreateNetworkInterfaceCommand,
@@ -158,8 +153,8 @@ export class CreateNetworkInterfaceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateNetworkInterfaceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateNetworkInterfaceResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

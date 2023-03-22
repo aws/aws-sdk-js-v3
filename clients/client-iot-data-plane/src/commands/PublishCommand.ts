@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTDataPlaneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTDataPlaneClient";
-import { PublishRequest, PublishRequestFilterSensitiveLog } from "../models/models_0";
+import { PublishRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1PublishCommand,
   serializeAws_restJson1PublishCommand,
@@ -121,8 +121,8 @@ export class PublishCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PublishRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

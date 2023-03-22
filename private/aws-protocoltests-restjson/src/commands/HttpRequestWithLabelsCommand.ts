@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { HttpRequestWithLabelsInput, HttpRequestWithLabelsInputFilterSensitiveLog } from "../models/models_0";
+import { HttpRequestWithLabelsInput } from "../models/models_0";
 import {
   deserializeAws_restJson1HttpRequestWithLabelsCommand,
   serializeAws_restJson1HttpRequestWithLabelsCommand,
@@ -20,15 +20,20 @@ import {
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
 /**
+ * @public
+ *
  * The input for {@link HttpRequestWithLabelsCommand}.
  */
 export interface HttpRequestWithLabelsCommandInput extends HttpRequestWithLabelsInput {}
 /**
+ * @public
+ *
  * The output of {@link HttpRequestWithLabelsCommand}.
  */
 export interface HttpRequestWithLabelsCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * The example tests how requests are serialized when there's no input
  * payload but there are HTTP labels.
  * @example
@@ -41,6 +46,8 @@ export interface HttpRequestWithLabelsCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param HttpRequestWithLabelsCommandInput - {@link HttpRequestWithLabelsCommandInput}
+ * @returns {@link HttpRequestWithLabelsCommandOutput}
  * @see {@link HttpRequestWithLabelsCommandInput} for command's `input` shape.
  * @see {@link HttpRequestWithLabelsCommandOutput} for command's `response` shape.
  * @see {@link RestJsonProtocolClientResolvedConfig | config} for RestJsonProtocolClient's `config` shape.
@@ -55,6 +62,9 @@ export class HttpRequestWithLabelsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: HttpRequestWithLabelsCommandInput) {
     // Start section: command_constructor
     super();
@@ -80,8 +90,8 @@ export class HttpRequestWithLabelsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: HttpRequestWithLabelsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -91,10 +101,16 @@ export class HttpRequestWithLabelsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: HttpRequestWithLabelsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1HttpRequestWithLabelsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<HttpRequestWithLabelsCommandOutput> {
     return deserializeAws_restJson1HttpRequestWithLabelsCommand(output, context);
   }

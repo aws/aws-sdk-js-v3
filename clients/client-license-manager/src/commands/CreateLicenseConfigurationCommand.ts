@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LicenseManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LicenseManagerClient";
-import {
-  CreateLicenseConfigurationRequest,
-  CreateLicenseConfigurationRequestFilterSensitiveLog,
-  CreateLicenseConfigurationResponse,
-  CreateLicenseConfigurationResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateLicenseConfigurationRequest, CreateLicenseConfigurationResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateLicenseConfigurationCommand,
   serializeAws_json1_1CreateLicenseConfigurationCommand,
@@ -131,8 +126,8 @@ export class CreateLicenseConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateLicenseConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateLicenseConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

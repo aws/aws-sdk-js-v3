@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import {
-  ListAccountsRequest,
-  ListAccountsRequestFilterSensitiveLog,
-  ListAccountsResponse,
-  ListAccountsResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { ListAccountsRequest, ListAccountsRequestFilterSensitiveLog, ListAccountsResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1ListAccountsCommand,
   serializeAws_restJson1ListAccountsCommand,
@@ -129,7 +124,7 @@ export class ListAccountsCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: ListAccountsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAccountsResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -15,7 +15,6 @@ import {
 
 import {
   GetStreamingSessionStreamRequest,
-  GetStreamingSessionStreamRequestFilterSensitiveLog,
   GetStreamingSessionStreamResponse,
   GetStreamingSessionStreamResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -135,7 +134,7 @@ export class GetStreamingSessionStreamCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetStreamingSessionStreamRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetStreamingSessionStreamResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

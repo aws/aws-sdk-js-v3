@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IdentitystoreClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IdentitystoreClient";
-import {
-  GetUserIdRequest,
-  GetUserIdRequestFilterSensitiveLog,
-  GetUserIdResponse,
-  GetUserIdResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetUserIdRequest, GetUserIdRequestFilterSensitiveLog, GetUserIdResponse } from "../models/models_0";
 import { deserializeAws_json1_1GetUserIdCommand, serializeAws_json1_1GetUserIdCommand } from "../protocols/Aws_json1_1";
 
 /**
@@ -118,7 +113,7 @@ export class GetUserIdCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: GetUserIdRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetUserIdResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
-import {
-  GetAccountSettingsRequest,
-  GetAccountSettingsRequestFilterSensitiveLog,
-  GetAccountSettingsResponse,
-  GetAccountSettingsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetAccountSettingsRequest, GetAccountSettingsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetAccountSettingsCommand,
   serializeAws_restJson1GetAccountSettingsCommand,
@@ -113,8 +108,8 @@ export class GetAccountSettingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAccountSettingsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetAccountSettingsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

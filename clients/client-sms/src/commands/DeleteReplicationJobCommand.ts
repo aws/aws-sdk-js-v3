@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteReplicationJobRequest,
-  DeleteReplicationJobRequestFilterSensitiveLog,
-  DeleteReplicationJobResponse,
-  DeleteReplicationJobResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteReplicationJobRequest, DeleteReplicationJobResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteReplicationJobCommand,
   serializeAws_json1_1DeleteReplicationJobCommand,
@@ -126,8 +121,8 @@ export class DeleteReplicationJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteReplicationJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteReplicationJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

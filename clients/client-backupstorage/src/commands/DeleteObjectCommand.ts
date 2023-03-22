@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { BackupStorageClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupStorageClient";
-import { DeleteObjectInput, DeleteObjectInputFilterSensitiveLog } from "../models/models_0";
+import { DeleteObjectInput } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteObjectCommand,
   serializeAws_restJson1DeleteObjectCommand,
@@ -121,8 +121,8 @@ export class DeleteObjectCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteObjectInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

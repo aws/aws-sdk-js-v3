@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeCompilationJobRequest,
-  DescribeCompilationJobRequestFilterSensitiveLog,
-  DescribeCompilationJobResponse,
-  DescribeCompilationJobResponseFilterSensitiveLog,
-} from "../models/models_2";
+import { DescribeCompilationJobRequest, DescribeCompilationJobResponse } from "../models/models_2";
 import {
   deserializeAws_json1_1DescribeCompilationJobCommand,
   serializeAws_json1_1DescribeCompilationJobCommand,
@@ -112,8 +107,8 @@ export class DescribeCompilationJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeCompilationJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeCompilationJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

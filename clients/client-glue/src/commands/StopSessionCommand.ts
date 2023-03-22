@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  StopSessionRequest,
-  StopSessionRequestFilterSensitiveLog,
-  StopSessionResponse,
-  StopSessionResponseFilterSensitiveLog,
-} from "../models/models_2";
+import { StopSessionRequest, StopSessionResponse } from "../models/models_2";
 import {
   deserializeAws_json1_1StopSessionCommand,
   serializeAws_json1_1StopSessionCommand,
@@ -123,8 +118,8 @@ export class StopSessionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopSessionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StopSessionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

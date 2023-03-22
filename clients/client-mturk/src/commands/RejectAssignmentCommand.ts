@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  RejectAssignmentRequest,
-  RejectAssignmentRequestFilterSensitiveLog,
-  RejectAssignmentResponse,
-  RejectAssignmentResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { RejectAssignmentRequest, RejectAssignmentResponse } from "../models/models_0";
 import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
 import {
   deserializeAws_json1_1RejectAssignmentCommand,
@@ -125,8 +120,8 @@ export class RejectAssignmentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RejectAssignmentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RejectAssignmentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

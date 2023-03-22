@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
-import {
-  FunctionEventInvokeConfig,
-  FunctionEventInvokeConfigFilterSensitiveLog,
-  UpdateFunctionEventInvokeConfigRequest,
-  UpdateFunctionEventInvokeConfigRequestFilterSensitiveLog,
-} from "../models/models_0";
+import { FunctionEventInvokeConfig, UpdateFunctionEventInvokeConfigRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateFunctionEventInvokeConfigCommand,
   serializeAws_restJson1UpdateFunctionEventInvokeConfigCommand,
@@ -123,8 +118,8 @@ export class UpdateFunctionEventInvokeConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateFunctionEventInvokeConfigRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: FunctionEventInvokeConfigFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

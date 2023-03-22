@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient";
-import {
-  CancelTaskExecutionRequest,
-  CancelTaskExecutionRequestFilterSensitiveLog,
-  CancelTaskExecutionResponse,
-  CancelTaskExecutionResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CancelTaskExecutionRequest, CancelTaskExecutionResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1CancelTaskExecutionCommand,
   serializeAws_json1_1CancelTaskExecutionCommand,
@@ -119,8 +114,8 @@ export class CancelTaskExecutionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelTaskExecutionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CancelTaskExecutionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

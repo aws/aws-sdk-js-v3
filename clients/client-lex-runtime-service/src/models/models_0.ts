@@ -1855,37 +1855,9 @@ export interface PutSessionResponse {
 /**
  * @internal
  */
-export const ActiveContextTimeToLiveFilterSensitiveLog = (obj: ActiveContextTimeToLive): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const ActiveContextFilterSensitiveLog = (obj: ActiveContext): any => ({
   ...obj,
   ...(obj.parameters && { parameters: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const DeleteSessionRequestFilterSensitiveLog = (obj: DeleteSessionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteSessionResponseFilterSensitiveLog = (obj: DeleteSessionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetSessionRequestFilterSensitiveLog = (obj: GetSessionRequest): any => ({
-  ...obj,
 });
 
 /**
@@ -1953,44 +1925,9 @@ export const PostTextRequestFilterSensitiveLog = (obj: PostTextRequest): any => 
 /**
  * @internal
  */
-export const IntentConfidenceFilterSensitiveLog = (obj: IntentConfidence): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const PredictedIntentFilterSensitiveLog = (obj: PredictedIntent): any => ({
   ...obj,
   ...(obj.slots && { slots: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ButtonFilterSensitiveLog = (obj: Button): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GenericAttachmentFilterSensitiveLog = (obj: GenericAttachment): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResponseCardFilterSensitiveLog = (obj: ResponseCard): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SentimentResponseFilterSensitiveLog = (obj: SentimentResponse): any => ({
-  ...obj,
 });
 
 /**

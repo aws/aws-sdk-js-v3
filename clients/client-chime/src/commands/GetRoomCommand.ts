@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import {
-  GetRoomRequest,
-  GetRoomRequestFilterSensitiveLog,
-  GetRoomResponse,
-  GetRoomResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { GetRoomRequest, GetRoomResponse, GetRoomResponseFilterSensitiveLog } from "../models/models_1";
 import {
   deserializeAws_restJson1GetRoomCommand,
   serializeAws_restJson1GetRoomCommand,
@@ -122,7 +117,7 @@ export class GetRoomCommand extends $Command<GetRoomCommandInput, GetRoomCommand
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetRoomRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetRoomResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

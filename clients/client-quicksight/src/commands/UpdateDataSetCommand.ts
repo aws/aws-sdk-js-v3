@@ -17,7 +17,6 @@ import {
   UpdateDataSetRequest,
   UpdateDataSetRequestFilterSensitiveLog,
   UpdateDataSetResponse,
-  UpdateDataSetResponseFilterSensitiveLog,
 } from "../models/models_3";
 import {
   deserializeAws_restJson1UpdateDataSetCommand,
@@ -136,7 +135,7 @@ export class UpdateDataSetCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: UpdateDataSetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateDataSetResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

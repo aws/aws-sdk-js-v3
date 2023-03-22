@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MacieClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MacieClient";
-import { AssociateMemberAccountRequest, AssociateMemberAccountRequestFilterSensitiveLog } from "../models/models_0";
+import { AssociateMemberAccountRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1AssociateMemberAccountCommand,
   serializeAws_json1_1AssociateMemberAccountCommand,
@@ -114,8 +114,8 @@ export class AssociateMemberAccountCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateMemberAccountRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { KafkaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaClient";
-import {
-  ListClustersV2Request,
-  ListClustersV2RequestFilterSensitiveLog,
-  ListClustersV2Response,
-  ListClustersV2ResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListClustersV2Request, ListClustersV2Response } from "../models/models_0";
 import {
   deserializeAws_restJson1ListClustersV2Command,
   serializeAws_restJson1ListClustersV2Command,
@@ -119,8 +114,8 @@ export class ListClustersV2Command extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListClustersV2RequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListClustersV2ResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

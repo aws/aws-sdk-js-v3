@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  AcceptReservedNodeExchangeInputMessage,
-  AcceptReservedNodeExchangeInputMessageFilterSensitiveLog,
-  AcceptReservedNodeExchangeOutputMessage,
-  AcceptReservedNodeExchangeOutputMessageFilterSensitiveLog,
-} from "../models/models_0";
+import { AcceptReservedNodeExchangeInputMessage, AcceptReservedNodeExchangeOutputMessage } from "../models/models_0";
 import {
   deserializeAws_queryAcceptReservedNodeExchangeCommand,
   serializeAws_queryAcceptReservedNodeExchangeCommand,
@@ -133,8 +128,8 @@ export class AcceptReservedNodeExchangeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AcceptReservedNodeExchangeInputMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: AcceptReservedNodeExchangeOutputMessageFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

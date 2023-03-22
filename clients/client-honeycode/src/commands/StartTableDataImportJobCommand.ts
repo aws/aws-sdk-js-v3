@@ -18,7 +18,6 @@ import {
   StartTableDataImportJobRequest,
   StartTableDataImportJobRequestFilterSensitiveLog,
   StartTableDataImportJobResult,
-  StartTableDataImportJobResultFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1StartTableDataImportJobCommand,
@@ -143,7 +142,7 @@ export class StartTableDataImportJobCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: StartTableDataImportJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartTableDataImportJobResultFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

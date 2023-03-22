@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import {
-  ListDevicePoolsRequest,
-  ListDevicePoolsRequestFilterSensitiveLog,
-  ListDevicePoolsResult,
-  ListDevicePoolsResultFilterSensitiveLog,
-} from "../models/models_0";
+import { ListDevicePoolsRequest, ListDevicePoolsResult } from "../models/models_0";
 import {
   deserializeAws_json1_1ListDevicePoolsCommand,
   serializeAws_json1_1ListDevicePoolsCommand,
@@ -161,8 +156,8 @@ export class ListDevicePoolsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDevicePoolsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListDevicePoolsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

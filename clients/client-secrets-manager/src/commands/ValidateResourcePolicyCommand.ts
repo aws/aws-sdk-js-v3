@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ValidateResourcePolicyRequest,
-  ValidateResourcePolicyRequestFilterSensitiveLog,
-  ValidateResourcePolicyResponse,
-  ValidateResourcePolicyResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ValidateResourcePolicyRequest, ValidateResourcePolicyResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ValidateResourcePolicyCommand,
   serializeAws_json1_1ValidateResourcePolicyCommand,
@@ -176,8 +171,8 @@ export class ValidateResourcePolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ValidateResourcePolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ValidateResourcePolicyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetBucketRequest,
-  GetBucketRequestFilterSensitiveLog,
-  GetBucketResult,
-  GetBucketResultFilterSensitiveLog,
-} from "../models/models_0";
+import { GetBucketRequest, GetBucketResult } from "../models/models_0";
 import { deserializeAws_restXmlGetBucketCommand, serializeAws_restXmlGetBucketCommand } from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
@@ -136,8 +131,8 @@ export class GetBucketCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetBucketRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetBucketResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

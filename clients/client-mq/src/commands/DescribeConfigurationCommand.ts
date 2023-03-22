@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeConfigurationRequest,
-  DescribeConfigurationRequestFilterSensitiveLog,
-  DescribeConfigurationResponse,
-  DescribeConfigurationResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeConfigurationRequest, DescribeConfigurationResponse } from "../models/models_0";
 import { MqClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MqClient";
 import {
   deserializeAws_restJson1DescribeConfigurationCommand,
@@ -119,8 +114,8 @@ export class DescribeConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

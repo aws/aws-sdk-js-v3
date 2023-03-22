@@ -16,7 +16,6 @@ import {
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import {
   CreateChannelBanRequest,
-  CreateChannelBanRequestFilterSensitiveLog,
   CreateChannelBanResponse,
   CreateChannelBanResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -143,7 +142,7 @@ export class CreateChannelBanCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateChannelBanRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: CreateChannelBanResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

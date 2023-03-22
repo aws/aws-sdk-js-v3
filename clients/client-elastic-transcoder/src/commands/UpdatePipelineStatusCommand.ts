@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticTranscoderClient";
-import {
-  UpdatePipelineStatusRequest,
-  UpdatePipelineStatusRequestFilterSensitiveLog,
-  UpdatePipelineStatusResponse,
-  UpdatePipelineStatusResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdatePipelineStatusRequest, UpdatePipelineStatusResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdatePipelineStatusCommand,
   serializeAws_restJson1UpdatePipelineStatusCommand,
@@ -135,8 +130,8 @@ export class UpdatePipelineStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdatePipelineStatusRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdatePipelineStatusResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
-import {
-  ListSchemaExtensionsRequest,
-  ListSchemaExtensionsRequestFilterSensitiveLog,
-  ListSchemaExtensionsResult,
-  ListSchemaExtensionsResultFilterSensitiveLog,
-} from "../models/models_0";
+import { ListSchemaExtensionsRequest, ListSchemaExtensionsResult } from "../models/models_0";
 import {
   deserializeAws_json1_1ListSchemaExtensionsCommand,
   serializeAws_json1_1ListSchemaExtensionsCommand,
@@ -119,8 +114,8 @@ export class ListSchemaExtensionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListSchemaExtensionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListSchemaExtensionsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

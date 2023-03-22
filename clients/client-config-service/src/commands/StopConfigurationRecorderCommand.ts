@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import {
-  StopConfigurationRecorderRequest,
-  StopConfigurationRecorderRequestFilterSensitiveLog,
-} from "../models/models_1";
+import { StopConfigurationRecorderRequest } from "../models/models_1";
 import {
   deserializeAws_json1_1StopConfigurationRecorderCommand,
   serializeAws_json1_1StopConfigurationRecorderCommand,
@@ -109,8 +106,8 @@ export class StopConfigurationRecorderCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopConfigurationRecorderRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MemoryDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MemoryDBClient";
-import {
-  UpdateACLRequest,
-  UpdateACLRequestFilterSensitiveLog,
-  UpdateACLResponse,
-  UpdateACLResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateACLRequest, UpdateACLResponse } from "../models/models_0";
 import { deserializeAws_json1_1UpdateACLCommand, serializeAws_json1_1UpdateACLCommand } from "../protocols/Aws_json1_1";
 
 /**
@@ -123,8 +118,8 @@ export class UpdateACLCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateACLRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateACLResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
-import {
-  AttachTypedLinkRequest,
-  AttachTypedLinkRequestFilterSensitiveLog,
-  AttachTypedLinkResponse,
-  AttachTypedLinkResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { AttachTypedLinkRequest, AttachTypedLinkResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1AttachTypedLinkCommand,
   serializeAws_restJson1AttachTypedLinkCommand,
@@ -140,8 +135,8 @@ export class AttachTypedLinkCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AttachTypedLinkRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AttachTypedLinkResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

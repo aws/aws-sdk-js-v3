@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTAnalyticsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTAnalyticsClient";
-import { DeleteDatasetContentRequest, DeleteDatasetContentRequestFilterSensitiveLog } from "../models/models_0";
+import { DeleteDatasetContentRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteDatasetContentCommand,
   serializeAws_restJson1DeleteDatasetContentCommand,
@@ -117,8 +117,8 @@ export class DeleteDatasetContentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDatasetContentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

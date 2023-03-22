@@ -337,20 +337,6 @@ export class ResourceNotFoundException extends __BaseException {
 /**
  * @internal
  */
-export const StartSelectorFilterSensitiveLog = (obj: StartSelector): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetMediaInputFilterSensitiveLog = (obj: GetMediaInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const GetMediaOutputFilterSensitiveLog = (obj: GetMediaOutput): any => ({
   ...obj,
 });

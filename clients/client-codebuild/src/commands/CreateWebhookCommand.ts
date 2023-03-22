@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient";
-import {
-  CreateWebhookInput,
-  CreateWebhookInputFilterSensitiveLog,
-  CreateWebhookOutput,
-  CreateWebhookOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateWebhookInput, CreateWebhookOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateWebhookCommand,
   serializeAws_json1_1CreateWebhookCommand,
@@ -128,8 +123,8 @@ export class CreateWebhookCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateWebhookInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateWebhookOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

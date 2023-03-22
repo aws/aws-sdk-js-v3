@@ -16,7 +16,6 @@ import {
 import { DrsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DrsClient";
 import {
   StopReplicationRequest,
-  StopReplicationRequestFilterSensitiveLog,
   StopReplicationResponse,
   StopReplicationResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -122,7 +121,7 @@ export class StopReplicationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopReplicationRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: StopReplicationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

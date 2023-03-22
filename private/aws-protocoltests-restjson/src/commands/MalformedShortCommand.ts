@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { MalformedShortInput, MalformedShortInputFilterSensitiveLog } from "../models/models_0";
+import { MalformedShortInput } from "../models/models_0";
 import {
   deserializeAws_restJson1MalformedShortCommand,
   serializeAws_restJson1MalformedShortCommand,
@@ -20,10 +20,14 @@ import {
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
 /**
+ * @public
+ *
  * The input for {@link MalformedShortCommand}.
  */
 export interface MalformedShortCommandInput extends MalformedShortInput {}
 /**
+ * @public
+ *
  * The output of {@link MalformedShortCommand}.
  */
 export interface MalformedShortCommandOutput extends __MetadataBearer {}
@@ -36,6 +40,9 @@ export class MalformedShortCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: MalformedShortCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,8 +68,8 @@ export class MalformedShortCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: MalformedShortInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -72,10 +79,16 @@ export class MalformedShortCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: MalformedShortCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1MalformedShortCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<MalformedShortCommandOutput> {
     return deserializeAws_restJson1MalformedShortCommand(output, context);
   }

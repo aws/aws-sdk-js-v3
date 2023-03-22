@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTTwinMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTTwinMakerClient";
-import {
-  DeleteSyncJobRequest,
-  DeleteSyncJobRequestFilterSensitiveLog,
-  DeleteSyncJobResponse,
-  DeleteSyncJobResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteSyncJobRequest, DeleteSyncJobResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteSyncJobCommand,
   serializeAws_restJson1DeleteSyncJobCommand,
@@ -123,8 +118,8 @@ export class DeleteSyncJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteSyncJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteSyncJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

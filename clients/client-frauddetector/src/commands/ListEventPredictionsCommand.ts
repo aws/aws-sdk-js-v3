@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
-import {
-  ListEventPredictionsRequest,
-  ListEventPredictionsRequestFilterSensitiveLog,
-  ListEventPredictionsResult,
-  ListEventPredictionsResultFilterSensitiveLog,
-} from "../models/models_0";
+import { ListEventPredictionsRequest, ListEventPredictionsResult } from "../models/models_0";
 import {
   deserializeAws_json1_1ListEventPredictionsCommand,
   serializeAws_json1_1ListEventPredictionsCommand,
@@ -130,8 +125,8 @@ export class ListEventPredictionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListEventPredictionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListEventPredictionsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

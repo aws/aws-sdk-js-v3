@@ -131,7 +131,7 @@ export class DeleteUserPoolClientCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: DeleteUserPoolClientRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

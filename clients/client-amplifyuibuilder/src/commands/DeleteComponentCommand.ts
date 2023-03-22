@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AmplifyUIBuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyUIBuilderClient";
-import { DeleteComponentRequest, DeleteComponentRequestFilterSensitiveLog } from "../models/models_0";
+import { DeleteComponentRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteComponentCommand,
   serializeAws_restJson1DeleteComponentCommand,
@@ -111,8 +111,8 @@ export class DeleteComponentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteComponentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

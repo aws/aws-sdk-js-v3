@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaPackageClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaPackageClient";
-import {
-  DescribeOriginEndpointRequest,
-  DescribeOriginEndpointRequestFilterSensitiveLog,
-  DescribeOriginEndpointResponse,
-  DescribeOriginEndpointResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeOriginEndpointRequest, DescribeOriginEndpointResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeOriginEndpointCommand,
   serializeAws_restJson1DescribeOriginEndpointCommand,
@@ -125,8 +120,8 @@ export class DescribeOriginEndpointCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeOriginEndpointRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeOriginEndpointResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetAccountLimitRequest,
-  GetAccountLimitRequestFilterSensitiveLog,
-  GetAccountLimitResponse,
-  GetAccountLimitResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetAccountLimitRequest, GetAccountLimitResponse } from "../models/models_0";
 import {
   deserializeAws_restXmlGetAccountLimitCommand,
   serializeAws_restXmlGetAccountLimitCommand,
@@ -118,8 +113,8 @@ export class GetAccountLimitCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAccountLimitRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetAccountLimitResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

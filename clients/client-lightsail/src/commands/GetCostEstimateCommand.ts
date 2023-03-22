@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import {
-  GetCostEstimateRequest,
-  GetCostEstimateRequestFilterSensitiveLog,
-  GetCostEstimateResult,
-  GetCostEstimateResultFilterSensitiveLog,
-} from "../models/models_1";
+import { GetCostEstimateRequest, GetCostEstimateResult } from "../models/models_1";
 import {
   deserializeAws_json1_1GetCostEstimateCommand,
   serializeAws_json1_1GetCostEstimateCommand,
@@ -130,8 +125,8 @@ export class GetCostEstimateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetCostEstimateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetCostEstimateResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

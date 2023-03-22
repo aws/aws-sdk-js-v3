@@ -16,7 +16,6 @@ import {
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import {
   UpdateProxySessionRequest,
-  UpdateProxySessionRequestFilterSensitiveLog,
   UpdateProxySessionResponse,
   UpdateProxySessionResponseFilterSensitiveLog,
 } from "../models/models_1";
@@ -128,7 +127,7 @@ export class UpdateProxySessionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateProxySessionRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: UpdateProxySessionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

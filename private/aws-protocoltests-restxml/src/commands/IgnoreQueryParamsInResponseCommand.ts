@@ -12,10 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  IgnoreQueryParamsInResponseOutput,
-  IgnoreQueryParamsInResponseOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { IgnoreQueryParamsInResponseOutput } from "../models/models_0";
 import {
   deserializeAws_restXmlIgnoreQueryParamsInResponseCommand,
   serializeAws_restXmlIgnoreQueryParamsInResponseCommand,
@@ -23,15 +20,20 @@ import {
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 
 /**
+ * @public
+ *
  * The input for {@link IgnoreQueryParamsInResponseCommand}.
  */
 export interface IgnoreQueryParamsInResponseCommandInput {}
 /**
+ * @public
+ *
  * The output of {@link IgnoreQueryParamsInResponseCommand}.
  */
 export interface IgnoreQueryParamsInResponseCommandOutput extends IgnoreQueryParamsInResponseOutput, __MetadataBearer {}
 
 /**
+ * @public
  * This example ensures that query string bound request parameters are
  * serialized in the body of responses if the structure is used in both
  * the request and response.
@@ -45,6 +47,8 @@ export interface IgnoreQueryParamsInResponseCommandOutput extends IgnoreQueryPar
  * const response = await client.send(command);
  * ```
  *
+ * @param IgnoreQueryParamsInResponseCommandInput - {@link IgnoreQueryParamsInResponseCommandInput}
+ * @returns {@link IgnoreQueryParamsInResponseCommandOutput}
  * @see {@link IgnoreQueryParamsInResponseCommandInput} for command's `input` shape.
  * @see {@link IgnoreQueryParamsInResponseCommandOutput} for command's `response` shape.
  * @see {@link RestXmlProtocolClientResolvedConfig | config} for RestXmlProtocolClient's `config` shape.
@@ -59,6 +63,9 @@ export class IgnoreQueryParamsInResponseCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: IgnoreQueryParamsInResponseCommandInput) {
     // Start section: command_constructor
     super();
@@ -84,8 +91,8 @@ export class IgnoreQueryParamsInResponseCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: IgnoreQueryParamsInResponseOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -95,10 +102,16 @@ export class IgnoreQueryParamsInResponseCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: IgnoreQueryParamsInResponseCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlIgnoreQueryParamsInResponseCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

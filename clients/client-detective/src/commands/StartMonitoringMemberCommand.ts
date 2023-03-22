@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DetectiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DetectiveClient";
-import { StartMonitoringMemberRequest, StartMonitoringMemberRequestFilterSensitiveLog } from "../models/models_0";
+import { StartMonitoringMemberRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1StartMonitoringMemberCommand,
   serializeAws_restJson1StartMonitoringMemberCommand,
@@ -148,8 +148,8 @@ export class StartMonitoringMemberCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartMonitoringMemberRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

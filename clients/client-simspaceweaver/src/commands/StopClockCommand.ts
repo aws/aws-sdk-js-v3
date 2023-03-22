@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  StopClockInput,
-  StopClockInputFilterSensitiveLog,
-  StopClockOutput,
-  StopClockOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { StopClockInput, StopClockOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1StopClockCommand,
   serializeAws_restJson1StopClockCommand,
@@ -120,8 +115,8 @@ export class StopClockCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopClockInputFilterSensitiveLog,
-      outputFilterSensitiveLog: StopClockOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

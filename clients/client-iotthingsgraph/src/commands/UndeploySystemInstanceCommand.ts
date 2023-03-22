@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTThingsGraphClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTThingsGraphClient";
-import {
-  UndeploySystemInstanceRequest,
-  UndeploySystemInstanceRequestFilterSensitiveLog,
-  UndeploySystemInstanceResponse,
-  UndeploySystemInstanceResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UndeploySystemInstanceRequest, UndeploySystemInstanceResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1UndeploySystemInstanceCommand,
   serializeAws_json1_1UndeploySystemInstanceCommand,
@@ -124,8 +119,8 @@ export class UndeploySystemInstanceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UndeploySystemInstanceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UndeploySystemInstanceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

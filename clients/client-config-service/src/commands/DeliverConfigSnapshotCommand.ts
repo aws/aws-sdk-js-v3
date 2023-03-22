@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import {
-  DeliverConfigSnapshotRequest,
-  DeliverConfigSnapshotRequestFilterSensitiveLog,
-  DeliverConfigSnapshotResponse,
-  DeliverConfigSnapshotResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeliverConfigSnapshotRequest, DeliverConfigSnapshotResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeliverConfigSnapshotCommand,
   serializeAws_json1_1DeliverConfigSnapshotCommand,
@@ -135,8 +130,8 @@ export class DeliverConfigSnapshotCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeliverConfigSnapshotRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeliverConfigSnapshotResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

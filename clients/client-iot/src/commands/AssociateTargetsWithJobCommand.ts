@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  AssociateTargetsWithJobRequest,
-  AssociateTargetsWithJobRequestFilterSensitiveLog,
-  AssociateTargetsWithJobResponse,
-  AssociateTargetsWithJobResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { AssociateTargetsWithJobRequest, AssociateTargetsWithJobResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1AssociateTargetsWithJobCommand,
   serializeAws_restJson1AssociateTargetsWithJobCommand,
@@ -135,8 +130,8 @@ export class AssociateTargetsWithJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateTargetsWithJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssociateTargetsWithJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

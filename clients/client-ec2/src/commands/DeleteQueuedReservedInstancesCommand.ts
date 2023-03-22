@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DeleteQueuedReservedInstancesRequest,
-  DeleteQueuedReservedInstancesRequestFilterSensitiveLog,
-  DeleteQueuedReservedInstancesResult,
-  DeleteQueuedReservedInstancesResultFilterSensitiveLog,
-} from "../models/models_2";
+import { DeleteQueuedReservedInstancesRequest, DeleteQueuedReservedInstancesResult } from "../models/models_2";
 import {
   deserializeAws_ec2DeleteQueuedReservedInstancesCommand,
   serializeAws_ec2DeleteQueuedReservedInstancesCommand,
@@ -109,8 +104,8 @@ export class DeleteQueuedReservedInstancesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteQueuedReservedInstancesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteQueuedReservedInstancesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

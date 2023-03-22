@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
-import {
-  DeleteExternalModelRequest,
-  DeleteExternalModelRequestFilterSensitiveLog,
-  DeleteExternalModelResult,
-  DeleteExternalModelResultFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteExternalModelRequest, DeleteExternalModelResult } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteExternalModelCommand,
   serializeAws_json1_1DeleteExternalModelCommand,
@@ -123,8 +118,8 @@ export class DeleteExternalModelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteExternalModelRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteExternalModelResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

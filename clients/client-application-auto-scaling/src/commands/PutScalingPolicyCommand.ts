@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApplicationAutoScalingClient";
-import {
-  PutScalingPolicyRequest,
-  PutScalingPolicyRequestFilterSensitiveLog,
-  PutScalingPolicyResponse,
-  PutScalingPolicyResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { PutScalingPolicyRequest, PutScalingPolicyResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1PutScalingPolicyCommand,
   serializeAws_json1_1PutScalingPolicyCommand,
@@ -200,8 +195,8 @@ export class PutScalingPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutScalingPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutScalingPolicyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -16,7 +16,6 @@ import {
 import { ChimeSDKVoiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKVoiceClient";
 import {
   SearchAvailablePhoneNumbersRequest,
-  SearchAvailablePhoneNumbersRequestFilterSensitiveLog,
   SearchAvailablePhoneNumbersResponse,
   SearchAvailablePhoneNumbersResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -88,7 +87,7 @@ export class SearchAvailablePhoneNumbersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SearchAvailablePhoneNumbersRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: SearchAvailablePhoneNumbersResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

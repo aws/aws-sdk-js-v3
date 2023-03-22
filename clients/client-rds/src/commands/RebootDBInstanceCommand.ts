@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  RebootDBInstanceMessage,
-  RebootDBInstanceMessageFilterSensitiveLog,
-  RebootDBInstanceResult,
-  RebootDBInstanceResultFilterSensitiveLog,
-} from "../models/models_1";
+import { RebootDBInstanceMessage, RebootDBInstanceResult } from "../models/models_1";
 import {
   deserializeAws_queryRebootDBInstanceCommand,
   serializeAws_queryRebootDBInstanceCommand,
@@ -140,8 +135,8 @@ export class RebootDBInstanceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RebootDBInstanceMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: RebootDBInstanceResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

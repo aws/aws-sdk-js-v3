@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  BatchGetMetricDataRequest,
-  BatchGetMetricDataRequestFilterSensitiveLog,
-  BatchGetMetricDataResponse,
-  BatchGetMetricDataResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { BatchGetMetricDataRequest, BatchGetMetricDataResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1BatchGetMetricDataCommand,
   serializeAws_restJson1BatchGetMetricDataCommand,
@@ -121,8 +116,8 @@ export class BatchGetMetricDataCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchGetMetricDataRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchGetMetricDataResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

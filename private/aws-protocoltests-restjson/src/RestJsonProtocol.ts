@@ -434,10 +434,12 @@ import {
 import { RestJsonProtocolClient } from "./RestJsonProtocolClient";
 
 /**
+ * @public
  * A REST JSON service that sends JSON requests and responses.
  */
 export class RestJsonProtocol extends RestJsonProtocolClient {
   /**
+   * @public
    * This example uses all query string types.
    */
   public allQueryStringTypes(
@@ -470,6 +472,7 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
   }
 
   /**
+   * @public
    * This example uses fixed query string params and variable query string params.
    * The fixed query string parameters and variable parameters must both be
    * serialized (implementations may need to merge them together).
@@ -504,10 +507,11 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
   }
 
   /**
+   * @public
    * This example uses a constant query string parameters and a label.
    * This simply tests that labels and query string parameters are
    * compatible. The fixed query string parameter named "hello" should
-   * in no way conflict with the label, `{hello}`.
+   * in no way conflict with the label, `\{hello\}`.
    */
   public constantQueryString(
     args: ConstantQueryStringCommandInput,
@@ -538,6 +542,9 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
     }
   }
 
+  /**
+   * @public
+   */
   public datetimeOffsets(
     args: DatetimeOffsetsCommandInput,
     options?: __HttpHandlerOptions
@@ -568,6 +575,7 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
   }
 
   /**
+   * @public
    * This example serializes a document as part of the payload.
    */
   public documentType(
@@ -597,6 +605,7 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
   }
 
   /**
+   * @public
    * This example serializes a document as the entire HTTP payload.
    */
   public documentTypeAsPayload(
@@ -629,6 +638,7 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
   }
 
   /**
+   * @public
    * The example tests how requests and responses are serialized when there's
    * no request or response payload because the operation has an empty input
    * and empty output structure that reuses the same shape. While this should
@@ -663,6 +673,9 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
     }
   }
 
+  /**
+   * @public
+   */
   public endpointOperation(
     args: EndpointOperationCommandInput,
     options?: __HttpHandlerOptions
@@ -692,6 +705,9 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
     }
   }
 
+  /**
+   * @public
+   */
   public endpointWithHostLabelOperation(
     args: EndpointWithHostLabelOperationCommandInput,
     options?: __HttpHandlerOptions
@@ -721,6 +737,9 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
     }
   }
 
+  /**
+   * @public
+   */
   public fractionalSeconds(
     args: FractionalSecondsCommandInput,
     options?: __HttpHandlerOptions
@@ -751,6 +770,7 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
   }
 
   /**
+   * @public
    * This operation has four possible return values:
    *
    * 1. A successful response in the form of GreetingWithErrorsOutput
@@ -791,6 +811,9 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
     }
   }
 
+  /**
+   * @public
+   */
   public hostWithPathOperation(
     args: HostWithPathOperationCommandInput,
     options?: __HttpHandlerOptions
@@ -821,6 +844,7 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
   }
 
   /**
+   * @public
    * This example tests httpChecksumRequired trait
    */
   public httpChecksumRequired(
@@ -852,6 +876,9 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
     }
   }
 
+  /**
+   * @public
+   */
   public httpEnumPayload(
     args: HttpEnumPayloadCommandInput,
     options?: __HttpHandlerOptions
@@ -882,6 +909,7 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
   }
 
   /**
+   * @public
    * This examples serializes a blob shape in the payload.
    *
    * In this example, no JSON document is synthesized because the payload is
@@ -917,6 +945,7 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
   }
 
   /**
+   * @public
    * This examples uses a `@mediaType` trait on the payload to force a custom
    * content-type to be serialized.
    */
@@ -950,6 +979,7 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
   }
 
   /**
+   * @public
    * This examples serializes a structure in the payload.
    *
    * Note that serializing a structure changes the wrapper element name
@@ -985,6 +1015,7 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
   }
 
   /**
+   * @public
    * This examples adds headers to the input of a request and response by prefix.
    */
   public httpPrefixHeaders(
@@ -1017,6 +1048,7 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
   }
 
   /**
+   * @public
    * Clients that perform this test extract all headers from the response.
    */
   public httpPrefixHeadersInResponse(
@@ -1048,6 +1080,9 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
     }
   }
 
+  /**
+   * @public
+   */
   public httpRequestWithFloatLabels(
     args: HttpRequestWithFloatLabelsCommandInput,
     options?: __HttpHandlerOptions
@@ -1077,6 +1112,9 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
     }
   }
 
+  /**
+   * @public
+   */
   public httpRequestWithGreedyLabelInPath(
     args: HttpRequestWithGreedyLabelInPathCommandInput,
     options?: __HttpHandlerOptions
@@ -1107,6 +1145,7 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
   }
 
   /**
+   * @public
    * The example tests how requests are serialized when there's no input
    * payload but there are HTTP labels.
    */
@@ -1140,6 +1179,7 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
   }
 
   /**
+   * @public
    * The example tests how requests serialize different timestamp formats in the
    * URI path.
    */
@@ -1174,6 +1214,9 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
     }
   }
 
+  /**
+   * @public
+   */
   public httpRequestWithRegexLiteral(
     args: HttpRequestWithRegexLiteralCommandInput,
     options?: __HttpHandlerOptions
@@ -1203,6 +1246,9 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
     }
   }
 
+  /**
+   * @public
+   */
   public httpResponseCode(
     args: HttpResponseCodeCommandInput,
     options?: __HttpHandlerOptions
@@ -1232,6 +1278,9 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
     }
   }
 
+  /**
+   * @public
+   */
   public httpStringPayload(
     args: HttpStringPayloadCommandInput,
     options?: __HttpHandlerOptions
@@ -1262,6 +1311,7 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
   }
 
   /**
+   * @public
    * This example ensures that query string bound request parameters are
    * serialized in the body of responses if the structure is used in both
    * the request and response.
@@ -1296,6 +1346,7 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
   }
 
   /**
+   * @public
    * The example tests how requests and responses are serialized when there is
    * no input or output payload but there are HTTP header bindings.
    */
@@ -1329,6 +1380,7 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
   }
 
   /**
+   * @public
    * Blobs are base64 encoded
    */
   public jsonBlobs(args: JsonBlobsCommandInput, options?: __HttpHandlerOptions): Promise<JsonBlobsCommandOutput>;
@@ -1355,6 +1407,7 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
   }
 
   /**
+   * @public
    * This example serializes enums as top level properties, in lists, sets, and maps.
    */
   public jsonEnums(args: JsonEnumsCommandInput, options?: __HttpHandlerOptions): Promise<JsonEnumsCommandOutput>;
@@ -1381,6 +1434,7 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
   }
 
   /**
+   * @public
    * This example serializes intEnums as top level properties, in lists, sets, and maps.
    */
   public jsonIntEnums(
@@ -1410,6 +1464,7 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
   }
 
   /**
+   * @public
    * This test case serializes JSON lists for the following cases for both
    * input and output:
    *
@@ -1442,6 +1497,7 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
   }
 
   /**
+   * @public
    * The example tests basic map serialization.
    */
   public jsonMaps(args: JsonMapsCommandInput, options?: __HttpHandlerOptions): Promise<JsonMapsCommandOutput>;
@@ -1468,6 +1524,7 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
   }
 
   /**
+   * @public
    * This tests how timestamps are serialized, including using the
    * default format of date-time and various @timestampFormat trait
    * values.
@@ -1502,6 +1559,7 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
   }
 
   /**
+   * @public
    * This operation uses unions for inputs and outputs.
    */
   public jsonUnions(args: JsonUnionsCommandInput, options?: __HttpHandlerOptions): Promise<JsonUnionsCommandOutput>;
@@ -1527,6 +1585,9 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
     }
   }
 
+  /**
+   * @public
+   */
   public malformedAcceptWithBody(
     args: MalformedAcceptWithBodyCommandInput,
     options?: __HttpHandlerOptions
@@ -1556,6 +1617,9 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
     }
   }
 
+  /**
+   * @public
+   */
   public malformedAcceptWithGenericString(
     args: MalformedAcceptWithGenericStringCommandInput,
     options?: __HttpHandlerOptions
@@ -1585,6 +1649,9 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
     }
   }
 
+  /**
+   * @public
+   */
   public malformedAcceptWithPayload(
     args: MalformedAcceptWithPayloadCommandInput,
     options?: __HttpHandlerOptions
@@ -1614,6 +1681,9 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
     }
   }
 
+  /**
+   * @public
+   */
   public malformedBlob(
     args: MalformedBlobCommandInput,
     options?: __HttpHandlerOptions
@@ -1643,6 +1713,9 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
     }
   }
 
+  /**
+   * @public
+   */
   public malformedBoolean(
     args: MalformedBooleanCommandInput,
     options?: __HttpHandlerOptions
@@ -1672,6 +1745,9 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
     }
   }
 
+  /**
+   * @public
+   */
   public malformedByte(
     args: MalformedByteCommandInput,
     options?: __HttpHandlerOptions
@@ -1701,6 +1777,9 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
     }
   }
 
+  /**
+   * @public
+   */
   public malformedContentTypeWithBody(
     args: MalformedContentTypeWithBodyCommandInput,
     options?: __HttpHandlerOptions
@@ -1730,6 +1809,9 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
     }
   }
 
+  /**
+   * @public
+   */
   public malformedContentTypeWithGenericString(
     args: MalformedContentTypeWithGenericStringCommandInput,
     options?: __HttpHandlerOptions
@@ -1761,6 +1843,9 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
     }
   }
 
+  /**
+   * @public
+   */
   public malformedContentTypeWithoutBody(
     args: MalformedContentTypeWithoutBodyCommandInput,
     options?: __HttpHandlerOptions
@@ -1790,6 +1875,9 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
     }
   }
 
+  /**
+   * @public
+   */
   public malformedContentTypeWithPayload(
     args: MalformedContentTypeWithPayloadCommandInput,
     options?: __HttpHandlerOptions
@@ -1819,6 +1907,9 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
     }
   }
 
+  /**
+   * @public
+   */
   public malformedDouble(
     args: MalformedDoubleCommandInput,
     options?: __HttpHandlerOptions
@@ -1848,6 +1939,9 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
     }
   }
 
+  /**
+   * @public
+   */
   public malformedFloat(
     args: MalformedFloatCommandInput,
     options?: __HttpHandlerOptions
@@ -1877,6 +1971,9 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
     }
   }
 
+  /**
+   * @public
+   */
   public malformedInteger(
     args: MalformedIntegerCommandInput,
     options?: __HttpHandlerOptions
@@ -1906,6 +2003,9 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
     }
   }
 
+  /**
+   * @public
+   */
   public malformedList(
     args: MalformedListCommandInput,
     options?: __HttpHandlerOptions
@@ -1935,6 +2035,9 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
     }
   }
 
+  /**
+   * @public
+   */
   public malformedLong(
     args: MalformedLongCommandInput,
     options?: __HttpHandlerOptions
@@ -1964,6 +2067,9 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
     }
   }
 
+  /**
+   * @public
+   */
   public malformedMap(
     args: MalformedMapCommandInput,
     options?: __HttpHandlerOptions
@@ -1990,6 +2096,9 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
     }
   }
 
+  /**
+   * @public
+   */
   public malformedRequestBody(
     args: MalformedRequestBodyCommandInput,
     options?: __HttpHandlerOptions
@@ -2019,6 +2128,9 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
     }
   }
 
+  /**
+   * @public
+   */
   public malformedShort(
     args: MalformedShortCommandInput,
     options?: __HttpHandlerOptions
@@ -2048,6 +2160,9 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
     }
   }
 
+  /**
+   * @public
+   */
   public malformedString(
     args: MalformedStringCommandInput,
     options?: __HttpHandlerOptions
@@ -2077,6 +2192,9 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
     }
   }
 
+  /**
+   * @public
+   */
   public malformedTimestampBodyDateTime(
     args: MalformedTimestampBodyDateTimeCommandInput,
     options?: __HttpHandlerOptions
@@ -2106,6 +2224,9 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
     }
   }
 
+  /**
+   * @public
+   */
   public malformedTimestampBodyDefault(
     args: MalformedTimestampBodyDefaultCommandInput,
     options?: __HttpHandlerOptions
@@ -2135,6 +2256,9 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
     }
   }
 
+  /**
+   * @public
+   */
   public malformedTimestampBodyHttpDate(
     args: MalformedTimestampBodyHttpDateCommandInput,
     options?: __HttpHandlerOptions
@@ -2164,6 +2288,9 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
     }
   }
 
+  /**
+   * @public
+   */
   public malformedTimestampHeaderDateTime(
     args: MalformedTimestampHeaderDateTimeCommandInput,
     options?: __HttpHandlerOptions
@@ -2193,6 +2320,9 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
     }
   }
 
+  /**
+   * @public
+   */
   public malformedTimestampHeaderDefault(
     args: MalformedTimestampHeaderDefaultCommandInput,
     options?: __HttpHandlerOptions
@@ -2222,6 +2352,9 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
     }
   }
 
+  /**
+   * @public
+   */
   public malformedTimestampHeaderEpoch(
     args: MalformedTimestampHeaderEpochCommandInput,
     options?: __HttpHandlerOptions
@@ -2251,6 +2384,9 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
     }
   }
 
+  /**
+   * @public
+   */
   public malformedTimestampPathDefault(
     args: MalformedTimestampPathDefaultCommandInput,
     options?: __HttpHandlerOptions
@@ -2280,6 +2416,9 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
     }
   }
 
+  /**
+   * @public
+   */
   public malformedTimestampPathEpoch(
     args: MalformedTimestampPathEpochCommandInput,
     options?: __HttpHandlerOptions
@@ -2309,6 +2448,9 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
     }
   }
 
+  /**
+   * @public
+   */
   public malformedTimestampPathHttpDate(
     args: MalformedTimestampPathHttpDateCommandInput,
     options?: __HttpHandlerOptions
@@ -2338,6 +2480,9 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
     }
   }
 
+  /**
+   * @public
+   */
   public malformedTimestampQueryDefault(
     args: MalformedTimestampQueryDefaultCommandInput,
     options?: __HttpHandlerOptions
@@ -2367,6 +2512,9 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
     }
   }
 
+  /**
+   * @public
+   */
   public malformedTimestampQueryEpoch(
     args: MalformedTimestampQueryEpochCommandInput,
     options?: __HttpHandlerOptions
@@ -2396,6 +2544,9 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
     }
   }
 
+  /**
+   * @public
+   */
   public malformedTimestampQueryHttpDate(
     args: MalformedTimestampQueryHttpDateCommandInput,
     options?: __HttpHandlerOptions
@@ -2425,6 +2576,9 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
     }
   }
 
+  /**
+   * @public
+   */
   public malformedUnion(
     args: MalformedUnionCommandInput,
     options?: __HttpHandlerOptions
@@ -2455,6 +2609,7 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
   }
 
   /**
+   * @public
    * This example ensures that mediaType strings are base64 encoded in headers.
    */
   public mediaTypeHeader(
@@ -2487,6 +2642,7 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
   }
 
   /**
+   * @public
    * The example tests how requests and responses are serialized when there's
    * no request or response payload because the operation has no input or output.
    * While this should be rare, code generators must support this.
@@ -2521,6 +2677,7 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
   }
 
   /**
+   * @public
    * The example tests how requests and responses are serialized when there's
    * no request or response payload because the operation has no input and the
    * output is empty. While this should be rare, code generators must support
@@ -2556,6 +2713,7 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
   }
 
   /**
+   * @public
    * Null and empty headers are not sent over the wire.
    */
   public nullAndEmptyHeadersClient(
@@ -2588,6 +2746,7 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
   }
 
   /**
+   * @public
    * Null and empty headers are not sent over the wire.
    */
   public nullAndEmptyHeadersServer(
@@ -2620,6 +2779,7 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
   }
 
   /**
+   * @public
    * Omits null, but serializes empty string value.
    */
   public omitsNullSerializesEmptyString(
@@ -2652,6 +2812,7 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
   }
 
   /**
+   * @public
    * Omits serializing empty lists. Because empty strings are serilized as
    * `Foo=`, empty lists cannot also be serialized as `Foo=` and instead
    * must be omitted.
@@ -2686,6 +2847,7 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
   }
 
   /**
+   * @public
    * This operation defines a union with a Unit member.
    */
   public postPlayerAction(
@@ -2718,6 +2880,7 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
   }
 
   /**
+   * @public
    * This operation defines a union that uses jsonName on some members.
    */
   public postUnionWithJsonName(
@@ -2750,6 +2913,7 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
   }
 
   /**
+   * @public
    * Automatically adds idempotency tokens.
    */
   public queryIdempotencyTokenAutoFill(
@@ -2781,6 +2945,9 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
     }
   }
 
+  /**
+   * @public
+   */
   public queryParamsAsStringListMap(
     args: QueryParamsAsStringListMapCommandInput,
     options?: __HttpHandlerOptions
@@ -2810,6 +2977,9 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
     }
   }
 
+  /**
+   * @public
+   */
   public queryPrecedence(
     args: QueryPrecedenceCommandInput,
     options?: __HttpHandlerOptions
@@ -2840,6 +3010,7 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
   }
 
   /**
+   * @public
    * Recursive shapes
    */
   public recursiveShapes(
@@ -2871,6 +3042,9 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
     }
   }
 
+  /**
+   * @public
+   */
   public simpleScalarProperties(
     args: SimpleScalarPropertiesCommandInput,
     options?: __HttpHandlerOptions
@@ -2901,6 +3075,7 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
   }
 
   /**
+   * @public
    * This examples serializes a streaming blob shape in the request body.
    *
    * In this example, no JSON document is synthesized because the payload is
@@ -2936,6 +3111,7 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
   }
 
   /**
+   * @public
    * This examples serializes a streaming blob shape with a required content
    * length in the request body.
    *
@@ -2972,6 +3148,7 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
   }
 
   /**
+   * @public
    * This examples serializes a streaming media-typed blob shape in the request body.
    *
    * This examples uses a `@mediaType` trait on the payload to force a custom
@@ -3007,11 +3184,12 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
   }
 
   /**
+   * @public
    * This example operation serializes a structure in the HTTP body.
    *
    * It should ensure Content-Type: application/json is
    * used in all requests and that an "empty" body is
-   * an empty JSON document ({}).
+   * an empty JSON document (\{\}).
    *
    */
   public testBodyStructure(
@@ -3044,6 +3222,7 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
   }
 
   /**
+   * @public
    * This example operation serializes a request without an HTTP body.
    *
    * These tests are to ensure we do not attach a body or related headers
@@ -3081,6 +3260,7 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
   }
 
   /**
+   * @public
    * This example operation serializes a payload targeting a blob.
    *
    * The Blob shape is not structured content and we cannot
@@ -3120,6 +3300,7 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
   }
 
   /**
+   * @public
    * This example operation serializes a payload targeting a structure.
    *
    * This enforces the same requirements as TestBodyStructure
@@ -3156,6 +3337,7 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
   }
 
   /**
+   * @public
    * This example tests how timestamp request and response headers are serialized.
    */
   public timestampFormatHeaders(
@@ -3188,6 +3370,7 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
   }
 
   /**
+   * @public
    * This test is similar to NoInputAndNoOutput, but uses explicit Unit types.
    */
   public unitInputAndOutput(

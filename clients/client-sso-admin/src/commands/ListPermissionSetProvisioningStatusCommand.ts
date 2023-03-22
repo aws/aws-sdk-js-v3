@@ -15,9 +15,7 @@ import {
 
 import {
   ListPermissionSetProvisioningStatusRequest,
-  ListPermissionSetProvisioningStatusRequestFilterSensitiveLog,
   ListPermissionSetProvisioningStatusResponse,
-  ListPermissionSetProvisioningStatusResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1ListPermissionSetProvisioningStatusCommand,
@@ -127,8 +125,8 @@ export class ListPermissionSetProvisioningStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListPermissionSetProvisioningStatusRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListPermissionSetProvisioningStatusResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

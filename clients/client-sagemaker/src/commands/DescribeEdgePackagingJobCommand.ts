@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeEdgePackagingJobRequest,
-  DescribeEdgePackagingJobRequestFilterSensitiveLog,
-  DescribeEdgePackagingJobResponse,
-  DescribeEdgePackagingJobResponseFilterSensitiveLog,
-} from "../models/models_2";
+import { DescribeEdgePackagingJobRequest, DescribeEdgePackagingJobResponse } from "../models/models_2";
 import {
   deserializeAws_json1_1DescribeEdgePackagingJobCommand,
   serializeAws_json1_1DescribeEdgePackagingJobCommand,
@@ -110,8 +105,8 @@ export class DescribeEdgePackagingJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeEdgePackagingJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeEdgePackagingJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

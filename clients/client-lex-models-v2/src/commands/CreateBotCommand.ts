@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
-import {
-  CreateBotRequest,
-  CreateBotRequestFilterSensitiveLog,
-  CreateBotResponse,
-  CreateBotResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateBotRequest, CreateBotResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateBotCommand,
   serializeAws_restJson1CreateBotCommand,
@@ -130,8 +125,8 @@ export class CreateBotCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateBotRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateBotResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

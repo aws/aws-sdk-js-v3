@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
-import {
-  ListLFTagsRequest,
-  ListLFTagsRequestFilterSensitiveLog,
-  ListLFTagsResponse,
-  ListLFTagsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListLFTagsRequest, ListLFTagsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListLFTagsCommand,
   serializeAws_restJson1ListLFTagsCommand,
@@ -120,8 +115,8 @@ export class ListLFTagsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListLFTagsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListLFTagsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

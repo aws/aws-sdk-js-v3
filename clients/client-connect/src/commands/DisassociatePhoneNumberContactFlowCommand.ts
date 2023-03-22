@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import {
-  DisassociatePhoneNumberContactFlowRequest,
-  DisassociatePhoneNumberContactFlowRequestFilterSensitiveLog,
-} from "../models/models_0";
+import { DisassociatePhoneNumberContactFlowRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1DisassociatePhoneNumberContactFlowCommand,
   serializeAws_restJson1DisassociatePhoneNumberContactFlowCommand,
@@ -130,8 +127,8 @@ export class DisassociatePhoneNumberContactFlowCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociatePhoneNumberContactFlowRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

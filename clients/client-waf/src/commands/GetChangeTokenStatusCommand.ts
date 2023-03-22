@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetChangeTokenStatusRequest,
-  GetChangeTokenStatusRequestFilterSensitiveLog,
-  GetChangeTokenStatusResponse,
-  GetChangeTokenStatusResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetChangeTokenStatusRequest, GetChangeTokenStatusResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GetChangeTokenStatusCommand,
   serializeAws_json1_1GetChangeTokenStatusCommand,
@@ -153,8 +148,8 @@ export class GetChangeTokenStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetChangeTokenStatusRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetChangeTokenStatusResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -12,10 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  MalformedContentTypeWithPayloadInput,
-  MalformedContentTypeWithPayloadInputFilterSensitiveLog,
-} from "../models/models_0";
+import { MalformedContentTypeWithPayloadInput } from "../models/models_0";
 import {
   deserializeAws_restJson1MalformedContentTypeWithPayloadCommand,
   serializeAws_restJson1MalformedContentTypeWithPayloadCommand,
@@ -23,10 +20,14 @@ import {
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
 /**
+ * @public
+ *
  * The input for {@link MalformedContentTypeWithPayloadCommand}.
  */
 export interface MalformedContentTypeWithPayloadCommandInput extends MalformedContentTypeWithPayloadInput {}
 /**
+ * @public
+ *
  * The output of {@link MalformedContentTypeWithPayloadCommand}.
  */
 export interface MalformedContentTypeWithPayloadCommandOutput extends __MetadataBearer {}
@@ -39,6 +40,9 @@ export class MalformedContentTypeWithPayloadCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: MalformedContentTypeWithPayloadCommandInput) {
     // Start section: command_constructor
     super();
@@ -64,8 +68,8 @@ export class MalformedContentTypeWithPayloadCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: MalformedContentTypeWithPayloadInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -75,6 +79,9 @@ export class MalformedContentTypeWithPayloadCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: MalformedContentTypeWithPayloadCommandInput,
     context: __SerdeContext
@@ -82,6 +89,9 @@ export class MalformedContentTypeWithPayloadCommand extends $Command<
     return serializeAws_restJson1MalformedContentTypeWithPayloadCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

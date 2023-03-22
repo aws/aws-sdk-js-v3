@@ -132,7 +132,7 @@ export class UpdateDocumentVersionCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: UpdateDocumentVersionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTThingsGraphClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTThingsGraphClient";
-import {
-  AssociateEntityToThingRequest,
-  AssociateEntityToThingRequestFilterSensitiveLog,
-  AssociateEntityToThingResponse,
-  AssociateEntityToThingResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { AssociateEntityToThingRequest, AssociateEntityToThingResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1AssociateEntityToThingCommand,
   serializeAws_json1_1AssociateEntityToThingCommand,
@@ -122,8 +117,8 @@ export class AssociateEntityToThingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateEntityToThingRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssociateEntityToThingResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

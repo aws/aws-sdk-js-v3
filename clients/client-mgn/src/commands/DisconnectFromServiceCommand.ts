@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
-import {
-  DisconnectFromServiceRequest,
-  DisconnectFromServiceRequestFilterSensitiveLog,
-  SourceServer,
-  SourceServerFilterSensitiveLog,
-} from "../models/models_0";
+import { DisconnectFromServiceRequest, SourceServer, SourceServerFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1DisconnectFromServiceCommand,
   serializeAws_restJson1DisconnectFromServiceCommand,
@@ -116,7 +111,7 @@ export class DisconnectFromServiceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisconnectFromServiceRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: SourceServerFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

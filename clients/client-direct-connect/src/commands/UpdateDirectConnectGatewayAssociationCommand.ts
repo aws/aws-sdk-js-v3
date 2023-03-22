@@ -16,9 +16,7 @@ import {
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
 import {
   UpdateDirectConnectGatewayAssociationRequest,
-  UpdateDirectConnectGatewayAssociationRequestFilterSensitiveLog,
   UpdateDirectConnectGatewayAssociationResult,
-  UpdateDirectConnectGatewayAssociationResultFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateDirectConnectGatewayAssociationCommand,
@@ -117,8 +115,8 @@ export class UpdateDirectConnectGatewayAssociationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateDirectConnectGatewayAssociationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateDirectConnectGatewayAssociationResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

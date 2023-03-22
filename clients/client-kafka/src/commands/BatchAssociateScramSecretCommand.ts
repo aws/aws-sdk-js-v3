@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { KafkaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaClient";
-import {
-  BatchAssociateScramSecretRequest,
-  BatchAssociateScramSecretRequestFilterSensitiveLog,
-  BatchAssociateScramSecretResponse,
-  BatchAssociateScramSecretResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { BatchAssociateScramSecretRequest, BatchAssociateScramSecretResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1BatchAssociateScramSecretCommand,
   serializeAws_restJson1BatchAssociateScramSecretCommand,
@@ -128,8 +123,8 @@ export class BatchAssociateScramSecretCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchAssociateScramSecretRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchAssociateScramSecretResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

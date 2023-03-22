@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteOrganizationRequest,
-  DeleteOrganizationRequestFilterSensitiveLog,
-  DeleteOrganizationResponse,
-  DeleteOrganizationResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteOrganizationRequest, DeleteOrganizationResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteOrganizationCommand,
   serializeAws_json1_1DeleteOrganizationCommand,
@@ -118,8 +113,8 @@ export class DeleteOrganizationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteOrganizationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteOrganizationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

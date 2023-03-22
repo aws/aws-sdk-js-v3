@@ -1702,13 +1702,6 @@ export interface UpdateNetworkSitePlanRequest {
 /**
  * @internal
  */
-export const AcknowledgeOrderReceiptRequestFilterSensitiveLog = (obj: AcknowledgeOrderReceiptRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const AddressFilterSensitiveLog = (obj: Address): any => ({
   ...obj,
   ...(obj.city && { city: SENSITIVE_STRING }),
@@ -1726,13 +1719,6 @@ export const AddressFilterSensitiveLog = (obj: Address): any => ({
 /**
  * @internal
  */
-export const TrackingInformationFilterSensitiveLog = (obj: TrackingInformation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const OrderFilterSensitiveLog = (obj: Order): any => ({
   ...obj,
   ...(obj.shippingAddress && { shippingAddress: AddressFilterSensitiveLog(obj.shippingAddress) }),
@@ -1744,20 +1730,6 @@ export const OrderFilterSensitiveLog = (obj: Order): any => ({
 export const AcknowledgeOrderReceiptResponseFilterSensitiveLog = (obj: AcknowledgeOrderReceiptResponse): any => ({
   ...obj,
   ...(obj.order && { order: OrderFilterSensitiveLog(obj.order) }),
-});
-
-/**
- * @internal
- */
-export const ValidationExceptionFieldFilterSensitiveLog = (obj: ValidationExceptionField): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ActivateDeviceIdentifierRequestFilterSensitiveLog = (obj: ActivateDeviceIdentifierRequest): any => ({
-  ...obj,
 });
 
 /**
@@ -1783,48 +1755,6 @@ export const ActivateDeviceIdentifierResponseFilterSensitiveLog = (obj: Activate
 export const ActivateNetworkSiteRequestFilterSensitiveLog = (obj: ActivateNetworkSiteRequest): any => ({
   ...obj,
   ...(obj.shippingAddress && { shippingAddress: AddressFilterSensitiveLog(obj.shippingAddress) }),
-});
-
-/**
- * @internal
- */
-export const NameValuePairFilterSensitiveLog = (obj: NameValuePair): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NetworkResourceDefinitionFilterSensitiveLog = (obj: NetworkResourceDefinition): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SitePlanFilterSensitiveLog = (obj: SitePlan): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NetworkSiteFilterSensitiveLog = (obj: NetworkSite): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ActivateNetworkSiteResponseFilterSensitiveLog = (obj: ActivateNetworkSiteResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PositionFilterSensitiveLog = (obj: Position): any => ({
-  ...obj,
 });
 
 /**
@@ -1873,13 +1803,6 @@ export const CreateNetworkRequestFilterSensitiveLog = (obj: CreateNetworkRequest
 /**
  * @internal
  */
-export const NetworkFilterSensitiveLog = (obj: Network): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const CreateNetworkResponseFilterSensitiveLog = (obj: CreateNetworkResponse): any => ({
   ...obj,
   ...(obj.tags && { tags: SENSITIVE_STRING }),
@@ -1904,51 +1827,9 @@ export const CreateNetworkSiteResponseFilterSensitiveLog = (obj: CreateNetworkSi
 /**
  * @internal
  */
-export const DeactivateDeviceIdentifierRequestFilterSensitiveLog = (obj: DeactivateDeviceIdentifierRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const DeactivateDeviceIdentifierResponseFilterSensitiveLog = (obj: DeactivateDeviceIdentifierResponse): any => ({
   ...obj,
   ...(obj.deviceIdentifier && { deviceIdentifier: DeviceIdentifierFilterSensitiveLog(obj.deviceIdentifier) }),
-});
-
-/**
- * @internal
- */
-export const DeleteNetworkRequestFilterSensitiveLog = (obj: DeleteNetworkRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteNetworkResponseFilterSensitiveLog = (obj: DeleteNetworkResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteNetworkSiteRequestFilterSensitiveLog = (obj: DeleteNetworkSiteRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteNetworkSiteResponseFilterSensitiveLog = (obj: DeleteNetworkSiteResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDeviceIdentifierRequestFilterSensitiveLog = (obj: GetDeviceIdentifierRequest): any => ({
-  ...obj,
 });
 
 /**
@@ -1963,23 +1844,9 @@ export const GetDeviceIdentifierResponseFilterSensitiveLog = (obj: GetDeviceIden
 /**
  * @internal
  */
-export const GetNetworkRequestFilterSensitiveLog = (obj: GetNetworkRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const GetNetworkResponseFilterSensitiveLog = (obj: GetNetworkResponse): any => ({
   ...obj,
   ...(obj.tags && { tags: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const GetNetworkResourceRequestFilterSensitiveLog = (obj: GetNetworkResourceRequest): any => ({
-  ...obj,
 });
 
 /**
@@ -1994,23 +1861,9 @@ export const GetNetworkResourceResponseFilterSensitiveLog = (obj: GetNetworkReso
 /**
  * @internal
  */
-export const GetNetworkSiteRequestFilterSensitiveLog = (obj: GetNetworkSiteRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const GetNetworkSiteResponseFilterSensitiveLog = (obj: GetNetworkSiteResponse): any => ({
   ...obj,
   ...(obj.tags && { tags: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const GetOrderRequestFilterSensitiveLog = (obj: GetOrderRequest): any => ({
-  ...obj,
 });
 
 /**
@@ -2020,13 +1873,6 @@ export const GetOrderResponseFilterSensitiveLog = (obj: GetOrderResponse): any =
   ...obj,
   ...(obj.order && { order: OrderFilterSensitiveLog(obj.order) }),
   ...(obj.tags && { tags: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ListDeviceIdentifiersRequestFilterSensitiveLog = (obj: ListDeviceIdentifiersRequest): any => ({
-  ...obj,
 });
 
 /**
@@ -2042,53 +1888,11 @@ export const ListDeviceIdentifiersResponseFilterSensitiveLog = (obj: ListDeviceI
 /**
  * @internal
  */
-export const ListNetworkResourcesRequestFilterSensitiveLog = (obj: ListNetworkResourcesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const ListNetworkResourcesResponseFilterSensitiveLog = (obj: ListNetworkResourcesResponse): any => ({
   ...obj,
   ...(obj.networkResources && {
     networkResources: obj.networkResources.map((item) => NetworkResourceFilterSensitiveLog(item)),
   }),
-});
-
-/**
- * @internal
- */
-export const ListNetworksRequestFilterSensitiveLog = (obj: ListNetworksRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListNetworksResponseFilterSensitiveLog = (obj: ListNetworksResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListNetworkSitesRequestFilterSensitiveLog = (obj: ListNetworkSitesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListNetworkSitesResponseFilterSensitiveLog = (obj: ListNetworkSitesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListOrdersRequestFilterSensitiveLog = (obj: ListOrdersRequest): any => ({
-  ...obj,
 });
 
 /**
@@ -2102,23 +1906,9 @@ export const ListOrdersResponseFilterSensitiveLog = (obj: ListOrdersResponse): a
 /**
  * @internal
  */
-export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
   ...obj,
   ...(obj.tags && { tags: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const PingResponseFilterSensitiveLog = (obj: PingResponse): any => ({
-  ...obj,
 });
 
 /**
@@ -2148,13 +1938,6 @@ export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): a
 /**
  * @internal
  */
-export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
   ...obj,
   ...(obj.tagKeys && { tagKeys: SENSITIVE_STRING }),
@@ -2163,28 +1946,7 @@ export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest
 /**
  * @internal
  */
-export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateNetworkSiteRequestFilterSensitiveLog = (obj: UpdateNetworkSiteRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const UpdateNetworkSiteResponseFilterSensitiveLog = (obj: UpdateNetworkSiteResponse): any => ({
   ...obj,
   ...(obj.tags && { tags: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const UpdateNetworkSitePlanRequestFilterSensitiveLog = (obj: UpdateNetworkSitePlanRequest): any => ({
-  ...obj,
 });

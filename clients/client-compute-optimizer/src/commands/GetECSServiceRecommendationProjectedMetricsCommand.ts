@@ -16,9 +16,7 @@ import {
 import { ComputeOptimizerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComputeOptimizerClient";
 import {
   GetECSServiceRecommendationProjectedMetricsRequest,
-  GetECSServiceRecommendationProjectedMetricsRequestFilterSensitiveLog,
   GetECSServiceRecommendationProjectedMetricsResponse,
-  GetECSServiceRecommendationProjectedMetricsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_0GetECSServiceRecommendationProjectedMetricsCommand,
@@ -143,8 +141,8 @@ export class GetECSServiceRecommendationProjectedMetricsCommand extends $Command
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetECSServiceRecommendationProjectedMetricsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetECSServiceRecommendationProjectedMetricsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

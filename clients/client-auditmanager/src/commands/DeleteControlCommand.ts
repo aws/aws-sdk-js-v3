@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AuditManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AuditManagerClient";
-import {
-  DeleteControlRequest,
-  DeleteControlRequestFilterSensitiveLog,
-  DeleteControlResponse,
-  DeleteControlResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteControlRequest, DeleteControlResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteControlCommand,
   serializeAws_restJson1DeleteControlCommand,
@@ -119,8 +114,8 @@ export class DeleteControlCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteControlRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteControlResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -2996,20 +2996,6 @@ export interface UpdateChannelReadMarkerResponse {
 /**
  * @internal
  */
-export const AppInstanceUserMembershipSummaryFilterSensitiveLog = (obj: AppInstanceUserMembershipSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateChannelFlowRequestFilterSensitiveLog = (obj: AssociateChannelFlowRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const IdentityFilterSensitiveLog = (obj: Identity): any => ({
   ...obj,
   ...(obj.Name && { Name: SENSITIVE_STRING }),
@@ -3027,22 +3013,6 @@ export const BatchChannelMembershipsFilterSensitiveLog = (obj: BatchChannelMembe
 /**
  * @internal
  */
-export const BatchCreateChannelMembershipRequestFilterSensitiveLog = (
-  obj: BatchCreateChannelMembershipRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchCreateChannelMembershipErrorFilterSensitiveLog = (obj: BatchCreateChannelMembershipError): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const BatchCreateChannelMembershipResponseFilterSensitiveLog = (
   obj: BatchCreateChannelMembershipResponse
 ): any => ({
@@ -3050,13 +3020,6 @@ export const BatchCreateChannelMembershipResponseFilterSensitiveLog = (
   ...(obj.BatchChannelMemberships && {
     BatchChannelMemberships: BatchChannelMembershipsFilterSensitiveLog(obj.BatchChannelMemberships),
   }),
-});
-
-/**
- * @internal
- */
-export const ElasticChannelConfigurationFilterSensitiveLog = (obj: ElasticChannelConfiguration): any => ({
-  ...obj,
 });
 
 /**
@@ -3093,20 +3056,6 @@ export const ChannelBanFilterSensitiveLog = (obj: ChannelBan): any => ({
 export const ChannelBanSummaryFilterSensitiveLog = (obj: ChannelBanSummary): any => ({
   ...obj,
   ...(obj.Member && { Member: IdentityFilterSensitiveLog(obj.Member) }),
-});
-
-/**
- * @internal
- */
-export const LambdaConfigurationFilterSensitiveLog = (obj: LambdaConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ProcessorConfigurationFilterSensitiveLog = (obj: ProcessorConfiguration): any => ({
-  ...obj,
 });
 
 /**
@@ -3174,13 +3123,6 @@ export const ChannelFlowCallbackRequestFilterSensitiveLog = (obj: ChannelFlowCal
 /**
  * @internal
  */
-export const ChannelFlowCallbackResponseFilterSensitiveLog = (obj: ChannelFlowCallbackResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const ChannelFlowSummaryFilterSensitiveLog = (obj: ChannelFlowSummary): any => ({
   ...obj,
   ...(obj.Name && { Name: SENSITIVE_STRING }),
@@ -3239,13 +3181,6 @@ export const ChannelMembershipPreferencesFilterSensitiveLog = (obj: ChannelMembe
 export const ChannelMembershipSummaryFilterSensitiveLog = (obj: ChannelMembershipSummary): any => ({
   ...obj,
   ...(obj.Member && { Member: IdentityFilterSensitiveLog(obj.Member) }),
-});
-
-/**
- * @internal
- */
-export const ChannelMessageStatusStructureFilterSensitiveLog = (obj: ChannelMessageStatusStructure): any => ({
-  ...obj,
 });
 
 /**
@@ -3335,20 +3270,6 @@ export const CreateChannelRequestFilterSensitiveLog = (obj: CreateChannelRequest
 /**
  * @internal
  */
-export const CreateChannelResponseFilterSensitiveLog = (obj: CreateChannelResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateChannelBanRequestFilterSensitiveLog = (obj: CreateChannelBanRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const CreateChannelBanResponseFilterSensitiveLog = (obj: CreateChannelBanResponse): any => ({
   ...obj,
   ...(obj.Member && { Member: IdentityFilterSensitiveLog(obj.Member) }),
@@ -3368,30 +3289,9 @@ export const CreateChannelFlowRequestFilterSensitiveLog = (obj: CreateChannelFlo
 /**
  * @internal
  */
-export const CreateChannelFlowResponseFilterSensitiveLog = (obj: CreateChannelFlowResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateChannelMembershipRequestFilterSensitiveLog = (obj: CreateChannelMembershipRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const CreateChannelMembershipResponseFilterSensitiveLog = (obj: CreateChannelMembershipResponse): any => ({
   ...obj,
   ...(obj.Member && { Member: IdentityFilterSensitiveLog(obj.Member) }),
-});
-
-/**
- * @internal
- */
-export const CreateChannelModeratorRequestFilterSensitiveLog = (obj: CreateChannelModeratorRequest): any => ({
-  ...obj,
 });
 
 /**
@@ -3405,74 +3305,9 @@ export const CreateChannelModeratorResponseFilterSensitiveLog = (obj: CreateChan
 /**
  * @internal
  */
-export const DeleteChannelRequestFilterSensitiveLog = (obj: DeleteChannelRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteChannelBanRequestFilterSensitiveLog = (obj: DeleteChannelBanRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteChannelFlowRequestFilterSensitiveLog = (obj: DeleteChannelFlowRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteChannelMembershipRequestFilterSensitiveLog = (obj: DeleteChannelMembershipRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteChannelMessageRequestFilterSensitiveLog = (obj: DeleteChannelMessageRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteChannelModeratorRequestFilterSensitiveLog = (obj: DeleteChannelModeratorRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteMessagingStreamingConfigurationsRequestFilterSensitiveLog = (
-  obj: DeleteMessagingStreamingConfigurationsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeChannelRequestFilterSensitiveLog = (obj: DescribeChannelRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const DescribeChannelResponseFilterSensitiveLog = (obj: DescribeChannelResponse): any => ({
   ...obj,
   ...(obj.Channel && { Channel: ChannelFilterSensitiveLog(obj.Channel) }),
-});
-
-/**
- * @internal
- */
-export const DescribeChannelBanRequestFilterSensitiveLog = (obj: DescribeChannelBanRequest): any => ({
-  ...obj,
 });
 
 /**
@@ -3486,13 +3321,6 @@ export const DescribeChannelBanResponseFilterSensitiveLog = (obj: DescribeChanne
 /**
  * @internal
  */
-export const DescribeChannelFlowRequestFilterSensitiveLog = (obj: DescribeChannelFlowRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const DescribeChannelFlowResponseFilterSensitiveLog = (obj: DescribeChannelFlowResponse): any => ({
   ...obj,
   ...(obj.ChannelFlow && { ChannelFlow: ChannelFlowFilterSensitiveLog(obj.ChannelFlow) }),
@@ -3501,25 +3329,9 @@ export const DescribeChannelFlowResponseFilterSensitiveLog = (obj: DescribeChann
 /**
  * @internal
  */
-export const DescribeChannelMembershipRequestFilterSensitiveLog = (obj: DescribeChannelMembershipRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const DescribeChannelMembershipResponseFilterSensitiveLog = (obj: DescribeChannelMembershipResponse): any => ({
   ...obj,
   ...(obj.ChannelMembership && { ChannelMembership: ChannelMembershipFilterSensitiveLog(obj.ChannelMembership) }),
-});
-
-/**
- * @internal
- */
-export const DescribeChannelMembershipForAppInstanceUserRequestFilterSensitiveLog = (
-  obj: DescribeChannelMembershipForAppInstanceUserRequest
-): any => ({
-  ...obj,
 });
 
 /**
@@ -3537,15 +3349,6 @@ export const DescribeChannelMembershipForAppInstanceUserResponseFilterSensitiveL
 /**
  * @internal
  */
-export const DescribeChannelModeratedByAppInstanceUserRequestFilterSensitiveLog = (
-  obj: DescribeChannelModeratedByAppInstanceUserRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const DescribeChannelModeratedByAppInstanceUserResponseFilterSensitiveLog = (
   obj: DescribeChannelModeratedByAppInstanceUserResponse
 ): any => ({
@@ -3556,32 +3359,9 @@ export const DescribeChannelModeratedByAppInstanceUserResponseFilterSensitiveLog
 /**
  * @internal
  */
-export const DescribeChannelModeratorRequestFilterSensitiveLog = (obj: DescribeChannelModeratorRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const DescribeChannelModeratorResponseFilterSensitiveLog = (obj: DescribeChannelModeratorResponse): any => ({
   ...obj,
   ...(obj.ChannelModerator && { ChannelModerator: ChannelModeratorFilterSensitiveLog(obj.ChannelModerator) }),
-});
-
-/**
- * @internal
- */
-export const DisassociateChannelFlowRequestFilterSensitiveLog = (obj: DisassociateChannelFlowRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetChannelMembershipPreferencesRequestFilterSensitiveLog = (
-  obj: GetChannelMembershipPreferencesRequest
-): any => ({
-  ...obj,
 });
 
 /**
@@ -3598,78 +3378,9 @@ export const GetChannelMembershipPreferencesResponseFilterSensitiveLog = (
 /**
  * @internal
  */
-export const GetChannelMessageRequestFilterSensitiveLog = (obj: GetChannelMessageRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const GetChannelMessageResponseFilterSensitiveLog = (obj: GetChannelMessageResponse): any => ({
   ...obj,
   ...(obj.ChannelMessage && { ChannelMessage: ChannelMessageFilterSensitiveLog(obj.ChannelMessage) }),
-});
-
-/**
- * @internal
- */
-export const GetChannelMessageStatusRequestFilterSensitiveLog = (obj: GetChannelMessageStatusRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetChannelMessageStatusResponseFilterSensitiveLog = (obj: GetChannelMessageStatusResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetMessagingSessionEndpointRequestFilterSensitiveLog = (obj: GetMessagingSessionEndpointRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MessagingSessionEndpointFilterSensitiveLog = (obj: MessagingSessionEndpoint): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetMessagingSessionEndpointResponseFilterSensitiveLog = (
-  obj: GetMessagingSessionEndpointResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetMessagingStreamingConfigurationsRequestFilterSensitiveLog = (
-  obj: GetMessagingStreamingConfigurationsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StreamingConfigurationFilterSensitiveLog = (obj: StreamingConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetMessagingStreamingConfigurationsResponseFilterSensitiveLog = (
-  obj: GetMessagingStreamingConfigurationsResponse
-): any => ({
-  ...obj,
 });
 
 /**
@@ -3862,23 +3573,9 @@ export const ListSubChannelsRequestFilterSensitiveLog = (obj: ListSubChannelsReq
 /**
  * @internal
  */
-export const SubChannelSummaryFilterSensitiveLog = (obj: SubChannelSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const ListSubChannelsResponseFilterSensitiveLog = (obj: ListSubChannelsResponse): any => ({
   ...obj,
   ...(obj.NextToken && { NextToken: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-  ...obj,
 });
 
 /**
@@ -3908,45 +3605,6 @@ export const PutChannelMembershipPreferencesResponseFilterSensitiveLog = (
   ...obj,
   ...(obj.Member && { Member: IdentityFilterSensitiveLog(obj.Member) }),
   ...(obj.Preferences && { Preferences: ChannelMembershipPreferencesFilterSensitiveLog(obj.Preferences) }),
-});
-
-/**
- * @internal
- */
-export const PutMessagingStreamingConfigurationsRequestFilterSensitiveLog = (
-  obj: PutMessagingStreamingConfigurationsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutMessagingStreamingConfigurationsResponseFilterSensitiveLog = (
-  obj: PutMessagingStreamingConfigurationsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RedactChannelMessageRequestFilterSensitiveLog = (obj: RedactChannelMessageRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RedactChannelMessageResponseFilterSensitiveLog = (obj: RedactChannelMessageResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SearchFieldFilterSensitiveLog = (obj: SearchField): any => ({
-  ...obj,
 });
 
 /**
@@ -3990,13 +3648,6 @@ export const SendChannelMessageRequestFilterSensitiveLog = (obj: SendChannelMess
 /**
  * @internal
  */
-export const SendChannelMessageResponseFilterSensitiveLog = (obj: SendChannelMessageResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
   ...obj,
   ...(obj.Tags && { Tags: obj.Tags.map((item) => TagFilterSensitiveLog(item)) }),
@@ -4022,13 +3673,6 @@ export const UpdateChannelRequestFilterSensitiveLog = (obj: UpdateChannelRequest
 /**
  * @internal
  */
-export const UpdateChannelResponseFilterSensitiveLog = (obj: UpdateChannelResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const UpdateChannelFlowRequestFilterSensitiveLog = (obj: UpdateChannelFlowRequest): any => ({
   ...obj,
   ...(obj.Processors && { Processors: obj.Processors.map((item) => ProcessorFilterSensitiveLog(item)) }),
@@ -4038,36 +3682,8 @@ export const UpdateChannelFlowRequestFilterSensitiveLog = (obj: UpdateChannelFlo
 /**
  * @internal
  */
-export const UpdateChannelFlowResponseFilterSensitiveLog = (obj: UpdateChannelFlowResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const UpdateChannelMessageRequestFilterSensitiveLog = (obj: UpdateChannelMessageRequest): any => ({
   ...obj,
   ...(obj.Content && { Content: SENSITIVE_STRING }),
   ...(obj.Metadata && { Metadata: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const UpdateChannelMessageResponseFilterSensitiveLog = (obj: UpdateChannelMessageResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateChannelReadMarkerRequestFilterSensitiveLog = (obj: UpdateChannelReadMarkerRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateChannelReadMarkerResponseFilterSensitiveLog = (obj: UpdateChannelReadMarkerResponse): any => ({
-  ...obj,
 });

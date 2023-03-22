@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { KafkaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaClient";
-import {
-  ListConfigurationRevisionsRequest,
-  ListConfigurationRevisionsRequestFilterSensitiveLog,
-  ListConfigurationRevisionsResponse,
-  ListConfigurationRevisionsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListConfigurationRevisionsRequest, ListConfigurationRevisionsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListConfigurationRevisionsCommand,
   serializeAws_restJson1ListConfigurationRevisionsCommand,
@@ -125,8 +120,8 @@ export class ListConfigurationRevisionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListConfigurationRevisionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListConfigurationRevisionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

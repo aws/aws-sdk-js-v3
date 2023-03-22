@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient";
-import {
-  GetComplianceDetailRequest,
-  GetComplianceDetailRequestFilterSensitiveLog,
-  GetComplianceDetailResponse,
-  GetComplianceDetailResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetComplianceDetailRequest, GetComplianceDetailResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GetComplianceDetailCommand,
   serializeAws_json1_1GetComplianceDetailCommand,
@@ -147,8 +142,8 @@ export class GetComplianceDetailCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetComplianceDetailRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetComplianceDetailResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

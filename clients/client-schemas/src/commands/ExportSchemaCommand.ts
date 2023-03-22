@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ExportSchemaRequest,
-  ExportSchemaRequestFilterSensitiveLog,
-  ExportSchemaResponse,
-  ExportSchemaResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ExportSchemaRequest, ExportSchemaResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ExportSchemaCommand,
   serializeAws_restJson1ExportSchemaCommand,
@@ -84,8 +79,8 @@ export class ExportSchemaCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ExportSchemaRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ExportSchemaResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AuditManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AuditManagerClient";
-import {
-  UpdateAssessmentFrameworkRequest,
-  UpdateAssessmentFrameworkRequestFilterSensitiveLog,
-  UpdateAssessmentFrameworkResponse,
-  UpdateAssessmentFrameworkResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateAssessmentFrameworkRequest, UpdateAssessmentFrameworkResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateAssessmentFrameworkCommand,
   serializeAws_restJson1UpdateAssessmentFrameworkCommand,
@@ -121,8 +116,8 @@ export class UpdateAssessmentFrameworkCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateAssessmentFrameworkRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateAssessmentFrameworkResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

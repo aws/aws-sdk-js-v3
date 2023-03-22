@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../GlobalAcceleratorClient";
-import {
-  WithdrawByoipCidrRequest,
-  WithdrawByoipCidrRequestFilterSensitiveLog,
-  WithdrawByoipCidrResponse,
-  WithdrawByoipCidrResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { WithdrawByoipCidrRequest, WithdrawByoipCidrResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1WithdrawByoipCidrCommand,
   serializeAws_json1_1WithdrawByoipCidrCommand,
@@ -133,8 +128,8 @@ export class WithdrawByoipCidrCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: WithdrawByoipCidrRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: WithdrawByoipCidrResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
-import {
-  RebootInputDeviceRequest,
-  RebootInputDeviceRequestFilterSensitiveLog,
-  RebootInputDeviceResponse,
-  RebootInputDeviceResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { RebootInputDeviceRequest, RebootInputDeviceResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1RebootInputDeviceCommand,
   serializeAws_restJson1RebootInputDeviceCommand,
@@ -131,8 +126,8 @@ export class RebootInputDeviceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RebootInputDeviceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RebootInputDeviceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

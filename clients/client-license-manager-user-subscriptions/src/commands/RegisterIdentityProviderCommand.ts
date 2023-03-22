@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../LicenseManagerUserSubscriptionsClient";
-import {
-  RegisterIdentityProviderRequest,
-  RegisterIdentityProviderRequestFilterSensitiveLog,
-  RegisterIdentityProviderResponse,
-  RegisterIdentityProviderResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { RegisterIdentityProviderRequest, RegisterIdentityProviderResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1RegisterIdentityProviderCommand,
   serializeAws_restJson1RegisterIdentityProviderCommand,
@@ -133,8 +128,8 @@ export class RegisterIdentityProviderCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RegisterIdentityProviderRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RegisterIdentityProviderResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

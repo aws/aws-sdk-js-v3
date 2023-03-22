@@ -16,9 +16,7 @@ import {
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
 import {
   DisassociateFromAdministratorAccountRequest,
-  DisassociateFromAdministratorAccountRequestFilterSensitiveLog,
   DisassociateFromAdministratorAccountResponse,
-  DisassociateFromAdministratorAccountResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1DisassociateFromAdministratorAccountCommand,
@@ -130,8 +128,8 @@ export class DisassociateFromAdministratorAccountCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateFromAdministratorAccountRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateFromAdministratorAccountResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListStageDevicesRequest,
-  ListStageDevicesRequestFilterSensitiveLog,
-  ListStageDevicesResponse,
-  ListStageDevicesResponseFilterSensitiveLog,
-} from "../models/models_3";
+import { ListStageDevicesRequest, ListStageDevicesResponse } from "../models/models_3";
 import {
   deserializeAws_json1_1ListStageDevicesCommand,
   serializeAws_json1_1ListStageDevicesCommand,
@@ -107,8 +102,8 @@ export class ListStageDevicesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListStageDevicesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListStageDevicesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

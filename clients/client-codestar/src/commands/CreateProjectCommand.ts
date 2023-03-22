@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeStarClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeStarClient";
-import {
-  CreateProjectRequest,
-  CreateProjectRequestFilterSensitiveLog,
-  CreateProjectResult,
-  CreateProjectResultFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateProjectRequest, CreateProjectRequestFilterSensitiveLog, CreateProjectResult } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateProjectCommand,
   serializeAws_json1_1CreateProjectCommand,
@@ -132,7 +127,7 @@ export class CreateProjectCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateProjectRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateProjectResultFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

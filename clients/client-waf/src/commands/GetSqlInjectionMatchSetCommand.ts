@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetSqlInjectionMatchSetRequest,
-  GetSqlInjectionMatchSetRequestFilterSensitiveLog,
-  GetSqlInjectionMatchSetResponse,
-  GetSqlInjectionMatchSetResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetSqlInjectionMatchSetRequest, GetSqlInjectionMatchSetResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GetSqlInjectionMatchSetCommand,
   serializeAws_json1_1GetSqlInjectionMatchSetCommand,
@@ -151,8 +146,8 @@ export class GetSqlInjectionMatchSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSqlInjectionMatchSetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetSqlInjectionMatchSetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

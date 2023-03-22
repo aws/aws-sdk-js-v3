@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CustomerProfilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CustomerProfilesClient";
-import {
-  PutProfileObjectRequest,
-  PutProfileObjectRequestFilterSensitiveLog,
-  PutProfileObjectResponse,
-  PutProfileObjectResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { PutProfileObjectRequest, PutProfileObjectResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1PutProfileObjectCommand,
   serializeAws_restJson1PutProfileObjectCommand,
@@ -131,8 +126,8 @@ export class PutProfileObjectCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutProfileObjectRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutProfileObjectResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

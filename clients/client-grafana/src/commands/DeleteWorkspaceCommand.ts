@@ -16,7 +16,6 @@ import {
 import { GrafanaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GrafanaClient";
 import {
   DeleteWorkspaceRequest,
-  DeleteWorkspaceRequestFilterSensitiveLog,
   DeleteWorkspaceResponse,
   DeleteWorkspaceResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -125,7 +124,7 @@ export class DeleteWorkspaceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteWorkspaceRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DeleteWorkspaceResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

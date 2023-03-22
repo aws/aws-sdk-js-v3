@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient";
-import {
-  ListComplianceStatusRequest,
-  ListComplianceStatusRequestFilterSensitiveLog,
-  ListComplianceStatusResponse,
-  ListComplianceStatusResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListComplianceStatusRequest, ListComplianceStatusResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ListComplianceStatusCommand,
   serializeAws_json1_1ListComplianceStatusCommand,
@@ -116,8 +111,8 @@ export class ListComplianceStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListComplianceStatusRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListComplianceStatusResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

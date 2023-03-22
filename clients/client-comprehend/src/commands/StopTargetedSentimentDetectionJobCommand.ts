@@ -16,9 +16,7 @@ import {
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
 import {
   StopTargetedSentimentDetectionJobRequest,
-  StopTargetedSentimentDetectionJobRequestFilterSensitiveLog,
   StopTargetedSentimentDetectionJobResponse,
-  StopTargetedSentimentDetectionJobResponseFilterSensitiveLog,
 } from "../models/models_1";
 import {
   deserializeAws_json1_1StopTargetedSentimentDetectionJobCommand,
@@ -127,8 +125,8 @@ export class StopTargetedSentimentDetectionJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopTargetedSentimentDetectionJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StopTargetedSentimentDetectionJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

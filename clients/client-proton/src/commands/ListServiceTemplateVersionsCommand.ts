@@ -15,7 +15,6 @@ import {
 
 import {
   ListServiceTemplateVersionsInput,
-  ListServiceTemplateVersionsInputFilterSensitiveLog,
   ListServiceTemplateVersionsOutput,
   ListServiceTemplateVersionsOutputFilterSensitiveLog,
 } from "../models/models_0";
@@ -122,7 +121,7 @@ export class ListServiceTemplateVersionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListServiceTemplateVersionsInputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListServiceTemplateVersionsOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

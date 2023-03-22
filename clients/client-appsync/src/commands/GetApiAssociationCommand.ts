@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
-import {
-  GetApiAssociationRequest,
-  GetApiAssociationRequestFilterSensitiveLog,
-  GetApiAssociationResponse,
-  GetApiAssociationResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetApiAssociationRequest, GetApiAssociationResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetApiAssociationCommand,
   serializeAws_restJson1GetApiAssociationCommand,
@@ -120,8 +115,8 @@ export class GetApiAssociationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetApiAssociationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetApiAssociationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

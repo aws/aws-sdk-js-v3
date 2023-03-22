@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTFleetWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTFleetWiseClient";
-import {
-  PutLoggingOptionsRequest,
-  PutLoggingOptionsRequestFilterSensitiveLog,
-  PutLoggingOptionsResponse,
-  PutLoggingOptionsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { PutLoggingOptionsRequest, PutLoggingOptionsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_0PutLoggingOptionsCommand,
   serializeAws_json1_0PutLoggingOptionsCommand,
@@ -126,8 +121,8 @@ export class PutLoggingOptionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutLoggingOptionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutLoggingOptionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

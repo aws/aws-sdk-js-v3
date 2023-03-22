@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
-import {
-  CopyImageRequest,
-  CopyImageRequestFilterSensitiveLog,
-  CopyImageResponse,
-  CopyImageResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CopyImageRequest, CopyImageResponse } from "../models/models_0";
 import { deserializeAws_json1_1CopyImageCommand, serializeAws_json1_1CopyImageCommand } from "../protocols/Aws_json1_1";
 
 /**
@@ -120,8 +115,8 @@ export class CopyImageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CopyImageRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CopyImageResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

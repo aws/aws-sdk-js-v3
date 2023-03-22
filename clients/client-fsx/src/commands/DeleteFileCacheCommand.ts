@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
-import {
-  DeleteFileCacheRequest,
-  DeleteFileCacheRequestFilterSensitiveLog,
-  DeleteFileCacheResponse,
-  DeleteFileCacheResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteFileCacheRequest, DeleteFileCacheResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteFileCacheCommand,
   serializeAws_json1_1DeleteFileCacheCommand,
@@ -136,8 +131,8 @@ export class DeleteFileCacheCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteFileCacheRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteFileCacheResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

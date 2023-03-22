@@ -15,9 +15,7 @@ import {
 
 import {
   GetIdentityVerificationAttributesRequest,
-  GetIdentityVerificationAttributesRequestFilterSensitiveLog,
   GetIdentityVerificationAttributesResponse,
-  GetIdentityVerificationAttributesResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_queryGetIdentityVerificationAttributesCommand,
@@ -147,8 +145,8 @@ export class GetIdentityVerificationAttributesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetIdentityVerificationAttributesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetIdentityVerificationAttributesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

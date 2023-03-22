@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../IoT1ClickDevicesServiceClient";
-import {
-  UnclaimDeviceRequest,
-  UnclaimDeviceRequestFilterSensitiveLog,
-  UnclaimDeviceResponse,
-  UnclaimDeviceResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UnclaimDeviceRequest, UnclaimDeviceResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1UnclaimDeviceCommand,
   serializeAws_restJson1UnclaimDeviceCommand,
@@ -115,8 +110,8 @@ export class UnclaimDeviceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UnclaimDeviceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UnclaimDeviceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

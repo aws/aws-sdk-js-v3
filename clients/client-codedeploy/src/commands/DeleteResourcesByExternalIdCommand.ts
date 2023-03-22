@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeDeployClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeDeployClient";
-import {
-  DeleteResourcesByExternalIdInput,
-  DeleteResourcesByExternalIdInputFilterSensitiveLog,
-  DeleteResourcesByExternalIdOutput,
-  DeleteResourcesByExternalIdOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteResourcesByExternalIdInput, DeleteResourcesByExternalIdOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteResourcesByExternalIdCommand,
   serializeAws_json1_1DeleteResourcesByExternalIdCommand,
@@ -107,8 +102,8 @@ export class DeleteResourcesByExternalIdCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteResourcesByExternalIdInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteResourcesByExternalIdOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

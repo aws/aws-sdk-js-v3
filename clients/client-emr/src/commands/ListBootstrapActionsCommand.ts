@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
-import {
-  ListBootstrapActionsInput,
-  ListBootstrapActionsInputFilterSensitiveLog,
-  ListBootstrapActionsOutput,
-  ListBootstrapActionsOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { ListBootstrapActionsInput, ListBootstrapActionsOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1ListBootstrapActionsCommand,
   serializeAws_json1_1ListBootstrapActionsCommand,
@@ -114,8 +109,8 @@ export class ListBootstrapActionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListBootstrapActionsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListBootstrapActionsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

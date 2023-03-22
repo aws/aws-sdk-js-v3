@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
-import {
-  ListDashboardsRequest,
-  ListDashboardsRequestFilterSensitiveLog,
-  ListDashboardsResponse,
-  ListDashboardsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListDashboardsRequest, ListDashboardsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListDashboardsCommand,
   serializeAws_restJson1ListDashboardsCommand,
@@ -120,8 +115,8 @@ export class ListDashboardsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDashboardsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListDashboardsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

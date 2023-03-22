@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
-import {
-  UpdateGraphqlApiRequest,
-  UpdateGraphqlApiRequestFilterSensitiveLog,
-  UpdateGraphqlApiResponse,
-  UpdateGraphqlApiResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateGraphqlApiRequest, UpdateGraphqlApiResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateGraphqlApiCommand,
   serializeAws_restJson1UpdateGraphqlApiCommand,
@@ -127,8 +122,8 @@ export class UpdateGraphqlApiCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateGraphqlApiRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateGraphqlApiResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  RevokeVpcEndpointAccessRequest,
-  RevokeVpcEndpointAccessRequestFilterSensitiveLog,
-  RevokeVpcEndpointAccessResponse,
-  RevokeVpcEndpointAccessResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { RevokeVpcEndpointAccessRequest, RevokeVpcEndpointAccessResponse } from "../models/models_0";
 import { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
 import {
   deserializeAws_restJson1RevokeVpcEndpointAccessCommand,
@@ -123,8 +118,8 @@ export class RevokeVpcEndpointAccessCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RevokeVpcEndpointAccessRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RevokeVpcEndpointAccessResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

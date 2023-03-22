@@ -16,9 +16,7 @@ import {
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
 import {
   DescribeKinesisStreamingDestinationInput,
-  DescribeKinesisStreamingDestinationInputFilterSensitiveLog,
   DescribeKinesisStreamingDestinationOutput,
-  DescribeKinesisStreamingDestinationOutputFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_0DescribeKinesisStreamingDestinationCommand,
@@ -118,8 +116,8 @@ export class DescribeKinesisStreamingDestinationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeKinesisStreamingDestinationInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeKinesisStreamingDestinationOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

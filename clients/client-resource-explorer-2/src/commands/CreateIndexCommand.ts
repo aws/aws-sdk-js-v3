@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateIndexInput,
-  CreateIndexInputFilterSensitiveLog,
-  CreateIndexOutput,
-  CreateIndexOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateIndexInput, CreateIndexOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateIndexCommand,
   serializeAws_restJson1CreateIndexCommand,
@@ -180,8 +175,8 @@ export class CreateIndexCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateIndexInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateIndexOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
-import {
-  CreateFileCacheRequest,
-  CreateFileCacheRequestFilterSensitiveLog,
-  CreateFileCacheResponse,
-  CreateFileCacheResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateFileCacheRequest, CreateFileCacheResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateFileCacheCommand,
   serializeAws_json1_1CreateFileCacheCommand,
@@ -154,8 +149,8 @@ export class CreateFileCacheCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateFileCacheRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateFileCacheResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

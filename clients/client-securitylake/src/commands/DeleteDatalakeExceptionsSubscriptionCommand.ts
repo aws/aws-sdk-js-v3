@@ -15,9 +15,7 @@ import {
 
 import {
   DeleteDatalakeExceptionsSubscriptionRequest,
-  DeleteDatalakeExceptionsSubscriptionRequestFilterSensitiveLog,
   DeleteDatalakeExceptionsSubscriptionResponse,
-  DeleteDatalakeExceptionsSubscriptionResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteDatalakeExceptionsSubscriptionCommand,
@@ -128,8 +126,8 @@ export class DeleteDatalakeExceptionsSubscriptionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDatalakeExceptionsSubscriptionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteDatalakeExceptionsSubscriptionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

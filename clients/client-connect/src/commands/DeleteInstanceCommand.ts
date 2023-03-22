@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { DeleteInstanceRequest, DeleteInstanceRequestFilterSensitiveLog } from "../models/models_0";
+import { DeleteInstanceRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteInstanceCommand,
   serializeAws_restJson1DeleteInstanceCommand,
@@ -115,8 +115,8 @@ export class DeleteInstanceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteInstanceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

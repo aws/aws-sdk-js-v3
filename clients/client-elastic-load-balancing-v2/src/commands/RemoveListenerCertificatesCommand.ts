@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingV2Client";
-import {
-  RemoveListenerCertificatesInput,
-  RemoveListenerCertificatesInputFilterSensitiveLog,
-  RemoveListenerCertificatesOutput,
-  RemoveListenerCertificatesOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { RemoveListenerCertificatesInput, RemoveListenerCertificatesOutput } from "../models/models_0";
 import {
   deserializeAws_queryRemoveListenerCertificatesCommand,
   serializeAws_queryRemoveListenerCertificatesCommand,
@@ -118,8 +113,8 @@ export class RemoveListenerCertificatesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RemoveListenerCertificatesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: RemoveListenerCertificatesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

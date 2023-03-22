@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EventBridgeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EventBridgeClient";
-import { ActivateEventSourceRequest, ActivateEventSourceRequestFilterSensitiveLog } from "../models/models_0";
+import { ActivateEventSourceRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1ActivateEventSourceCommand,
   serializeAws_json1_1ActivateEventSourceCommand,
@@ -118,8 +118,8 @@ export class ActivateEventSourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ActivateEventSourceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

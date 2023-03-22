@@ -16,7 +16,6 @@ import {
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
 import {
   DescribeDirectoryConfigsRequest,
-  DescribeDirectoryConfigsRequestFilterSensitiveLog,
   DescribeDirectoryConfigsResult,
   DescribeDirectoryConfigsResultFilterSensitiveLog,
 } from "../models/models_0";
@@ -112,7 +111,7 @@ export class DescribeDirectoryConfigsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDirectoryConfigsRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeDirectoryConfigsResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

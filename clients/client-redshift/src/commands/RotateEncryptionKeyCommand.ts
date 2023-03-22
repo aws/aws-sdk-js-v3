@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  RotateEncryptionKeyMessage,
-  RotateEncryptionKeyMessageFilterSensitiveLog,
-  RotateEncryptionKeyResult,
-  RotateEncryptionKeyResultFilterSensitiveLog,
-} from "../models/models_1";
+import { RotateEncryptionKeyMessage, RotateEncryptionKeyResult } from "../models/models_1";
 import {
   deserializeAws_queryRotateEncryptionKeyCommand,
   serializeAws_queryRotateEncryptionKeyCommand,
@@ -118,8 +113,8 @@ export class RotateEncryptionKeyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RotateEncryptionKeyMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: RotateEncryptionKeyResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

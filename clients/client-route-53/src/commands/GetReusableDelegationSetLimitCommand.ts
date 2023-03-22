@@ -14,12 +14,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetReusableDelegationSetLimitRequest,
-  GetReusableDelegationSetLimitRequestFilterSensitiveLog,
-  GetReusableDelegationSetLimitResponse,
-  GetReusableDelegationSetLimitResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetReusableDelegationSetLimitRequest, GetReusableDelegationSetLimitResponse } from "../models/models_0";
 import {
   deserializeAws_restXmlGetReusableDelegationSetLimitCommand,
   serializeAws_restXmlGetReusableDelegationSetLimitCommand,
@@ -121,8 +116,8 @@ export class GetReusableDelegationSetLimitCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetReusableDelegationSetLimitRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetReusableDelegationSetLimitResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -16,7 +16,6 @@ import {
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
 import {
   GenerateRandomRequest,
-  GenerateRandomRequestFilterSensitiveLog,
   GenerateRandomResponse,
   GenerateRandomResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -189,7 +188,7 @@ export class GenerateRandomCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GenerateRandomRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GenerateRandomResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

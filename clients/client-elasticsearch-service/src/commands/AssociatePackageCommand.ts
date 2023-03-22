@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticsearchServiceClient";
-import {
-  AssociatePackageRequest,
-  AssociatePackageRequestFilterSensitiveLog,
-  AssociatePackageResponse,
-  AssociatePackageResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { AssociatePackageRequest, AssociatePackageResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1AssociatePackageCommand,
   serializeAws_restJson1AssociatePackageCommand,
@@ -129,8 +124,8 @@ export class AssociatePackageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociatePackageRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssociatePackageResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

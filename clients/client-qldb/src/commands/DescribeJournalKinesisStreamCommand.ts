@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeJournalKinesisStreamRequest,
-  DescribeJournalKinesisStreamRequestFilterSensitiveLog,
-  DescribeJournalKinesisStreamResponse,
-  DescribeJournalKinesisStreamResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeJournalKinesisStreamRequest, DescribeJournalKinesisStreamResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeJournalKinesisStreamCommand,
   serializeAws_restJson1DescribeJournalKinesisStreamCommand,
@@ -123,8 +118,8 @@ export class DescribeJournalKinesisStreamCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeJournalKinesisStreamRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeJournalKinesisStreamResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

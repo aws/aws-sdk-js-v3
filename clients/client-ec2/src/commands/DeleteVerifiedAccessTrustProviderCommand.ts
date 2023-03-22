@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DeleteVerifiedAccessTrustProviderRequest,
-  DeleteVerifiedAccessTrustProviderRequestFilterSensitiveLog,
-  DeleteVerifiedAccessTrustProviderResult,
-  DeleteVerifiedAccessTrustProviderResultFilterSensitiveLog,
-} from "../models/models_3";
+import { DeleteVerifiedAccessTrustProviderRequest, DeleteVerifiedAccessTrustProviderResult } from "../models/models_3";
 import {
   deserializeAws_ec2DeleteVerifiedAccessTrustProviderCommand,
   serializeAws_ec2DeleteVerifiedAccessTrustProviderCommand,
@@ -109,8 +104,8 @@ export class DeleteVerifiedAccessTrustProviderCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteVerifiedAccessTrustProviderRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteVerifiedAccessTrustProviderResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -17,12 +17,7 @@ import {
 } from "@aws-sdk/types";
 
 import { BackupStorageClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupStorageClient";
-import {
-  GetChunkInput,
-  GetChunkInputFilterSensitiveLog,
-  GetChunkOutput,
-  GetChunkOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { GetChunkInput, GetChunkOutput, GetChunkOutputFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1GetChunkCommand,
   serializeAws_restJson1GetChunkCommand,
@@ -129,7 +124,7 @@ export class GetChunkCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetChunkInputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetChunkOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

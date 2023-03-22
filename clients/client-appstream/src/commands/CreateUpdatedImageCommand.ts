@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
-import {
-  CreateUpdatedImageRequest,
-  CreateUpdatedImageRequestFilterSensitiveLog,
-  CreateUpdatedImageResult,
-  CreateUpdatedImageResultFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateUpdatedImageRequest, CreateUpdatedImageResult } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateUpdatedImageCommand,
   serializeAws_json1_1CreateUpdatedImageCommand,
@@ -130,8 +125,8 @@ export class CreateUpdatedImageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateUpdatedImageRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateUpdatedImageResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { DisassociateSecurityKeyRequest, DisassociateSecurityKeyRequestFilterSensitiveLog } from "../models/models_0";
+import { DisassociateSecurityKeyRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1DisassociateSecurityKeyCommand,
   serializeAws_restJson1DisassociateSecurityKeyCommand,
@@ -118,8 +118,8 @@ export class DisassociateSecurityKeyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateSecurityKeyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

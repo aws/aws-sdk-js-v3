@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
-import {
-  DeleteAccessControlConfigurationRequest,
-  DeleteAccessControlConfigurationRequestFilterSensitiveLog,
-  DeleteAccessControlConfigurationResponse,
-  DeleteAccessControlConfigurationResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteAccessControlConfigurationRequest, DeleteAccessControlConfigurationResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteAccessControlConfigurationCommand,
   serializeAws_json1_1DeleteAccessControlConfigurationCommand,
@@ -136,8 +131,8 @@ export class DeleteAccessControlConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAccessControlConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteAccessControlConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

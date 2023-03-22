@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient";
-import {
-  DeleteReportGroupInput,
-  DeleteReportGroupInputFilterSensitiveLog,
-  DeleteReportGroupOutput,
-  DeleteReportGroupOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteReportGroupInput, DeleteReportGroupOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteReportGroupCommand,
   serializeAws_json1_1DeleteReportGroupCommand,
@@ -110,8 +105,8 @@ export class DeleteReportGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteReportGroupInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteReportGroupOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

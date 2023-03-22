@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EvidentlyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EvidentlyClient";
-import {
-  CreateFeatureRequest,
-  CreateFeatureRequestFilterSensitiveLog,
-  CreateFeatureResponse,
-  CreateFeatureResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateFeatureRequest, CreateFeatureResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateFeatureCommand,
   serializeAws_restJson1CreateFeatureCommand,
@@ -124,8 +119,8 @@ export class CreateFeatureCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateFeatureRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateFeatureResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

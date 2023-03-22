@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { HealthLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../HealthLakeClient";
-import {
-  ListFHIRDatastoresRequest,
-  ListFHIRDatastoresRequestFilterSensitiveLog,
-  ListFHIRDatastoresResponse,
-  ListFHIRDatastoresResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListFHIRDatastoresRequest, ListFHIRDatastoresResponse } from "../models/models_0";
 import {
   deserializeAws_json1_0ListFHIRDatastoresCommand,
   serializeAws_json1_0ListFHIRDatastoresCommand,
@@ -117,8 +112,8 @@ export class ListFHIRDatastoresCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListFHIRDatastoresRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListFHIRDatastoresResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

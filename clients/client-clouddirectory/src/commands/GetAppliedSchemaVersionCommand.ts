@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
-import {
-  GetAppliedSchemaVersionRequest,
-  GetAppliedSchemaVersionRequestFilterSensitiveLog,
-  GetAppliedSchemaVersionResponse,
-  GetAppliedSchemaVersionResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetAppliedSchemaVersionRequest, GetAppliedSchemaVersionResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetAppliedSchemaVersionCommand,
   serializeAws_restJson1GetAppliedSchemaVersionCommand,
@@ -129,8 +124,8 @@ export class GetAppliedSchemaVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAppliedSchemaVersionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetAppliedSchemaVersionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

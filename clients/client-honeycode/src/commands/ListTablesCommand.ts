@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { HoneycodeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../HoneycodeClient";
-import {
-  ListTablesRequest,
-  ListTablesRequestFilterSensitiveLog,
-  ListTablesResult,
-  ListTablesResultFilterSensitiveLog,
-} from "../models/models_0";
+import { ListTablesRequest, ListTablesResult } from "../models/models_0";
 import {
   deserializeAws_restJson1ListTablesCommand,
   serializeAws_restJson1ListTablesCommand,
@@ -133,8 +128,8 @@ export class ListTablesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTablesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListTablesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

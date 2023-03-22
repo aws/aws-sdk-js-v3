@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaPackageVodClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaPackageVodClient";
-import {
-  DeletePackagingGroupRequest,
-  DeletePackagingGroupRequestFilterSensitiveLog,
-  DeletePackagingGroupResponse,
-  DeletePackagingGroupResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeletePackagingGroupRequest, DeletePackagingGroupResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeletePackagingGroupCommand,
   serializeAws_restJson1DeletePackagingGroupCommand,
@@ -125,8 +120,8 @@ export class DeletePackagingGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeletePackagingGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeletePackagingGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

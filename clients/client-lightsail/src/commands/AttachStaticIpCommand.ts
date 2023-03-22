@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import {
-  AttachStaticIpRequest,
-  AttachStaticIpRequestFilterSensitiveLog,
-  AttachStaticIpResult,
-  AttachStaticIpResultFilterSensitiveLog,
-} from "../models/models_0";
+import { AttachStaticIpRequest, AttachStaticIpResult } from "../models/models_0";
 import {
   deserializeAws_json1_1AttachStaticIpCommand,
   serializeAws_json1_1AttachStaticIpCommand,
@@ -137,8 +132,8 @@ export class AttachStaticIpCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AttachStaticIpRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AttachStaticIpResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

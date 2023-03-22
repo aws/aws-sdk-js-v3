@@ -120,7 +120,7 @@ export class PutContactInformationCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: PutContactInformationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

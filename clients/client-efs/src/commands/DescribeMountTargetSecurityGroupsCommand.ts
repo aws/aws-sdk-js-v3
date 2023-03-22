@@ -16,9 +16,7 @@ import {
 import { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient";
 import {
   DescribeMountTargetSecurityGroupsRequest,
-  DescribeMountTargetSecurityGroupsRequestFilterSensitiveLog,
   DescribeMountTargetSecurityGroupsResponse,
-  DescribeMountTargetSecurityGroupsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeMountTargetSecurityGroupsCommand,
@@ -157,8 +155,8 @@ export class DescribeMountTargetSecurityGroupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeMountTargetSecurityGroupsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeMountTargetSecurityGroupsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

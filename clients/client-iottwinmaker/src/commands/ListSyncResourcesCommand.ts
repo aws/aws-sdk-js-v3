@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTTwinMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTTwinMakerClient";
-import {
-  ListSyncResourcesRequest,
-  ListSyncResourcesRequestFilterSensitiveLog,
-  ListSyncResourcesResponse,
-  ListSyncResourcesResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListSyncResourcesRequest, ListSyncResourcesResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListSyncResourcesCommand,
   serializeAws_restJson1ListSyncResourcesCommand,
@@ -122,8 +117,8 @@ export class ListSyncResourcesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListSyncResourcesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListSyncResourcesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

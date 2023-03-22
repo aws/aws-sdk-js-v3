@@ -18,7 +18,6 @@ import {
   CreateNotificationRequest,
   CreateNotificationRequestFilterSensitiveLog,
   CreateNotificationResponse,
-  CreateNotificationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateNotificationCommand,
@@ -131,7 +130,7 @@ export class CreateNotificationCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateNotificationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateNotificationResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

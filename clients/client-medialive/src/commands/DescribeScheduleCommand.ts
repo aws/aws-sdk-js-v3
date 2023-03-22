@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
-import {
-  DescribeScheduleRequest,
-  DescribeScheduleRequestFilterSensitiveLog,
-  DescribeScheduleResponse,
-  DescribeScheduleResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { DescribeScheduleRequest, DescribeScheduleResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1DescribeScheduleCommand,
   serializeAws_restJson1DescribeScheduleCommand,
@@ -128,8 +123,8 @@ export class DescribeScheduleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeScheduleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeScheduleResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

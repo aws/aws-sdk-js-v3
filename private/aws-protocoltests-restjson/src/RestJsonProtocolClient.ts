@@ -293,6 +293,9 @@ import {
 import { UnitInputAndOutputCommandInput, UnitInputAndOutputCommandOutput } from "./commands/UnitInputAndOutputCommand";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | AllQueryStringTypesCommandInput
   | ConstantAndVariableQueryStringCommandInput
@@ -385,6 +388,9 @@ export type ServiceInputTypes =
   | TimestampFormatHeadersCommandInput
   | UnitInputAndOutputCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | AllQueryStringTypesCommandOutput
   | ConstantAndVariableQueryStringCommandOutput
@@ -477,6 +483,9 @@ export type ServiceOutputTypes =
   | TimestampFormatHeadersCommandOutput
   | UnitInputAndOutputCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -484,7 +493,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -602,7 +611,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   md5?: __ChecksumConstructor | __HashConstructor;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 
@@ -613,6 +622,9 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   sdkStreamMixin?: __SdkStreamMixinInjector;
 }
 
+/**
+ * @public
+ */
 type RestJsonProtocolClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -621,10 +633,15 @@ type RestJsonProtocolClientConfigType = Partial<__SmithyConfiguration<__HttpHand
   HostHeaderInputConfig &
   UserAgentInputConfig;
 /**
- * The configuration interface of RestJsonProtocolClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of RestJsonProtocolClient class constructor that set the region, credentials and other options.
  */
 export interface RestJsonProtocolClientConfig extends RestJsonProtocolClientConfigType {}
 
+/**
+ * @public
+ */
 type RestJsonProtocolClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -633,11 +650,14 @@ type RestJsonProtocolClientResolvedConfigType = __SmithyResolvedConfiguration<__
   HostHeaderResolvedConfig &
   UserAgentResolvedConfig;
 /**
- * The resolved configuration interface of RestJsonProtocolClient class. This is resolved and normalized from the {@link RestJsonProtocolClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of RestJsonProtocolClient class. This is resolved and normalized from the {@link RestJsonProtocolClientConfig | constructor configuration interface}.
  */
 export interface RestJsonProtocolClientResolvedConfig extends RestJsonProtocolClientResolvedConfigType {}
 
 /**
+ * @public
  * A REST JSON service that sends JSON requests and responses.
  */
 export class RestJsonProtocolClient extends __Client<

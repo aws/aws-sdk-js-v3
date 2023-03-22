@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import {
-  SearchAvailablePhoneNumbersRequest,
-  SearchAvailablePhoneNumbersRequestFilterSensitiveLog,
-  SearchAvailablePhoneNumbersResponse,
-  SearchAvailablePhoneNumbersResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { SearchAvailablePhoneNumbersRequest, SearchAvailablePhoneNumbersResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1SearchAvailablePhoneNumbersCommand,
   serializeAws_restJson1SearchAvailablePhoneNumbersCommand,
@@ -123,8 +118,8 @@ export class SearchAvailablePhoneNumbersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SearchAvailablePhoneNumbersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SearchAvailablePhoneNumbersResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

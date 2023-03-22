@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApplicationDiscoveryServiceClient";
-import {
-  CreateTagsRequest,
-  CreateTagsRequestFilterSensitiveLog,
-  CreateTagsResponse,
-  CreateTagsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateTagsRequest, CreateTagsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateTagsCommand,
   serializeAws_json1_1CreateTagsCommand,
@@ -134,8 +129,8 @@ export class CreateTagsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateTagsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateTagsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

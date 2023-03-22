@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
-import {
-  RemoveRegionRequest,
-  RemoveRegionRequestFilterSensitiveLog,
-  RemoveRegionResult,
-  RemoveRegionResultFilterSensitiveLog,
-} from "../models/models_0";
+import { RemoveRegionRequest, RemoveRegionResult } from "../models/models_0";
 import {
   deserializeAws_json1_1RemoveRegionCommand,
   serializeAws_json1_1RemoveRegionCommand,
@@ -125,8 +120,8 @@ export class RemoveRegionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RemoveRegionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RemoveRegionResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

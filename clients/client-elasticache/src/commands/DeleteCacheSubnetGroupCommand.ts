@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
-import { DeleteCacheSubnetGroupMessage, DeleteCacheSubnetGroupMessageFilterSensitiveLog } from "../models/models_0";
+import { DeleteCacheSubnetGroupMessage } from "../models/models_0";
 import {
   deserializeAws_queryDeleteCacheSubnetGroupCommand,
   serializeAws_queryDeleteCacheSubnetGroupCommand,
@@ -122,8 +122,8 @@ export class DeleteCacheSubnetGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteCacheSubnetGroupMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

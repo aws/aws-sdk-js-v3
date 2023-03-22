@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateMobileDeviceAccessRuleRequest,
-  UpdateMobileDeviceAccessRuleRequestFilterSensitiveLog,
-  UpdateMobileDeviceAccessRuleResponse,
-  UpdateMobileDeviceAccessRuleResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateMobileDeviceAccessRuleRequest, UpdateMobileDeviceAccessRuleResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateMobileDeviceAccessRuleCommand,
   serializeAws_json1_1UpdateMobileDeviceAccessRuleCommand,
@@ -124,8 +119,8 @@ export class UpdateMobileDeviceAccessRuleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateMobileDeviceAccessRuleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateMobileDeviceAccessRuleResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

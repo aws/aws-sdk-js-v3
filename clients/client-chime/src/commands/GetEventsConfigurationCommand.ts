@@ -16,7 +16,6 @@ import {
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import {
   GetEventsConfigurationRequest,
-  GetEventsConfigurationRequestFilterSensitiveLog,
   GetEventsConfigurationResponse,
   GetEventsConfigurationResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -128,7 +127,7 @@ export class GetEventsConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetEventsConfigurationRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetEventsConfigurationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

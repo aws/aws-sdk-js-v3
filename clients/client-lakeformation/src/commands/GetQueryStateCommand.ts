@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
-import {
-  GetQueryStateRequest,
-  GetQueryStateRequestFilterSensitiveLog,
-  GetQueryStateResponse,
-  GetQueryStateResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetQueryStateRequest, GetQueryStateResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetQueryStateCommand,
   serializeAws_restJson1GetQueryStateCommand,
@@ -114,8 +109,8 @@ export class GetQueryStateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetQueryStateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetQueryStateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

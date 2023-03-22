@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListApplicationInstancesRequest,
-  ListApplicationInstancesRequestFilterSensitiveLog,
-  ListApplicationInstancesResponse,
-  ListApplicationInstancesResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListApplicationInstancesRequest, ListApplicationInstancesResponse } from "../models/models_0";
 import { PanoramaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PanoramaClient";
 import {
   deserializeAws_restJson1ListApplicationInstancesCommand,
@@ -113,8 +108,8 @@ export class ListApplicationInstancesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListApplicationInstancesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListApplicationInstancesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

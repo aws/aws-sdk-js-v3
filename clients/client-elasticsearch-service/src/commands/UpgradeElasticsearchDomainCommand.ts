@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticsearchServiceClient";
-import {
-  UpgradeElasticsearchDomainRequest,
-  UpgradeElasticsearchDomainRequestFilterSensitiveLog,
-  UpgradeElasticsearchDomainResponse,
-  UpgradeElasticsearchDomainResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpgradeElasticsearchDomainRequest, UpgradeElasticsearchDomainResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1UpgradeElasticsearchDomainCommand,
   serializeAws_restJson1UpgradeElasticsearchDomainCommand,
@@ -129,8 +124,8 @@ export class UpgradeElasticsearchDomainCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpgradeElasticsearchDomainRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpgradeElasticsearchDomainResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

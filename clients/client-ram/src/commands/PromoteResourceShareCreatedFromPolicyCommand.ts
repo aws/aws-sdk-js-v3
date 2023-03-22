@@ -15,9 +15,7 @@ import {
 
 import {
   PromoteResourceShareCreatedFromPolicyRequest,
-  PromoteResourceShareCreatedFromPolicyRequestFilterSensitiveLog,
   PromoteResourceShareCreatedFromPolicyResponse,
-  PromoteResourceShareCreatedFromPolicyResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1PromoteResourceShareCreatedFromPolicyCommand,
@@ -139,8 +137,8 @@ export class PromoteResourceShareCreatedFromPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PromoteResourceShareCreatedFromPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PromoteResourceShareCreatedFromPolicyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

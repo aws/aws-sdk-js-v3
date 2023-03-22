@@ -18,7 +18,6 @@ import {
   CreateContactRequest,
   CreateContactRequestFilterSensitiveLog,
   CreateContactResponse,
-  CreateContactResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateContactCommand,
@@ -112,7 +111,7 @@ export class CreateContactCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateContactRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateContactResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

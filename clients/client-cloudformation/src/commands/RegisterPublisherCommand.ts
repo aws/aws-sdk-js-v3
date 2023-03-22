@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
-import {
-  RegisterPublisherInput,
-  RegisterPublisherInputFilterSensitiveLog,
-  RegisterPublisherOutput,
-  RegisterPublisherOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { RegisterPublisherInput, RegisterPublisherOutput } from "../models/models_0";
 import {
   deserializeAws_queryRegisterPublisherCommand,
   serializeAws_queryRegisterPublisherCommand,
@@ -116,8 +111,8 @@ export class RegisterPublisherCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RegisterPublisherInputFilterSensitiveLog,
-      outputFilterSensitiveLog: RegisterPublisherOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

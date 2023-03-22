@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
-import {
-  DescribeCustomVocabularyMetadataRequest,
-  DescribeCustomVocabularyMetadataRequestFilterSensitiveLog,
-  DescribeCustomVocabularyMetadataResponse,
-  DescribeCustomVocabularyMetadataResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeCustomVocabularyMetadataRequest, DescribeCustomVocabularyMetadataResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeCustomVocabularyMetadataCommand,
   serializeAws_restJson1DescribeCustomVocabularyMetadataCommand,
@@ -128,8 +123,8 @@ export class DescribeCustomVocabularyMetadataCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeCustomVocabularyMetadataRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeCustomVocabularyMetadataResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

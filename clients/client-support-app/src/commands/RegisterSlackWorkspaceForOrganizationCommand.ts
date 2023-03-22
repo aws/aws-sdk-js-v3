@@ -15,9 +15,7 @@ import {
 
 import {
   RegisterSlackWorkspaceForOrganizationRequest,
-  RegisterSlackWorkspaceForOrganizationRequestFilterSensitiveLog,
   RegisterSlackWorkspaceForOrganizationResult,
-  RegisterSlackWorkspaceForOrganizationResultFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1RegisterSlackWorkspaceForOrganizationCommand,
@@ -181,8 +179,8 @@ export class RegisterSlackWorkspaceForOrganizationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RegisterSlackWorkspaceForOrganizationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RegisterSlackWorkspaceForOrganizationResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

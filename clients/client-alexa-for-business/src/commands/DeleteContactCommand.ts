@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import {
-  DeleteContactRequest,
-  DeleteContactRequestFilterSensitiveLog,
-  DeleteContactResponse,
-  DeleteContactResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteContactRequest, DeleteContactResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteContactCommand,
   serializeAws_json1_1DeleteContactCommand,
@@ -111,8 +106,8 @@ export class DeleteContactCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteContactRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteContactResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

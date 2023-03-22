@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  SendMessagesRequest,
-  SendMessagesRequestFilterSensitiveLog,
-  SendMessagesResponse,
-  SendMessagesResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { SendMessagesRequest, SendMessagesResponse } from "../models/models_1";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
 import {
   deserializeAws_restJson1SendMessagesCommand,
@@ -126,8 +121,8 @@ export class SendMessagesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SendMessagesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SendMessagesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

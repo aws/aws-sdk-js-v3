@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import {
-  RollbackInstanceRefreshAnswer,
-  RollbackInstanceRefreshAnswerFilterSensitiveLog,
-  RollbackInstanceRefreshType,
-  RollbackInstanceRefreshTypeFilterSensitiveLog,
-} from "../models/models_0";
+import { RollbackInstanceRefreshAnswer, RollbackInstanceRefreshType } from "../models/models_0";
 import {
   deserializeAws_queryRollbackInstanceRefreshCommand,
   serializeAws_queryRollbackInstanceRefreshCommand,
@@ -149,8 +144,8 @@ export class RollbackInstanceRefreshCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RollbackInstanceRefreshTypeFilterSensitiveLog,
-      outputFilterSensitiveLog: RollbackInstanceRefreshAnswerFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

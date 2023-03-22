@@ -17,7 +17,6 @@ import {
   CheckDomainTransferabilityRequest,
   CheckDomainTransferabilityRequestFilterSensitiveLog,
   CheckDomainTransferabilityResponse,
-  CheckDomainTransferabilityResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1CheckDomainTransferabilityCommand,
@@ -117,7 +116,7 @@ export class CheckDomainTransferabilityCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CheckDomainTransferabilityRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CheckDomainTransferabilityResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

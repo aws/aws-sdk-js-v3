@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudSearchClient";
-import {
-  DescribeSuggestersRequest,
-  DescribeSuggestersRequestFilterSensitiveLog,
-  DescribeSuggestersResponse,
-  DescribeSuggestersResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeSuggestersRequest, DescribeSuggestersResponse } from "../models/models_0";
 import {
   deserializeAws_queryDescribeSuggestersCommand,
   serializeAws_queryDescribeSuggestersCommand,
@@ -117,8 +112,8 @@ export class DescribeSuggestersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeSuggestersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeSuggestersResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

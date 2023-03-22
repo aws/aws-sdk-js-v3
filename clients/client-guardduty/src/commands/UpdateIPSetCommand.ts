@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
-import {
-  UpdateIPSetRequest,
-  UpdateIPSetRequestFilterSensitiveLog,
-  UpdateIPSetResponse,
-  UpdateIPSetResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateIPSetRequest, UpdateIPSetResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateIPSetCommand,
   serializeAws_restJson1UpdateIPSetCommand,
@@ -111,8 +106,8 @@ export class UpdateIPSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateIPSetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateIPSetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

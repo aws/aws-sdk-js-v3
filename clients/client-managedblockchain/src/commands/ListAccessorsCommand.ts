@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ManagedBlockchainClient";
-import {
-  ListAccessorsInput,
-  ListAccessorsInputFilterSensitiveLog,
-  ListAccessorsOutput,
-  ListAccessorsOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { ListAccessorsInput, ListAccessorsOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1ListAccessorsCommand,
   serializeAws_restJson1ListAccessorsCommand,
@@ -125,8 +120,8 @@ export class ListAccessorsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAccessorsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAccessorsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

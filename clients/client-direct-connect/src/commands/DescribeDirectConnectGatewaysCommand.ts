@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
-import {
-  DescribeDirectConnectGatewaysRequest,
-  DescribeDirectConnectGatewaysRequestFilterSensitiveLog,
-  DescribeDirectConnectGatewaysResult,
-  DescribeDirectConnectGatewaysResultFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeDirectConnectGatewaysRequest, DescribeDirectConnectGatewaysResult } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeDirectConnectGatewaysCommand,
   serializeAws_json1_1DescribeDirectConnectGatewaysCommand,
@@ -115,8 +110,8 @@ export class DescribeDirectConnectGatewaysCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDirectConnectGatewaysRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeDirectConnectGatewaysResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

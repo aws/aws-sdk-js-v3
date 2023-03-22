@@ -15,9 +15,7 @@ import {
 
 import {
   DescribeNotificationSubscriptionsRequest,
-  DescribeNotificationSubscriptionsRequestFilterSensitiveLog,
   DescribeNotificationSubscriptionsResponse,
-  DescribeNotificationSubscriptionsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeNotificationSubscriptionsCommand,
@@ -118,8 +116,8 @@ export class DescribeNotificationSubscriptionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeNotificationSubscriptionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeNotificationSubscriptionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

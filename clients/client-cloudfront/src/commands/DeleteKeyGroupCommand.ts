@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import { DeleteKeyGroupRequest, DeleteKeyGroupRequestFilterSensitiveLog } from "../models/models_1";
+import { DeleteKeyGroupRequest } from "../models/models_1";
 import {
   deserializeAws_restXmlDeleteKeyGroupCommand,
   serializeAws_restXmlDeleteKeyGroupCommand,
@@ -121,8 +121,8 @@ export class DeleteKeyGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteKeyGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

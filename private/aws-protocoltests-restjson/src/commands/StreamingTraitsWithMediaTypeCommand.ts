@@ -26,9 +26,11 @@ import {
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
 /**
+ * @public
+ *
  * The input for {@link StreamingTraitsWithMediaTypeCommand}.
  */
-type StreamingTraitsWithMediaTypeCommandInputType = Omit<StreamingTraitsWithMediaTypeInputOutput, "blob"> & {
+export type StreamingTraitsWithMediaTypeCommandInputType = Omit<StreamingTraitsWithMediaTypeInputOutput, "blob"> & {
   /**
    * For *`StreamingTraitsWithMediaTypeInputOutput["blob"]`*, see {@link StreamingTraitsWithMediaTypeInputOutput.blob}.
    */
@@ -39,6 +41,8 @@ type StreamingTraitsWithMediaTypeCommandInputType = Omit<StreamingTraitsWithMedi
  */
 export interface StreamingTraitsWithMediaTypeCommandInput extends StreamingTraitsWithMediaTypeCommandInputType {}
 /**
+ * @public
+ *
  * The output of {@link StreamingTraitsWithMediaTypeCommand}.
  */
 export interface StreamingTraitsWithMediaTypeCommandOutput
@@ -46,6 +50,7 @@ export interface StreamingTraitsWithMediaTypeCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * This examples serializes a streaming media-typed blob shape in the request body.
  *
  * This examples uses a `@mediaType` trait on the payload to force a custom
@@ -60,6 +65,8 @@ export interface StreamingTraitsWithMediaTypeCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param StreamingTraitsWithMediaTypeCommandInput - {@link StreamingTraitsWithMediaTypeCommandInput}
+ * @returns {@link StreamingTraitsWithMediaTypeCommandOutput}
  * @see {@link StreamingTraitsWithMediaTypeCommandInput} for command's `input` shape.
  * @see {@link StreamingTraitsWithMediaTypeCommandOutput} for command's `response` shape.
  * @see {@link RestJsonProtocolClientResolvedConfig | config} for RestJsonProtocolClient's `config` shape.
@@ -74,6 +81,9 @@ export class StreamingTraitsWithMediaTypeCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: StreamingTraitsWithMediaTypeCommandInput) {
     // Start section: command_constructor
     super();
@@ -110,10 +120,16 @@ export class StreamingTraitsWithMediaTypeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StreamingTraitsWithMediaTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1StreamingTraitsWithMediaTypeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext & __SdkStreamSerdeContext

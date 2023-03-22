@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { DeleteUserPolicyRequest, DeleteUserPolicyRequestFilterSensitiveLog } from "../models/models_0";
+import { DeleteUserPolicyRequest } from "../models/models_0";
 import {
   deserializeAws_queryDeleteUserPolicyCommand,
   serializeAws_queryDeleteUserPolicyCommand,
@@ -131,8 +131,8 @@ export class DeleteUserPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteUserPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

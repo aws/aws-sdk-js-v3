@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../LexModelBuildingServiceClient";
-import {
-  PutIntentRequest,
-  PutIntentRequestFilterSensitiveLog,
-  PutIntentResponse,
-  PutIntentResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { PutIntentRequest, PutIntentResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1PutIntentCommand,
   serializeAws_restJson1PutIntentCommand,
@@ -458,8 +453,8 @@ export class PutIntentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutIntentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutIntentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

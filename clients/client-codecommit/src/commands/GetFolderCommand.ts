@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
-import {
-  GetFolderInput,
-  GetFolderInputFilterSensitiveLog,
-  GetFolderOutput,
-  GetFolderOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { GetFolderInput, GetFolderOutput } from "../models/models_0";
 import { deserializeAws_json1_1GetFolderCommand, serializeAws_json1_1GetFolderCommand } from "../protocols/Aws_json1_1";
 
 /**
@@ -148,8 +143,8 @@ export class GetFolderCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetFolderInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetFolderOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

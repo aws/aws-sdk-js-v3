@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { UpdateSigningCertificateRequest, UpdateSigningCertificateRequestFilterSensitiveLog } from "../models/models_1";
+import { UpdateSigningCertificateRequest } from "../models/models_1";
 import {
   deserializeAws_queryUpdateSigningCertificateCommand,
   serializeAws_queryUpdateSigningCertificateCommand,
@@ -134,8 +134,8 @@ export class UpdateSigningCertificateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateSigningCertificateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

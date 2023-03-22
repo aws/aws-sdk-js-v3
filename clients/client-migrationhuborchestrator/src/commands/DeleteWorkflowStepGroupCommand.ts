@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MigrationHubOrchestratorClient";
-import {
-  DeleteWorkflowStepGroupRequest,
-  DeleteWorkflowStepGroupRequestFilterSensitiveLog,
-  DeleteWorkflowStepGroupResponse,
-  DeleteWorkflowStepGroupResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteWorkflowStepGroupRequest, DeleteWorkflowStepGroupResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteWorkflowStepGroupCommand,
   serializeAws_restJson1DeleteWorkflowStepGroupCommand,
@@ -126,8 +121,8 @@ export class DeleteWorkflowStepGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteWorkflowStepGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteWorkflowStepGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

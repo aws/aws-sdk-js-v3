@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  StartInferenceExperimentRequest,
-  StartInferenceExperimentRequestFilterSensitiveLog,
-  StartInferenceExperimentResponse,
-  StartInferenceExperimentResponseFilterSensitiveLog,
-} from "../models/models_3";
+import { StartInferenceExperimentRequest, StartInferenceExperimentResponse } from "../models/models_3";
 import {
   deserializeAws_json1_1StartInferenceExperimentCommand,
   serializeAws_json1_1StartInferenceExperimentCommand,
@@ -114,8 +109,8 @@ export class StartInferenceExperimentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartInferenceExperimentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartInferenceExperimentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

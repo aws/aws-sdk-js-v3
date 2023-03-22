@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
-import {
-  CacheSubnetGroupMessage,
-  CacheSubnetGroupMessageFilterSensitiveLog,
-  DescribeCacheSubnetGroupsMessage,
-  DescribeCacheSubnetGroupsMessageFilterSensitiveLog,
-} from "../models/models_0";
+import { CacheSubnetGroupMessage, DescribeCacheSubnetGroupsMessage } from "../models/models_0";
 import {
   deserializeAws_queryDescribeCacheSubnetGroupsCommand,
   serializeAws_queryDescribeCacheSubnetGroupsCommand,
@@ -162,8 +157,8 @@ export class DescribeCacheSubnetGroupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeCacheSubnetGroupsMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: CacheSubnetGroupMessageFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

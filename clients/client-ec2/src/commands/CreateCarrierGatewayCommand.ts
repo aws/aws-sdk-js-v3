@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  CreateCarrierGatewayRequest,
-  CreateCarrierGatewayRequestFilterSensitiveLog,
-  CreateCarrierGatewayResult,
-  CreateCarrierGatewayResultFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateCarrierGatewayRequest, CreateCarrierGatewayResult } from "../models/models_0";
 import {
   deserializeAws_ec2CreateCarrierGatewayCommand,
   serializeAws_ec2CreateCarrierGatewayCommand,
@@ -107,8 +102,8 @@ export class CreateCarrierGatewayCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateCarrierGatewayRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateCarrierGatewayResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

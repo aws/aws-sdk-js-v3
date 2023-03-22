@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetOpsItemRequest,
-  GetOpsItemRequestFilterSensitiveLog,
-  GetOpsItemResponse,
-  GetOpsItemResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { GetOpsItemRequest, GetOpsItemResponse } from "../models/models_1";
 import {
   deserializeAws_json1_1GetOpsItemCommand,
   serializeAws_json1_1GetOpsItemCommand,
@@ -122,8 +117,8 @@ export class GetOpsItemCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetOpsItemRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetOpsItemResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MigrationHubOrchestratorClient";
-import {
-  ListMigrationWorkflowsRequest,
-  ListMigrationWorkflowsRequestFilterSensitiveLog,
-  ListMigrationWorkflowsResponse,
-  ListMigrationWorkflowsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListMigrationWorkflowsRequest, ListMigrationWorkflowsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListWorkflowsCommand,
   serializeAws_restJson1ListWorkflowsCommand,
@@ -124,8 +119,8 @@ export class ListWorkflowsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListMigrationWorkflowsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListMigrationWorkflowsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

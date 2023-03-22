@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeGuruProfilerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeGuruProfilerClient";
-import {
-  RemoveNotificationChannelRequest,
-  RemoveNotificationChannelRequestFilterSensitiveLog,
-  RemoveNotificationChannelResponse,
-  RemoveNotificationChannelResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { RemoveNotificationChannelRequest, RemoveNotificationChannelResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1RemoveNotificationChannelCommand,
   serializeAws_restJson1RemoveNotificationChannelCommand,
@@ -119,8 +114,8 @@ export class RemoveNotificationChannelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RemoveNotificationChannelRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RemoveNotificationChannelResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

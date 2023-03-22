@@ -13,7 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateFeatureMetadataRequest, UpdateFeatureMetadataRequestFilterSensitiveLog } from "../models/models_4";
+import { UpdateFeatureMetadataRequest } from "../models/models_4";
 import {
   deserializeAws_json1_1UpdateFeatureMetadataCommand,
   serializeAws_json1_1UpdateFeatureMetadataCommand,
@@ -105,8 +105,8 @@ export class UpdateFeatureMetadataCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateFeatureMetadataRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

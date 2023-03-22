@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { CancelExportTaskRequest, CancelExportTaskRequestFilterSensitiveLog } from "../models/models_0";
+import { CancelExportTaskRequest } from "../models/models_0";
 import {
   deserializeAws_ec2CancelExportTaskCommand,
   serializeAws_ec2CancelExportTaskCommand,
@@ -104,8 +104,8 @@ export class CancelExportTaskCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelExportTaskRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

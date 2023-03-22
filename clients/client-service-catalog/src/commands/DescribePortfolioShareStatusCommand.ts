@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribePortfolioShareStatusInput,
-  DescribePortfolioShareStatusInputFilterSensitiveLog,
-  DescribePortfolioShareStatusOutput,
-  DescribePortfolioShareStatusOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribePortfolioShareStatusInput, DescribePortfolioShareStatusOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribePortfolioShareStatusCommand,
   serializeAws_json1_1DescribePortfolioShareStatusCommand,
@@ -119,8 +114,8 @@ export class DescribePortfolioShareStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribePortfolioShareStatusInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribePortfolioShareStatusOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

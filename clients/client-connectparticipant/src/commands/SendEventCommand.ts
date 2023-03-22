@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ConnectParticipantClient";
-import {
-  SendEventRequest,
-  SendEventRequestFilterSensitiveLog,
-  SendEventResponse,
-  SendEventResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { SendEventRequest, SendEventResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1SendEventCommand,
   serializeAws_restJson1SendEventCommand,
@@ -128,8 +123,8 @@ export class SendEventCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SendEventRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SendEventResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

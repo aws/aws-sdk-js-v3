@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
-import {
-  UnarchiveWaveRequest,
-  UnarchiveWaveRequestFilterSensitiveLog,
-  Wave,
-  WaveFilterSensitiveLog,
-} from "../models/models_0";
+import { UnarchiveWaveRequest, Wave, WaveFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1UnarchiveWaveCommand,
   serializeAws_restJson1UnarchiveWaveCommand,
@@ -114,7 +109,7 @@ export class UnarchiveWaveCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UnarchiveWaveRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: WaveFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

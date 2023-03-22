@@ -17,7 +17,6 @@ import {
   UpdateModelCardRequest,
   UpdateModelCardRequestFilterSensitiveLog,
   UpdateModelCardResponse,
-  UpdateModelCardResponseFilterSensitiveLog,
 } from "../models/models_4";
 import {
   deserializeAws_json1_1UpdateModelCardCommand,
@@ -122,7 +121,7 @@ export class UpdateModelCardCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: UpdateModelCardRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateModelCardResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

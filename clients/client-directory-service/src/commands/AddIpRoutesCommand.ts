@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
-import {
-  AddIpRoutesRequest,
-  AddIpRoutesRequestFilterSensitiveLog,
-  AddIpRoutesResult,
-  AddIpRoutesResultFilterSensitiveLog,
-} from "../models/models_0";
+import { AddIpRoutesRequest, AddIpRoutesResult } from "../models/models_0";
 import {
   deserializeAws_json1_1AddIpRoutesCommand,
   serializeAws_json1_1AddIpRoutesCommand,
@@ -134,8 +129,8 @@ export class AddIpRoutesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AddIpRoutesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AddIpRoutesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

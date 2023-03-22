@@ -16,9 +16,7 @@ import {
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
 import {
   PutFindingsPublicationConfigurationRequest,
-  PutFindingsPublicationConfigurationRequestFilterSensitiveLog,
   PutFindingsPublicationConfigurationResponse,
-  PutFindingsPublicationConfigurationResponseFilterSensitiveLog,
 } from "../models/models_1";
 import {
   deserializeAws_restJson1PutFindingsPublicationConfigurationCommand,
@@ -130,8 +128,8 @@ export class PutFindingsPublicationConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutFindingsPublicationConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutFindingsPublicationConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -18,7 +18,6 @@ import {
   CreateConnectorProfileRequest,
   CreateConnectorProfileRequestFilterSensitiveLog,
   CreateConnectorProfileResponse,
-  CreateConnectorProfileResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateConnectorProfileCommand,
@@ -130,7 +129,7 @@ export class CreateConnectorProfileCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateConnectorProfileRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateConnectorProfileResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

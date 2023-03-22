@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeAvailablePatchesRequest,
-  DescribeAvailablePatchesRequestFilterSensitiveLog,
-  DescribeAvailablePatchesResult,
-  DescribeAvailablePatchesResultFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeAvailablePatchesRequest, DescribeAvailablePatchesResult } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeAvailablePatchesCommand,
   serializeAws_json1_1DescribeAvailablePatchesCommand,
@@ -110,8 +105,8 @@ export class DescribeAvailablePatchesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeAvailablePatchesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeAvailablePatchesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

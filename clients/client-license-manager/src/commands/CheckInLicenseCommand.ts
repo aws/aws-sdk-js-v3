@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LicenseManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LicenseManagerClient";
-import {
-  CheckInLicenseRequest,
-  CheckInLicenseRequestFilterSensitiveLog,
-  CheckInLicenseResponse,
-  CheckInLicenseResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CheckInLicenseRequest, CheckInLicenseResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1CheckInLicenseCommand,
   serializeAws_json1_1CheckInLicenseCommand,
@@ -132,8 +127,8 @@ export class CheckInLicenseCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CheckInLicenseRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CheckInLicenseResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

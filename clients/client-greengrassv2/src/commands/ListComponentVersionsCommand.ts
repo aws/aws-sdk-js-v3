@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GreengrassV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassV2Client";
-import {
-  ListComponentVersionsRequest,
-  ListComponentVersionsRequestFilterSensitiveLog,
-  ListComponentVersionsResponse,
-  ListComponentVersionsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListComponentVersionsRequest, ListComponentVersionsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListComponentVersionsCommand,
   serializeAws_restJson1ListComponentVersionsCommand,
@@ -124,8 +119,8 @@ export class ListComponentVersionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListComponentVersionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListComponentVersionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

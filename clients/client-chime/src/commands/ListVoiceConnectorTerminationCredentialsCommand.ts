@@ -16,7 +16,6 @@ import {
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import {
   ListVoiceConnectorTerminationCredentialsRequest,
-  ListVoiceConnectorTerminationCredentialsRequestFilterSensitiveLog,
   ListVoiceConnectorTerminationCredentialsResponse,
   ListVoiceConnectorTerminationCredentialsResponseFilterSensitiveLog,
 } from "../models/models_1";
@@ -137,7 +136,7 @@ export class ListVoiceConnectorTerminationCredentialsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListVoiceConnectorTerminationCredentialsRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListVoiceConnectorTerminationCredentialsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

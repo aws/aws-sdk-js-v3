@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  StartDeviceAuthorizationRequest,
-  StartDeviceAuthorizationRequestFilterSensitiveLog,
-  StartDeviceAuthorizationResponse,
-  StartDeviceAuthorizationResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { StartDeviceAuthorizationRequest, StartDeviceAuthorizationResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1StartDeviceAuthorizationCommand,
   serializeAws_restJson1StartDeviceAuthorizationCommand,
@@ -129,8 +124,8 @@ export class StartDeviceAuthorizationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartDeviceAuthorizationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartDeviceAuthorizationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

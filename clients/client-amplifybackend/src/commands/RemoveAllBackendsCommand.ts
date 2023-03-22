@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AmplifyBackendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyBackendClient";
-import {
-  RemoveAllBackendsRequest,
-  RemoveAllBackendsRequestFilterSensitiveLog,
-  RemoveAllBackendsResponse,
-  RemoveAllBackendsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { RemoveAllBackendsRequest, RemoveAllBackendsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1RemoveAllBackendsCommand,
   serializeAws_restJson1RemoveAllBackendsCommand,
@@ -119,8 +114,8 @@ export class RemoveAllBackendsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RemoveAllBackendsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RemoveAllBackendsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

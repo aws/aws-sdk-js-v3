@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AppRunnerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppRunnerClient";
-import {
-  StartDeploymentRequest,
-  StartDeploymentRequestFilterSensitiveLog,
-  StartDeploymentResponse,
-  StartDeploymentResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { StartDeploymentRequest, StartDeploymentResponse } from "../models/models_0";
 import {
   deserializeAws_json1_0StartDeploymentCommand,
   serializeAws_json1_0StartDeploymentCommand,
@@ -121,8 +116,8 @@ export class StartDeploymentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartDeploymentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartDeploymentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTEventsDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTEventsDataClient";
-import {
-  BatchPutMessageRequest,
-  BatchPutMessageRequestFilterSensitiveLog,
-  BatchPutMessageResponse,
-  BatchPutMessageResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { BatchPutMessageRequest, BatchPutMessageResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1BatchPutMessageCommand,
   serializeAws_restJson1BatchPutMessageCommand,
@@ -123,8 +118,8 @@ export class BatchPutMessageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchPutMessageRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchPutMessageResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

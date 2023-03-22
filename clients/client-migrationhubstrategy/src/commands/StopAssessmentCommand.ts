@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MigrationHubStrategyClient";
-import {
-  StopAssessmentRequest,
-  StopAssessmentRequestFilterSensitiveLog,
-  StopAssessmentResponse,
-  StopAssessmentResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { StopAssessmentRequest, StopAssessmentResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1StopAssessmentCommand,
   serializeAws_restJson1StopAssessmentCommand,
@@ -124,8 +119,8 @@ export class StopAssessmentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopAssessmentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StopAssessmentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

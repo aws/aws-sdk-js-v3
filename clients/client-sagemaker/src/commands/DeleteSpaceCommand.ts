@@ -13,7 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteSpaceRequest, DeleteSpaceRequestFilterSensitiveLog } from "../models/models_1";
+import { DeleteSpaceRequest } from "../models/models_1";
 import {
   deserializeAws_json1_1DeleteSpaceCommand,
   serializeAws_json1_1DeleteSpaceCommand,
@@ -106,8 +106,8 @@ export class DeleteSpaceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteSpaceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

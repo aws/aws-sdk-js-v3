@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateMonitoringAlertRequest,
-  UpdateMonitoringAlertRequestFilterSensitiveLog,
-  UpdateMonitoringAlertResponse,
-  UpdateMonitoringAlertResponseFilterSensitiveLog,
-} from "../models/models_4";
+import { UpdateMonitoringAlertRequest, UpdateMonitoringAlertResponse } from "../models/models_4";
 import {
   deserializeAws_json1_1UpdateMonitoringAlertCommand,
   serializeAws_json1_1UpdateMonitoringAlertCommand,
@@ -114,8 +109,8 @@ export class UpdateMonitoringAlertCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateMonitoringAlertRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateMonitoringAlertResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

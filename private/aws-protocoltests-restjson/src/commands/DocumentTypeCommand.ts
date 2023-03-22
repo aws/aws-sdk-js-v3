@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DocumentTypeInputOutput, DocumentTypeInputOutputFilterSensitiveLog } from "../models/models_0";
+import { DocumentTypeInputOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1DocumentTypeCommand,
   serializeAws_restJson1DocumentTypeCommand,
@@ -20,15 +20,20 @@ import {
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
 /**
+ * @public
+ *
  * The input for {@link DocumentTypeCommand}.
  */
 export interface DocumentTypeCommandInput extends DocumentTypeInputOutput {}
 /**
+ * @public
+ *
  * The output of {@link DocumentTypeCommand}.
  */
 export interface DocumentTypeCommandOutput extends DocumentTypeInputOutput, __MetadataBearer {}
 
 /**
+ * @public
  * This example serializes a document as part of the payload.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,6 +45,8 @@ export interface DocumentTypeCommandOutput extends DocumentTypeInputOutput, __Me
  * const response = await client.send(command);
  * ```
  *
+ * @param DocumentTypeCommandInput - {@link DocumentTypeCommandInput}
+ * @returns {@link DocumentTypeCommandOutput}
  * @see {@link DocumentTypeCommandInput} for command's `input` shape.
  * @see {@link DocumentTypeCommandOutput} for command's `response` shape.
  * @see {@link RestJsonProtocolClientResolvedConfig | config} for RestJsonProtocolClient's `config` shape.
@@ -54,6 +61,9 @@ export class DocumentTypeCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: DocumentTypeCommandInput) {
     // Start section: command_constructor
     super();
@@ -79,8 +89,8 @@ export class DocumentTypeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DocumentTypeInputOutputFilterSensitiveLog,
-      outputFilterSensitiveLog: DocumentTypeInputOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -90,10 +100,16 @@ export class DocumentTypeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DocumentTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DocumentTypeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DocumentTypeCommandOutput> {
     return deserializeAws_restJson1DocumentTypeCommand(output, context);
   }

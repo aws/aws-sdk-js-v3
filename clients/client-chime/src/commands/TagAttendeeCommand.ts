@@ -125,7 +125,7 @@ export class TagAttendeeCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: TagAttendeeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

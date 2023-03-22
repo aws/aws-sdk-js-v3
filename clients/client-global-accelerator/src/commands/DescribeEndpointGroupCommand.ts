@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../GlobalAcceleratorClient";
-import {
-  DescribeEndpointGroupRequest,
-  DescribeEndpointGroupRequestFilterSensitiveLog,
-  DescribeEndpointGroupResponse,
-  DescribeEndpointGroupResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeEndpointGroupRequest, DescribeEndpointGroupResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeEndpointGroupCommand,
   serializeAws_json1_1DescribeEndpointGroupCommand,
@@ -120,8 +115,8 @@ export class DescribeEndpointGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeEndpointGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeEndpointGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

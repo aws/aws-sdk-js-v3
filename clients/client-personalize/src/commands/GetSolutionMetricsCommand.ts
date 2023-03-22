@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetSolutionMetricsRequest,
-  GetSolutionMetricsRequestFilterSensitiveLog,
-  GetSolutionMetricsResponse,
-  GetSolutionMetricsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetSolutionMetricsRequest, GetSolutionMetricsResponse } from "../models/models_0";
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
 import {
   deserializeAws_json1_1GetSolutionMetricsCommand,
@@ -116,8 +111,8 @@ export class GetSolutionMetricsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSolutionMetricsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetSolutionMetricsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

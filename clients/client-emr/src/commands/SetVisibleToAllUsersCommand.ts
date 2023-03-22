@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
-import { SetVisibleToAllUsersInput, SetVisibleToAllUsersInputFilterSensitiveLog } from "../models/models_0";
+import { SetVisibleToAllUsersInput } from "../models/models_0";
 import {
   deserializeAws_json1_1SetVisibleToAllUsersCommand,
   serializeAws_json1_1SetVisibleToAllUsersCommand,
@@ -119,8 +119,8 @@ export class SetVisibleToAllUsersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SetVisibleToAllUsersInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

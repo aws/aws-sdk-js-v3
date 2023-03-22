@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTFleetWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTFleetWiseClient";
-import {
-  DeleteDecoderManifestRequest,
-  DeleteDecoderManifestRequestFilterSensitiveLog,
-  DeleteDecoderManifestResponse,
-  DeleteDecoderManifestResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteDecoderManifestRequest, DeleteDecoderManifestResponse } from "../models/models_0";
 import {
   deserializeAws_json1_0DeleteDecoderManifestCommand,
   serializeAws_json1_0DeleteDecoderManifestCommand,
@@ -128,8 +123,8 @@ export class DeleteDecoderManifestCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDecoderManifestRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteDecoderManifestResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  ListAuthorizersRequest,
-  ListAuthorizersRequestFilterSensitiveLog,
-  ListAuthorizersResponse,
-  ListAuthorizersResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { ListAuthorizersRequest, ListAuthorizersResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1ListAuthorizersCommand,
   serializeAws_restJson1ListAuthorizersCommand,
@@ -123,8 +118,8 @@ export class ListAuthorizersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAuthorizersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAuthorizersResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

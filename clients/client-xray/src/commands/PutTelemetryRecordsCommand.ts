@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  PutTelemetryRecordsRequest,
-  PutTelemetryRecordsRequestFilterSensitiveLog,
-  PutTelemetryRecordsResult,
-  PutTelemetryRecordsResultFilterSensitiveLog,
-} from "../models/models_0";
+import { PutTelemetryRecordsRequest, PutTelemetryRecordsResult } from "../models/models_0";
 import {
   deserializeAws_restJson1PutTelemetryRecordsCommand,
   serializeAws_restJson1PutTelemetryRecordsCommand,
@@ -113,8 +108,8 @@ export class PutTelemetryRecordsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutTelemetryRecordsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutTelemetryRecordsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

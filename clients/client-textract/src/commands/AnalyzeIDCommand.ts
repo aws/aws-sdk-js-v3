@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  AnalyzeIDRequest,
-  AnalyzeIDRequestFilterSensitiveLog,
-  AnalyzeIDResponse,
-  AnalyzeIDResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { AnalyzeIDRequest, AnalyzeIDResponse } from "../models/models_0";
 import { deserializeAws_json1_1AnalyzeIDCommand, serializeAws_json1_1AnalyzeIDCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TextractClientResolvedConfig } from "../TextractClient";
 
@@ -145,8 +140,8 @@ export class AnalyzeIDCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AnalyzeIDRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AnalyzeIDResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

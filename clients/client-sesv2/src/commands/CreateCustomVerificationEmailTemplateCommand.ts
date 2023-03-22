@@ -15,9 +15,7 @@ import {
 
 import {
   CreateCustomVerificationEmailTemplateRequest,
-  CreateCustomVerificationEmailTemplateRequestFilterSensitiveLog,
   CreateCustomVerificationEmailTemplateResponse,
-  CreateCustomVerificationEmailTemplateResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateCustomVerificationEmailTemplateCommand,
@@ -129,8 +127,8 @@ export class CreateCustomVerificationEmailTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateCustomVerificationEmailTemplateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateCustomVerificationEmailTemplateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

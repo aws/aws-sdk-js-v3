@@ -19,15 +19,20 @@ import {
 import { QueryProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QueryProtocolClient";
 
 /**
+ * @public
+ *
  * The input for {@link NoInputAndNoOutputCommand}.
  */
 export interface NoInputAndNoOutputCommandInput {}
 /**
+ * @public
+ *
  * The output of {@link NoInputAndNoOutputCommand}.
  */
 export interface NoInputAndNoOutputCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * The example tests how requests and responses are serialized when there's
  * no request or response payload because the operation has no input or output.
  *
@@ -42,6 +47,8 @@ export interface NoInputAndNoOutputCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param NoInputAndNoOutputCommandInput - {@link NoInputAndNoOutputCommandInput}
+ * @returns {@link NoInputAndNoOutputCommandOutput}
  * @see {@link NoInputAndNoOutputCommandInput} for command's `input` shape.
  * @see {@link NoInputAndNoOutputCommandOutput} for command's `response` shape.
  * @see {@link QueryProtocolClientResolvedConfig | config} for QueryProtocolClient's `config` shape.
@@ -56,6 +63,9 @@ export class NoInputAndNoOutputCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: NoInputAndNoOutputCommandInput) {
     // Start section: command_constructor
     super();
@@ -81,8 +91,8 @@ export class NoInputAndNoOutputCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -92,10 +102,16 @@ export class NoInputAndNoOutputCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: NoInputAndNoOutputCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryNoInputAndNoOutputCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<NoInputAndNoOutputCommandOutput> {
     return deserializeAws_queryNoInputAndNoOutputCommand(output, context);
   }

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ForecastClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastClient";
-import {
-  DescribeAutoPredictorRequest,
-  DescribeAutoPredictorRequestFilterSensitiveLog,
-  DescribeAutoPredictorResponse,
-  DescribeAutoPredictorResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeAutoPredictorRequest, DescribeAutoPredictorResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeAutoPredictorCommand,
   serializeAws_json1_1DescribeAutoPredictorCommand,
@@ -115,8 +110,8 @@ export class DescribeAutoPredictorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeAutoPredictorRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeAutoPredictorResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

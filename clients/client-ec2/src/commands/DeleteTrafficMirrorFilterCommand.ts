@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DeleteTrafficMirrorFilterRequest,
-  DeleteTrafficMirrorFilterRequestFilterSensitiveLog,
-  DeleteTrafficMirrorFilterResult,
-  DeleteTrafficMirrorFilterResultFilterSensitiveLog,
-} from "../models/models_3";
+import { DeleteTrafficMirrorFilterRequest, DeleteTrafficMirrorFilterResult } from "../models/models_3";
 import {
   deserializeAws_ec2DeleteTrafficMirrorFilterCommand,
   serializeAws_ec2DeleteTrafficMirrorFilterCommand,
@@ -108,8 +103,8 @@ export class DeleteTrafficMirrorFilterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteTrafficMirrorFilterRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteTrafficMirrorFilterResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

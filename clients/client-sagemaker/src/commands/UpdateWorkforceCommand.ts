@@ -17,7 +17,6 @@ import {
   UpdateWorkforceRequest,
   UpdateWorkforceRequestFilterSensitiveLog,
   UpdateWorkforceResponse,
-  UpdateWorkforceResponseFilterSensitiveLog,
 } from "../models/models_4";
 import {
   deserializeAws_json1_1UpdateWorkforceCommand,
@@ -137,7 +136,7 @@ export class UpdateWorkforceCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: UpdateWorkforceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateWorkforceResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

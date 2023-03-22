@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  BatchDeleteWorldsRequest,
-  BatchDeleteWorldsRequestFilterSensitiveLog,
-  BatchDeleteWorldsResponse,
-  BatchDeleteWorldsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { BatchDeleteWorldsRequest, BatchDeleteWorldsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1BatchDeleteWorldsCommand,
   serializeAws_restJson1BatchDeleteWorldsCommand,
@@ -117,8 +112,8 @@ export class BatchDeleteWorldsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchDeleteWorldsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchDeleteWorldsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

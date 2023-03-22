@@ -2977,42 +2977,10 @@ export interface UpdateUserResponse {
 /**
  * @internal
  */
-export const AssociateUserToPermissionGroupRequestFilterSensitiveLog = (
-  obj: AssociateUserToPermissionGroupRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateUserToPermissionGroupResponseFilterSensitiveLog = (
-  obj: AssociateUserToPermissionGroupResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const AwsCredentialsFilterSensitiveLog = (obj: AwsCredentials): any => ({
   ...obj,
   ...(obj.secretAccessKey && { secretAccessKey: SENSITIVE_STRING }),
   ...(obj.sessionToken && { sessionToken: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const CreateChangesetRequestFilterSensitiveLog = (obj: CreateChangesetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateChangesetResponseFilterSensitiveLog = (obj: CreateChangesetResponse): any => ({
-  ...obj,
 });
 
 /**
@@ -3026,72 +2994,9 @@ export const DatasetOwnerInfoFilterSensitiveLog = (obj: DatasetOwnerInfo): any =
 /**
  * @internal
  */
-export const ResourcePermissionFilterSensitiveLog = (obj: ResourcePermission): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PermissionGroupParamsFilterSensitiveLog = (obj: PermissionGroupParams): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ColumnDefinitionFilterSensitiveLog = (obj: ColumnDefinition): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SchemaDefinitionFilterSensitiveLog = (obj: SchemaDefinition): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SchemaUnionFilterSensitiveLog = (obj: SchemaUnion): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const CreateDatasetRequestFilterSensitiveLog = (obj: CreateDatasetRequest): any => ({
   ...obj,
   ...(obj.ownerInfo && { ownerInfo: DatasetOwnerInfoFilterSensitiveLog(obj.ownerInfo) }),
-});
-
-/**
- * @internal
- */
-export const CreateDatasetResponseFilterSensitiveLog = (obj: CreateDatasetResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DataViewDestinationTypeParamsFilterSensitiveLog = (obj: DataViewDestinationTypeParams): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateDataViewRequestFilterSensitiveLog = (obj: CreateDataViewRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateDataViewResponseFilterSensitiveLog = (obj: CreateDataViewResponse): any => ({
-  ...obj,
 });
 
 /**
@@ -3101,13 +3006,6 @@ export const CreatePermissionGroupRequestFilterSensitiveLog = (obj: CreatePermis
   ...obj,
   ...(obj.name && { name: SENSITIVE_STRING }),
   ...(obj.description && { description: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const CreatePermissionGroupResponseFilterSensitiveLog = (obj: CreatePermissionGroupResponse): any => ({
-  ...obj,
 });
 
 /**
@@ -3123,171 +3021,11 @@ export const CreateUserRequestFilterSensitiveLog = (obj: CreateUserRequest): any
 /**
  * @internal
  */
-export const CreateUserResponseFilterSensitiveLog = (obj: CreateUserResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteDatasetRequestFilterSensitiveLog = (obj: DeleteDatasetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteDatasetResponseFilterSensitiveLog = (obj: DeleteDatasetResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeletePermissionGroupRequestFilterSensitiveLog = (obj: DeletePermissionGroupRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeletePermissionGroupResponseFilterSensitiveLog = (obj: DeletePermissionGroupResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisableUserRequestFilterSensitiveLog = (obj: DisableUserRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisableUserResponseFilterSensitiveLog = (obj: DisableUserResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateUserFromPermissionGroupRequestFilterSensitiveLog = (
-  obj: DisassociateUserFromPermissionGroupRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateUserFromPermissionGroupResponseFilterSensitiveLog = (
-  obj: DisassociateUserFromPermissionGroupResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnableUserRequestFilterSensitiveLog = (obj: EnableUserRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnableUserResponseFilterSensitiveLog = (obj: EnableUserResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetChangesetRequestFilterSensitiveLog = (obj: GetChangesetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ChangesetErrorInfoFilterSensitiveLog = (obj: ChangesetErrorInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetChangesetResponseFilterSensitiveLog = (obj: GetChangesetResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDatasetRequestFilterSensitiveLog = (obj: GetDatasetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDatasetResponseFilterSensitiveLog = (obj: GetDatasetResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDataViewRequestFilterSensitiveLog = (obj: GetDataViewRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DataViewErrorInfoFilterSensitiveLog = (obj: DataViewErrorInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDataViewResponseFilterSensitiveLog = (obj: GetDataViewResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetExternalDataViewAccessDetailsRequestFilterSensitiveLog = (
-  obj: GetExternalDataViewAccessDetailsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const S3LocationFilterSensitiveLog = (obj: S3Location): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const GetExternalDataViewAccessDetailsResponseFilterSensitiveLog = (
   obj: GetExternalDataViewAccessDetailsResponse
 ): any => ({
   ...obj,
   ...(obj.credentials && { credentials: AwsCredentialsFilterSensitiveLog(obj.credentials) }),
-});
-
-/**
- * @internal
- */
-export const GetPermissionGroupRequestFilterSensitiveLog = (obj: GetPermissionGroupRequest): any => ({
-  ...obj,
 });
 
 /**
@@ -3310,85 +3048,11 @@ export const GetPermissionGroupResponseFilterSensitiveLog = (obj: GetPermissionG
 /**
  * @internal
  */
-export const GetProgrammaticAccessCredentialsRequestFilterSensitiveLog = (
-  obj: GetProgrammaticAccessCredentialsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CredentialsFilterSensitiveLog = (obj: Credentials): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetProgrammaticAccessCredentialsResponseFilterSensitiveLog = (
-  obj: GetProgrammaticAccessCredentialsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetUserRequestFilterSensitiveLog = (obj: GetUserRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const GetUserResponseFilterSensitiveLog = (obj: GetUserResponse): any => ({
   ...obj,
   ...(obj.firstName && { firstName: SENSITIVE_STRING }),
   ...(obj.lastName && { lastName: SENSITIVE_STRING }),
   ...(obj.emailAddress && { emailAddress: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const GetWorkingLocationRequestFilterSensitiveLog = (obj: GetWorkingLocationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetWorkingLocationResponseFilterSensitiveLog = (obj: GetWorkingLocationResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListChangesetsRequestFilterSensitiveLog = (obj: ListChangesetsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ChangesetSummaryFilterSensitiveLog = (obj: ChangesetSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListChangesetsResponseFilterSensitiveLog = (obj: ListChangesetsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDatasetsRequestFilterSensitiveLog = (obj: ListDatasetsRequest): any => ({
-  ...obj,
 });
 
 /**
@@ -3410,46 +3074,11 @@ export const ListDatasetsResponseFilterSensitiveLog = (obj: ListDatasetsResponse
 /**
  * @internal
  */
-export const ListDataViewsRequestFilterSensitiveLog = (obj: ListDataViewsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DataViewSummaryFilterSensitiveLog = (obj: DataViewSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDataViewsResponseFilterSensitiveLog = (obj: ListDataViewsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListPermissionGroupsRequestFilterSensitiveLog = (obj: ListPermissionGroupsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const ListPermissionGroupsResponseFilterSensitiveLog = (obj: ListPermissionGroupsResponse): any => ({
   ...obj,
   ...(obj.permissionGroups && {
     permissionGroups: obj.permissionGroups.map((item) => PermissionGroupFilterSensitiveLog(item)),
   }),
-});
-
-/**
- * @internal
- */
-export const ListPermissionGroupsByUserRequestFilterSensitiveLog = (obj: ListPermissionGroupsByUserRequest): any => ({
-  ...obj,
 });
 
 /**
@@ -3473,13 +3102,6 @@ export const ListPermissionGroupsByUserResponseFilterSensitiveLog = (obj: ListPe
 /**
  * @internal
  */
-export const ListUsersRequestFilterSensitiveLog = (obj: ListUsersRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const UserFilterSensitiveLog = (obj: User): any => ({
   ...obj,
   ...(obj.firstName && { firstName: SENSITIVE_STRING }),
@@ -3493,13 +3115,6 @@ export const UserFilterSensitiveLog = (obj: User): any => ({
 export const ListUsersResponseFilterSensitiveLog = (obj: ListUsersResponse): any => ({
   ...obj,
   ...(obj.users && { users: obj.users.map((item) => UserFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const ListUsersByPermissionGroupRequestFilterSensitiveLog = (obj: ListUsersByPermissionGroupRequest): any => ({
-  ...obj,
 });
 
 /**
@@ -3523,44 +3138,9 @@ export const ListUsersByPermissionGroupResponseFilterSensitiveLog = (obj: ListUs
 /**
  * @internal
  */
-export const ResetUserPasswordRequestFilterSensitiveLog = (obj: ResetUserPasswordRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const ResetUserPasswordResponseFilterSensitiveLog = (obj: ResetUserPasswordResponse): any => ({
   ...obj,
   ...(obj.temporaryPassword && { temporaryPassword: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const UpdateChangesetRequestFilterSensitiveLog = (obj: UpdateChangesetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateChangesetResponseFilterSensitiveLog = (obj: UpdateChangesetResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateDatasetRequestFilterSensitiveLog = (obj: UpdateDatasetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateDatasetResponseFilterSensitiveLog = (obj: UpdateDatasetResponse): any => ({
-  ...obj,
 });
 
 /**
@@ -3575,22 +3155,8 @@ export const UpdatePermissionGroupRequestFilterSensitiveLog = (obj: UpdatePermis
 /**
  * @internal
  */
-export const UpdatePermissionGroupResponseFilterSensitiveLog = (obj: UpdatePermissionGroupResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const UpdateUserRequestFilterSensitiveLog = (obj: UpdateUserRequest): any => ({
   ...obj,
   ...(obj.firstName && { firstName: SENSITIVE_STRING }),
   ...(obj.lastName && { lastName: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const UpdateUserResponseFilterSensitiveLog = (obj: UpdateUserResponse): any => ({
-  ...obj,
 });

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  BatchGetDataQualityResultRequest,
-  BatchGetDataQualityResultRequestFilterSensitiveLog,
-  BatchGetDataQualityResultResponse,
-  BatchGetDataQualityResultResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { BatchGetDataQualityResultRequest, BatchGetDataQualityResultResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1BatchGetDataQualityResultCommand,
   serializeAws_json1_1BatchGetDataQualityResultCommand,
@@ -116,8 +111,8 @@ export class BatchGetDataQualityResultCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchGetDataQualityResultRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchGetDataQualityResultResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

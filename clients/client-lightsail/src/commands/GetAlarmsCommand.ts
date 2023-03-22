@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import {
-  GetAlarmsRequest,
-  GetAlarmsRequestFilterSensitiveLog,
-  GetAlarmsResult,
-  GetAlarmsResultFilterSensitiveLog,
-} from "../models/models_0";
+import { GetAlarmsRequest, GetAlarmsResult } from "../models/models_0";
 import { deserializeAws_json1_1GetAlarmsCommand, serializeAws_json1_1GetAlarmsCommand } from "../protocols/Aws_json1_1";
 
 /**
@@ -134,8 +129,8 @@ export class GetAlarmsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAlarmsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetAlarmsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

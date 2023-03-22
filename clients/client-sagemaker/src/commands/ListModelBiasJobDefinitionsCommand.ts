@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListModelBiasJobDefinitionsRequest,
-  ListModelBiasJobDefinitionsRequestFilterSensitiveLog,
-  ListModelBiasJobDefinitionsResponse,
-  ListModelBiasJobDefinitionsResponseFilterSensitiveLog,
-} from "../models/models_3";
+import { ListModelBiasJobDefinitionsRequest, ListModelBiasJobDefinitionsResponse } from "../models/models_3";
 import {
   deserializeAws_json1_1ListModelBiasJobDefinitionsCommand,
   serializeAws_json1_1ListModelBiasJobDefinitionsCommand,
@@ -109,8 +104,8 @@ export class ListModelBiasJobDefinitionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListModelBiasJobDefinitionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListModelBiasJobDefinitionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
-import {
-  GetRegistryPolicyRequest,
-  GetRegistryPolicyRequestFilterSensitiveLog,
-  GetRegistryPolicyResponse,
-  GetRegistryPolicyResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetRegistryPolicyRequest, GetRegistryPolicyResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GetRegistryPolicyCommand,
   serializeAws_json1_1GetRegistryPolicyCommand,
@@ -120,8 +115,8 @@ export class GetRegistryPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetRegistryPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetRegistryPolicyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

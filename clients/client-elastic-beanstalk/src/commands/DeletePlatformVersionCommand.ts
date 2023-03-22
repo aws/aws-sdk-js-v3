@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
-import {
-  DeletePlatformVersionRequest,
-  DeletePlatformVersionRequestFilterSensitiveLog,
-  DeletePlatformVersionResult,
-  DeletePlatformVersionResultFilterSensitiveLog,
-} from "../models/models_0";
+import { DeletePlatformVersionRequest, DeletePlatformVersionResult } from "../models/models_0";
 import {
   deserializeAws_queryDeletePlatformVersionCommand,
   serializeAws_queryDeletePlatformVersionCommand,
@@ -121,8 +116,8 @@ export class DeletePlatformVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeletePlatformVersionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeletePlatformVersionResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

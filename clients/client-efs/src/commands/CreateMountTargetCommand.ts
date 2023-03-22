@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient";
-import {
-  CreateMountTargetRequest,
-  CreateMountTargetRequestFilterSensitiveLog,
-  MountTargetDescription,
-  MountTargetDescriptionFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateMountTargetRequest, MountTargetDescription } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateMountTargetCommand,
   serializeAws_restJson1CreateMountTargetCommand,
@@ -323,8 +318,8 @@ export class CreateMountTargetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateMountTargetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: MountTargetDescriptionFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

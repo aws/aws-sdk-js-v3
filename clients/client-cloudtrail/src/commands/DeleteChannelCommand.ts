@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
-import {
-  DeleteChannelRequest,
-  DeleteChannelRequestFilterSensitiveLog,
-  DeleteChannelResponse,
-  DeleteChannelResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteChannelRequest, DeleteChannelResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteChannelCommand,
   serializeAws_json1_1DeleteChannelCommand,
@@ -118,8 +113,8 @@ export class DeleteChannelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteChannelRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteChannelResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -127,7 +127,7 @@ export class ExecuteScheduledQueryCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: ExecuteScheduledQueryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

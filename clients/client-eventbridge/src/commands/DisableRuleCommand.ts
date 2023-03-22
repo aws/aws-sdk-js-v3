@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EventBridgeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EventBridgeClient";
-import { DisableRuleRequest, DisableRuleRequestFilterSensitiveLog } from "../models/models_0";
+import { DisableRuleRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1DisableRuleCommand,
   serializeAws_json1_1DisableRuleCommand,
@@ -120,8 +120,8 @@ export class DisableRuleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisableRuleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

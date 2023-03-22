@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListStreamingSessionsRequest,
-  ListStreamingSessionsRequestFilterSensitiveLog,
-  ListStreamingSessionsResponse,
-  ListStreamingSessionsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListStreamingSessionsRequest, ListStreamingSessionsResponse } from "../models/models_0";
 import { NimbleClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NimbleClient";
 import {
   deserializeAws_restJson1ListStreamingSessionsCommand,
@@ -131,8 +126,8 @@ export class ListStreamingSessionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListStreamingSessionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListStreamingSessionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

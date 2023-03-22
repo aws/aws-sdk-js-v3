@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CognitoSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CognitoSyncClient";
-import {
-  RegisterDeviceRequest,
-  RegisterDeviceRequestFilterSensitiveLog,
-  RegisterDeviceResponse,
-  RegisterDeviceResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { RegisterDeviceRequest, RegisterDeviceResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1RegisterDeviceCommand,
   serializeAws_restJson1RegisterDeviceCommand,
@@ -173,8 +168,8 @@ export class RegisterDeviceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RegisterDeviceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RegisterDeviceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

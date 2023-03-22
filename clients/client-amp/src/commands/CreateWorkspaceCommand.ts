@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AmpClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmpClient";
-import {
-  CreateWorkspaceRequest,
-  CreateWorkspaceRequestFilterSensitiveLog,
-  CreateWorkspaceResponse,
-  CreateWorkspaceResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateWorkspaceRequest, CreateWorkspaceResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateWorkspaceCommand,
   serializeAws_restJson1CreateWorkspaceCommand,
@@ -125,8 +120,8 @@ export class CreateWorkspaceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateWorkspaceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateWorkspaceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

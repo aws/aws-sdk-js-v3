@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  VerifyDomainIdentityRequest,
-  VerifyDomainIdentityRequestFilterSensitiveLog,
-  VerifyDomainIdentityResponse,
-  VerifyDomainIdentityResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { VerifyDomainIdentityRequest, VerifyDomainIdentityResponse } from "../models/models_0";
 import {
   deserializeAws_queryVerifyDomainIdentityCommand,
   serializeAws_queryVerifyDomainIdentityCommand,
@@ -129,8 +124,8 @@ export class VerifyDomainIdentityCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: VerifyDomainIdentityRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: VerifyDomainIdentityResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

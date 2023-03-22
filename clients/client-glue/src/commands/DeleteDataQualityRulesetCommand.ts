@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  DeleteDataQualityRulesetRequest,
-  DeleteDataQualityRulesetRequestFilterSensitiveLog,
-  DeleteDataQualityRulesetResponse,
-  DeleteDataQualityRulesetResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { DeleteDataQualityRulesetRequest, DeleteDataQualityRulesetResponse } from "../models/models_1";
 import {
   deserializeAws_json1_1DeleteDataQualityRulesetCommand,
   serializeAws_json1_1DeleteDataQualityRulesetCommand,
@@ -119,8 +114,8 @@ export class DeleteDataQualityRulesetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDataQualityRulesetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteDataQualityRulesetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

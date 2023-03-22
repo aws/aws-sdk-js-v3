@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
-import {
-  BatchGetItemInput,
-  BatchGetItemInputFilterSensitiveLog,
-  BatchGetItemOutput,
-  BatchGetItemOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { BatchGetItemInput, BatchGetItemOutput } from "../models/models_0";
 import {
   deserializeAws_json1_0BatchGetItemCommand,
   serializeAws_json1_0BatchGetItemCommand,
@@ -235,8 +230,8 @@ export class BatchGetItemCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchGetItemInputFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchGetItemOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

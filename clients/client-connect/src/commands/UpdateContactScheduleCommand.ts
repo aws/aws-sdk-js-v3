@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import {
-  UpdateContactScheduleRequest,
-  UpdateContactScheduleRequestFilterSensitiveLog,
-  UpdateContactScheduleResponse,
-  UpdateContactScheduleResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { UpdateContactScheduleRequest, UpdateContactScheduleResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1UpdateContactScheduleCommand,
   serializeAws_restJson1UpdateContactScheduleCommand,
@@ -125,8 +120,8 @@ export class UpdateContactScheduleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateContactScheduleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateContactScheduleResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

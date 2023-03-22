@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListComponentProvisionedResourcesInput,
-  ListComponentProvisionedResourcesInputFilterSensitiveLog,
-  ListComponentProvisionedResourcesOutput,
-  ListComponentProvisionedResourcesOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { ListComponentProvisionedResourcesInput, ListComponentProvisionedResourcesOutput } from "../models/models_0";
 import {
   deserializeAws_json1_0ListComponentProvisionedResourcesCommand,
   serializeAws_json1_0ListComponentProvisionedResourcesCommand,
@@ -127,8 +122,8 @@ export class ListComponentProvisionedResourcesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListComponentProvisionedResourcesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListComponentProvisionedResourcesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

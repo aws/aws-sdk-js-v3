@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { KafkaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaClient";
-import {
-  UpdateStorageRequest,
-  UpdateStorageRequestFilterSensitiveLog,
-  UpdateStorageResponse,
-  UpdateStorageResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateStorageRequest, UpdateStorageResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateStorageCommand,
   serializeAws_restJson1UpdateStorageCommand,
@@ -126,8 +121,8 @@ export class UpdateStorageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateStorageRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateStorageResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

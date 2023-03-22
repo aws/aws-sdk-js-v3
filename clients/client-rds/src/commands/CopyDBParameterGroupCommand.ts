@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CopyDBParameterGroupMessage,
-  CopyDBParameterGroupMessageFilterSensitiveLog,
-  CopyDBParameterGroupResult,
-  CopyDBParameterGroupResultFilterSensitiveLog,
-} from "../models/models_0";
+import { CopyDBParameterGroupMessage, CopyDBParameterGroupResult } from "../models/models_0";
 import {
   deserializeAws_queryCopyDBParameterGroupCommand,
   serializeAws_queryCopyDBParameterGroupCommand,
@@ -137,8 +132,8 @@ export class CopyDBParameterGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CopyDBParameterGroupMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: CopyDBParameterGroupResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

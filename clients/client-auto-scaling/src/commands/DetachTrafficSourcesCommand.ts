@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import {
-  DetachTrafficSourcesResultType,
-  DetachTrafficSourcesResultTypeFilterSensitiveLog,
-  DetachTrafficSourcesType,
-  DetachTrafficSourcesTypeFilterSensitiveLog,
-} from "../models/models_0";
+import { DetachTrafficSourcesResultType, DetachTrafficSourcesType } from "../models/models_0";
 import {
   deserializeAws_queryDetachTrafficSourcesCommand,
   serializeAws_queryDetachTrafficSourcesCommand,
@@ -115,8 +110,8 @@ export class DetachTrafficSourcesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DetachTrafficSourcesTypeFilterSensitiveLog,
-      outputFilterSensitiveLog: DetachTrafficSourcesResultTypeFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

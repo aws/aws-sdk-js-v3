@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../LicenseManagerUserSubscriptionsClient";
-import {
-  AssociateUserRequest,
-  AssociateUserRequestFilterSensitiveLog,
-  AssociateUserResponse,
-  AssociateUserResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { AssociateUserRequest, AssociateUserResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1AssociateUserCommand,
   serializeAws_restJson1AssociateUserCommand,
@@ -136,8 +131,8 @@ export class AssociateUserCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateUserRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssociateUserResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

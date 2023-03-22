@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import {
-  GetFieldLevelEncryptionProfileRequest,
-  GetFieldLevelEncryptionProfileRequestFilterSensitiveLog,
-  GetFieldLevelEncryptionProfileResult,
-  GetFieldLevelEncryptionProfileResultFilterSensitiveLog,
-} from "../models/models_1";
+import { GetFieldLevelEncryptionProfileRequest, GetFieldLevelEncryptionProfileResult } from "../models/models_1";
 import {
   deserializeAws_restXmlGetFieldLevelEncryptionProfileCommand,
   serializeAws_restXmlGetFieldLevelEncryptionProfileCommand,
@@ -115,8 +110,8 @@ export class GetFieldLevelEncryptionProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetFieldLevelEncryptionProfileRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetFieldLevelEncryptionProfileResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

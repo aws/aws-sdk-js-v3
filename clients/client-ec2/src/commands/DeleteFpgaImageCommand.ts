@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DeleteFpgaImageRequest,
-  DeleteFpgaImageRequestFilterSensitiveLog,
-  DeleteFpgaImageResult,
-  DeleteFpgaImageResultFilterSensitiveLog,
-} from "../models/models_2";
+import { DeleteFpgaImageRequest, DeleteFpgaImageResult } from "../models/models_2";
 import { deserializeAws_ec2DeleteFpgaImageCommand, serializeAws_ec2DeleteFpgaImageCommand } from "../protocols/Aws_ec2";
 
 /**
@@ -104,8 +99,8 @@ export class DeleteFpgaImageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteFpgaImageRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteFpgaImageResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

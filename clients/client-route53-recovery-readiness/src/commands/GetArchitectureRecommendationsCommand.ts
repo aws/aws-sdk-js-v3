@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetArchitectureRecommendationsRequest,
-  GetArchitectureRecommendationsRequestFilterSensitiveLog,
-  GetArchitectureRecommendationsResponse,
-  GetArchitectureRecommendationsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetArchitectureRecommendationsRequest, GetArchitectureRecommendationsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetArchitectureRecommendationsCommand,
   serializeAws_restJson1GetArchitectureRecommendationsCommand,
@@ -128,8 +123,8 @@ export class GetArchitectureRecommendationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetArchitectureRecommendationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetArchitectureRecommendationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

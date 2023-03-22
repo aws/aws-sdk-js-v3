@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  GetAssociatedIpv6PoolCidrsRequest,
-  GetAssociatedIpv6PoolCidrsRequestFilterSensitiveLog,
-  GetAssociatedIpv6PoolCidrsResult,
-  GetAssociatedIpv6PoolCidrsResultFilterSensitiveLog,
-} from "../models/models_5";
+import { GetAssociatedIpv6PoolCidrsRequest, GetAssociatedIpv6PoolCidrsResult } from "../models/models_5";
 import {
   deserializeAws_ec2GetAssociatedIpv6PoolCidrsCommand,
   serializeAws_ec2GetAssociatedIpv6PoolCidrsCommand,
@@ -107,8 +102,8 @@ export class GetAssociatedIpv6PoolCidrsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAssociatedIpv6PoolCidrsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetAssociatedIpv6PoolCidrsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

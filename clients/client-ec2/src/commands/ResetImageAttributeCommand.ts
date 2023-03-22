@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { ResetImageAttributeRequest, ResetImageAttributeRequestFilterSensitiveLog } from "../models/models_6";
+import { ResetImageAttributeRequest } from "../models/models_6";
 import {
   deserializeAws_ec2ResetImageAttributeCommand,
   serializeAws_ec2ResetImageAttributeCommand,
@@ -114,8 +114,8 @@ export class ResetImageAttributeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ResetImageAttributeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -263,20 +263,6 @@ export const GetPersonalizedRankingRequestFilterSensitiveLog = (obj: GetPersonal
 /**
  * @internal
  */
-export const PredictedItemFilterSensitiveLog = (obj: PredictedItem): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetPersonalizedRankingResponseFilterSensitiveLog = (obj: GetPersonalizedRankingResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const PromotionFilterSensitiveLog = (obj: Promotion): any => ({
   ...obj,
   ...(obj.filterValues && { filterValues: SENSITIVE_STRING }),
@@ -290,11 +276,4 @@ export const GetRecommendationsRequestFilterSensitiveLog = (obj: GetRecommendati
   ...(obj.context && { context: SENSITIVE_STRING }),
   ...(obj.filterValues && { filterValues: SENSITIVE_STRING }),
   ...(obj.promotions && { promotions: obj.promotions.map((item) => PromotionFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const GetRecommendationsResponseFilterSensitiveLog = (obj: GetRecommendationsResponse): any => ({
-  ...obj,
 });

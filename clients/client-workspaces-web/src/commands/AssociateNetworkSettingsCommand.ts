@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  AssociateNetworkSettingsRequest,
-  AssociateNetworkSettingsRequestFilterSensitiveLog,
-  AssociateNetworkSettingsResponse,
-  AssociateNetworkSettingsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { AssociateNetworkSettingsRequest, AssociateNetworkSettingsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1AssociateNetworkSettingsCommand,
   serializeAws_restJson1AssociateNetworkSettingsCommand,
@@ -125,8 +120,8 @@ export class AssociateNetworkSettingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateNetworkSettingsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssociateNetworkSettingsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

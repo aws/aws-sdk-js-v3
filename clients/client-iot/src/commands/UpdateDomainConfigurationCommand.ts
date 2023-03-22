@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  UpdateDomainConfigurationRequest,
-  UpdateDomainConfigurationRequestFilterSensitiveLog,
-  UpdateDomainConfigurationResponse,
-  UpdateDomainConfigurationResponseFilterSensitiveLog,
-} from "../models/models_2";
+import { UpdateDomainConfigurationRequest, UpdateDomainConfigurationResponse } from "../models/models_2";
 import {
   deserializeAws_restJson1UpdateDomainConfigurationCommand,
   serializeAws_restJson1UpdateDomainConfigurationCommand,
@@ -130,8 +125,8 @@ export class UpdateDomainConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateDomainConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateDomainConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

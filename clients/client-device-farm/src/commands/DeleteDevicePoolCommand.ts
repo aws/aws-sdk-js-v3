@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import {
-  DeleteDevicePoolRequest,
-  DeleteDevicePoolRequestFilterSensitiveLog,
-  DeleteDevicePoolResult,
-  DeleteDevicePoolResultFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteDevicePoolRequest, DeleteDevicePoolResult } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteDevicePoolCommand,
   serializeAws_json1_1DeleteDevicePoolCommand,
@@ -131,8 +126,8 @@ export class DeleteDevicePoolCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDevicePoolRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteDevicePoolResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

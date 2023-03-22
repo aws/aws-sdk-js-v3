@@ -19,7 +19,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
-import { DeleteGroupRequest, DeleteGroupRequestFilterSensitiveLog } from "../models/models_0";
+import { DeleteGroupRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteGroupCommand,
   serializeAws_json1_1DeleteGroupCommand,
@@ -125,8 +125,8 @@ export class DeleteGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

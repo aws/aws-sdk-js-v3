@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LookoutMetricsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutMetricsClient";
-import {
-  UpdateMetricSetRequest,
-  UpdateMetricSetRequestFilterSensitiveLog,
-  UpdateMetricSetResponse,
-  UpdateMetricSetResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateMetricSetRequest, UpdateMetricSetResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateMetricSetCommand,
   serializeAws_restJson1UpdateMetricSetCommand,
@@ -126,8 +121,8 @@ export class UpdateMetricSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateMetricSetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateMetricSetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

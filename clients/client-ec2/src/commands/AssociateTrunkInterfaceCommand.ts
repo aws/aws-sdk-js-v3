@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  AssociateTrunkInterfaceRequest,
-  AssociateTrunkInterfaceRequestFilterSensitiveLog,
-  AssociateTrunkInterfaceResult,
-  AssociateTrunkInterfaceResultFilterSensitiveLog,
-} from "../models/models_0";
+import { AssociateTrunkInterfaceRequest, AssociateTrunkInterfaceResult } from "../models/models_0";
 import {
   deserializeAws_ec2AssociateTrunkInterfaceCommand,
   serializeAws_ec2AssociateTrunkInterfaceCommand,
@@ -113,8 +108,8 @@ export class AssociateTrunkInterfaceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateTrunkInterfaceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssociateTrunkInterfaceResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

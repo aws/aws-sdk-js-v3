@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DataBrewClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataBrewClient";
-import {
-  UpdateDatasetRequest,
-  UpdateDatasetRequestFilterSensitiveLog,
-  UpdateDatasetResponse,
-  UpdateDatasetResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateDatasetRequest, UpdateDatasetResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateDatasetCommand,
   serializeAws_restJson1UpdateDatasetCommand,
@@ -114,8 +109,8 @@ export class UpdateDatasetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateDatasetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateDatasetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

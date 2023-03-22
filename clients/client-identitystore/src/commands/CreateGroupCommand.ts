@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IdentitystoreClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IdentitystoreClient";
-import {
-  CreateGroupRequest,
-  CreateGroupRequestFilterSensitiveLog,
-  CreateGroupResponse,
-  CreateGroupResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateGroupRequest, CreateGroupRequestFilterSensitiveLog, CreateGroupResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateGroupCommand,
   serializeAws_json1_1CreateGroupCommand,
@@ -135,7 +130,7 @@ export class CreateGroupCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateGroupResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

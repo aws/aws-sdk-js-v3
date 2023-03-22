@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  StartPipeRequest,
-  StartPipeRequestFilterSensitiveLog,
-  StartPipeResponse,
-  StartPipeResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { StartPipeRequest, StartPipeResponse } from "../models/models_0";
 import { PipesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PipesClient";
 import {
   deserializeAws_restJson1StartPipeCommand,
@@ -120,8 +115,8 @@ export class StartPipeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartPipeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartPipeResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

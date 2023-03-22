@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
-import {
-  DescribeFargateProfileRequest,
-  DescribeFargateProfileRequestFilterSensitiveLog,
-  DescribeFargateProfileResponse,
-  DescribeFargateProfileResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeFargateProfileRequest, DescribeFargateProfileResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeFargateProfileCommand,
   serializeAws_restJson1DescribeFargateProfileCommand,
@@ -125,8 +120,8 @@ export class DescribeFargateProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeFargateProfileRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeFargateProfileResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

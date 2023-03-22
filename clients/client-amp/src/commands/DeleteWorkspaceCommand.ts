@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AmpClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmpClient";
-import { DeleteWorkspaceRequest, DeleteWorkspaceRequestFilterSensitiveLog } from "../models/models_0";
+import { DeleteWorkspaceRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteWorkspaceCommand,
   serializeAws_restJson1DeleteWorkspaceCommand,
@@ -120,8 +120,8 @@ export class DeleteWorkspaceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteWorkspaceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ECRPUBLICClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRPUBLICClient";
-import {
-  BatchDeleteImageRequest,
-  BatchDeleteImageRequestFilterSensitiveLog,
-  BatchDeleteImageResponse,
-  BatchDeleteImageResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { BatchDeleteImageRequest, BatchDeleteImageResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1BatchDeleteImageCommand,
   serializeAws_json1_1BatchDeleteImageCommand,
@@ -127,8 +122,8 @@ export class BatchDeleteImageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchDeleteImageRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchDeleteImageResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

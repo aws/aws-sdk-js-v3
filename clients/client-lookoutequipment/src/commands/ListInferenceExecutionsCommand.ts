@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LookoutEquipmentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutEquipmentClient";
-import {
-  ListInferenceExecutionsRequest,
-  ListInferenceExecutionsRequestFilterSensitiveLog,
-  ListInferenceExecutionsResponse,
-  ListInferenceExecutionsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListInferenceExecutionsRequest, ListInferenceExecutionsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_0ListInferenceExecutionsCommand,
   serializeAws_json1_0ListInferenceExecutionsCommand,
@@ -127,8 +122,8 @@ export class ListInferenceExecutionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListInferenceExecutionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListInferenceExecutionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

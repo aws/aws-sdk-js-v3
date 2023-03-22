@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../GlobalAcceleratorClient";
-import {
-  AdvertiseByoipCidrRequest,
-  AdvertiseByoipCidrRequestFilterSensitiveLog,
-  AdvertiseByoipCidrResponse,
-  AdvertiseByoipCidrResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { AdvertiseByoipCidrRequest, AdvertiseByoipCidrResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1AdvertiseByoipCidrCommand,
   serializeAws_json1_1AdvertiseByoipCidrCommand,
@@ -133,8 +128,8 @@ export class AdvertiseByoipCidrCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AdvertiseByoipCidrRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AdvertiseByoipCidrResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

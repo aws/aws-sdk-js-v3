@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
-import {
-  DescribePiiEntitiesDetectionJobRequest,
-  DescribePiiEntitiesDetectionJobRequestFilterSensitiveLog,
-  DescribePiiEntitiesDetectionJobResponse,
-  DescribePiiEntitiesDetectionJobResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribePiiEntitiesDetectionJobRequest, DescribePiiEntitiesDetectionJobResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribePiiEntitiesDetectionJobCommand,
   serializeAws_json1_1DescribePiiEntitiesDetectionJobCommand,
@@ -122,8 +117,8 @@ export class DescribePiiEntitiesDetectionJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribePiiEntitiesDetectionJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribePiiEntitiesDetectionJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeReservedDBInstancesMessage,
-  DescribeReservedDBInstancesMessageFilterSensitiveLog,
-  ReservedDBInstanceMessage,
-  ReservedDBInstanceMessageFilterSensitiveLog,
-} from "../models/models_1";
+import { DescribeReservedDBInstancesMessage, ReservedDBInstanceMessage } from "../models/models_1";
 import {
   deserializeAws_queryDescribeReservedDBInstancesCommand,
   serializeAws_queryDescribeReservedDBInstancesCommand,
@@ -125,8 +120,8 @@ export class DescribeReservedDBInstancesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeReservedDBInstancesMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: ReservedDBInstanceMessageFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

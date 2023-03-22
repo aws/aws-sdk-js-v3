@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import {
-  GetUploadRequest,
-  GetUploadRequestFilterSensitiveLog,
-  GetUploadResult,
-  GetUploadResultFilterSensitiveLog,
-} from "../models/models_0";
+import { GetUploadRequest, GetUploadResult, GetUploadResultFilterSensitiveLog } from "../models/models_0";
 import { deserializeAws_json1_1GetUploadCommand, serializeAws_json1_1GetUploadCommand } from "../protocols/Aws_json1_1";
 
 /**
@@ -130,7 +125,7 @@ export class GetUploadCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetUploadRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetUploadResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

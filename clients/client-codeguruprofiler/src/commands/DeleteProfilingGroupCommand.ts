@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeGuruProfilerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeGuruProfilerClient";
-import {
-  DeleteProfilingGroupRequest,
-  DeleteProfilingGroupRequestFilterSensitiveLog,
-  DeleteProfilingGroupResponse,
-  DeleteProfilingGroupResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteProfilingGroupRequest, DeleteProfilingGroupResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteProfilingGroupCommand,
   serializeAws_restJson1DeleteProfilingGroupCommand,
@@ -125,8 +120,8 @@ export class DeleteProfilingGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteProfilingGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteProfilingGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

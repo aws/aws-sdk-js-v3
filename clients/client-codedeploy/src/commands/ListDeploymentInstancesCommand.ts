@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeDeployClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeDeployClient";
-import {
-  ListDeploymentInstancesInput,
-  ListDeploymentInstancesInputFilterSensitiveLog,
-  ListDeploymentInstancesOutput,
-  ListDeploymentInstancesOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { ListDeploymentInstancesInput, ListDeploymentInstancesOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1ListDeploymentInstancesCommand,
   serializeAws_json1_1ListDeploymentInstancesCommand,
@@ -150,8 +145,8 @@ export class ListDeploymentInstancesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDeploymentInstancesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListDeploymentInstancesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

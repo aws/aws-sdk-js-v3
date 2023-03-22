@@ -23,7 +23,6 @@ import {
   AdminListUserAuthEventsRequest,
   AdminListUserAuthEventsRequestFilterSensitiveLog,
   AdminListUserAuthEventsResponse,
-  AdminListUserAuthEventsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1AdminListUserAuthEventsCommand,
@@ -139,7 +138,7 @@ export class AdminListUserAuthEventsCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: AdminListUserAuthEventsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AdminListUserAuthEventsResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

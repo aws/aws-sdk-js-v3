@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetSigningPlatformRequest,
-  GetSigningPlatformRequestFilterSensitiveLog,
-  GetSigningPlatformResponse,
-  GetSigningPlatformResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetSigningPlatformRequest, GetSigningPlatformResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetSigningPlatformCommand,
   serializeAws_restJson1GetSigningPlatformCommand,
@@ -120,8 +115,8 @@ export class GetSigningPlatformCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSigningPlatformRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetSigningPlatformResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

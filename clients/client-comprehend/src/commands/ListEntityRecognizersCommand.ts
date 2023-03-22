@@ -16,7 +16,6 @@ import {
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
 import {
   ListEntityRecognizersRequest,
-  ListEntityRecognizersRequestFilterSensitiveLog,
   ListEntityRecognizersResponse,
   ListEntityRecognizersResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -125,7 +124,7 @@ export class ListEntityRecognizersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListEntityRecognizersRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListEntityRecognizersResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import {
-  SimulateCustomPolicyRequest,
-  SimulateCustomPolicyRequestFilterSensitiveLog,
-  SimulatePolicyResponse,
-  SimulatePolicyResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { SimulateCustomPolicyRequest, SimulatePolicyResponse } from "../models/models_0";
 import {
   deserializeAws_querySimulateCustomPolicyCommand,
   serializeAws_querySimulateCustomPolicyCommand,
@@ -138,8 +133,8 @@ export class SimulateCustomPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SimulateCustomPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SimulatePolicyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTTwinMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTTwinMakerClient";
-import {
-  CreateEntityRequest,
-  CreateEntityRequestFilterSensitiveLog,
-  CreateEntityResponse,
-  CreateEntityResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateEntityRequest, CreateEntityResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateEntityCommand,
   serializeAws_restJson1CreateEntityCommand,
@@ -123,8 +118,8 @@ export class CreateEntityCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateEntityRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateEntityResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

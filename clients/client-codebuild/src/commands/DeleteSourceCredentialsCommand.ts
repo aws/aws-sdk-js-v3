@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient";
-import {
-  DeleteSourceCredentialsInput,
-  DeleteSourceCredentialsInputFilterSensitiveLog,
-  DeleteSourceCredentialsOutput,
-  DeleteSourceCredentialsOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteSourceCredentialsInput, DeleteSourceCredentialsOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteSourceCredentialsCommand,
   serializeAws_json1_1DeleteSourceCredentialsCommand,
@@ -113,8 +108,8 @@ export class DeleteSourceCredentialsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteSourceCredentialsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteSourceCredentialsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

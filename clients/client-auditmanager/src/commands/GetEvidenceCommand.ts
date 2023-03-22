@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AuditManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AuditManagerClient";
-import {
-  GetEvidenceRequest,
-  GetEvidenceRequestFilterSensitiveLog,
-  GetEvidenceResponse,
-  GetEvidenceResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetEvidenceRequest, GetEvidenceResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetEvidenceCommand,
   serializeAws_restJson1GetEvidenceCommand,
@@ -119,8 +114,8 @@ export class GetEvidenceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetEvidenceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetEvidenceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

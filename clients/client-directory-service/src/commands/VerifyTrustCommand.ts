@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
-import {
-  VerifyTrustRequest,
-  VerifyTrustRequestFilterSensitiveLog,
-  VerifyTrustResult,
-  VerifyTrustResultFilterSensitiveLog,
-} from "../models/models_0";
+import { VerifyTrustRequest, VerifyTrustResult } from "../models/models_0";
 import {
   deserializeAws_json1_1VerifyTrustCommand,
   serializeAws_json1_1VerifyTrustCommand,
@@ -123,8 +118,8 @@ export class VerifyTrustCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: VerifyTrustRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: VerifyTrustResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

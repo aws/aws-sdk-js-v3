@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient";
-import { DeleteResourceSetRequest, DeleteResourceSetRequestFilterSensitiveLog } from "../models/models_0";
+import { DeleteResourceSetRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteResourceSetCommand,
   serializeAws_json1_1DeleteResourceSetCommand,
@@ -119,8 +119,8 @@ export class DeleteResourceSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteResourceSetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

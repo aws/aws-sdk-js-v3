@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IdentitystoreClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IdentitystoreClient";
-import {
-  GetGroupIdRequest,
-  GetGroupIdRequestFilterSensitiveLog,
-  GetGroupIdResponse,
-  GetGroupIdResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetGroupIdRequest, GetGroupIdRequestFilterSensitiveLog, GetGroupIdResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GetGroupIdCommand,
   serializeAws_json1_1GetGroupIdCommand,
@@ -121,7 +116,7 @@ export class GetGroupIdCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: GetGroupIdRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetGroupIdResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

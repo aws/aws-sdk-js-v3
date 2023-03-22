@@ -16,7 +16,6 @@ import {
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
 import {
   GetRecoveryPointRestoreMetadataInput,
-  GetRecoveryPointRestoreMetadataInputFilterSensitiveLog,
   GetRecoveryPointRestoreMetadataOutput,
   GetRecoveryPointRestoreMetadataOutputFilterSensitiveLog,
 } from "../models/models_0";
@@ -122,7 +121,7 @@ export class GetRecoveryPointRestoreMetadataCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetRecoveryPointRestoreMetadataInputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetRecoveryPointRestoreMetadataOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

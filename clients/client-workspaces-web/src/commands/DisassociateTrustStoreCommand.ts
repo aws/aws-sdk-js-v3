@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DisassociateTrustStoreRequest,
-  DisassociateTrustStoreRequestFilterSensitiveLog,
-  DisassociateTrustStoreResponse,
-  DisassociateTrustStoreResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DisassociateTrustStoreRequest, DisassociateTrustStoreResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DisassociateTrustStoreCommand,
   serializeAws_restJson1DisassociateTrustStoreCommand,
@@ -122,8 +117,8 @@ export class DisassociateTrustStoreCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateTrustStoreRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateTrustStoreResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
-import { DetachTypedLinkRequest, DetachTypedLinkRequestFilterSensitiveLog } from "../models/models_0";
+import { DetachTypedLinkRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1DetachTypedLinkCommand,
   serializeAws_restJson1DetachTypedLinkCommand,
@@ -131,8 +131,8 @@ export class DetachTypedLinkCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DetachTypedLinkRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

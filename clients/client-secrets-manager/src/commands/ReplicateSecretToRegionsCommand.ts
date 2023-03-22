@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ReplicateSecretToRegionsRequest,
-  ReplicateSecretToRegionsRequestFilterSensitiveLog,
-  ReplicateSecretToRegionsResponse,
-  ReplicateSecretToRegionsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ReplicateSecretToRegionsRequest, ReplicateSecretToRegionsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ReplicateSecretToRegionsCommand,
   serializeAws_json1_1ReplicateSecretToRegionsCommand,
@@ -141,8 +136,8 @@ export class ReplicateSecretToRegionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ReplicateSecretToRegionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ReplicateSecretToRegionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -1280,27 +1280,6 @@ export interface UpdateUserProfileResult {
 /**
  * @internal
  */
-export const AssociateTeamMemberRequestFilterSensitiveLog = (obj: AssociateTeamMemberRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateTeamMemberResultFilterSensitiveLog = (obj: AssociateTeamMemberResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CodeCommitCodeDestinationFilterSensitiveLog = (obj: CodeCommitCodeDestination): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const GitHubCodeDestinationFilterSensitiveLog = (obj: GitHubCodeDestination): any => ({
   ...obj,
   ...(obj.token && { token: SENSITIVE_STRING }),
@@ -1317,30 +1296,9 @@ export const CodeDestinationFilterSensitiveLog = (obj: CodeDestination): any => 
 /**
  * @internal
  */
-export const S3LocationFilterSensitiveLog = (obj: S3Location): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CodeSourceFilterSensitiveLog = (obj: CodeSource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const CodeFilterSensitiveLog = (obj: Code): any => ({
   ...obj,
   ...(obj.destination && { destination: CodeDestinationFilterSensitiveLog(obj.destination) }),
-});
-
-/**
- * @internal
- */
-export const ToolchainSourceFilterSensitiveLog = (obj: ToolchainSource): any => ({
-  ...obj,
 });
 
 /**
@@ -1365,13 +1323,6 @@ export const CreateProjectRequestFilterSensitiveLog = (obj: CreateProjectRequest
 /**
  * @internal
  */
-export const CreateProjectResultFilterSensitiveLog = (obj: CreateProjectResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const CreateUserProfileRequestFilterSensitiveLog = (obj: CreateUserProfileRequest): any => ({
   ...obj,
   ...(obj.displayName && { displayName: SENSITIVE_STRING }),
@@ -1390,48 +1341,6 @@ export const CreateUserProfileResultFilterSensitiveLog = (obj: CreateUserProfile
 /**
  * @internal
  */
-export const DeleteProjectRequestFilterSensitiveLog = (obj: DeleteProjectRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteProjectResultFilterSensitiveLog = (obj: DeleteProjectResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteUserProfileRequestFilterSensitiveLog = (obj: DeleteUserProfileRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteUserProfileResultFilterSensitiveLog = (obj: DeleteUserProfileResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeProjectRequestFilterSensitiveLog = (obj: DescribeProjectRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ProjectStatusFilterSensitiveLog = (obj: ProjectStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const DescribeProjectResultFilterSensitiveLog = (obj: DescribeProjectResult): any => ({
   ...obj,
   ...(obj.name && { name: SENSITIVE_STRING }),
@@ -1441,115 +1350,10 @@ export const DescribeProjectResultFilterSensitiveLog = (obj: DescribeProjectResu
 /**
  * @internal
  */
-export const DescribeUserProfileRequestFilterSensitiveLog = (obj: DescribeUserProfileRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const DescribeUserProfileResultFilterSensitiveLog = (obj: DescribeUserProfileResult): any => ({
   ...obj,
   ...(obj.displayName && { displayName: SENSITIVE_STRING }),
   ...(obj.emailAddress && { emailAddress: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const DisassociateTeamMemberRequestFilterSensitiveLog = (obj: DisassociateTeamMemberRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateTeamMemberResultFilterSensitiveLog = (obj: DisassociateTeamMemberResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListProjectsRequestFilterSensitiveLog = (obj: ListProjectsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ProjectSummaryFilterSensitiveLog = (obj: ProjectSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListProjectsResultFilterSensitiveLog = (obj: ListProjectsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListResourcesRequestFilterSensitiveLog = (obj: ListResourcesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResourceFilterSensitiveLog = (obj: Resource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListResourcesResultFilterSensitiveLog = (obj: ListResourcesResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForProjectRequestFilterSensitiveLog = (obj: ListTagsForProjectRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForProjectResultFilterSensitiveLog = (obj: ListTagsForProjectResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTeamMembersRequestFilterSensitiveLog = (obj: ListTeamMembersRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TeamMemberFilterSensitiveLog = (obj: TeamMember): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTeamMembersResultFilterSensitiveLog = (obj: ListTeamMembersResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListUserProfilesRequestFilterSensitiveLog = (obj: ListUserProfilesRequest): any => ({
-  ...obj,
 });
 
 /**
@@ -1572,59 +1376,10 @@ export const ListUserProfilesResultFilterSensitiveLog = (obj: ListUserProfilesRe
 /**
  * @internal
  */
-export const TagProjectRequestFilterSensitiveLog = (obj: TagProjectRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagProjectResultFilterSensitiveLog = (obj: TagProjectResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagProjectRequestFilterSensitiveLog = (obj: UntagProjectRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagProjectResultFilterSensitiveLog = (obj: UntagProjectResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const UpdateProjectRequestFilterSensitiveLog = (obj: UpdateProjectRequest): any => ({
   ...obj,
   ...(obj.name && { name: SENSITIVE_STRING }),
   ...(obj.description && { description: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const UpdateProjectResultFilterSensitiveLog = (obj: UpdateProjectResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateTeamMemberRequestFilterSensitiveLog = (obj: UpdateTeamMemberRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateTeamMemberResultFilterSensitiveLog = (obj: UpdateTeamMemberResult): any => ({
-  ...obj,
 });
 
 /**

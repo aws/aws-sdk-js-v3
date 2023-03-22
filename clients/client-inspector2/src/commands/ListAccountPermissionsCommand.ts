@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { Inspector2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Inspector2Client";
-import {
-  ListAccountPermissionsRequest,
-  ListAccountPermissionsRequestFilterSensitiveLog,
-  ListAccountPermissionsResponse,
-  ListAccountPermissionsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListAccountPermissionsRequest, ListAccountPermissionsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListAccountPermissionsCommand,
   serializeAws_restJson1ListAccountPermissionsCommand,
@@ -120,8 +115,8 @@ export class ListAccountPermissionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAccountPermissionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAccountPermissionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

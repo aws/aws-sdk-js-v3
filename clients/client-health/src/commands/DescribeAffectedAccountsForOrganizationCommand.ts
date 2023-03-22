@@ -16,9 +16,7 @@ import {
 import { HealthClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../HealthClient";
 import {
   DescribeAffectedAccountsForOrganizationRequest,
-  DescribeAffectedAccountsForOrganizationRequestFilterSensitiveLog,
   DescribeAffectedAccountsForOrganizationResponse,
-  DescribeAffectedAccountsForOrganizationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeAffectedAccountsForOrganizationCommand,
@@ -127,8 +125,8 @@ export class DescribeAffectedAccountsForOrganizationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeAffectedAccountsForOrganizationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeAffectedAccountsForOrganizationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

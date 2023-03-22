@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
-import {
-  PutDashboardInput,
-  PutDashboardInputFilterSensitiveLog,
-  PutDashboardOutput,
-  PutDashboardOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { PutDashboardInput, PutDashboardOutput } from "../models/models_0";
 import { deserializeAws_queryPutDashboardCommand, serializeAws_queryPutDashboardCommand } from "../protocols/Aws_query";
 
 /**
@@ -121,8 +116,8 @@ export class PutDashboardCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutDashboardInputFilterSensitiveLog,
-      outputFilterSensitiveLog: PutDashboardOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

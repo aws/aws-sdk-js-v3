@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../IoTSecureTunnelingClient";
-import {
-  CloseTunnelRequest,
-  CloseTunnelRequestFilterSensitiveLog,
-  CloseTunnelResponse,
-  CloseTunnelResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CloseTunnelRequest, CloseTunnelResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1CloseTunnelCommand,
   serializeAws_json1_1CloseTunnelCommand,
@@ -115,8 +110,8 @@ export class CloseTunnelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CloseTunnelRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CloseTunnelResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

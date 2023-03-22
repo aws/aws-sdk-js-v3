@@ -15,7 +15,6 @@ import {
 
 import {
   DescribeFraudsterRegistrationJobRequest,
-  DescribeFraudsterRegistrationJobRequestFilterSensitiveLog,
   DescribeFraudsterRegistrationJobResponse,
   DescribeFraudsterRegistrationJobResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -130,7 +129,7 @@ export class DescribeFraudsterRegistrationJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeFraudsterRegistrationJobRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeFraudsterRegistrationJobResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

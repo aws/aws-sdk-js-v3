@@ -16,9 +16,7 @@ import {
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
 import {
   DescribeConfigRuleEvaluationStatusRequest,
-  DescribeConfigRuleEvaluationStatusRequestFilterSensitiveLog,
   DescribeConfigRuleEvaluationStatusResponse,
-  DescribeConfigRuleEvaluationStatusResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeConfigRuleEvaluationStatusCommand,
@@ -122,8 +120,8 @@ export class DescribeConfigRuleEvaluationStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeConfigRuleEvaluationStatusRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeConfigRuleEvaluationStatusResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

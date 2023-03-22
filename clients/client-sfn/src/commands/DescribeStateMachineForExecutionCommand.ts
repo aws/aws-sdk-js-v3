@@ -15,7 +15,6 @@ import {
 
 import {
   DescribeStateMachineForExecutionInput,
-  DescribeStateMachineForExecutionInputFilterSensitiveLog,
   DescribeStateMachineForExecutionOutput,
   DescribeStateMachineForExecutionOutputFilterSensitiveLog,
 } from "../models/models_0";
@@ -119,7 +118,7 @@ export class DescribeStateMachineForExecutionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeStateMachineForExecutionInputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeStateMachineForExecutionOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

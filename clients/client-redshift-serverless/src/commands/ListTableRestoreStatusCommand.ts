@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListTableRestoreStatusRequest,
-  ListTableRestoreStatusRequestFilterSensitiveLog,
-  ListTableRestoreStatusResponse,
-  ListTableRestoreStatusResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListTableRestoreStatusRequest, ListTableRestoreStatusResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ListTableRestoreStatusCommand,
   serializeAws_json1_1ListTableRestoreStatusCommand,
@@ -120,8 +115,8 @@ export class ListTableRestoreStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTableRestoreStatusRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListTableRestoreStatusResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

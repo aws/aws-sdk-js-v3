@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import {
-  GetGameSessionLogUrlInput,
-  GetGameSessionLogUrlInputFilterSensitiveLog,
-  GetGameSessionLogUrlOutput,
-  GetGameSessionLogUrlOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { GetGameSessionLogUrlInput, GetGameSessionLogUrlOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1GetGameSessionLogUrlCommand,
   serializeAws_json1_1GetGameSessionLogUrlCommand,
@@ -131,8 +126,8 @@ export class GetGameSessionLogUrlCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetGameSessionLogUrlInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetGameSessionLogUrlOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CognitoSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CognitoSyncClient";
-import {
-  GetBulkPublishDetailsRequest,
-  GetBulkPublishDetailsRequestFilterSensitiveLog,
-  GetBulkPublishDetailsResponse,
-  GetBulkPublishDetailsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetBulkPublishDetailsRequest, GetBulkPublishDetailsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetBulkPublishDetailsCommand,
   serializeAws_restJson1GetBulkPublishDetailsCommand,
@@ -123,8 +118,8 @@ export class GetBulkPublishDetailsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetBulkPublishDetailsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetBulkPublishDetailsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import {
-  ListLexBotsRequest,
-  ListLexBotsRequestFilterSensitiveLog,
-  ListLexBotsResponse,
-  ListLexBotsResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { ListLexBotsRequest, ListLexBotsResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1ListLexBotsCommand,
   serializeAws_restJson1ListLexBotsCommand,
@@ -123,8 +118,8 @@ export class ListLexBotsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListLexBotsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListLexBotsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

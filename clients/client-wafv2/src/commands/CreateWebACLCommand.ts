@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateWebACLRequest,
-  CreateWebACLRequestFilterSensitiveLog,
-  CreateWebACLResponse,
-  CreateWebACLResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateWebACLRequest, CreateWebACLResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateWebACLCommand,
   serializeAws_json1_1CreateWebACLCommand,
@@ -195,8 +190,8 @@ export class CreateWebACLCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateWebACLRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateWebACLResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

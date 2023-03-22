@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
-import {
-  GetMemberRequest,
-  GetMemberRequestFilterSensitiveLog,
-  GetMemberResponse,
-  GetMemberResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetMemberRequest, GetMemberResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetMemberCommand,
   serializeAws_restJson1GetMemberCommand,
@@ -126,8 +121,8 @@ export class GetMemberCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetMemberRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetMemberResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

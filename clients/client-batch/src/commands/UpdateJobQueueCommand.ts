@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { BatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BatchClient";
-import {
-  UpdateJobQueueRequest,
-  UpdateJobQueueRequestFilterSensitiveLog,
-  UpdateJobQueueResponse,
-  UpdateJobQueueResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateJobQueueRequest, UpdateJobQueueResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateJobQueueCommand,
   serializeAws_restJson1UpdateJobQueueCommand,
@@ -133,8 +128,8 @@ export class UpdateJobQueueCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateJobQueueRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateJobQueueResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

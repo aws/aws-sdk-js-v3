@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import {
-  UploadSSHPublicKeyRequest,
-  UploadSSHPublicKeyRequestFilterSensitiveLog,
-  UploadSSHPublicKeyResponse,
-  UploadSSHPublicKeyResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { UploadSSHPublicKeyRequest, UploadSSHPublicKeyResponse } from "../models/models_1";
 import {
   deserializeAws_queryUploadSSHPublicKeyCommand,
   serializeAws_queryUploadSSHPublicKeyCommand,
@@ -130,8 +125,8 @@ export class UploadSSHPublicKeyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UploadSSHPublicKeyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UploadSSHPublicKeyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

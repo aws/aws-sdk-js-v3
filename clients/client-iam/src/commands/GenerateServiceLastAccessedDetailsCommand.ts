@@ -16,9 +16,7 @@ import {
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import {
   GenerateServiceLastAccessedDetailsRequest,
-  GenerateServiceLastAccessedDetailsRequestFilterSensitiveLog,
   GenerateServiceLastAccessedDetailsResponse,
-  GenerateServiceLastAccessedDetailsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_queryGenerateServiceLastAccessedDetailsCommand,
@@ -186,8 +184,8 @@ export class GenerateServiceLastAccessedDetailsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GenerateServiceLastAccessedDetailsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GenerateServiceLastAccessedDetailsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

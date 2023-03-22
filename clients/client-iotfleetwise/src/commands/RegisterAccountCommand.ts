@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTFleetWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTFleetWiseClient";
-import {
-  RegisterAccountRequest,
-  RegisterAccountRequestFilterSensitiveLog,
-  RegisterAccountResponse,
-  RegisterAccountResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { RegisterAccountRequest, RegisterAccountResponse } from "../models/models_0";
 import {
   deserializeAws_json1_0RegisterAccountCommand,
   serializeAws_json1_0RegisterAccountCommand,
@@ -136,8 +131,8 @@ export class RegisterAccountCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RegisterAccountRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RegisterAccountResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

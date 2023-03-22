@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
-import {
-  PutQueryDefinitionRequest,
-  PutQueryDefinitionRequestFilterSensitiveLog,
-  PutQueryDefinitionResponse,
-  PutQueryDefinitionResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { PutQueryDefinitionRequest, PutQueryDefinitionResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1PutQueryDefinitionCommand,
   serializeAws_json1_1PutQueryDefinitionCommand,
@@ -129,8 +124,8 @@ export class PutQueryDefinitionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutQueryDefinitionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutQueryDefinitionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

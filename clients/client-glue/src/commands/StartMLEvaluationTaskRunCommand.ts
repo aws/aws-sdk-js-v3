@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  StartMLEvaluationTaskRunRequest,
-  StartMLEvaluationTaskRunRequestFilterSensitiveLog,
-  StartMLEvaluationTaskRunResponse,
-  StartMLEvaluationTaskRunResponseFilterSensitiveLog,
-} from "../models/models_2";
+import { StartMLEvaluationTaskRunRequest, StartMLEvaluationTaskRunResponse } from "../models/models_2";
 import {
   deserializeAws_json1_1StartMLEvaluationTaskRunCommand,
   serializeAws_json1_1StartMLEvaluationTaskRunCommand,
@@ -130,8 +125,8 @@ export class StartMLEvaluationTaskRunCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartMLEvaluationTaskRunRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartMLEvaluationTaskRunResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

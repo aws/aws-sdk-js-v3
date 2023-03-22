@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  DescribeThingRegistrationTaskRequest,
-  DescribeThingRegistrationTaskRequestFilterSensitiveLog,
-  DescribeThingRegistrationTaskResponse,
-  DescribeThingRegistrationTaskResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { DescribeThingRegistrationTaskRequest, DescribeThingRegistrationTaskResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1DescribeThingRegistrationTaskCommand,
   serializeAws_restJson1DescribeThingRegistrationTaskCommand,
@@ -125,8 +120,8 @@ export class DescribeThingRegistrationTaskCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeThingRegistrationTaskRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeThingRegistrationTaskResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

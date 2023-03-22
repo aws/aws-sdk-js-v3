@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateBlueGreenDeploymentRequest,
-  CreateBlueGreenDeploymentRequestFilterSensitiveLog,
-  CreateBlueGreenDeploymentResponse,
-  CreateBlueGreenDeploymentResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateBlueGreenDeploymentRequest, CreateBlueGreenDeploymentResponse } from "../models/models_0";
 import {
   deserializeAws_queryCreateBlueGreenDeploymentCommand,
   serializeAws_queryCreateBlueGreenDeploymentCommand,
@@ -162,8 +157,8 @@ export class CreateBlueGreenDeploymentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateBlueGreenDeploymentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateBlueGreenDeploymentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

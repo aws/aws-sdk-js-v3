@@ -13,7 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { SetTopicAttributesInput, SetTopicAttributesInputFilterSensitiveLog } from "../models/models_0";
+import { SetTopicAttributesInput } from "../models/models_0";
 import {
   deserializeAws_querySetTopicAttributesCommand,
   serializeAws_querySetTopicAttributesCommand,
@@ -124,8 +124,8 @@ export class SetTopicAttributesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SetTopicAttributesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

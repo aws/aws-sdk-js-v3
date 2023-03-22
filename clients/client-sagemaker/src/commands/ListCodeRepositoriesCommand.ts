@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListCodeRepositoriesInput,
-  ListCodeRepositoriesInputFilterSensitiveLog,
-  ListCodeRepositoriesOutput,
-  ListCodeRepositoriesOutputFilterSensitiveLog,
-} from "../models/models_3";
+import { ListCodeRepositoriesInput, ListCodeRepositoriesOutput } from "../models/models_3";
 import {
   deserializeAws_json1_1ListCodeRepositoriesCommand,
   serializeAws_json1_1ListCodeRepositoriesCommand,
@@ -107,8 +102,8 @@ export class ListCodeRepositoriesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListCodeRepositoriesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListCodeRepositoriesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

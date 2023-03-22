@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateFlowDefinitionRequest,
-  CreateFlowDefinitionRequestFilterSensitiveLog,
-  CreateFlowDefinitionResponse,
-  CreateFlowDefinitionResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { CreateFlowDefinitionRequest, CreateFlowDefinitionResponse } from "../models/models_1";
 import {
   deserializeAws_json1_1CreateFlowDefinitionCommand,
   serializeAws_json1_1CreateFlowDefinitionCommand,
@@ -114,8 +109,8 @@ export class CreateFlowDefinitionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateFlowDefinitionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateFlowDefinitionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

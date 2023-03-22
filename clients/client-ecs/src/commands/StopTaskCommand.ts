@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
-import {
-  StopTaskRequest,
-  StopTaskRequestFilterSensitiveLog,
-  StopTaskResponse,
-  StopTaskResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { StopTaskRequest, StopTaskResponse } from "../models/models_0";
 import { deserializeAws_json1_1StopTaskCommand, serializeAws_json1_1StopTaskCommand } from "../protocols/Aws_json1_1";
 
 /**
@@ -125,8 +120,8 @@ export class StopTaskCommand extends $Command<StopTaskCommandInput, StopTaskComm
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopTaskRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StopTaskResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

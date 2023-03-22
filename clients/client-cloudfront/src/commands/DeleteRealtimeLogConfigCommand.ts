@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import { DeleteRealtimeLogConfigRequest, DeleteRealtimeLogConfigRequestFilterSensitiveLog } from "../models/models_1";
+import { DeleteRealtimeLogConfigRequest } from "../models/models_1";
 import {
   deserializeAws_restXmlDeleteRealtimeLogConfigCommand,
   serializeAws_restXmlDeleteRealtimeLogConfigCommand,
@@ -121,8 +121,8 @@ export class DeleteRealtimeLogConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteRealtimeLogConfigRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

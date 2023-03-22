@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  StopEngagementRequest,
-  StopEngagementRequestFilterSensitiveLog,
-  StopEngagementResult,
-  StopEngagementResultFilterSensitiveLog,
-} from "../models/models_0";
+import { StopEngagementRequest, StopEngagementResult } from "../models/models_0";
 import {
   deserializeAws_json1_1StopEngagementCommand,
   serializeAws_json1_1StopEngagementCommand,
@@ -136,8 +131,8 @@ export class StopEngagementCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopEngagementRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StopEngagementResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import {
-  DisassociateDeviceFromRoomRequest,
-  DisassociateDeviceFromRoomRequestFilterSensitiveLog,
-  DisassociateDeviceFromRoomResponse,
-  DisassociateDeviceFromRoomResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DisassociateDeviceFromRoomRequest, DisassociateDeviceFromRoomResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DisassociateDeviceFromRoomCommand,
   serializeAws_json1_1DisassociateDeviceFromRoomCommand,
@@ -115,8 +110,8 @@ export class DisassociateDeviceFromRoomCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateDeviceFromRoomRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateDeviceFromRoomResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

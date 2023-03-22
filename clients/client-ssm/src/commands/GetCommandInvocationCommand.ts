@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetCommandInvocationRequest,
-  GetCommandInvocationRequestFilterSensitiveLog,
-  GetCommandInvocationResult,
-  GetCommandInvocationResultFilterSensitiveLog,
-} from "../models/models_1";
+import { GetCommandInvocationRequest, GetCommandInvocationResult } from "../models/models_1";
 import {
   deserializeAws_json1_1GetCommandInvocationCommand,
   serializeAws_json1_1GetCommandInvocationCommand,
@@ -144,8 +139,8 @@ export class GetCommandInvocationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetCommandInvocationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetCommandInvocationResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

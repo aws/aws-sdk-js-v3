@@ -13,7 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { HttpChecksumRequiredInputOutput, HttpChecksumRequiredInputOutputFilterSensitiveLog } from "../models/models_0";
+import { HttpChecksumRequiredInputOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1HttpChecksumRequiredCommand,
   serializeAws_restJson1HttpChecksumRequiredCommand,
@@ -21,15 +21,20 @@ import {
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
 /**
+ * @public
+ *
  * The input for {@link HttpChecksumRequiredCommand}.
  */
 export interface HttpChecksumRequiredCommandInput extends HttpChecksumRequiredInputOutput {}
 /**
+ * @public
+ *
  * The output of {@link HttpChecksumRequiredCommand}.
  */
 export interface HttpChecksumRequiredCommandOutput extends HttpChecksumRequiredInputOutput, __MetadataBearer {}
 
 /**
+ * @public
  * This example tests httpChecksumRequired trait
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +46,8 @@ export interface HttpChecksumRequiredCommandOutput extends HttpChecksumRequiredI
  * const response = await client.send(command);
  * ```
  *
+ * @param HttpChecksumRequiredCommandInput - {@link HttpChecksumRequiredCommandInput}
+ * @returns {@link HttpChecksumRequiredCommandOutput}
  * @see {@link HttpChecksumRequiredCommandInput} for command's `input` shape.
  * @see {@link HttpChecksumRequiredCommandOutput} for command's `response` shape.
  * @see {@link RestJsonProtocolClientResolvedConfig | config} for RestJsonProtocolClient's `config` shape.
@@ -55,6 +62,9 @@ export class HttpChecksumRequiredCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: HttpChecksumRequiredCommandInput) {
     // Start section: command_constructor
     super();
@@ -81,8 +91,8 @@ export class HttpChecksumRequiredCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: HttpChecksumRequiredInputOutputFilterSensitiveLog,
-      outputFilterSensitiveLog: HttpChecksumRequiredInputOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -92,10 +102,16 @@ export class HttpChecksumRequiredCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: HttpChecksumRequiredCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1HttpChecksumRequiredCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<HttpChecksumRequiredCommandOutput> {
     return deserializeAws_restJson1HttpChecksumRequiredCommand(output, context);
   }

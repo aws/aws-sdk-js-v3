@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import {
-  PutConferencePreferenceRequest,
-  PutConferencePreferenceRequestFilterSensitiveLog,
-  PutConferencePreferenceResponse,
-  PutConferencePreferenceResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { PutConferencePreferenceRequest, PutConferencePreferenceResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1PutConferencePreferenceCommand,
   serializeAws_json1_1PutConferencePreferenceCommand,
@@ -111,8 +106,8 @@ export class PutConferencePreferenceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutConferencePreferenceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutConferencePreferenceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

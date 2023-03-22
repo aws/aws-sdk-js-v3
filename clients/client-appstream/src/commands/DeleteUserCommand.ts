@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
-import {
-  DeleteUserRequest,
-  DeleteUserRequestFilterSensitiveLog,
-  DeleteUserResult,
-  DeleteUserResultFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteUserRequest, DeleteUserRequestFilterSensitiveLog, DeleteUserResult } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteUserCommand,
   serializeAws_json1_1DeleteUserCommand,
@@ -109,7 +104,7 @@ export class DeleteUserCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: DeleteUserRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteUserResultFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

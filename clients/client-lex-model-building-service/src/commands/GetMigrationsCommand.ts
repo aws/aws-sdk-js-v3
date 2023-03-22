@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../LexModelBuildingServiceClient";
-import {
-  GetMigrationsRequest,
-  GetMigrationsRequestFilterSensitiveLog,
-  GetMigrationsResponse,
-  GetMigrationsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetMigrationsRequest, GetMigrationsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetMigrationsCommand,
   serializeAws_restJson1GetMigrationsCommand,
@@ -120,8 +115,8 @@ export class GetMigrationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetMigrationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetMigrationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

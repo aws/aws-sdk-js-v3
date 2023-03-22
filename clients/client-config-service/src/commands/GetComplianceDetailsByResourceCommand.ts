@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import {
-  GetComplianceDetailsByResourceRequest,
-  GetComplianceDetailsByResourceRequestFilterSensitiveLog,
-  GetComplianceDetailsByResourceResponse,
-  GetComplianceDetailsByResourceResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetComplianceDetailsByResourceRequest, GetComplianceDetailsByResourceResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GetComplianceDetailsByResourceCommand,
   serializeAws_json1_1GetComplianceDetailsByResourceCommand,
@@ -116,8 +111,8 @@ export class GetComplianceDetailsByResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetComplianceDetailsByResourceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetComplianceDetailsByResourceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

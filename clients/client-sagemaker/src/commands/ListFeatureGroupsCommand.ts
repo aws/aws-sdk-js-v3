@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListFeatureGroupsRequest,
-  ListFeatureGroupsRequestFilterSensitiveLog,
-  ListFeatureGroupsResponse,
-  ListFeatureGroupsResponseFilterSensitiveLog,
-} from "../models/models_3";
+import { ListFeatureGroupsRequest, ListFeatureGroupsResponse } from "../models/models_3";
 import {
   deserializeAws_json1_1ListFeatureGroupsCommand,
   serializeAws_json1_1ListFeatureGroupsCommand,
@@ -107,8 +102,8 @@ export class ListFeatureGroupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListFeatureGroupsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListFeatureGroupsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

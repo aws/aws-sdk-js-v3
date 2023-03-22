@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
-import {
-  Application,
-  ApplicationFilterSensitiveLog,
-  UpdateApplicationRequest,
-  UpdateApplicationRequestFilterSensitiveLog,
-} from "../models/models_0";
+import { Application, ApplicationFilterSensitiveLog, UpdateApplicationRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateApplicationCommand,
   serializeAws_restJson1UpdateApplicationCommand,
@@ -116,7 +111,7 @@ export class UpdateApplicationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateApplicationRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ApplicationFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

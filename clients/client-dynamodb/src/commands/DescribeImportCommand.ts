@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
-import {
-  DescribeImportInput,
-  DescribeImportInputFilterSensitiveLog,
-  DescribeImportOutput,
-  DescribeImportOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeImportInput, DescribeImportOutput } from "../models/models_0";
 import {
   deserializeAws_json1_0DescribeImportCommand,
   serializeAws_json1_0DescribeImportCommand,
@@ -112,8 +107,8 @@ export class DescribeImportCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeImportInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeImportOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DisableFastLaunchRequest,
-  DisableFastLaunchRequestFilterSensitiveLog,
-  DisableFastLaunchResult,
-  DisableFastLaunchResultFilterSensitiveLog,
-} from "../models/models_5";
+import { DisableFastLaunchRequest, DisableFastLaunchResult } from "../models/models_5";
 import {
   deserializeAws_ec2DisableFastLaunchCommand,
   serializeAws_ec2DisableFastLaunchCommand,
@@ -112,8 +107,8 @@ export class DisableFastLaunchCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisableFastLaunchRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisableFastLaunchResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

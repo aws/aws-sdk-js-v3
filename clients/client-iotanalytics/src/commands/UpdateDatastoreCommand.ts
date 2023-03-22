@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTAnalyticsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTAnalyticsClient";
-import { UpdateDatastoreRequest, UpdateDatastoreRequestFilterSensitiveLog } from "../models/models_0";
+import { UpdateDatastoreRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateDatastoreCommand,
   serializeAws_restJson1UpdateDatastoreCommand,
@@ -117,8 +117,8 @@ export class UpdateDatastoreCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateDatastoreRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

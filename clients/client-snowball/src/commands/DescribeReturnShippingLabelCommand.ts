@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeReturnShippingLabelRequest,
-  DescribeReturnShippingLabelRequestFilterSensitiveLog,
-  DescribeReturnShippingLabelResult,
-  DescribeReturnShippingLabelResultFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeReturnShippingLabelRequest, DescribeReturnShippingLabelResult } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeReturnShippingLabelCommand,
   serializeAws_json1_1DescribeReturnShippingLabelCommand,
@@ -119,8 +114,8 @@ export class DescribeReturnShippingLabelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeReturnShippingLabelRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeReturnShippingLabelResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { BackupGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupGatewayClient";
-import {
-  GetBandwidthRateLimitScheduleInput,
-  GetBandwidthRateLimitScheduleInputFilterSensitiveLog,
-  GetBandwidthRateLimitScheduleOutput,
-  GetBandwidthRateLimitScheduleOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { GetBandwidthRateLimitScheduleInput, GetBandwidthRateLimitScheduleOutput } from "../models/models_0";
 import {
   deserializeAws_json1_0GetBandwidthRateLimitScheduleCommand,
   serializeAws_json1_0GetBandwidthRateLimitScheduleCommand,
@@ -125,8 +120,8 @@ export class GetBandwidthRateLimitScheduleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetBandwidthRateLimitScheduleInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetBandwidthRateLimitScheduleOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

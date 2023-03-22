@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
-import {
-  UpdateTimeToLiveInput,
-  UpdateTimeToLiveInputFilterSensitiveLog,
-  UpdateTimeToLiveOutput,
-  UpdateTimeToLiveOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateTimeToLiveInput, UpdateTimeToLiveOutput } from "../models/models_0";
 import {
   deserializeAws_json1_0UpdateTimeToLiveCommand,
   serializeAws_json1_0UpdateTimeToLiveCommand,
@@ -158,8 +153,8 @@ export class UpdateTimeToLiveCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateTimeToLiveInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateTimeToLiveOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListSpacesRequest,
-  ListSpacesRequestFilterSensitiveLog,
-  ListSpacesResponse,
-  ListSpacesResponseFilterSensitiveLog,
-} from "../models/models_3";
+import { ListSpacesRequest, ListSpacesResponse } from "../models/models_3";
 import {
   deserializeAws_json1_1ListSpacesCommand,
   serializeAws_json1_1ListSpacesCommand,
@@ -105,8 +100,8 @@ export class ListSpacesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListSpacesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListSpacesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

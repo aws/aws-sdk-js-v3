@@ -20,9 +20,7 @@ import {
 } from "../ApplicationDiscoveryServiceClient";
 import {
   DisassociateConfigurationItemsFromApplicationRequest,
-  DisassociateConfigurationItemsFromApplicationRequestFilterSensitiveLog,
   DisassociateConfigurationItemsFromApplicationResponse,
-  DisassociateConfigurationItemsFromApplicationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1DisassociateConfigurationItemsFromApplicationCommand,
@@ -137,8 +135,8 @@ export class DisassociateConfigurationItemsFromApplicationCommand extends $Comma
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateConfigurationItemsFromApplicationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateConfigurationItemsFromApplicationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

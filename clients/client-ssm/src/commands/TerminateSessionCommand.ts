@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  TerminateSessionRequest,
-  TerminateSessionRequestFilterSensitiveLog,
-  TerminateSessionResponse,
-  TerminateSessionResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { TerminateSessionRequest, TerminateSessionResponse } from "../models/models_1";
 import {
   deserializeAws_json1_1TerminateSessionCommand,
   serializeAws_json1_1TerminateSessionCommand,
@@ -111,8 +106,8 @@ export class TerminateSessionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TerminateSessionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: TerminateSessionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

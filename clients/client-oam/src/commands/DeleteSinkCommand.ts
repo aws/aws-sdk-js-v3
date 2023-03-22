@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteSinkInput,
-  DeleteSinkInputFilterSensitiveLog,
-  DeleteSinkOutput,
-  DeleteSinkOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteSinkInput, DeleteSinkOutput } from "../models/models_0";
 import { OAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OAMClient";
 import {
   deserializeAws_restJson1DeleteSinkCommand,
@@ -120,8 +115,8 @@ export class DeleteSinkCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteSinkInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteSinkOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

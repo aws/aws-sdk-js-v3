@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ModifySamlPropertiesRequest,
-  ModifySamlPropertiesRequestFilterSensitiveLog,
-  ModifySamlPropertiesResult,
-  ModifySamlPropertiesResultFilterSensitiveLog,
-} from "../models/models_0";
+import { ModifySamlPropertiesRequest, ModifySamlPropertiesResult } from "../models/models_0";
 import {
   deserializeAws_json1_1ModifySamlPropertiesCommand,
   serializeAws_json1_1ModifySamlPropertiesCommand,
@@ -121,8 +116,8 @@ export class ModifySamlPropertiesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifySamlPropertiesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifySamlPropertiesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

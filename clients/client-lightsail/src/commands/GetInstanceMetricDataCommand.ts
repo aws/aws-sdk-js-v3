@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import {
-  GetInstanceMetricDataRequest,
-  GetInstanceMetricDataRequestFilterSensitiveLog,
-  GetInstanceMetricDataResult,
-  GetInstanceMetricDataResultFilterSensitiveLog,
-} from "../models/models_1";
+import { GetInstanceMetricDataRequest, GetInstanceMetricDataResult } from "../models/models_1";
 import {
   deserializeAws_json1_1GetInstanceMetricDataCommand,
   serializeAws_json1_1GetInstanceMetricDataCommand,
@@ -141,8 +136,8 @@ export class GetInstanceMetricDataCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetInstanceMetricDataRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetInstanceMetricDataResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

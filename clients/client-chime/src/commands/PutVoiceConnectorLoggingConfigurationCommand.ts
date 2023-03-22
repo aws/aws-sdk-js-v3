@@ -16,9 +16,7 @@ import {
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import {
   PutVoiceConnectorLoggingConfigurationRequest,
-  PutVoiceConnectorLoggingConfigurationRequestFilterSensitiveLog,
   PutVoiceConnectorLoggingConfigurationResponse,
-  PutVoiceConnectorLoggingConfigurationResponseFilterSensitiveLog,
 } from "../models/models_1";
 import {
   deserializeAws_restJson1PutVoiceConnectorLoggingConfigurationCommand,
@@ -131,8 +129,8 @@ export class PutVoiceConnectorLoggingConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutVoiceConnectorLoggingConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutVoiceConnectorLoggingConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

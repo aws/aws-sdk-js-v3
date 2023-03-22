@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import {
-  AssociateQueueQuickConnectsRequest,
-  AssociateQueueQuickConnectsRequestFilterSensitiveLog,
-} from "../models/models_0";
+import { AssociateQueueQuickConnectsRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1AssociateQueueQuickConnectsCommand,
   serializeAws_restJson1AssociateQueueQuickConnectsCommand,
@@ -124,8 +121,8 @@ export class AssociateQueueQuickConnectsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateQueueQuickConnectsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

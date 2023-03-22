@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ComputeOptimizerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComputeOptimizerClient";
-import {
-  GetRecommendationPreferencesRequest,
-  GetRecommendationPreferencesRequestFilterSensitiveLog,
-  GetRecommendationPreferencesResponse,
-  GetRecommendationPreferencesResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetRecommendationPreferencesRequest, GetRecommendationPreferencesResponse } from "../models/models_0";
 import {
   deserializeAws_json1_0GetRecommendationPreferencesCommand,
   serializeAws_json1_0GetRecommendationPreferencesCommand,
@@ -141,8 +136,8 @@ export class GetRecommendationPreferencesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetRecommendationPreferencesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetRecommendationPreferencesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetConnectPeerAssociationsRequest,
-  GetConnectPeerAssociationsRequestFilterSensitiveLog,
-  GetConnectPeerAssociationsResponse,
-  GetConnectPeerAssociationsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetConnectPeerAssociationsRequest, GetConnectPeerAssociationsResponse } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
 import {
   deserializeAws_restJson1GetConnectPeerAssociationsCommand,
@@ -126,8 +121,8 @@ export class GetConnectPeerAssociationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetConnectPeerAssociationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetConnectPeerAssociationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

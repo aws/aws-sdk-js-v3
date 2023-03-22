@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTAnalyticsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTAnalyticsClient";
-import {
-  SampleChannelDataRequest,
-  SampleChannelDataRequestFilterSensitiveLog,
-  SampleChannelDataResponse,
-  SampleChannelDataResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { SampleChannelDataRequest, SampleChannelDataResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1SampleChannelDataCommand,
   serializeAws_restJson1SampleChannelDataCommand,
@@ -123,8 +118,8 @@ export class SampleChannelDataCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SampleChannelDataRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SampleChannelDataResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

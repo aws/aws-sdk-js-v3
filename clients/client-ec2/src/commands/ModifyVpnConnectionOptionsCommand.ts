@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  ModifyVpnConnectionOptionsRequest,
-  ModifyVpnConnectionOptionsRequestFilterSensitiveLog,
-  ModifyVpnConnectionOptionsResult,
-  ModifyVpnConnectionOptionsResultFilterSensitiveLog,
-} from "../models/models_6";
+import { ModifyVpnConnectionOptionsRequest, ModifyVpnConnectionOptionsResult } from "../models/models_6";
 import {
   deserializeAws_ec2ModifyVpnConnectionOptionsCommand,
   serializeAws_ec2ModifyVpnConnectionOptionsCommand,
@@ -111,8 +106,8 @@ export class ModifyVpnConnectionOptionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyVpnConnectionOptionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifyVpnConnectionOptionsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

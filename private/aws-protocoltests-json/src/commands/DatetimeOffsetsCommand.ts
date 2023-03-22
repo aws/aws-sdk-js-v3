@@ -13,17 +13,21 @@ import {
 } from "@aws-sdk/types";
 
 import { JsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../JsonProtocolClient";
-import { DatetimeOffsetsOutput, DatetimeOffsetsOutputFilterSensitiveLog } from "../models/models_0";
+import { DatetimeOffsetsOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1DatetimeOffsetsCommand,
   serializeAws_json1_1DatetimeOffsetsCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link DatetimeOffsetsCommand}.
  */
 export interface DatetimeOffsetsCommandInput {}
 /**
+ * @public
+ *
  * The output of {@link DatetimeOffsetsCommand}.
  */
 export interface DatetimeOffsetsCommandOutput extends DatetimeOffsetsOutput, __MetadataBearer {}
@@ -36,6 +40,9 @@ export class DatetimeOffsetsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: DatetimeOffsetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,8 +68,8 @@ export class DatetimeOffsetsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: DatetimeOffsetsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -72,10 +79,16 @@ export class DatetimeOffsetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DatetimeOffsetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DatetimeOffsetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DatetimeOffsetsCommandOutput> {
     return deserializeAws_json1_1DatetimeOffsetsCommand(output, context);
   }

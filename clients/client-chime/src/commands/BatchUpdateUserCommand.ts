@@ -18,7 +18,6 @@ import {
   BatchUpdateUserRequest,
   BatchUpdateUserRequestFilterSensitiveLog,
   BatchUpdateUserResponse,
-  BatchUpdateUserResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1BatchUpdateUserCommand,
@@ -129,7 +128,7 @@ export class BatchUpdateUserCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: BatchUpdateUserRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchUpdateUserResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

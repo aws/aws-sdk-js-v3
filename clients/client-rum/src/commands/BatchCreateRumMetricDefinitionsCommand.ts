@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  BatchCreateRumMetricDefinitionsRequest,
-  BatchCreateRumMetricDefinitionsRequestFilterSensitiveLog,
-  BatchCreateRumMetricDefinitionsResponse,
-  BatchCreateRumMetricDefinitionsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { BatchCreateRumMetricDefinitionsRequest, BatchCreateRumMetricDefinitionsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1BatchCreateRumMetricDefinitionsCommand,
   serializeAws_restJson1BatchCreateRumMetricDefinitionsCommand,
@@ -169,8 +164,8 @@ export class BatchCreateRumMetricDefinitionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchCreateRumMetricDefinitionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchCreateRumMetricDefinitionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

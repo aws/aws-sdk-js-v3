@@ -17,7 +17,6 @@ import {
   CreateMaintenanceWindowRequest,
   CreateMaintenanceWindowRequestFilterSensitiveLog,
   CreateMaintenanceWindowResult,
-  CreateMaintenanceWindowResultFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateMaintenanceWindowCommand,
@@ -129,7 +128,7 @@ export class CreateMaintenanceWindowCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateMaintenanceWindowRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateMaintenanceWindowResultFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

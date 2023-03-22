@@ -17,7 +17,6 @@ import {
   UpdateFileSystemAssociationInput,
   UpdateFileSystemAssociationInputFilterSensitiveLog,
   UpdateFileSystemAssociationOutput,
-  UpdateFileSystemAssociationOutputFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateFileSystemAssociationCommand,
@@ -117,7 +116,7 @@ export class UpdateFileSystemAssociationCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: UpdateFileSystemAssociationInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateFileSystemAssociationOutputFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

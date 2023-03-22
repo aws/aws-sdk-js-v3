@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GroundStationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GroundStationClient";
-import {
-  ConfigIdResponse,
-  ConfigIdResponseFilterSensitiveLog,
-  DeleteConfigRequest,
-  DeleteConfigRequestFilterSensitiveLog,
-} from "../models/models_0";
+import { ConfigIdResponse, DeleteConfigRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteConfigCommand,
   serializeAws_restJson1DeleteConfigCommand,
@@ -114,8 +109,8 @@ export class DeleteConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteConfigRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ConfigIdResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  ModifyTrafficMirrorSessionRequest,
-  ModifyTrafficMirrorSessionRequestFilterSensitiveLog,
-  ModifyTrafficMirrorSessionResult,
-  ModifyTrafficMirrorSessionResultFilterSensitiveLog,
-} from "../models/models_6";
+import { ModifyTrafficMirrorSessionRequest, ModifyTrafficMirrorSessionResult } from "../models/models_6";
 import {
   deserializeAws_ec2ModifyTrafficMirrorSessionCommand,
   serializeAws_ec2ModifyTrafficMirrorSessionCommand,
@@ -107,8 +102,8 @@ export class ModifyTrafficMirrorSessionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyTrafficMirrorSessionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifyTrafficMirrorSessionResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

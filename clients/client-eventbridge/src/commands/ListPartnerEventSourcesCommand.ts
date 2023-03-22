@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EventBridgeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EventBridgeClient";
-import {
-  ListPartnerEventSourcesRequest,
-  ListPartnerEventSourcesRequestFilterSensitiveLog,
-  ListPartnerEventSourcesResponse,
-  ListPartnerEventSourcesResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListPartnerEventSourcesRequest, ListPartnerEventSourcesResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ListPartnerEventSourcesCommand,
   serializeAws_json1_1ListPartnerEventSourcesCommand,
@@ -114,8 +109,8 @@ export class ListPartnerEventSourcesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListPartnerEventSourcesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListPartnerEventSourcesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CostAndUsageReportServiceClient";
-import {
-  PutReportDefinitionRequest,
-  PutReportDefinitionRequestFilterSensitiveLog,
-  PutReportDefinitionResponse,
-  PutReportDefinitionResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { PutReportDefinitionRequest, PutReportDefinitionResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1PutReportDefinitionCommand,
   serializeAws_json1_1PutReportDefinitionCommand,
@@ -149,8 +144,8 @@ export class PutReportDefinitionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutReportDefinitionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutReportDefinitionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

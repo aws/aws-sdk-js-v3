@@ -15,7 +15,6 @@ import {
 
 import {
   DeleteStudioComponentRequest,
-  DeleteStudioComponentRequestFilterSensitiveLog,
   DeleteStudioComponentResponse,
   DeleteStudioComponentResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -131,7 +130,7 @@ export class DeleteStudioComponentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteStudioComponentRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DeleteStudioComponentResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

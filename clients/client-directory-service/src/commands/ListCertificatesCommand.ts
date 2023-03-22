@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
-import {
-  ListCertificatesRequest,
-  ListCertificatesRequestFilterSensitiveLog,
-  ListCertificatesResult,
-  ListCertificatesResultFilterSensitiveLog,
-} from "../models/models_0";
+import { ListCertificatesRequest, ListCertificatesResult } from "../models/models_0";
 import {
   deserializeAws_json1_1ListCertificatesCommand,
   serializeAws_json1_1ListCertificatesCommand,
@@ -125,8 +120,8 @@ export class ListCertificatesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListCertificatesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListCertificatesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

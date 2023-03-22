@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  ModifyFpgaImageAttributeRequest,
-  ModifyFpgaImageAttributeRequestFilterSensitiveLog,
-  ModifyFpgaImageAttributeResult,
-  ModifyFpgaImageAttributeResultFilterSensitiveLog,
-} from "../models/models_6";
+import { ModifyFpgaImageAttributeRequest, ModifyFpgaImageAttributeResult } from "../models/models_6";
 import {
   deserializeAws_ec2ModifyFpgaImageAttributeCommand,
   serializeAws_ec2ModifyFpgaImageAttributeCommand,
@@ -107,8 +102,8 @@ export class ModifyFpgaImageAttributeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyFpgaImageAttributeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifyFpgaImageAttributeResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

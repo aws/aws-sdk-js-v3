@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeAttackStatisticsRequest,
-  DescribeAttackStatisticsRequestFilterSensitiveLog,
-  DescribeAttackStatisticsResponse,
-  DescribeAttackStatisticsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeAttackStatisticsRequest, DescribeAttackStatisticsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeAttackStatisticsCommand,
   serializeAws_json1_1DescribeAttackStatisticsCommand,
@@ -112,8 +107,8 @@ export class DescribeAttackStatisticsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeAttackStatisticsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeAttackStatisticsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

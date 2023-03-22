@@ -15,7 +15,6 @@ import {
 
 import {
   DescribeMaintenanceWindowExecutionTaskInvocationsRequest,
-  DescribeMaintenanceWindowExecutionTaskInvocationsRequestFilterSensitiveLog,
   DescribeMaintenanceWindowExecutionTaskInvocationsResult,
   DescribeMaintenanceWindowExecutionTaskInvocationsResultFilterSensitiveLog,
 } from "../models/models_0";
@@ -126,7 +125,7 @@ export class DescribeMaintenanceWindowExecutionTaskInvocationsCommand extends $C
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeMaintenanceWindowExecutionTaskInvocationsRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeMaintenanceWindowExecutionTaskInvocationsResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

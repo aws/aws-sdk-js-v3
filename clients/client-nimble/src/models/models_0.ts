@@ -3967,34 +3967,6 @@ export interface UntagResourceResponse {}
 /**
  * @internal
  */
-export const AcceptEulasRequestFilterSensitiveLog = (obj: AcceptEulasRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EulaAcceptanceFilterSensitiveLog = (obj: EulaAcceptance): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AcceptEulasResponseFilterSensitiveLog = (obj: AcceptEulasResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ActiveDirectoryComputerAttributeFilterSensitiveLog = (obj: ActiveDirectoryComputerAttribute): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const ActiveDirectoryConfigurationFilterSensitiveLog = (obj: ActiveDirectoryConfiguration): any => ({
   ...obj,
   ...(obj.computerAttributes && { computerAttributes: SENSITIVE_STRING }),
@@ -4006,13 +3978,6 @@ export const ActiveDirectoryConfigurationFilterSensitiveLog = (obj: ActiveDirect
 export const ComputeFarmConfigurationFilterSensitiveLog = (obj: ComputeFarmConfiguration): any => ({
   ...obj,
   ...(obj.endpoint && { endpoint: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const StreamConfigurationSessionBackupFilterSensitiveLog = (obj: StreamConfigurationSessionBackup): any => ({
-  ...obj,
 });
 
 /**
@@ -4030,13 +3995,6 @@ export const StreamingSessionStorageRootFilterSensitiveLog = (obj: StreamingSess
 export const StreamConfigurationSessionStorageFilterSensitiveLog = (obj: StreamConfigurationSessionStorage): any => ({
   ...obj,
   ...(obj.root && { root: StreamingSessionStorageRootFilterSensitiveLog(obj.root) }),
-});
-
-/**
- * @internal
- */
-export const VolumeConfigurationFilterSensitiveLog = (obj: VolumeConfiguration): any => ({
-  ...obj,
 });
 
 /**
@@ -4074,13 +4032,6 @@ export const StreamConfigurationFilterSensitiveLog = (obj: StreamConfiguration):
 /**
  * @internal
  */
-export const ValidationResultFilterSensitiveLog = (obj: ValidationResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const LaunchProfileFilterSensitiveLog = (obj: LaunchProfile): any => ({
   ...obj,
   ...(obj.description && { description: SENSITIVE_STRING }),
@@ -4110,15 +4061,6 @@ export const CreateStreamingImageRequestFilterSensitiveLog = (obj: CreateStreami
 /**
  * @internal
  */
-export const StreamingImageEncryptionConfigurationFilterSensitiveLog = (
-  obj: StreamingImageEncryptionConfiguration
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const StreamingImageFilterSensitiveLog = (obj: StreamingImage): any => ({
   ...obj,
   ...(obj.description && { description: SENSITIVE_STRING }),
@@ -4131,36 +4073,6 @@ export const StreamingImageFilterSensitiveLog = (obj: StreamingImage): any => ({
 export const CreateStreamingImageResponseFilterSensitiveLog = (obj: CreateStreamingImageResponse): any => ({
   ...obj,
   ...(obj.streamingImage && { streamingImage: StreamingImageFilterSensitiveLog(obj.streamingImage) }),
-});
-
-/**
- * @internal
- */
-export const CreateStreamingSessionRequestFilterSensitiveLog = (obj: CreateStreamingSessionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StreamingSessionFilterSensitiveLog = (obj: StreamingSession): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateStreamingSessionResponseFilterSensitiveLog = (obj: CreateStreamingSessionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateStreamingSessionStreamRequestFilterSensitiveLog = (
-  obj: CreateStreamingSessionStreamRequest
-): any => ({
-  ...obj,
 });
 
 /**
@@ -4179,13 +4091,6 @@ export const CreateStreamingSessionStreamResponseFilterSensitiveLog = (
 ): any => ({
   ...obj,
   ...(obj.stream && { stream: StreamingSessionStreamFilterSensitiveLog(obj.stream) }),
-});
-
-/**
- * @internal
- */
-export const StudioEncryptionConfigurationFilterSensitiveLog = (obj: StudioEncryptionConfiguration): any => ({
-  ...obj,
 });
 
 /**
@@ -4262,13 +4167,6 @@ export const StudioComponentInitializationScriptFilterSensitiveLog = (
 /**
  * @internal
  */
-export const ScriptParameterKeyValueFilterSensitiveLog = (obj: ScriptParameterKeyValue): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const CreateStudioComponentRequestFilterSensitiveLog = (obj: CreateStudioComponentRequest): any => ({
   ...obj,
   ...(obj.configuration && { configuration: StudioComponentConfigurationFilterSensitiveLog(obj.configuration) }),
@@ -4309,37 +4207,9 @@ export const CreateStudioComponentResponseFilterSensitiveLog = (obj: CreateStudi
 /**
  * @internal
  */
-export const DeleteLaunchProfileRequestFilterSensitiveLog = (obj: DeleteLaunchProfileRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const DeleteLaunchProfileResponseFilterSensitiveLog = (obj: DeleteLaunchProfileResponse): any => ({
   ...obj,
   ...(obj.launchProfile && { launchProfile: LaunchProfileFilterSensitiveLog(obj.launchProfile) }),
-});
-
-/**
- * @internal
- */
-export const DeleteLaunchProfileMemberRequestFilterSensitiveLog = (obj: DeleteLaunchProfileMemberRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteLaunchProfileMemberResponseFilterSensitiveLog = (obj: DeleteLaunchProfileMemberResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteStreamingImageRequestFilterSensitiveLog = (obj: DeleteStreamingImageRequest): any => ({
-  ...obj,
 });
 
 /**
@@ -4353,37 +4223,9 @@ export const DeleteStreamingImageResponseFilterSensitiveLog = (obj: DeleteStream
 /**
  * @internal
  */
-export const DeleteStreamingSessionRequestFilterSensitiveLog = (obj: DeleteStreamingSessionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteStreamingSessionResponseFilterSensitiveLog = (obj: DeleteStreamingSessionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteStudioRequestFilterSensitiveLog = (obj: DeleteStudioRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const DeleteStudioResponseFilterSensitiveLog = (obj: DeleteStudioResponse): any => ({
   ...obj,
   ...(obj.studio && { studio: StudioFilterSensitiveLog(obj.studio) }),
-});
-
-/**
- * @internal
- */
-export const DeleteStudioComponentRequestFilterSensitiveLog = (obj: DeleteStudioComponentRequest): any => ({
-  ...obj,
 });
 
 /**
@@ -4397,86 +4239,9 @@ export const DeleteStudioComponentResponseFilterSensitiveLog = (obj: DeleteStudi
 /**
  * @internal
  */
-export const DeleteStudioMemberRequestFilterSensitiveLog = (obj: DeleteStudioMemberRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteStudioMemberResponseFilterSensitiveLog = (obj: DeleteStudioMemberResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EulaFilterSensitiveLog = (obj: Eula): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListEulaAcceptancesRequestFilterSensitiveLog = (obj: ListEulaAcceptancesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListEulaAcceptancesResponseFilterSensitiveLog = (obj: ListEulaAcceptancesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetEulaRequestFilterSensitiveLog = (obj: GetEulaRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetEulaResponseFilterSensitiveLog = (obj: GetEulaResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListEulasRequestFilterSensitiveLog = (obj: ListEulasRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListEulasResponseFilterSensitiveLog = (obj: ListEulasResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetLaunchProfileRequestFilterSensitiveLog = (obj: GetLaunchProfileRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const GetLaunchProfileResponseFilterSensitiveLog = (obj: GetLaunchProfileResponse): any => ({
   ...obj,
   ...(obj.launchProfile && { launchProfile: LaunchProfileFilterSensitiveLog(obj.launchProfile) }),
-});
-
-/**
- * @internal
- */
-export const GetLaunchProfileDetailsRequestFilterSensitiveLog = (obj: GetLaunchProfileDetailsRequest): any => ({
-  ...obj,
 });
 
 /**
@@ -4502,15 +4267,6 @@ export const GetLaunchProfileDetailsResponseFilterSensitiveLog = (obj: GetLaunch
       StudioComponentSummaryFilterSensitiveLog(item)
     ),
   }),
-});
-
-/**
- * @internal
- */
-export const GetLaunchProfileInitializationRequestFilterSensitiveLog = (
-  obj: GetLaunchProfileInitializationRequest
-): any => ({
-  ...obj,
 });
 
 /**
@@ -4569,79 +4325,9 @@ export const GetLaunchProfileInitializationResponseFilterSensitiveLog = (
 /**
  * @internal
  */
-export const GetLaunchProfileMemberRequestFilterSensitiveLog = (obj: GetLaunchProfileMemberRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LaunchProfileMembershipFilterSensitiveLog = (obj: LaunchProfileMembership): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetLaunchProfileMemberResponseFilterSensitiveLog = (obj: GetLaunchProfileMemberResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetStreamingImageRequestFilterSensitiveLog = (obj: GetStreamingImageRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const GetStreamingImageResponseFilterSensitiveLog = (obj: GetStreamingImageResponse): any => ({
   ...obj,
   ...(obj.streamingImage && { streamingImage: StreamingImageFilterSensitiveLog(obj.streamingImage) }),
-});
-
-/**
- * @internal
- */
-export const GetStreamingSessionRequestFilterSensitiveLog = (obj: GetStreamingSessionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetStreamingSessionResponseFilterSensitiveLog = (obj: GetStreamingSessionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetStreamingSessionBackupRequestFilterSensitiveLog = (obj: GetStreamingSessionBackupRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StreamingSessionBackupFilterSensitiveLog = (obj: StreamingSessionBackup): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetStreamingSessionBackupResponseFilterSensitiveLog = (obj: GetStreamingSessionBackupResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetStreamingSessionStreamRequestFilterSensitiveLog = (obj: GetStreamingSessionStreamRequest): any => ({
-  ...obj,
 });
 
 /**
@@ -4655,23 +4341,9 @@ export const GetStreamingSessionStreamResponseFilterSensitiveLog = (obj: GetStre
 /**
  * @internal
  */
-export const GetStudioRequestFilterSensitiveLog = (obj: GetStudioRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const GetStudioResponseFilterSensitiveLog = (obj: GetStudioResponse): any => ({
   ...obj,
   ...(obj.studio && { studio: StudioFilterSensitiveLog(obj.studio) }),
-});
-
-/**
- * @internal
- */
-export const GetStudioComponentRequestFilterSensitiveLog = (obj: GetStudioComponentRequest): any => ({
-  ...obj,
 });
 
 /**
@@ -4685,74 +4357,11 @@ export const GetStudioComponentResponseFilterSensitiveLog = (obj: GetStudioCompo
 /**
  * @internal
  */
-export const GetStudioMemberRequestFilterSensitiveLog = (obj: GetStudioMemberRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StudioMembershipFilterSensitiveLog = (obj: StudioMembership): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetStudioMemberResponseFilterSensitiveLog = (obj: GetStudioMemberResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListLaunchProfileMembersRequestFilterSensitiveLog = (obj: ListLaunchProfileMembersRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListLaunchProfileMembersResponseFilterSensitiveLog = (obj: ListLaunchProfileMembersResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListLaunchProfilesRequestFilterSensitiveLog = (obj: ListLaunchProfilesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const ListLaunchProfilesResponseFilterSensitiveLog = (obj: ListLaunchProfilesResponse): any => ({
   ...obj,
   ...(obj.launchProfiles && {
     launchProfiles: obj.launchProfiles.map((item) => LaunchProfileFilterSensitiveLog(item)),
   }),
-});
-
-/**
- * @internal
- */
-export const NewLaunchProfileMemberFilterSensitiveLog = (obj: NewLaunchProfileMember): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutLaunchProfileMembersRequestFilterSensitiveLog = (obj: PutLaunchProfileMembersRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutLaunchProfileMembersResponseFilterSensitiveLog = (obj: PutLaunchProfileMembersResponse): any => ({
-  ...obj,
 });
 
 /**
@@ -4778,69 +4387,11 @@ export const UpdateLaunchProfileResponseFilterSensitiveLog = (obj: UpdateLaunchP
 /**
  * @internal
  */
-export const UpdateLaunchProfileMemberRequestFilterSensitiveLog = (obj: UpdateLaunchProfileMemberRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateLaunchProfileMemberResponseFilterSensitiveLog = (obj: UpdateLaunchProfileMemberResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListStreamingImagesRequestFilterSensitiveLog = (obj: ListStreamingImagesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const ListStreamingImagesResponseFilterSensitiveLog = (obj: ListStreamingImagesResponse): any => ({
   ...obj,
   ...(obj.streamingImages && {
     streamingImages: obj.streamingImages.map((item) => StreamingImageFilterSensitiveLog(item)),
   }),
-});
-
-/**
- * @internal
- */
-export const ListStreamingSessionBackupsRequestFilterSensitiveLog = (obj: ListStreamingSessionBackupsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListStreamingSessionBackupsResponseFilterSensitiveLog = (
-  obj: ListStreamingSessionBackupsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListStreamingSessionsRequestFilterSensitiveLog = (obj: ListStreamingSessionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListStreamingSessionsResponseFilterSensitiveLog = (obj: ListStreamingSessionsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListStudioComponentsRequestFilterSensitiveLog = (obj: ListStudioComponentsRequest): any => ({
-  ...obj,
 });
 
 /**
@@ -4856,51 +4407,9 @@ export const ListStudioComponentsResponseFilterSensitiveLog = (obj: ListStudioCo
 /**
  * @internal
  */
-export const ListStudioMembersRequestFilterSensitiveLog = (obj: ListStudioMembersRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListStudioMembersResponseFilterSensitiveLog = (obj: ListStudioMembersResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListStudiosRequestFilterSensitiveLog = (obj: ListStudiosRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const ListStudiosResponseFilterSensitiveLog = (obj: ListStudiosResponse): any => ({
   ...obj,
   ...(obj.studios && { studios: obj.studios.map((item) => StudioFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NewStudioMemberFilterSensitiveLog = (obj: NewStudioMember): any => ({
-  ...obj,
 });
 
 /**
@@ -4918,34 +4427,6 @@ export const UpdateStreamingImageRequestFilterSensitiveLog = (obj: UpdateStreami
 export const UpdateStreamingImageResponseFilterSensitiveLog = (obj: UpdateStreamingImageResponse): any => ({
   ...obj,
   ...(obj.streamingImage && { streamingImage: StreamingImageFilterSensitiveLog(obj.streamingImage) }),
-});
-
-/**
- * @internal
- */
-export const StartStreamingSessionRequestFilterSensitiveLog = (obj: StartStreamingSessionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartStreamingSessionResponseFilterSensitiveLog = (obj: StartStreamingSessionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopStreamingSessionRequestFilterSensitiveLog = (obj: StopStreamingSessionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopStreamingSessionResponseFilterSensitiveLog = (obj: StopStreamingSessionResponse): any => ({
-  ...obj,
 });
 
 /**
@@ -4975,29 +4456,6 @@ export const UpdateStudioComponentResponseFilterSensitiveLog = (obj: UpdateStudi
 /**
  * @internal
  */
-export const PutStudioMembersRequestFilterSensitiveLog = (obj: PutStudioMembersRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutStudioMembersResponseFilterSensitiveLog = (obj: PutStudioMembersResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartStudioSSOConfigurationRepairRequestFilterSensitiveLog = (
-  obj: StartStudioSSOConfigurationRepairRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const StartStudioSSOConfigurationRepairResponseFilterSensitiveLog = (
   obj: StartStudioSSOConfigurationRepairResponse
 ): any => ({
@@ -5019,32 +4477,4 @@ export const UpdateStudioRequestFilterSensitiveLog = (obj: UpdateStudioRequest):
 export const UpdateStudioResponseFilterSensitiveLog = (obj: UpdateStudioResponse): any => ({
   ...obj,
   ...(obj.studio && { studio: StudioFilterSensitiveLog(obj.studio) }),
-});
-
-/**
- * @internal
- */
-export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
-  ...obj,
 });

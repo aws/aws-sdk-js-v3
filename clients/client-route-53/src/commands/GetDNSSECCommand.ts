@@ -14,12 +14,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetDNSSECRequest,
-  GetDNSSECRequestFilterSensitiveLog,
-  GetDNSSECResponse,
-  GetDNSSECResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetDNSSECRequest, GetDNSSECResponse } from "../models/models_0";
 import { deserializeAws_restXmlGetDNSSECCommand, serializeAws_restXmlGetDNSSECCommand } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
@@ -114,8 +109,8 @@ export class GetDNSSECCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDNSSECRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetDNSSECResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListTopicsInput,
-  ListTopicsInputFilterSensitiveLog,
-  ListTopicsResponse,
-  ListTopicsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListTopicsInput, ListTopicsResponse } from "../models/models_0";
 import { deserializeAws_queryListTopicsCommand, serializeAws_queryListTopicsCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
@@ -116,8 +111,8 @@ export class ListTopicsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTopicsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListTopicsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

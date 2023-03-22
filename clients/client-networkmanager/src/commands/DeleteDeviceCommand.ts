@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteDeviceRequest,
-  DeleteDeviceRequestFilterSensitiveLog,
-  DeleteDeviceResponse,
-  DeleteDeviceResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteDeviceRequest, DeleteDeviceResponse, DeleteDeviceResponseFilterSensitiveLog } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
 import {
   deserializeAws_restJson1DeleteDeviceCommand,
@@ -125,7 +120,7 @@ export class DeleteDeviceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDeviceRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DeleteDeviceResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

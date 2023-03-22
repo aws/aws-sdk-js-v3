@@ -16,7 +16,6 @@ import {
 import { FinspaceDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FinspaceDataClient";
 import {
   GetPermissionGroupRequest,
-  GetPermissionGroupRequestFilterSensitiveLog,
   GetPermissionGroupResponse,
   GetPermissionGroupResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -123,7 +122,7 @@ export class GetPermissionGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetPermissionGroupRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetPermissionGroupResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

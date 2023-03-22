@@ -18,7 +18,6 @@ import {
   UpdateFunctionRequest,
   UpdateFunctionRequestFilterSensitiveLog,
   UpdateFunctionResult,
-  UpdateFunctionResultFilterSensitiveLog,
 } from "../models/models_1";
 import {
   deserializeAws_restXmlUpdateFunctionCommand,
@@ -133,7 +132,7 @@ export class UpdateFunctionCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: UpdateFunctionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateFunctionResultFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

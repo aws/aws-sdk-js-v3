@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GroundStationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GroundStationClient";
-import {
-  DeleteEphemerisRequest,
-  DeleteEphemerisRequestFilterSensitiveLog,
-  EphemerisIdResponse,
-  EphemerisIdResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteEphemerisRequest, EphemerisIdResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteEphemerisCommand,
   serializeAws_restJson1DeleteEphemerisCommand,
@@ -116,8 +111,8 @@ export class DeleteEphemerisCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteEphemerisRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: EphemerisIdResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

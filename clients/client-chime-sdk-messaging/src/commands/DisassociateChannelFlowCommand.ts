@@ -18,7 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ChimeSDKMessagingClient";
-import { DisassociateChannelFlowRequest, DisassociateChannelFlowRequestFilterSensitiveLog } from "../models/models_0";
+import { DisassociateChannelFlowRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1DisassociateChannelFlowCommand,
   serializeAws_restJson1DisassociateChannelFlowCommand,
@@ -136,8 +136,8 @@ export class DisassociateChannelFlowCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateChannelFlowRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

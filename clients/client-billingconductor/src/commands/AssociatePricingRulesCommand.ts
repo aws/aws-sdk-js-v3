@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { BillingconductorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BillingconductorClient";
-import {
-  AssociatePricingRulesInput,
-  AssociatePricingRulesInputFilterSensitiveLog,
-  AssociatePricingRulesOutput,
-  AssociatePricingRulesOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { AssociatePricingRulesInput, AssociatePricingRulesOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1AssociatePricingRulesCommand,
   serializeAws_restJson1AssociatePricingRulesCommand,
@@ -135,8 +130,8 @@ export class AssociatePricingRulesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociatePricingRulesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: AssociatePricingRulesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -15,9 +15,7 @@ import {
 
 import {
   UpdateCompanyNetworkConfigurationRequest,
-  UpdateCompanyNetworkConfigurationRequestFilterSensitiveLog,
   UpdateCompanyNetworkConfigurationResponse,
-  UpdateCompanyNetworkConfigurationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateCompanyNetworkConfigurationCommand,
@@ -126,8 +124,8 @@ export class UpdateCompanyNetworkConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateCompanyNetworkConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateCompanyNetworkConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

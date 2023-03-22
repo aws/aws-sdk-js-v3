@@ -16,7 +16,6 @@ import {
 
 import {
   DescribeScheduledQueryRequest,
-  DescribeScheduledQueryRequestFilterSensitiveLog,
   DescribeScheduledQueryResponse,
   DescribeScheduledQueryResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -131,7 +130,7 @@ export class DescribeScheduledQueryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeScheduledQueryRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeScheduledQueryResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

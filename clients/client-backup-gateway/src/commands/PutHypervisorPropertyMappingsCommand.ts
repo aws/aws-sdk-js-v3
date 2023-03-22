@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { BackupGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupGatewayClient";
-import {
-  PutHypervisorPropertyMappingsInput,
-  PutHypervisorPropertyMappingsInputFilterSensitiveLog,
-  PutHypervisorPropertyMappingsOutput,
-  PutHypervisorPropertyMappingsOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { PutHypervisorPropertyMappingsInput, PutHypervisorPropertyMappingsOutput } from "../models/models_0";
 import {
   deserializeAws_json1_0PutHypervisorPropertyMappingsCommand,
   serializeAws_json1_0PutHypervisorPropertyMappingsCommand,
@@ -130,8 +125,8 @@ export class PutHypervisorPropertyMappingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutHypervisorPropertyMappingsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: PutHypervisorPropertyMappingsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -16,7 +16,6 @@ import {
 import { Cloud9ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Cloud9Client";
 import {
   DescribeEnvironmentsRequest,
-  DescribeEnvironmentsRequestFilterSensitiveLog,
   DescribeEnvironmentsResult,
   DescribeEnvironmentsResultFilterSensitiveLog,
 } from "../models/models_0";
@@ -170,7 +169,7 @@ export class DescribeEnvironmentsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeEnvironmentsRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeEnvironmentsResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

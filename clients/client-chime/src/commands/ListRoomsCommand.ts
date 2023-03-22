@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import {
-  ListRoomsRequest,
-  ListRoomsRequestFilterSensitiveLog,
-  ListRoomsResponse,
-  ListRoomsResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { ListRoomsRequest, ListRoomsResponse, ListRoomsResponseFilterSensitiveLog } from "../models/models_1";
 import {
   deserializeAws_restJson1ListRoomsCommand,
   serializeAws_restJson1ListRoomsCommand,
@@ -126,7 +121,7 @@ export class ListRoomsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListRoomsRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListRoomsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

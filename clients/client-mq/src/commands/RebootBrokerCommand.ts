@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  RebootBrokerRequest,
-  RebootBrokerRequestFilterSensitiveLog,
-  RebootBrokerResponse,
-  RebootBrokerResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { RebootBrokerRequest, RebootBrokerResponse } from "../models/models_0";
 import { MqClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MqClient";
 import {
   deserializeAws_restJson1RebootBrokerCommand,
@@ -117,8 +112,8 @@ export class RebootBrokerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RebootBrokerRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RebootBrokerResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

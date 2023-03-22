@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LookoutEquipmentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutEquipmentClient";
-import {
-  DescribeLabelRequest,
-  DescribeLabelRequestFilterSensitiveLog,
-  DescribeLabelResponse,
-  DescribeLabelResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeLabelRequest, DescribeLabelResponse } from "../models/models_0";
 import {
   deserializeAws_json1_0DescribeLabelCommand,
   serializeAws_json1_0DescribeLabelCommand,
@@ -126,8 +121,8 @@ export class DescribeLabelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeLabelRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeLabelResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -17,7 +17,6 @@ import {
   CreateNetworkSettingsRequest,
   CreateNetworkSettingsRequestFilterSensitiveLog,
   CreateNetworkSettingsResponse,
-  CreateNetworkSettingsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateNetworkSettingsCommand,
@@ -128,7 +127,7 @@ export class CreateNetworkSettingsCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateNetworkSettingsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateNetworkSettingsResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

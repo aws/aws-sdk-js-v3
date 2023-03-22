@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AppRunnerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppRunnerClient";
-import {
-  DeleteVpcIngressConnectionRequest,
-  DeleteVpcIngressConnectionRequestFilterSensitiveLog,
-  DeleteVpcIngressConnectionResponse,
-  DeleteVpcIngressConnectionResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteVpcIngressConnectionRequest, DeleteVpcIngressConnectionResponse } from "../models/models_0";
 import {
   deserializeAws_json1_0DeleteVpcIngressConnectionCommand,
   serializeAws_json1_0DeleteVpcIngressConnectionCommand,
@@ -142,8 +137,8 @@ export class DeleteVpcIngressConnectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteVpcIngressConnectionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteVpcIngressConnectionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

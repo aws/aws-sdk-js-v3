@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  SendCustomVerificationEmailRequest,
-  SendCustomVerificationEmailRequestFilterSensitiveLog,
-  SendCustomVerificationEmailResponse,
-  SendCustomVerificationEmailResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { SendCustomVerificationEmailRequest, SendCustomVerificationEmailResponse } from "../models/models_0";
 import {
   deserializeAws_querySendCustomVerificationEmailCommand,
   serializeAws_querySendCustomVerificationEmailCommand,
@@ -135,8 +130,8 @@ export class SendCustomVerificationEmailCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SendCustomVerificationEmailRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SendCustomVerificationEmailResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

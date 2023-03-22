@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  PutSigningProfileRequest,
-  PutSigningProfileRequestFilterSensitiveLog,
-  PutSigningProfileResponse,
-  PutSigningProfileResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { PutSigningProfileRequest, PutSigningProfileResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1PutSigningProfileCommand,
   serializeAws_restJson1PutSigningProfileCommand,
@@ -125,8 +120,8 @@ export class PutSigningProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutSigningProfileRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutSigningProfileResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

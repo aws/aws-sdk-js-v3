@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ForecastClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastClient";
-import {
-  ListMonitorEvaluationsRequest,
-  ListMonitorEvaluationsRequestFilterSensitiveLog,
-  ListMonitorEvaluationsResponse,
-  ListMonitorEvaluationsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListMonitorEvaluationsRequest, ListMonitorEvaluationsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ListMonitorEvaluationsCommand,
   serializeAws_json1_1ListMonitorEvaluationsCommand,
@@ -121,8 +116,8 @@ export class ListMonitorEvaluationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListMonitorEvaluationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListMonitorEvaluationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

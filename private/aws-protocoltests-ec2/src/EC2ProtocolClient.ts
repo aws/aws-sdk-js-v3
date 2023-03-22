@@ -92,6 +92,9 @@ import { XmlNamespacesCommandInput, XmlNamespacesCommandOutput } from "./command
 import { XmlTimestampsCommandInput, XmlTimestampsCommandOutput } from "./commands/XmlTimestampsCommand";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | DatetimeOffsetsCommandInput
   | EmptyInputAndEmptyOutputCommandInput
@@ -118,6 +121,9 @@ export type ServiceInputTypes =
   | XmlNamespacesCommandInput
   | XmlTimestampsCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | DatetimeOffsetsCommandOutput
   | EmptyInputAndEmptyOutputCommandOutput
@@ -144,6 +150,9 @@ export type ServiceOutputTypes =
   | XmlNamespacesCommandOutput
   | XmlTimestampsCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -151,7 +160,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -255,11 +264,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type EC2ProtocolClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -268,10 +280,15 @@ type EC2ProtocolClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOp
   HostHeaderInputConfig &
   UserAgentInputConfig;
 /**
- * The configuration interface of EC2ProtocolClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of EC2ProtocolClient class constructor that set the region, credentials and other options.
  */
 export interface EC2ProtocolClientConfig extends EC2ProtocolClientConfigType {}
 
+/**
+ * @public
+ */
 type EC2ProtocolClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -280,11 +297,14 @@ type EC2ProtocolClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpH
   HostHeaderResolvedConfig &
   UserAgentResolvedConfig;
 /**
- * The resolved configuration interface of EC2ProtocolClient class. This is resolved and normalized from the {@link EC2ProtocolClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of EC2ProtocolClient class. This is resolved and normalized from the {@link EC2ProtocolClientConfig | constructor configuration interface}.
  */
 export interface EC2ProtocolClientResolvedConfig extends EC2ProtocolClientResolvedConfigType {}
 
 /**
+ * @public
  * An EC2 query service that sends query requests and XML responses.
  */
 export class EC2ProtocolClient extends __Client<

@@ -18,7 +18,6 @@ import {
   PublishPackageVersionRequest,
   PublishPackageVersionRequestFilterSensitiveLog,
   PublishPackageVersionResult,
-  PublishPackageVersionResultFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1PublishPackageVersionCommand,
@@ -154,7 +153,7 @@ export class PublishPackageVersionCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: PublishPackageVersionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PublishPackageVersionResultFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

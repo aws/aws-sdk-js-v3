@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MigrationHubOrchestratorClient";
-import {
-  StartMigrationWorkflowRequest,
-  StartMigrationWorkflowRequestFilterSensitiveLog,
-  StartMigrationWorkflowResponse,
-  StartMigrationWorkflowResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { StartMigrationWorkflowRequest, StartMigrationWorkflowResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1StartWorkflowCommand,
   serializeAws_restJson1StartWorkflowCommand,
@@ -124,8 +119,8 @@ export class StartWorkflowCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartMigrationWorkflowRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartMigrationWorkflowResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

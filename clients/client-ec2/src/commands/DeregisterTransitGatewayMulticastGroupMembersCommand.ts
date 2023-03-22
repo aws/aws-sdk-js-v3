@@ -16,9 +16,7 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   DeregisterTransitGatewayMulticastGroupMembersRequest,
-  DeregisterTransitGatewayMulticastGroupMembersRequestFilterSensitiveLog,
   DeregisterTransitGatewayMulticastGroupMembersResult,
-  DeregisterTransitGatewayMulticastGroupMembersResultFilterSensitiveLog,
 } from "../models/models_3";
 import {
   deserializeAws_ec2DeregisterTransitGatewayMulticastGroupMembersCommand,
@@ -116,8 +114,8 @@ export class DeregisterTransitGatewayMulticastGroupMembersCommand extends $Comma
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeregisterTransitGatewayMulticastGroupMembersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeregisterTransitGatewayMulticastGroupMembersResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

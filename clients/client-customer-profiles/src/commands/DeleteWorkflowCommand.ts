@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CustomerProfilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CustomerProfilesClient";
-import {
-  DeleteWorkflowRequest,
-  DeleteWorkflowRequestFilterSensitiveLog,
-  DeleteWorkflowResponse,
-  DeleteWorkflowResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteWorkflowRequest, DeleteWorkflowResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteWorkflowCommand,
   serializeAws_restJson1DeleteWorkflowCommand,
@@ -122,8 +117,8 @@ export class DeleteWorkflowCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteWorkflowRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteWorkflowResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

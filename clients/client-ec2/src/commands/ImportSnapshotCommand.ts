@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  ImportSnapshotRequest,
-  ImportSnapshotRequestFilterSensitiveLog,
-  ImportSnapshotResult,
-  ImportSnapshotResultFilterSensitiveLog,
-} from "../models/models_5";
+import { ImportSnapshotRequest, ImportSnapshotResult } from "../models/models_5";
 import { deserializeAws_ec2ImportSnapshotCommand, serializeAws_ec2ImportSnapshotCommand } from "../protocols/Aws_ec2";
 
 /**
@@ -106,8 +101,8 @@ export class ImportSnapshotCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ImportSnapshotRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ImportSnapshotResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

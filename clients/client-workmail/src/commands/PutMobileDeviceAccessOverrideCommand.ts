@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  PutMobileDeviceAccessOverrideRequest,
-  PutMobileDeviceAccessOverrideRequestFilterSensitiveLog,
-  PutMobileDeviceAccessOverrideResponse,
-  PutMobileDeviceAccessOverrideResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { PutMobileDeviceAccessOverrideRequest, PutMobileDeviceAccessOverrideResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1PutMobileDeviceAccessOverrideCommand,
   serializeAws_json1_1PutMobileDeviceAccessOverrideCommand,
@@ -128,8 +123,8 @@ export class PutMobileDeviceAccessOverrideCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutMobileDeviceAccessOverrideRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutMobileDeviceAccessOverrideResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

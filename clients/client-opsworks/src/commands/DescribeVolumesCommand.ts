@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeVolumesRequest,
-  DescribeVolumesRequestFilterSensitiveLog,
-  DescribeVolumesResult,
-  DescribeVolumesResultFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeVolumesRequest, DescribeVolumesResult } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
 import {
   deserializeAws_json1_1DescribeVolumesCommand,
@@ -121,8 +116,8 @@ export class DescribeVolumesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeVolumesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeVolumesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

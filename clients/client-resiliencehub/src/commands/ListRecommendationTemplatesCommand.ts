@@ -15,7 +15,6 @@ import {
 
 import {
   ListRecommendationTemplatesRequest,
-  ListRecommendationTemplatesRequestFilterSensitiveLog,
   ListRecommendationTemplatesResponse,
   ListRecommendationTemplatesResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -124,7 +123,7 @@ export class ListRecommendationTemplatesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListRecommendationTemplatesRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListRecommendationTemplatesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

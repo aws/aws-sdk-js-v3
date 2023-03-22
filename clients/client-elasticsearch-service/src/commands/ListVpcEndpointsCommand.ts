@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticsearchServiceClient";
-import {
-  ListVpcEndpointsRequest,
-  ListVpcEndpointsRequestFilterSensitiveLog,
-  ListVpcEndpointsResponse,
-  ListVpcEndpointsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListVpcEndpointsRequest, ListVpcEndpointsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListVpcEndpointsCommand,
   serializeAws_restJson1ListVpcEndpointsCommand,
@@ -120,8 +115,8 @@ export class ListVpcEndpointsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListVpcEndpointsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListVpcEndpointsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

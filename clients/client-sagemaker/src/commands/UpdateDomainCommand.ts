@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateDomainRequest,
-  UpdateDomainRequestFilterSensitiveLog,
-  UpdateDomainResponse,
-  UpdateDomainResponseFilterSensitiveLog,
-} from "../models/models_4";
+import { UpdateDomainRequest, UpdateDomainResponse } from "../models/models_4";
 import {
   deserializeAws_json1_1UpdateDomainCommand,
   serializeAws_json1_1UpdateDomainCommand,
@@ -115,8 +110,8 @@ export class UpdateDomainCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateDomainRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateDomainResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

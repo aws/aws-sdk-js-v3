@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
-import {
-  AssociateSourceServersRequest,
-  AssociateSourceServersRequestFilterSensitiveLog,
-  AssociateSourceServersResponse,
-  AssociateSourceServersResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { AssociateSourceServersRequest, AssociateSourceServersResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1AssociateSourceServersCommand,
   serializeAws_restJson1AssociateSourceServersCommand,
@@ -119,8 +114,8 @@ export class AssociateSourceServersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateSourceServersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssociateSourceServersResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

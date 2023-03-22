@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AppMeshClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppMeshClient";
-import {
-  DeleteVirtualNodeInput,
-  DeleteVirtualNodeInputFilterSensitiveLog,
-  DeleteVirtualNodeOutput,
-  DeleteVirtualNodeOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteVirtualNodeInput, DeleteVirtualNodeOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteVirtualNodeCommand,
   serializeAws_restJson1DeleteVirtualNodeCommand,
@@ -134,8 +129,8 @@ export class DeleteVirtualNodeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteVirtualNodeInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteVirtualNodeOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

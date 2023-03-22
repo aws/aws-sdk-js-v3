@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CodestarNotificationsClient";
-import {
-  SubscribeRequest,
-  SubscribeRequestFilterSensitiveLog,
-  SubscribeResult,
-  SubscribeResultFilterSensitiveLog,
-} from "../models/models_0";
+import { SubscribeRequest, SubscribeRequestFilterSensitiveLog, SubscribeResult } from "../models/models_0";
 import {
   deserializeAws_restJson1SubscribeCommand,
   serializeAws_restJson1SubscribeCommand,
@@ -121,7 +116,7 @@ export class SubscribeCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: SubscribeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SubscribeResultFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

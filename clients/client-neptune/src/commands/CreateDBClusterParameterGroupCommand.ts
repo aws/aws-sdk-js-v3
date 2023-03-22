@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateDBClusterParameterGroupMessage,
-  CreateDBClusterParameterGroupMessageFilterSensitiveLog,
-  CreateDBClusterParameterGroupResult,
-  CreateDBClusterParameterGroupResultFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateDBClusterParameterGroupMessage, CreateDBClusterParameterGroupResult } from "../models/models_0";
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
 import {
   deserializeAws_queryCreateDBClusterParameterGroupCommand,
@@ -139,8 +134,8 @@ export class CreateDBClusterParameterGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDBClusterParameterGroupMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateDBClusterParameterGroupResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

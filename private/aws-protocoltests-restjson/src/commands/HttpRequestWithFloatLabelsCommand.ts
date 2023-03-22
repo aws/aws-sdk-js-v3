@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { HttpRequestWithFloatLabelsInput, HttpRequestWithFloatLabelsInputFilterSensitiveLog } from "../models/models_0";
+import { HttpRequestWithFloatLabelsInput } from "../models/models_0";
 import {
   deserializeAws_restJson1HttpRequestWithFloatLabelsCommand,
   serializeAws_restJson1HttpRequestWithFloatLabelsCommand,
@@ -20,10 +20,14 @@ import {
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
 /**
+ * @public
+ *
  * The input for {@link HttpRequestWithFloatLabelsCommand}.
  */
 export interface HttpRequestWithFloatLabelsCommandInput extends HttpRequestWithFloatLabelsInput {}
 /**
+ * @public
+ *
  * The output of {@link HttpRequestWithFloatLabelsCommand}.
  */
 export interface HttpRequestWithFloatLabelsCommandOutput extends __MetadataBearer {}
@@ -36,6 +40,9 @@ export class HttpRequestWithFloatLabelsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: HttpRequestWithFloatLabelsCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,8 +68,8 @@ export class HttpRequestWithFloatLabelsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: HttpRequestWithFloatLabelsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -72,10 +79,16 @@ export class HttpRequestWithFloatLabelsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: HttpRequestWithFloatLabelsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1HttpRequestWithFloatLabelsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

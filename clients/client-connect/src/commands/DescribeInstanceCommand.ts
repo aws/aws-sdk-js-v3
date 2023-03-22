@@ -16,7 +16,6 @@ import {
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import {
   DescribeInstanceRequest,
-  DescribeInstanceRequestFilterSensitiveLog,
   DescribeInstanceResponse,
   DescribeInstanceResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -121,7 +120,7 @@ export class DescribeInstanceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeInstanceRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeInstanceResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

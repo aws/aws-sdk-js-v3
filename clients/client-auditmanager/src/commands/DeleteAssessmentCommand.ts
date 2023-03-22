@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AuditManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AuditManagerClient";
-import {
-  DeleteAssessmentRequest,
-  DeleteAssessmentRequestFilterSensitiveLog,
-  DeleteAssessmentResponse,
-  DeleteAssessmentResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteAssessmentRequest, DeleteAssessmentResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteAssessmentCommand,
   serializeAws_restJson1DeleteAssessmentCommand,
@@ -121,8 +116,8 @@ export class DeleteAssessmentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAssessmentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteAssessmentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

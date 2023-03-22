@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
-import {
-  AddTagsToResourceRequest,
-  AddTagsToResourceRequestFilterSensitiveLog,
-  AddTagsToResourceResult,
-  AddTagsToResourceResultFilterSensitiveLog,
-} from "../models/models_0";
+import { AddTagsToResourceRequest, AddTagsToResourceResult } from "../models/models_0";
 import {
   deserializeAws_json1_1AddTagsToResourceCommand,
   serializeAws_json1_1AddTagsToResourceCommand,
@@ -124,8 +119,8 @@ export class AddTagsToResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AddTagsToResourceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AddTagsToResourceResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

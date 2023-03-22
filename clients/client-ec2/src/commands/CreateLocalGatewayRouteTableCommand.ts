@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  CreateLocalGatewayRouteTableRequest,
-  CreateLocalGatewayRouteTableRequestFilterSensitiveLog,
-  CreateLocalGatewayRouteTableResult,
-  CreateLocalGatewayRouteTableResultFilterSensitiveLog,
-} from "../models/models_1";
+import { CreateLocalGatewayRouteTableRequest, CreateLocalGatewayRouteTableResult } from "../models/models_1";
 import {
   deserializeAws_ec2CreateLocalGatewayRouteTableCommand,
   serializeAws_ec2CreateLocalGatewayRouteTableCommand,
@@ -111,8 +106,8 @@ export class CreateLocalGatewayRouteTableCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateLocalGatewayRouteTableRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateLocalGatewayRouteTableResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

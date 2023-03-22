@@ -18,7 +18,6 @@ import {
   CreateFunctionRequest,
   CreateFunctionRequestFilterSensitiveLog,
   CreateFunctionResult,
-  CreateFunctionResultFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restXmlCreateFunctionCommand,
@@ -138,7 +137,7 @@ export class CreateFunctionCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateFunctionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateFunctionResultFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

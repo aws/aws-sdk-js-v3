@@ -16,7 +16,6 @@ import {
 import { CloudControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudControlClient";
 import {
   CancelResourceRequestInput,
-  CancelResourceRequestInputFilterSensitiveLog,
   CancelResourceRequestOutput,
   CancelResourceRequestOutputFilterSensitiveLog,
 } from "../models/models_0";
@@ -116,7 +115,7 @@ export class CancelResourceRequestCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelResourceRequestInputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: CancelResourceRequestOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

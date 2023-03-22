@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  PutEmailIdentityDkimAttributesRequest,
-  PutEmailIdentityDkimAttributesRequestFilterSensitiveLog,
-  PutEmailIdentityDkimAttributesResponse,
-  PutEmailIdentityDkimAttributesResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { PutEmailIdentityDkimAttributesRequest, PutEmailIdentityDkimAttributesResponse } from "../models/models_0";
 import { PinpointEmailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointEmailClient";
 import {
   deserializeAws_restJson1PutEmailIdentityDkimAttributesCommand,
@@ -118,8 +113,8 @@ export class PutEmailIdentityDkimAttributesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutEmailIdentityDkimAttributesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutEmailIdentityDkimAttributesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -23,7 +23,6 @@ import {
   AdminDeleteUserAttributesRequest,
   AdminDeleteUserAttributesRequestFilterSensitiveLog,
   AdminDeleteUserAttributesResponse,
-  AdminDeleteUserAttributesResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1AdminDeleteUserAttributesCommand,
@@ -137,7 +136,7 @@ export class AdminDeleteUserAttributesCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: AdminDeleteUserAttributesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AdminDeleteUserAttributesResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -16,7 +16,6 @@ import {
 import { BillingconductorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BillingconductorClient";
 import {
   ListAccountAssociationsInput,
-  ListAccountAssociationsInputFilterSensitiveLog,
   ListAccountAssociationsOutput,
   ListAccountAssociationsOutputFilterSensitiveLog,
 } from "../models/models_0";
@@ -129,7 +128,7 @@ export class ListAccountAssociationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAccountAssociationsInputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListAccountAssociationsOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

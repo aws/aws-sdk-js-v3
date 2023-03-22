@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import {
-  GetSSHPublicKeyRequest,
-  GetSSHPublicKeyRequestFilterSensitiveLog,
-  GetSSHPublicKeyResponse,
-  GetSSHPublicKeyResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetSSHPublicKeyRequest, GetSSHPublicKeyResponse } from "../models/models_0";
 import {
   deserializeAws_queryGetSSHPublicKeyCommand,
   serializeAws_queryGetSSHPublicKeyCommand,
@@ -119,8 +114,8 @@ export class GetSSHPublicKeyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSSHPublicKeyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetSSHPublicKeyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

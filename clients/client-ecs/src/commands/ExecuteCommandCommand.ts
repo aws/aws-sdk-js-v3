@@ -16,7 +16,6 @@ import {
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
 import {
   ExecuteCommandRequest,
-  ExecuteCommandRequestFilterSensitiveLog,
   ExecuteCommandResponse,
   ExecuteCommandResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -149,7 +148,7 @@ export class ExecuteCommandCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ExecuteCommandRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ExecuteCommandResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

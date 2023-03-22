@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeClusterRequest,
-  DescribeClusterRequestFilterSensitiveLog,
-  DescribeClusterResult,
-  DescribeClusterResultFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeClusterRequest, DescribeClusterResult } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeClusterCommand,
   serializeAws_json1_1DescribeClusterCommand,
@@ -150,8 +145,8 @@ export class DescribeClusterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeClusterRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeClusterResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  PutResolverQueryLogConfigPolicyRequest,
-  PutResolverQueryLogConfigPolicyRequestFilterSensitiveLog,
-  PutResolverQueryLogConfigPolicyResponse,
-  PutResolverQueryLogConfigPolicyResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { PutResolverQueryLogConfigPolicyRequest, PutResolverQueryLogConfigPolicyResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1PutResolverQueryLogConfigPolicyCommand,
   serializeAws_json1_1PutResolverQueryLogConfigPolicyCommand,
@@ -128,8 +123,8 @@ export class PutResolverQueryLogConfigPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutResolverQueryLogConfigPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutResolverQueryLogConfigPolicyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

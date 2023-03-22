@@ -18,7 +18,6 @@ import {
   UpdateStorageVirtualMachineRequest,
   UpdateStorageVirtualMachineRequestFilterSensitiveLog,
   UpdateStorageVirtualMachineResponse,
-  UpdateStorageVirtualMachineResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateStorageVirtualMachineCommand,
@@ -127,7 +126,7 @@ export class UpdateStorageVirtualMachineCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: UpdateStorageVirtualMachineRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateStorageVirtualMachineResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

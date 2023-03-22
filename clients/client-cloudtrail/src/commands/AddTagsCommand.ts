@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
-import {
-  AddTagsRequest,
-  AddTagsRequestFilterSensitiveLog,
-  AddTagsResponse,
-  AddTagsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { AddTagsRequest, AddTagsResponse } from "../models/models_0";
 import { deserializeAws_json1_1AddTagsCommand, serializeAws_json1_1AddTagsCommand } from "../protocols/Aws_json1_1";
 
 /**
@@ -189,8 +184,8 @@ export class AddTagsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AddTagsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AddTagsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

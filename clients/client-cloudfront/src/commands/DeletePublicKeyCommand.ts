@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import { DeletePublicKeyRequest, DeletePublicKeyRequestFilterSensitiveLog } from "../models/models_1";
+import { DeletePublicKeyRequest } from "../models/models_1";
 import {
   deserializeAws_restXmlDeletePublicKeyCommand,
   serializeAws_restXmlDeletePublicKeyCommand,
@@ -118,8 +118,8 @@ export class DeletePublicKeyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeletePublicKeyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

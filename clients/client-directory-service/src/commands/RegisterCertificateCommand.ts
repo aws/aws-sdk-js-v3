@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
-import {
-  RegisterCertificateRequest,
-  RegisterCertificateRequestFilterSensitiveLog,
-  RegisterCertificateResult,
-  RegisterCertificateResultFilterSensitiveLog,
-} from "../models/models_0";
+import { RegisterCertificateRequest, RegisterCertificateResult } from "../models/models_0";
 import {
   deserializeAws_json1_1RegisterCertificateCommand,
   serializeAws_json1_1RegisterCertificateCommand,
@@ -134,8 +129,8 @@ export class RegisterCertificateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RegisterCertificateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RegisterCertificateResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

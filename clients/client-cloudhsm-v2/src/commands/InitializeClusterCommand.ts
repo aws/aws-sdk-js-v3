@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudHSMV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudHSMV2Client";
-import {
-  InitializeClusterRequest,
-  InitializeClusterRequestFilterSensitiveLog,
-  InitializeClusterResponse,
-  InitializeClusterResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { InitializeClusterRequest, InitializeClusterResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1InitializeClusterCommand,
   serializeAws_json1_1InitializeClusterCommand,
@@ -128,8 +123,8 @@ export class InitializeClusterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: InitializeClusterRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: InitializeClusterResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

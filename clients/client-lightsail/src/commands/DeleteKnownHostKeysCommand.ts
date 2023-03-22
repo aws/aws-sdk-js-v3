@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import {
-  DeleteKnownHostKeysRequest,
-  DeleteKnownHostKeysRequestFilterSensitiveLog,
-  DeleteKnownHostKeysResult,
-  DeleteKnownHostKeysResultFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteKnownHostKeysRequest, DeleteKnownHostKeysResult } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteKnownHostKeysCommand,
   serializeAws_json1_1DeleteKnownHostKeysCommand,
@@ -145,8 +140,8 @@ export class DeleteKnownHostKeysCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteKnownHostKeysRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteKnownHostKeysResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

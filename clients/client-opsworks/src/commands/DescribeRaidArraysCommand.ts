@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeRaidArraysRequest,
-  DescribeRaidArraysRequestFilterSensitiveLog,
-  DescribeRaidArraysResult,
-  DescribeRaidArraysResultFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeRaidArraysRequest, DescribeRaidArraysResult } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
 import {
   deserializeAws_json1_1DescribeRaidArraysCommand,
@@ -121,8 +116,8 @@ export class DescribeRaidArraysCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeRaidArraysRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeRaidArraysResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

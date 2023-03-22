@@ -19,12 +19,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
-import {
-  RevokeTokenRequest,
-  RevokeTokenRequestFilterSensitiveLog,
-  RevokeTokenResponse,
-  RevokeTokenResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { RevokeTokenRequest, RevokeTokenRequestFilterSensitiveLog, RevokeTokenResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1RevokeTokenCommand,
   serializeAws_json1_1RevokeTokenCommand,
@@ -139,7 +134,7 @@ export class RevokeTokenCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: RevokeTokenRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RevokeTokenResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

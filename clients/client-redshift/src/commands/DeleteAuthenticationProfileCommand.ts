@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteAuthenticationProfileMessage,
-  DeleteAuthenticationProfileMessageFilterSensitiveLog,
-  DeleteAuthenticationProfileResult,
-  DeleteAuthenticationProfileResultFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteAuthenticationProfileMessage, DeleteAuthenticationProfileResult } from "../models/models_0";
 import {
   deserializeAws_queryDeleteAuthenticationProfileCommand,
   serializeAws_queryDeleteAuthenticationProfileCommand,
@@ -114,8 +109,8 @@ export class DeleteAuthenticationProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAuthenticationProfileMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteAuthenticationProfileResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

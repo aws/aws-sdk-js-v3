@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { BackupGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupGatewayClient";
-import {
-  UpdateGatewaySoftwareNowInput,
-  UpdateGatewaySoftwareNowInputFilterSensitiveLog,
-  UpdateGatewaySoftwareNowOutput,
-  UpdateGatewaySoftwareNowOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateGatewaySoftwareNowInput, UpdateGatewaySoftwareNowOutput } from "../models/models_0";
 import {
   deserializeAws_json1_0UpdateGatewaySoftwareNowCommand,
   serializeAws_json1_0UpdateGatewaySoftwareNowCommand,
@@ -126,8 +121,8 @@ export class UpdateGatewaySoftwareNowCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateGatewaySoftwareNowInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateGatewaySoftwareNowOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

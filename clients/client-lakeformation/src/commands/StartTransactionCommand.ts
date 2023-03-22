@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
-import {
-  StartTransactionRequest,
-  StartTransactionRequestFilterSensitiveLog,
-  StartTransactionResponse,
-  StartTransactionResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { StartTransactionRequest, StartTransactionResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1StartTransactionCommand,
   serializeAws_restJson1StartTransactionCommand,
@@ -113,8 +108,8 @@ export class StartTransactionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartTransactionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartTransactionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

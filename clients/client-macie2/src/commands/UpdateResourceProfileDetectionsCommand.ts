@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
-import {
-  UpdateResourceProfileDetectionsRequest,
-  UpdateResourceProfileDetectionsRequestFilterSensitiveLog,
-  UpdateResourceProfileDetectionsResponse,
-  UpdateResourceProfileDetectionsResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { UpdateResourceProfileDetectionsRequest, UpdateResourceProfileDetectionsResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1UpdateResourceProfileDetectionsCommand,
   serializeAws_restJson1UpdateResourceProfileDetectionsCommand,
@@ -127,8 +122,8 @@ export class UpdateResourceProfileDetectionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateResourceProfileDetectionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateResourceProfileDetectionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

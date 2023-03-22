@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeCatalystClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCatalystClient";
-import {
-  CreateDevEnvironmentRequest,
-  CreateDevEnvironmentRequestFilterSensitiveLog,
-  CreateDevEnvironmentResponse,
-  CreateDevEnvironmentResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateDevEnvironmentRequest, CreateDevEnvironmentResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateDevEnvironmentCommand,
   serializeAws_restJson1CreateDevEnvironmentCommand,
@@ -131,8 +126,8 @@ export class CreateDevEnvironmentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDevEnvironmentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateDevEnvironmentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

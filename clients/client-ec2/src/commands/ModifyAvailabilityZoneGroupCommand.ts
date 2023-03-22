@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  ModifyAvailabilityZoneGroupRequest,
-  ModifyAvailabilityZoneGroupRequestFilterSensitiveLog,
-  ModifyAvailabilityZoneGroupResult,
-  ModifyAvailabilityZoneGroupResultFilterSensitiveLog,
-} from "../models/models_6";
+import { ModifyAvailabilityZoneGroupRequest, ModifyAvailabilityZoneGroupResult } from "../models/models_6";
 import {
   deserializeAws_ec2ModifyAvailabilityZoneGroupCommand,
   serializeAws_ec2ModifyAvailabilityZoneGroupCommand,
@@ -110,8 +105,8 @@ export class ModifyAvailabilityZoneGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyAvailabilityZoneGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifyAvailabilityZoneGroupResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

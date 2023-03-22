@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
-import {
-  PutFileInput,
-  PutFileInputFilterSensitiveLog,
-  PutFileOutput,
-  PutFileOutputFilterSensitiveLog,
-} from "../models/models_1";
+import { PutFileInput, PutFileOutput } from "../models/models_1";
 import { deserializeAws_json1_1PutFileCommand, serializeAws_json1_1PutFileCommand } from "../protocols/Aws_json1_1";
 
 /**
@@ -211,8 +206,8 @@ export class PutFileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutFileInputFilterSensitiveLog,
-      outputFilterSensitiveLog: PutFileOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

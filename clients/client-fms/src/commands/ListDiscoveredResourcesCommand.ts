@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient";
-import {
-  ListDiscoveredResourcesRequest,
-  ListDiscoveredResourcesRequestFilterSensitiveLog,
-  ListDiscoveredResourcesResponse,
-  ListDiscoveredResourcesResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListDiscoveredResourcesRequest, ListDiscoveredResourcesResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ListDiscoveredResourcesCommand,
   serializeAws_json1_1ListDiscoveredResourcesCommand,
@@ -121,8 +116,8 @@ export class ListDiscoveredResourcesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDiscoveredResourcesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListDiscoveredResourcesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

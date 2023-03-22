@@ -15,9 +15,7 @@ import {
 
 import {
   GetIdentityMailFromDomainAttributesRequest,
-  GetIdentityMailFromDomainAttributesRequestFilterSensitiveLog,
   GetIdentityMailFromDomainAttributesResponse,
-  GetIdentityMailFromDomainAttributesResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_queryGetIdentityMailFromDomainAttributesCommand,
@@ -136,8 +134,8 @@ export class GetIdentityMailFromDomainAttributesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetIdentityMailFromDomainAttributesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetIdentityMailFromDomainAttributesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

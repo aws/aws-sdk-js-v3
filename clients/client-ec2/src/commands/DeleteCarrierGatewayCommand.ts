@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DeleteCarrierGatewayRequest,
-  DeleteCarrierGatewayRequestFilterSensitiveLog,
-  DeleteCarrierGatewayResult,
-  DeleteCarrierGatewayResultFilterSensitiveLog,
-} from "../models/models_2";
+import { DeleteCarrierGatewayRequest, DeleteCarrierGatewayResult } from "../models/models_2";
 import {
   deserializeAws_ec2DeleteCarrierGatewayCommand,
   serializeAws_ec2DeleteCarrierGatewayCommand,
@@ -112,8 +107,8 @@ export class DeleteCarrierGatewayCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteCarrierGatewayRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteCarrierGatewayResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

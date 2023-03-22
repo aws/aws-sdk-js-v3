@@ -13,10 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  SetPlatformApplicationAttributesInput,
-  SetPlatformApplicationAttributesInputFilterSensitiveLog,
-} from "../models/models_0";
+import { SetPlatformApplicationAttributesInput } from "../models/models_0";
 import {
   deserializeAws_querySetPlatformApplicationAttributesCommand,
   serializeAws_querySetPlatformApplicationAttributesCommand,
@@ -122,8 +119,8 @@ export class SetPlatformApplicationAttributesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SetPlatformApplicationAttributesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

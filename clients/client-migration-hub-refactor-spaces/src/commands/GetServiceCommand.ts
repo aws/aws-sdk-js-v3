@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MigrationHubRefactorSpacesClient";
-import {
-  GetServiceRequest,
-  GetServiceRequestFilterSensitiveLog,
-  GetServiceResponse,
-  GetServiceResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetServiceRequest, GetServiceResponse, GetServiceResponseFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1GetServiceCommand,
   serializeAws_restJson1GetServiceCommand,
@@ -125,7 +120,7 @@ export class GetServiceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetServiceRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetServiceResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

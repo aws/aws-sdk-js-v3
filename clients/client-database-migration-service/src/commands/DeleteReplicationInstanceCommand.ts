@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
-import {
-  DeleteReplicationInstanceMessage,
-  DeleteReplicationInstanceMessageFilterSensitiveLog,
-  DeleteReplicationInstanceResponse,
-  DeleteReplicationInstanceResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteReplicationInstanceMessage, DeleteReplicationInstanceResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteReplicationInstanceCommand,
   serializeAws_json1_1DeleteReplicationInstanceCommand,
@@ -188,8 +183,8 @@ export class DeleteReplicationInstanceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteReplicationInstanceMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteReplicationInstanceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

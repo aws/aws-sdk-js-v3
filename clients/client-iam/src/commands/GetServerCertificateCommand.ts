@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import {
-  GetServerCertificateRequest,
-  GetServerCertificateRequestFilterSensitiveLog,
-  GetServerCertificateResponse,
-  GetServerCertificateResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetServerCertificateRequest, GetServerCertificateResponse } from "../models/models_0";
 import {
   deserializeAws_queryGetServerCertificateCommand,
   serializeAws_queryGetServerCertificateCommand,
@@ -119,8 +114,8 @@ export class GetServerCertificateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetServerCertificateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetServerCertificateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

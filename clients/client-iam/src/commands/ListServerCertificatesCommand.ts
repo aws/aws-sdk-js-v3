@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import {
-  ListServerCertificatesRequest,
-  ListServerCertificatesRequestFilterSensitiveLog,
-  ListServerCertificatesResponse,
-  ListServerCertificatesResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListServerCertificatesRequest, ListServerCertificatesResponse } from "../models/models_0";
 import {
   deserializeAws_queryListServerCertificatesCommand,
   serializeAws_queryListServerCertificatesCommand,
@@ -122,8 +117,8 @@ export class ListServerCertificatesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListServerCertificatesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListServerCertificatesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

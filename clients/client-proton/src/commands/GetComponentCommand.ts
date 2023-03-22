@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetComponentInput,
-  GetComponentInputFilterSensitiveLog,
-  GetComponentOutput,
-  GetComponentOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { GetComponentInput, GetComponentOutput, GetComponentOutputFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_json1_0GetComponentCommand,
   serializeAws_json1_0GetComponentCommand,
@@ -123,7 +118,7 @@ export class GetComponentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetComponentInputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetComponentOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GroundStationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GroundStationClient";
-import {
-  UpdateAgentStatusRequest,
-  UpdateAgentStatusRequestFilterSensitiveLog,
-  UpdateAgentStatusResponse,
-  UpdateAgentStatusResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateAgentStatusRequest, UpdateAgentStatusResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateAgentStatusCommand,
   serializeAws_restJson1UpdateAgentStatusCommand,
@@ -116,8 +111,8 @@ export class UpdateAgentStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateAgentStatusRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateAgentStatusResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

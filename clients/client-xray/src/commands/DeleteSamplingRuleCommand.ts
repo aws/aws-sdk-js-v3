@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteSamplingRuleRequest,
-  DeleteSamplingRuleRequestFilterSensitiveLog,
-  DeleteSamplingRuleResult,
-  DeleteSamplingRuleResultFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteSamplingRuleRequest, DeleteSamplingRuleResult } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteSamplingRuleCommand,
   serializeAws_restJson1DeleteSamplingRuleCommand,
@@ -113,8 +108,8 @@ export class DeleteSamplingRuleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteSamplingRuleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteSamplingRuleResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
-import {
-  BatchDeleteDevicePositionHistoryRequest,
-  BatchDeleteDevicePositionHistoryRequestFilterSensitiveLog,
-  BatchDeleteDevicePositionHistoryResponse,
-  BatchDeleteDevicePositionHistoryResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { BatchDeleteDevicePositionHistoryRequest, BatchDeleteDevicePositionHistoryResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1BatchDeleteDevicePositionHistoryCommand,
   serializeAws_restJson1BatchDeleteDevicePositionHistoryCommand,
@@ -125,8 +120,8 @@ export class BatchDeleteDevicePositionHistoryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchDeleteDevicePositionHistoryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchDeleteDevicePositionHistoryResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

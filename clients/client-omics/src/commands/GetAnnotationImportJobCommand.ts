@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetAnnotationImportRequest,
-  GetAnnotationImportRequestFilterSensitiveLog,
-  GetAnnotationImportResponse,
-  GetAnnotationImportResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetAnnotationImportRequest, GetAnnotationImportResponse } from "../models/models_0";
 import { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
 import {
   deserializeAws_restJson1GetAnnotationImportJobCommand,
@@ -122,8 +117,8 @@ export class GetAnnotationImportJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAnnotationImportRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetAnnotationImportResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

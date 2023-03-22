@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ACMPCAClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ACMPCAClient";
-import { RevokeCertificateRequest, RevokeCertificateRequestFilterSensitiveLog } from "../models/models_0";
+import { RevokeCertificateRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1RevokeCertificateCommand,
   serializeAws_json1_1RevokeCertificateCommand,
@@ -151,8 +151,8 @@ export class RevokeCertificateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RevokeCertificateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

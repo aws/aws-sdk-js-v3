@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTRoboRunnerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTRoboRunnerClient";
-import {
-  CreateWorkerFleetRequest,
-  CreateWorkerFleetRequestFilterSensitiveLog,
-  CreateWorkerFleetResponse,
-  CreateWorkerFleetResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateWorkerFleetRequest, CreateWorkerFleetResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateWorkerFleetCommand,
   serializeAws_restJson1CreateWorkerFleetCommand,
@@ -128,8 +123,8 @@ export class CreateWorkerFleetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateWorkerFleetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateWorkerFleetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

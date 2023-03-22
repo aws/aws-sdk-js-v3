@@ -22,7 +22,6 @@ import {
   SendChannelMessageRequest,
   SendChannelMessageRequestFilterSensitiveLog,
   SendChannelMessageResponse,
-  SendChannelMessageResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1SendChannelMessageCommand,
@@ -141,7 +140,7 @@ export class SendChannelMessageCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: SendChannelMessageRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SendChannelMessageResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  StopAppReplicationRequest,
-  StopAppReplicationRequestFilterSensitiveLog,
-  StopAppReplicationResponse,
-  StopAppReplicationResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { StopAppReplicationRequest, StopAppReplicationResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1StopAppReplicationCommand,
   serializeAws_json1_1StopAppReplicationCommand,
@@ -124,8 +119,8 @@ export class StopAppReplicationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopAppReplicationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StopAppReplicationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

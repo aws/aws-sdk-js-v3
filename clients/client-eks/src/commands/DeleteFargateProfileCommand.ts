@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
-import {
-  DeleteFargateProfileRequest,
-  DeleteFargateProfileRequestFilterSensitiveLog,
-  DeleteFargateProfileResponse,
-  DeleteFargateProfileResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteFargateProfileRequest, DeleteFargateProfileResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteFargateProfileCommand,
   serializeAws_restJson1DeleteFargateProfileCommand,
@@ -133,8 +128,8 @@ export class DeleteFargateProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteFargateProfileRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteFargateProfileResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

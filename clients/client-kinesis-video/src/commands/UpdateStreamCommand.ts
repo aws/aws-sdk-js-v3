@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { KinesisVideoClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisVideoClient";
-import {
-  UpdateStreamInput,
-  UpdateStreamInputFilterSensitiveLog,
-  UpdateStreamOutput,
-  UpdateStreamOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateStreamInput, UpdateStreamOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateStreamCommand,
   serializeAws_restJson1UpdateStreamCommand,
@@ -152,8 +147,8 @@ export class UpdateStreamCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateStreamInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateStreamOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

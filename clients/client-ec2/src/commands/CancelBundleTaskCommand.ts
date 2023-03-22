@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  CancelBundleTaskRequest,
-  CancelBundleTaskRequestFilterSensitiveLog,
-  CancelBundleTaskResult,
-  CancelBundleTaskResultFilterSensitiveLog,
-} from "../models/models_0";
+import { CancelBundleTaskRequest, CancelBundleTaskResult } from "../models/models_0";
 import {
   deserializeAws_ec2CancelBundleTaskCommand,
   serializeAws_ec2CancelBundleTaskCommand,
@@ -107,8 +102,8 @@ export class CancelBundleTaskCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelBundleTaskRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CancelBundleTaskResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

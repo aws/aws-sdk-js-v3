@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetDeploymentsRequest,
-  GetDeploymentsRequestFilterSensitiveLog,
-  GetDeploymentsResult,
-  GetDeploymentsResultFilterSensitiveLog,
-} from "../models/models_0";
+import { GetDeploymentsRequest, GetDeploymentsResult } from "../models/models_0";
 import {
   deserializeAws_restJson1GetDeploymentsCommand,
   serializeAws_restJson1GetDeploymentsCommand,
@@ -111,8 +106,8 @@ export class GetDeploymentsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDeploymentsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetDeploymentsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

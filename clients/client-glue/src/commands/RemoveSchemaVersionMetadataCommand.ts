@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  RemoveSchemaVersionMetadataInput,
-  RemoveSchemaVersionMetadataInputFilterSensitiveLog,
-  RemoveSchemaVersionMetadataResponse,
-  RemoveSchemaVersionMetadataResponseFilterSensitiveLog,
-} from "../models/models_2";
+import { RemoveSchemaVersionMetadataInput, RemoveSchemaVersionMetadataResponse } from "../models/models_2";
 import {
   deserializeAws_json1_1RemoveSchemaVersionMetadataCommand,
   serializeAws_json1_1RemoveSchemaVersionMetadataCommand,
@@ -118,8 +113,8 @@ export class RemoveSchemaVersionMetadataCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RemoveSchemaVersionMetadataInputFilterSensitiveLog,
-      outputFilterSensitiveLog: RemoveSchemaVersionMetadataResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

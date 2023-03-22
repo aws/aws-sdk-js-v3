@@ -16,7 +16,6 @@ import {
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
 import {
   GetNetworkProfileRequest,
-  GetNetworkProfileRequestFilterSensitiveLog,
   GetNetworkProfileResponse,
   GetNetworkProfileResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -113,7 +112,7 @@ export class GetNetworkProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetNetworkProfileRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetNetworkProfileResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

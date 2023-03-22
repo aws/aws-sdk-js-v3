@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
-import {
-  DeleteEventTypeRequest,
-  DeleteEventTypeRequestFilterSensitiveLog,
-  DeleteEventTypeResult,
-  DeleteEventTypeResultFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteEventTypeRequest, DeleteEventTypeResult } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteEventTypeCommand,
   serializeAws_json1_1DeleteEventTypeCommand,
@@ -124,8 +119,8 @@ export class DeleteEventTypeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteEventTypeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteEventTypeResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

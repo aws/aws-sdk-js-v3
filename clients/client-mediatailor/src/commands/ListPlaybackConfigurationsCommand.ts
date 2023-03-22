@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaTailorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaTailorClient";
-import {
-  ListPlaybackConfigurationsRequest,
-  ListPlaybackConfigurationsRequestFilterSensitiveLog,
-  ListPlaybackConfigurationsResponse,
-  ListPlaybackConfigurationsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListPlaybackConfigurationsRequest, ListPlaybackConfigurationsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListPlaybackConfigurationsCommand,
   serializeAws_restJson1ListPlaybackConfigurationsCommand,
@@ -107,8 +102,8 @@ export class ListPlaybackConfigurationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListPlaybackConfigurationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListPlaybackConfigurationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

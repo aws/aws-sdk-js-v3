@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetDatalakeRequest,
-  GetDatalakeRequestFilterSensitiveLog,
-  GetDatalakeResponse,
-  GetDatalakeResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetDatalakeRequest, GetDatalakeResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetDatalakeCommand,
   serializeAws_restJson1GetDatalakeCommand,
@@ -127,8 +122,8 @@ export class GetDatalakeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDatalakeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetDatalakeResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

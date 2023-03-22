@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
-import {
-  BatchGrantPermissionsRequest,
-  BatchGrantPermissionsRequestFilterSensitiveLog,
-  BatchGrantPermissionsResponse,
-  BatchGrantPermissionsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { BatchGrantPermissionsRequest, BatchGrantPermissionsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1BatchGrantPermissionsCommand,
   serializeAws_restJson1BatchGrantPermissionsCommand,
@@ -113,8 +108,8 @@ export class BatchGrantPermissionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchGrantPermissionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchGrantPermissionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

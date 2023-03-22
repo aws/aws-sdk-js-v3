@@ -16,7 +16,6 @@ import {
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import {
   ListVirtualMFADevicesRequest,
-  ListVirtualMFADevicesRequestFilterSensitiveLog,
   ListVirtualMFADevicesResponse,
   ListVirtualMFADevicesResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -137,7 +136,7 @@ export class ListVirtualMFADevicesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListVirtualMFADevicesRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListVirtualMFADevicesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

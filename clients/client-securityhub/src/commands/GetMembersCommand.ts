@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetMembersRequest,
-  GetMembersRequestFilterSensitiveLog,
-  GetMembersResponse,
-  GetMembersResponseFilterSensitiveLog,
-} from "../models/models_2";
+import { GetMembersRequest, GetMembersResponse } from "../models/models_2";
 import {
   deserializeAws_restJson1GetMembersCommand,
   serializeAws_restJson1GetMembersCommand,
@@ -126,8 +121,8 @@ export class GetMembersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetMembersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetMembersResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

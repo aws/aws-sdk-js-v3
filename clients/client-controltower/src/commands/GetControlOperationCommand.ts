@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ControlTowerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ControlTowerClient";
-import {
-  GetControlOperationInput,
-  GetControlOperationInputFilterSensitiveLog,
-  GetControlOperationOutput,
-  GetControlOperationOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { GetControlOperationInput, GetControlOperationOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1GetControlOperationCommand,
   serializeAws_restJson1GetControlOperationCommand,
@@ -125,8 +120,8 @@ export class GetControlOperationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetControlOperationInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetControlOperationOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

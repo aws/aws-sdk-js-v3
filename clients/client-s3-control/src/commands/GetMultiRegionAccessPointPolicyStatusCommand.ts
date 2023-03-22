@@ -17,9 +17,7 @@ import {
 
 import {
   GetMultiRegionAccessPointPolicyStatusRequest,
-  GetMultiRegionAccessPointPolicyStatusRequestFilterSensitiveLog,
   GetMultiRegionAccessPointPolicyStatusResult,
-  GetMultiRegionAccessPointPolicyStatusResultFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restXmlGetMultiRegionAccessPointPolicyStatusCommand,
@@ -135,8 +133,8 @@ export class GetMultiRegionAccessPointPolicyStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetMultiRegionAccessPointPolicyStatusRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetMultiRegionAccessPointPolicyStatusResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

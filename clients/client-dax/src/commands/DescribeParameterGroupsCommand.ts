@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DAXClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DAXClient";
-import {
-  DescribeParameterGroupsRequest,
-  DescribeParameterGroupsRequestFilterSensitiveLog,
-  DescribeParameterGroupsResponse,
-  DescribeParameterGroupsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeParameterGroupsRequest, DescribeParameterGroupsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeParameterGroupsCommand,
   serializeAws_json1_1DescribeParameterGroupsCommand,
@@ -120,8 +115,8 @@ export class DescribeParameterGroupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeParameterGroupsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeParameterGroupsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

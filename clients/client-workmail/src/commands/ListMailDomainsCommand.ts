@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListMailDomainsRequest,
-  ListMailDomainsRequestFilterSensitiveLog,
-  ListMailDomainsResponse,
-  ListMailDomainsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListMailDomainsRequest, ListMailDomainsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ListMailDomainsCommand,
   serializeAws_json1_1ListMailDomainsCommand,
@@ -118,8 +113,8 @@ export class ListMailDomainsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListMailDomainsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListMailDomainsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

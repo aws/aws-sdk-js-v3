@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MigrationHubOrchestratorClient";
-import {
-  DeleteMigrationWorkflowRequest,
-  DeleteMigrationWorkflowRequestFilterSensitiveLog,
-  DeleteMigrationWorkflowResponse,
-  DeleteMigrationWorkflowResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteMigrationWorkflowRequest, DeleteMigrationWorkflowResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteWorkflowCommand,
   serializeAws_restJson1DeleteWorkflowCommand,
@@ -127,8 +122,8 @@ export class DeleteWorkflowCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteMigrationWorkflowRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteMigrationWorkflowResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

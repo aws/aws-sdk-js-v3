@@ -14,12 +14,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteReusableDelegationSetRequest,
-  DeleteReusableDelegationSetRequestFilterSensitiveLog,
-  DeleteReusableDelegationSetResponse,
-  DeleteReusableDelegationSetResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteReusableDelegationSetRequest, DeleteReusableDelegationSetResponse } from "../models/models_0";
 import {
   deserializeAws_restXmlDeleteReusableDelegationSetCommand,
   serializeAws_restXmlDeleteReusableDelegationSetCommand,
@@ -131,8 +126,8 @@ export class DeleteReusableDelegationSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteReusableDelegationSetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteReusableDelegationSetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

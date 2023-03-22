@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import {
-  UpdateInstanceProfileRequest,
-  UpdateInstanceProfileRequestFilterSensitiveLog,
-  UpdateInstanceProfileResult,
-  UpdateInstanceProfileResultFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateInstanceProfileRequest, UpdateInstanceProfileResult } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateInstanceProfileCommand,
   serializeAws_json1_1UpdateInstanceProfileCommand,
@@ -119,8 +114,8 @@ export class UpdateInstanceProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateInstanceProfileRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateInstanceProfileResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

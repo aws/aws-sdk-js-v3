@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeletePeeringRequest,
-  DeletePeeringRequestFilterSensitiveLog,
-  DeletePeeringResponse,
-  DeletePeeringResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeletePeeringRequest, DeletePeeringResponse } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
 import {
   deserializeAws_restJson1DeletePeeringCommand,
@@ -124,8 +119,8 @@ export class DeletePeeringCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeletePeeringRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeletePeeringResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

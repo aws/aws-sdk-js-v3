@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
-import {
-  DeleteEnvironmentConfigurationMessage,
-  DeleteEnvironmentConfigurationMessageFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteEnvironmentConfigurationMessage } from "../models/models_0";
 import {
   deserializeAws_queryDeleteEnvironmentConfigurationCommand,
   serializeAws_queryDeleteEnvironmentConfigurationCommand,
@@ -122,8 +119,8 @@ export class DeleteEnvironmentConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteEnvironmentConfigurationMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

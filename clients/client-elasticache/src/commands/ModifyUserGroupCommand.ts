@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
-import {
-  ModifyUserGroupMessage,
-  ModifyUserGroupMessageFilterSensitiveLog,
-  UserGroup,
-  UserGroupFilterSensitiveLog,
-} from "../models/models_0";
+import { ModifyUserGroupMessage, UserGroup } from "../models/models_0";
 import {
   deserializeAws_queryModifyUserGroupCommand,
   serializeAws_queryModifyUserGroupCommand,
@@ -131,8 +126,8 @@ export class ModifyUserGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyUserGroupMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: UserGroupFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

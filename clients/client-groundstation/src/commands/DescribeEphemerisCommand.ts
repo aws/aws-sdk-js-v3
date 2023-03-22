@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GroundStationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GroundStationClient";
-import {
-  DescribeEphemerisRequest,
-  DescribeEphemerisRequestFilterSensitiveLog,
-  DescribeEphemerisResponse,
-  DescribeEphemerisResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeEphemerisRequest, DescribeEphemerisResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeEphemerisCommand,
   serializeAws_restJson1DescribeEphemerisCommand,
@@ -116,8 +111,8 @@ export class DescribeEphemerisCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeEphemerisRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeEphemerisResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

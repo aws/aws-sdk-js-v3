@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  RegisterEcsClusterRequest,
-  RegisterEcsClusterRequestFilterSensitiveLog,
-  RegisterEcsClusterResult,
-  RegisterEcsClusterResultFilterSensitiveLog,
-} from "../models/models_0";
+import { RegisterEcsClusterRequest, RegisterEcsClusterResult } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
 import {
   deserializeAws_json1_1RegisterEcsClusterCommand,
@@ -123,8 +118,8 @@ export class RegisterEcsClusterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RegisterEcsClusterRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RegisterEcsClusterResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

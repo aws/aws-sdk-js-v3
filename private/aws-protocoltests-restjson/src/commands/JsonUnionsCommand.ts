@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UnionInputOutput, UnionInputOutputFilterSensitiveLog } from "../models/models_0";
+import { UnionInputOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1JsonUnionsCommand,
   serializeAws_restJson1JsonUnionsCommand,
@@ -20,15 +20,20 @@ import {
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
 /**
+ * @public
+ *
  * The input for {@link JsonUnionsCommand}.
  */
 export interface JsonUnionsCommandInput extends UnionInputOutput {}
 /**
+ * @public
+ *
  * The output of {@link JsonUnionsCommand}.
  */
 export interface JsonUnionsCommandOutput extends UnionInputOutput, __MetadataBearer {}
 
 /**
+ * @public
  * This operation uses unions for inputs and outputs.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,6 +45,8 @@ export interface JsonUnionsCommandOutput extends UnionInputOutput, __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param JsonUnionsCommandInput - {@link JsonUnionsCommandInput}
+ * @returns {@link JsonUnionsCommandOutput}
  * @see {@link JsonUnionsCommandInput} for command's `input` shape.
  * @see {@link JsonUnionsCommandOutput} for command's `response` shape.
  * @see {@link RestJsonProtocolClientResolvedConfig | config} for RestJsonProtocolClient's `config` shape.
@@ -54,6 +61,9 @@ export class JsonUnionsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: JsonUnionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -79,8 +89,8 @@ export class JsonUnionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UnionInputOutputFilterSensitiveLog,
-      outputFilterSensitiveLog: UnionInputOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -90,10 +100,16 @@ export class JsonUnionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: JsonUnionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1JsonUnionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<JsonUnionsCommandOutput> {
     return deserializeAws_restJson1JsonUnionsCommand(output, context);
   }

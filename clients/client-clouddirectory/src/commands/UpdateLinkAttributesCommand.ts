@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
-import {
-  UpdateLinkAttributesRequest,
-  UpdateLinkAttributesRequestFilterSensitiveLog,
-  UpdateLinkAttributesResponse,
-  UpdateLinkAttributesResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateLinkAttributesRequest, UpdateLinkAttributesResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateLinkAttributesCommand,
   serializeAws_restJson1UpdateLinkAttributesCommand,
@@ -136,8 +131,8 @@ export class UpdateLinkAttributesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateLinkAttributesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateLinkAttributesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { KinesisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisClient";
-import { CreateStreamInput, CreateStreamInputFilterSensitiveLog } from "../models/models_0";
+import { CreateStreamInput } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateStreamCommand,
   serializeAws_json1_1CreateStreamCommand,
@@ -155,8 +155,8 @@ export class CreateStreamCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateStreamInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

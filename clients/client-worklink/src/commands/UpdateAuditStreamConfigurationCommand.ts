@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateAuditStreamConfigurationRequest,
-  UpdateAuditStreamConfigurationRequestFilterSensitiveLog,
-  UpdateAuditStreamConfigurationResponse,
-  UpdateAuditStreamConfigurationResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateAuditStreamConfigurationRequest, UpdateAuditStreamConfigurationResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateAuditStreamConfigurationCommand,
   serializeAws_restJson1UpdateAuditStreamConfigurationCommand,
@@ -126,8 +121,8 @@ export class UpdateAuditStreamConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateAuditStreamConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateAuditStreamConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -20,7 +20,6 @@ import {
 } from "../CodestarNotificationsClient";
 import {
   DescribeNotificationRuleRequest,
-  DescribeNotificationRuleRequestFilterSensitiveLog,
   DescribeNotificationRuleResult,
   DescribeNotificationRuleResultFilterSensitiveLog,
 } from "../models/models_0";
@@ -117,7 +116,7 @@ export class DescribeNotificationRuleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeNotificationRuleRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeNotificationRuleResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

@@ -15,9 +15,7 @@ import {
 
 import {
   CancelDomainTransferToAnotherAwsAccountRequest,
-  CancelDomainTransferToAnotherAwsAccountRequestFilterSensitiveLog,
   CancelDomainTransferToAnotherAwsAccountResponse,
-  CancelDomainTransferToAnotherAwsAccountResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1CancelDomainTransferToAnotherAwsAccountCommand,
@@ -136,8 +134,8 @@ export class CancelDomainTransferToAnotherAwsAccountCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelDomainTransferToAnotherAwsAccountRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CancelDomainTransferToAnotherAwsAccountResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

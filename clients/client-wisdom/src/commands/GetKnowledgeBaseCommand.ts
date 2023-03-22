@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetKnowledgeBaseRequest,
-  GetKnowledgeBaseRequestFilterSensitiveLog,
-  GetKnowledgeBaseResponse,
-  GetKnowledgeBaseResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetKnowledgeBaseRequest, GetKnowledgeBaseResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetKnowledgeBaseCommand,
   serializeAws_restJson1GetKnowledgeBaseCommand,
@@ -116,8 +111,8 @@ export class GetKnowledgeBaseCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetKnowledgeBaseRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetKnowledgeBaseResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

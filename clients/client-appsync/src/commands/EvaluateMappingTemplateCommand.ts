@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
-import {
-  EvaluateMappingTemplateRequest,
-  EvaluateMappingTemplateRequestFilterSensitiveLog,
-  EvaluateMappingTemplateResponse,
-  EvaluateMappingTemplateResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { EvaluateMappingTemplateRequest, EvaluateMappingTemplateResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1EvaluateMappingTemplateCommand,
   serializeAws_restJson1EvaluateMappingTemplateCommand,
@@ -122,8 +117,8 @@ export class EvaluateMappingTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: EvaluateMappingTemplateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: EvaluateMappingTemplateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

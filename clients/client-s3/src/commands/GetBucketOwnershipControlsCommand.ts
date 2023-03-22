@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetBucketOwnershipControlsOutput,
-  GetBucketOwnershipControlsOutputFilterSensitiveLog,
-  GetBucketOwnershipControlsRequest,
-  GetBucketOwnershipControlsRequestFilterSensitiveLog,
-} from "../models/models_0";
+import { GetBucketOwnershipControlsOutput, GetBucketOwnershipControlsRequest } from "../models/models_0";
 import {
   deserializeAws_restXmlGetBucketOwnershipControlsCommand,
   serializeAws_restXmlGetBucketOwnershipControlsCommand,
@@ -130,8 +125,8 @@ export class GetBucketOwnershipControlsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetBucketOwnershipControlsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetBucketOwnershipControlsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

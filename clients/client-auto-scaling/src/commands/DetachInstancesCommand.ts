@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import {
-  DetachInstancesAnswer,
-  DetachInstancesAnswerFilterSensitiveLog,
-  DetachInstancesQuery,
-  DetachInstancesQueryFilterSensitiveLog,
-} from "../models/models_0";
+import { DetachInstancesAnswer, DetachInstancesQuery } from "../models/models_0";
 import {
   deserializeAws_queryDetachInstancesCommand,
   serializeAws_queryDetachInstancesCommand,
@@ -151,8 +146,8 @@ export class DetachInstancesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DetachInstancesQueryFilterSensitiveLog,
-      outputFilterSensitiveLog: DetachInstancesAnswerFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

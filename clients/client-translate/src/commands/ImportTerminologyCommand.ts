@@ -17,7 +17,6 @@ import {
   ImportTerminologyRequest,
   ImportTerminologyRequestFilterSensitiveLog,
   ImportTerminologyResponse,
-  ImportTerminologyResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1ImportTerminologyCommand,
@@ -137,7 +136,7 @@ export class ImportTerminologyCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: ImportTerminologyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ImportTerminologyResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

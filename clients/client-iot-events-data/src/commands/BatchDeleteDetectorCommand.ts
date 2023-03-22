@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTEventsDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTEventsDataClient";
-import {
-  BatchDeleteDetectorRequest,
-  BatchDeleteDetectorRequestFilterSensitiveLog,
-  BatchDeleteDetectorResponse,
-  BatchDeleteDetectorResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { BatchDeleteDetectorRequest, BatchDeleteDetectorResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1BatchDeleteDetectorCommand,
   serializeAws_restJson1BatchDeleteDetectorCommand,
@@ -119,8 +114,8 @@ export class BatchDeleteDetectorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchDeleteDetectorRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchDeleteDetectorResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

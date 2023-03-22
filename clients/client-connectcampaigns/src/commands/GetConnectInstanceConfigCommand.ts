@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectCampaignsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCampaignsClient";
-import {
-  GetConnectInstanceConfigRequest,
-  GetConnectInstanceConfigRequestFilterSensitiveLog,
-  GetConnectInstanceConfigResponse,
-  GetConnectInstanceConfigResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetConnectInstanceConfigRequest, GetConnectInstanceConfigResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetConnectInstanceConfigCommand,
   serializeAws_restJson1GetConnectInstanceConfigCommand,
@@ -119,8 +114,8 @@ export class GetConnectInstanceConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetConnectInstanceConfigRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetConnectInstanceConfigResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListCoreNetworksRequest,
-  ListCoreNetworksRequestFilterSensitiveLog,
-  ListCoreNetworksResponse,
-  ListCoreNetworksResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListCoreNetworksRequest, ListCoreNetworksResponse } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
 import {
   deserializeAws_restJson1ListCoreNetworksCommand,
@@ -119,8 +114,8 @@ export class ListCoreNetworksCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListCoreNetworksRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListCoreNetworksResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

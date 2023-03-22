@@ -16,7 +16,6 @@ import {
 import { KafkaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaConnectClient";
 import {
   DescribeWorkerConfigurationRequest,
-  DescribeWorkerConfigurationRequestFilterSensitiveLog,
   DescribeWorkerConfigurationResponse,
   DescribeWorkerConfigurationResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -136,7 +135,7 @@ export class DescribeWorkerConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeWorkerConfigurationRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeWorkerConfigurationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

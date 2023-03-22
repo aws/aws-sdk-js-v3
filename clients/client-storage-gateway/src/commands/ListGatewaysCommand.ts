@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListGatewaysInput,
-  ListGatewaysInputFilterSensitiveLog,
-  ListGatewaysOutput,
-  ListGatewaysOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { ListGatewaysInput, ListGatewaysOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1ListGatewaysCommand,
   serializeAws_json1_1ListGatewaysCommand,
@@ -148,8 +143,8 @@ export class ListGatewaysCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListGatewaysInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListGatewaysOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

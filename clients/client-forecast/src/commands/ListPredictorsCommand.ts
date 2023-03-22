@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ForecastClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastClient";
-import {
-  ListPredictorsRequest,
-  ListPredictorsRequestFilterSensitiveLog,
-  ListPredictorsResponse,
-  ListPredictorsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListPredictorsRequest, ListPredictorsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ListPredictorsCommand,
   serializeAws_json1_1ListPredictorsCommand,
@@ -118,8 +113,8 @@ export class ListPredictorsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListPredictorsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListPredictorsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

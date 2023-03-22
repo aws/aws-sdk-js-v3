@@ -13,7 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { RegisterActivityTypeInput, RegisterActivityTypeInputFilterSensitiveLog } from "../models/models_0";
+import { RegisterActivityTypeInput } from "../models/models_0";
 import {
   deserializeAws_json1_0RegisterActivityTypeCommand,
   serializeAws_json1_0RegisterActivityTypeCommand,
@@ -160,8 +160,8 @@ export class RegisterActivityTypeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RegisterActivityTypeInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

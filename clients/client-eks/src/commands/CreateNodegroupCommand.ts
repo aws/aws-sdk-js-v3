@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
-import {
-  CreateNodegroupRequest,
-  CreateNodegroupRequestFilterSensitiveLog,
-  CreateNodegroupResponse,
-  CreateNodegroupResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateNodegroupRequest, CreateNodegroupResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateNodegroupCommand,
   serializeAws_restJson1CreateNodegroupCommand,
@@ -145,8 +140,8 @@ export class CreateNodegroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateNodegroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateNodegroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

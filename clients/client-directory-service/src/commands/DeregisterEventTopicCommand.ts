@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
-import {
-  DeregisterEventTopicRequest,
-  DeregisterEventTopicRequestFilterSensitiveLog,
-  DeregisterEventTopicResult,
-  DeregisterEventTopicResultFilterSensitiveLog,
-} from "../models/models_0";
+import { DeregisterEventTopicRequest, DeregisterEventTopicResult } from "../models/models_0";
 import {
   deserializeAws_json1_1DeregisterEventTopicCommand,
   serializeAws_json1_1DeregisterEventTopicCommand,
@@ -119,8 +114,8 @@ export class DeregisterEventTopicCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeregisterEventTopicRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeregisterEventTopicResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

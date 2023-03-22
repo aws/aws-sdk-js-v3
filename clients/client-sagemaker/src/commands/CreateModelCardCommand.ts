@@ -17,7 +17,6 @@ import {
   CreateModelCardRequest,
   CreateModelCardRequestFilterSensitiveLog,
   CreateModelCardResponse,
-  CreateModelCardResponseFilterSensitiveLog,
 } from "../models/models_1";
 import {
   deserializeAws_json1_1CreateModelCardCommand,
@@ -117,7 +116,7 @@ export class CreateModelCardCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateModelCardRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateModelCardResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingClient";
-import {
-  CreateAppCookieStickinessPolicyInput,
-  CreateAppCookieStickinessPolicyInputFilterSensitiveLog,
-  CreateAppCookieStickinessPolicyOutput,
-  CreateAppCookieStickinessPolicyOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateAppCookieStickinessPolicyInput, CreateAppCookieStickinessPolicyOutput } from "../models/models_0";
 import {
   deserializeAws_queryCreateAppCookieStickinessPolicyCommand,
   serializeAws_queryCreateAppCookieStickinessPolicyCommand,
@@ -146,8 +141,8 @@ export class CreateAppCookieStickinessPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateAppCookieStickinessPolicyInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateAppCookieStickinessPolicyOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

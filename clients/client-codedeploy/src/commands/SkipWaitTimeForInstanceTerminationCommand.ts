@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeDeployClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeDeployClient";
-import {
-  SkipWaitTimeForInstanceTerminationInput,
-  SkipWaitTimeForInstanceTerminationInputFilterSensitiveLog,
-} from "../models/models_0";
+import { SkipWaitTimeForInstanceTerminationInput } from "../models/models_0";
 import {
   deserializeAws_json1_1SkipWaitTimeForInstanceTerminationCommand,
   serializeAws_json1_1SkipWaitTimeForInstanceTerminationCommand,
@@ -127,8 +124,8 @@ export class SkipWaitTimeForInstanceTerminationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SkipWaitTimeForInstanceTerminationInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

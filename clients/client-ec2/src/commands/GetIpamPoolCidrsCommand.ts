@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  GetIpamPoolCidrsRequest,
-  GetIpamPoolCidrsRequestFilterSensitiveLog,
-  GetIpamPoolCidrsResult,
-  GetIpamPoolCidrsResultFilterSensitiveLog,
-} from "../models/models_5";
+import { GetIpamPoolCidrsRequest, GetIpamPoolCidrsResult } from "../models/models_5";
 import {
   deserializeAws_ec2GetIpamPoolCidrsCommand,
   serializeAws_ec2GetIpamPoolCidrsCommand,
@@ -107,8 +102,8 @@ export class GetIpamPoolCidrsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetIpamPoolCidrsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetIpamPoolCidrsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

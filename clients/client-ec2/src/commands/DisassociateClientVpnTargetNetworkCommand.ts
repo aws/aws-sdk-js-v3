@@ -16,9 +16,7 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   DisassociateClientVpnTargetNetworkRequest,
-  DisassociateClientVpnTargetNetworkRequestFilterSensitiveLog,
   DisassociateClientVpnTargetNetworkResult,
-  DisassociateClientVpnTargetNetworkResultFilterSensitiveLog,
 } from "../models/models_5";
 import {
   deserializeAws_ec2DisassociateClientVpnTargetNetworkCommand,
@@ -125,8 +123,8 @@ export class DisassociateClientVpnTargetNetworkCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateClientVpnTargetNetworkRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateClientVpnTargetNetworkResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

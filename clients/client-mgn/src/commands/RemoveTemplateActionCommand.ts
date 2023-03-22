@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
-import {
-  RemoveTemplateActionRequest,
-  RemoveTemplateActionRequestFilterSensitiveLog,
-  RemoveTemplateActionResponse,
-  RemoveTemplateActionResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { RemoveTemplateActionRequest, RemoveTemplateActionResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1RemoveTemplateActionCommand,
   serializeAws_restJson1RemoveTemplateActionCommand,
@@ -116,8 +111,8 @@ export class RemoveTemplateActionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RemoveTemplateActionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RemoveTemplateActionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

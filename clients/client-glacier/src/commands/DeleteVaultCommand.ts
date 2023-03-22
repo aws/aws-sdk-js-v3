@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient";
-import { DeleteVaultInput, DeleteVaultInputFilterSensitiveLog } from "../models/models_0";
+import { DeleteVaultInput } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteVaultCommand,
   serializeAws_restJson1DeleteVaultCommand,
@@ -144,8 +144,8 @@ export class DeleteVaultCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteVaultInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

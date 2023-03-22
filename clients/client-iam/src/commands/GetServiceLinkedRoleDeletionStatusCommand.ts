@@ -16,9 +16,7 @@ import {
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import {
   GetServiceLinkedRoleDeletionStatusRequest,
-  GetServiceLinkedRoleDeletionStatusRequestFilterSensitiveLog,
   GetServiceLinkedRoleDeletionStatusResponse,
-  GetServiceLinkedRoleDeletionStatusResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_queryGetServiceLinkedRoleDeletionStatusCommand,
@@ -125,8 +123,8 @@ export class GetServiceLinkedRoleDeletionStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetServiceLinkedRoleDeletionStatusRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetServiceLinkedRoleDeletionStatusResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

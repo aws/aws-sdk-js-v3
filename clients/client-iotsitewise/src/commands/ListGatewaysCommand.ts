@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
-import {
-  ListGatewaysRequest,
-  ListGatewaysRequestFilterSensitiveLog,
-  ListGatewaysResponse,
-  ListGatewaysResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListGatewaysRequest, ListGatewaysResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListGatewaysCommand,
   serializeAws_restJson1ListGatewaysCommand,
@@ -118,8 +113,8 @@ export class ListGatewaysCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListGatewaysRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListGatewaysResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

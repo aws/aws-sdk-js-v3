@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AmplifyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyClient";
-import {
-  StartJobRequest,
-  StartJobRequestFilterSensitiveLog,
-  StartJobResult,
-  StartJobResultFilterSensitiveLog,
-} from "../models/models_0";
+import { StartJobRequest, StartJobResult } from "../models/models_0";
 import {
   deserializeAws_restJson1StartJobCommand,
   serializeAws_restJson1StartJobCommand,
@@ -120,8 +115,8 @@ export class StartJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartJobResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
-import {
-  CreateGlobalTableInput,
-  CreateGlobalTableInputFilterSensitiveLog,
-  CreateGlobalTableOutput,
-  CreateGlobalTableOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateGlobalTableInput, CreateGlobalTableOutput } from "../models/models_0";
 import {
   deserializeAws_json1_0CreateGlobalTableCommand,
   serializeAws_json1_0CreateGlobalTableCommand,
@@ -194,8 +189,8 @@ export class CreateGlobalTableCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateGlobalTableInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateGlobalTableOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

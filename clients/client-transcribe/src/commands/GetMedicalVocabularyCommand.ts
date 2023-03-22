@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetMedicalVocabularyRequest,
-  GetMedicalVocabularyRequestFilterSensitiveLog,
-  GetMedicalVocabularyResponse,
-  GetMedicalVocabularyResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetMedicalVocabularyRequest, GetMedicalVocabularyResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GetMedicalVocabularyCommand,
   serializeAws_json1_1GetMedicalVocabularyCommand,
@@ -130,8 +125,8 @@ export class GetMedicalVocabularyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetMedicalVocabularyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetMedicalVocabularyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

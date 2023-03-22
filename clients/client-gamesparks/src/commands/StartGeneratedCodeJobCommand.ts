@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GameSparksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameSparksClient";
-import {
-  StartGeneratedCodeJobRequest,
-  StartGeneratedCodeJobRequestFilterSensitiveLog,
-  StartGeneratedCodeJobResult,
-  StartGeneratedCodeJobResultFilterSensitiveLog,
-} from "../models/models_0";
+import { StartGeneratedCodeJobRequest, StartGeneratedCodeJobResult } from "../models/models_0";
 import {
   deserializeAws_restJson1StartGeneratedCodeJobCommand,
   serializeAws_restJson1StartGeneratedCodeJobCommand,
@@ -125,8 +120,8 @@ export class StartGeneratedCodeJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartGeneratedCodeJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartGeneratedCodeJobResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

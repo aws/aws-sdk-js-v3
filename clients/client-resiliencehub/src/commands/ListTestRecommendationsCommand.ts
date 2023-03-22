@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListTestRecommendationsRequest,
-  ListTestRecommendationsRequestFilterSensitiveLog,
-  ListTestRecommendationsResponse,
-  ListTestRecommendationsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListTestRecommendationsRequest, ListTestRecommendationsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListTestRecommendationsCommand,
   serializeAws_restJson1ListTestRecommendationsCommand,
@@ -131,8 +126,8 @@ export class ListTestRecommendationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTestRecommendationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListTestRecommendationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

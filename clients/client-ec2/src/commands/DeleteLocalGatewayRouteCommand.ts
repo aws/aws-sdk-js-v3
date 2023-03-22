@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DeleteLocalGatewayRouteRequest,
-  DeleteLocalGatewayRouteRequestFilterSensitiveLog,
-  DeleteLocalGatewayRouteResult,
-  DeleteLocalGatewayRouteResultFilterSensitiveLog,
-} from "../models/models_2";
+import { DeleteLocalGatewayRouteRequest, DeleteLocalGatewayRouteResult } from "../models/models_2";
 import {
   deserializeAws_ec2DeleteLocalGatewayRouteCommand,
   serializeAws_ec2DeleteLocalGatewayRouteCommand,
@@ -107,8 +102,8 @@ export class DeleteLocalGatewayRouteCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteLocalGatewayRouteRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteLocalGatewayRouteResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

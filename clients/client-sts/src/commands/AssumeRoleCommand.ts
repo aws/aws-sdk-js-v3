@@ -14,12 +14,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  AssumeRoleRequest,
-  AssumeRoleRequestFilterSensitiveLog,
-  AssumeRoleResponse,
-  AssumeRoleResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { AssumeRoleRequest, AssumeRoleResponse } from "../models/models_0";
 import { deserializeAws_queryAssumeRoleCommand, serializeAws_queryAssumeRoleCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, STSClientResolvedConfig } from "../STSClient";
 
@@ -265,8 +260,8 @@ export class AssumeRoleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssumeRoleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssumeRoleResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

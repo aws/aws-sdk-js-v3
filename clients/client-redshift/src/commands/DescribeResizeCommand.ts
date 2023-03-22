@@ -13,8 +13,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ResizeProgressMessage, ResizeProgressMessageFilterSensitiveLog } from "../models/models_0";
-import { DescribeResizeMessage, DescribeResizeMessageFilterSensitiveLog } from "../models/models_1";
+import { ResizeProgressMessage } from "../models/models_0";
+import { DescribeResizeMessage } from "../models/models_1";
 import {
   deserializeAws_queryDescribeResizeCommand,
   serializeAws_queryDescribeResizeCommand,
@@ -115,8 +115,8 @@ export class DescribeResizeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeResizeMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: ResizeProgressMessageFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

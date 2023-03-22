@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
-import { DeleteRecoveryPointInput, DeleteRecoveryPointInputFilterSensitiveLog } from "../models/models_0";
+import { DeleteRecoveryPointInput } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteRecoveryPointCommand,
   serializeAws_restJson1DeleteRecoveryPointCommand,
@@ -135,8 +135,8 @@ export class DeleteRecoveryPointCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteRecoveryPointInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

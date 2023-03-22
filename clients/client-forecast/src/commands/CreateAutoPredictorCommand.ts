@@ -18,7 +18,6 @@ import {
   CreateAutoPredictorRequest,
   CreateAutoPredictorRequestFilterSensitiveLog,
   CreateAutoPredictorResponse,
-  CreateAutoPredictorResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateAutoPredictorCommand,
@@ -173,7 +172,7 @@ export class CreateAutoPredictorCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateAutoPredictorRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateAutoPredictorResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

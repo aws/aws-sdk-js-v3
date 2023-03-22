@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import { SetInstanceHealthQuery, SetInstanceHealthQueryFilterSensitiveLog } from "../models/models_0";
+import { SetInstanceHealthQuery } from "../models/models_0";
 import {
   deserializeAws_querySetInstanceHealthCommand,
   serializeAws_querySetInstanceHealthCommand,
@@ -120,8 +120,8 @@ export class SetInstanceHealthCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SetInstanceHealthQueryFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -16,7 +16,6 @@ import {
 import { BudgetsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BudgetsClient";
 import {
   DescribeBudgetActionRequest,
-  DescribeBudgetActionRequestFilterSensitiveLog,
   DescribeBudgetActionResponse,
   DescribeBudgetActionResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -126,7 +125,7 @@ export class DescribeBudgetActionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeBudgetActionRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeBudgetActionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

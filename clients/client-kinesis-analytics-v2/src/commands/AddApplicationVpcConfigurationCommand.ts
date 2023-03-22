@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../KinesisAnalyticsV2Client";
-import {
-  AddApplicationVpcConfigurationRequest,
-  AddApplicationVpcConfigurationRequestFilterSensitiveLog,
-  AddApplicationVpcConfigurationResponse,
-  AddApplicationVpcConfigurationResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { AddApplicationVpcConfigurationRequest, AddApplicationVpcConfigurationResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1AddApplicationVpcConfigurationCommand,
   serializeAws_json1_1AddApplicationVpcConfigurationCommand,
@@ -141,8 +136,8 @@ export class AddApplicationVpcConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AddApplicationVpcConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AddApplicationVpcConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

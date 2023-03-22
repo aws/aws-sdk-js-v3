@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaPackageClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaPackageClient";
-import {
-  ListOriginEndpointsRequest,
-  ListOriginEndpointsRequestFilterSensitiveLog,
-  ListOriginEndpointsResponse,
-  ListOriginEndpointsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListOriginEndpointsRequest, ListOriginEndpointsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListOriginEndpointsCommand,
   serializeAws_restJson1ListOriginEndpointsCommand,
@@ -125,8 +120,8 @@ export class ListOriginEndpointsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListOriginEndpointsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListOriginEndpointsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

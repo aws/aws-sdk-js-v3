@@ -16,7 +16,6 @@ import {
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
 import {
   GetComputeAccessInput,
-  GetComputeAccessInputFilterSensitiveLog,
   GetComputeAccessOutput,
   GetComputeAccessOutputFilterSensitiveLog,
 } from "../models/models_0";
@@ -143,7 +142,7 @@ export class GetComputeAccessCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetComputeAccessInputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetComputeAccessOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

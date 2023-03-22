@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import {
-  UpdateUserSecurityProfilesRequest,
-  UpdateUserSecurityProfilesRequestFilterSensitiveLog,
-} from "../models/models_1";
+import { UpdateUserSecurityProfilesRequest } from "../models/models_1";
 import {
   deserializeAws_restJson1UpdateUserSecurityProfilesCommand,
   serializeAws_restJson1UpdateUserSecurityProfilesCommand,
@@ -120,8 +117,8 @@ export class UpdateUserSecurityProfilesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateUserSecurityProfilesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

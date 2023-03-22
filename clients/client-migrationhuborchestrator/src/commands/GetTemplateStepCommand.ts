@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MigrationHubOrchestratorClient";
-import {
-  GetTemplateStepRequest,
-  GetTemplateStepRequestFilterSensitiveLog,
-  GetTemplateStepResponse,
-  GetTemplateStepResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetTemplateStepRequest, GetTemplateStepResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetTemplateStepCommand,
   serializeAws_restJson1GetTemplateStepCommand,
@@ -126,8 +121,8 @@ export class GetTemplateStepCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetTemplateStepRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetTemplateStepResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

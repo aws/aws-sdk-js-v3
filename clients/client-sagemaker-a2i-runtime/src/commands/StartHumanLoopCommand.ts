@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  StartHumanLoopRequest,
-  StartHumanLoopRequestFilterSensitiveLog,
-  StartHumanLoopResponse,
-  StartHumanLoopResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { StartHumanLoopRequest, StartHumanLoopResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1StartHumanLoopCommand,
   serializeAws_restJson1StartHumanLoopCommand,
@@ -136,8 +131,8 @@ export class StartHumanLoopCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartHumanLoopRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartHumanLoopResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

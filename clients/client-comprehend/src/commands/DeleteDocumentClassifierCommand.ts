@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
-import {
-  DeleteDocumentClassifierRequest,
-  DeleteDocumentClassifierRequestFilterSensitiveLog,
-  DeleteDocumentClassifierResponse,
-  DeleteDocumentClassifierResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteDocumentClassifierRequest, DeleteDocumentClassifierResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteDocumentClassifierCommand,
   serializeAws_json1_1DeleteDocumentClassifierCommand,
@@ -133,8 +128,8 @@ export class DeleteDocumentClassifierCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDocumentClassifierRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteDocumentClassifierResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

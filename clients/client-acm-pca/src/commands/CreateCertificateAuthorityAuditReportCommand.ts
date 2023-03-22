@@ -16,9 +16,7 @@ import {
 import { ACMPCAClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ACMPCAClient";
 import {
   CreateCertificateAuthorityAuditReportRequest,
-  CreateCertificateAuthorityAuditReportRequestFilterSensitiveLog,
   CreateCertificateAuthorityAuditReportResponse,
-  CreateCertificateAuthorityAuditReportResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateCertificateAuthorityAuditReportCommand,
@@ -145,8 +143,8 @@ export class CreateCertificateAuthorityAuditReportCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateCertificateAuthorityAuditReportRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateCertificateAuthorityAuditReportResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

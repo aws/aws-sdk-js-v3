@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LookoutMetricsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutMetricsClient";
-import {
-  GetFeedbackRequest,
-  GetFeedbackRequestFilterSensitiveLog,
-  GetFeedbackResponse,
-  GetFeedbackResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetFeedbackRequest, GetFeedbackResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetFeedbackCommand,
   serializeAws_restJson1GetFeedbackCommand,
@@ -121,8 +116,8 @@ export class GetFeedbackCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetFeedbackRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetFeedbackResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
-import {
-  UpdateFacetRequest,
-  UpdateFacetRequestFilterSensitiveLog,
-  UpdateFacetResponse,
-  UpdateFacetResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateFacetRequest, UpdateFacetResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateFacetCommand,
   serializeAws_restJson1UpdateFacetCommand,
@@ -152,8 +147,8 @@ export class UpdateFacetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateFacetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateFacetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

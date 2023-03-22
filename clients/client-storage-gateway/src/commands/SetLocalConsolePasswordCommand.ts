@@ -17,7 +17,6 @@ import {
   SetLocalConsolePasswordInput,
   SetLocalConsolePasswordInputFilterSensitiveLog,
   SetLocalConsolePasswordOutput,
-  SetLocalConsolePasswordOutputFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1SetLocalConsolePasswordCommand,
@@ -136,7 +135,7 @@ export class SetLocalConsolePasswordCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: SetLocalConsolePasswordInputFilterSensitiveLog,
-      outputFilterSensitiveLog: SetLocalConsolePasswordOutputFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

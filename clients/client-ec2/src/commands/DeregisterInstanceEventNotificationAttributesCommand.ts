@@ -16,9 +16,7 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   DeregisterInstanceEventNotificationAttributesRequest,
-  DeregisterInstanceEventNotificationAttributesRequestFilterSensitiveLog,
   DeregisterInstanceEventNotificationAttributesResult,
-  DeregisterInstanceEventNotificationAttributesResultFilterSensitiveLog,
 } from "../models/models_3";
 import {
   deserializeAws_ec2DeregisterInstanceEventNotificationAttributesCommand,
@@ -117,8 +115,8 @@ export class DeregisterInstanceEventNotificationAttributesCommand extends $Comma
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeregisterInstanceEventNotificationAttributesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeregisterInstanceEventNotificationAttributesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

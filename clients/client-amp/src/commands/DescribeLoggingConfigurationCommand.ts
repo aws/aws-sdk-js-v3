@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AmpClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmpClient";
-import {
-  DescribeLoggingConfigurationRequest,
-  DescribeLoggingConfigurationRequestFilterSensitiveLog,
-  DescribeLoggingConfigurationResponse,
-  DescribeLoggingConfigurationResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeLoggingConfigurationRequest, DescribeLoggingConfigurationResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeLoggingConfigurationCommand,
   serializeAws_restJson1DescribeLoggingConfigurationCommand,
@@ -121,8 +116,8 @@ export class DescribeLoggingConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeLoggingConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeLoggingConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

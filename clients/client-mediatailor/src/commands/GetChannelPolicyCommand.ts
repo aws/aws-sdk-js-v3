@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaTailorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaTailorClient";
-import {
-  GetChannelPolicyRequest,
-  GetChannelPolicyRequestFilterSensitiveLog,
-  GetChannelPolicyResponse,
-  GetChannelPolicyResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetChannelPolicyRequest, GetChannelPolicyResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetChannelPolicyCommand,
   serializeAws_restJson1GetChannelPolicyCommand,
@@ -107,8 +102,8 @@ export class GetChannelPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetChannelPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetChannelPolicyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

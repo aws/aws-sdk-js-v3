@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  GetStatisticsRequest,
-  GetStatisticsRequestFilterSensitiveLog,
-  GetStatisticsResponse,
-  GetStatisticsResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { GetStatisticsRequest, GetStatisticsResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1GetStatisticsCommand,
   serializeAws_restJson1GetStatisticsCommand,
@@ -135,8 +130,8 @@ export class GetStatisticsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetStatisticsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetStatisticsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

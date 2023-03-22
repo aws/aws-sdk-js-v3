@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  RestoreAddressToClassicRequest,
-  RestoreAddressToClassicRequestFilterSensitiveLog,
-  RestoreAddressToClassicResult,
-  RestoreAddressToClassicResultFilterSensitiveLog,
-} from "../models/models_6";
+import { RestoreAddressToClassicRequest, RestoreAddressToClassicResult } from "../models/models_6";
 import {
   deserializeAws_ec2RestoreAddressToClassicCommand,
   serializeAws_ec2RestoreAddressToClassicCommand,
@@ -127,8 +122,8 @@ export class RestoreAddressToClassicCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RestoreAddressToClassicRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RestoreAddressToClassicResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

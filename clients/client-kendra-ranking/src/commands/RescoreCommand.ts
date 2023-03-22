@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { KendraRankingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraRankingClient";
-import {
-  RescoreRequest,
-  RescoreRequestFilterSensitiveLog,
-  RescoreResult,
-  RescoreResultFilterSensitiveLog,
-} from "../models/models_0";
+import { RescoreRequest, RescoreResult } from "../models/models_0";
 import { deserializeAws_json1_0RescoreCommand, serializeAws_json1_0RescoreCommand } from "../protocols/Aws_json1_0";
 
 /**
@@ -134,8 +129,8 @@ export class RescoreCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RescoreRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RescoreResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

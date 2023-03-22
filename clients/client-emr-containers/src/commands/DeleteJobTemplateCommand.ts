@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EMRContainersClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRContainersClient";
-import {
-  DeleteJobTemplateRequest,
-  DeleteJobTemplateRequestFilterSensitiveLog,
-  DeleteJobTemplateResponse,
-  DeleteJobTemplateResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteJobTemplateRequest, DeleteJobTemplateResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteJobTemplateCommand,
   serializeAws_restJson1DeleteJobTemplateCommand,
@@ -116,8 +111,8 @@ export class DeleteJobTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteJobTemplateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteJobTemplateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

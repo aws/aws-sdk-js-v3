@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { RecursiveShapesInputOutput, RecursiveShapesInputOutputFilterSensitiveLog } from "../models/models_0";
+import { RecursiveShapesInputOutput } from "../models/models_0";
 import {
   deserializeAws_restXmlRecursiveShapesCommand,
   serializeAws_restXmlRecursiveShapesCommand,
@@ -20,15 +20,20 @@ import {
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 
 /**
+ * @public
+ *
  * The input for {@link RecursiveShapesCommand}.
  */
 export interface RecursiveShapesCommandInput extends RecursiveShapesInputOutput {}
 /**
+ * @public
+ *
  * The output of {@link RecursiveShapesCommand}.
  */
 export interface RecursiveShapesCommandOutput extends RecursiveShapesInputOutput, __MetadataBearer {}
 
 /**
+ * @public
  * Recursive shapes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,6 +45,8 @@ export interface RecursiveShapesCommandOutput extends RecursiveShapesInputOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param RecursiveShapesCommandInput - {@link RecursiveShapesCommandInput}
+ * @returns {@link RecursiveShapesCommandOutput}
  * @see {@link RecursiveShapesCommandInput} for command's `input` shape.
  * @see {@link RecursiveShapesCommandOutput} for command's `response` shape.
  * @see {@link RestXmlProtocolClientResolvedConfig | config} for RestXmlProtocolClient's `config` shape.
@@ -54,6 +61,9 @@ export class RecursiveShapesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: RecursiveShapesCommandInput) {
     // Start section: command_constructor
     super();
@@ -79,8 +89,8 @@ export class RecursiveShapesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RecursiveShapesInputOutputFilterSensitiveLog,
-      outputFilterSensitiveLog: RecursiveShapesInputOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -90,10 +100,16 @@ export class RecursiveShapesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RecursiveShapesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlRecursiveShapesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RecursiveShapesCommandOutput> {
     return deserializeAws_restXmlRecursiveShapesCommand(output, context);
   }

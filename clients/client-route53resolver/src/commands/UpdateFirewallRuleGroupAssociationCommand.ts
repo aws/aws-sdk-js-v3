@@ -15,9 +15,7 @@ import {
 
 import {
   UpdateFirewallRuleGroupAssociationRequest,
-  UpdateFirewallRuleGroupAssociationRequestFilterSensitiveLog,
   UpdateFirewallRuleGroupAssociationResponse,
-  UpdateFirewallRuleGroupAssociationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateFirewallRuleGroupAssociationCommand,
@@ -130,8 +128,8 @@ export class UpdateFirewallRuleGroupAssociationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateFirewallRuleGroupAssociationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateFirewallRuleGroupAssociationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

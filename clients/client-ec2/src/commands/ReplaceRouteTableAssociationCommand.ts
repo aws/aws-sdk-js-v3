@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  ReplaceRouteTableAssociationRequest,
-  ReplaceRouteTableAssociationRequestFilterSensitiveLog,
-  ReplaceRouteTableAssociationResult,
-  ReplaceRouteTableAssociationResultFilterSensitiveLog,
-} from "../models/models_6";
+import { ReplaceRouteTableAssociationRequest, ReplaceRouteTableAssociationResult } from "../models/models_6";
 import {
   deserializeAws_ec2ReplaceRouteTableAssociationCommand,
   serializeAws_ec2ReplaceRouteTableAssociationCommand,
@@ -130,8 +125,8 @@ export class ReplaceRouteTableAssociationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ReplaceRouteTableAssociationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ReplaceRouteTableAssociationResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

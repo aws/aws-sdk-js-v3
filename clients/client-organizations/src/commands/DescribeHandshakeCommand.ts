@@ -15,7 +15,6 @@ import {
 
 import {
   DescribeHandshakeRequest,
-  DescribeHandshakeRequestFilterSensitiveLog,
   DescribeHandshakeResponse,
   DescribeHandshakeResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -295,7 +294,7 @@ export class DescribeHandshakeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeHandshakeRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeHandshakeResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

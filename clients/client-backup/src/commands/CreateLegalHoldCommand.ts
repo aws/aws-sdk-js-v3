@@ -18,7 +18,6 @@ import {
   CreateLegalHoldInput,
   CreateLegalHoldInputFilterSensitiveLog,
   CreateLegalHoldOutput,
-  CreateLegalHoldOutputFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateLegalHoldCommand,
@@ -125,7 +124,7 @@ export class CreateLegalHoldCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateLegalHoldInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateLegalHoldOutputFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

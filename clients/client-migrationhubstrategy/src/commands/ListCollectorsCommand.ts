@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MigrationHubStrategyClient";
-import {
-  ListCollectorsRequest,
-  ListCollectorsRequestFilterSensitiveLog,
-  ListCollectorsResponse,
-  ListCollectorsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListCollectorsRequest, ListCollectorsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListCollectorsCommand,
   serializeAws_restJson1ListCollectorsCommand,
@@ -124,8 +119,8 @@ export class ListCollectorsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListCollectorsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListCollectorsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

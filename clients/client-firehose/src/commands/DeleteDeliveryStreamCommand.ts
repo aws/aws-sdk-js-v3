@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { FirehoseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FirehoseClient";
-import {
-  DeleteDeliveryStreamInput,
-  DeleteDeliveryStreamInputFilterSensitiveLog,
-  DeleteDeliveryStreamOutput,
-  DeleteDeliveryStreamOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteDeliveryStreamInput, DeleteDeliveryStreamOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteDeliveryStreamCommand,
   serializeAws_json1_1DeleteDeliveryStreamCommand,
@@ -122,8 +117,8 @@ export class DeleteDeliveryStreamCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDeliveryStreamInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteDeliveryStreamOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

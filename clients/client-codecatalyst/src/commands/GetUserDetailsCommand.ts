@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeCatalystClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCatalystClient";
-import {
-  GetUserDetailsRequest,
-  GetUserDetailsRequestFilterSensitiveLog,
-  GetUserDetailsResponse,
-  GetUserDetailsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetUserDetailsRequest, GetUserDetailsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetUserDetailsCommand,
   serializeAws_restJson1GetUserDetailsCommand,
@@ -126,8 +121,8 @@ export class GetUserDetailsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetUserDetailsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetUserDetailsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

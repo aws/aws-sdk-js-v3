@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
-import {
-  DeleteVirtualInterfaceRequest,
-  DeleteVirtualInterfaceRequestFilterSensitiveLog,
-  DeleteVirtualInterfaceResponse,
-  DeleteVirtualInterfaceResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteVirtualInterfaceRequest, DeleteVirtualInterfaceResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteVirtualInterfaceCommand,
   serializeAws_json1_1DeleteVirtualInterfaceCommand,
@@ -113,8 +108,8 @@ export class DeleteVirtualInterfaceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteVirtualInterfaceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteVirtualInterfaceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

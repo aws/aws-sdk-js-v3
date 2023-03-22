@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  AuthorizeSecurityGroupIngressRequest,
-  AuthorizeSecurityGroupIngressRequestFilterSensitiveLog,
-  AuthorizeSecurityGroupIngressResult,
-  AuthorizeSecurityGroupIngressResultFilterSensitiveLog,
-} from "../models/models_0";
+import { AuthorizeSecurityGroupIngressRequest, AuthorizeSecurityGroupIngressResult } from "../models/models_0";
 import {
   deserializeAws_ec2AuthorizeSecurityGroupIngressCommand,
   serializeAws_ec2AuthorizeSecurityGroupIngressCommand,
@@ -195,8 +190,8 @@ export class AuthorizeSecurityGroupIngressCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AuthorizeSecurityGroupIngressRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AuthorizeSecurityGroupIngressResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

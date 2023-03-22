@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingClient";
-import {
-  DescribeAccessPointsInput,
-  DescribeAccessPointsInputFilterSensitiveLog,
-  DescribeAccessPointsOutput,
-  DescribeAccessPointsOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeAccessPointsInput, DescribeAccessPointsOutput } from "../models/models_0";
 import {
   deserializeAws_queryDescribeLoadBalancersCommand,
   serializeAws_queryDescribeLoadBalancersCommand,
@@ -220,8 +215,8 @@ export class DescribeLoadBalancersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeAccessPointsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeAccessPointsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

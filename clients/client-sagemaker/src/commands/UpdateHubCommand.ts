@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateHubRequest,
-  UpdateHubRequestFilterSensitiveLog,
-  UpdateHubResponse,
-  UpdateHubResponseFilterSensitiveLog,
-} from "../models/models_4";
+import { UpdateHubRequest, UpdateHubResponse } from "../models/models_4";
 import { deserializeAws_json1_1UpdateHubCommand, serializeAws_json1_1UpdateHubCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
@@ -108,8 +103,8 @@ export class UpdateHubCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateHubRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateHubResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

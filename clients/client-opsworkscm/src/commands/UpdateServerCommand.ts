@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateServerRequest,
-  UpdateServerRequestFilterSensitiveLog,
-  UpdateServerResponse,
-  UpdateServerResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateServerRequest, UpdateServerResponse, UpdateServerResponseFilterSensitiveLog } from "../models/models_0";
 import { OpsWorksCMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksCMClient";
 import {
   deserializeAws_json1_1UpdateServerCommand,
@@ -122,7 +117,7 @@ export class UpdateServerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateServerRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: UpdateServerResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

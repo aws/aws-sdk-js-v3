@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
-import {
-  ListWavesRequest,
-  ListWavesRequestFilterSensitiveLog,
-  ListWavesResponse,
-  ListWavesResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListWavesRequest, ListWavesResponse, ListWavesResponseFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1ListWavesCommand,
   serializeAws_restJson1ListWavesCommand,
@@ -104,7 +99,7 @@ export class ListWavesCommand extends $Command<ListWavesCommandInput, ListWavesC
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListWavesRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListWavesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

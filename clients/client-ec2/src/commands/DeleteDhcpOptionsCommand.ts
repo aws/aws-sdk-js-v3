@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DeleteDhcpOptionsRequest, DeleteDhcpOptionsRequestFilterSensitiveLog } from "../models/models_2";
+import { DeleteDhcpOptionsRequest } from "../models/models_2";
 import {
   deserializeAws_ec2DeleteDhcpOptionsCommand,
   serializeAws_ec2DeleteDhcpOptionsCommand,
@@ -113,8 +113,8 @@ export class DeleteDhcpOptionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDhcpOptionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

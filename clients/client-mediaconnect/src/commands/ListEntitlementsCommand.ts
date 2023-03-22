@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConnectClient";
-import {
-  ListEntitlementsRequest,
-  ListEntitlementsRequestFilterSensitiveLog,
-  ListEntitlementsResponse,
-  ListEntitlementsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListEntitlementsRequest, ListEntitlementsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListEntitlementsCommand,
   serializeAws_restJson1ListEntitlementsCommand,
@@ -119,8 +114,8 @@ export class ListEntitlementsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListEntitlementsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListEntitlementsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

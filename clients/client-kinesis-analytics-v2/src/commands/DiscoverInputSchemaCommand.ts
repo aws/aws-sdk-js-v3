@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../KinesisAnalyticsV2Client";
-import {
-  DiscoverInputSchemaRequest,
-  DiscoverInputSchemaRequestFilterSensitiveLog,
-  DiscoverInputSchemaResponse,
-  DiscoverInputSchemaResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DiscoverInputSchemaRequest, DiscoverInputSchemaResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DiscoverInputSchemaCommand,
   serializeAws_json1_1DiscoverInputSchemaCommand,
@@ -138,8 +133,8 @@ export class DiscoverInputSchemaCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DiscoverInputSchemaRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DiscoverInputSchemaResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

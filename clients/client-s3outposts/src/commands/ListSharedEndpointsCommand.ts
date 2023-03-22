@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListSharedEndpointsRequest,
-  ListSharedEndpointsRequestFilterSensitiveLog,
-  ListSharedEndpointsResult,
-  ListSharedEndpointsResultFilterSensitiveLog,
-} from "../models/models_0";
+import { ListSharedEndpointsRequest, ListSharedEndpointsResult } from "../models/models_0";
 import {
   deserializeAws_restJson1ListSharedEndpointsCommand,
   serializeAws_restJson1ListSharedEndpointsCommand,
@@ -135,8 +130,8 @@ export class ListSharedEndpointsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListSharedEndpointsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListSharedEndpointsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

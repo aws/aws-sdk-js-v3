@@ -12,10 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  XmlAttributesOnPayloadInputOutput,
-  XmlAttributesOnPayloadInputOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { XmlAttributesOnPayloadInputOutput } from "../models/models_0";
 import {
   deserializeAws_restXmlXmlAttributesOnPayloadCommand,
   serializeAws_restXmlXmlAttributesOnPayloadCommand,
@@ -23,15 +20,20 @@ import {
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 
 /**
+ * @public
+ *
  * The input for {@link XmlAttributesOnPayloadCommand}.
  */
 export interface XmlAttributesOnPayloadCommandInput extends XmlAttributesOnPayloadInputOutput {}
 /**
+ * @public
+ *
  * The output of {@link XmlAttributesOnPayloadCommand}.
  */
 export interface XmlAttributesOnPayloadCommandOutput extends XmlAttributesOnPayloadInputOutput, __MetadataBearer {}
 
 /**
+ * @public
  * This example serializes an XML attributes on a document targeted by httpPayload.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -43,6 +45,8 @@ export interface XmlAttributesOnPayloadCommandOutput extends XmlAttributesOnPayl
  * const response = await client.send(command);
  * ```
  *
+ * @param XmlAttributesOnPayloadCommandInput - {@link XmlAttributesOnPayloadCommandInput}
+ * @returns {@link XmlAttributesOnPayloadCommandOutput}
  * @see {@link XmlAttributesOnPayloadCommandInput} for command's `input` shape.
  * @see {@link XmlAttributesOnPayloadCommandOutput} for command's `response` shape.
  * @see {@link RestXmlProtocolClientResolvedConfig | config} for RestXmlProtocolClient's `config` shape.
@@ -57,6 +61,9 @@ export class XmlAttributesOnPayloadCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: XmlAttributesOnPayloadCommandInput) {
     // Start section: command_constructor
     super();
@@ -82,8 +89,8 @@ export class XmlAttributesOnPayloadCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: XmlAttributesOnPayloadInputOutputFilterSensitiveLog,
-      outputFilterSensitiveLog: XmlAttributesOnPayloadInputOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -93,10 +100,16 @@ export class XmlAttributesOnPayloadCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: XmlAttributesOnPayloadCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlXmlAttributesOnPayloadCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<XmlAttributesOnPayloadCommandOutput> {
     return deserializeAws_restXmlXmlAttributesOnPayloadCommand(output, context);
   }

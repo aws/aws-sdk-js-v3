@@ -16,9 +16,7 @@ import {
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import {
   GetDataQualityRulesetEvaluationRunRequest,
-  GetDataQualityRulesetEvaluationRunRequestFilterSensitiveLog,
   GetDataQualityRulesetEvaluationRunResponse,
-  GetDataQualityRulesetEvaluationRunResponseFilterSensitiveLog,
 } from "../models/models_1";
 import {
   deserializeAws_json1_1GetDataQualityRulesetEvaluationRunCommand,
@@ -121,8 +119,8 @@ export class GetDataQualityRulesetEvaluationRunCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDataQualityRulesetEvaluationRunRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetDataQualityRulesetEvaluationRunResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

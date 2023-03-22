@@ -13,7 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CancelSigningProfileRequest, CancelSigningProfileRequestFilterSensitiveLog } from "../models/models_0";
+import { CancelSigningProfileRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1CancelSigningProfileCommand,
   serializeAws_restJson1CancelSigningProfileCommand,
@@ -118,8 +118,8 @@ export class CancelSigningProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelSigningProfileRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

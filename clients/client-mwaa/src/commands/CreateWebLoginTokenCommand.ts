@@ -15,7 +15,6 @@ import {
 
 import {
   CreateWebLoginTokenRequest,
-  CreateWebLoginTokenRequestFilterSensitiveLog,
   CreateWebLoginTokenResponse,
   CreateWebLoginTokenResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -119,7 +118,7 @@ export class CreateWebLoginTokenCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateWebLoginTokenRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: CreateWebLoginTokenResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

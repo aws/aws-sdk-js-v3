@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import {
-  DeleteResponseHeadersPolicyRequest,
-  DeleteResponseHeadersPolicyRequestFilterSensitiveLog,
-} from "../models/models_1";
+import { DeleteResponseHeadersPolicyRequest } from "../models/models_1";
 import {
   deserializeAws_restXmlDeleteResponseHeadersPolicyCommand,
   serializeAws_restXmlDeleteResponseHeadersPolicyCommand,
@@ -131,8 +128,8 @@ export class DeleteResponseHeadersPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteResponseHeadersPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

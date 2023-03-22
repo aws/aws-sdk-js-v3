@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteTagOptionInput,
-  DeleteTagOptionInputFilterSensitiveLog,
-  DeleteTagOptionOutput,
-  DeleteTagOptionOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteTagOptionInput, DeleteTagOptionOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteTagOptionCommand,
   serializeAws_json1_1DeleteTagOptionCommand,
@@ -119,8 +114,8 @@ export class DeleteTagOptionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteTagOptionInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteTagOptionOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

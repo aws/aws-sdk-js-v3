@@ -18,7 +18,6 @@ import {
   DetectAnomaliesRequest,
   DetectAnomaliesRequestFilterSensitiveLog,
   DetectAnomaliesResponse,
-  DetectAnomaliesResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1DetectAnomaliesCommand,
@@ -150,7 +149,7 @@ export class DetectAnomaliesCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: DetectAnomaliesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DetectAnomaliesResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

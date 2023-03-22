@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CodestarNotificationsClient";
-import {
-  DeleteTargetRequest,
-  DeleteTargetRequestFilterSensitiveLog,
-  DeleteTargetResult,
-  DeleteTargetResultFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteTargetRequest, DeleteTargetRequestFilterSensitiveLog, DeleteTargetResult } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteTargetCommand,
   serializeAws_restJson1DeleteTargetCommand,
@@ -113,7 +108,7 @@ export class DeleteTargetCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: DeleteTargetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteTargetResultFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTRoboRunnerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTRoboRunnerClient";
-import {
-  DeleteWorkerRequest,
-  DeleteWorkerRequestFilterSensitiveLog,
-  DeleteWorkerResponse,
-  DeleteWorkerResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteWorkerRequest, DeleteWorkerResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteWorkerCommand,
   serializeAws_restJson1DeleteWorkerCommand,
@@ -123,8 +118,8 @@ export class DeleteWorkerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteWorkerRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteWorkerResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

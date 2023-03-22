@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
-import { SwapEnvironmentCNAMEsMessage, SwapEnvironmentCNAMEsMessageFilterSensitiveLog } from "../models/models_0";
+import { SwapEnvironmentCNAMEsMessage } from "../models/models_0";
 import {
   deserializeAws_querySwapEnvironmentCNAMEsCommand,
   serializeAws_querySwapEnvironmentCNAMEsCommand,
@@ -114,8 +114,8 @@ export class SwapEnvironmentCNAMEsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SwapEnvironmentCNAMEsMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

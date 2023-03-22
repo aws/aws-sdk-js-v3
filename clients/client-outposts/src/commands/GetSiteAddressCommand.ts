@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetSiteAddressInput,
-  GetSiteAddressInputFilterSensitiveLog,
-  GetSiteAddressOutput,
-  GetSiteAddressOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { GetSiteAddressInput, GetSiteAddressOutput } from "../models/models_0";
 import { OutpostsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OutpostsClient";
 import {
   deserializeAws_restJson1GetSiteAddressCommand,
@@ -119,8 +114,8 @@ export class GetSiteAddressCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSiteAddressInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetSiteAddressOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

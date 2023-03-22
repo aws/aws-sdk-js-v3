@@ -20,9 +20,7 @@ import {
 } from "../KinesisAnalyticsV2Client";
 import {
   UpdateApplicationMaintenanceConfigurationRequest,
-  UpdateApplicationMaintenanceConfigurationRequestFilterSensitiveLog,
   UpdateApplicationMaintenanceConfigurationResponse,
-  UpdateApplicationMaintenanceConfigurationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateApplicationMaintenanceConfigurationCommand,
@@ -153,8 +151,8 @@ export class UpdateApplicationMaintenanceConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateApplicationMaintenanceConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateApplicationMaintenanceConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

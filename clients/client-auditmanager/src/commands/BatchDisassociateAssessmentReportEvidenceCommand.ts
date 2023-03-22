@@ -16,9 +16,7 @@ import {
 import { AuditManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AuditManagerClient";
 import {
   BatchDisassociateAssessmentReportEvidenceRequest,
-  BatchDisassociateAssessmentReportEvidenceRequestFilterSensitiveLog,
   BatchDisassociateAssessmentReportEvidenceResponse,
-  BatchDisassociateAssessmentReportEvidenceResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1BatchDisassociateAssessmentReportEvidenceCommand,
@@ -131,8 +129,8 @@ export class BatchDisassociateAssessmentReportEvidenceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchDisassociateAssessmentReportEvidenceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchDisassociateAssessmentReportEvidenceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

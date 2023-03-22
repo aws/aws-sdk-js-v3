@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeEventTrackerRequest,
-  DescribeEventTrackerRequestFilterSensitiveLog,
-  DescribeEventTrackerResponse,
-  DescribeEventTrackerResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeEventTrackerRequest, DescribeEventTrackerResponse } from "../models/models_0";
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
 import {
   deserializeAws_json1_1DescribeEventTrackerCommand,
@@ -115,8 +110,8 @@ export class DescribeEventTrackerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeEventTrackerRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeEventTrackerResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

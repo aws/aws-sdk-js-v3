@@ -15,7 +15,6 @@ import {
 
 import {
   GetSolNetworkOperationInput,
-  GetSolNetworkOperationInputFilterSensitiveLog,
   GetSolNetworkOperationOutput,
   GetSolNetworkOperationOutputFilterSensitiveLog,
 } from "../models/models_0";
@@ -123,7 +122,7 @@ export class GetSolNetworkOperationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSolNetworkOperationInputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetSolNetworkOperationOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

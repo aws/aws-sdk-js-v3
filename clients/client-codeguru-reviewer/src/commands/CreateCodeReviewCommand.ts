@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeGuruReviewerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeGuruReviewerClient";
-import {
-  CreateCodeReviewRequest,
-  CreateCodeReviewRequestFilterSensitiveLog,
-  CreateCodeReviewResponse,
-  CreateCodeReviewResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateCodeReviewRequest, CreateCodeReviewResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateCodeReviewCommand,
   serializeAws_restJson1CreateCodeReviewCommand,
@@ -130,8 +125,8 @@ export class CreateCodeReviewCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateCodeReviewRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateCodeReviewResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

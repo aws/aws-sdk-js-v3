@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AppMeshClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppMeshClient";
-import {
-  CreateVirtualGatewayInput,
-  CreateVirtualGatewayInputFilterSensitiveLog,
-  CreateVirtualGatewayOutput,
-  CreateVirtualGatewayOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateVirtualGatewayInput, CreateVirtualGatewayOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateVirtualGatewayCommand,
   serializeAws_restJson1CreateVirtualGatewayCommand,
@@ -141,8 +136,8 @@ export class CreateVirtualGatewayCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateVirtualGatewayInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateVirtualGatewayOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

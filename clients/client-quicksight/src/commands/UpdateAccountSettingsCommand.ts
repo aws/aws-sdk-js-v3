@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateAccountSettingsRequest,
-  UpdateAccountSettingsRequestFilterSensitiveLog,
-  UpdateAccountSettingsResponse,
-  UpdateAccountSettingsResponseFilterSensitiveLog,
-} from "../models/models_3";
+import { UpdateAccountSettingsRequest, UpdateAccountSettingsResponse } from "../models/models_3";
 import {
   deserializeAws_restJson1UpdateAccountSettingsCommand,
   serializeAws_restJson1UpdateAccountSettingsCommand,
@@ -128,8 +123,8 @@ export class UpdateAccountSettingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateAccountSettingsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateAccountSettingsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

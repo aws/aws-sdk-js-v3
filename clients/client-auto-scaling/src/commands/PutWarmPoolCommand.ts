@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import {
-  PutWarmPoolAnswer,
-  PutWarmPoolAnswerFilterSensitiveLog,
-  PutWarmPoolType,
-  PutWarmPoolTypeFilterSensitiveLog,
-} from "../models/models_0";
+import { PutWarmPoolAnswer, PutWarmPoolType } from "../models/models_0";
 import { deserializeAws_queryPutWarmPoolCommand, serializeAws_queryPutWarmPoolCommand } from "../protocols/Aws_query";
 
 /**
@@ -137,8 +132,8 @@ export class PutWarmPoolCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutWarmPoolTypeFilterSensitiveLog,
-      outputFilterSensitiveLog: PutWarmPoolAnswerFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

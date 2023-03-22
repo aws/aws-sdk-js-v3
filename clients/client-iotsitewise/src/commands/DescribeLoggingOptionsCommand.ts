@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
-import {
-  DescribeLoggingOptionsRequest,
-  DescribeLoggingOptionsRequestFilterSensitiveLog,
-  DescribeLoggingOptionsResponse,
-  DescribeLoggingOptionsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeLoggingOptionsRequest, DescribeLoggingOptionsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeLoggingOptionsCommand,
   serializeAws_restJson1DescribeLoggingOptionsCommand,
@@ -123,8 +118,8 @@ export class DescribeLoggingOptionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeLoggingOptionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeLoggingOptionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

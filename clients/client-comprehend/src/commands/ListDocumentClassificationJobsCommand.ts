@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
-import {
-  ListDocumentClassificationJobsRequest,
-  ListDocumentClassificationJobsRequestFilterSensitiveLog,
-  ListDocumentClassificationJobsResponse,
-  ListDocumentClassificationJobsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListDocumentClassificationJobsRequest, ListDocumentClassificationJobsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ListDocumentClassificationJobsCommand,
   serializeAws_json1_1ListDocumentClassificationJobsCommand,
@@ -122,8 +117,8 @@ export class ListDocumentClassificationJobsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDocumentClassificationJobsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListDocumentClassificationJobsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

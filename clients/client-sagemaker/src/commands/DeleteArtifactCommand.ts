@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteArtifactRequest,
-  DeleteArtifactRequestFilterSensitiveLog,
-  DeleteArtifactResponse,
-  DeleteArtifactResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { DeleteArtifactRequest, DeleteArtifactResponse } from "../models/models_1";
 import {
   deserializeAws_json1_1DeleteArtifactCommand,
   serializeAws_json1_1DeleteArtifactCommand,
@@ -111,8 +106,8 @@ export class DeleteArtifactCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteArtifactRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteArtifactResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

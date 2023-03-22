@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTRoboRunnerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTRoboRunnerClient";
-import {
-  GetWorkerRequest,
-  GetWorkerRequestFilterSensitiveLog,
-  GetWorkerResponse,
-  GetWorkerResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetWorkerRequest, GetWorkerResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetWorkerCommand,
   serializeAws_restJson1GetWorkerCommand,
@@ -120,8 +115,8 @@ export class GetWorkerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetWorkerRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetWorkerResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

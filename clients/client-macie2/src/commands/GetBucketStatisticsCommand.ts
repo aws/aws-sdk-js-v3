@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
-import {
-  GetBucketStatisticsRequest,
-  GetBucketStatisticsRequestFilterSensitiveLog,
-  GetBucketStatisticsResponse,
-  GetBucketStatisticsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetBucketStatisticsRequest, GetBucketStatisticsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetBucketStatisticsCommand,
   serializeAws_restJson1GetBucketStatisticsCommand,
@@ -128,8 +123,8 @@ export class GetBucketStatisticsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetBucketStatisticsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetBucketStatisticsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

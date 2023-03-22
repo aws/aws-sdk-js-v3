@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetObjectLegalHoldOutput,
-  GetObjectLegalHoldOutputFilterSensitiveLog,
-  GetObjectLegalHoldRequest,
-  GetObjectLegalHoldRequestFilterSensitiveLog,
-} from "../models/models_0";
+import { GetObjectLegalHoldOutput, GetObjectLegalHoldRequest } from "../models/models_0";
 import {
   deserializeAws_restXmlGetObjectLegalHoldCommand,
   serializeAws_restXmlGetObjectLegalHoldCommand,
@@ -123,8 +118,8 @@ export class GetObjectLegalHoldCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetObjectLegalHoldRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetObjectLegalHoldOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

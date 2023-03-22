@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
-import {
-  ListEntityRecognizerSummariesRequest,
-  ListEntityRecognizerSummariesRequestFilterSensitiveLog,
-  ListEntityRecognizerSummariesResponse,
-  ListEntityRecognizerSummariesResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListEntityRecognizerSummariesRequest, ListEntityRecognizerSummariesResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ListEntityRecognizerSummariesCommand,
   serializeAws_json1_1ListEntityRecognizerSummariesCommand,
@@ -118,8 +113,8 @@ export class ListEntityRecognizerSummariesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListEntityRecognizerSummariesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListEntityRecognizerSummariesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

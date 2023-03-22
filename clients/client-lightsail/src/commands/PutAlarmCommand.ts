@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import {
-  PutAlarmRequest,
-  PutAlarmRequestFilterSensitiveLog,
-  PutAlarmResult,
-  PutAlarmResultFilterSensitiveLog,
-} from "../models/models_1";
+import { PutAlarmRequest, PutAlarmResult } from "../models/models_1";
 import { deserializeAws_json1_1PutAlarmCommand, serializeAws_json1_1PutAlarmCommand } from "../protocols/Aws_json1_1";
 
 /**
@@ -138,8 +133,8 @@ export class PutAlarmCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutAlarmRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutAlarmResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

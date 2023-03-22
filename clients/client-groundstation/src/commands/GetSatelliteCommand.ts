@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GroundStationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GroundStationClient";
-import {
-  GetSatelliteRequest,
-  GetSatelliteRequestFilterSensitiveLog,
-  GetSatelliteResponse,
-  GetSatelliteResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetSatelliteRequest, GetSatelliteResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetSatelliteCommand,
   serializeAws_restJson1GetSatelliteCommand,
@@ -114,8 +109,8 @@ export class GetSatelliteCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSatelliteRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetSatelliteResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -16,7 +16,6 @@ import {
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
 import {
   AcceptSharedDirectoryRequest,
-  AcceptSharedDirectoryRequestFilterSensitiveLog,
   AcceptSharedDirectoryResult,
   AcceptSharedDirectoryResultFilterSensitiveLog,
 } from "../models/models_0";
@@ -122,7 +121,7 @@ export class AcceptSharedDirectoryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AcceptSharedDirectoryRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: AcceptSharedDirectoryResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

@@ -16,7 +16,6 @@ import {
 import { AppRunnerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppRunnerClient";
 import {
   DeleteServiceRequest,
-  DeleteServiceRequestFilterSensitiveLog,
   DeleteServiceResponse,
   DeleteServiceResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -123,7 +122,7 @@ export class DeleteServiceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteServiceRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DeleteServiceResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { UpdateAssumeRolePolicyRequest, UpdateAssumeRolePolicyRequestFilterSensitiveLog } from "../models/models_1";
+import { UpdateAssumeRolePolicyRequest } from "../models/models_1";
 import {
   deserializeAws_queryUpdateAssumeRolePolicyCommand,
   serializeAws_queryUpdateAssumeRolePolicyCommand,
@@ -139,8 +139,8 @@ export class UpdateAssumeRolePolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateAssumeRolePolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

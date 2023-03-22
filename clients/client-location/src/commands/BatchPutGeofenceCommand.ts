@@ -18,7 +18,6 @@ import {
   BatchPutGeofenceRequest,
   BatchPutGeofenceRequestFilterSensitiveLog,
   BatchPutGeofenceResponse,
-  BatchPutGeofenceResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1BatchPutGeofenceCommand,
@@ -125,7 +124,7 @@ export class BatchPutGeofenceCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: BatchPutGeofenceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchPutGeofenceResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

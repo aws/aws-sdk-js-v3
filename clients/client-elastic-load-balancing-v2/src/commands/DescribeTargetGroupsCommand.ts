@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingV2Client";
-import {
-  DescribeTargetGroupsInput,
-  DescribeTargetGroupsInputFilterSensitiveLog,
-  DescribeTargetGroupsOutput,
-  DescribeTargetGroupsOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeTargetGroupsInput, DescribeTargetGroupsOutput } from "../models/models_0";
 import {
   deserializeAws_queryDescribeTargetGroupsCommand,
   serializeAws_queryDescribeTargetGroupsCommand,
@@ -159,8 +154,8 @@ export class DescribeTargetGroupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeTargetGroupsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeTargetGroupsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

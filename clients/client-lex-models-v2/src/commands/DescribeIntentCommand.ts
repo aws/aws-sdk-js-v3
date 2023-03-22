@@ -14,8 +14,8 @@ import {
 } from "@aws-sdk/types";
 
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
-import { DescribeIntentRequest, DescribeIntentRequestFilterSensitiveLog } from "../models/models_0";
-import { DescribeIntentResponse, DescribeIntentResponseFilterSensitiveLog } from "../models/models_1";
+import { DescribeIntentRequest } from "../models/models_0";
+import { DescribeIntentResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1DescribeIntentCommand,
   serializeAws_restJson1DescribeIntentCommand,
@@ -122,8 +122,8 @@ export class DescribeIntentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeIntentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeIntentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

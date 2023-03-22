@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
-import {
-  GetTypedLinkFacetInformationRequest,
-  GetTypedLinkFacetInformationRequestFilterSensitiveLog,
-  GetTypedLinkFacetInformationResponse,
-  GetTypedLinkFacetInformationResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetTypedLinkFacetInformationRequest, GetTypedLinkFacetInformationResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetTypedLinkFacetInformationCommand,
   serializeAws_restJson1GetTypedLinkFacetInformationCommand,
@@ -137,8 +132,8 @@ export class GetTypedLinkFacetInformationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetTypedLinkFacetInformationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetTypedLinkFacetInformationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

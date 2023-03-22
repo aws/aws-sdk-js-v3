@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeGroupMembershipRequest,
-  DescribeGroupMembershipRequestFilterSensitiveLog,
-  DescribeGroupMembershipResponse,
-  DescribeGroupMembershipResponseFilterSensitiveLog,
-} from "../models/models_2";
+import { DescribeGroupMembershipRequest, DescribeGroupMembershipResponse } from "../models/models_2";
 import {
   deserializeAws_restJson1DescribeGroupMembershipCommand,
   serializeAws_restJson1DescribeGroupMembershipCommand,
@@ -133,8 +128,8 @@ export class DescribeGroupMembershipCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeGroupMembershipRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeGroupMembershipResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteBackupRequest,
-  DeleteBackupRequestFilterSensitiveLog,
-  DeleteBackupResponse,
-  DeleteBackupResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteBackupRequest, DeleteBackupResponse } from "../models/models_0";
 import { OpsWorksCMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksCMClient";
 import {
   deserializeAws_json1_1DeleteBackupCommand,
@@ -124,8 +119,8 @@ export class DeleteBackupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteBackupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteBackupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

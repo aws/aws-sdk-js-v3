@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
-import {
-  CheckDNSAvailabilityMessage,
-  CheckDNSAvailabilityMessageFilterSensitiveLog,
-  CheckDNSAvailabilityResultMessage,
-  CheckDNSAvailabilityResultMessageFilterSensitiveLog,
-} from "../models/models_0";
+import { CheckDNSAvailabilityMessage, CheckDNSAvailabilityResultMessage } from "../models/models_0";
 import {
   deserializeAws_queryCheckDNSAvailabilityCommand,
   serializeAws_queryCheckDNSAvailabilityCommand,
@@ -124,8 +119,8 @@ export class CheckDNSAvailabilityCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CheckDNSAvailabilityMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: CheckDNSAvailabilityResultMessageFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

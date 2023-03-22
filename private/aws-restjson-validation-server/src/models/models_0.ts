@@ -19,16 +19,13 @@ import {
   ValidationFailure as __ValidationFailure,
 } from "@aws-smithy/server-common";
 
+/**
+ * @public
+ */
 export interface GreetingStruct {
   hi?: string;
 }
 
-/**
- * @internal
- */
-export const GreetingStructFilterSensitiveLog = (obj: GreetingStruct): any => ({
-  ...obj,
-});
 export namespace GreetingStruct {
   const memberValidators: {
     hi?: __MultiConstraintValidator<string>;
@@ -54,6 +51,9 @@ export namespace GreetingStruct {
   };
 }
 
+/**
+ * @public
+ */
 export enum FooEnum {
   BAR = "Bar",
   BAZ = "Baz",
@@ -68,6 +68,9 @@ export enum IntegerEnum {
   C = 3,
 }
 
+/**
+ * @public
+ */
 export enum EnumString {
   ABC = "abc",
   DEF = "def",
@@ -75,8 +78,14 @@ export enum EnumString {
   JKL = "jkl",
 }
 
+/**
+ * @public
+ */
 export type EnumUnion = EnumUnion.FirstMember | EnumUnion.SecondMember | EnumUnion.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace EnumUnion {
   export interface FirstMember {
     first: EnumString | string;
@@ -143,15 +152,10 @@ export namespace EnumUnion {
     ];
   };
 }
-/**
- * @internal
- */
-export const EnumUnionFilterSensitiveLog = (obj: EnumUnion): any => {
-  if (obj.first !== undefined) return { first: obj.first };
-  if (obj.second !== undefined) return { second: obj.second };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
 
+/**
+ * @public
+ */
 export interface MalformedEnumInput {
   string?: EnumString | string;
   list?: (EnumString | string)[];
@@ -159,13 +163,6 @@ export interface MalformedEnumInput {
   union?: EnumUnion;
 }
 
-/**
- * @internal
- */
-export const MalformedEnumInputFilterSensitiveLog = (obj: MalformedEnumInput): any => ({
-  ...obj,
-  ...(obj.union && { union: EnumUnionFilterSensitiveLog(obj.union) }),
-});
 export namespace MalformedEnumInput {
   const memberValidators: {
     string?: __MultiConstraintValidator<string>;
@@ -224,6 +221,7 @@ export namespace MalformedEnumInput {
 }
 
 /**
+ * @public
  * Describes one specific validation failure for an input member.
  */
 export interface ValidationExceptionField {
@@ -238,12 +236,6 @@ export interface ValidationExceptionField {
   message: string | undefined;
 }
 
-/**
- * @internal
- */
-export const ValidationExceptionFieldFilterSensitiveLog = (obj: ValidationExceptionField): any => ({
-  ...obj,
-});
 export namespace ValidationExceptionField {
   const memberValidators: {
     path?: __MultiConstraintValidator<string>;
@@ -278,6 +270,7 @@ export namespace ValidationExceptionField {
 }
 
 /**
+ * @public
  * A standard error for input validation failures.
  * This should be thrown by services when a member of the input structure
  * falls outside of the modeled or documented constraints.
@@ -302,6 +295,9 @@ export class ValidationException extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface MalformedLengthInput {
   blob?: Uint8Array;
   string?: string;
@@ -311,12 +307,6 @@ export interface MalformedLengthInput {
   map?: Record<string, string[]>;
 }
 
-/**
- * @internal
- */
-export const MalformedLengthInputFilterSensitiveLog = (obj: MalformedLengthInput): any => ({
-  ...obj,
-});
 export namespace MalformedLengthInput {
   const memberValidators: {
     blob?: __MultiConstraintValidator<Uint8Array>;
@@ -384,6 +374,9 @@ export namespace MalformedLengthInput {
   };
 }
 
+/**
+ * @public
+ */
 export interface MalformedLengthOverrideInput {
   blob?: Uint8Array;
   string?: string;
@@ -393,12 +386,6 @@ export interface MalformedLengthOverrideInput {
   map?: Record<string, string[]>;
 }
 
-/**
- * @internal
- */
-export const MalformedLengthOverrideInputFilterSensitiveLog = (obj: MalformedLengthOverrideInput): any => ({
-  ...obj,
-});
 export namespace MalformedLengthOverrideInput {
   const memberValidators: {
     blob?: __MultiConstraintValidator<Uint8Array>;
@@ -466,16 +453,13 @@ export namespace MalformedLengthOverrideInput {
   };
 }
 
+/**
+ * @public
+ */
 export interface MalformedLengthQueryStringInput {
   string?: string;
 }
 
-/**
- * @internal
- */
-export const MalformedLengthQueryStringInputFilterSensitiveLog = (obj: MalformedLengthQueryStringInput): any => ({
-  ...obj,
-});
 export namespace MalformedLengthQueryStringInput {
   const memberValidators: {
     string?: __MultiConstraintValidator<string>;
@@ -501,8 +485,14 @@ export namespace MalformedLengthQueryStringInput {
   };
 }
 
+/**
+ * @public
+ */
 export type PatternUnion = PatternUnion.FirstMember | PatternUnion.SecondMember | PatternUnion.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace PatternUnion {
   export interface FirstMember {
     first: string;
@@ -565,15 +555,10 @@ export namespace PatternUnion {
     ];
   };
 }
-/**
- * @internal
- */
-export const PatternUnionFilterSensitiveLog = (obj: PatternUnion): any => {
-  if (obj.first !== undefined) return { first: obj.first };
-  if (obj.second !== undefined) return { second: obj.second };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
 
+/**
+ * @public
+ */
 export interface MalformedPatternInput {
   string?: string;
   evilString?: string;
@@ -582,13 +567,6 @@ export interface MalformedPatternInput {
   union?: PatternUnion;
 }
 
-/**
- * @internal
- */
-export const MalformedPatternInputFilterSensitiveLog = (obj: MalformedPatternInput): any => ({
-  ...obj,
-  ...(obj.union && { union: PatternUnionFilterSensitiveLog(obj.union) }),
-});
 export namespace MalformedPatternInput {
   const memberValidators: {
     string?: __MultiConstraintValidator<string>;
@@ -650,11 +628,17 @@ export namespace MalformedPatternInput {
   };
 }
 
+/**
+ * @public
+ */
 export type PatternUnionOverride =
   | PatternUnionOverride.FirstMember
   | PatternUnionOverride.SecondMember
   | PatternUnionOverride.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace PatternUnionOverride {
   export interface FirstMember {
     first: string;
@@ -717,15 +701,10 @@ export namespace PatternUnionOverride {
     ];
   };
 }
-/**
- * @internal
- */
-export const PatternUnionOverrideFilterSensitiveLog = (obj: PatternUnionOverride): any => {
-  if (obj.first !== undefined) return { first: obj.first };
-  if (obj.second !== undefined) return { second: obj.second };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
 
+/**
+ * @public
+ */
 export interface MalformedPatternOverrideInput {
   string?: string;
   list?: string[];
@@ -733,13 +712,6 @@ export interface MalformedPatternOverrideInput {
   union?: PatternUnionOverride;
 }
 
-/**
- * @internal
- */
-export const MalformedPatternOverrideInputFilterSensitiveLog = (obj: MalformedPatternOverrideInput): any => ({
-  ...obj,
-  ...(obj.union && { union: PatternUnionOverrideFilterSensitiveLog(obj.union) }),
-});
 export namespace MalformedPatternOverrideInput {
   const memberValidators: {
     string?: __MultiConstraintValidator<string>;
@@ -795,6 +767,9 @@ export namespace MalformedPatternOverrideInput {
   };
 }
 
+/**
+ * @public
+ */
 export interface MalformedRangeInput {
   byte?: number;
   minByte?: number;
@@ -813,12 +788,6 @@ export interface MalformedRangeInput {
   maxFloat?: number;
 }
 
-/**
- * @internal
- */
-export const MalformedRangeInputFilterSensitiveLog = (obj: MalformedRangeInput): any => ({
-  ...obj,
-});
 export namespace MalformedRangeInput {
   const memberValidators: {
     byte?: __MultiConstraintValidator<number>;
@@ -930,6 +899,9 @@ export namespace MalformedRangeInput {
   };
 }
 
+/**
+ * @public
+ */
 export interface MalformedRangeOverrideInput {
   byte?: number;
   minByte?: number;
@@ -948,12 +920,6 @@ export interface MalformedRangeOverrideInput {
   maxFloat?: number;
 }
 
-/**
- * @internal
- */
-export const MalformedRangeOverrideInputFilterSensitiveLog = (obj: MalformedRangeOverrideInput): any => ({
-  ...obj,
-});
 export namespace MalformedRangeOverrideInput {
   const memberValidators: {
     byte?: __MultiConstraintValidator<number>;
@@ -1065,18 +1031,15 @@ export namespace MalformedRangeOverrideInput {
   };
 }
 
+/**
+ * @public
+ */
 export interface MalformedRequiredInput {
   string: string | undefined;
   stringInQuery: string | undefined;
   stringInHeader: string | undefined;
 }
 
-/**
- * @internal
- */
-export const MalformedRequiredInputFilterSensitiveLog = (obj: MalformedRequiredInput): any => ({
-  ...obj,
-});
 export namespace MalformedRequiredInput {
   const memberValidators: {
     string?: __MultiConstraintValidator<string>;
@@ -1116,8 +1079,14 @@ export namespace MalformedRequiredInput {
   };
 }
 
+/**
+ * @public
+ */
 export type FooUnion = FooUnion.IntegerMember | FooUnion.StringMember | FooUnion.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace FooUnion {
   export interface StringMember {
     string: string;
@@ -1180,15 +1149,10 @@ export namespace FooUnion {
     ];
   };
 }
-/**
- * @internal
- */
-export const FooUnionFilterSensitiveLog = (obj: FooUnion): any => {
-  if (obj.string !== undefined) return { string: obj.string };
-  if (obj.integer !== undefined) return { integer: obj.integer };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
 
+/**
+ * @public
+ */
 export interface MalformedUniqueItemsInput {
   blobList?: Uint8Array[];
   booleanList?: boolean[];
@@ -1207,13 +1171,6 @@ export interface MalformedUniqueItemsInput {
   unionList?: FooUnion[];
 }
 
-/**
- * @internal
- */
-export const MalformedUniqueItemsInputFilterSensitiveLog = (obj: MalformedUniqueItemsInput): any => ({
-  ...obj,
-  ...(obj.unionList && { unionList: obj.unionList.map((item) => FooUnionFilterSensitiveLog(item)) }),
-});
 export namespace MalformedUniqueItemsInput {
   const memberValidators: {
     blobList?: __MultiConstraintValidator<Iterable<Uint8Array>>;
@@ -1372,11 +1329,17 @@ export namespace MalformedUniqueItemsInput {
   };
 }
 
+/**
+ * @public
+ */
 export enum RecursiveEnumString {
   ABC = "abc",
   DEF = "def",
 }
 
+/**
+ * @public
+ */
 export interface SensitiveValidationInput {
   string?: string;
 }
@@ -1415,11 +1378,17 @@ export namespace SensitiveValidationInput {
   };
 }
 
+/**
+ * @public
+ */
 export type RecursiveUnionOne =
   | RecursiveUnionOne.StringMember
   | RecursiveUnionOne.UnionMember
   | RecursiveUnionOne.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace RecursiveUnionOne {
   export interface StringMember {
     string: RecursiveEnumString | string;
@@ -1487,20 +1456,18 @@ export namespace RecursiveUnionOne {
     ];
   };
 }
-/**
- * @internal
- */
-export const RecursiveUnionOneFilterSensitiveLog = (obj: RecursiveUnionOne): any => {
-  if (obj.string !== undefined) return { string: obj.string };
-  if (obj.union !== undefined) return { union: RecursiveUnionTwoFilterSensitiveLog(obj.union) };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
 
+/**
+ * @public
+ */
 export type RecursiveUnionTwo =
   | RecursiveUnionTwo.StringMember
   | RecursiveUnionTwo.UnionMember
   | RecursiveUnionTwo.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace RecursiveUnionTwo {
   export interface StringMember {
     string: RecursiveEnumString | string;
@@ -1568,26 +1535,14 @@ export namespace RecursiveUnionTwo {
     ];
   };
 }
-/**
- * @internal
- */
-export const RecursiveUnionTwoFilterSensitiveLog = (obj: RecursiveUnionTwo): any => {
-  if (obj.string !== undefined) return { string: obj.string };
-  if (obj.union !== undefined) return { union: RecursiveUnionOneFilterSensitiveLog(obj.union) };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
 
+/**
+ * @public
+ */
 export interface RecursiveStructuresInput {
   union?: RecursiveUnionOne;
 }
 
-/**
- * @internal
- */
-export const RecursiveStructuresInputFilterSensitiveLog = (obj: RecursiveStructuresInput): any => ({
-  ...obj,
-  ...(obj.union && { union: RecursiveUnionOneFilterSensitiveLog(obj.union) }),
-});
 export namespace RecursiveStructuresInput {
   const memberValidators: {
     union?: __MultiConstraintValidator<RecursiveUnionOne>;

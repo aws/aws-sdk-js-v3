@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetTemplateSyncStatusInput,
-  GetTemplateSyncStatusInputFilterSensitiveLog,
-  GetTemplateSyncStatusOutput,
-  GetTemplateSyncStatusOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { GetTemplateSyncStatusInput, GetTemplateSyncStatusOutput } from "../models/models_0";
 import {
   deserializeAws_json1_0GetTemplateSyncStatusCommand,
   serializeAws_json1_0GetTemplateSyncStatusCommand,
@@ -122,8 +117,8 @@ export class GetTemplateSyncStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetTemplateSyncStatusInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetTemplateSyncStatusOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

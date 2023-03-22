@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import {
-  ListPolicyVersionsRequest,
-  ListPolicyVersionsRequestFilterSensitiveLog,
-  ListPolicyVersionsResponse,
-  ListPolicyVersionsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListPolicyVersionsRequest, ListPolicyVersionsResponse } from "../models/models_0";
 import {
   deserializeAws_queryListPolicyVersionsCommand,
   serializeAws_queryListPolicyVersionsCommand,
@@ -122,8 +117,8 @@ export class ListPolicyVersionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListPolicyVersionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListPolicyVersionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import {
-  DismissUserContactRequest,
-  DismissUserContactRequestFilterSensitiveLog,
-  DismissUserContactResponse,
-  DismissUserContactResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DismissUserContactRequest, DismissUserContactResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DismissUserContactCommand,
   serializeAws_restJson1DismissUserContactCommand,
@@ -129,8 +124,8 @@ export class DismissUserContactCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DismissUserContactRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DismissUserContactResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

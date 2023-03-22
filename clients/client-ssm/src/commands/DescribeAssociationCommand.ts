@@ -15,7 +15,6 @@ import {
 
 import {
   DescribeAssociationRequest,
-  DescribeAssociationRequestFilterSensitiveLog,
   DescribeAssociationResult,
   DescribeAssociationResultFilterSensitiveLog,
 } from "../models/models_0";
@@ -143,7 +142,7 @@ export class DescribeAssociationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeAssociationRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeAssociationResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

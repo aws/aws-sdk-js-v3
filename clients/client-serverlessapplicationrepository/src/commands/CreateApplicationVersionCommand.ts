@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateApplicationVersionRequest,
-  CreateApplicationVersionRequestFilterSensitiveLog,
-  CreateApplicationVersionResponse,
-  CreateApplicationVersionResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateApplicationVersionRequest, CreateApplicationVersionResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateApplicationVersionCommand,
   serializeAws_restJson1CreateApplicationVersionCommand,
@@ -126,8 +121,8 @@ export class CreateApplicationVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateApplicationVersionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateApplicationVersionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

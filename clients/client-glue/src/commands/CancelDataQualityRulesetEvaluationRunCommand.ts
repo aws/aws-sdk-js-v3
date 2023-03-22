@@ -16,9 +16,7 @@ import {
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import {
   CancelDataQualityRulesetEvaluationRunRequest,
-  CancelDataQualityRulesetEvaluationRunRequestFilterSensitiveLog,
   CancelDataQualityRulesetEvaluationRunResponse,
-  CancelDataQualityRulesetEvaluationRunResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1CancelDataQualityRulesetEvaluationRunCommand,
@@ -122,8 +120,8 @@ export class CancelDataQualityRulesetEvaluationRunCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelDataQualityRulesetEvaluationRunRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CancelDataQualityRulesetEvaluationRunResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EventBridgeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EventBridgeClient";
-import {
-  PutRuleRequest,
-  PutRuleRequestFilterSensitiveLog,
-  PutRuleResponse,
-  PutRuleResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { PutRuleRequest, PutRuleResponse } from "../models/models_0";
 import { deserializeAws_json1_1PutRuleCommand, serializeAws_json1_1PutRuleCommand } from "../protocols/Aws_json1_1";
 
 /**
@@ -165,8 +160,8 @@ export class PutRuleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutRuleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutRuleResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
-import {
-  UpdateFrameworkInput,
-  UpdateFrameworkInputFilterSensitiveLog,
-  UpdateFrameworkOutput,
-  UpdateFrameworkOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateFrameworkInput, UpdateFrameworkOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateFrameworkCommand,
   serializeAws_restJson1UpdateFrameworkCommand,
@@ -132,8 +127,8 @@ export class UpdateFrameworkCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateFrameworkInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateFrameworkOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

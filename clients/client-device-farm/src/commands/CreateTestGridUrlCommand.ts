@@ -16,7 +16,6 @@ import {
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
 import {
   CreateTestGridUrlRequest,
-  CreateTestGridUrlRequestFilterSensitiveLog,
   CreateTestGridUrlResult,
   CreateTestGridUrlResultFilterSensitiveLog,
 } from "../models/models_0";
@@ -118,7 +117,7 @@ export class CreateTestGridUrlCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateTestGridUrlRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: CreateTestGridUrlResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { Inspector2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Inspector2Client";
-import {
-  DeleteFilterRequest,
-  DeleteFilterRequestFilterSensitiveLog,
-  DeleteFilterResponse,
-  DeleteFilterResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteFilterRequest, DeleteFilterResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteFilterCommand,
   serializeAws_restJson1DeleteFilterCommand,
@@ -121,8 +116,8 @@ export class DeleteFilterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteFilterRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteFilterResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

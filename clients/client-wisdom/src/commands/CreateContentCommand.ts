@@ -15,7 +15,6 @@ import {
 
 import {
   CreateContentRequest,
-  CreateContentRequestFilterSensitiveLog,
   CreateContentResponse,
   CreateContentResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -125,7 +124,7 @@ export class CreateContentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateContentRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: CreateContentResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

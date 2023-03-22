@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CognitoIdentityClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CognitoIdentityClient";
-import {
-  GetCredentialsForIdentityInput,
-  GetCredentialsForIdentityInputFilterSensitiveLog,
-  GetCredentialsForIdentityResponse,
-  GetCredentialsForIdentityResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetCredentialsForIdentityInput, GetCredentialsForIdentityResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GetCredentialsForIdentityCommand,
   serializeAws_json1_1GetCredentialsForIdentityCommand,
@@ -139,8 +134,8 @@ export class GetCredentialsForIdentityCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetCredentialsForIdentityInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetCredentialsForIdentityResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -17,7 +17,6 @@ import {
   CreateEmailIdentityRequest,
   CreateEmailIdentityRequestFilterSensitiveLog,
   CreateEmailIdentityResponse,
-  CreateEmailIdentityResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateEmailIdentityCommand,
@@ -151,7 +150,7 @@ export class CreateEmailIdentityCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateEmailIdentityRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateEmailIdentityResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

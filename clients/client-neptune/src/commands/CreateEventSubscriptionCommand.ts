@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateEventSubscriptionMessage,
-  CreateEventSubscriptionMessageFilterSensitiveLog,
-  CreateEventSubscriptionResult,
-  CreateEventSubscriptionResultFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateEventSubscriptionMessage, CreateEventSubscriptionResult } from "../models/models_0";
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
 import {
   deserializeAws_queryCreateEventSubscriptionCommand,
@@ -142,8 +137,8 @@ export class CreateEventSubscriptionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateEventSubscriptionMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateEventSubscriptionResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

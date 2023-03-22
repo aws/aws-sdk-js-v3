@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
-import {
-  CreateDirectoryRequest,
-  CreateDirectoryRequestFilterSensitiveLog,
-  CreateDirectoryResponse,
-  CreateDirectoryResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateDirectoryRequest, CreateDirectoryResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateDirectoryCommand,
   serializeAws_restJson1CreateDirectoryCommand,
@@ -136,8 +131,8 @@ export class CreateDirectoryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDirectoryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateDirectoryResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

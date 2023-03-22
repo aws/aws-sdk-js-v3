@@ -17,7 +17,6 @@ import {
   DeleteCustomMetadataRequest,
   DeleteCustomMetadataRequestFilterSensitiveLog,
   DeleteCustomMetadataResponse,
-  DeleteCustomMetadataResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteCustomMetadataCommand,
@@ -128,7 +127,7 @@ export class DeleteCustomMetadataCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: DeleteCustomMetadataRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteCustomMetadataResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

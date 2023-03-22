@@ -15,9 +15,7 @@ import {
 
 import {
   GetTransitGatewayConnectPeerAssociationsRequest,
-  GetTransitGatewayConnectPeerAssociationsRequestFilterSensitiveLog,
   GetTransitGatewayConnectPeerAssociationsResponse,
-  GetTransitGatewayConnectPeerAssociationsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
 import {
@@ -135,8 +133,8 @@ export class GetTransitGatewayConnectPeerAssociationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetTransitGatewayConnectPeerAssociationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetTransitGatewayConnectPeerAssociationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

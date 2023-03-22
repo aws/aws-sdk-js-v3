@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateEndpointRequest,
-  CreateEndpointRequestFilterSensitiveLog,
-  CreateEndpointResult,
-  CreateEndpointResultFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateEndpointRequest, CreateEndpointResult } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateEndpointCommand,
   serializeAws_restJson1CreateEndpointCommand,
@@ -145,8 +140,8 @@ export class CreateEndpointCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateEndpointRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateEndpointResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

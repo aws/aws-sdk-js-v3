@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteDatalakeRequest,
-  DeleteDatalakeRequestFilterSensitiveLog,
-  DeleteDatalakeResponse,
-  DeleteDatalakeResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteDatalakeRequest, DeleteDatalakeResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteDatalakeCommand,
   serializeAws_restJson1DeleteDatalakeCommand,
@@ -143,8 +138,8 @@ export class DeleteDatalakeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDatalakeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteDatalakeResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

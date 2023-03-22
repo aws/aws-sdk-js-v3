@@ -15,7 +15,6 @@ import {
 
 import {
   AcknowledgeOrderReceiptRequest,
-  AcknowledgeOrderReceiptRequestFilterSensitiveLog,
   AcknowledgeOrderReceiptResponse,
   AcknowledgeOrderReceiptResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -116,7 +115,7 @@ export class AcknowledgeOrderReceiptCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AcknowledgeOrderReceiptRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: AcknowledgeOrderReceiptResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

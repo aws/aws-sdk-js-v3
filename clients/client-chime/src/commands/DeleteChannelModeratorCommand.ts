@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import { DeleteChannelModeratorRequest, DeleteChannelModeratorRequestFilterSensitiveLog } from "../models/models_0";
+import { DeleteChannelModeratorRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteChannelModeratorCommand,
   serializeAws_restJson1DeleteChannelModeratorCommand,
@@ -126,8 +126,8 @@ export class DeleteChannelModeratorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteChannelModeratorRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

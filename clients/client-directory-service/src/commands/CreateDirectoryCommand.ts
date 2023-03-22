@@ -18,7 +18,6 @@ import {
   CreateDirectoryRequest,
   CreateDirectoryRequestFilterSensitiveLog,
   CreateDirectoryResult,
-  CreateDirectoryResultFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateDirectoryCommand,
@@ -127,7 +126,7 @@ export class CreateDirectoryCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateDirectoryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateDirectoryResultFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

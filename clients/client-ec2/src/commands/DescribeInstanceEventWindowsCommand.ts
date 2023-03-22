@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DescribeInstanceEventWindowsRequest,
-  DescribeInstanceEventWindowsRequestFilterSensitiveLog,
-  DescribeInstanceEventWindowsResult,
-  DescribeInstanceEventWindowsResultFilterSensitiveLog,
-} from "../models/models_3";
+import { DescribeInstanceEventWindowsRequest, DescribeInstanceEventWindowsResult } from "../models/models_3";
 import {
   deserializeAws_ec2DescribeInstanceEventWindowsCommand,
   serializeAws_ec2DescribeInstanceEventWindowsCommand,
@@ -117,8 +112,8 @@ export class DescribeInstanceEventWindowsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeInstanceEventWindowsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeInstanceEventWindowsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

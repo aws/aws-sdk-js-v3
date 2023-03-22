@@ -16,9 +16,7 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   DescribeNetworkInterfacePermissionsRequest,
-  DescribeNetworkInterfacePermissionsRequestFilterSensitiveLog,
   DescribeNetworkInterfacePermissionsResult,
-  DescribeNetworkInterfacePermissionsResultFilterSensitiveLog,
 } from "../models/models_4";
 import {
   deserializeAws_ec2DescribeNetworkInterfacePermissionsCommand,
@@ -109,8 +107,8 @@ export class DescribeNetworkInterfacePermissionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeNetworkInterfacePermissionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeNetworkInterfacePermissionsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

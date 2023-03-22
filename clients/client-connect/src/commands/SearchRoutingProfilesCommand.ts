@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import {
-  SearchRoutingProfilesRequest,
-  SearchRoutingProfilesRequestFilterSensitiveLog,
-  SearchRoutingProfilesResponse,
-  SearchRoutingProfilesResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { SearchRoutingProfilesRequest, SearchRoutingProfilesResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1SearchRoutingProfilesCommand,
   serializeAws_restJson1SearchRoutingProfilesCommand,
@@ -123,8 +118,8 @@ export class SearchRoutingProfilesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SearchRoutingProfilesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SearchRoutingProfilesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

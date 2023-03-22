@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { FinspaceDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FinspaceDataClient";
-import {
-  GetWorkingLocationRequest,
-  GetWorkingLocationRequestFilterSensitiveLog,
-  GetWorkingLocationResponse,
-  GetWorkingLocationResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetWorkingLocationRequest, GetWorkingLocationResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetWorkingLocationCommand,
   serializeAws_restJson1GetWorkingLocationCommand,
@@ -121,8 +116,8 @@ export class GetWorkingLocationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetWorkingLocationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetWorkingLocationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

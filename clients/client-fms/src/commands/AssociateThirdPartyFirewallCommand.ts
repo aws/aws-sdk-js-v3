@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient";
-import {
-  AssociateThirdPartyFirewallRequest,
-  AssociateThirdPartyFirewallRequestFilterSensitiveLog,
-  AssociateThirdPartyFirewallResponse,
-  AssociateThirdPartyFirewallResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { AssociateThirdPartyFirewallRequest, AssociateThirdPartyFirewallResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1AssociateThirdPartyFirewallCommand,
   serializeAws_json1_1AssociateThirdPartyFirewallCommand,
@@ -126,8 +121,8 @@ export class AssociateThirdPartyFirewallCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateThirdPartyFirewallRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssociateThirdPartyFirewallResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

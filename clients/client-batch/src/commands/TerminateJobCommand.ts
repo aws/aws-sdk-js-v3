@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { BatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BatchClient";
-import {
-  TerminateJobRequest,
-  TerminateJobRequestFilterSensitiveLog,
-  TerminateJobResponse,
-  TerminateJobResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { TerminateJobRequest, TerminateJobResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1TerminateJobCommand,
   serializeAws_restJson1TerminateJobCommand,
@@ -127,8 +122,8 @@ export class TerminateJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TerminateJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: TerminateJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

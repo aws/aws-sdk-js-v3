@@ -18,7 +18,6 @@ import {
   CreateLoginProfileRequest,
   CreateLoginProfileRequestFilterSensitiveLog,
   CreateLoginProfileResponse,
-  CreateLoginProfileResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_queryCreateLoginProfileCommand,
@@ -155,7 +154,7 @@ export class CreateLoginProfileCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateLoginProfileRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateLoginProfileResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

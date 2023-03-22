@@ -18,7 +18,6 @@ import {
   CreateWorkerConfigurationRequest,
   CreateWorkerConfigurationRequestFilterSensitiveLog,
   CreateWorkerConfigurationResponse,
-  CreateWorkerConfigurationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateWorkerConfigurationCommand,
@@ -139,7 +138,7 @@ export class CreateWorkerConfigurationCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateWorkerConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateWorkerConfigurationResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

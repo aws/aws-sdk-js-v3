@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetResourceShareAssociationsRequest,
-  GetResourceShareAssociationsRequestFilterSensitiveLog,
-  GetResourceShareAssociationsResponse,
-  GetResourceShareAssociationsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetResourceShareAssociationsRequest, GetResourceShareAssociationsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetResourceShareAssociationsCommand,
   serializeAws_restJson1GetResourceShareAssociationsCommand,
@@ -130,8 +125,8 @@ export class GetResourceShareAssociationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetResourceShareAssociationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetResourceShareAssociationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -18,7 +18,6 @@ import {
   StartQueryPlanningRequest,
   StartQueryPlanningRequestFilterSensitiveLog,
   StartQueryPlanningResponse,
-  StartQueryPlanningResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1StartQueryPlanningCommand,
@@ -121,7 +120,7 @@ export class StartQueryPlanningCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: StartQueryPlanningRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartQueryPlanningResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

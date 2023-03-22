@@ -16,9 +16,7 @@ import {
 import { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient";
 import {
   CreateInfrastructureConfigurationRequest,
-  CreateInfrastructureConfigurationRequestFilterSensitiveLog,
   CreateInfrastructureConfigurationResponse,
-  CreateInfrastructureConfigurationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateInfrastructureConfigurationCommand,
@@ -144,8 +142,8 @@ export class CreateInfrastructureConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateInfrastructureConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateInfrastructureConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MarketplaceMeteringClient";
-import {
-  BatchMeterUsageRequest,
-  BatchMeterUsageRequestFilterSensitiveLog,
-  BatchMeterUsageResult,
-  BatchMeterUsageResultFilterSensitiveLog,
-} from "../models/models_0";
+import { BatchMeterUsageRequest, BatchMeterUsageResult } from "../models/models_0";
 import {
   deserializeAws_json1_1BatchMeterUsageCommand,
   serializeAws_json1_1BatchMeterUsageCommand,
@@ -173,8 +168,8 @@ export class BatchMeterUsageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchMeterUsageRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchMeterUsageResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

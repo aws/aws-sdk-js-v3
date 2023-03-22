@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { BackupStorageClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupStorageClient";
-import {
-  StartObjectInput,
-  StartObjectInputFilterSensitiveLog,
-  StartObjectOutput,
-  StartObjectOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { StartObjectInput, StartObjectOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1StartObjectCommand,
   serializeAws_restJson1StartObjectCommand,
@@ -130,8 +125,8 @@ export class StartObjectCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartObjectInputFilterSensitiveLog,
-      outputFilterSensitiveLog: StartObjectOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

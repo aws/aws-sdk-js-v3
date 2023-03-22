@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ManagedBlockchainClient";
-import {
-  ListProposalsInput,
-  ListProposalsInputFilterSensitiveLog,
-  ListProposalsOutput,
-  ListProposalsOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { ListProposalsInput, ListProposalsOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1ListProposalsCommand,
   serializeAws_restJson1ListProposalsCommand,
@@ -128,8 +123,8 @@ export class ListProposalsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListProposalsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListProposalsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

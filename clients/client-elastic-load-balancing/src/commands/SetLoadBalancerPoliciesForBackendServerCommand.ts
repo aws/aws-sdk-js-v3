@@ -20,9 +20,7 @@ import {
 } from "../ElasticLoadBalancingClient";
 import {
   SetLoadBalancerPoliciesForBackendServerInput,
-  SetLoadBalancerPoliciesForBackendServerInputFilterSensitiveLog,
   SetLoadBalancerPoliciesForBackendServerOutput,
-  SetLoadBalancerPoliciesForBackendServerOutputFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_querySetLoadBalancerPoliciesForBackendServerCommand,
@@ -154,8 +152,8 @@ export class SetLoadBalancerPoliciesForBackendServerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SetLoadBalancerPoliciesForBackendServerInputFilterSensitiveLog,
-      outputFilterSensitiveLog: SetLoadBalancerPoliciesForBackendServerOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

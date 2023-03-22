@@ -15,9 +15,7 @@ import {
 
 import {
   DeregisterTaskFromMaintenanceWindowRequest,
-  DeregisterTaskFromMaintenanceWindowRequestFilterSensitiveLog,
   DeregisterTaskFromMaintenanceWindowResult,
-  DeregisterTaskFromMaintenanceWindowResultFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1DeregisterTaskFromMaintenanceWindowCommand,
@@ -118,8 +116,8 @@ export class DeregisterTaskFromMaintenanceWindowCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeregisterTaskFromMaintenanceWindowRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeregisterTaskFromMaintenanceWindowResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

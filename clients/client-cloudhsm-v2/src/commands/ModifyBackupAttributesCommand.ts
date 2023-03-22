@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudHSMV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudHSMV2Client";
-import {
-  ModifyBackupAttributesRequest,
-  ModifyBackupAttributesRequestFilterSensitiveLog,
-  ModifyBackupAttributesResponse,
-  ModifyBackupAttributesResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ModifyBackupAttributesRequest, ModifyBackupAttributesResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ModifyBackupAttributesCommand,
   serializeAws_json1_1ModifyBackupAttributesCommand,
@@ -125,8 +120,8 @@ export class ModifyBackupAttributesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyBackupAttributesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifyBackupAttributesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

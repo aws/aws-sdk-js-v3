@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
-import {
-  GetUsageTotalsRequest,
-  GetUsageTotalsRequestFilterSensitiveLog,
-  GetUsageTotalsResponse,
-  GetUsageTotalsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetUsageTotalsRequest, GetUsageTotalsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetUsageTotalsCommand,
   serializeAws_restJson1GetUsageTotalsCommand,
@@ -128,8 +123,8 @@ export class GetUsageTotalsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetUsageTotalsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetUsageTotalsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

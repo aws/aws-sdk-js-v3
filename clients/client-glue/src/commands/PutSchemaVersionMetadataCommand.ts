@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  PutSchemaVersionMetadataInput,
-  PutSchemaVersionMetadataInputFilterSensitiveLog,
-  PutSchemaVersionMetadataResponse,
-  PutSchemaVersionMetadataResponseFilterSensitiveLog,
-} from "../models/models_2";
+import { PutSchemaVersionMetadataInput, PutSchemaVersionMetadataResponse } from "../models/models_2";
 import {
   deserializeAws_json1_1PutSchemaVersionMetadataCommand,
   serializeAws_json1_1PutSchemaVersionMetadataCommand,
@@ -122,8 +117,8 @@ export class PutSchemaVersionMetadataCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutSchemaVersionMetadataInputFilterSensitiveLog,
-      outputFilterSensitiveLog: PutSchemaVersionMetadataResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

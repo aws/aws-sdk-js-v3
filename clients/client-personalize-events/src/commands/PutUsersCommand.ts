@@ -115,7 +115,7 @@ export class PutUsersCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: PutUsersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

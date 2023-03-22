@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
-import {
-  ListNotebookSessionsRequest,
-  ListNotebookSessionsRequestFilterSensitiveLog,
-  ListNotebookSessionsResponse,
-  ListNotebookSessionsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListNotebookSessionsRequest, ListNotebookSessionsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ListNotebookSessionsCommand,
   serializeAws_json1_1ListNotebookSessionsCommand,
@@ -121,8 +116,8 @@ export class ListNotebookSessionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListNotebookSessionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListNotebookSessionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

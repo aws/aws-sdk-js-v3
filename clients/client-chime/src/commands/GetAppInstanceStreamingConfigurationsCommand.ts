@@ -16,7 +16,6 @@ import {
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import {
   GetAppInstanceStreamingConfigurationsRequest,
-  GetAppInstanceStreamingConfigurationsRequestFilterSensitiveLog,
   GetAppInstanceStreamingConfigurationsResponse,
   GetAppInstanceStreamingConfigurationsResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -131,7 +130,7 @@ export class GetAppInstanceStreamingConfigurationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAppInstanceStreamingConfigurationsRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetAppInstanceStreamingConfigurationsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

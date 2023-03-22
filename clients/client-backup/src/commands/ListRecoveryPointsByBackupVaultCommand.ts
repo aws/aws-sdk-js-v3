@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
-import {
-  ListRecoveryPointsByBackupVaultInput,
-  ListRecoveryPointsByBackupVaultInputFilterSensitiveLog,
-  ListRecoveryPointsByBackupVaultOutput,
-  ListRecoveryPointsByBackupVaultOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { ListRecoveryPointsByBackupVaultInput, ListRecoveryPointsByBackupVaultOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1ListRecoveryPointsByBackupVaultCommand,
   serializeAws_restJson1ListRecoveryPointsByBackupVaultCommand,
@@ -122,8 +117,8 @@ export class ListRecoveryPointsByBackupVaultCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListRecoveryPointsByBackupVaultInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListRecoveryPointsByBackupVaultOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

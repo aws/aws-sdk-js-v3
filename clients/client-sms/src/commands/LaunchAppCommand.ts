@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  LaunchAppRequest,
-  LaunchAppRequestFilterSensitiveLog,
-  LaunchAppResponse,
-  LaunchAppResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { LaunchAppRequest, LaunchAppResponse } from "../models/models_0";
 import { deserializeAws_json1_1LaunchAppCommand, serializeAws_json1_1LaunchAppCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SMSClientResolvedConfig } from "../SMSClient";
 
@@ -114,8 +109,8 @@ export class LaunchAppCommand extends $Command<LaunchAppCommandInput, LaunchAppC
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: LaunchAppRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: LaunchAppResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

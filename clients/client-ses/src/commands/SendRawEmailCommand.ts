@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  SendRawEmailRequest,
-  SendRawEmailRequestFilterSensitiveLog,
-  SendRawEmailResponse,
-  SendRawEmailResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { SendRawEmailRequest, SendRawEmailResponse } from "../models/models_0";
 import { deserializeAws_querySendRawEmailCommand, serializeAws_querySendRawEmailCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
@@ -254,8 +249,8 @@ export class SendRawEmailCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SendRawEmailRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SendRawEmailResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

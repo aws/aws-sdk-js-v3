@@ -15,7 +15,6 @@ import {
 
 import {
   AcceptHandshakeRequest,
-  AcceptHandshakeRequestFilterSensitiveLog,
   AcceptHandshakeResponse,
   AcceptHandshakeResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -401,7 +400,7 @@ export class AcceptHandshakeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AcceptHandshakeRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: AcceptHandshakeResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
-import {
-  CreatePresignedNotebookUrlRequest,
-  CreatePresignedNotebookUrlRequestFilterSensitiveLog,
-  CreatePresignedNotebookUrlResponse,
-  CreatePresignedNotebookUrlResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreatePresignedNotebookUrlRequest, CreatePresignedNotebookUrlResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1CreatePresignedNotebookUrlCommand,
   serializeAws_json1_1CreatePresignedNotebookUrlCommand,
@@ -120,8 +115,8 @@ export class CreatePresignedNotebookUrlCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreatePresignedNotebookUrlRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreatePresignedNotebookUrlResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

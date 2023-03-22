@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  CreateDefaultSubnetRequest,
-  CreateDefaultSubnetRequestFilterSensitiveLog,
-  CreateDefaultSubnetResult,
-  CreateDefaultSubnetResultFilterSensitiveLog,
-} from "../models/models_1";
+import { CreateDefaultSubnetRequest, CreateDefaultSubnetResult } from "../models/models_1";
 import {
   deserializeAws_ec2CreateDefaultSubnetCommand,
   serializeAws_ec2CreateDefaultSubnetCommand,
@@ -110,8 +105,8 @@ export class CreateDefaultSubnetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDefaultSubnetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateDefaultSubnetResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

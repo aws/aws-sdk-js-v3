@@ -15,7 +15,6 @@ import {
 
 import {
   GetServiceTemplateVersionInput,
-  GetServiceTemplateVersionInputFilterSensitiveLog,
   GetServiceTemplateVersionOutput,
   GetServiceTemplateVersionOutputFilterSensitiveLog,
 } from "../models/models_0";
@@ -122,7 +121,7 @@ export class GetServiceTemplateVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetServiceTemplateVersionInputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetServiceTemplateVersionOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

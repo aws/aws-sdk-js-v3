@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeReservedNodeOfferingsMessage,
-  DescribeReservedNodeOfferingsMessageFilterSensitiveLog,
-  ReservedNodeOfferingsMessage,
-  ReservedNodeOfferingsMessageFilterSensitiveLog,
-} from "../models/models_1";
+import { DescribeReservedNodeOfferingsMessage, ReservedNodeOfferingsMessage } from "../models/models_1";
 import {
   deserializeAws_queryDescribeReservedNodeOfferingsCommand,
   serializeAws_queryDescribeReservedNodeOfferingsCommand,
@@ -126,8 +121,8 @@ export class DescribeReservedNodeOfferingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeReservedNodeOfferingsMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: ReservedNodeOfferingsMessageFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

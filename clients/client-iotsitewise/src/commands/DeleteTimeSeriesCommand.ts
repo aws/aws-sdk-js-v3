@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
-import { DeleteTimeSeriesRequest, DeleteTimeSeriesRequestFilterSensitiveLog } from "../models/models_0";
+import { DeleteTimeSeriesRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteTimeSeriesCommand,
   serializeAws_restJson1DeleteTimeSeriesCommand,
@@ -143,8 +143,8 @@ export class DeleteTimeSeriesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteTimeSeriesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

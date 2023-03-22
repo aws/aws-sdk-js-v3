@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApplicationCostProfilerClient";
-import {
-  DeleteReportDefinitionRequest,
-  DeleteReportDefinitionRequestFilterSensitiveLog,
-  DeleteReportDefinitionResult,
-  DeleteReportDefinitionResultFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteReportDefinitionRequest, DeleteReportDefinitionResult } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteReportDefinitionCommand,
   serializeAws_restJson1DeleteReportDefinitionCommand,
@@ -124,8 +119,8 @@ export class DeleteReportDefinitionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteReportDefinitionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteReportDefinitionResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

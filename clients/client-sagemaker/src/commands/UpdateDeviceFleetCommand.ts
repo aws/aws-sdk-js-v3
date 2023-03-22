@@ -13,7 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateDeviceFleetRequest, UpdateDeviceFleetRequestFilterSensitiveLog } from "../models/models_3";
+import { UpdateDeviceFleetRequest } from "../models/models_3";
 import {
   deserializeAws_json1_1UpdateDeviceFleetCommand,
   serializeAws_json1_1UpdateDeviceFleetCommand,
@@ -105,8 +105,8 @@ export class UpdateDeviceFleetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateDeviceFleetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

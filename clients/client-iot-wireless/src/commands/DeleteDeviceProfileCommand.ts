@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
-import {
-  DeleteDeviceProfileRequest,
-  DeleteDeviceProfileRequestFilterSensitiveLog,
-  DeleteDeviceProfileResponse,
-  DeleteDeviceProfileResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteDeviceProfileRequest, DeleteDeviceProfileResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteDeviceProfileCommand,
   serializeAws_restJson1DeleteDeviceProfileCommand,
@@ -125,8 +120,8 @@ export class DeleteDeviceProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDeviceProfileRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteDeviceProfileResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

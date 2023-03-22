@@ -18,7 +18,6 @@ import {
   CreateManagedEndpointRequest,
   CreateManagedEndpointRequestFilterSensitiveLog,
   CreateManagedEndpointResponse,
-  CreateManagedEndpointResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateManagedEndpointCommand,
@@ -119,7 +118,7 @@ export class CreateManagedEndpointCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateManagedEndpointRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateManagedEndpointResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -16,9 +16,7 @@ import {
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
 import {
   DisassociateWirelessGatewayFromCertificateRequest,
-  DisassociateWirelessGatewayFromCertificateRequestFilterSensitiveLog,
   DisassociateWirelessGatewayFromCertificateResponse,
-  DisassociateWirelessGatewayFromCertificateResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1DisassociateWirelessGatewayFromCertificateCommand,
@@ -131,8 +129,8 @@ export class DisassociateWirelessGatewayFromCertificateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateWirelessGatewayFromCertificateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateWirelessGatewayFromCertificateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

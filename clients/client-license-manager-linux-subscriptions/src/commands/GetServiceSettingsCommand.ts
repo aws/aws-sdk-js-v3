@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../LicenseManagerLinuxSubscriptionsClient";
-import {
-  GetServiceSettingsRequest,
-  GetServiceSettingsRequestFilterSensitiveLog,
-  GetServiceSettingsResponse,
-  GetServiceSettingsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetServiceSettingsRequest, GetServiceSettingsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetServiceSettingsCommand,
   serializeAws_restJson1GetServiceSettingsCommand,
@@ -120,8 +115,8 @@ export class GetServiceSettingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetServiceSettingsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetServiceSettingsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

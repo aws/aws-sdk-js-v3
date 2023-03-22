@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
-import {
-  DeactivateTypeInput,
-  DeactivateTypeInputFilterSensitiveLog,
-  DeactivateTypeOutput,
-  DeactivateTypeOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { DeactivateTypeInput, DeactivateTypeOutput } from "../models/models_0";
 import {
   deserializeAws_queryDeactivateTypeCommand,
   serializeAws_queryDeactivateTypeCommand,
@@ -118,8 +113,8 @@ export class DeactivateTypeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeactivateTypeInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeactivateTypeOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

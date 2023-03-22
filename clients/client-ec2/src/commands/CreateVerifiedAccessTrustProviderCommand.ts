@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  CreateVerifiedAccessTrustProviderRequest,
-  CreateVerifiedAccessTrustProviderRequestFilterSensitiveLog,
-  CreateVerifiedAccessTrustProviderResult,
-  CreateVerifiedAccessTrustProviderResultFilterSensitiveLog,
-} from "../models/models_2";
+import { CreateVerifiedAccessTrustProviderRequest, CreateVerifiedAccessTrustProviderResult } from "../models/models_2";
 import {
   deserializeAws_ec2CreateVerifiedAccessTrustProviderCommand,
   serializeAws_ec2CreateVerifiedAccessTrustProviderCommand,
@@ -112,8 +107,8 @@ export class CreateVerifiedAccessTrustProviderCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateVerifiedAccessTrustProviderRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateVerifiedAccessTrustProviderResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

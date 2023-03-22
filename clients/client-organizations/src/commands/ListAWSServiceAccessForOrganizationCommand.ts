@@ -15,9 +15,7 @@ import {
 
 import {
   ListAWSServiceAccessForOrganizationRequest,
-  ListAWSServiceAccessForOrganizationRequestFilterSensitiveLog,
   ListAWSServiceAccessForOrganizationResponse,
-  ListAWSServiceAccessForOrganizationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
 import {
@@ -443,8 +441,8 @@ export class ListAWSServiceAccessForOrganizationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAWSServiceAccessForOrganizationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAWSServiceAccessForOrganizationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -20,9 +20,7 @@ import {
 } from "../ChimeSDKMessagingClient";
 import {
   PutMessagingStreamingConfigurationsRequest,
-  PutMessagingStreamingConfigurationsRequestFilterSensitiveLog,
   PutMessagingStreamingConfigurationsResponse,
-  PutMessagingStreamingConfigurationsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1PutMessagingStreamingConfigurationsCommand,
@@ -139,8 +137,8 @@ export class PutMessagingStreamingConfigurationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutMessagingStreamingConfigurationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutMessagingStreamingConfigurationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

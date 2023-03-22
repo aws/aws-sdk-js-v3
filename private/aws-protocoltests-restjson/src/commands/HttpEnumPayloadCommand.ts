@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { EnumPayloadInput, EnumPayloadInputFilterSensitiveLog } from "../models/models_0";
+import { EnumPayloadInput } from "../models/models_0";
 import {
   deserializeAws_restJson1HttpEnumPayloadCommand,
   serializeAws_restJson1HttpEnumPayloadCommand,
@@ -20,10 +20,14 @@ import {
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
 /**
+ * @public
+ *
  * The input for {@link HttpEnumPayloadCommand}.
  */
 export interface HttpEnumPayloadCommandInput extends EnumPayloadInput {}
 /**
+ * @public
+ *
  * The output of {@link HttpEnumPayloadCommand}.
  */
 export interface HttpEnumPayloadCommandOutput extends EnumPayloadInput, __MetadataBearer {}
@@ -36,6 +40,9 @@ export class HttpEnumPayloadCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: HttpEnumPayloadCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,8 +68,8 @@ export class HttpEnumPayloadCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: EnumPayloadInputFilterSensitiveLog,
-      outputFilterSensitiveLog: EnumPayloadInputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -72,10 +79,16 @@ export class HttpEnumPayloadCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: HttpEnumPayloadCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1HttpEnumPayloadCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<HttpEnumPayloadCommandOutput> {
     return deserializeAws_restJson1HttpEnumPayloadCommand(output, context);
   }

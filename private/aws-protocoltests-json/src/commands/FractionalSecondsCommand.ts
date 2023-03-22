@@ -13,17 +13,21 @@ import {
 } from "@aws-sdk/types";
 
 import { JsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../JsonProtocolClient";
-import { FractionalSecondsOutput, FractionalSecondsOutputFilterSensitiveLog } from "../models/models_0";
+import { FractionalSecondsOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1FractionalSecondsCommand,
   serializeAws_json1_1FractionalSecondsCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link FractionalSecondsCommand}.
  */
 export interface FractionalSecondsCommandInput {}
 /**
+ * @public
+ *
  * The output of {@link FractionalSecondsCommand}.
  */
 export interface FractionalSecondsCommandOutput extends FractionalSecondsOutput, __MetadataBearer {}
@@ -36,6 +40,9 @@ export class FractionalSecondsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: FractionalSecondsCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,8 +68,8 @@ export class FractionalSecondsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: FractionalSecondsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -72,10 +79,16 @@ export class FractionalSecondsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: FractionalSecondsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1FractionalSecondsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<FractionalSecondsCommandOutput> {
     return deserializeAws_json1_1FractionalSecondsCommand(output, context);
   }

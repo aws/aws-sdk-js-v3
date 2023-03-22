@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateDeletionProtectionInput,
-  UpdateDeletionProtectionInputFilterSensitiveLog,
-  UpdateDeletionProtectionOutput,
-  UpdateDeletionProtectionOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateDeletionProtectionInput, UpdateDeletionProtectionOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateDeletionProtectionCommand,
   serializeAws_restJson1UpdateDeletionProtectionCommand,
@@ -125,8 +120,8 @@ export class UpdateDeletionProtectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateDeletionProtectionInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateDeletionProtectionOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

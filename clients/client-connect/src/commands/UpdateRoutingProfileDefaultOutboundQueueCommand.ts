@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import {
-  UpdateRoutingProfileDefaultOutboundQueueRequest,
-  UpdateRoutingProfileDefaultOutboundQueueRequestFilterSensitiveLog,
-} from "../models/models_1";
+import { UpdateRoutingProfileDefaultOutboundQueueRequest } from "../models/models_1";
 import {
   deserializeAws_restJson1UpdateRoutingProfileDefaultOutboundQueueCommand,
   serializeAws_restJson1UpdateRoutingProfileDefaultOutboundQueueCommand,
@@ -127,8 +124,8 @@ export class UpdateRoutingProfileDefaultOutboundQueueCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateRoutingProfileDefaultOutboundQueueRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

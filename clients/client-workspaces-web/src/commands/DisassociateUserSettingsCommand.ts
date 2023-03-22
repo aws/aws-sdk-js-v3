@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DisassociateUserSettingsRequest,
-  DisassociateUserSettingsRequestFilterSensitiveLog,
-  DisassociateUserSettingsResponse,
-  DisassociateUserSettingsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DisassociateUserSettingsRequest, DisassociateUserSettingsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DisassociateUserSettingsCommand,
   serializeAws_restJson1DisassociateUserSettingsCommand,
@@ -122,8 +117,8 @@ export class DisassociateUserSettingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateUserSettingsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateUserSettingsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

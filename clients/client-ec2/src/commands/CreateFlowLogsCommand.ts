@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  CreateFlowLogsRequest,
-  CreateFlowLogsRequestFilterSensitiveLog,
-  CreateFlowLogsResult,
-  CreateFlowLogsResultFilterSensitiveLog,
-} from "../models/models_1";
+import { CreateFlowLogsRequest, CreateFlowLogsResult } from "../models/models_1";
 import { deserializeAws_ec2CreateFlowLogsCommand, serializeAws_ec2CreateFlowLogsCommand } from "../protocols/Aws_ec2";
 
 /**
@@ -114,8 +109,8 @@ export class CreateFlowLogsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateFlowLogsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateFlowLogsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
-import {
-  SendDataToMulticastGroupRequest,
-  SendDataToMulticastGroupRequestFilterSensitiveLog,
-  SendDataToMulticastGroupResponse,
-  SendDataToMulticastGroupResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { SendDataToMulticastGroupRequest, SendDataToMulticastGroupResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1SendDataToMulticastGroupCommand,
   serializeAws_restJson1SendDataToMulticastGroupCommand,
@@ -125,8 +120,8 @@ export class SendDataToMulticastGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SendDataToMulticastGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SendDataToMulticastGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

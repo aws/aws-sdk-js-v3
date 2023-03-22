@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GreetingStruct, GreetingStructFilterSensitiveLog } from "../models/models_0";
+import { GreetingStruct } from "../models/models_0";
 import {
   deserializeAws_restJson1MalformedAcceptWithBodyCommand,
   serializeAws_restJson1MalformedAcceptWithBodyCommand,
@@ -20,10 +20,14 @@ import {
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
 /**
+ * @public
+ *
  * The input for {@link MalformedAcceptWithBodyCommand}.
  */
 export interface MalformedAcceptWithBodyCommandInput {}
 /**
+ * @public
+ *
  * The output of {@link MalformedAcceptWithBodyCommand}.
  */
 export interface MalformedAcceptWithBodyCommandOutput extends GreetingStruct, __MetadataBearer {}
@@ -36,6 +40,9 @@ export class MalformedAcceptWithBodyCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: MalformedAcceptWithBodyCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,8 +68,8 @@ export class MalformedAcceptWithBodyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: GreetingStructFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -72,10 +79,16 @@ export class MalformedAcceptWithBodyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: MalformedAcceptWithBodyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1MalformedAcceptWithBodyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<MalformedAcceptWithBodyCommandOutput> {
     return deserializeAws_restJson1MalformedAcceptWithBodyCommand(output, context);
   }

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient";
-import {
-  BatchDisassociateResourceRequest,
-  BatchDisassociateResourceRequestFilterSensitiveLog,
-  BatchDisassociateResourceResponse,
-  BatchDisassociateResourceResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { BatchDisassociateResourceRequest, BatchDisassociateResourceResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1BatchDisassociateResourceCommand,
   serializeAws_json1_1BatchDisassociateResourceCommand,
@@ -124,8 +119,8 @@ export class BatchDisassociateResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchDisassociateResourceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchDisassociateResourceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

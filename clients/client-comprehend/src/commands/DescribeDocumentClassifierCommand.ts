@@ -16,7 +16,6 @@ import {
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
 import {
   DescribeDocumentClassifierRequest,
-  DescribeDocumentClassifierRequestFilterSensitiveLog,
   DescribeDocumentClassifierResponse,
   DescribeDocumentClassifierResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -119,7 +118,7 @@ export class DescribeDocumentClassifierCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDocumentClassifierRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeDocumentClassifierResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

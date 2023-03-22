@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  PutInlinePolicyToPermissionSetRequest,
-  PutInlinePolicyToPermissionSetRequestFilterSensitiveLog,
-  PutInlinePolicyToPermissionSetResponse,
-  PutInlinePolicyToPermissionSetResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { PutInlinePolicyToPermissionSetRequest, PutInlinePolicyToPermissionSetResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1PutInlinePolicyToPermissionSetCommand,
   serializeAws_json1_1PutInlinePolicyToPermissionSetCommand,
@@ -143,8 +138,8 @@ export class PutInlinePolicyToPermissionSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutInlinePolicyToPermissionSetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutInlinePolicyToPermissionSetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

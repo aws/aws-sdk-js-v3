@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
-import {
-  GetTrailStatusRequest,
-  GetTrailStatusRequestFilterSensitiveLog,
-  GetTrailStatusResponse,
-  GetTrailStatusResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetTrailStatusRequest, GetTrailStatusResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GetTrailStatusCommand,
   serializeAws_json1_1GetTrailStatusCommand,
@@ -157,8 +152,8 @@ export class GetTrailStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetTrailStatusRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetTrailStatusResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

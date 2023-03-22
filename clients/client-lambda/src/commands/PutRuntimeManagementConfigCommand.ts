@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
-import {
-  PutRuntimeManagementConfigRequest,
-  PutRuntimeManagementConfigRequestFilterSensitiveLog,
-  PutRuntimeManagementConfigResponse,
-  PutRuntimeManagementConfigResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { PutRuntimeManagementConfigRequest, PutRuntimeManagementConfigResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1PutRuntimeManagementConfigCommand,
   serializeAws_restJson1PutRuntimeManagementConfigCommand,
@@ -123,8 +118,8 @@ export class PutRuntimeManagementConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutRuntimeManagementConfigRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutRuntimeManagementConfigResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

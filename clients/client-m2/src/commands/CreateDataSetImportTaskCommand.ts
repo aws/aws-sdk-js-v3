@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { M2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../M2Client";
-import {
-  CreateDataSetImportTaskRequest,
-  CreateDataSetImportTaskRequestFilterSensitiveLog,
-  CreateDataSetImportTaskResponse,
-  CreateDataSetImportTaskResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateDataSetImportTaskRequest, CreateDataSetImportTaskResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateDataSetImportTaskCommand,
   serializeAws_restJson1CreateDataSetImportTaskCommand,
@@ -128,8 +123,8 @@ export class CreateDataSetImportTaskCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDataSetImportTaskRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateDataSetImportTaskResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

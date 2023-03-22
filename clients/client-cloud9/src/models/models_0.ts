@@ -1069,94 +1069,6 @@ export const CreateEnvironmentEC2RequestFilterSensitiveLog = (obj: CreateEnviron
 /**
  * @internal
  */
-export const CreateEnvironmentEC2ResultFilterSensitiveLog = (obj: CreateEnvironmentEC2Result): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateEnvironmentMembershipRequestFilterSensitiveLog = (obj: CreateEnvironmentMembershipRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnvironmentMemberFilterSensitiveLog = (obj: EnvironmentMember): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateEnvironmentMembershipResultFilterSensitiveLog = (obj: CreateEnvironmentMembershipResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteEnvironmentRequestFilterSensitiveLog = (obj: DeleteEnvironmentRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteEnvironmentResultFilterSensitiveLog = (obj: DeleteEnvironmentResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteEnvironmentMembershipRequestFilterSensitiveLog = (obj: DeleteEnvironmentMembershipRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteEnvironmentMembershipResultFilterSensitiveLog = (obj: DeleteEnvironmentMembershipResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeEnvironmentMembershipsRequestFilterSensitiveLog = (
-  obj: DescribeEnvironmentMembershipsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeEnvironmentMembershipsResultFilterSensitiveLog = (
-  obj: DescribeEnvironmentMembershipsResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeEnvironmentsRequestFilterSensitiveLog = (obj: DescribeEnvironmentsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnvironmentLifecycleFilterSensitiveLog = (obj: EnvironmentLifecycle): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const EnvironmentFilterSensitiveLog = (obj: Environment): any => ({
   ...obj,
   ...(obj.description && { description: SENSITIVE_STRING }),
@@ -1168,41 +1080,6 @@ export const EnvironmentFilterSensitiveLog = (obj: Environment): any => ({
 export const DescribeEnvironmentsResultFilterSensitiveLog = (obj: DescribeEnvironmentsResult): any => ({
   ...obj,
   ...(obj.environments && { environments: obj.environments.map((item) => EnvironmentFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const DescribeEnvironmentStatusRequestFilterSensitiveLog = (obj: DescribeEnvironmentStatusRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeEnvironmentStatusResultFilterSensitiveLog = (obj: DescribeEnvironmentStatusResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListEnvironmentsRequestFilterSensitiveLog = (obj: ListEnvironmentsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListEnvironmentsResultFilterSensitiveLog = (obj: ListEnvironmentsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-  ...obj,
 });
 
 /**
@@ -1224,13 +1101,6 @@ export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): a
 /**
  * @internal
  */
-export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
   ...obj,
   ...(obj.TagKeys && { TagKeys: SENSITIVE_STRING }),
@@ -1239,35 +1109,7 @@ export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest
 /**
  * @internal
  */
-export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const UpdateEnvironmentRequestFilterSensitiveLog = (obj: UpdateEnvironmentRequest): any => ({
   ...obj,
   ...(obj.description && { description: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const UpdateEnvironmentResultFilterSensitiveLog = (obj: UpdateEnvironmentResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateEnvironmentMembershipRequestFilterSensitiveLog = (obj: UpdateEnvironmentMembershipRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateEnvironmentMembershipResultFilterSensitiveLog = (obj: UpdateEnvironmentMembershipResult): any => ({
-  ...obj,
 });

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaConvertClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConvertClient";
-import {
-  DescribeEndpointsRequest,
-  DescribeEndpointsRequestFilterSensitiveLog,
-  DescribeEndpointsResponse,
-  DescribeEndpointsResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { DescribeEndpointsRequest, DescribeEndpointsResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1DescribeEndpointsCommand,
   serializeAws_restJson1DescribeEndpointsCommand,
@@ -125,8 +120,8 @@ export class DescribeEndpointsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeEndpointsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeEndpointsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

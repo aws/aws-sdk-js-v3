@@ -14,8 +14,8 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { VolumeAttachment, VolumeAttachmentFilterSensitiveLog } from "../models/models_0";
-import { DetachVolumeRequest, DetachVolumeRequestFilterSensitiveLog } from "../models/models_5";
+import { VolumeAttachment } from "../models/models_0";
+import { DetachVolumeRequest } from "../models/models_5";
 import { deserializeAws_ec2DetachVolumeCommand, serializeAws_ec2DetachVolumeCommand } from "../protocols/Aws_ec2";
 
 /**
@@ -128,8 +128,8 @@ export class DetachVolumeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DetachVolumeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: VolumeAttachmentFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

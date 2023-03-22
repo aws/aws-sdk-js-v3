@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CodePipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodePipelineClient";
-import {
-  PutActionRevisionInput,
-  PutActionRevisionInputFilterSensitiveLog,
-  PutActionRevisionOutput,
-  PutActionRevisionOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { PutActionRevisionInput, PutActionRevisionOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1PutActionRevisionCommand,
   serializeAws_json1_1PutActionRevisionCommand,
@@ -119,8 +114,8 @@ export class PutActionRevisionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutActionRevisionInputFilterSensitiveLog,
-      outputFilterSensitiveLog: PutActionRevisionOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DetectiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DetectiveClient";
-import {
-  DeleteMembersRequest,
-  DeleteMembersRequestFilterSensitiveLog,
-  DeleteMembersResponse,
-  DeleteMembersResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteMembersRequest, DeleteMembersResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteMembersCommand,
   serializeAws_restJson1DeleteMembersCommand,
@@ -133,8 +128,8 @@ export class DeleteMembersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteMembersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteMembersResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

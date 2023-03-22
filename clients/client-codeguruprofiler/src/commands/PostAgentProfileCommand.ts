@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeGuruProfilerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeGuruProfilerClient";
-import {
-  PostAgentProfileRequest,
-  PostAgentProfileRequestFilterSensitiveLog,
-  PostAgentProfileResponse,
-  PostAgentProfileResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { PostAgentProfileRequest, PostAgentProfileResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1PostAgentProfileCommand,
   serializeAws_restJson1PostAgentProfileCommand,
@@ -125,8 +120,8 @@ export class PostAgentProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PostAgentProfileRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PostAgentProfileResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

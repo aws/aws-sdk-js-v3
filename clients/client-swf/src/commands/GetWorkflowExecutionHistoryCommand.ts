@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetWorkflowExecutionHistoryInput,
-  GetWorkflowExecutionHistoryInputFilterSensitiveLog,
-  History,
-  HistoryFilterSensitiveLog,
-} from "../models/models_0";
+import { GetWorkflowExecutionHistoryInput, History } from "../models/models_0";
 import {
   deserializeAws_json1_0GetWorkflowExecutionHistoryCommand,
   serializeAws_json1_0GetWorkflowExecutionHistoryCommand,
@@ -142,8 +137,8 @@ export class GetWorkflowExecutionHistoryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetWorkflowExecutionHistoryInputFilterSensitiveLog,
-      outputFilterSensitiveLog: HistoryFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

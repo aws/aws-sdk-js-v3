@@ -17,7 +17,6 @@ import {
   UpdateTemplateRequest,
   UpdateTemplateRequestFilterSensitiveLog,
   UpdateTemplateResponse,
-  UpdateTemplateResponseFilterSensitiveLog,
 } from "../models/models_3";
 import {
   deserializeAws_restJson1UpdateTemplateCommand,
@@ -135,7 +134,7 @@ export class UpdateTemplateCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: UpdateTemplateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateTemplateResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MachineLearningClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MachineLearningClient";
-import {
-  UpdateEvaluationInput,
-  UpdateEvaluationInputFilterSensitiveLog,
-  UpdateEvaluationOutput,
-  UpdateEvaluationOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateEvaluationInput, UpdateEvaluationOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateEvaluationCommand,
   serializeAws_json1_1UpdateEvaluationCommand,
@@ -117,8 +112,8 @@ export class UpdateEvaluationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateEvaluationInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateEvaluationOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

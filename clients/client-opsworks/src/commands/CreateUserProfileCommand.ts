@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateUserProfileRequest,
-  CreateUserProfileRequestFilterSensitiveLog,
-  CreateUserProfileResult,
-  CreateUserProfileResultFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateUserProfileRequest, CreateUserProfileResult } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
 import {
   deserializeAws_json1_1CreateUserProfileCommand,
@@ -114,8 +109,8 @@ export class CreateUserProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateUserProfileRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateUserProfileResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -18,7 +18,6 @@ import {
   RequestSpotFleetRequest,
   RequestSpotFleetRequestFilterSensitiveLog,
   RequestSpotFleetResponse,
-  RequestSpotFleetResponseFilterSensitiveLog,
 } from "../models/models_6";
 import {
   deserializeAws_ec2RequestSpotFleetCommand,
@@ -286,7 +285,7 @@ export class RequestSpotFleetCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: RequestSpotFleetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RequestSpotFleetResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

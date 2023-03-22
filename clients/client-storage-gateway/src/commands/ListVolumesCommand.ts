@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListVolumesInput,
-  ListVolumesInputFilterSensitiveLog,
-  ListVolumesOutput,
-  ListVolumesOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { ListVolumesInput, ListVolumesOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1ListVolumesCommand,
   serializeAws_json1_1ListVolumesCommand,
@@ -159,8 +154,8 @@ export class ListVolumesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListVolumesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListVolumesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

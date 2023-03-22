@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
-import {
-  AssociateApprovalRuleTemplateWithRepositoryInput,
-  AssociateApprovalRuleTemplateWithRepositoryInputFilterSensitiveLog,
-} from "../models/models_0";
+import { AssociateApprovalRuleTemplateWithRepositoryInput } from "../models/models_0";
 import {
   deserializeAws_json1_1AssociateApprovalRuleTemplateWithRepositoryCommand,
   serializeAws_json1_1AssociateApprovalRuleTemplateWithRepositoryCommand,
@@ -165,8 +162,8 @@ export class AssociateApprovalRuleTemplateWithRepositoryCommand extends $Command
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateApprovalRuleTemplateWithRepositoryInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

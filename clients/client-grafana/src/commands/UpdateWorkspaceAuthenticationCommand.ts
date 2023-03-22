@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GrafanaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GrafanaClient";
-import {
-  UpdateWorkspaceAuthenticationRequest,
-  UpdateWorkspaceAuthenticationRequestFilterSensitiveLog,
-  UpdateWorkspaceAuthenticationResponse,
-  UpdateWorkspaceAuthenticationResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateWorkspaceAuthenticationRequest, UpdateWorkspaceAuthenticationResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateWorkspaceAuthenticationCommand,
   serializeAws_restJson1UpdateWorkspaceAuthenticationCommand,
@@ -134,8 +129,8 @@ export class UpdateWorkspaceAuthenticationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateWorkspaceAuthenticationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateWorkspaceAuthenticationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

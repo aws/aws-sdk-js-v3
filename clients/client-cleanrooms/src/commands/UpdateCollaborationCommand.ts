@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
-import {
-  UpdateCollaborationInput,
-  UpdateCollaborationInputFilterSensitiveLog,
-  UpdateCollaborationOutput,
-  UpdateCollaborationOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateCollaborationInput, UpdateCollaborationOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateCollaborationCommand,
   serializeAws_restJson1UpdateCollaborationCommand,
@@ -119,8 +114,8 @@ export class UpdateCollaborationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateCollaborationInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateCollaborationOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

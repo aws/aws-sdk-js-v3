@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import {
-  DeleteAccountRequest,
-  DeleteAccountRequestFilterSensitiveLog,
-  DeleteAccountResponse,
-  DeleteAccountResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteAccountRequest, DeleteAccountResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteAccountCommand,
   serializeAws_restJson1DeleteAccountCommand,
@@ -142,8 +137,8 @@ export class DeleteAccountCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAccountRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteAccountResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

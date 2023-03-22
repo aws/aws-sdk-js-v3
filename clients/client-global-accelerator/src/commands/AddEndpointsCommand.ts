@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../GlobalAcceleratorClient";
-import {
-  AddEndpointsRequest,
-  AddEndpointsRequestFilterSensitiveLog,
-  AddEndpointsResponse,
-  AddEndpointsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { AddEndpointsRequest, AddEndpointsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1AddEndpointsCommand,
   serializeAws_json1_1AddEndpointsCommand,
@@ -142,8 +137,8 @@ export class AddEndpointsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AddEndpointsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AddEndpointsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

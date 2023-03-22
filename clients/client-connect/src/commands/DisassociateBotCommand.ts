@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { DisassociateBotRequest, DisassociateBotRequestFilterSensitiveLog } from "../models/models_0";
+import { DisassociateBotRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1DisassociateBotCommand,
   serializeAws_restJson1DisassociateBotCommand,
@@ -116,8 +116,8 @@ export class DisassociateBotCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateBotRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

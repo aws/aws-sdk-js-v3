@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateAppMonitorRequest,
-  UpdateAppMonitorRequestFilterSensitiveLog,
-  UpdateAppMonitorResponse,
-  UpdateAppMonitorResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateAppMonitorRequest, UpdateAppMonitorResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateAppMonitorCommand,
   serializeAws_restJson1UpdateAppMonitorCommand,
@@ -135,8 +130,8 @@ export class UpdateAppMonitorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateAppMonitorRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateAppMonitorResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DataBrewClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataBrewClient";
-import {
-  StartJobRunRequest,
-  StartJobRunRequestFilterSensitiveLog,
-  StartJobRunResponse,
-  StartJobRunResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { StartJobRunRequest, StartJobRunResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1StartJobRunCommand,
   serializeAws_restJson1StartJobRunCommand,
@@ -117,8 +112,8 @@ export class StartJobRunCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartJobRunRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartJobRunResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

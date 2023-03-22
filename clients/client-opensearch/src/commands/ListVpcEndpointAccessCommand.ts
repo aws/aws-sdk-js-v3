@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListVpcEndpointAccessRequest,
-  ListVpcEndpointAccessRequestFilterSensitiveLog,
-  ListVpcEndpointAccessResponse,
-  ListVpcEndpointAccessResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListVpcEndpointAccessRequest, ListVpcEndpointAccessResponse } from "../models/models_0";
 import { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
 import {
   deserializeAws_restJson1ListVpcEndpointAccessCommand,
@@ -120,8 +115,8 @@ export class ListVpcEndpointAccessCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListVpcEndpointAccessRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListVpcEndpointAccessResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

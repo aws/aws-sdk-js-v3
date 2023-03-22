@@ -17,7 +17,6 @@ import {
   UpdateChapCredentialsInput,
   UpdateChapCredentialsInputFilterSensitiveLog,
   UpdateChapCredentialsOutput,
-  UpdateChapCredentialsOutputFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateChapCredentialsCommand,
@@ -144,7 +143,7 @@ export class UpdateChapCredentialsCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: UpdateChapCredentialsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateChapCredentialsOutputFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

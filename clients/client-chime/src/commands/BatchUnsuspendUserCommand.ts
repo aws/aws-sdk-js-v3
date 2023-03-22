@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import {
-  BatchUnsuspendUserRequest,
-  BatchUnsuspendUserRequestFilterSensitiveLog,
-  BatchUnsuspendUserResponse,
-  BatchUnsuspendUserResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { BatchUnsuspendUserRequest, BatchUnsuspendUserResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1BatchUnsuspendUserCommand,
   serializeAws_restJson1BatchUnsuspendUserCommand,
@@ -140,8 +135,8 @@ export class BatchUnsuspendUserCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchUnsuspendUserRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchUnsuspendUserResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

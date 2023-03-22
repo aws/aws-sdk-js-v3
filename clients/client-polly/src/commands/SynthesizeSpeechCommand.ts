@@ -18,7 +18,6 @@ import {
 
 import {
   SynthesizeSpeechInput,
-  SynthesizeSpeechInputFilterSensitiveLog,
   SynthesizeSpeechOutput,
   SynthesizeSpeechOutputFilterSensitiveLog,
 } from "../models/models_0";
@@ -185,7 +184,7 @@ export class SynthesizeSpeechCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SynthesizeSpeechInputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: SynthesizeSpeechOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

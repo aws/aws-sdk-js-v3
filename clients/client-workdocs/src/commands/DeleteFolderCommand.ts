@@ -130,7 +130,7 @@ export class DeleteFolderCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: DeleteFolderRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

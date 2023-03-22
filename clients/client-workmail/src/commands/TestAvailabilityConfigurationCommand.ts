@@ -17,7 +17,6 @@ import {
   TestAvailabilityConfigurationRequest,
   TestAvailabilityConfigurationRequestFilterSensitiveLog,
   TestAvailabilityConfigurationResponse,
-  TestAvailabilityConfigurationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1TestAvailabilityConfigurationCommand,
@@ -131,7 +130,7 @@ export class TestAvailabilityConfigurationCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: TestAvailabilityConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: TestAvailabilityConfigurationResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

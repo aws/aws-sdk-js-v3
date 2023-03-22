@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListTrialsRequest,
-  ListTrialsRequestFilterSensitiveLog,
-  ListTrialsResponse,
-  ListTrialsResponseFilterSensitiveLog,
-} from "../models/models_3";
+import { ListTrialsRequest, ListTrialsResponse } from "../models/models_3";
 import {
   deserializeAws_json1_1ListTrialsCommand,
   serializeAws_json1_1ListTrialsCommand,
@@ -112,8 +107,8 @@ export class ListTrialsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTrialsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListTrialsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

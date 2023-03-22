@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DisassociateTrunkInterfaceRequest,
-  DisassociateTrunkInterfaceRequestFilterSensitiveLog,
-  DisassociateTrunkInterfaceResult,
-  DisassociateTrunkInterfaceResultFilterSensitiveLog,
-} from "../models/models_5";
+import { DisassociateTrunkInterfaceRequest, DisassociateTrunkInterfaceResult } from "../models/models_5";
 import {
   deserializeAws_ec2DisassociateTrunkInterfaceCommand,
   serializeAws_ec2DisassociateTrunkInterfaceCommand,
@@ -111,8 +106,8 @@ export class DisassociateTrunkInterfaceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateTrunkInterfaceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateTrunkInterfaceResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

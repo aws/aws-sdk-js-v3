@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  ModifyIpamScopeRequest,
-  ModifyIpamScopeRequestFilterSensitiveLog,
-  ModifyIpamScopeResult,
-  ModifyIpamScopeResultFilterSensitiveLog,
-} from "../models/models_6";
+import { ModifyIpamScopeRequest, ModifyIpamScopeResult } from "../models/models_6";
 import { deserializeAws_ec2ModifyIpamScopeCommand, serializeAws_ec2ModifyIpamScopeCommand } from "../protocols/Aws_ec2";
 
 /**
@@ -104,8 +99,8 @@ export class ModifyIpamScopeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyIpamScopeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifyIpamScopeResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

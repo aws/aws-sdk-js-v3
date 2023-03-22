@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateNotificationSubscriptionRequest,
-  CreateNotificationSubscriptionRequestFilterSensitiveLog,
-  CreateNotificationSubscriptionResponse,
-  CreateNotificationSubscriptionResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateNotificationSubscriptionRequest, CreateNotificationSubscriptionResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateNotificationSubscriptionCommand,
   serializeAws_restJson1CreateNotificationSubscriptionCommand,
@@ -125,8 +120,8 @@ export class CreateNotificationSubscriptionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateNotificationSubscriptionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateNotificationSubscriptionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

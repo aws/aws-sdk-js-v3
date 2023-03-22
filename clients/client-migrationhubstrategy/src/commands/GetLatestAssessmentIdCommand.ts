@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MigrationHubStrategyClient";
-import {
-  GetLatestAssessmentIdRequest,
-  GetLatestAssessmentIdRequestFilterSensitiveLog,
-  GetLatestAssessmentIdResponse,
-  GetLatestAssessmentIdResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetLatestAssessmentIdRequest, GetLatestAssessmentIdResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetLatestAssessmentIdCommand,
   serializeAws_restJson1GetLatestAssessmentIdCommand,
@@ -124,8 +119,8 @@ export class GetLatestAssessmentIdCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetLatestAssessmentIdRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetLatestAssessmentIdResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

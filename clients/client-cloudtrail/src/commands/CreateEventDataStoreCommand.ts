@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
-import {
-  CreateEventDataStoreRequest,
-  CreateEventDataStoreRequestFilterSensitiveLog,
-  CreateEventDataStoreResponse,
-  CreateEventDataStoreResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateEventDataStoreRequest, CreateEventDataStoreResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateEventDataStoreCommand,
   serializeAws_json1_1CreateEventDataStoreCommand,
@@ -205,8 +200,8 @@ export class CreateEventDataStoreCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateEventDataStoreRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateEventDataStoreResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

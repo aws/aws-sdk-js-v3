@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListNamespacesRequest,
-  ListNamespacesRequestFilterSensitiveLog,
-  ListNamespacesResponse,
-  ListNamespacesResponseFilterSensitiveLog,
-} from "../models/models_3";
+import { ListNamespacesRequest, ListNamespacesResponse } from "../models/models_3";
 import {
   deserializeAws_restJson1ListNamespacesCommand,
   serializeAws_restJson1ListNamespacesCommand,
@@ -134,8 +129,8 @@ export class ListNamespacesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListNamespacesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListNamespacesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

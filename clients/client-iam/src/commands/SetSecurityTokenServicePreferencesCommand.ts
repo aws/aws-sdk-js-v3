@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import {
-  SetSecurityTokenServicePreferencesRequest,
-  SetSecurityTokenServicePreferencesRequestFilterSensitiveLog,
-} from "../models/models_0";
+import { SetSecurityTokenServicePreferencesRequest } from "../models/models_0";
 import {
   deserializeAws_querySetSecurityTokenServicePreferencesCommand,
   serializeAws_querySetSecurityTokenServicePreferencesCommand,
@@ -138,8 +135,8 @@ export class SetSecurityTokenServicePreferencesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SetSecurityTokenServicePreferencesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

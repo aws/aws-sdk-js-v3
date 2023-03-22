@@ -12,10 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ConstantAndVariableQueryStringInput,
-  ConstantAndVariableQueryStringInputFilterSensitiveLog,
-} from "../models/models_0";
+import { ConstantAndVariableQueryStringInput } from "../models/models_0";
 import {
   deserializeAws_restJson1ConstantAndVariableQueryStringCommand,
   serializeAws_restJson1ConstantAndVariableQueryStringCommand,
@@ -23,15 +20,20 @@ import {
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
 /**
+ * @public
+ *
  * The input for {@link ConstantAndVariableQueryStringCommand}.
  */
 export interface ConstantAndVariableQueryStringCommandInput extends ConstantAndVariableQueryStringInput {}
 /**
+ * @public
+ *
  * The output of {@link ConstantAndVariableQueryStringCommand}.
  */
 export interface ConstantAndVariableQueryStringCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * This example uses fixed query string params and variable query string params.
  * The fixed query string parameters and variable parameters must both be
  * serialized (implementations may need to merge them together).
@@ -45,6 +47,8 @@ export interface ConstantAndVariableQueryStringCommandOutput extends __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param ConstantAndVariableQueryStringCommandInput - {@link ConstantAndVariableQueryStringCommandInput}
+ * @returns {@link ConstantAndVariableQueryStringCommandOutput}
  * @see {@link ConstantAndVariableQueryStringCommandInput} for command's `input` shape.
  * @see {@link ConstantAndVariableQueryStringCommandOutput} for command's `response` shape.
  * @see {@link RestJsonProtocolClientResolvedConfig | config} for RestJsonProtocolClient's `config` shape.
@@ -59,6 +63,9 @@ export class ConstantAndVariableQueryStringCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: ConstantAndVariableQueryStringCommandInput) {
     // Start section: command_constructor
     super();
@@ -84,8 +91,8 @@ export class ConstantAndVariableQueryStringCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ConstantAndVariableQueryStringInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -95,6 +102,9 @@ export class ConstantAndVariableQueryStringCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ConstantAndVariableQueryStringCommandInput,
     context: __SerdeContext
@@ -102,6 +112,9 @@ export class ConstantAndVariableQueryStringCommand extends $Command<
     return serializeAws_restJson1ConstantAndVariableQueryStringCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

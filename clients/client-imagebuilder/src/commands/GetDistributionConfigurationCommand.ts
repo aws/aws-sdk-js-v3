@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient";
-import {
-  GetDistributionConfigurationRequest,
-  GetDistributionConfigurationRequestFilterSensitiveLog,
-  GetDistributionConfigurationResponse,
-  GetDistributionConfigurationResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetDistributionConfigurationRequest, GetDistributionConfigurationResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetDistributionConfigurationCommand,
   serializeAws_restJson1GetDistributionConfigurationCommand,
@@ -129,8 +124,8 @@ export class GetDistributionConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDistributionConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetDistributionConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

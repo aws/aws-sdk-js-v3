@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import {
-  StartMeetingTranscriptionRequest,
-  StartMeetingTranscriptionRequestFilterSensitiveLog,
-  StartMeetingTranscriptionResponse,
-  StartMeetingTranscriptionResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { StartMeetingTranscriptionRequest, StartMeetingTranscriptionResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1StartMeetingTranscriptionCommand,
   serializeAws_restJson1StartMeetingTranscriptionCommand,
@@ -134,8 +129,8 @@ export class StartMeetingTranscriptionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartMeetingTranscriptionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartMeetingTranscriptionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

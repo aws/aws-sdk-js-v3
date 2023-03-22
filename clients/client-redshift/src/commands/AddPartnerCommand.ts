@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  PartnerIntegrationInputMessage,
-  PartnerIntegrationInputMessageFilterSensitiveLog,
-  PartnerIntegrationOutputMessage,
-  PartnerIntegrationOutputMessageFilterSensitiveLog,
-} from "../models/models_0";
+import { PartnerIntegrationInputMessage, PartnerIntegrationOutputMessage } from "../models/models_0";
 import { deserializeAws_queryAddPartnerCommand, serializeAws_queryAddPartnerCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
@@ -114,8 +109,8 @@ export class AddPartnerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PartnerIntegrationInputMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: PartnerIntegrationOutputMessageFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

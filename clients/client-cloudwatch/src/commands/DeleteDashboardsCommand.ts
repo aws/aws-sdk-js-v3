@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
-import {
-  DeleteDashboardsInput,
-  DeleteDashboardsInputFilterSensitiveLog,
-  DeleteDashboardsOutput,
-  DeleteDashboardsOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteDashboardsInput, DeleteDashboardsOutput } from "../models/models_0";
 import {
   deserializeAws_queryDeleteDashboardsCommand,
   serializeAws_queryDeleteDashboardsCommand,
@@ -118,8 +113,8 @@ export class DeleteDashboardsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDashboardsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteDashboardsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

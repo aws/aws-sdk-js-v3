@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CrlDetailResponse,
-  CrlDetailResponseFilterSensitiveLog,
-  UpdateCrlRequest,
-  UpdateCrlRequestFilterSensitiveLog,
-} from "../models/models_0";
+import { CrlDetailResponse, UpdateCrlRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateCrlCommand,
   serializeAws_restJson1UpdateCrlCommand,
@@ -118,8 +113,8 @@ export class UpdateCrlCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateCrlRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CrlDetailResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

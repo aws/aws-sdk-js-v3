@@ -15,9 +15,7 @@ import {
 
 import {
   DescribeMaintenanceWindowExecutionsRequest,
-  DescribeMaintenanceWindowExecutionsRequestFilterSensitiveLog,
   DescribeMaintenanceWindowExecutionsResult,
-  DescribeMaintenanceWindowExecutionsResultFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeMaintenanceWindowExecutionsCommand,
@@ -114,8 +112,8 @@ export class DescribeMaintenanceWindowExecutionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeMaintenanceWindowExecutionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeMaintenanceWindowExecutionsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

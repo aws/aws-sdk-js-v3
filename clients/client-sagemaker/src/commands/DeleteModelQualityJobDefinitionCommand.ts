@@ -13,10 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteModelQualityJobDefinitionRequest,
-  DeleteModelQualityJobDefinitionRequestFilterSensitiveLog,
-} from "../models/models_1";
+import { DeleteModelQualityJobDefinitionRequest } from "../models/models_1";
 import {
   deserializeAws_json1_1DeleteModelQualityJobDefinitionCommand,
   serializeAws_json1_1DeleteModelQualityJobDefinitionCommand,
@@ -108,8 +105,8 @@ export class DeleteModelQualityJobDefinitionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteModelQualityJobDefinitionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

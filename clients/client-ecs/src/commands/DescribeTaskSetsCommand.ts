@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
-import {
-  DescribeTaskSetsRequest,
-  DescribeTaskSetsRequestFilterSensitiveLog,
-  DescribeTaskSetsResponse,
-  DescribeTaskSetsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeTaskSetsRequest, DescribeTaskSetsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeTaskSetsCommand,
   serializeAws_json1_1DescribeTaskSetsCommand,
@@ -139,8 +134,8 @@ export class DescribeTaskSetsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeTaskSetsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeTaskSetsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

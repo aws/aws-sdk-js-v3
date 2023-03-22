@@ -18,7 +18,6 @@ import {
   UpdateEnvironmentRequest,
   UpdateEnvironmentRequestFilterSensitiveLog,
   UpdateEnvironmentResult,
-  UpdateEnvironmentResultFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateEnvironmentCommand,
@@ -142,7 +141,7 @@ export class UpdateEnvironmentCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: UpdateEnvironmentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateEnvironmentResultFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  EnableHostedZoneDNSSECRequest,
-  EnableHostedZoneDNSSECRequestFilterSensitiveLog,
-  EnableHostedZoneDNSSECResponse,
-  EnableHostedZoneDNSSECResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { EnableHostedZoneDNSSECRequest, EnableHostedZoneDNSSECResponse } from "../models/models_0";
 import {
   deserializeAws_restXmlEnableHostedZoneDNSSECCommand,
   serializeAws_restXmlEnableHostedZoneDNSSECCommand,
@@ -140,8 +135,8 @@ export class EnableHostedZoneDNSSECCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: EnableHostedZoneDNSSECRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: EnableHostedZoneDNSSECResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

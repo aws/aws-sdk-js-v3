@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
-import {
-  CacheEngineVersionMessage,
-  CacheEngineVersionMessageFilterSensitiveLog,
-  DescribeCacheEngineVersionsMessage,
-  DescribeCacheEngineVersionsMessageFilterSensitiveLog,
-} from "../models/models_0";
+import { CacheEngineVersionMessage, DescribeCacheEngineVersionsMessage } from "../models/models_0";
 import {
   deserializeAws_queryDescribeCacheEngineVersionsCommand,
   serializeAws_queryDescribeCacheEngineVersionsCommand,
@@ -207,8 +202,8 @@ export class DescribeCacheEngineVersionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeCacheEngineVersionsMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: CacheEngineVersionMessageFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

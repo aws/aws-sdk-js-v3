@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudSearchClient";
-import {
-  DescribeAvailabilityOptionsRequest,
-  DescribeAvailabilityOptionsRequestFilterSensitiveLog,
-  DescribeAvailabilityOptionsResponse,
-  DescribeAvailabilityOptionsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeAvailabilityOptionsRequest, DescribeAvailabilityOptionsResponse } from "../models/models_0";
 import {
   deserializeAws_queryDescribeAvailabilityOptionsCommand,
   serializeAws_queryDescribeAvailabilityOptionsCommand,
@@ -128,8 +123,8 @@ export class DescribeAvailabilityOptionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeAvailabilityOptionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeAvailabilityOptionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

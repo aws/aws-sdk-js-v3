@@ -20,7 +20,6 @@ import {
 } from "../ChimeSDKMessagingClient";
 import {
   GetChannelMessageRequest,
-  GetChannelMessageRequestFilterSensitiveLog,
   GetChannelMessageResponse,
   GetChannelMessageResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -137,7 +136,7 @@ export class GetChannelMessageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetChannelMessageRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetChannelMessageResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

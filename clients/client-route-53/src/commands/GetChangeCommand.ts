@@ -14,12 +14,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetChangeRequest,
-  GetChangeRequestFilterSensitiveLog,
-  GetChangeResponse,
-  GetChangeResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetChangeRequest, GetChangeResponse } from "../models/models_0";
 import { deserializeAws_restXmlGetChangeCommand, serializeAws_restXmlGetChangeCommand } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
@@ -124,8 +119,8 @@ export class GetChangeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetChangeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetChangeResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

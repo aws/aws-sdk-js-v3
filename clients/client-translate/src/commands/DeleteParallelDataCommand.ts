@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteParallelDataRequest,
-  DeleteParallelDataRequestFilterSensitiveLog,
-  DeleteParallelDataResponse,
-  DeleteParallelDataResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteParallelDataRequest, DeleteParallelDataResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteParallelDataCommand,
   serializeAws_json1_1DeleteParallelDataCommand,
@@ -123,8 +118,8 @@ export class DeleteParallelDataCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteParallelDataRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteParallelDataResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DisassociateVPCFromHostedZoneRequest,
-  DisassociateVPCFromHostedZoneRequestFilterSensitiveLog,
-  DisassociateVPCFromHostedZoneResponse,
-  DisassociateVPCFromHostedZoneResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DisassociateVPCFromHostedZoneRequest, DisassociateVPCFromHostedZoneResponse } from "../models/models_0";
 import {
   deserializeAws_restXmlDisassociateVPCFromHostedZoneCommand,
   serializeAws_restXmlDisassociateVPCFromHostedZoneCommand,
@@ -177,8 +172,8 @@ export class DisassociateVPCFromHostedZoneCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateVPCFromHostedZoneRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateVPCFromHostedZoneResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

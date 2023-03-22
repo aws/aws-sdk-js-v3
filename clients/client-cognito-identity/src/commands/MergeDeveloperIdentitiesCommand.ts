@@ -15,12 +15,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CognitoIdentityClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CognitoIdentityClient";
-import {
-  MergeDeveloperIdentitiesInput,
-  MergeDeveloperIdentitiesInputFilterSensitiveLog,
-  MergeDeveloperIdentitiesResponse,
-  MergeDeveloperIdentitiesResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { MergeDeveloperIdentitiesInput, MergeDeveloperIdentitiesResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1MergeDeveloperIdentitiesCommand,
   serializeAws_json1_1MergeDeveloperIdentitiesCommand,
@@ -141,8 +136,8 @@ export class MergeDeveloperIdentitiesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: MergeDeveloperIdentitiesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: MergeDeveloperIdentitiesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

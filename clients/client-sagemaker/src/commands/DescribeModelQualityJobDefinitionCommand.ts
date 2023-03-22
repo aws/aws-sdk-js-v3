@@ -15,9 +15,7 @@ import {
 
 import {
   DescribeModelQualityJobDefinitionRequest,
-  DescribeModelQualityJobDefinitionRequestFilterSensitiveLog,
   DescribeModelQualityJobDefinitionResponse,
-  DescribeModelQualityJobDefinitionResponseFilterSensitiveLog,
 } from "../models/models_2";
 import {
   deserializeAws_json1_1DescribeModelQualityJobDefinitionCommand,
@@ -112,8 +110,8 @@ export class DescribeModelQualityJobDefinitionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeModelQualityJobDefinitionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeModelQualityJobDefinitionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

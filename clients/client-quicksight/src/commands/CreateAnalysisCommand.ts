@@ -17,7 +17,6 @@ import {
   CreateAnalysisRequest,
   CreateAnalysisRequestFilterSensitiveLog,
   CreateAnalysisResponse,
-  CreateAnalysisResponseFilterSensitiveLog,
 } from "../models/models_2";
 import {
   deserializeAws_restJson1CreateAnalysisCommand,
@@ -135,7 +134,7 @@ export class CreateAnalysisCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateAnalysisRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateAnalysisResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

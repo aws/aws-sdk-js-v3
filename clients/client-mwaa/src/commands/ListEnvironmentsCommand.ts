@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListEnvironmentsInput,
-  ListEnvironmentsInputFilterSensitiveLog,
-  ListEnvironmentsOutput,
-  ListEnvironmentsOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { ListEnvironmentsInput, ListEnvironmentsOutput } from "../models/models_0";
 import { MWAAClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MWAAClient";
 import {
   deserializeAws_restJson1ListEnvironmentsCommand,
@@ -113,8 +108,8 @@ export class ListEnvironmentsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListEnvironmentsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListEnvironmentsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

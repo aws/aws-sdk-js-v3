@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { FisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FisClient";
-import {
-  ListTargetResourceTypesRequest,
-  ListTargetResourceTypesRequestFilterSensitiveLog,
-  ListTargetResourceTypesResponse,
-  ListTargetResourceTypesResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListTargetResourceTypesRequest, ListTargetResourceTypesResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListTargetResourceTypesCommand,
   serializeAws_restJson1ListTargetResourceTypesCommand,
@@ -110,8 +105,8 @@ export class ListTargetResourceTypesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTargetResourceTypesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListTargetResourceTypesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

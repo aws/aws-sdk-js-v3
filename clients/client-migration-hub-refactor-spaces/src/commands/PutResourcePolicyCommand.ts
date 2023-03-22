@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MigrationHubRefactorSpacesClient";
-import {
-  PutResourcePolicyRequest,
-  PutResourcePolicyRequestFilterSensitiveLog,
-  PutResourcePolicyResponse,
-  PutResourcePolicyResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { PutResourcePolicyRequest, PutResourcePolicyResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1PutResourcePolicyCommand,
   serializeAws_restJson1PutResourcePolicyCommand,
@@ -134,8 +129,8 @@ export class PutResourcePolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutResourcePolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutResourcePolicyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

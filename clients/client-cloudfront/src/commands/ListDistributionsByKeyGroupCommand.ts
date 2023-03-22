@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import {
-  ListDistributionsByKeyGroupRequest,
-  ListDistributionsByKeyGroupRequestFilterSensitiveLog,
-  ListDistributionsByKeyGroupResult,
-  ListDistributionsByKeyGroupResultFilterSensitiveLog,
-} from "../models/models_1";
+import { ListDistributionsByKeyGroupRequest, ListDistributionsByKeyGroupResult } from "../models/models_1";
 import {
   deserializeAws_restXmlListDistributionsByKeyGroupCommand,
   serializeAws_restXmlListDistributionsByKeyGroupCommand,
@@ -119,8 +114,8 @@ export class ListDistributionsByKeyGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDistributionsByKeyGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListDistributionsByKeyGroupResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

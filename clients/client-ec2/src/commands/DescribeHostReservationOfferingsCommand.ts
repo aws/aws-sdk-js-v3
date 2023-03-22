@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DescribeHostReservationOfferingsRequest,
-  DescribeHostReservationOfferingsRequestFilterSensitiveLog,
-  DescribeHostReservationOfferingsResult,
-  DescribeHostReservationOfferingsResultFilterSensitiveLog,
-} from "../models/models_3";
+import { DescribeHostReservationOfferingsRequest, DescribeHostReservationOfferingsResult } from "../models/models_3";
 import {
   deserializeAws_ec2DescribeHostReservationOfferingsCommand,
   serializeAws_ec2DescribeHostReservationOfferingsCommand,
@@ -115,8 +110,8 @@ export class DescribeHostReservationOfferingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeHostReservationOfferingsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeHostReservationOfferingsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

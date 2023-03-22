@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  RejectVpcPeeringConnectionRequest,
-  RejectVpcPeeringConnectionRequestFilterSensitiveLog,
-  RejectVpcPeeringConnectionResult,
-  RejectVpcPeeringConnectionResultFilterSensitiveLog,
-} from "../models/models_6";
+import { RejectVpcPeeringConnectionRequest, RejectVpcPeeringConnectionResult } from "../models/models_6";
 import {
   deserializeAws_ec2RejectVpcPeeringConnectionCommand,
   serializeAws_ec2RejectVpcPeeringConnectionCommand,
@@ -110,8 +105,8 @@ export class RejectVpcPeeringConnectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RejectVpcPeeringConnectionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RejectVpcPeeringConnectionResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

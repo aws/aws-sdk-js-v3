@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CodePipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodePipelineClient";
-import {
-  DeleteWebhookInput,
-  DeleteWebhookInputFilterSensitiveLog,
-  DeleteWebhookOutput,
-  DeleteWebhookOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteWebhookInput, DeleteWebhookOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteWebhookCommand,
   serializeAws_json1_1DeleteWebhookCommand,
@@ -115,8 +110,8 @@ export class DeleteWebhookCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteWebhookInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteWebhookOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import {
-  StopGUISessionRequest,
-  StopGUISessionRequestFilterSensitiveLog,
-  StopGUISessionResult,
-  StopGUISessionResultFilterSensitiveLog,
-} from "../models/models_1";
+import { StopGUISessionRequest, StopGUISessionResult } from "../models/models_1";
 import {
   deserializeAws_json1_1StopGUISessionCommand,
   serializeAws_json1_1StopGUISessionCommand,
@@ -131,8 +126,8 @@ export class StopGUISessionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopGUISessionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StopGUISessionResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

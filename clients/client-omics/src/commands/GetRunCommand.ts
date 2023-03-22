@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetRunRequest,
-  GetRunRequestFilterSensitiveLog,
-  GetRunResponse,
-  GetRunResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetRunRequest, GetRunResponse } from "../models/models_0";
 import { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
 import { deserializeAws_restJson1GetRunCommand, serializeAws_restJson1GetRunCommand } from "../protocols/Aws_restJson1";
 
@@ -122,8 +117,8 @@ export class GetRunCommand extends $Command<GetRunCommandInput, GetRunCommandOut
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetRunRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetRunResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

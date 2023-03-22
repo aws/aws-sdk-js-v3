@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
-import {
-  GetSnapshotLimitsRequest,
-  GetSnapshotLimitsRequestFilterSensitiveLog,
-  GetSnapshotLimitsResult,
-  GetSnapshotLimitsResultFilterSensitiveLog,
-} from "../models/models_0";
+import { GetSnapshotLimitsRequest, GetSnapshotLimitsResult } from "../models/models_0";
 import {
   deserializeAws_json1_1GetSnapshotLimitsCommand,
   serializeAws_json1_1GetSnapshotLimitsCommand,
@@ -116,8 +111,8 @@ export class GetSnapshotLimitsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSnapshotLimitsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetSnapshotLimitsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

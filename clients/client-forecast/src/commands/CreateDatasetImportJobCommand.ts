@@ -18,7 +18,6 @@ import {
   CreateDatasetImportJobRequest,
   CreateDatasetImportJobRequestFilterSensitiveLog,
   CreateDatasetImportJobResponse,
-  CreateDatasetImportJobResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateDatasetImportJobCommand,
@@ -141,7 +140,7 @@ export class CreateDatasetImportJobCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateDatasetImportJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateDatasetImportJobResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

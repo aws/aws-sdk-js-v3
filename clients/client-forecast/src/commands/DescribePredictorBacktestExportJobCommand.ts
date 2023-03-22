@@ -16,9 +16,7 @@ import {
 import { ForecastClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastClient";
 import {
   DescribePredictorBacktestExportJobRequest,
-  DescribePredictorBacktestExportJobRequestFilterSensitiveLog,
   DescribePredictorBacktestExportJobResponse,
-  DescribePredictorBacktestExportJobResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribePredictorBacktestExportJobCommand,
@@ -141,8 +139,8 @@ export class DescribePredictorBacktestExportJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribePredictorBacktestExportJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribePredictorBacktestExportJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

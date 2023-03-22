@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DataBrewClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataBrewClient";
-import {
-  DeleteScheduleRequest,
-  DeleteScheduleRequestFilterSensitiveLog,
-  DeleteScheduleResponse,
-  DeleteScheduleResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteScheduleRequest, DeleteScheduleResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteScheduleCommand,
   serializeAws_restJson1DeleteScheduleCommand,
@@ -113,8 +108,8 @@ export class DeleteScheduleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteScheduleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteScheduleResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaConvertClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConvertClient";
-import {
-  GetPresetRequest,
-  GetPresetRequestFilterSensitiveLog,
-  GetPresetResponse,
-  GetPresetResponseFilterSensitiveLog,
-} from "../models/models_2";
+import { GetPresetRequest, GetPresetResponse } from "../models/models_2";
 import {
   deserializeAws_restJson1GetPresetCommand,
   serializeAws_restJson1GetPresetCommand,
@@ -123,8 +118,8 @@ export class GetPresetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetPresetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetPresetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

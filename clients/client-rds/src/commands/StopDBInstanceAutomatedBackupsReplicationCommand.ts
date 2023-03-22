@@ -15,9 +15,7 @@ import {
 
 import {
   StopDBInstanceAutomatedBackupsReplicationMessage,
-  StopDBInstanceAutomatedBackupsReplicationMessageFilterSensitiveLog,
   StopDBInstanceAutomatedBackupsReplicationResult,
-  StopDBInstanceAutomatedBackupsReplicationResultFilterSensitiveLog,
 } from "../models/models_1";
 import {
   deserializeAws_queryStopDBInstanceAutomatedBackupsReplicationCommand,
@@ -127,8 +125,8 @@ export class StopDBInstanceAutomatedBackupsReplicationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopDBInstanceAutomatedBackupsReplicationMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: StopDBInstanceAutomatedBackupsReplicationResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient";
-import {
-  BatchGetReportGroupsInput,
-  BatchGetReportGroupsInputFilterSensitiveLog,
-  BatchGetReportGroupsOutput,
-  BatchGetReportGroupsOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { BatchGetReportGroupsInput, BatchGetReportGroupsOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1BatchGetReportGroupsCommand,
   serializeAws_json1_1BatchGetReportGroupsCommand,
@@ -112,8 +107,8 @@ export class BatchGetReportGroupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchGetReportGroupsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchGetReportGroupsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

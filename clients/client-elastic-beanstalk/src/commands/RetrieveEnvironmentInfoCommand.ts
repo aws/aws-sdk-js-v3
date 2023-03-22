@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
-import {
-  RetrieveEnvironmentInfoMessage,
-  RetrieveEnvironmentInfoMessageFilterSensitiveLog,
-  RetrieveEnvironmentInfoResultMessage,
-  RetrieveEnvironmentInfoResultMessageFilterSensitiveLog,
-} from "../models/models_0";
+import { RetrieveEnvironmentInfoMessage, RetrieveEnvironmentInfoResultMessage } from "../models/models_0";
 import {
   deserializeAws_queryRetrieveEnvironmentInfoCommand,
   serializeAws_queryRetrieveEnvironmentInfoCommand,
@@ -140,8 +135,8 @@ export class RetrieveEnvironmentInfoCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RetrieveEnvironmentInfoMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: RetrieveEnvironmentInfoResultMessageFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

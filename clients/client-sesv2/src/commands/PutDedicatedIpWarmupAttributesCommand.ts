@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  PutDedicatedIpWarmupAttributesRequest,
-  PutDedicatedIpWarmupAttributesRequestFilterSensitiveLog,
-  PutDedicatedIpWarmupAttributesResponse,
-  PutDedicatedIpWarmupAttributesResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { PutDedicatedIpWarmupAttributesRequest, PutDedicatedIpWarmupAttributesResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1PutDedicatedIpWarmupAttributesCommand,
   serializeAws_restJson1PutDedicatedIpWarmupAttributesCommand,
@@ -118,8 +113,8 @@ export class PutDedicatedIpWarmupAttributesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutDedicatedIpWarmupAttributesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutDedicatedIpWarmupAttributesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

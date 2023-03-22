@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteTrustStoreRequest,
-  DeleteTrustStoreRequestFilterSensitiveLog,
-  DeleteTrustStoreResponse,
-  DeleteTrustStoreResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteTrustStoreRequest, DeleteTrustStoreResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteTrustStoreCommand,
   serializeAws_restJson1DeleteTrustStoreCommand,
@@ -122,8 +117,8 @@ export class DeleteTrustStoreCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteTrustStoreRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteTrustStoreResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

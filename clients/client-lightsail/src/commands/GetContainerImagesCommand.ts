@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import {
-  GetContainerImagesRequest,
-  GetContainerImagesRequestFilterSensitiveLog,
-  GetContainerImagesResult,
-  GetContainerImagesResultFilterSensitiveLog,
-} from "../models/models_0";
+import { GetContainerImagesRequest, GetContainerImagesResult } from "../models/models_0";
 import {
   deserializeAws_json1_1GetContainerImagesCommand,
   serializeAws_json1_1GetContainerImagesCommand,
@@ -136,8 +131,8 @@ export class GetContainerImagesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetContainerImagesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetContainerImagesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

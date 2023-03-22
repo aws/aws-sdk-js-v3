@@ -18,7 +18,6 @@ import {
   ImportCertificateRequest,
   ImportCertificateRequestFilterSensitiveLog,
   ImportCertificateResponse,
-  ImportCertificateResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1ImportCertificateCommand,
@@ -198,7 +197,7 @@ export class ImportCertificateCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: ImportCertificateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ImportCertificateResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

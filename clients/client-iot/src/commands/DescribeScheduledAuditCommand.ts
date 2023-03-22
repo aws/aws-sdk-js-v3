@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  DescribeScheduledAuditRequest,
-  DescribeScheduledAuditRequestFilterSensitiveLog,
-  DescribeScheduledAuditResponse,
-  DescribeScheduledAuditResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { DescribeScheduledAuditRequest, DescribeScheduledAuditResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1DescribeScheduledAuditCommand,
   serializeAws_restJson1DescribeScheduledAuditCommand,
@@ -120,8 +115,8 @@ export class DescribeScheduledAuditCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeScheduledAuditRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeScheduledAuditResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

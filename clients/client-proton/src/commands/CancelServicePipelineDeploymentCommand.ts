@@ -15,7 +15,6 @@ import {
 
 import {
   CancelServicePipelineDeploymentInput,
-  CancelServicePipelineDeploymentInputFilterSensitiveLog,
   CancelServicePipelineDeploymentOutput,
   CancelServicePipelineDeploymentOutputFilterSensitiveLog,
 } from "../models/models_0";
@@ -142,7 +141,7 @@ export class CancelServicePipelineDeploymentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelServicePipelineDeploymentInputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: CancelServicePipelineDeploymentOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

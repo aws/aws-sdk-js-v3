@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
-import {
-  UpdateApplicationRequest,
-  UpdateApplicationRequestFilterSensitiveLog,
-  UpdateApplicationResult,
-  UpdateApplicationResultFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateApplicationRequest, UpdateApplicationResult } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateApplicationCommand,
   serializeAws_json1_1UpdateApplicationCommand,
@@ -116,8 +111,8 @@ export class UpdateApplicationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateApplicationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateApplicationResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient";
-import {
-  PutResourceSetRequest,
-  PutResourceSetRequestFilterSensitiveLog,
-  PutResourceSetResponse,
-  PutResourceSetResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { PutResourceSetRequest, PutResourceSetResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1PutResourceSetCommand,
   serializeAws_json1_1PutResourceSetCommand,
@@ -128,8 +123,8 @@ export class PutResourceSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutResourceSetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutResourceSetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

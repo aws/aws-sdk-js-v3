@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ModifyDBClusterSnapshotAttributeMessage,
-  ModifyDBClusterSnapshotAttributeMessageFilterSensitiveLog,
-  ModifyDBClusterSnapshotAttributeResult,
-  ModifyDBClusterSnapshotAttributeResultFilterSensitiveLog,
-} from "../models/models_0";
+import { ModifyDBClusterSnapshotAttributeMessage, ModifyDBClusterSnapshotAttributeResult } from "../models/models_0";
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
 import {
   deserializeAws_queryModifyDBClusterSnapshotAttributeCommand,
@@ -133,8 +128,8 @@ export class ModifyDBClusterSnapshotAttributeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyDBClusterSnapshotAttributeMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifyDBClusterSnapshotAttributeResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

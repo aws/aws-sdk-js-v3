@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AppConfigDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppConfigDataClient";
-import {
-  StartConfigurationSessionRequest,
-  StartConfigurationSessionRequestFilterSensitiveLog,
-  StartConfigurationSessionResponse,
-  StartConfigurationSessionResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { StartConfigurationSessionRequest, StartConfigurationSessionResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1StartConfigurationSessionCommand,
   serializeAws_restJson1StartConfigurationSessionCommand,
@@ -122,8 +117,8 @@ export class StartConfigurationSessionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartConfigurationSessionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartConfigurationSessionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

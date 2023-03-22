@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MigrationHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MigrationHubClient";
-import {
-  DescribeApplicationStateRequest,
-  DescribeApplicationStateRequestFilterSensitiveLog,
-  DescribeApplicationStateResult,
-  DescribeApplicationStateResultFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeApplicationStateRequest, DescribeApplicationStateResult } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeApplicationStateCommand,
   serializeAws_json1_1DescribeApplicationStateCommand,
@@ -138,8 +133,8 @@ export class DescribeApplicationStateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeApplicationStateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeApplicationStateResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

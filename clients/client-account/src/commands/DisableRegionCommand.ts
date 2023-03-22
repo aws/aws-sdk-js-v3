@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AccountClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AccountClient";
-import { DisableRegionRequest, DisableRegionRequestFilterSensitiveLog } from "../models/models_0";
+import { DisableRegionRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1DisableRegionCommand,
   serializeAws_restJson1DisableRegionCommand,
@@ -120,8 +120,8 @@ export class DisableRegionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisableRegionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

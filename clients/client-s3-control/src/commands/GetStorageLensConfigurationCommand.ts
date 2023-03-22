@@ -14,12 +14,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetStorageLensConfigurationRequest,
-  GetStorageLensConfigurationRequestFilterSensitiveLog,
-  GetStorageLensConfigurationResult,
-  GetStorageLensConfigurationResultFilterSensitiveLog,
-} from "../models/models_0";
+import { GetStorageLensConfigurationRequest, GetStorageLensConfigurationResult } from "../models/models_0";
 import {
   deserializeAws_restXmlGetStorageLensConfigurationCommand,
   serializeAws_restXmlGetStorageLensConfigurationCommand,
@@ -119,8 +114,8 @@ export class GetStorageLensConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetStorageLensConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetStorageLensConfigurationResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

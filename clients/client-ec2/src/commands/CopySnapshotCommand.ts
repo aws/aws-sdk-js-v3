@@ -15,12 +15,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  CopySnapshotRequest,
-  CopySnapshotRequestFilterSensitiveLog,
-  CopySnapshotResult,
-  CopySnapshotResultFilterSensitiveLog,
-} from "../models/models_0";
+import { CopySnapshotRequest, CopySnapshotRequestFilterSensitiveLog, CopySnapshotResult } from "../models/models_0";
 import { deserializeAws_ec2CopySnapshotCommand, serializeAws_ec2CopySnapshotCommand } from "../protocols/Aws_ec2";
 
 /**
@@ -143,7 +138,7 @@ export class CopySnapshotCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CopySnapshotRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CopySnapshotResultFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

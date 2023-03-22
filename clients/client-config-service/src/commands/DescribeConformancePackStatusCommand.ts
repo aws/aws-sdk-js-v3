@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import {
-  DescribeConformancePackStatusRequest,
-  DescribeConformancePackStatusRequestFilterSensitiveLog,
-  DescribeConformancePackStatusResponse,
-  DescribeConformancePackStatusResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeConformancePackStatusRequest, DescribeConformancePackStatusResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeConformancePackStatusCommand,
   serializeAws_json1_1DescribeConformancePackStatusCommand,
@@ -124,8 +119,8 @@ export class DescribeConformancePackStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeConformancePackStatusRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeConformancePackStatusResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

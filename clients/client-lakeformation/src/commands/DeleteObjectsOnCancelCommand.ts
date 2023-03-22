@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
-import {
-  DeleteObjectsOnCancelRequest,
-  DeleteObjectsOnCancelRequestFilterSensitiveLog,
-  DeleteObjectsOnCancelResponse,
-  DeleteObjectsOnCancelResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteObjectsOnCancelRequest, DeleteObjectsOnCancelResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteObjectsOnCancelCommand,
   serializeAws_restJson1DeleteObjectsOnCancelCommand,
@@ -138,8 +133,8 @@ export class DeleteObjectsOnCancelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteObjectsOnCancelRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteObjectsOnCancelResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

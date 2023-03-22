@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  SwitchoverBlueGreenDeploymentRequest,
-  SwitchoverBlueGreenDeploymentRequestFilterSensitiveLog,
-  SwitchoverBlueGreenDeploymentResponse,
-  SwitchoverBlueGreenDeploymentResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { SwitchoverBlueGreenDeploymentRequest, SwitchoverBlueGreenDeploymentResponse } from "../models/models_1";
 import {
   deserializeAws_querySwitchoverBlueGreenDeploymentCommand,
   serializeAws_querySwitchoverBlueGreenDeploymentCommand,
@@ -124,8 +119,8 @@ export class SwitchoverBlueGreenDeploymentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SwitchoverBlueGreenDeploymentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SwitchoverBlueGreenDeploymentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

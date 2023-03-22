@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import {
-  GetOriginAccessControlRequest,
-  GetOriginAccessControlRequestFilterSensitiveLog,
-  GetOriginAccessControlResult,
-  GetOriginAccessControlResultFilterSensitiveLog,
-} from "../models/models_1";
+import { GetOriginAccessControlRequest, GetOriginAccessControlResult } from "../models/models_1";
 import {
   deserializeAws_restXmlGetOriginAccessControlCommand,
   serializeAws_restXmlGetOriginAccessControlCommand,
@@ -113,8 +108,8 @@ export class GetOriginAccessControlCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetOriginAccessControlRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetOriginAccessControlResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

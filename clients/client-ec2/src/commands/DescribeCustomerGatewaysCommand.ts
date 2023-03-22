@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DescribeCustomerGatewaysRequest,
-  DescribeCustomerGatewaysRequestFilterSensitiveLog,
-  DescribeCustomerGatewaysResult,
-  DescribeCustomerGatewaysResultFilterSensitiveLog,
-} from "../models/models_3";
+import { DescribeCustomerGatewaysRequest, DescribeCustomerGatewaysResult } from "../models/models_3";
 import {
   deserializeAws_ec2DescribeCustomerGatewaysCommand,
   serializeAws_ec2DescribeCustomerGatewaysCommand,
@@ -135,8 +130,8 @@ export class DescribeCustomerGatewaysCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeCustomerGatewaysRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeCustomerGatewaysResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

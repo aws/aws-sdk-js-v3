@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTRoboRunnerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTRoboRunnerClient";
-import {
-  GetSiteRequest,
-  GetSiteRequestFilterSensitiveLog,
-  GetSiteResponse,
-  GetSiteResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetSiteRequest, GetSiteResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetSiteCommand,
   serializeAws_restJson1GetSiteCommand,
@@ -120,8 +115,8 @@ export class GetSiteCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSiteRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetSiteResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

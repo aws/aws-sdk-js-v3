@@ -17,7 +17,6 @@ import {
   UpdateDomainContactRequest,
   UpdateDomainContactRequestFilterSensitiveLog,
   UpdateDomainContactResponse,
-  UpdateDomainContactResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateDomainContactCommand,
@@ -132,7 +131,7 @@ export class UpdateDomainContactCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: UpdateDomainContactRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateDomainContactResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

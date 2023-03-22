@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  AssociateHealthCheckRequest,
-  AssociateHealthCheckRequestFilterSensitiveLog,
-  AssociateHealthCheckResponse,
-  AssociateHealthCheckResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { AssociateHealthCheckRequest, AssociateHealthCheckResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1AssociateHealthCheckCommand,
   serializeAws_json1_1AssociateHealthCheckCommand,
@@ -127,8 +122,8 @@ export class AssociateHealthCheckCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateHealthCheckRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssociateHealthCheckResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

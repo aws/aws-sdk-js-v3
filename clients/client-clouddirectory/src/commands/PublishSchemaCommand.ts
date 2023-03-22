@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
-import {
-  PublishSchemaRequest,
-  PublishSchemaRequestFilterSensitiveLog,
-  PublishSchemaResponse,
-  PublishSchemaResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { PublishSchemaRequest, PublishSchemaResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1PublishSchemaCommand,
   serializeAws_restJson1PublishSchemaCommand,
@@ -130,8 +125,8 @@ export class PublishSchemaCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PublishSchemaRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PublishSchemaResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

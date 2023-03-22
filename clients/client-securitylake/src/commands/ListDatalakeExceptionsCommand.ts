@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListDatalakeExceptionsRequest,
-  ListDatalakeExceptionsRequestFilterSensitiveLog,
-  ListDatalakeExceptionsResponse,
-  ListDatalakeExceptionsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListDatalakeExceptionsRequest, ListDatalakeExceptionsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListDatalakeExceptionsCommand,
   serializeAws_restJson1ListDatalakeExceptionsCommand,
@@ -126,8 +121,8 @@ export class ListDatalakeExceptionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDatalakeExceptionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListDatalakeExceptionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

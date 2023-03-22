@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient";
-import {
-  PreviewAgentsRequest,
-  PreviewAgentsRequestFilterSensitiveLog,
-  PreviewAgentsResponse,
-  PreviewAgentsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { PreviewAgentsRequest, PreviewAgentsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1PreviewAgentsCommand,
   serializeAws_json1_1PreviewAgentsCommand,
@@ -146,8 +141,8 @@ export class PreviewAgentsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PreviewAgentsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PreviewAgentsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

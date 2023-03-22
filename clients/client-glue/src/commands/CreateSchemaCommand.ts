@@ -14,8 +14,8 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { CreateSchemaInput, CreateSchemaInputFilterSensitiveLog } from "../models/models_0";
-import { CreateSchemaResponse, CreateSchemaResponseFilterSensitiveLog } from "../models/models_1";
+import { CreateSchemaInput } from "../models/models_0";
+import { CreateSchemaResponse } from "../models/models_1";
 import {
   deserializeAws_json1_1CreateSchemaCommand,
   serializeAws_json1_1CreateSchemaCommand,
@@ -124,8 +124,8 @@ export class CreateSchemaCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateSchemaInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateSchemaResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

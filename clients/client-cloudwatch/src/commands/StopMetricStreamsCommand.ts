@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
-import {
-  StopMetricStreamsInput,
-  StopMetricStreamsInputFilterSensitiveLog,
-  StopMetricStreamsOutput,
-  StopMetricStreamsOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { StopMetricStreamsInput, StopMetricStreamsOutput } from "../models/models_0";
 import {
   deserializeAws_queryStopMetricStreamsCommand,
   serializeAws_queryStopMetricStreamsCommand,
@@ -116,8 +111,8 @@ export class StopMetricStreamsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopMetricStreamsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: StopMetricStreamsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

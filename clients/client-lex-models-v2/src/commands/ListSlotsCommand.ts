@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
-import {
-  ListSlotsRequest,
-  ListSlotsRequestFilterSensitiveLog,
-  ListSlotsResponse,
-  ListSlotsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListSlotsRequest, ListSlotsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListSlotsCommand,
   serializeAws_restJson1ListSlotsCommand,
@@ -120,8 +115,8 @@ export class ListSlotsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListSlotsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListSlotsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

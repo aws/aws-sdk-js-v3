@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LicenseManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LicenseManagerClient";
-import {
-  ExtendLicenseConsumptionRequest,
-  ExtendLicenseConsumptionRequestFilterSensitiveLog,
-  ExtendLicenseConsumptionResponse,
-  ExtendLicenseConsumptionResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ExtendLicenseConsumptionRequest, ExtendLicenseConsumptionResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ExtendLicenseConsumptionCommand,
   serializeAws_json1_1ExtendLicenseConsumptionCommand,
@@ -129,8 +124,8 @@ export class ExtendLicenseConsumptionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ExtendLicenseConsumptionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ExtendLicenseConsumptionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

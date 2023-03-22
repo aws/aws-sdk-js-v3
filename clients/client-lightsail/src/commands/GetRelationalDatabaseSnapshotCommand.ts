@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import {
-  GetRelationalDatabaseSnapshotRequest,
-  GetRelationalDatabaseSnapshotRequestFilterSensitiveLog,
-  GetRelationalDatabaseSnapshotResult,
-  GetRelationalDatabaseSnapshotResultFilterSensitiveLog,
-} from "../models/models_1";
+import { GetRelationalDatabaseSnapshotRequest, GetRelationalDatabaseSnapshotResult } from "../models/models_1";
 import {
   deserializeAws_json1_1GetRelationalDatabaseSnapshotCommand,
   serializeAws_json1_1GetRelationalDatabaseSnapshotCommand,
@@ -139,8 +134,8 @@ export class GetRelationalDatabaseSnapshotCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetRelationalDatabaseSnapshotRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetRelationalDatabaseSnapshotResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

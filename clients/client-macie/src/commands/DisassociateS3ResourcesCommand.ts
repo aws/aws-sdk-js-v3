@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MacieClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MacieClient";
-import {
-  DisassociateS3ResourcesRequest,
-  DisassociateS3ResourcesRequestFilterSensitiveLog,
-  DisassociateS3ResourcesResult,
-  DisassociateS3ResourcesResultFilterSensitiveLog,
-} from "../models/models_0";
+import { DisassociateS3ResourcesRequest, DisassociateS3ResourcesResult } from "../models/models_0";
 import {
   deserializeAws_json1_1DisassociateS3ResourcesCommand,
   serializeAws_json1_1DisassociateS3ResourcesCommand,
@@ -121,8 +116,8 @@ export class DisassociateS3ResourcesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateS3ResourcesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateS3ResourcesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateCellRequest,
-  CreateCellRequestFilterSensitiveLog,
-  CreateCellResponse,
-  CreateCellResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateCellRequest, CreateCellResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateCellCommand,
   serializeAws_restJson1CreateCellCommand,
@@ -124,8 +119,8 @@ export class CreateCellCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateCellRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateCellResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MigrationHubStrategyClient";
-import {
-  PutPortfolioPreferencesRequest,
-  PutPortfolioPreferencesRequestFilterSensitiveLog,
-  PutPortfolioPreferencesResponse,
-  PutPortfolioPreferencesResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { PutPortfolioPreferencesRequest, PutPortfolioPreferencesResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1PutPortfolioPreferencesCommand,
   serializeAws_restJson1PutPortfolioPreferencesCommand,
@@ -128,8 +123,8 @@ export class PutPortfolioPreferencesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutPortfolioPreferencesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutPortfolioPreferencesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

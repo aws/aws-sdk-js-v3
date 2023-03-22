@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { FinspaceDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FinspaceDataClient";
-import {
-  CreateDataViewRequest,
-  CreateDataViewRequestFilterSensitiveLog,
-  CreateDataViewResponse,
-  CreateDataViewResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateDataViewRequest, CreateDataViewResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateDataViewCommand,
   serializeAws_restJson1CreateDataViewCommand,
@@ -126,8 +121,8 @@ export class CreateDataViewCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDataViewRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateDataViewResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

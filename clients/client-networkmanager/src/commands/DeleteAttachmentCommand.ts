@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteAttachmentRequest,
-  DeleteAttachmentRequestFilterSensitiveLog,
-  DeleteAttachmentResponse,
-  DeleteAttachmentResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteAttachmentRequest, DeleteAttachmentResponse } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
 import {
   deserializeAws_restJson1DeleteAttachmentCommand,
@@ -126,8 +121,8 @@ export class DeleteAttachmentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAttachmentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteAttachmentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

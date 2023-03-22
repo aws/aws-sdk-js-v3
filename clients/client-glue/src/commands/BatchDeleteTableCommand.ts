@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  BatchDeleteTableRequest,
-  BatchDeleteTableRequestFilterSensitiveLog,
-  BatchDeleteTableResponse,
-  BatchDeleteTableResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { BatchDeleteTableRequest, BatchDeleteTableResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1BatchDeleteTableCommand,
   serializeAws_json1_1BatchDeleteTableCommand,
@@ -135,8 +130,8 @@ export class BatchDeleteTableCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchDeleteTableRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchDeleteTableResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

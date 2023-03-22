@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
-import {
-  DeleteCodeSigningConfigRequest,
-  DeleteCodeSigningConfigRequestFilterSensitiveLog,
-  DeleteCodeSigningConfigResponse,
-  DeleteCodeSigningConfigResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteCodeSigningConfigRequest, DeleteCodeSigningConfigResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteCodeSigningConfigCommand,
   serializeAws_restJson1DeleteCodeSigningConfigCommand,
@@ -120,8 +115,8 @@ export class DeleteCodeSigningConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteCodeSigningConfigRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteCodeSigningConfigResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

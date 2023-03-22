@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import {
-  DeregisterComputeInput,
-  DeregisterComputeInputFilterSensitiveLog,
-  DeregisterComputeOutput,
-  DeregisterComputeOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { DeregisterComputeInput, DeregisterComputeOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1DeregisterComputeCommand,
   serializeAws_json1_1DeregisterComputeCommand,
@@ -122,8 +117,8 @@ export class DeregisterComputeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeregisterComputeInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeregisterComputeOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

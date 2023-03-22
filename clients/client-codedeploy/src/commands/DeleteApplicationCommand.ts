@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeDeployClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeDeployClient";
-import { DeleteApplicationInput, DeleteApplicationInputFilterSensitiveLog } from "../models/models_0";
+import { DeleteApplicationInput } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteApplicationCommand,
   serializeAws_json1_1DeleteApplicationCommand,
@@ -113,8 +113,8 @@ export class DeleteApplicationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteApplicationInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -18,10 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../GlobalAcceleratorClient";
-import {
-  DeleteCustomRoutingAcceleratorRequest,
-  DeleteCustomRoutingAcceleratorRequestFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteCustomRoutingAcceleratorRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteCustomRoutingAcceleratorCommand,
   serializeAws_json1_1DeleteCustomRoutingAcceleratorCommand,
@@ -138,8 +135,8 @@ export class DeleteCustomRoutingAcceleratorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteCustomRoutingAcceleratorRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

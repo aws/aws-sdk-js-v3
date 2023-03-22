@@ -15,9 +15,7 @@ import {
 
 import {
   ListWebsiteAuthorizationProvidersRequest,
-  ListWebsiteAuthorizationProvidersRequestFilterSensitiveLog,
   ListWebsiteAuthorizationProvidersResponse,
-  ListWebsiteAuthorizationProvidersResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1ListWebsiteAuthorizationProvidersCommand,
@@ -126,8 +124,8 @@ export class ListWebsiteAuthorizationProvidersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListWebsiteAuthorizationProvidersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListWebsiteAuthorizationProvidersResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

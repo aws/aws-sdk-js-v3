@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AmplifyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyClient";
-import {
-  GenerateAccessLogsRequest,
-  GenerateAccessLogsRequestFilterSensitiveLog,
-  GenerateAccessLogsResult,
-  GenerateAccessLogsResultFilterSensitiveLog,
-} from "../models/models_0";
+import { GenerateAccessLogsRequest, GenerateAccessLogsResult } from "../models/models_0";
 import {
   deserializeAws_restJson1GenerateAccessLogsCommand,
   serializeAws_restJson1GenerateAccessLogsCommand,
@@ -120,8 +115,8 @@ export class GenerateAccessLogsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GenerateAccessLogsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GenerateAccessLogsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

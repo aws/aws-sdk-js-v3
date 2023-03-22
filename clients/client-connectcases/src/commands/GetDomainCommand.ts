@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectCasesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCasesClient";
-import {
-  GetDomainRequest,
-  GetDomainRequestFilterSensitiveLog,
-  GetDomainResponse,
-  GetDomainResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetDomainRequest, GetDomainResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetDomainCommand,
   serializeAws_restJson1GetDomainCommand,
@@ -122,8 +117,8 @@ export class GetDomainCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDomainRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetDomainResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

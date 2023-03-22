@@ -16,7 +16,6 @@ import {
 import { AccountClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AccountClient";
 import {
   GetContactInformationRequest,
-  GetContactInformationRequestFilterSensitiveLog,
   GetContactInformationResponse,
   GetContactInformationResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -127,7 +126,7 @@ export class GetContactInformationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetContactInformationRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetContactInformationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

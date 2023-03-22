@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LookoutVisionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutVisionClient";
-import {
-  ListModelPackagingJobsRequest,
-  ListModelPackagingJobsRequestFilterSensitiveLog,
-  ListModelPackagingJobsResponse,
-  ListModelPackagingJobsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListModelPackagingJobsRequest, ListModelPackagingJobsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListModelPackagingJobsCommand,
   serializeAws_restJson1ListModelPackagingJobsCommand,
@@ -131,8 +126,8 @@ export class ListModelPackagingJobsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListModelPackagingJobsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListModelPackagingJobsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

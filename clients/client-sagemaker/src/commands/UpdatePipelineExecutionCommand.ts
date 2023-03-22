@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdatePipelineExecutionRequest,
-  UpdatePipelineExecutionRequestFilterSensitiveLog,
-  UpdatePipelineExecutionResponse,
-  UpdatePipelineExecutionResponseFilterSensitiveLog,
-} from "../models/models_4";
+import { UpdatePipelineExecutionRequest, UpdatePipelineExecutionResponse } from "../models/models_4";
 import {
   deserializeAws_json1_1UpdatePipelineExecutionCommand,
   serializeAws_json1_1UpdatePipelineExecutionCommand,
@@ -110,8 +105,8 @@ export class UpdatePipelineExecutionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdatePipelineExecutionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdatePipelineExecutionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

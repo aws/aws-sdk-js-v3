@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  RegisterElasticIpRequest,
-  RegisterElasticIpRequestFilterSensitiveLog,
-  RegisterElasticIpResult,
-  RegisterElasticIpResultFilterSensitiveLog,
-} from "../models/models_0";
+import { RegisterElasticIpRequest, RegisterElasticIpResult } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
 import {
   deserializeAws_json1_1RegisterElasticIpCommand,
@@ -120,8 +115,8 @@ export class RegisterElasticIpCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RegisterElasticIpRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RegisterElasticIpResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

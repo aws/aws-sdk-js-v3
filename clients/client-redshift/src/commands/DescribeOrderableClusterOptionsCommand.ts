@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeOrderableClusterOptionsMessage,
-  DescribeOrderableClusterOptionsMessageFilterSensitiveLog,
-  OrderableClusterOptionsMessage,
-  OrderableClusterOptionsMessageFilterSensitiveLog,
-} from "../models/models_1";
+import { DescribeOrderableClusterOptionsMessage, OrderableClusterOptionsMessage } from "../models/models_1";
 import {
   deserializeAws_queryDescribeOrderableClusterOptionsCommand,
   serializeAws_queryDescribeOrderableClusterOptionsCommand,
@@ -117,8 +112,8 @@ export class DescribeOrderableClusterOptionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeOrderableClusterOptionsMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: OrderableClusterOptionsMessageFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

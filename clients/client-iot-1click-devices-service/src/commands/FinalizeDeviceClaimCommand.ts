@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../IoT1ClickDevicesServiceClient";
-import {
-  FinalizeDeviceClaimRequest,
-  FinalizeDeviceClaimRequestFilterSensitiveLog,
-  FinalizeDeviceClaimResponse,
-  FinalizeDeviceClaimResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { FinalizeDeviceClaimRequest, FinalizeDeviceClaimResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1FinalizeDeviceClaimCommand,
   serializeAws_restJson1FinalizeDeviceClaimCommand,
@@ -125,8 +120,8 @@ export class FinalizeDeviceClaimCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: FinalizeDeviceClaimRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: FinalizeDeviceClaimResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

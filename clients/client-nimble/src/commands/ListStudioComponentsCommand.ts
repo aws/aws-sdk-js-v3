@@ -15,7 +15,6 @@ import {
 
 import {
   ListStudioComponentsRequest,
-  ListStudioComponentsRequestFilterSensitiveLog,
   ListStudioComponentsResponse,
   ListStudioComponentsResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -131,7 +130,7 @@ export class ListStudioComponentsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListStudioComponentsRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListStudioComponentsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

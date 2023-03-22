@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MigrationHubRefactorSpacesClient";
-import {
-  ListEnvironmentVpcsRequest,
-  ListEnvironmentVpcsRequestFilterSensitiveLog,
-  ListEnvironmentVpcsResponse,
-  ListEnvironmentVpcsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListEnvironmentVpcsRequest, ListEnvironmentVpcsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListEnvironmentVpcsCommand,
   serializeAws_restJson1ListEnvironmentVpcsCommand,
@@ -128,8 +123,8 @@ export class ListEnvironmentVpcsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListEnvironmentVpcsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListEnvironmentVpcsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

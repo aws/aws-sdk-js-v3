@@ -17,7 +17,6 @@ import {
   PutAccountDetailsRequest,
   PutAccountDetailsRequestFilterSensitiveLog,
   PutAccountDetailsResponse,
-  PutAccountDetailsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1PutAccountDetailsCommand,
@@ -117,7 +116,7 @@ export class PutAccountDetailsCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: PutAccountDetailsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutAccountDetailsResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

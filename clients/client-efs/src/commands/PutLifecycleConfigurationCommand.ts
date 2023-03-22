@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient";
-import {
-  LifecycleConfigurationDescription,
-  LifecycleConfigurationDescriptionFilterSensitiveLog,
-  PutLifecycleConfigurationRequest,
-  PutLifecycleConfigurationRequestFilterSensitiveLog,
-} from "../models/models_0";
+import { LifecycleConfigurationDescription, PutLifecycleConfigurationRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1PutLifecycleConfigurationCommand,
   serializeAws_restJson1PutLifecycleConfigurationCommand,
@@ -192,8 +187,8 @@ export class PutLifecycleConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutLifecycleConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: LifecycleConfigurationDescriptionFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

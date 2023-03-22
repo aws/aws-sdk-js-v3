@@ -17,7 +17,6 @@ import {
   UpdateDomainConfigRequest,
   UpdateDomainConfigRequestFilterSensitiveLog,
   UpdateDomainConfigResponse,
-  UpdateDomainConfigResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
 import {
@@ -126,7 +125,7 @@ export class UpdateDomainConfigCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: UpdateDomainConfigRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateDomainConfigResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

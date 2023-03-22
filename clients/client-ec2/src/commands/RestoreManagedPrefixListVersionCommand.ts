@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  RestoreManagedPrefixListVersionRequest,
-  RestoreManagedPrefixListVersionRequestFilterSensitiveLog,
-  RestoreManagedPrefixListVersionResult,
-  RestoreManagedPrefixListVersionResultFilterSensitiveLog,
-} from "../models/models_6";
+import { RestoreManagedPrefixListVersionRequest, RestoreManagedPrefixListVersionResult } from "../models/models_6";
 import {
   deserializeAws_ec2RestoreManagedPrefixListVersionCommand,
   serializeAws_ec2RestoreManagedPrefixListVersionCommand,
@@ -109,8 +104,8 @@ export class RestoreManagedPrefixListVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RestoreManagedPrefixListVersionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RestoreManagedPrefixListVersionResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

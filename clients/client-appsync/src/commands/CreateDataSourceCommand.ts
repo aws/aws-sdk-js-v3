@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
-import {
-  CreateDataSourceRequest,
-  CreateDataSourceRequestFilterSensitiveLog,
-  CreateDataSourceResponse,
-  CreateDataSourceResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateDataSourceRequest, CreateDataSourceResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateDataSourceCommand,
   serializeAws_restJson1CreateDataSourceCommand,
@@ -124,8 +119,8 @@ export class CreateDataSourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDataSourceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateDataSourceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

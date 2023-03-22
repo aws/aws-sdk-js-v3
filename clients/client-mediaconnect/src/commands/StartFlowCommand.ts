@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConnectClient";
-import {
-  StartFlowRequest,
-  StartFlowRequestFilterSensitiveLog,
-  StartFlowResponse,
-  StartFlowResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { StartFlowRequest, StartFlowResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1StartFlowCommand,
   serializeAws_restJson1StartFlowCommand,
@@ -123,8 +118,8 @@ export class StartFlowCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartFlowRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartFlowResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

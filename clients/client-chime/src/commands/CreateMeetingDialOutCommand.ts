@@ -18,7 +18,6 @@ import {
   CreateMeetingDialOutRequest,
   CreateMeetingDialOutRequestFilterSensitiveLog,
   CreateMeetingDialOutResponse,
-  CreateMeetingDialOutResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateMeetingDialOutCommand,
@@ -136,7 +135,7 @@ export class CreateMeetingDialOutCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateMeetingDialOutRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateMeetingDialOutResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

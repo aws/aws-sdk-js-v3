@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaTailorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaTailorClient";
-import {
-  DescribeLiveSourceRequest,
-  DescribeLiveSourceRequestFilterSensitiveLog,
-  DescribeLiveSourceResponse,
-  DescribeLiveSourceResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeLiveSourceRequest, DescribeLiveSourceResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeLiveSourceCommand,
   serializeAws_restJson1DescribeLiveSourceCommand,
@@ -107,8 +102,8 @@ export class DescribeLiveSourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeLiveSourceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeLiveSourceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

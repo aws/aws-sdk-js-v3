@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import {
-  SearchSecurityProfilesRequest,
-  SearchSecurityProfilesRequestFilterSensitiveLog,
-  SearchSecurityProfilesResponse,
-  SearchSecurityProfilesResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { SearchSecurityProfilesRequest, SearchSecurityProfilesResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1SearchSecurityProfilesCommand,
   serializeAws_restJson1SearchSecurityProfilesCommand,
@@ -124,8 +119,8 @@ export class SearchSecurityProfilesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SearchSecurityProfilesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SearchSecurityProfilesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

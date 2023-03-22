@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { Inspector2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Inspector2Client";
-import {
-  DisassociateMemberRequest,
-  DisassociateMemberRequestFilterSensitiveLog,
-  DisassociateMemberResponse,
-  DisassociateMemberResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DisassociateMemberRequest, DisassociateMemberResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DisassociateMemberCommand,
   serializeAws_restJson1DisassociateMemberCommand,
@@ -120,8 +115,8 @@ export class DisassociateMemberCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateMemberRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateMemberResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

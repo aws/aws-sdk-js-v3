@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import {
-  SearchQueuesRequest,
-  SearchQueuesRequestFilterSensitiveLog,
-  SearchQueuesResponse,
-  SearchQueuesResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { SearchQueuesRequest, SearchQueuesResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1SearchQueuesCommand,
   serializeAws_restJson1SearchQueuesCommand,
@@ -121,8 +116,8 @@ export class SearchQueuesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SearchQueuesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SearchQueuesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

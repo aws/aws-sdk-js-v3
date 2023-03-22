@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DetectiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DetectiveClient";
-import {
-  BatchGetGraphMemberDatasourcesRequest,
-  BatchGetGraphMemberDatasourcesRequestFilterSensitiveLog,
-  BatchGetGraphMemberDatasourcesResponse,
-  BatchGetGraphMemberDatasourcesResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { BatchGetGraphMemberDatasourcesRequest, BatchGetGraphMemberDatasourcesResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1BatchGetGraphMemberDatasourcesCommand,
   serializeAws_restJson1BatchGetGraphMemberDatasourcesCommand,
@@ -122,8 +117,8 @@ export class BatchGetGraphMemberDatasourcesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchGetGraphMemberDatasourcesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchGetGraphMemberDatasourcesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

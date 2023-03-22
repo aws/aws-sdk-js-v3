@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateDatalakeDelegatedAdminRequest,
-  CreateDatalakeDelegatedAdminRequestFilterSensitiveLog,
-  CreateDatalakeDelegatedAdminResponse,
-  CreateDatalakeDelegatedAdminResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateDatalakeDelegatedAdminRequest, CreateDatalakeDelegatedAdminResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateDatalakeDelegatedAdminCommand,
   serializeAws_restJson1CreateDatalakeDelegatedAdminCommand,
@@ -127,8 +122,8 @@ export class CreateDatalakeDelegatedAdminCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDatalakeDelegatedAdminRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateDatalakeDelegatedAdminResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

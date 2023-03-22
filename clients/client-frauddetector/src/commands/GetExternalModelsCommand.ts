@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
-import {
-  GetExternalModelsRequest,
-  GetExternalModelsRequestFilterSensitiveLog,
-  GetExternalModelsResult,
-  GetExternalModelsResultFilterSensitiveLog,
-} from "../models/models_0";
+import { GetExternalModelsRequest, GetExternalModelsResult } from "../models/models_0";
 import {
   deserializeAws_json1_1GetExternalModelsCommand,
   serializeAws_json1_1GetExternalModelsCommand,
@@ -127,8 +122,8 @@ export class GetExternalModelsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetExternalModelsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetExternalModelsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

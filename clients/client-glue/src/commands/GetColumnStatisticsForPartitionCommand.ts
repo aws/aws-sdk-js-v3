@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  GetColumnStatisticsForPartitionRequest,
-  GetColumnStatisticsForPartitionRequestFilterSensitiveLog,
-  GetColumnStatisticsForPartitionResponse,
-  GetColumnStatisticsForPartitionResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { GetColumnStatisticsForPartitionRequest, GetColumnStatisticsForPartitionResponse } from "../models/models_1";
 import {
   deserializeAws_json1_1GetColumnStatisticsForPartitionCommand,
   serializeAws_json1_1GetColumnStatisticsForPartitionCommand,
@@ -125,8 +120,8 @@ export class GetColumnStatisticsForPartitionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetColumnStatisticsForPartitionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetColumnStatisticsForPartitionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AutoScalingPlansClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingPlansClient";
-import {
-  UpdateScalingPlanRequest,
-  UpdateScalingPlanRequestFilterSensitiveLog,
-  UpdateScalingPlanResponse,
-  UpdateScalingPlanResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateScalingPlanRequest, UpdateScalingPlanResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateScalingPlanCommand,
   serializeAws_json1_1UpdateScalingPlanCommand,
@@ -122,8 +117,8 @@ export class UpdateScalingPlanCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateScalingPlanRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateScalingPlanResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

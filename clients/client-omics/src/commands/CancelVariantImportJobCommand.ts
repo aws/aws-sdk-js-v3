@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CancelVariantImportRequest,
-  CancelVariantImportRequestFilterSensitiveLog,
-  CancelVariantImportResponse,
-  CancelVariantImportResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CancelVariantImportRequest, CancelVariantImportResponse } from "../models/models_0";
 import { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
 import {
   deserializeAws_restJson1CancelVariantImportJobCommand,
@@ -122,8 +117,8 @@ export class CancelVariantImportJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelVariantImportRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CancelVariantImportResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

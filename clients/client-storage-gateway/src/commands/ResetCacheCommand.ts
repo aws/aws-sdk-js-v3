@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ResetCacheInput,
-  ResetCacheInputFilterSensitiveLog,
-  ResetCacheOutput,
-  ResetCacheOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { ResetCacheInput, ResetCacheOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1ResetCacheCommand,
   serializeAws_json1_1ResetCacheCommand,
@@ -141,8 +136,8 @@ export class ResetCacheCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ResetCacheInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ResetCacheOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

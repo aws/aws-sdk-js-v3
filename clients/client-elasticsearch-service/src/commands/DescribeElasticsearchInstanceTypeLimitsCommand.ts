@@ -20,9 +20,7 @@ import {
 } from "../ElasticsearchServiceClient";
 import {
   DescribeElasticsearchInstanceTypeLimitsRequest,
-  DescribeElasticsearchInstanceTypeLimitsRequestFilterSensitiveLog,
   DescribeElasticsearchInstanceTypeLimitsResponse,
-  DescribeElasticsearchInstanceTypeLimitsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeElasticsearchInstanceTypeLimitsCommand,
@@ -145,8 +143,8 @@ export class DescribeElasticsearchInstanceTypeLimitsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeElasticsearchInstanceTypeLimitsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeElasticsearchInstanceTypeLimitsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

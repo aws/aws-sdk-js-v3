@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { KafkaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaConnectClient";
-import {
-  DeleteConnectorRequest,
-  DeleteConnectorRequestFilterSensitiveLog,
-  DeleteConnectorResponse,
-  DeleteConnectorResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteConnectorRequest, DeleteConnectorResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteConnectorCommand,
   serializeAws_restJson1DeleteConnectorCommand,
@@ -134,8 +129,8 @@ export class DeleteConnectorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteConnectorRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteConnectorResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

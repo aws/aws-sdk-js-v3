@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ManagedBlockchainClient";
-import {
-  DeleteAccessorInput,
-  DeleteAccessorInputFilterSensitiveLog,
-  DeleteAccessorOutput,
-  DeleteAccessorOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteAccessorInput, DeleteAccessorOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteAccessorCommand,
   serializeAws_restJson1DeleteAccessorCommand,
@@ -135,8 +130,8 @@ export class DeleteAccessorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAccessorInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteAccessorOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

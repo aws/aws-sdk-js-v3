@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  GetAwsNetworkPerformanceDataRequest,
-  GetAwsNetworkPerformanceDataRequestFilterSensitiveLog,
-  GetAwsNetworkPerformanceDataResult,
-  GetAwsNetworkPerformanceDataResultFilterSensitiveLog,
-} from "../models/models_5";
+import { GetAwsNetworkPerformanceDataRequest, GetAwsNetworkPerformanceDataResult } from "../models/models_5";
 import {
   deserializeAws_ec2GetAwsNetworkPerformanceDataCommand,
   serializeAws_ec2GetAwsNetworkPerformanceDataCommand,
@@ -109,8 +104,8 @@ export class GetAwsNetworkPerformanceDataCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAwsNetworkPerformanceDataRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetAwsNetworkPerformanceDataResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

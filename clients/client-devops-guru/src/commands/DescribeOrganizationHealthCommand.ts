@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DevOpsGuruClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DevOpsGuruClient";
-import {
-  DescribeOrganizationHealthRequest,
-  DescribeOrganizationHealthRequestFilterSensitiveLog,
-  DescribeOrganizationHealthResponse,
-  DescribeOrganizationHealthResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeOrganizationHealthRequest, DescribeOrganizationHealthResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeOrganizationHealthCommand,
   serializeAws_restJson1DescribeOrganizationHealthCommand,
@@ -124,8 +119,8 @@ export class DescribeOrganizationHealthCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeOrganizationHealthRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeOrganizationHealthResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

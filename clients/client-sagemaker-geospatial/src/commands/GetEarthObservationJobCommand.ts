@@ -15,7 +15,6 @@ import {
 
 import {
   GetEarthObservationJobInput,
-  GetEarthObservationJobInputFilterSensitiveLog,
   GetEarthObservationJobOutput,
   GetEarthObservationJobOutputFilterSensitiveLog,
 } from "../models/models_0";
@@ -126,7 +125,7 @@ export class GetEarthObservationJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetEarthObservationJobInputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetEarthObservationJobOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

@@ -22,7 +22,6 @@ import {
   ConfirmSignUpRequest,
   ConfirmSignUpRequestFilterSensitiveLog,
   ConfirmSignUpResponse,
-  ConfirmSignUpResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1ConfirmSignUpCommand,
@@ -167,7 +166,7 @@ export class ConfirmSignUpCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: ConfirmSignUpRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ConfirmSignUpResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

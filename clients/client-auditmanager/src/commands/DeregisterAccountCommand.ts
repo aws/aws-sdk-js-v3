@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AuditManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AuditManagerClient";
-import {
-  DeregisterAccountRequest,
-  DeregisterAccountRequestFilterSensitiveLog,
-  DeregisterAccountResponse,
-  DeregisterAccountResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeregisterAccountRequest, DeregisterAccountResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeregisterAccountCommand,
   serializeAws_restJson1DeregisterAccountCommand,
@@ -130,8 +125,8 @@ export class DeregisterAccountCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeregisterAccountRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeregisterAccountResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

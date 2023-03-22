@@ -20,7 +20,6 @@ import {
 } from "../MigrationHubRefactorSpacesClient";
 import {
   ListEnvironmentsRequest,
-  ListEnvironmentsRequestFilterSensitiveLog,
   ListEnvironmentsResponse,
   ListEnvironmentsResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -128,7 +127,7 @@ export class ListEnvironmentsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListEnvironmentsRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListEnvironmentsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

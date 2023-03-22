@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeStreamProcessorRequest,
-  DescribeStreamProcessorRequestFilterSensitiveLog,
-  DescribeStreamProcessorResponse,
-  DescribeStreamProcessorResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeStreamProcessorRequest, DescribeStreamProcessorResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeStreamProcessorCommand,
   serializeAws_json1_1DescribeStreamProcessorCommand,
@@ -128,8 +123,8 @@ export class DescribeStreamProcessorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeStreamProcessorRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeStreamProcessorResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -12,10 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  OmitsNullSerializesEmptyStringInput,
-  OmitsNullSerializesEmptyStringInputFilterSensitiveLog,
-} from "../models/models_0";
+import { OmitsNullSerializesEmptyStringInput } from "../models/models_0";
 import {
   deserializeAws_restJson1OmitsNullSerializesEmptyStringCommand,
   serializeAws_restJson1OmitsNullSerializesEmptyStringCommand,
@@ -23,15 +20,20 @@ import {
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
 /**
+ * @public
+ *
  * The input for {@link OmitsNullSerializesEmptyStringCommand}.
  */
 export interface OmitsNullSerializesEmptyStringCommandInput extends OmitsNullSerializesEmptyStringInput {}
 /**
+ * @public
+ *
  * The output of {@link OmitsNullSerializesEmptyStringCommand}.
  */
 export interface OmitsNullSerializesEmptyStringCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * Omits null, but serializes empty string value.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -43,6 +45,8 @@ export interface OmitsNullSerializesEmptyStringCommandOutput extends __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param OmitsNullSerializesEmptyStringCommandInput - {@link OmitsNullSerializesEmptyStringCommandInput}
+ * @returns {@link OmitsNullSerializesEmptyStringCommandOutput}
  * @see {@link OmitsNullSerializesEmptyStringCommandInput} for command's `input` shape.
  * @see {@link OmitsNullSerializesEmptyStringCommandOutput} for command's `response` shape.
  * @see {@link RestJsonProtocolClientResolvedConfig | config} for RestJsonProtocolClient's `config` shape.
@@ -57,6 +61,9 @@ export class OmitsNullSerializesEmptyStringCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: OmitsNullSerializesEmptyStringCommandInput) {
     // Start section: command_constructor
     super();
@@ -82,8 +89,8 @@ export class OmitsNullSerializesEmptyStringCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: OmitsNullSerializesEmptyStringInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -93,6 +100,9 @@ export class OmitsNullSerializesEmptyStringCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: OmitsNullSerializesEmptyStringCommandInput,
     context: __SerdeContext
@@ -100,6 +110,9 @@ export class OmitsNullSerializesEmptyStringCommand extends $Command<
     return serializeAws_restJson1OmitsNullSerializesEmptyStringCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

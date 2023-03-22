@@ -13,10 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteModelBiasJobDefinitionRequest,
-  DeleteModelBiasJobDefinitionRequestFilterSensitiveLog,
-} from "../models/models_1";
+import { DeleteModelBiasJobDefinitionRequest } from "../models/models_1";
 import {
   deserializeAws_json1_1DeleteModelBiasJobDefinitionCommand,
   serializeAws_json1_1DeleteModelBiasJobDefinitionCommand,
@@ -108,8 +105,8 @@ export class DeleteModelBiasJobDefinitionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteModelBiasJobDefinitionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

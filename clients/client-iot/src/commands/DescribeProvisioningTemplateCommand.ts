@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  DescribeProvisioningTemplateRequest,
-  DescribeProvisioningTemplateRequestFilterSensitiveLog,
-  DescribeProvisioningTemplateResponse,
-  DescribeProvisioningTemplateResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { DescribeProvisioningTemplateRequest, DescribeProvisioningTemplateResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1DescribeProvisioningTemplateCommand,
   serializeAws_restJson1DescribeProvisioningTemplateCommand,
@@ -125,8 +120,8 @@ export class DescribeProvisioningTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeProvisioningTemplateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeProvisioningTemplateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

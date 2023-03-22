@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribePageRequest,
-  DescribePageRequestFilterSensitiveLog,
-  DescribePageResult,
-  DescribePageResultFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribePageRequest, DescribePageResult } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribePageCommand,
   serializeAws_json1_1DescribePageCommand,
@@ -151,8 +146,8 @@ export class DescribePageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribePageRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribePageResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

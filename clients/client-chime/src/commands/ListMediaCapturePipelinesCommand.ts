@@ -16,7 +16,6 @@ import {
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import {
   ListMediaCapturePipelinesRequest,
-  ListMediaCapturePipelinesRequestFilterSensitiveLog,
   ListMediaCapturePipelinesResponse,
   ListMediaCapturePipelinesResponseFilterSensitiveLog,
 } from "../models/models_1";
@@ -125,7 +124,7 @@ export class ListMediaCapturePipelinesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListMediaCapturePipelinesRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListMediaCapturePipelinesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

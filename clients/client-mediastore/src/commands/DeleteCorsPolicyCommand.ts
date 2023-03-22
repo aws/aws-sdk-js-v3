@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaStoreClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaStoreClient";
-import {
-  DeleteCorsPolicyInput,
-  DeleteCorsPolicyInputFilterSensitiveLog,
-  DeleteCorsPolicyOutput,
-  DeleteCorsPolicyOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteCorsPolicyInput, DeleteCorsPolicyOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteCorsPolicyCommand,
   serializeAws_json1_1DeleteCorsPolicyCommand,
@@ -124,8 +119,8 @@ export class DeleteCorsPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteCorsPolicyInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteCorsPolicyOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

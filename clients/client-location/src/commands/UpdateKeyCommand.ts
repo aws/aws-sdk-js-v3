@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
-import {
-  UpdateKeyRequest,
-  UpdateKeyRequestFilterSensitiveLog,
-  UpdateKeyResponse,
-  UpdateKeyResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateKeyRequest, UpdateKeyResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateKeyCommand,
   serializeAws_restJson1UpdateKeyCommand,
@@ -126,8 +121,8 @@ export class UpdateKeyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateKeyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateKeyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

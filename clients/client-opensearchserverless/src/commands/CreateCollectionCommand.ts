@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateCollectionRequest,
-  CreateCollectionRequestFilterSensitiveLog,
-  CreateCollectionResponse,
-  CreateCollectionResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateCollectionRequest, CreateCollectionResponse } from "../models/models_0";
 import {
   OpenSearchServerlessClientResolvedConfig,
   ServiceInputTypes,
@@ -124,8 +119,8 @@ export class CreateCollectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateCollectionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateCollectionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

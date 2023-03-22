@@ -16,7 +16,6 @@ import {
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import {
   CreateBucketAccessKeyRequest,
-  CreateBucketAccessKeyRequestFilterSensitiveLog,
   CreateBucketAccessKeyResult,
   CreateBucketAccessKeyResultFilterSensitiveLog,
 } from "../models/models_0";
@@ -141,7 +140,7 @@ export class CreateBucketAccessKeyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateBucketAccessKeyRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: CreateBucketAccessKeyResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

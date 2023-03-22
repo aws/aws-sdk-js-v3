@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LookoutMetricsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutMetricsClient";
-import {
-  DeleteAlertRequest,
-  DeleteAlertRequestFilterSensitiveLog,
-  DeleteAlertResponse,
-  DeleteAlertResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteAlertRequest, DeleteAlertResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteAlertCommand,
   serializeAws_restJson1DeleteAlertCommand,
@@ -121,8 +116,8 @@ export class DeleteAlertCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAlertRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteAlertResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateRegexPatternSetRequest,
-  CreateRegexPatternSetRequestFilterSensitiveLog,
-  CreateRegexPatternSetResponse,
-  CreateRegexPatternSetResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateRegexPatternSetRequest, CreateRegexPatternSetResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateRegexPatternSetCommand,
   serializeAws_json1_1CreateRegexPatternSetCommand,
@@ -148,8 +143,8 @@ export class CreateRegexPatternSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateRegexPatternSetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateRegexPatternSetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

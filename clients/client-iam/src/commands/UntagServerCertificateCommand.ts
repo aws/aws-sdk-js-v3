@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { UntagServerCertificateRequest, UntagServerCertificateRequestFilterSensitiveLog } from "../models/models_1";
+import { UntagServerCertificateRequest } from "../models/models_1";
 import {
   deserializeAws_queryUntagServerCertificateCommand,
   serializeAws_queryUntagServerCertificateCommand,
@@ -127,8 +127,8 @@ export class UntagServerCertificateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UntagServerCertificateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

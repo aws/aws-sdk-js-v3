@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListContactsRequest,
-  ListContactsRequestFilterSensitiveLog,
-  ListContactsResult,
-  ListContactsResultFilterSensitiveLog,
-} from "../models/models_0";
+import { ListContactsRequest, ListContactsResult } from "../models/models_0";
 import {
   deserializeAws_json1_1ListContactsCommand,
   serializeAws_json1_1ListContactsCommand,
@@ -158,8 +153,8 @@ export class ListContactsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListContactsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListContactsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

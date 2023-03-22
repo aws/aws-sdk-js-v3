@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../GlobalAcceleratorClient";
-import {
-  DescribeAcceleratorAttributesRequest,
-  DescribeAcceleratorAttributesRequestFilterSensitiveLog,
-  DescribeAcceleratorAttributesResponse,
-  DescribeAcceleratorAttributesResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeAcceleratorAttributesRequest, DescribeAcceleratorAttributesResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeAcceleratorAttributesCommand,
   serializeAws_json1_1DescribeAcceleratorAttributesCommand,
@@ -123,8 +118,8 @@ export class DescribeAcceleratorAttributesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeAcceleratorAttributesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeAcceleratorAttributesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

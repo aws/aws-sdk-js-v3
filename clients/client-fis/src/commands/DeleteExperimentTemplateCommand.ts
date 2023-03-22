@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { FisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FisClient";
-import {
-  DeleteExperimentTemplateRequest,
-  DeleteExperimentTemplateRequestFilterSensitiveLog,
-  DeleteExperimentTemplateResponse,
-  DeleteExperimentTemplateResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteExperimentTemplateRequest, DeleteExperimentTemplateResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteExperimentTemplateCommand,
   serializeAws_restJson1DeleteExperimentTemplateCommand,
@@ -113,8 +108,8 @@ export class DeleteExperimentTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteExperimentTemplateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteExperimentTemplateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

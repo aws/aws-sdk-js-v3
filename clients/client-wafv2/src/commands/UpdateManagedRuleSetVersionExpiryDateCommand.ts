@@ -15,9 +15,7 @@ import {
 
 import {
   UpdateManagedRuleSetVersionExpiryDateRequest,
-  UpdateManagedRuleSetVersionExpiryDateRequestFilterSensitiveLog,
   UpdateManagedRuleSetVersionExpiryDateResponse,
-  UpdateManagedRuleSetVersionExpiryDateResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateManagedRuleSetVersionExpiryDateCommand,
@@ -155,8 +153,8 @@ export class UpdateManagedRuleSetVersionExpiryDateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateManagedRuleSetVersionExpiryDateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateManagedRuleSetVersionExpiryDateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

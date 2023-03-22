@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MigrationHubRefactorSpacesClient";
-import {
-  ListRoutesRequest,
-  ListRoutesRequestFilterSensitiveLog,
-  ListRoutesResponse,
-  ListRoutesResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListRoutesRequest, ListRoutesResponse, ListRoutesResponseFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1ListRoutesCommand,
   serializeAws_restJson1ListRoutesCommand,
@@ -131,7 +126,7 @@ export class ListRoutesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListRoutesRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListRoutesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

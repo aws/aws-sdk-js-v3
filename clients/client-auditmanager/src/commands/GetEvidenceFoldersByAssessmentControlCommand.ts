@@ -16,9 +16,7 @@ import {
 import { AuditManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AuditManagerClient";
 import {
   GetEvidenceFoldersByAssessmentControlRequest,
-  GetEvidenceFoldersByAssessmentControlRequestFilterSensitiveLog,
   GetEvidenceFoldersByAssessmentControlResponse,
-  GetEvidenceFoldersByAssessmentControlResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1GetEvidenceFoldersByAssessmentControlCommand,
@@ -125,8 +123,8 @@ export class GetEvidenceFoldersByAssessmentControlCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetEvidenceFoldersByAssessmentControlRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetEvidenceFoldersByAssessmentControlResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

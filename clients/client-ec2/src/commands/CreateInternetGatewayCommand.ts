@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  CreateInternetGatewayRequest,
-  CreateInternetGatewayRequestFilterSensitiveLog,
-  CreateInternetGatewayResult,
-  CreateInternetGatewayResultFilterSensitiveLog,
-} from "../models/models_1";
+import { CreateInternetGatewayRequest, CreateInternetGatewayResult } from "../models/models_1";
 import {
   deserializeAws_ec2CreateInternetGatewayCommand,
   serializeAws_ec2CreateInternetGatewayCommand,
@@ -127,8 +122,8 @@ export class CreateInternetGatewayCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateInternetGatewayRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateInternetGatewayResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

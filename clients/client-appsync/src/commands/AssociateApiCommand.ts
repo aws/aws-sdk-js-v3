@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
-import {
-  AssociateApiRequest,
-  AssociateApiRequestFilterSensitiveLog,
-  AssociateApiResponse,
-  AssociateApiResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { AssociateApiRequest, AssociateApiResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1AssociateApiCommand,
   serializeAws_restJson1AssociateApiCommand,
@@ -118,8 +113,8 @@ export class AssociateApiCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateApiRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssociateApiResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApplicationInsightsClient";
-import {
-  DeleteComponentRequest,
-  DeleteComponentRequestFilterSensitiveLog,
-  DeleteComponentResponse,
-  DeleteComponentResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteComponentRequest, DeleteComponentResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteComponentCommand,
   serializeAws_json1_1DeleteComponentCommand,
@@ -122,8 +117,8 @@ export class DeleteComponentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteComponentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteComponentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

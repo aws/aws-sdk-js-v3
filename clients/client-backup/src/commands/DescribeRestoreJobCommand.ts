@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
-import {
-  DescribeRestoreJobInput,
-  DescribeRestoreJobInputFilterSensitiveLog,
-  DescribeRestoreJobOutput,
-  DescribeRestoreJobOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeRestoreJobInput, DescribeRestoreJobOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeRestoreJobCommand,
   serializeAws_restJson1DescribeRestoreJobCommand,
@@ -123,8 +118,8 @@ export class DescribeRestoreJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeRestoreJobInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeRestoreJobOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

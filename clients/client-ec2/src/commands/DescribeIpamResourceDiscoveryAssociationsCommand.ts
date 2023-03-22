@@ -16,9 +16,7 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   DescribeIpamResourceDiscoveryAssociationsRequest,
-  DescribeIpamResourceDiscoveryAssociationsRequestFilterSensitiveLog,
   DescribeIpamResourceDiscoveryAssociationsResult,
-  DescribeIpamResourceDiscoveryAssociationsResultFilterSensitiveLog,
 } from "../models/models_4";
 import {
   deserializeAws_ec2DescribeIpamResourceDiscoveryAssociationsCommand,
@@ -116,8 +114,8 @@ export class DescribeIpamResourceDiscoveryAssociationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeIpamResourceDiscoveryAssociationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeIpamResourceDiscoveryAssociationsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

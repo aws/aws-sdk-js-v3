@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient";
-import { SetDataRetrievalPolicyInput, SetDataRetrievalPolicyInputFilterSensitiveLog } from "../models/models_0";
+import { SetDataRetrievalPolicyInput } from "../models/models_0";
 import {
   deserializeAws_restJson1SetDataRetrievalPolicyCommand,
   serializeAws_restJson1SetDataRetrievalPolicyCommand,
@@ -135,8 +135,8 @@ export class SetDataRetrievalPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SetDataRetrievalPolicyInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

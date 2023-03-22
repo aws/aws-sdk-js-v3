@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import {
-  UpdateRoomRequest,
-  UpdateRoomRequestFilterSensitiveLog,
-  UpdateRoomResponse,
-  UpdateRoomResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateRoomRequest, UpdateRoomResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateRoomCommand,
   serializeAws_json1_1UpdateRoomCommand,
@@ -111,8 +106,8 @@ export class UpdateRoomCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateRoomRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateRoomResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

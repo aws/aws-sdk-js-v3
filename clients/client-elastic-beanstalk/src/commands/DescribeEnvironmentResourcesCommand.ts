@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
-import {
-  DescribeEnvironmentResourcesMessage,
-  DescribeEnvironmentResourcesMessageFilterSensitiveLog,
-  EnvironmentResourceDescriptionsMessage,
-  EnvironmentResourceDescriptionsMessageFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeEnvironmentResourcesMessage, EnvironmentResourceDescriptionsMessage } from "../models/models_0";
 import {
   deserializeAws_queryDescribeEnvironmentResourcesCommand,
   serializeAws_queryDescribeEnvironmentResourcesCommand,
@@ -153,8 +148,8 @@ export class DescribeEnvironmentResourcesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeEnvironmentResourcesMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: EnvironmentResourceDescriptionsMessageFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

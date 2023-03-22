@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
-import {
-  BatchStartRecommendationsRequest,
-  BatchStartRecommendationsRequestFilterSensitiveLog,
-  BatchStartRecommendationsResponse,
-  BatchStartRecommendationsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { BatchStartRecommendationsRequest, BatchStartRecommendationsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1BatchStartRecommendationsCommand,
   serializeAws_json1_1BatchStartRecommendationsCommand,
@@ -126,8 +121,8 @@ export class BatchStartRecommendationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchStartRecommendationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchStartRecommendationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

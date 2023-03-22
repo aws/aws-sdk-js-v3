@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  SendBulkEmailRequest,
-  SendBulkEmailRequestFilterSensitiveLog,
-  SendBulkEmailResponse,
-  SendBulkEmailResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { SendBulkEmailRequest, SendBulkEmailResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1SendBulkEmailCommand,
   serializeAws_restJson1SendBulkEmailCommand,
@@ -131,8 +126,8 @@ export class SendBulkEmailCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SendBulkEmailRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SendBulkEmailResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

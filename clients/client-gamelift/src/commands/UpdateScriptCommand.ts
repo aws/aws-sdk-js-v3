@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import {
-  UpdateScriptInput,
-  UpdateScriptInputFilterSensitiveLog,
-  UpdateScriptOutput,
-  UpdateScriptOutputFilterSensitiveLog,
-} from "../models/models_1";
+import { UpdateScriptInput, UpdateScriptOutput } from "../models/models_1";
 import {
   deserializeAws_json1_1UpdateScriptCommand,
   serializeAws_json1_1UpdateScriptCommand,
@@ -140,8 +135,8 @@ export class UpdateScriptCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateScriptInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateScriptOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

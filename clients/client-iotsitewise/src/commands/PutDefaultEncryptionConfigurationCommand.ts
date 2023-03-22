@@ -16,9 +16,7 @@ import {
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
 import {
   PutDefaultEncryptionConfigurationRequest,
-  PutDefaultEncryptionConfigurationRequestFilterSensitiveLog,
   PutDefaultEncryptionConfigurationResponse,
-  PutDefaultEncryptionConfigurationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1PutDefaultEncryptionConfigurationCommand,
@@ -134,8 +132,8 @@ export class PutDefaultEncryptionConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutDefaultEncryptionConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutDefaultEncryptionConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

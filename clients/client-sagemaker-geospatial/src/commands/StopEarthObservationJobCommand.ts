@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  StopEarthObservationJobInput,
-  StopEarthObservationJobInputFilterSensitiveLog,
-  StopEarthObservationJobOutput,
-  StopEarthObservationJobOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { StopEarthObservationJobInput, StopEarthObservationJobOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1StopEarthObservationJobCommand,
   serializeAws_restJson1StopEarthObservationJobCommand,
@@ -129,8 +124,8 @@ export class StopEarthObservationJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopEarthObservationJobInputFilterSensitiveLog,
-      outputFilterSensitiveLog: StopEarthObservationJobOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

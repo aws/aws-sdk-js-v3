@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { SimpleInputParamsInput, SimpleInputParamsInputFilterSensitiveLog } from "../models/models_0";
+import { SimpleInputParamsInput } from "../models/models_0";
 import {
   deserializeAws_querySimpleInputParamsCommand,
   serializeAws_querySimpleInputParamsCommand,
@@ -20,15 +20,20 @@ import {
 import { QueryProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QueryProtocolClient";
 
 /**
+ * @public
+ *
  * The input for {@link SimpleInputParamsCommand}.
  */
 export interface SimpleInputParamsCommandInput extends SimpleInputParamsInput {}
 /**
+ * @public
+ *
  * The output of {@link SimpleInputParamsCommand}.
  */
 export interface SimpleInputParamsCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * This test serializes strings, numbers, and boolean values.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,6 +45,8 @@ export interface SimpleInputParamsCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param SimpleInputParamsCommandInput - {@link SimpleInputParamsCommandInput}
+ * @returns {@link SimpleInputParamsCommandOutput}
  * @see {@link SimpleInputParamsCommandInput} for command's `input` shape.
  * @see {@link SimpleInputParamsCommandOutput} for command's `response` shape.
  * @see {@link QueryProtocolClientResolvedConfig | config} for QueryProtocolClient's `config` shape.
@@ -54,6 +61,9 @@ export class SimpleInputParamsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: SimpleInputParamsCommandInput) {
     // Start section: command_constructor
     super();
@@ -79,8 +89,8 @@ export class SimpleInputParamsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SimpleInputParamsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -90,10 +100,16 @@ export class SimpleInputParamsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SimpleInputParamsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_querySimpleInputParamsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SimpleInputParamsCommandOutput> {
     return deserializeAws_querySimpleInputParamsCommand(output, context);
   }

@@ -18,7 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ChimeSDKMessagingClient";
-import { AssociateChannelFlowRequest, AssociateChannelFlowRequestFilterSensitiveLog } from "../models/models_0";
+import { AssociateChannelFlowRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1AssociateChannelFlowCommand,
   serializeAws_restJson1AssociateChannelFlowCommand,
@@ -136,8 +136,8 @@ export class AssociateChannelFlowCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateChannelFlowRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

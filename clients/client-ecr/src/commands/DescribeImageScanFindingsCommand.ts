@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
-import {
-  DescribeImageScanFindingsRequest,
-  DescribeImageScanFindingsRequestFilterSensitiveLog,
-  DescribeImageScanFindingsResponse,
-  DescribeImageScanFindingsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeImageScanFindingsRequest, DescribeImageScanFindingsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeImageScanFindingsCommand,
   serializeAws_json1_1DescribeImageScanFindingsCommand,
@@ -128,8 +123,8 @@ export class DescribeImageScanFindingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeImageScanFindingsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeImageScanFindingsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

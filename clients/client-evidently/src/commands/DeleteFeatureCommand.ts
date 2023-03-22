@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EvidentlyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EvidentlyClient";
-import {
-  DeleteFeatureRequest,
-  DeleteFeatureRequestFilterSensitiveLog,
-  DeleteFeatureResponse,
-  DeleteFeatureResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteFeatureRequest, DeleteFeatureResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteFeatureCommand,
   serializeAws_restJson1DeleteFeatureCommand,
@@ -120,8 +115,8 @@ export class DeleteFeatureCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteFeatureRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteFeatureResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

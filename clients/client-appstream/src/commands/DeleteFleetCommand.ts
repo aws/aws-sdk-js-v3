@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
-import {
-  DeleteFleetRequest,
-  DeleteFleetRequestFilterSensitiveLog,
-  DeleteFleetResult,
-  DeleteFleetResultFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteFleetRequest, DeleteFleetResult } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteFleetCommand,
   serializeAws_json1_1DeleteFleetCommand,
@@ -114,8 +109,8 @@ export class DeleteFleetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteFleetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteFleetResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

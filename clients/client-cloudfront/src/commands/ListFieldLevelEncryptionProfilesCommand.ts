@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import {
-  ListFieldLevelEncryptionProfilesRequest,
-  ListFieldLevelEncryptionProfilesRequestFilterSensitiveLog,
-  ListFieldLevelEncryptionProfilesResult,
-  ListFieldLevelEncryptionProfilesResultFilterSensitiveLog,
-} from "../models/models_1";
+import { ListFieldLevelEncryptionProfilesRequest, ListFieldLevelEncryptionProfilesResult } from "../models/models_1";
 import {
   deserializeAws_restXmlListFieldLevelEncryptionProfilesCommand,
   serializeAws_restXmlListFieldLevelEncryptionProfilesCommand,
@@ -113,8 +108,8 @@ export class ListFieldLevelEncryptionProfilesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListFieldLevelEncryptionProfilesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListFieldLevelEncryptionProfilesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

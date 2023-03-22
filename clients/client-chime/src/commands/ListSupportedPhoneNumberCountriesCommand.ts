@@ -16,9 +16,7 @@ import {
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import {
   ListSupportedPhoneNumberCountriesRequest,
-  ListSupportedPhoneNumberCountriesRequestFilterSensitiveLog,
   ListSupportedPhoneNumberCountriesResponse,
-  ListSupportedPhoneNumberCountriesResponseFilterSensitiveLog,
 } from "../models/models_1";
 import {
   deserializeAws_restJson1ListSupportedPhoneNumberCountriesCommand,
@@ -130,8 +128,8 @@ export class ListSupportedPhoneNumberCountriesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListSupportedPhoneNumberCountriesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListSupportedPhoneNumberCountriesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

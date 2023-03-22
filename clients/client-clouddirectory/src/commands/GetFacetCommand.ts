@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
-import {
-  GetFacetRequest,
-  GetFacetRequestFilterSensitiveLog,
-  GetFacetResponse,
-  GetFacetResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetFacetRequest, GetFacetResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetFacetCommand,
   serializeAws_restJson1GetFacetCommand,
@@ -131,8 +126,8 @@ export class GetFacetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetFacetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetFacetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

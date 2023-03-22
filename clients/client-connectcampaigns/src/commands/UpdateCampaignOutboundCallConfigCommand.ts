@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectCampaignsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCampaignsClient";
-import {
-  UpdateCampaignOutboundCallConfigRequest,
-  UpdateCampaignOutboundCallConfigRequestFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateCampaignOutboundCallConfigRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateCampaignOutboundCallConfigCommand,
   serializeAws_restJson1UpdateCampaignOutboundCallConfigCommand,
@@ -123,8 +120,8 @@ export class UpdateCampaignOutboundCallConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateCampaignOutboundCallConfigRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

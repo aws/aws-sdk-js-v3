@@ -15,9 +15,7 @@ import {
 
 import {
   ListInferenceRecommendationsJobStepsRequest,
-  ListInferenceRecommendationsJobStepsRequestFilterSensitiveLog,
   ListInferenceRecommendationsJobStepsResponse,
-  ListInferenceRecommendationsJobStepsResponseFilterSensitiveLog,
 } from "../models/models_3";
 import {
   deserializeAws_json1_1ListInferenceRecommendationsJobStepsCommand,
@@ -113,8 +111,8 @@ export class ListInferenceRecommendationsJobStepsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListInferenceRecommendationsJobStepsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListInferenceRecommendationsJobStepsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

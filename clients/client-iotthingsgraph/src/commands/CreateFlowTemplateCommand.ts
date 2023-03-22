@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTThingsGraphClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTThingsGraphClient";
-import {
-  CreateFlowTemplateRequest,
-  CreateFlowTemplateRequestFilterSensitiveLog,
-  CreateFlowTemplateResponse,
-  CreateFlowTemplateResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateFlowTemplateRequest, CreateFlowTemplateResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateFlowTemplateCommand,
   serializeAws_json1_1CreateFlowTemplateCommand,
@@ -126,8 +121,8 @@ export class CreateFlowTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateFlowTemplateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateFlowTemplateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

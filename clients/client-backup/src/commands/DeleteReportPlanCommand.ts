@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
-import { DeleteReportPlanInput, DeleteReportPlanInputFilterSensitiveLog } from "../models/models_0";
+import { DeleteReportPlanInput } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteReportPlanCommand,
   serializeAws_restJson1DeleteReportPlanCommand,
@@ -119,8 +119,8 @@ export class DeleteReportPlanCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteReportPlanInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

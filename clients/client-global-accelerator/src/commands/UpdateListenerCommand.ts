@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../GlobalAcceleratorClient";
-import {
-  UpdateListenerRequest,
-  UpdateListenerRequestFilterSensitiveLog,
-  UpdateListenerResponse,
-  UpdateListenerResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateListenerRequest, UpdateListenerResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateListenerCommand,
   serializeAws_json1_1UpdateListenerCommand,
@@ -126,8 +121,8 @@ export class UpdateListenerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateListenerRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateListenerResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -1096,44 +1096,9 @@ export interface UpdateApplicationSettingsOutput {
 /**
  * @internal
  */
-export const ApplicationFilterSensitiveLog = (obj: Application): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const ApplicationCredentialFilterSensitiveLog = (obj: ApplicationCredential): any => ({
   ...obj,
   ...(obj.SecretId && { SecretId: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ApplicationSummaryFilterSensitiveLog = (obj: ApplicationSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const HostFilterSensitiveLog = (obj: Host): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ComponentFilterSensitiveLog = (obj: Component): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ComponentSummaryFilterSensitiveLog = (obj: ComponentSummary): any => ({
-  ...obj,
 });
 
 /**
@@ -1147,205 +1112,9 @@ export const DatabaseFilterSensitiveLog = (obj: Database): any => ({
 /**
  * @internal
  */
-export const DatabaseSummaryFilterSensitiveLog = (obj: DatabaseSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteResourcePermissionInputFilterSensitiveLog = (obj: DeleteResourcePermissionInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteResourcePermissionOutputFilterSensitiveLog = (obj: DeleteResourcePermissionOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeregisterApplicationInputFilterSensitiveLog = (obj: DeregisterApplicationInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeregisterApplicationOutputFilterSensitiveLog = (obj: DeregisterApplicationOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FilterFilterSensitiveLog = (obj: Filter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetApplicationInputFilterSensitiveLog = (obj: GetApplicationInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetApplicationOutputFilterSensitiveLog = (obj: GetApplicationOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetComponentInputFilterSensitiveLog = (obj: GetComponentInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetComponentOutputFilterSensitiveLog = (obj: GetComponentOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDatabaseInputFilterSensitiveLog = (obj: GetDatabaseInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const GetDatabaseOutputFilterSensitiveLog = (obj: GetDatabaseOutput): any => ({
   ...obj,
   ...(obj.Database && { Database: DatabaseFilterSensitiveLog(obj.Database) }),
-});
-
-/**
- * @internal
- */
-export const GetOperationInputFilterSensitiveLog = (obj: GetOperationInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OperationFilterSensitiveLog = (obj: Operation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetOperationOutputFilterSensitiveLog = (obj: GetOperationOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetResourcePermissionInputFilterSensitiveLog = (obj: GetResourcePermissionInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetResourcePermissionOutputFilterSensitiveLog = (obj: GetResourcePermissionOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListApplicationsInputFilterSensitiveLog = (obj: ListApplicationsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListApplicationsOutputFilterSensitiveLog = (obj: ListApplicationsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListComponentsInputFilterSensitiveLog = (obj: ListComponentsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListComponentsOutputFilterSensitiveLog = (obj: ListComponentsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDatabasesInputFilterSensitiveLog = (obj: ListDatabasesInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDatabasesOutputFilterSensitiveLog = (obj: ListDatabasesOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListOperationsInputFilterSensitiveLog = (obj: ListOperationsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListOperationsOutputFilterSensitiveLog = (obj: ListOperationsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutResourcePermissionInputFilterSensitiveLog = (obj: PutResourcePermissionInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutResourcePermissionOutputFilterSensitiveLog = (obj: PutResourcePermissionOutput): any => ({
-  ...obj,
 });
 
 /**
@@ -1359,41 +1128,6 @@ export const RegisterApplicationInputFilterSensitiveLog = (obj: RegisterApplicat
 /**
  * @internal
  */
-export const RegisterApplicationOutputFilterSensitiveLog = (obj: RegisterApplicationOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const UpdateApplicationSettingsInputFilterSensitiveLog = (obj: UpdateApplicationSettingsInput): any => ({
   ...obj,
   ...(obj.CredentialsToAddOrUpdate && {
@@ -1402,11 +1136,4 @@ export const UpdateApplicationSettingsInputFilterSensitiveLog = (obj: UpdateAppl
   ...(obj.CredentialsToRemove && {
     CredentialsToRemove: obj.CredentialsToRemove.map((item) => ApplicationCredentialFilterSensitiveLog(item)),
   }),
-});
-
-/**
- * @internal
- */
-export const UpdateApplicationSettingsOutputFilterSensitiveLog = (obj: UpdateApplicationSettingsOutput): any => ({
-  ...obj,
 });

@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingClient";
-import {
-  DescribeEndPointStateInput,
-  DescribeEndPointStateInputFilterSensitiveLog,
-  DescribeEndPointStateOutput,
-  DescribeEndPointStateOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeEndPointStateInput, DescribeEndPointStateOutput } from "../models/models_0";
 import {
   deserializeAws_queryDescribeInstanceHealthCommand,
   serializeAws_queryDescribeInstanceHealthCommand,
@@ -146,8 +141,8 @@ export class DescribeInstanceHealthCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeEndPointStateInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeEndPointStateOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

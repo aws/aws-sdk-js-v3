@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ACMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ACMClient";
-import { ResendValidationEmailRequest, ResendValidationEmailRequestFilterSensitiveLog } from "../models/models_0";
+import { ResendValidationEmailRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1ResendValidationEmailCommand,
   serializeAws_json1_1ResendValidationEmailCommand,
@@ -124,8 +124,8 @@ export class ResendValidationEmailCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ResendValidationEmailRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

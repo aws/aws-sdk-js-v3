@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import {
-  UpdateOriginAccessControlRequest,
-  UpdateOriginAccessControlRequestFilterSensitiveLog,
-  UpdateOriginAccessControlResult,
-  UpdateOriginAccessControlResultFilterSensitiveLog,
-} from "../models/models_1";
+import { UpdateOriginAccessControlRequest, UpdateOriginAccessControlResult } from "../models/models_1";
 import {
   deserializeAws_restXmlUpdateOriginAccessControlCommand,
   serializeAws_restXmlUpdateOriginAccessControlCommand,
@@ -129,8 +124,8 @@ export class UpdateOriginAccessControlCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateOriginAccessControlRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateOriginAccessControlResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  PutDeliverabilityDashboardOptionRequest,
-  PutDeliverabilityDashboardOptionRequestFilterSensitiveLog,
-  PutDeliverabilityDashboardOptionResponse,
-  PutDeliverabilityDashboardOptionResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { PutDeliverabilityDashboardOptionRequest, PutDeliverabilityDashboardOptionResponse } from "../models/models_0";
 import { PinpointEmailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointEmailClient";
 import {
   deserializeAws_restJson1PutDeliverabilityDashboardOptionCommand,
@@ -130,8 +125,8 @@ export class PutDeliverabilityDashboardOptionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutDeliverabilityDashboardOptionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutDeliverabilityDashboardOptionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

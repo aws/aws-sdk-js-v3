@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DAXClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DAXClient";
-import {
-  DescribeSubnetGroupsRequest,
-  DescribeSubnetGroupsRequestFilterSensitiveLog,
-  DescribeSubnetGroupsResponse,
-  DescribeSubnetGroupsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeSubnetGroupsRequest, DescribeSubnetGroupsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeSubnetGroupsCommand,
   serializeAws_json1_1DescribeSubnetGroupsCommand,
@@ -115,8 +110,8 @@ export class DescribeSubnetGroupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeSubnetGroupsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeSubnetGroupsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

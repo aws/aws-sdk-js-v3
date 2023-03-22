@@ -197,31 +197,3 @@ export class ThrottlingException extends __BaseException {
     Object.setPrototypeOf(this, ThrottlingException.prototype);
   }
 }
-
-/**
- * @internal
- */
-export const GetEntitlementsRequestFilterSensitiveLog = (obj: GetEntitlementsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EntitlementValueFilterSensitiveLog = (obj: EntitlementValue): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EntitlementFilterSensitiveLog = (obj: Entitlement): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetEntitlementsResultFilterSensitiveLog = (obj: GetEntitlementsResult): any => ({
-  ...obj,
-});

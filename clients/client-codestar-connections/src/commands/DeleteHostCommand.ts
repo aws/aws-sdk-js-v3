@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CodeStarConnectionsClient";
-import {
-  DeleteHostInput,
-  DeleteHostInputFilterSensitiveLog,
-  DeleteHostOutput,
-  DeleteHostOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteHostInput, DeleteHostOutput } from "../models/models_0";
 import {
   deserializeAws_json1_0DeleteHostCommand,
   serializeAws_json1_0DeleteHostCommand,
@@ -118,8 +113,8 @@ export class DeleteHostCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteHostInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteHostOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

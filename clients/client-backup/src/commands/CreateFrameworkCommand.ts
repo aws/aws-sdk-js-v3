@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
-import {
-  CreateFrameworkInput,
-  CreateFrameworkInputFilterSensitiveLog,
-  CreateFrameworkOutput,
-  CreateFrameworkOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateFrameworkInput, CreateFrameworkOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateFrameworkCommand,
   serializeAws_restJson1CreateFrameworkCommand,
@@ -127,8 +122,8 @@ export class CreateFrameworkCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateFrameworkInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateFrameworkOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

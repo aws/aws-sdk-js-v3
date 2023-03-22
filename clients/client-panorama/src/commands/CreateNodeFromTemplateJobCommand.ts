@@ -17,7 +17,6 @@ import {
   CreateNodeFromTemplateJobRequest,
   CreateNodeFromTemplateJobRequestFilterSensitiveLog,
   CreateNodeFromTemplateJobResponse,
-  CreateNodeFromTemplateJobResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { PanoramaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PanoramaClient";
 import {
@@ -120,7 +119,7 @@ export class CreateNodeFromTemplateJobCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateNodeFromTemplateJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateNodeFromTemplateJobResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

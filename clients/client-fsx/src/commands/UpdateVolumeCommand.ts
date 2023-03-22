@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
-import {
-  UpdateVolumeRequest,
-  UpdateVolumeRequestFilterSensitiveLog,
-  UpdateVolumeResponse,
-  UpdateVolumeResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateVolumeRequest, UpdateVolumeResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateVolumeCommand,
   serializeAws_json1_1UpdateVolumeCommand,
@@ -122,8 +117,8 @@ export class UpdateVolumeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateVolumeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateVolumeResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

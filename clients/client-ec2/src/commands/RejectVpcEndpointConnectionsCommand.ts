@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  RejectVpcEndpointConnectionsRequest,
-  RejectVpcEndpointConnectionsRequestFilterSensitiveLog,
-  RejectVpcEndpointConnectionsResult,
-  RejectVpcEndpointConnectionsResultFilterSensitiveLog,
-} from "../models/models_6";
+import { RejectVpcEndpointConnectionsRequest, RejectVpcEndpointConnectionsResult } from "../models/models_6";
 import {
   deserializeAws_ec2RejectVpcEndpointConnectionsCommand,
   serializeAws_ec2RejectVpcEndpointConnectionsCommand,
@@ -109,8 +104,8 @@ export class RejectVpcEndpointConnectionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RejectVpcEndpointConnectionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RejectVpcEndpointConnectionsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

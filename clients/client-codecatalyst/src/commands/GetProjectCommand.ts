@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeCatalystClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCatalystClient";
-import {
-  GetProjectRequest,
-  GetProjectRequestFilterSensitiveLog,
-  GetProjectResponse,
-  GetProjectResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetProjectRequest, GetProjectResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetProjectCommand,
   serializeAws_restJson1GetProjectCommand,
@@ -124,8 +119,8 @@ export class GetProjectCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetProjectRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetProjectResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -20,7 +20,6 @@ import {
 } from "../ChimeSDKMessagingClient";
 import {
   CreateChannelModeratorRequest,
-  CreateChannelModeratorRequestFilterSensitiveLog,
   CreateChannelModeratorResponse,
   CreateChannelModeratorResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -158,7 +157,7 @@ export class CreateChannelModeratorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateChannelModeratorRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: CreateChannelModeratorResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

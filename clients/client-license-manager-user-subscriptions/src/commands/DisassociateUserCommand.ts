@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../LicenseManagerUserSubscriptionsClient";
-import {
-  DisassociateUserRequest,
-  DisassociateUserRequestFilterSensitiveLog,
-  DisassociateUserResponse,
-  DisassociateUserResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DisassociateUserRequest, DisassociateUserResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DisassociateUserCommand,
   serializeAws_restJson1DisassociateUserCommand,
@@ -133,8 +128,8 @@ export class DisassociateUserCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateUserRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateUserResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

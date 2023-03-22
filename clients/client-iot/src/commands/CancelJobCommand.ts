@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  CancelJobRequest,
-  CancelJobRequestFilterSensitiveLog,
-  CancelJobResponse,
-  CancelJobResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CancelJobRequest, CancelJobResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CancelJobCommand,
   serializeAws_restJson1CancelJobCommand,
@@ -117,8 +112,8 @@ export class CancelJobCommand extends $Command<CancelJobCommandInput, CancelJobC
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CancelJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

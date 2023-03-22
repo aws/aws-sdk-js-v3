@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
-import {
-  AddInstanceGroupsInput,
-  AddInstanceGroupsInputFilterSensitiveLog,
-  AddInstanceGroupsOutput,
-  AddInstanceGroupsOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { AddInstanceGroupsInput, AddInstanceGroupsOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1AddInstanceGroupsCommand,
   serializeAws_json1_1AddInstanceGroupsCommand,
@@ -111,8 +106,8 @@ export class AddInstanceGroupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AddInstanceGroupsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: AddInstanceGroupsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

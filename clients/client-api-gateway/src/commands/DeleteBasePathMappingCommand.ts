@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import { DeleteBasePathMappingRequest, DeleteBasePathMappingRequestFilterSensitiveLog } from "../models/models_0";
+import { DeleteBasePathMappingRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteBasePathMappingCommand,
   serializeAws_restJson1DeleteBasePathMappingCommand,
@@ -117,8 +117,8 @@ export class DeleteBasePathMappingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteBasePathMappingRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

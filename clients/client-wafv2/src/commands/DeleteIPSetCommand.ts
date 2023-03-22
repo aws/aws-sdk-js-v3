@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteIPSetRequest,
-  DeleteIPSetRequestFilterSensitiveLog,
-  DeleteIPSetResponse,
-  DeleteIPSetResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteIPSetRequest, DeleteIPSetResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteIPSetCommand,
   serializeAws_json1_1DeleteIPSetCommand,
@@ -155,8 +150,8 @@ export class DeleteIPSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteIPSetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteIPSetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

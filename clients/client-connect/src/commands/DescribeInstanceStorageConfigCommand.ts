@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import {
-  DescribeInstanceStorageConfigRequest,
-  DescribeInstanceStorageConfigRequestFilterSensitiveLog,
-  DescribeInstanceStorageConfigResponse,
-  DescribeInstanceStorageConfigResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeInstanceStorageConfigRequest, DescribeInstanceStorageConfigResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeInstanceStorageConfigCommand,
   serializeAws_restJson1DescribeInstanceStorageConfigCommand,
@@ -126,8 +121,8 @@ export class DescribeInstanceStorageConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeInstanceStorageConfigRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeInstanceStorageConfigResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

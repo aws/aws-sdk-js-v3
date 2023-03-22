@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchEventsClient";
-import {
-  PutEventsRequest,
-  PutEventsRequestFilterSensitiveLog,
-  PutEventsResponse,
-  PutEventsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { PutEventsRequest, PutEventsResponse } from "../models/models_0";
 import { deserializeAws_json1_1PutEventsCommand, serializeAws_json1_1PutEventsCommand } from "../protocols/Aws_json1_1";
 
 /**
@@ -105,8 +100,8 @@ export class PutEventsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutEventsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutEventsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

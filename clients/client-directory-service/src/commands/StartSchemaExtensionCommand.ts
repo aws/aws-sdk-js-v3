@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
-import {
-  StartSchemaExtensionRequest,
-  StartSchemaExtensionRequestFilterSensitiveLog,
-  StartSchemaExtensionResult,
-  StartSchemaExtensionResultFilterSensitiveLog,
-} from "../models/models_0";
+import { StartSchemaExtensionRequest, StartSchemaExtensionResult } from "../models/models_0";
 import {
   deserializeAws_json1_1StartSchemaExtensionCommand,
   serializeAws_json1_1StartSchemaExtensionCommand,
@@ -127,8 +122,8 @@ export class StartSchemaExtensionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartSchemaExtensionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartSchemaExtensionResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

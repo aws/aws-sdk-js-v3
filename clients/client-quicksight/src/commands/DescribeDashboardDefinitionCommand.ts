@@ -15,7 +15,6 @@ import {
 
 import {
   DescribeDashboardDefinitionRequest,
-  DescribeDashboardDefinitionRequestFilterSensitiveLog,
   DescribeDashboardDefinitionResponse,
   DescribeDashboardDefinitionResponseFilterSensitiveLog,
 } from "../models/models_2";
@@ -147,7 +146,7 @@ export class DescribeDashboardDefinitionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDashboardDefinitionRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeDashboardDefinitionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

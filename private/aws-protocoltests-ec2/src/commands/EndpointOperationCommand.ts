@@ -19,10 +19,14 @@ import {
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link EndpointOperationCommand}.
  */
 export interface EndpointOperationCommandInput {}
 /**
+ * @public
+ *
  * The output of {@link EndpointOperationCommand}.
  */
 export interface EndpointOperationCommandOutput extends __MetadataBearer {}
@@ -35,6 +39,9 @@ export class EndpointOperationCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: EndpointOperationCommandInput) {
     // Start section: command_constructor
     super();
@@ -60,8 +67,8 @@ export class EndpointOperationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -71,10 +78,16 @@ export class EndpointOperationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: EndpointOperationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2EndpointOperationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EndpointOperationCommandOutput> {
     return deserializeAws_ec2EndpointOperationCommand(output, context);
   }

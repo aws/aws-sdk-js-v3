@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudHSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudHSMClient";
-import {
-  ListAvailableZonesRequest,
-  ListAvailableZonesRequestFilterSensitiveLog,
-  ListAvailableZonesResponse,
-  ListAvailableZonesResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListAvailableZonesRequest, ListAvailableZonesResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ListAvailableZonesCommand,
   serializeAws_json1_1ListAvailableZonesCommand,
@@ -126,8 +121,8 @@ export class ListAvailableZonesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAvailableZonesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAvailableZonesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import {
-  UpdateNetworkProfileRequest,
-  UpdateNetworkProfileRequestFilterSensitiveLog,
-  UpdateNetworkProfileResult,
-  UpdateNetworkProfileResultFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateNetworkProfileRequest, UpdateNetworkProfileResult } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateNetworkProfileCommand,
   serializeAws_json1_1UpdateNetworkProfileCommand,
@@ -119,8 +114,8 @@ export class UpdateNetworkProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateNetworkProfileRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateNetworkProfileResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

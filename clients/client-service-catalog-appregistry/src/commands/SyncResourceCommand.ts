@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  SyncResourceRequest,
-  SyncResourceRequestFilterSensitiveLog,
-  SyncResourceResponse,
-  SyncResourceResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { SyncResourceRequest, SyncResourceResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1SyncResourceCommand,
   serializeAws_restJson1SyncResourceCommand,
@@ -120,8 +115,8 @@ export class SyncResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SyncResourceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SyncResourceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

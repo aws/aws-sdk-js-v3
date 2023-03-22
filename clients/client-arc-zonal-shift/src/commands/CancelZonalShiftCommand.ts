@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ARCZonalShiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ARCZonalShiftClient";
-import {
-  CancelZonalShiftRequest,
-  CancelZonalShiftRequestFilterSensitiveLog,
-  ZonalShift,
-  ZonalShiftFilterSensitiveLog,
-} from "../models/models_0";
+import { CancelZonalShiftRequest, ZonalShift } from "../models/models_0";
 import {
   deserializeAws_restJson1CancelZonalShiftCommand,
   serializeAws_restJson1CancelZonalShiftCommand,
@@ -125,8 +120,8 @@ export class CancelZonalShiftCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelZonalShiftRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ZonalShiftFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

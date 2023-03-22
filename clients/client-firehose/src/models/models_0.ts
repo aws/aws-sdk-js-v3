@@ -3906,317 +3906,6 @@ export interface UpdateDestinationOutput {}
 /**
  * @internal
  */
-export const AmazonOpenSearchServerlessBufferingHintsFilterSensitiveLog = (
-  obj: AmazonOpenSearchServerlessBufferingHints
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CloudWatchLoggingOptionsFilterSensitiveLog = (obj: CloudWatchLoggingOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ProcessorParameterFilterSensitiveLog = (obj: ProcessorParameter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ProcessorFilterSensitiveLog = (obj: Processor): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ProcessingConfigurationFilterSensitiveLog = (obj: ProcessingConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AmazonOpenSearchServerlessRetryOptionsFilterSensitiveLog = (
-  obj: AmazonOpenSearchServerlessRetryOptions
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BufferingHintsFilterSensitiveLog = (obj: BufferingHints): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const KMSEncryptionConfigFilterSensitiveLog = (obj: KMSEncryptionConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EncryptionConfigurationFilterSensitiveLog = (obj: EncryptionConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const S3DestinationConfigurationFilterSensitiveLog = (obj: S3DestinationConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VpcConfigurationFilterSensitiveLog = (obj: VpcConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AmazonOpenSearchServerlessDestinationConfigurationFilterSensitiveLog = (
-  obj: AmazonOpenSearchServerlessDestinationConfiguration
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const S3DestinationDescriptionFilterSensitiveLog = (obj: S3DestinationDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VpcConfigurationDescriptionFilterSensitiveLog = (obj: VpcConfigurationDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AmazonOpenSearchServerlessDestinationDescriptionFilterSensitiveLog = (
-  obj: AmazonOpenSearchServerlessDestinationDescription
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const S3DestinationUpdateFilterSensitiveLog = (obj: S3DestinationUpdate): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AmazonOpenSearchServerlessDestinationUpdateFilterSensitiveLog = (
-  obj: AmazonOpenSearchServerlessDestinationUpdate
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AmazonopensearchserviceBufferingHintsFilterSensitiveLog = (
-  obj: AmazonopensearchserviceBufferingHints
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AmazonopensearchserviceRetryOptionsFilterSensitiveLog = (
-  obj: AmazonopensearchserviceRetryOptions
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AmazonopensearchserviceDestinationConfigurationFilterSensitiveLog = (
-  obj: AmazonopensearchserviceDestinationConfiguration
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AmazonopensearchserviceDestinationDescriptionFilterSensitiveLog = (
-  obj: AmazonopensearchserviceDestinationDescription
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AmazonopensearchserviceDestinationUpdateFilterSensitiveLog = (
-  obj: AmazonopensearchserviceDestinationUpdate
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CopyCommandFilterSensitiveLog = (obj: CopyCommand): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeliveryStreamEncryptionConfigurationInputFilterSensitiveLog = (
-  obj: DeliveryStreamEncryptionConfigurationInput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ElasticsearchBufferingHintsFilterSensitiveLog = (obj: ElasticsearchBufferingHints): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ElasticsearchRetryOptionsFilterSensitiveLog = (obj: ElasticsearchRetryOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ElasticsearchDestinationConfigurationFilterSensitiveLog = (
-  obj: ElasticsearchDestinationConfiguration
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const HiveJsonSerDeFilterSensitiveLog = (obj: HiveJsonSerDe): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OpenXJsonSerDeFilterSensitiveLog = (obj: OpenXJsonSerDe): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeserializerFilterSensitiveLog = (obj: Deserializer): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InputFormatConfigurationFilterSensitiveLog = (obj: InputFormatConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OrcSerDeFilterSensitiveLog = (obj: OrcSerDe): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ParquetSerDeFilterSensitiveLog = (obj: ParquetSerDe): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SerializerFilterSensitiveLog = (obj: Serializer): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OutputFormatConfigurationFilterSensitiveLog = (obj: OutputFormatConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SchemaConfigurationFilterSensitiveLog = (obj: SchemaConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DataFormatConversionConfigurationFilterSensitiveLog = (obj: DataFormatConversionConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RetryOptionsFilterSensitiveLog = (obj: RetryOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DynamicPartitioningConfigurationFilterSensitiveLog = (obj: DynamicPartitioningConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExtendedS3DestinationConfigurationFilterSensitiveLog = (obj: ExtendedS3DestinationConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const HttpEndpointBufferingHintsFilterSensitiveLog = (obj: HttpEndpointBufferingHints): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const HttpEndpointConfigurationFilterSensitiveLog = (obj: HttpEndpointConfiguration): any => ({
   ...obj,
   ...(obj.Url && { Url: SENSITIVE_STRING }),
@@ -4245,13 +3934,6 @@ export const HttpEndpointRequestConfigurationFilterSensitiveLog = (obj: HttpEndp
 /**
  * @internal
  */
-export const HttpEndpointRetryOptionsFilterSensitiveLog = (obj: HttpEndpointRetryOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const HttpEndpointDestinationConfigurationFilterSensitiveLog = (
   obj: HttpEndpointDestinationConfiguration
 ): any => ({
@@ -4267,45 +3949,10 @@ export const HttpEndpointDestinationConfigurationFilterSensitiveLog = (
 /**
  * @internal
  */
-export const KinesisStreamSourceConfigurationFilterSensitiveLog = (obj: KinesisStreamSourceConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RedshiftRetryOptionsFilterSensitiveLog = (obj: RedshiftRetryOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const RedshiftDestinationConfigurationFilterSensitiveLog = (obj: RedshiftDestinationConfiguration): any => ({
   ...obj,
   ...(obj.Username && { Username: SENSITIVE_STRING }),
   ...(obj.Password && { Password: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const SplunkRetryOptionsFilterSensitiveLog = (obj: SplunkRetryOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SplunkDestinationConfigurationFilterSensitiveLog = (obj: SplunkDestinationConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagFilterSensitiveLog = (obj: Tag): any => ({
-  ...obj,
 });
 
 /**
@@ -4323,59 +3970,6 @@ export const CreateDeliveryStreamInputFilterSensitiveLog = (obj: CreateDeliveryS
       obj.HttpEndpointDestinationConfiguration
     ),
   }),
-});
-
-/**
- * @internal
- */
-export const CreateDeliveryStreamOutputFilterSensitiveLog = (obj: CreateDeliveryStreamOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteDeliveryStreamInputFilterSensitiveLog = (obj: DeleteDeliveryStreamInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteDeliveryStreamOutputFilterSensitiveLog = (obj: DeleteDeliveryStreamOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FailureDescriptionFilterSensitiveLog = (obj: FailureDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeliveryStreamEncryptionConfigurationFilterSensitiveLog = (
-  obj: DeliveryStreamEncryptionConfiguration
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ElasticsearchDestinationDescriptionFilterSensitiveLog = (
-  obj: ElasticsearchDestinationDescription
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExtendedS3DestinationDescriptionFilterSensitiveLog = (obj: ExtendedS3DestinationDescription): any => ({
-  ...obj,
 });
 
 /**
@@ -4410,13 +4004,6 @@ export const RedshiftDestinationDescriptionFilterSensitiveLog = (obj: RedshiftDe
 /**
  * @internal
  */
-export const SplunkDestinationDescriptionFilterSensitiveLog = (obj: SplunkDestinationDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const DestinationDescriptionFilterSensitiveLog = (obj: DestinationDescription): any => ({
   ...obj,
   ...(obj.RedshiftDestinationDescription && {
@@ -4434,20 +4021,6 @@ export const DestinationDescriptionFilterSensitiveLog = (obj: DestinationDescrip
 /**
  * @internal
  */
-export const KinesisStreamSourceDescriptionFilterSensitiveLog = (obj: KinesisStreamSourceDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SourceDescriptionFilterSensitiveLog = (obj: SourceDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const DeliveryStreamDescriptionFilterSensitiveLog = (obj: DeliveryStreamDescription): any => ({
   ...obj,
   ...(obj.Destinations && {
@@ -4458,160 +4031,11 @@ export const DeliveryStreamDescriptionFilterSensitiveLog = (obj: DeliveryStreamD
 /**
  * @internal
  */
-export const DescribeDeliveryStreamInputFilterSensitiveLog = (obj: DescribeDeliveryStreamInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const DescribeDeliveryStreamOutputFilterSensitiveLog = (obj: DescribeDeliveryStreamOutput): any => ({
   ...obj,
   ...(obj.DeliveryStreamDescription && {
     DeliveryStreamDescription: DeliveryStreamDescriptionFilterSensitiveLog(obj.DeliveryStreamDescription),
   }),
-});
-
-/**
- * @internal
- */
-export const ElasticsearchDestinationUpdateFilterSensitiveLog = (obj: ElasticsearchDestinationUpdate): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExtendedS3DestinationUpdateFilterSensitiveLog = (obj: ExtendedS3DestinationUpdate): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDeliveryStreamsInputFilterSensitiveLog = (obj: ListDeliveryStreamsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListDeliveryStreamsOutputFilterSensitiveLog = (obj: ListDeliveryStreamsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForDeliveryStreamInputFilterSensitiveLog = (obj: ListTagsForDeliveryStreamInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForDeliveryStreamOutputFilterSensitiveLog = (obj: ListTagsForDeliveryStreamOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const _RecordFilterSensitiveLog = (obj: _Record): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutRecordInputFilterSensitiveLog = (obj: PutRecordInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutRecordOutputFilterSensitiveLog = (obj: PutRecordOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutRecordBatchInputFilterSensitiveLog = (obj: PutRecordBatchInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutRecordBatchResponseEntryFilterSensitiveLog = (obj: PutRecordBatchResponseEntry): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutRecordBatchOutputFilterSensitiveLog = (obj: PutRecordBatchOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartDeliveryStreamEncryptionInputFilterSensitiveLog = (obj: StartDeliveryStreamEncryptionInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartDeliveryStreamEncryptionOutputFilterSensitiveLog = (
-  obj: StartDeliveryStreamEncryptionOutput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopDeliveryStreamEncryptionInputFilterSensitiveLog = (obj: StopDeliveryStreamEncryptionInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopDeliveryStreamEncryptionOutputFilterSensitiveLog = (obj: StopDeliveryStreamEncryptionOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagDeliveryStreamInputFilterSensitiveLog = (obj: TagDeliveryStreamInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagDeliveryStreamOutputFilterSensitiveLog = (obj: TagDeliveryStreamOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagDeliveryStreamInputFilterSensitiveLog = (obj: UntagDeliveryStreamInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagDeliveryStreamOutputFilterSensitiveLog = (obj: UntagDeliveryStreamOutput): any => ({
-  ...obj,
 });
 
 /**
@@ -4639,13 +4063,6 @@ export const RedshiftDestinationUpdateFilterSensitiveLog = (obj: RedshiftDestina
 /**
  * @internal
  */
-export const SplunkDestinationUpdateFilterSensitiveLog = (obj: SplunkDestinationUpdate): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const UpdateDestinationInputFilterSensitiveLog = (obj: UpdateDestinationInput): any => ({
   ...obj,
   ...(obj.RedshiftDestinationUpdate && {
@@ -4654,11 +4071,4 @@ export const UpdateDestinationInputFilterSensitiveLog = (obj: UpdateDestinationI
   ...(obj.HttpEndpointDestinationUpdate && {
     HttpEndpointDestinationUpdate: HttpEndpointDestinationUpdateFilterSensitiveLog(obj.HttpEndpointDestinationUpdate),
   }),
-});
-
-/**
- * @internal
- */
-export const UpdateDestinationOutputFilterSensitiveLog = (obj: UpdateDestinationOutput): any => ({
-  ...obj,
 });

@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateIpGroupRequest,
-  CreateIpGroupRequestFilterSensitiveLog,
-  CreateIpGroupResult,
-  CreateIpGroupResultFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateIpGroupRequest, CreateIpGroupResult } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateIpGroupCommand,
   serializeAws_json1_1CreateIpGroupCommand,
@@ -128,8 +123,8 @@ export class CreateIpGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateIpGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateIpGroupResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -16,12 +16,7 @@ import {
   WithSdkStreamMixin as __WithSdkStreamMixin,
 } from "@aws-sdk/types";
 
-import {
-  GetReferenceRequest,
-  GetReferenceRequestFilterSensitiveLog,
-  GetReferenceResponse,
-  GetReferenceResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetReferenceRequest, GetReferenceResponse, GetReferenceResponseFilterSensitiveLog } from "../models/models_0";
 import { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
 import {
   deserializeAws_restJson1GetReferenceCommand,
@@ -131,7 +126,7 @@ export class GetReferenceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetReferenceRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetReferenceResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

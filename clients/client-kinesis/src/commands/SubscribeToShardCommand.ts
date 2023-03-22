@@ -17,7 +17,6 @@ import {
 import { KinesisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisClient";
 import {
   SubscribeToShardInput,
-  SubscribeToShardInputFilterSensitiveLog,
   SubscribeToShardOutput,
   SubscribeToShardOutputFilterSensitiveLog,
 } from "../models/models_0";
@@ -152,7 +151,7 @@ export class SubscribeToShardCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SubscribeToShardInputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: SubscribeToShardOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

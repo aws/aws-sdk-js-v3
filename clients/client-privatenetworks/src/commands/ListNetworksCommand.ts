@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListNetworksRequest,
-  ListNetworksRequestFilterSensitiveLog,
-  ListNetworksResponse,
-  ListNetworksResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListNetworksRequest, ListNetworksResponse } from "../models/models_0";
 import { PrivateNetworksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PrivateNetworksClient";
 import {
   deserializeAws_restJson1ListNetworksCommand,
@@ -115,8 +110,8 @@ export class ListNetworksCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListNetworksRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListNetworksResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

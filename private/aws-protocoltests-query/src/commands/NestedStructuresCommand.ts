@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { NestedStructuresInput, NestedStructuresInputFilterSensitiveLog } from "../models/models_0";
+import { NestedStructuresInput } from "../models/models_0";
 import {
   deserializeAws_queryNestedStructuresCommand,
   serializeAws_queryNestedStructuresCommand,
@@ -20,15 +20,20 @@ import {
 import { QueryProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QueryProtocolClient";
 
 /**
+ * @public
+ *
  * The input for {@link NestedStructuresCommand}.
  */
 export interface NestedStructuresCommandInput extends NestedStructuresInput {}
 /**
+ * @public
+ *
  * The output of {@link NestedStructuresCommand}.
  */
 export interface NestedStructuresCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * This test serializes nested and recursive structure members.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,6 +45,8 @@ export interface NestedStructuresCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param NestedStructuresCommandInput - {@link NestedStructuresCommandInput}
+ * @returns {@link NestedStructuresCommandOutput}
  * @see {@link NestedStructuresCommandInput} for command's `input` shape.
  * @see {@link NestedStructuresCommandOutput} for command's `response` shape.
  * @see {@link QueryProtocolClientResolvedConfig | config} for QueryProtocolClient's `config` shape.
@@ -54,6 +61,9 @@ export class NestedStructuresCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: NestedStructuresCommandInput) {
     // Start section: command_constructor
     super();
@@ -79,8 +89,8 @@ export class NestedStructuresCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: NestedStructuresInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -90,10 +100,16 @@ export class NestedStructuresCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: NestedStructuresCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryNestedStructuresCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<NestedStructuresCommandOutput> {
     return deserializeAws_queryNestedStructuresCommand(output, context);
   }

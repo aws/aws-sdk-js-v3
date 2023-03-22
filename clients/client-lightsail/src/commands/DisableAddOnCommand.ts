@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import {
-  DisableAddOnRequest,
-  DisableAddOnRequestFilterSensitiveLog,
-  DisableAddOnResult,
-  DisableAddOnResultFilterSensitiveLog,
-} from "../models/models_0";
+import { DisableAddOnRequest, DisableAddOnResult } from "../models/models_0";
 import {
   deserializeAws_json1_1DisableAddOnCommand,
   serializeAws_json1_1DisableAddOnCommand,
@@ -131,8 +126,8 @@ export class DisableAddOnCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisableAddOnRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisableAddOnResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

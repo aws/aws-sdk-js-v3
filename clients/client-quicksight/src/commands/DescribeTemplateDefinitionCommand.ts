@@ -15,7 +15,6 @@ import {
 
 import {
   DescribeTemplateDefinitionRequest,
-  DescribeTemplateDefinitionRequestFilterSensitiveLog,
   DescribeTemplateDefinitionResponse,
   DescribeTemplateDefinitionResponseFilterSensitiveLog,
 } from "../models/models_2";
@@ -145,7 +144,7 @@ export class DescribeTemplateDefinitionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeTemplateDefinitionRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeTemplateDefinitionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

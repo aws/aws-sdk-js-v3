@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
-import {
-  GetRevealConfigurationRequest,
-  GetRevealConfigurationRequestFilterSensitiveLog,
-  GetRevealConfigurationResponse,
-  GetRevealConfigurationResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetRevealConfigurationRequest, GetRevealConfigurationResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetRevealConfigurationCommand,
   serializeAws_restJson1GetRevealConfigurationCommand,
@@ -119,8 +114,8 @@ export class GetRevealConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetRevealConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetRevealConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

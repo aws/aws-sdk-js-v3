@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { Cloud9ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Cloud9Client";
-import {
-  ListEnvironmentsRequest,
-  ListEnvironmentsRequestFilterSensitiveLog,
-  ListEnvironmentsResult,
-  ListEnvironmentsResultFilterSensitiveLog,
-} from "../models/models_0";
+import { ListEnvironmentsRequest, ListEnvironmentsResult } from "../models/models_0";
 import {
   deserializeAws_json1_1ListEnvironmentsCommand,
   serializeAws_json1_1ListEnvironmentsCommand,
@@ -145,8 +140,8 @@ export class ListEnvironmentsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListEnvironmentsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListEnvironmentsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

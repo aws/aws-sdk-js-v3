@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EMRContainersClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRContainersClient";
-import {
-  DescribeVirtualClusterRequest,
-  DescribeVirtualClusterRequestFilterSensitiveLog,
-  DescribeVirtualClusterResponse,
-  DescribeVirtualClusterResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeVirtualClusterRequest, DescribeVirtualClusterResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeVirtualClusterCommand,
   serializeAws_restJson1DescribeVirtualClusterCommand,
@@ -121,8 +116,8 @@ export class DescribeVirtualClusterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeVirtualClusterRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeVirtualClusterResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

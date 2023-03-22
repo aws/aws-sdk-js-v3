@@ -260,10 +260,12 @@ import { XmlUnionsCommand, XmlUnionsCommandInput, XmlUnionsCommandOutput } from 
 import { RestXmlProtocolClient } from "./RestXmlProtocolClient";
 
 /**
+ * @public
  * A REST XML service that sends XML requests and responses.
  */
 export class RestXmlProtocol extends RestXmlProtocolClient {
   /**
+   * @public
    * This example uses all query string types.
    */
   public allQueryStringTypes(
@@ -296,6 +298,7 @@ export class RestXmlProtocol extends RestXmlProtocolClient {
   }
 
   /**
+   * @public
    * The following example serializes a body that uses an XML name,
    * changing the wrapper name.
    */
@@ -329,6 +332,7 @@ export class RestXmlProtocol extends RestXmlProtocolClient {
   }
 
   /**
+   * @public
    * This example uses fixed query string params and variable query string params.
    * The fixed query string parameters and variable parameters must both be
    * serialized (implementations may need to merge them together).
@@ -363,10 +367,11 @@ export class RestXmlProtocol extends RestXmlProtocolClient {
   }
 
   /**
+   * @public
    * This example uses a constant query string parameters and a label.
    * This simply tests that labels and query string parameters are
    * compatible. The fixed query string parameter named "hello" should
-   * in no way conflict with the label, `{hello}`.
+   * in no way conflict with the label, `\{hello\}`.
    */
   public constantQueryString(
     args: ConstantQueryStringCommandInput,
@@ -397,6 +402,9 @@ export class RestXmlProtocol extends RestXmlProtocolClient {
     }
   }
 
+  /**
+   * @public
+   */
   public datetimeOffsets(
     args: DatetimeOffsetsCommandInput,
     options?: __HttpHandlerOptions
@@ -427,6 +435,7 @@ export class RestXmlProtocol extends RestXmlProtocolClient {
   }
 
   /**
+   * @public
    * The example tests how requests and responses are serialized when there's
    * no request or response payload because the operation has an empty input
    * and empty output structure that reuses the same shape. While this should
@@ -461,6 +470,9 @@ export class RestXmlProtocol extends RestXmlProtocolClient {
     }
   }
 
+  /**
+   * @public
+   */
   public endpointOperation(
     args: EndpointOperationCommandInput,
     options?: __HttpHandlerOptions
@@ -490,6 +502,9 @@ export class RestXmlProtocol extends RestXmlProtocolClient {
     }
   }
 
+  /**
+   * @public
+   */
   public endpointWithHostLabelHeaderOperation(
     args: EndpointWithHostLabelHeaderOperationCommandInput,
     options?: __HttpHandlerOptions
@@ -519,6 +534,9 @@ export class RestXmlProtocol extends RestXmlProtocolClient {
     }
   }
 
+  /**
+   * @public
+   */
   public endpointWithHostLabelOperation(
     args: EndpointWithHostLabelOperationCommandInput,
     options?: __HttpHandlerOptions
@@ -549,6 +567,7 @@ export class RestXmlProtocol extends RestXmlProtocolClient {
   }
 
   /**
+   * @public
    * Flattened maps
    */
   public flattenedXmlMap(
@@ -581,6 +600,7 @@ export class RestXmlProtocol extends RestXmlProtocolClient {
   }
 
   /**
+   * @public
    * Flattened maps with @xmlName
    */
   public flattenedXmlMapWithXmlName(
@@ -613,6 +633,7 @@ export class RestXmlProtocol extends RestXmlProtocolClient {
   }
 
   /**
+   * @public
    * Flattened maps with @xmlNamespace and @xmlName
    */
   public flattenedXmlMapWithXmlNamespace(
@@ -644,6 +665,9 @@ export class RestXmlProtocol extends RestXmlProtocolClient {
     }
   }
 
+  /**
+   * @public
+   */
   public fractionalSeconds(
     args: FractionalSecondsCommandInput,
     options?: __HttpHandlerOptions
@@ -674,6 +698,7 @@ export class RestXmlProtocol extends RestXmlProtocolClient {
   }
 
   /**
+   * @public
    * This operation has three possible return values:
    *
    * 1. A successful response in the form of GreetingWithErrorsOutput
@@ -714,6 +739,7 @@ export class RestXmlProtocol extends RestXmlProtocolClient {
   }
 
   /**
+   * @public
    * This examples serializes a blob shape in the payload.
    *
    * In this example, no XML document is synthesized because the payload is
@@ -749,6 +775,7 @@ export class RestXmlProtocol extends RestXmlProtocolClient {
   }
 
   /**
+   * @public
    * This examples uses a `@mediaType` trait on the payload to force a custom
    * content-type to be serialized.
    */
@@ -782,6 +809,7 @@ export class RestXmlProtocol extends RestXmlProtocolClient {
   }
 
   /**
+   * @public
    * The following example serializes a payload that uses an XML name
    * on the member, changing the wrapper name.
    */
@@ -815,6 +843,7 @@ export class RestXmlProtocol extends RestXmlProtocolClient {
   }
 
   /**
+   * @public
    * This examples serializes a structure in the payload.
    *
    * Note that serializing a structure changes the wrapper element name
@@ -850,6 +879,7 @@ export class RestXmlProtocol extends RestXmlProtocolClient {
   }
 
   /**
+   * @public
    * The following example serializes a payload that uses an XML name,
    * changing the wrapper name.
    */
@@ -883,6 +913,7 @@ export class RestXmlProtocol extends RestXmlProtocolClient {
   }
 
   /**
+   * @public
    * The following example serializes a payload that uses an XML namespace.
    */
   public httpPayloadWithXmlNamespace(
@@ -915,6 +946,7 @@ export class RestXmlProtocol extends RestXmlProtocolClient {
   }
 
   /**
+   * @public
    * The following example serializes a payload that uses an XML namespace.
    */
   public httpPayloadWithXmlNamespaceAndPrefix(
@@ -947,6 +979,7 @@ export class RestXmlProtocol extends RestXmlProtocolClient {
   }
 
   /**
+   * @public
    * This examples adds headers to the input of a request and response by prefix.
    */
   public httpPrefixHeaders(
@@ -978,6 +1011,9 @@ export class RestXmlProtocol extends RestXmlProtocolClient {
     }
   }
 
+  /**
+   * @public
+   */
   public httpRequestWithFloatLabels(
     args: HttpRequestWithFloatLabelsCommandInput,
     options?: __HttpHandlerOptions
@@ -1007,6 +1043,9 @@ export class RestXmlProtocol extends RestXmlProtocolClient {
     }
   }
 
+  /**
+   * @public
+   */
   public httpRequestWithGreedyLabelInPath(
     args: HttpRequestWithGreedyLabelInPathCommandInput,
     options?: __HttpHandlerOptions
@@ -1037,6 +1076,7 @@ export class RestXmlProtocol extends RestXmlProtocolClient {
   }
 
   /**
+   * @public
    * The example tests how requests are serialized when there's no input
    * payload but there are HTTP labels.
    */
@@ -1070,6 +1110,7 @@ export class RestXmlProtocol extends RestXmlProtocolClient {
   }
 
   /**
+   * @public
    * The example tests how requests serialize different timestamp formats in the
    * URI path.
    */
@@ -1104,6 +1145,9 @@ export class RestXmlProtocol extends RestXmlProtocolClient {
     }
   }
 
+  /**
+   * @public
+   */
   public httpResponseCode(
     args: HttpResponseCodeCommandInput,
     options?: __HttpHandlerOptions
@@ -1134,6 +1178,7 @@ export class RestXmlProtocol extends RestXmlProtocolClient {
   }
 
   /**
+   * @public
    * This example ensures that query string bound request parameters are
    * serialized in the body of responses if the structure is used in both
    * the request and response.
@@ -1168,6 +1213,7 @@ export class RestXmlProtocol extends RestXmlProtocolClient {
   }
 
   /**
+   * @public
    * The example tests how requests and responses are serialized when there is
    * no input or output payload but there are HTTP header bindings.
    */
@@ -1200,6 +1246,9 @@ export class RestXmlProtocol extends RestXmlProtocolClient {
     }
   }
 
+  /**
+   * @public
+   */
   public nestedXmlMaps(
     args: NestedXmlMapsCommandInput,
     options?: __HttpHandlerOptions
@@ -1230,6 +1279,7 @@ export class RestXmlProtocol extends RestXmlProtocolClient {
   }
 
   /**
+   * @public
    * The example tests how requests and responses are serialized when there's
    * no request or response payload because the operation has no input or output.
    * While this should be rare, code generators must support this.
@@ -1264,6 +1314,7 @@ export class RestXmlProtocol extends RestXmlProtocolClient {
   }
 
   /**
+   * @public
    * The example tests how requests and responses are serialized when there's
    * no request or response payload because the operation has no input and the
    * output is empty. While this should be rare, code generators must support
@@ -1299,6 +1350,7 @@ export class RestXmlProtocol extends RestXmlProtocolClient {
   }
 
   /**
+   * @public
    * Null and empty headers are not sent over the wire.
    */
   public nullAndEmptyHeadersClient(
@@ -1331,6 +1383,7 @@ export class RestXmlProtocol extends RestXmlProtocolClient {
   }
 
   /**
+   * @public
    * Null and empty headers are not sent over the wire.
    */
   public nullAndEmptyHeadersServer(
@@ -1363,6 +1416,7 @@ export class RestXmlProtocol extends RestXmlProtocolClient {
   }
 
   /**
+   * @public
    * Omits null, but serializes empty string value.
    */
   public omitsNullSerializesEmptyString(
@@ -1395,6 +1449,7 @@ export class RestXmlProtocol extends RestXmlProtocolClient {
   }
 
   /**
+   * @public
    * Automatically adds idempotency tokens.
    */
   public queryIdempotencyTokenAutoFill(
@@ -1426,6 +1481,9 @@ export class RestXmlProtocol extends RestXmlProtocolClient {
     }
   }
 
+  /**
+   * @public
+   */
   public queryParamsAsStringListMap(
     args: QueryParamsAsStringListMapCommandInput,
     options?: __HttpHandlerOptions
@@ -1455,6 +1513,9 @@ export class RestXmlProtocol extends RestXmlProtocolClient {
     }
   }
 
+  /**
+   * @public
+   */
   public queryPrecedence(
     args: QueryPrecedenceCommandInput,
     options?: __HttpHandlerOptions
@@ -1485,6 +1546,7 @@ export class RestXmlProtocol extends RestXmlProtocolClient {
   }
 
   /**
+   * @public
    * Recursive shapes
    */
   public recursiveShapes(
@@ -1516,6 +1578,9 @@ export class RestXmlProtocol extends RestXmlProtocolClient {
     }
   }
 
+  /**
+   * @public
+   */
   public simpleScalarProperties(
     args: SimpleScalarPropertiesCommandInput,
     options?: __HttpHandlerOptions
@@ -1546,6 +1611,7 @@ export class RestXmlProtocol extends RestXmlProtocolClient {
   }
 
   /**
+   * @public
    * The example tests how timestamp request and response headers are serialized.
    */
   public timestampFormatHeaders(
@@ -1578,6 +1644,7 @@ export class RestXmlProtocol extends RestXmlProtocolClient {
   }
 
   /**
+   * @public
    * This example serializes an XML attributes on synthesized document.
    */
   public xmlAttributes(
@@ -1610,6 +1677,7 @@ export class RestXmlProtocol extends RestXmlProtocolClient {
   }
 
   /**
+   * @public
    * This example serializes an XML attributes on a document targeted by httpPayload.
    */
   public xmlAttributesOnPayload(
@@ -1642,6 +1710,7 @@ export class RestXmlProtocol extends RestXmlProtocolClient {
   }
 
   /**
+   * @public
    * Blobs are base64 encoded
    */
   public xmlBlobs(args: XmlBlobsCommandInput, options?: __HttpHandlerOptions): Promise<XmlBlobsCommandOutput>;
@@ -1668,6 +1737,7 @@ export class RestXmlProtocol extends RestXmlProtocolClient {
   }
 
   /**
+   * @public
    * Blobs are base64 encoded
    */
   public xmlEmptyBlobs(
@@ -1699,6 +1769,9 @@ export class RestXmlProtocol extends RestXmlProtocolClient {
     }
   }
 
+  /**
+   * @public
+   */
   public xmlEmptyLists(
     args: XmlEmptyListsCommandInput,
     options?: __HttpHandlerOptions
@@ -1728,6 +1801,9 @@ export class RestXmlProtocol extends RestXmlProtocolClient {
     }
   }
 
+  /**
+   * @public
+   */
   public xmlEmptyMaps(
     args: XmlEmptyMapsCommandInput,
     options?: __HttpHandlerOptions
@@ -1754,6 +1830,9 @@ export class RestXmlProtocol extends RestXmlProtocolClient {
     }
   }
 
+  /**
+   * @public
+   */
   public xmlEmptyStrings(
     args: XmlEmptyStringsCommandInput,
     options?: __HttpHandlerOptions
@@ -1784,6 +1863,7 @@ export class RestXmlProtocol extends RestXmlProtocolClient {
   }
 
   /**
+   * @public
    * This example serializes enums as top level properties, in lists, sets, and maps.
    */
   public xmlEnums(args: XmlEnumsCommandInput, options?: __HttpHandlerOptions): Promise<XmlEnumsCommandOutput>;
@@ -1810,6 +1890,7 @@ export class RestXmlProtocol extends RestXmlProtocolClient {
   }
 
   /**
+   * @public
    * This example serializes enums as top level properties, in lists, sets, and maps.
    */
   public xmlIntEnums(args: XmlIntEnumsCommandInput, options?: __HttpHandlerOptions): Promise<XmlIntEnumsCommandOutput>;
@@ -1836,6 +1917,7 @@ export class RestXmlProtocol extends RestXmlProtocolClient {
   }
 
   /**
+   * @public
    * This test case serializes XML lists for the following cases for both
    * input and output:
    *
@@ -1873,6 +1955,7 @@ export class RestXmlProtocol extends RestXmlProtocolClient {
   }
 
   /**
+   * @public
    * The example tests basic map serialization.
    */
   public xmlMaps(args: XmlMapsCommandInput, options?: __HttpHandlerOptions): Promise<XmlMapsCommandOutput>;
@@ -1898,6 +1981,9 @@ export class RestXmlProtocol extends RestXmlProtocolClient {
     }
   }
 
+  /**
+   * @public
+   */
   public xmlMapsXmlName(
     args: XmlMapsXmlNameCommandInput,
     options?: __HttpHandlerOptions
@@ -1927,6 +2013,9 @@ export class RestXmlProtocol extends RestXmlProtocolClient {
     }
   }
 
+  /**
+   * @public
+   */
   public xmlNamespaces(
     args: XmlNamespacesCommandInput,
     options?: __HttpHandlerOptions
@@ -1957,6 +2046,7 @@ export class RestXmlProtocol extends RestXmlProtocolClient {
   }
 
   /**
+   * @public
    * This tests how timestamps are serialized, including using the
    * default format of date-time and various @timestampFormat trait
    * values.
@@ -1990,6 +2080,9 @@ export class RestXmlProtocol extends RestXmlProtocolClient {
     }
   }
 
+  /**
+   * @public
+   */
   public xmlUnions(args: XmlUnionsCommandInput, options?: __HttpHandlerOptions): Promise<XmlUnionsCommandOutput>;
   public xmlUnions(args: XmlUnionsCommandInput, cb: (err: any, data?: XmlUnionsCommandOutput) => void): void;
   public xmlUnions(

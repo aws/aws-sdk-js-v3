@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticsearchServiceClient";
-import {
-  DescribeDomainAutoTunesRequest,
-  DescribeDomainAutoTunesRequestFilterSensitiveLog,
-  DescribeDomainAutoTunesResponse,
-  DescribeDomainAutoTunesResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeDomainAutoTunesRequest, DescribeDomainAutoTunesResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeDomainAutoTunesCommand,
   serializeAws_restJson1DescribeDomainAutoTunesCommand,
@@ -123,8 +118,8 @@ export class DescribeDomainAutoTunesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDomainAutoTunesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeDomainAutoTunesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

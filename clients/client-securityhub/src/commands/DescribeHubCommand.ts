@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeHubRequest,
-  DescribeHubRequestFilterSensitiveLog,
-  DescribeHubResponse,
-  DescribeHubResponseFilterSensitiveLog,
-} from "../models/models_2";
+import { DescribeHubRequest, DescribeHubResponse } from "../models/models_2";
 import {
   deserializeAws_restJson1DescribeHubCommand,
   serializeAws_restJson1DescribeHubCommand,
@@ -123,8 +118,8 @@ export class DescribeHubCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeHubRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeHubResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

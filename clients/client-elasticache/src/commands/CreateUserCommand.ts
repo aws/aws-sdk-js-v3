@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
-import {
-  CreateUserMessage,
-  CreateUserMessageFilterSensitiveLog,
-  User,
-  UserFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateUserMessage, User } from "../models/models_0";
 import { deserializeAws_queryCreateUserCommand, serializeAws_queryCreateUserCommand } from "../protocols/Aws_query";
 
 /**
@@ -123,8 +118,8 @@ export class CreateUserCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateUserMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: UserFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

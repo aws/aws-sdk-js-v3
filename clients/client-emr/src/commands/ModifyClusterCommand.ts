@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
-import {
-  ModifyClusterInput,
-  ModifyClusterInputFilterSensitiveLog,
-  ModifyClusterOutput,
-  ModifyClusterOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { ModifyClusterInput, ModifyClusterOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1ModifyClusterCommand,
   serializeAws_json1_1ModifyClusterCommand,
@@ -113,8 +108,8 @@ export class ModifyClusterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyClusterInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifyClusterOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

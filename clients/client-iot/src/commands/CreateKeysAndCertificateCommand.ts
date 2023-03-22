@@ -16,7 +16,6 @@ import {
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import {
   CreateKeysAndCertificateRequest,
-  CreateKeysAndCertificateRequestFilterSensitiveLog,
   CreateKeysAndCertificateResponse,
   CreateKeysAndCertificateResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -128,7 +127,7 @@ export class CreateKeysAndCertificateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateKeysAndCertificateRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: CreateKeysAndCertificateResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

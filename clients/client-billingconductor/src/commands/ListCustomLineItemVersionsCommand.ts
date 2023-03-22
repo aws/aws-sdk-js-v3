@@ -16,7 +16,6 @@ import {
 import { BillingconductorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BillingconductorClient";
 import {
   ListCustomLineItemVersionsInput,
-  ListCustomLineItemVersionsInputFilterSensitiveLog,
   ListCustomLineItemVersionsOutput,
   ListCustomLineItemVersionsOutputFilterSensitiveLog,
 } from "../models/models_0";
@@ -122,7 +121,7 @@ export class ListCustomLineItemVersionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListCustomLineItemVersionsInputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListCustomLineItemVersionsOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

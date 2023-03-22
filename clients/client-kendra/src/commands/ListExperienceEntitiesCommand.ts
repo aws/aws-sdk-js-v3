@@ -16,7 +16,6 @@ import {
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
 import {
   ListExperienceEntitiesRequest,
-  ListExperienceEntitiesRequestFilterSensitiveLog,
   ListExperienceEntitiesResponse,
   ListExperienceEntitiesResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -131,7 +130,7 @@ export class ListExperienceEntitiesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListExperienceEntitiesRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListExperienceEntitiesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

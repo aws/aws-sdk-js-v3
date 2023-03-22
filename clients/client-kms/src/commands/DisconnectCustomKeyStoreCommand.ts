@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
-import {
-  DisconnectCustomKeyStoreRequest,
-  DisconnectCustomKeyStoreRequestFilterSensitiveLog,
-  DisconnectCustomKeyStoreResponse,
-  DisconnectCustomKeyStoreResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DisconnectCustomKeyStoreRequest, DisconnectCustomKeyStoreResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DisconnectCustomKeyStoreCommand,
   serializeAws_json1_1DisconnectCustomKeyStoreCommand,
@@ -213,8 +208,8 @@ export class DisconnectCustomKeyStoreCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisconnectCustomKeyStoreRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisconnectCustomKeyStoreResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

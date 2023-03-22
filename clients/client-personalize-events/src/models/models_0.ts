@@ -262,13 +262,6 @@ export interface PutUsersRequest {
 /**
  * @internal
  */
-export const MetricAttributionFilterSensitiveLog = (obj: MetricAttribution): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const EventFilterSensitiveLog = (obj: Event): any => ({
   ...obj,
   ...(obj.itemId && { itemId: SENSITIVE_STRING }),

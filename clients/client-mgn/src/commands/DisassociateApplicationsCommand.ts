@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
-import {
-  DisassociateApplicationsRequest,
-  DisassociateApplicationsRequestFilterSensitiveLog,
-  DisassociateApplicationsResponse,
-  DisassociateApplicationsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DisassociateApplicationsRequest, DisassociateApplicationsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DisassociateApplicationsCommand,
   serializeAws_restJson1DisassociateApplicationsCommand,
@@ -116,8 +111,8 @@ export class DisassociateApplicationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateApplicationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateApplicationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

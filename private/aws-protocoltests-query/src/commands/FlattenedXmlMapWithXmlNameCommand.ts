@@ -12,10 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  FlattenedXmlMapWithXmlNameOutput,
-  FlattenedXmlMapWithXmlNameOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { FlattenedXmlMapWithXmlNameOutput } from "../models/models_0";
 import {
   deserializeAws_queryFlattenedXmlMapWithXmlNameCommand,
   serializeAws_queryFlattenedXmlMapWithXmlNameCommand,
@@ -23,15 +20,20 @@ import {
 import { QueryProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QueryProtocolClient";
 
 /**
+ * @public
+ *
  * The input for {@link FlattenedXmlMapWithXmlNameCommand}.
  */
 export interface FlattenedXmlMapWithXmlNameCommandInput {}
 /**
+ * @public
+ *
  * The output of {@link FlattenedXmlMapWithXmlNameCommand}.
  */
 export interface FlattenedXmlMapWithXmlNameCommandOutput extends FlattenedXmlMapWithXmlNameOutput, __MetadataBearer {}
 
 /**
+ * @public
  * Flattened maps with @xmlName
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -43,6 +45,8 @@ export interface FlattenedXmlMapWithXmlNameCommandOutput extends FlattenedXmlMap
  * const response = await client.send(command);
  * ```
  *
+ * @param FlattenedXmlMapWithXmlNameCommandInput - {@link FlattenedXmlMapWithXmlNameCommandInput}
+ * @returns {@link FlattenedXmlMapWithXmlNameCommandOutput}
  * @see {@link FlattenedXmlMapWithXmlNameCommandInput} for command's `input` shape.
  * @see {@link FlattenedXmlMapWithXmlNameCommandOutput} for command's `response` shape.
  * @see {@link QueryProtocolClientResolvedConfig | config} for QueryProtocolClient's `config` shape.
@@ -57,6 +61,9 @@ export class FlattenedXmlMapWithXmlNameCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: FlattenedXmlMapWithXmlNameCommandInput) {
     // Start section: command_constructor
     super();
@@ -82,8 +89,8 @@ export class FlattenedXmlMapWithXmlNameCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: FlattenedXmlMapWithXmlNameOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -93,10 +100,16 @@ export class FlattenedXmlMapWithXmlNameCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: FlattenedXmlMapWithXmlNameCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryFlattenedXmlMapWithXmlNameCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

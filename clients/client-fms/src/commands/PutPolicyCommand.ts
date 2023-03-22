@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient";
-import {
-  PutPolicyRequest,
-  PutPolicyRequestFilterSensitiveLog,
-  PutPolicyResponse,
-  PutPolicyResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { PutPolicyRequest, PutPolicyResponse } from "../models/models_0";
 import { deserializeAws_json1_1PutPolicyCommand, serializeAws_json1_1PutPolicyCommand } from "../protocols/Aws_json1_1";
 
 /**
@@ -156,8 +151,8 @@ export class PutPolicyCommand extends $Command<PutPolicyCommandInput, PutPolicyC
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutPolicyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

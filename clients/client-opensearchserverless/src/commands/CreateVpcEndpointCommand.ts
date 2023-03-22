@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateVpcEndpointRequest,
-  CreateVpcEndpointRequestFilterSensitiveLog,
-  CreateVpcEndpointResponse,
-  CreateVpcEndpointResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateVpcEndpointRequest, CreateVpcEndpointResponse } from "../models/models_0";
 import {
   OpenSearchServerlessClientResolvedConfig,
   ServiceInputTypes,
@@ -124,8 +119,8 @@ export class CreateVpcEndpointCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateVpcEndpointRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateVpcEndpointResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
-import {
-  RegisterTaskDefinitionRequest,
-  RegisterTaskDefinitionRequestFilterSensitiveLog,
-  RegisterTaskDefinitionResponse,
-  RegisterTaskDefinitionResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { RegisterTaskDefinitionRequest, RegisterTaskDefinitionResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1RegisterTaskDefinitionCommand,
   serializeAws_json1_1RegisterTaskDefinitionCommand,
@@ -189,8 +184,8 @@ export class RegisterTaskDefinitionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RegisterTaskDefinitionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RegisterTaskDefinitionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

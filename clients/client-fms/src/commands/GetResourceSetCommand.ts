@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient";
-import {
-  GetResourceSetRequest,
-  GetResourceSetRequestFilterSensitiveLog,
-  GetResourceSetResponse,
-  GetResourceSetResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetResourceSetRequest, GetResourceSetResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GetResourceSetCommand,
   serializeAws_json1_1GetResourceSetCommand,
@@ -124,8 +119,8 @@ export class GetResourceSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetResourceSetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetResourceSetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

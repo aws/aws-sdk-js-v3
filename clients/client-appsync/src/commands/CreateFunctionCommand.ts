@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
-import {
-  CreateFunctionRequest,
-  CreateFunctionRequestFilterSensitiveLog,
-  CreateFunctionResponse,
-  CreateFunctionResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateFunctionRequest, CreateFunctionResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateFunctionCommand,
   serializeAws_restJson1CreateFunctionCommand,
@@ -121,8 +116,8 @@ export class CreateFunctionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateFunctionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateFunctionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

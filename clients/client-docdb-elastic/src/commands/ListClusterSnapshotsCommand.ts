@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DocDBElasticClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBElasticClient";
-import {
-  ListClusterSnapshotsInput,
-  ListClusterSnapshotsInputFilterSensitiveLog,
-  ListClusterSnapshotsOutput,
-  ListClusterSnapshotsOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { ListClusterSnapshotsInput, ListClusterSnapshotsOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1ListClusterSnapshotsCommand,
   serializeAws_restJson1ListClusterSnapshotsCommand,
@@ -119,8 +114,8 @@ export class ListClusterSnapshotsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListClusterSnapshotsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListClusterSnapshotsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

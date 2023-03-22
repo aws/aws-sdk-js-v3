@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { HttpPayloadTraitsInputOutput, HttpPayloadTraitsInputOutputFilterSensitiveLog } from "../models/models_0";
+import { HttpPayloadTraitsInputOutput } from "../models/models_0";
 import {
   deserializeAws_restXmlHttpPayloadTraitsCommand,
   serializeAws_restXmlHttpPayloadTraitsCommand,
@@ -20,15 +20,20 @@ import {
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 
 /**
+ * @public
+ *
  * The input for {@link HttpPayloadTraitsCommand}.
  */
 export interface HttpPayloadTraitsCommandInput extends HttpPayloadTraitsInputOutput {}
 /**
+ * @public
+ *
  * The output of {@link HttpPayloadTraitsCommand}.
  */
 export interface HttpPayloadTraitsCommandOutput extends HttpPayloadTraitsInputOutput, __MetadataBearer {}
 
 /**
+ * @public
  * This examples serializes a blob shape in the payload.
  *
  * In this example, no XML document is synthesized because the payload is
@@ -43,6 +48,8 @@ export interface HttpPayloadTraitsCommandOutput extends HttpPayloadTraitsInputOu
  * const response = await client.send(command);
  * ```
  *
+ * @param HttpPayloadTraitsCommandInput - {@link HttpPayloadTraitsCommandInput}
+ * @returns {@link HttpPayloadTraitsCommandOutput}
  * @see {@link HttpPayloadTraitsCommandInput} for command's `input` shape.
  * @see {@link HttpPayloadTraitsCommandOutput} for command's `response` shape.
  * @see {@link RestXmlProtocolClientResolvedConfig | config} for RestXmlProtocolClient's `config` shape.
@@ -57,6 +64,9 @@ export class HttpPayloadTraitsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: HttpPayloadTraitsCommandInput) {
     // Start section: command_constructor
     super();
@@ -82,8 +92,8 @@ export class HttpPayloadTraitsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: HttpPayloadTraitsInputOutputFilterSensitiveLog,
-      outputFilterSensitiveLog: HttpPayloadTraitsInputOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -93,10 +103,16 @@ export class HttpPayloadTraitsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: HttpPayloadTraitsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlHttpPayloadTraitsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<HttpPayloadTraitsCommandOutput> {
     return deserializeAws_restXmlHttpPayloadTraitsCommand(output, context);
   }

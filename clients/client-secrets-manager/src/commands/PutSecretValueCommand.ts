@@ -17,7 +17,6 @@ import {
   PutSecretValueRequest,
   PutSecretValueRequestFilterSensitiveLog,
   PutSecretValueResponse,
-  PutSecretValueResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1PutSecretValueCommand,
@@ -199,7 +198,7 @@ export class PutSecretValueCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: PutSecretValueRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutSecretValueResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

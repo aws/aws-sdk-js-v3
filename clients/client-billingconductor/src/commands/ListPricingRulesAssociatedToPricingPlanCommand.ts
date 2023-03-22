@@ -16,9 +16,7 @@ import {
 import { BillingconductorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BillingconductorClient";
 import {
   ListPricingRulesAssociatedToPricingPlanInput,
-  ListPricingRulesAssociatedToPricingPlanInputFilterSensitiveLog,
   ListPricingRulesAssociatedToPricingPlanOutput,
-  ListPricingRulesAssociatedToPricingPlanOutputFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1ListPricingRulesAssociatedToPricingPlanCommand,
@@ -137,8 +135,8 @@ export class ListPricingRulesAssociatedToPricingPlanCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListPricingRulesAssociatedToPricingPlanInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListPricingRulesAssociatedToPricingPlanOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

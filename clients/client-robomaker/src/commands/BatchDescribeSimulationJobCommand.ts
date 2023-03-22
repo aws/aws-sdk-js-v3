@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  BatchDescribeSimulationJobRequest,
-  BatchDescribeSimulationJobRequestFilterSensitiveLog,
-  BatchDescribeSimulationJobResponse,
-  BatchDescribeSimulationJobResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { BatchDescribeSimulationJobRequest, BatchDescribeSimulationJobResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1BatchDescribeSimulationJobCommand,
   serializeAws_restJson1BatchDescribeSimulationJobCommand,
@@ -120,8 +115,8 @@ export class BatchDescribeSimulationJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchDescribeSimulationJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchDescribeSimulationJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

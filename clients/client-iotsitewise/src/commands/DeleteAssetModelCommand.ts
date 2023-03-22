@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
-import {
-  DeleteAssetModelRequest,
-  DeleteAssetModelRequestFilterSensitiveLog,
-  DeleteAssetModelResponse,
-  DeleteAssetModelResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteAssetModelRequest, DeleteAssetModelResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteAssetModelCommand,
   serializeAws_restJson1DeleteAssetModelCommand,
@@ -131,8 +126,8 @@ export class DeleteAssetModelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAssetModelRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteAssetModelResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

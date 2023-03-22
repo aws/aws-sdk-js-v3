@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LicenseManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LicenseManagerClient";
-import {
-  GetLicenseUsageRequest,
-  GetLicenseUsageRequestFilterSensitiveLog,
-  GetLicenseUsageResponse,
-  GetLicenseUsageResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetLicenseUsageRequest, GetLicenseUsageResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GetLicenseUsageCommand,
   serializeAws_json1_1GetLicenseUsageCommand,
@@ -126,8 +121,8 @@ export class GetLicenseUsageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetLicenseUsageRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetLicenseUsageResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

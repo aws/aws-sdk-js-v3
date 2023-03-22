@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
-import {
-  UpdateSubscriptionDefinitionRequest,
-  UpdateSubscriptionDefinitionRequestFilterSensitiveLog,
-  UpdateSubscriptionDefinitionResponse,
-  UpdateSubscriptionDefinitionResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateSubscriptionDefinitionRequest, UpdateSubscriptionDefinitionResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateSubscriptionDefinitionCommand,
   serializeAws_restJson1UpdateSubscriptionDefinitionCommand,
@@ -112,8 +107,8 @@ export class UpdateSubscriptionDefinitionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateSubscriptionDefinitionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateSubscriptionDefinitionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

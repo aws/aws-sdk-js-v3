@@ -17,7 +17,6 @@ import {
   RegisterDomainRequest,
   RegisterDomainRequestFilterSensitiveLog,
   RegisterDomainResponse,
-  RegisterDomainResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1RegisterDomainCommand,
@@ -166,7 +165,7 @@ export class RegisterDomainCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: RegisterDomainRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RegisterDomainResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

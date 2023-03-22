@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  GetTopicRuleRequest,
-  GetTopicRuleRequestFilterSensitiveLog,
-  GetTopicRuleResponse,
-  GetTopicRuleResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { GetTopicRuleRequest, GetTopicRuleResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1GetTopicRuleCommand,
   serializeAws_restJson1GetTopicRuleCommand,
@@ -118,8 +113,8 @@ export class GetTopicRuleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetTopicRuleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetTopicRuleResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

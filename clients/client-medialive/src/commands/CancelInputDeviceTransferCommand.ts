@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
-import {
-  CancelInputDeviceTransferRequest,
-  CancelInputDeviceTransferRequestFilterSensitiveLog,
-  CancelInputDeviceTransferResponse,
-  CancelInputDeviceTransferResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { CancelInputDeviceTransferRequest, CancelInputDeviceTransferResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1CancelInputDeviceTransferCommand,
   serializeAws_restJson1CancelInputDeviceTransferCommand,
@@ -134,8 +129,8 @@ export class CancelInputDeviceTransferCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelInputDeviceTransferRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CancelInputDeviceTransferResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

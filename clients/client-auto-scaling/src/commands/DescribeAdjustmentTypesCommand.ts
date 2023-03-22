@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import { DescribeAdjustmentTypesAnswer, DescribeAdjustmentTypesAnswerFilterSensitiveLog } from "../models/models_0";
+import { DescribeAdjustmentTypesAnswer } from "../models/models_0";
 import {
   deserializeAws_queryDescribeAdjustmentTypesCommand,
   serializeAws_queryDescribeAdjustmentTypesCommand,
@@ -149,8 +149,8 @@ export class DescribeAdjustmentTypesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: DescribeAdjustmentTypesAnswerFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

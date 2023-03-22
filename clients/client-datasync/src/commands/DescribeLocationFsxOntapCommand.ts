@@ -16,7 +16,6 @@ import {
 import { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient";
 import {
   DescribeLocationFsxOntapRequest,
-  DescribeLocationFsxOntapRequestFilterSensitiveLog,
   DescribeLocationFsxOntapResponse,
   DescribeLocationFsxOntapResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -117,7 +116,7 @@ export class DescribeLocationFsxOntapCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeLocationFsxOntapRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeLocationFsxOntapResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

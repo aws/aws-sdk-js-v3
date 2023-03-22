@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EvidentlyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EvidentlyClient";
-import {
-  UpdateProjectDataDeliveryRequest,
-  UpdateProjectDataDeliveryRequestFilterSensitiveLog,
-  UpdateProjectDataDeliveryResponse,
-  UpdateProjectDataDeliveryResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateProjectDataDeliveryRequest, UpdateProjectDataDeliveryResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateProjectDataDeliveryCommand,
   serializeAws_restJson1UpdateProjectDataDeliveryCommand,
@@ -126,8 +121,8 @@ export class UpdateProjectDataDeliveryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateProjectDataDeliveryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateProjectDataDeliveryResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

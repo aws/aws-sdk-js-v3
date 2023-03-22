@@ -15,7 +15,6 @@ import {
 
 import {
   DescribeMaintenanceWindowsRequest,
-  DescribeMaintenanceWindowsRequestFilterSensitiveLog,
   DescribeMaintenanceWindowsResult,
   DescribeMaintenanceWindowsResultFilterSensitiveLog,
 } from "../models/models_0";
@@ -110,7 +109,7 @@ export class DescribeMaintenanceWindowsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeMaintenanceWindowsRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeMaintenanceWindowsResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

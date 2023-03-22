@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import {
-  DisassociatePhoneNumberFromUserRequest,
-  DisassociatePhoneNumberFromUserRequestFilterSensitiveLog,
-  DisassociatePhoneNumberFromUserResponse,
-  DisassociatePhoneNumberFromUserResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DisassociatePhoneNumberFromUserRequest, DisassociatePhoneNumberFromUserResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DisassociatePhoneNumberFromUserCommand,
   serializeAws_restJson1DisassociatePhoneNumberFromUserCommand,
@@ -130,8 +125,8 @@ export class DisassociatePhoneNumberFromUserCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociatePhoneNumberFromUserRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisassociatePhoneNumberFromUserResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -121,7 +121,7 @@ export class DeactivateUserCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: DeactivateUserRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

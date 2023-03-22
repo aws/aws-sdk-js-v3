@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaTailorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaTailorClient";
-import {
-  PutPlaybackConfigurationRequest,
-  PutPlaybackConfigurationRequestFilterSensitiveLog,
-  PutPlaybackConfigurationResponse,
-  PutPlaybackConfigurationResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { PutPlaybackConfigurationRequest, PutPlaybackConfigurationResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1PutPlaybackConfigurationCommand,
   serializeAws_restJson1PutPlaybackConfigurationCommand,
@@ -107,8 +102,8 @@ export class PutPlaybackConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutPlaybackConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutPlaybackConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

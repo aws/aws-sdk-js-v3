@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import {
-  UploadSigningCertificateRequest,
-  UploadSigningCertificateRequestFilterSensitiveLog,
-  UploadSigningCertificateResponse,
-  UploadSigningCertificateResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { UploadSigningCertificateRequest, UploadSigningCertificateResponse } from "../models/models_1";
 import {
   deserializeAws_queryUploadSigningCertificateCommand,
   serializeAws_queryUploadSigningCertificateCommand,
@@ -176,8 +171,8 @@ export class UploadSigningCertificateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UploadSigningCertificateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UploadSigningCertificateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

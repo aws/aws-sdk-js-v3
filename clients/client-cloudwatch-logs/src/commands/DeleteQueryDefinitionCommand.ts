@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
-import {
-  DeleteQueryDefinitionRequest,
-  DeleteQueryDefinitionRequestFilterSensitiveLog,
-  DeleteQueryDefinitionResponse,
-  DeleteQueryDefinitionResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteQueryDefinitionRequest, DeleteQueryDefinitionResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteQueryDefinitionCommand,
   serializeAws_json1_1DeleteQueryDefinitionCommand,
@@ -120,8 +115,8 @@ export class DeleteQueryDefinitionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteQueryDefinitionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteQueryDefinitionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

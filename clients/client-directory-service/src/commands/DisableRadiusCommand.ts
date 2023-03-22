@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
-import {
-  DisableRadiusRequest,
-  DisableRadiusRequestFilterSensitiveLog,
-  DisableRadiusResult,
-  DisableRadiusResultFilterSensitiveLog,
-} from "../models/models_0";
+import { DisableRadiusRequest, DisableRadiusResult } from "../models/models_0";
 import {
   deserializeAws_json1_1DisableRadiusCommand,
   serializeAws_json1_1DisableRadiusCommand,
@@ -115,8 +110,8 @@ export class DisableRadiusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisableRadiusRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisableRadiusResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

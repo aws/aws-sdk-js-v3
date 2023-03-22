@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
-import {
-  StartBulkDeploymentRequest,
-  StartBulkDeploymentRequestFilterSensitiveLog,
-  StartBulkDeploymentResponse,
-  StartBulkDeploymentResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { StartBulkDeploymentRequest, StartBulkDeploymentResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1StartBulkDeploymentCommand,
   serializeAws_restJson1StartBulkDeploymentCommand,
@@ -110,8 +105,8 @@ export class StartBulkDeploymentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartBulkDeploymentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartBulkDeploymentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient";
-import {
-  GetAdminAccountRequest,
-  GetAdminAccountRequestFilterSensitiveLog,
-  GetAdminAccountResponse,
-  GetAdminAccountResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetAdminAccountRequest, GetAdminAccountResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GetAdminAccountCommand,
   serializeAws_json1_1GetAdminAccountCommand,
@@ -122,8 +117,8 @@ export class GetAdminAccountCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAdminAccountRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetAdminAccountResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

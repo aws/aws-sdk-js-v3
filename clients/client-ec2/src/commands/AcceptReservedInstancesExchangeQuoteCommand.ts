@@ -16,9 +16,7 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   AcceptReservedInstancesExchangeQuoteRequest,
-  AcceptReservedInstancesExchangeQuoteRequestFilterSensitiveLog,
   AcceptReservedInstancesExchangeQuoteResult,
-  AcceptReservedInstancesExchangeQuoteResultFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_ec2AcceptReservedInstancesExchangeQuoteCommand,
@@ -109,8 +107,8 @@ export class AcceptReservedInstancesExchangeQuoteCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AcceptReservedInstancesExchangeQuoteRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AcceptReservedInstancesExchangeQuoteResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

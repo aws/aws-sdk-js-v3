@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
-import {
-  GetPlaceRequest,
-  GetPlaceRequestFilterSensitiveLog,
-  GetPlaceResponse,
-  GetPlaceResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetPlaceRequest, GetPlaceResponse, GetPlaceResponseFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1GetPlaceCommand,
   serializeAws_restJson1GetPlaceCommand,
@@ -137,7 +132,7 @@ export class GetPlaceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetPlaceRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetPlaceResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

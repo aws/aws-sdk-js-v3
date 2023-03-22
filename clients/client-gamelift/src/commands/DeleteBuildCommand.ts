@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import { DeleteBuildInput, DeleteBuildInputFilterSensitiveLog } from "../models/models_0";
+import { DeleteBuildInput } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteBuildCommand,
   serializeAws_json1_1DeleteBuildCommand,
@@ -132,8 +132,8 @@ export class DeleteBuildCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteBuildInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

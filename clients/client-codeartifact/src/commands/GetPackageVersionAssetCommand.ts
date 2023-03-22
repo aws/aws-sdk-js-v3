@@ -19,7 +19,6 @@ import {
 import { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient";
 import {
   GetPackageVersionAssetRequest,
-  GetPackageVersionAssetRequestFilterSensitiveLog,
   GetPackageVersionAssetResult,
   GetPackageVersionAssetResultFilterSensitiveLog,
 } from "../models/models_0";
@@ -144,7 +143,7 @@ export class GetPackageVersionAssetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetPackageVersionAssetRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetPackageVersionAssetResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LookoutEquipmentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutEquipmentClient";
-import {
-  ListSensorStatisticsRequest,
-  ListSensorStatisticsRequestFilterSensitiveLog,
-  ListSensorStatisticsResponse,
-  ListSensorStatisticsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListSensorStatisticsRequest, ListSensorStatisticsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_0ListSensorStatisticsCommand,
   serializeAws_json1_0ListSensorStatisticsCommand,
@@ -128,8 +123,8 @@ export class ListSensorStatisticsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListSensorStatisticsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListSensorStatisticsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

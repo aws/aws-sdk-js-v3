@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import {
-  ListSAMLProvidersRequest,
-  ListSAMLProvidersRequestFilterSensitiveLog,
-  ListSAMLProvidersResponse,
-  ListSAMLProvidersResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListSAMLProvidersRequest, ListSAMLProvidersResponse } from "../models/models_0";
 import {
   deserializeAws_queryListSAMLProvidersCommand,
   serializeAws_queryListSAMLProvidersCommand,
@@ -116,8 +111,8 @@ export class ListSAMLProvidersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListSAMLProvidersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListSAMLProvidersResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

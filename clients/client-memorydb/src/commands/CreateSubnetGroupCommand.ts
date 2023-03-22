@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MemoryDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MemoryDBClient";
-import {
-  CreateSubnetGroupRequest,
-  CreateSubnetGroupRequestFilterSensitiveLog,
-  CreateSubnetGroupResponse,
-  CreateSubnetGroupResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateSubnetGroupRequest, CreateSubnetGroupResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateSubnetGroupCommand,
   serializeAws_json1_1CreateSubnetGroupCommand,
@@ -131,8 +126,8 @@ export class CreateSubnetGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateSubnetGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateSubnetGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

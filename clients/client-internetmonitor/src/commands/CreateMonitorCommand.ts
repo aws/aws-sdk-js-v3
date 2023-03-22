@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { InternetMonitorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InternetMonitorClient";
-import {
-  CreateMonitorInput,
-  CreateMonitorInputFilterSensitiveLog,
-  CreateMonitorOutput,
-  CreateMonitorOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateMonitorInput, CreateMonitorOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateMonitorCommand,
   serializeAws_restJson1CreateMonitorCommand,
@@ -125,8 +120,8 @@ export class CreateMonitorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateMonitorInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateMonitorOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

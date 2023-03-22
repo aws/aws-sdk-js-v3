@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetQueueUrlRequest,
-  GetQueueUrlRequestFilterSensitiveLog,
-  GetQueueUrlResult,
-  GetQueueUrlResultFilterSensitiveLog,
-} from "../models/models_0";
+import { GetQueueUrlRequest, GetQueueUrlResult } from "../models/models_0";
 import { deserializeAws_queryGetQueueUrlCommand, serializeAws_queryGetQueueUrlCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SQSClientResolvedConfig } from "../SQSClient";
 
@@ -110,8 +105,8 @@ export class GetQueueUrlCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetQueueUrlRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetQueueUrlResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

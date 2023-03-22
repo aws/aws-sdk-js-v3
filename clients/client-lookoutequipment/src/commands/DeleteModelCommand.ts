@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LookoutEquipmentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutEquipmentClient";
-import { DeleteModelRequest, DeleteModelRequestFilterSensitiveLog } from "../models/models_0";
+import { DeleteModelRequest } from "../models/models_0";
 import {
   deserializeAws_json1_0DeleteModelCommand,
   serializeAws_json1_0DeleteModelCommand,
@@ -125,8 +125,8 @@ export class DeleteModelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteModelRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

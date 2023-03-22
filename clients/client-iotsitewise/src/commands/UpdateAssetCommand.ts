@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
-import {
-  UpdateAssetRequest,
-  UpdateAssetRequestFilterSensitiveLog,
-  UpdateAssetResponse,
-  UpdateAssetResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateAssetRequest, UpdateAssetResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateAssetCommand,
   serializeAws_restJson1UpdateAssetCommand,
@@ -129,8 +124,8 @@ export class UpdateAssetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateAssetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateAssetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

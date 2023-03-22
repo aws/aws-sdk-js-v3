@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  PutAccountSendingAttributesRequest,
-  PutAccountSendingAttributesRequestFilterSensitiveLog,
-  PutAccountSendingAttributesResponse,
-  PutAccountSendingAttributesResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { PutAccountSendingAttributesRequest, PutAccountSendingAttributesResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1PutAccountSendingAttributesCommand,
   serializeAws_restJson1PutAccountSendingAttributesCommand,
@@ -115,8 +110,8 @@ export class PutAccountSendingAttributesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutAccountSendingAttributesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutAccountSendingAttributesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import {
-  GetBucketsRequest,
-  GetBucketsRequestFilterSensitiveLog,
-  GetBucketsResult,
-  GetBucketsResultFilterSensitiveLog,
-} from "../models/models_0";
+import { GetBucketsRequest, GetBucketsResult } from "../models/models_0";
 import {
   deserializeAws_json1_1GetBucketsCommand,
   serializeAws_json1_1GetBucketsCommand,
@@ -132,8 +127,8 @@ export class GetBucketsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetBucketsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetBucketsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

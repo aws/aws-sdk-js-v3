@@ -12,15 +12,19 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { XmlUnionsInputOutput, XmlUnionsInputOutputFilterSensitiveLog } from "../models/models_0";
+import { XmlUnionsInputOutput } from "../models/models_0";
 import { deserializeAws_restXmlXmlUnionsCommand, serializeAws_restXmlXmlUnionsCommand } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 
 /**
+ * @public
+ *
  * The input for {@link XmlUnionsCommand}.
  */
 export interface XmlUnionsCommandInput extends XmlUnionsInputOutput {}
 /**
+ * @public
+ *
  * The output of {@link XmlUnionsCommand}.
  */
 export interface XmlUnionsCommandOutput extends XmlUnionsInputOutput, __MetadataBearer {}
@@ -33,6 +37,9 @@ export class XmlUnionsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: XmlUnionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -58,8 +65,8 @@ export class XmlUnionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: XmlUnionsInputOutputFilterSensitiveLog,
-      outputFilterSensitiveLog: XmlUnionsInputOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -69,10 +76,16 @@ export class XmlUnionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: XmlUnionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlXmlUnionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<XmlUnionsCommandOutput> {
     return deserializeAws_restXmlXmlUnionsCommand(output, context);
   }

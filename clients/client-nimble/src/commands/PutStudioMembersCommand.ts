@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  PutStudioMembersRequest,
-  PutStudioMembersRequestFilterSensitiveLog,
-  PutStudioMembersResponse,
-  PutStudioMembersResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { PutStudioMembersRequest, PutStudioMembersResponse } from "../models/models_0";
 import { NimbleClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NimbleClient";
 import {
   deserializeAws_restJson1PutStudioMembersCommand,
@@ -131,8 +126,8 @@ export class PutStudioMembersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutStudioMembersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutStudioMembersResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

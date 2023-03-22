@@ -16,9 +16,7 @@ import {
 import { ComputeOptimizerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComputeOptimizerClient";
 import {
   GetEC2RecommendationProjectedMetricsRequest,
-  GetEC2RecommendationProjectedMetricsRequestFilterSensitiveLog,
   GetEC2RecommendationProjectedMetricsResponse,
-  GetEC2RecommendationProjectedMetricsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_0GetEC2RecommendationProjectedMetricsCommand,
@@ -141,8 +139,8 @@ export class GetEC2RecommendationProjectedMetricsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetEC2RecommendationProjectedMetricsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetEC2RecommendationProjectedMetricsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -15,7 +15,6 @@ import {
 
 import {
   GetStreamingImageRequest,
-  GetStreamingImageRequestFilterSensitiveLog,
   GetStreamingImageResponse,
   GetStreamingImageResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -131,7 +130,7 @@ export class GetStreamingImageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetStreamingImageRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetStreamingImageResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

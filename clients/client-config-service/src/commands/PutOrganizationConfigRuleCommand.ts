@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import {
-  PutOrganizationConfigRuleRequest,
-  PutOrganizationConfigRuleRequestFilterSensitiveLog,
-  PutOrganizationConfigRuleResponse,
-  PutOrganizationConfigRuleResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { PutOrganizationConfigRuleRequest, PutOrganizationConfigRuleResponse } from "../models/models_1";
 import {
   deserializeAws_json1_1PutOrganizationConfigRuleCommand,
   serializeAws_json1_1PutOrganizationConfigRuleCommand,
@@ -233,8 +228,8 @@ export class PutOrganizationConfigRuleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutOrganizationConfigRuleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutOrganizationConfigRuleResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

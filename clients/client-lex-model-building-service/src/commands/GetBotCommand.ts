@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../LexModelBuildingServiceClient";
-import {
-  GetBotRequest,
-  GetBotRequestFilterSensitiveLog,
-  GetBotResponse,
-  GetBotResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetBotRequest, GetBotResponse } from "../models/models_0";
 import { deserializeAws_restJson1GetBotCommand, serializeAws_restJson1GetBotCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -181,8 +176,8 @@ export class GetBotCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetBotRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetBotResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

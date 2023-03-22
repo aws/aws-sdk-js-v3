@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreatePackageRequest,
-  CreatePackageRequestFilterSensitiveLog,
-  CreatePackageResponse,
-  CreatePackageResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreatePackageRequest, CreatePackageResponse } from "../models/models_0";
 import { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
 import {
   deserializeAws_restJson1CreatePackageCommand,
@@ -127,8 +122,8 @@ export class CreatePackageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreatePackageRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreatePackageResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

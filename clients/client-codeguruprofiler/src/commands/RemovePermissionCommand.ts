@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeGuruProfilerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeGuruProfilerClient";
-import {
-  RemovePermissionRequest,
-  RemovePermissionRequestFilterSensitiveLog,
-  RemovePermissionResponse,
-  RemovePermissionResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { RemovePermissionRequest, RemovePermissionResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1RemovePermissionCommand,
   serializeAws_restJson1RemovePermissionCommand,
@@ -133,8 +128,8 @@ export class RemovePermissionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RemovePermissionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RemovePermissionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

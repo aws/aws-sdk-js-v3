@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MigrationHubStrategyClient";
-import {
-  ListImportFileTaskRequest,
-  ListImportFileTaskRequestFilterSensitiveLog,
-  ListImportFileTaskResponse,
-  ListImportFileTaskResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListImportFileTaskRequest, ListImportFileTaskResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListImportFileTaskCommand,
   serializeAws_restJson1ListImportFileTaskCommand,
@@ -124,8 +119,8 @@ export class ListImportFileTaskCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListImportFileTaskRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListImportFileTaskResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

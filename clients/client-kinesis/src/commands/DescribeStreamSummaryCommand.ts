@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { KinesisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisClient";
-import {
-  DescribeStreamSummaryInput,
-  DescribeStreamSummaryInputFilterSensitiveLog,
-  DescribeStreamSummaryOutput,
-  DescribeStreamSummaryOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeStreamSummaryInput, DescribeStreamSummaryOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeStreamSummaryCommand,
   serializeAws_json1_1DescribeStreamSummaryCommand,
@@ -136,8 +131,8 @@ export class DescribeStreamSummaryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeStreamSummaryInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeStreamSummaryOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

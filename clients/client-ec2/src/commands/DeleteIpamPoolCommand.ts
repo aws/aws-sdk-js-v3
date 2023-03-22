@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DeleteIpamPoolRequest,
-  DeleteIpamPoolRequestFilterSensitiveLog,
-  DeleteIpamPoolResult,
-  DeleteIpamPoolResultFilterSensitiveLog,
-} from "../models/models_2";
+import { DeleteIpamPoolRequest, DeleteIpamPoolResult } from "../models/models_2";
 import { deserializeAws_ec2DeleteIpamPoolCommand, serializeAws_ec2DeleteIpamPoolCommand } from "../protocols/Aws_ec2";
 
 /**
@@ -111,8 +106,8 @@ export class DeleteIpamPoolCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteIpamPoolRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteIpamPoolResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

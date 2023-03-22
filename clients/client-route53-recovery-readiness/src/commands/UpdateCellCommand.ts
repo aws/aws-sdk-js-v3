@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateCellRequest,
-  UpdateCellRequestFilterSensitiveLog,
-  UpdateCellResponse,
-  UpdateCellResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateCellRequest, UpdateCellResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateCellCommand,
   serializeAws_restJson1UpdateCellCommand,
@@ -124,8 +119,8 @@ export class UpdateCellCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateCellRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateCellResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CodePipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodePipelineClient";
-import {
-  PutThirdPartyJobFailureResultInput,
-  PutThirdPartyJobFailureResultInputFilterSensitiveLog,
-} from "../models/models_0";
+import { PutThirdPartyJobFailureResultInput } from "../models/models_0";
 import {
   deserializeAws_json1_1PutThirdPartyJobFailureResultCommand,
   serializeAws_json1_1PutThirdPartyJobFailureResultCommand,
@@ -118,8 +115,8 @@ export class PutThirdPartyJobFailureResultCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutThirdPartyJobFailureResultInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

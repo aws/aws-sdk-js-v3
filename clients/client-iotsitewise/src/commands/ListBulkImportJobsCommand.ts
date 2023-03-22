@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
-import {
-  ListBulkImportJobsRequest,
-  ListBulkImportJobsRequestFilterSensitiveLog,
-  ListBulkImportJobsResponse,
-  ListBulkImportJobsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListBulkImportJobsRequest, ListBulkImportJobsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListBulkImportJobsCommand,
   serializeAws_restJson1ListBulkImportJobsCommand,
@@ -124,8 +119,8 @@ export class ListBulkImportJobsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListBulkImportJobsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListBulkImportJobsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

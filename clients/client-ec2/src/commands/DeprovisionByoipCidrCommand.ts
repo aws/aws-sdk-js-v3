@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DeprovisionByoipCidrRequest,
-  DeprovisionByoipCidrRequestFilterSensitiveLog,
-  DeprovisionByoipCidrResult,
-  DeprovisionByoipCidrResultFilterSensitiveLog,
-} from "../models/models_3";
+import { DeprovisionByoipCidrRequest, DeprovisionByoipCidrResult } from "../models/models_3";
 import {
   deserializeAws_ec2DeprovisionByoipCidrCommand,
   serializeAws_ec2DeprovisionByoipCidrCommand,
@@ -110,8 +105,8 @@ export class DeprovisionByoipCidrCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeprovisionByoipCidrRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeprovisionByoipCidrResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

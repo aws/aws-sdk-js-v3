@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DeleteEgressOnlyInternetGatewayRequest,
-  DeleteEgressOnlyInternetGatewayRequestFilterSensitiveLog,
-  DeleteEgressOnlyInternetGatewayResult,
-  DeleteEgressOnlyInternetGatewayResultFilterSensitiveLog,
-} from "../models/models_2";
+import { DeleteEgressOnlyInternetGatewayRequest, DeleteEgressOnlyInternetGatewayResult } from "../models/models_2";
 import {
   deserializeAws_ec2DeleteEgressOnlyInternetGatewayCommand,
   serializeAws_ec2DeleteEgressOnlyInternetGatewayCommand,
@@ -109,8 +104,8 @@ export class DeleteEgressOnlyInternetGatewayCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteEgressOnlyInternetGatewayRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteEgressOnlyInternetGatewayResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

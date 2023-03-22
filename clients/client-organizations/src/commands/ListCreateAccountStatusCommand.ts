@@ -15,7 +15,6 @@ import {
 
 import {
   ListCreateAccountStatusRequest,
-  ListCreateAccountStatusRequestFilterSensitiveLog,
   ListCreateAccountStatusResponse,
   ListCreateAccountStatusResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -299,7 +298,7 @@ export class ListCreateAccountStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListCreateAccountStatusRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListCreateAccountStatusResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

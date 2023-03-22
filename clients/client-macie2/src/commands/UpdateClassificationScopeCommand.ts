@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
-import {
-  UpdateClassificationScopeRequest,
-  UpdateClassificationScopeRequestFilterSensitiveLog,
-  UpdateClassificationScopeResponse,
-  UpdateClassificationScopeResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { UpdateClassificationScopeRequest, UpdateClassificationScopeResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1UpdateClassificationScopeCommand,
   serializeAws_restJson1UpdateClassificationScopeCommand,
@@ -122,8 +117,8 @@ export class UpdateClassificationScopeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateClassificationScopeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateClassificationScopeResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

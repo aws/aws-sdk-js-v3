@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateImageRequest,
-  CreateImageRequestFilterSensitiveLog,
-  CreateImageResponse,
-  CreateImageResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { CreateImageRequest, CreateImageResponse } from "../models/models_1";
 import {
   deserializeAws_json1_1CreateImageCommand,
   serializeAws_json1_1CreateImageCommand,
@@ -114,8 +109,8 @@ export class CreateImageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateImageRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateImageResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

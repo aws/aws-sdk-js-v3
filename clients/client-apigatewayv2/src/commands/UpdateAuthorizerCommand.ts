@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
-import {
-  UpdateAuthorizerRequest,
-  UpdateAuthorizerRequestFilterSensitiveLog,
-  UpdateAuthorizerResponse,
-  UpdateAuthorizerResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateAuthorizerRequest, UpdateAuthorizerResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateAuthorizerCommand,
   serializeAws_restJson1UpdateAuthorizerCommand,
@@ -119,8 +114,8 @@ export class UpdateAuthorizerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateAuthorizerRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateAuthorizerResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

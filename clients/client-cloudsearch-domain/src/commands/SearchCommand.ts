@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CloudSearchDomainClient";
-import {
-  SearchRequest,
-  SearchRequestFilterSensitiveLog,
-  SearchResponse,
-  SearchResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { SearchRequest, SearchResponse } from "../models/models_0";
 import { deserializeAws_restJson1SearchCommand, serializeAws_restJson1SearchCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -117,8 +112,8 @@ export class SearchCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SearchRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SearchResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

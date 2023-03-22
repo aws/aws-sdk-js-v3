@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
-import {
-  DeleteNodegroupRequest,
-  DeleteNodegroupRequestFilterSensitiveLog,
-  DeleteNodegroupResponse,
-  DeleteNodegroupResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteNodegroupRequest, DeleteNodegroupResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteNodegroupCommand,
   serializeAws_restJson1DeleteNodegroupCommand,
@@ -131,8 +126,8 @@ export class DeleteNodegroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteNodegroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteNodegroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

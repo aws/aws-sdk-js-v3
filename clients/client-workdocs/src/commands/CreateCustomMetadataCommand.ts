@@ -17,7 +17,6 @@ import {
   CreateCustomMetadataRequest,
   CreateCustomMetadataRequestFilterSensitiveLog,
   CreateCustomMetadataResponse,
-  CreateCustomMetadataResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateCustomMetadataCommand,
@@ -133,7 +132,7 @@ export class CreateCustomMetadataCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateCustomMetadataRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateCustomMetadataResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeSDKMeetingsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKMeetingsClient";
-import { DeleteMeetingRequest, DeleteMeetingRequestFilterSensitiveLog } from "../models/models_0";
+import { DeleteMeetingRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteMeetingCommand,
   serializeAws_restJson1DeleteMeetingCommand,
@@ -124,8 +124,8 @@ export class DeleteMeetingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteMeetingRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

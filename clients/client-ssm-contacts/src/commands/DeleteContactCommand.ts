@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteContactRequest,
-  DeleteContactRequestFilterSensitiveLog,
-  DeleteContactResult,
-  DeleteContactResultFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteContactRequest, DeleteContactResult } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteContactCommand,
   serializeAws_json1_1DeleteContactCommand,
@@ -136,8 +131,8 @@ export class DeleteContactCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteContactRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteContactResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -15,7 +15,6 @@ import {
 
 import {
   GetNetworkResourceRequest,
-  GetNetworkResourceRequestFilterSensitiveLog,
   GetNetworkResourceResponse,
   GetNetworkResourceResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -116,7 +115,7 @@ export class GetNetworkResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetNetworkResourceRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetNetworkResourceResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

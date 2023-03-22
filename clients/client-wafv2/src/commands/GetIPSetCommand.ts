@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetIPSetRequest,
-  GetIPSetRequestFilterSensitiveLog,
-  GetIPSetResponse,
-  GetIPSetResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetIPSetRequest, GetIPSetResponse } from "../models/models_0";
 import { deserializeAws_json1_1GetIPSetCommand, serializeAws_json1_1GetIPSetCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
@@ -132,8 +127,8 @@ export class GetIPSetCommand extends $Command<GetIPSetCommandInput, GetIPSetComm
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetIPSetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetIPSetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

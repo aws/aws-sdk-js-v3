@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTEventsClient";
-import {
-  CreateInputRequest,
-  CreateInputRequestFilterSensitiveLog,
-  CreateInputResponse,
-  CreateInputResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateInputRequest, CreateInputResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateInputCommand,
   serializeAws_restJson1CreateInputCommand,
@@ -120,8 +115,8 @@ export class CreateInputCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateInputRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateInputResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../LexModelBuildingServiceClient";
-import {
-  PutSlotTypeRequest,
-  PutSlotTypeRequestFilterSensitiveLog,
-  PutSlotTypeResponse,
-  PutSlotTypeResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { PutSlotTypeRequest, PutSlotTypeResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1PutSlotTypeCommand,
   serializeAws_restJson1PutSlotTypeCommand,
@@ -182,8 +177,8 @@ export class PutSlotTypeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutSlotTypeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutSlotTypeResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

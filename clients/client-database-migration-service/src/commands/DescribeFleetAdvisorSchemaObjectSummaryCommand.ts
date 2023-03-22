@@ -20,9 +20,7 @@ import {
 } from "../DatabaseMigrationServiceClient";
 import {
   DescribeFleetAdvisorSchemaObjectSummaryRequest,
-  DescribeFleetAdvisorSchemaObjectSummaryRequestFilterSensitiveLog,
   DescribeFleetAdvisorSchemaObjectSummaryResponse,
-  DescribeFleetAdvisorSchemaObjectSummaryResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeFleetAdvisorSchemaObjectSummaryCommand,
@@ -124,8 +122,8 @@ export class DescribeFleetAdvisorSchemaObjectSummaryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeFleetAdvisorSchemaObjectSummaryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeFleetAdvisorSchemaObjectSummaryResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

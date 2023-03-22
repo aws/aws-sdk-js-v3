@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
-import {
-  UnshareDirectoryRequest,
-  UnshareDirectoryRequestFilterSensitiveLog,
-  UnshareDirectoryResult,
-  UnshareDirectoryResultFilterSensitiveLog,
-} from "../models/models_0";
+import { UnshareDirectoryRequest, UnshareDirectoryResult } from "../models/models_0";
 import {
   deserializeAws_json1_1UnshareDirectoryCommand,
   serializeAws_json1_1UnshareDirectoryCommand,
@@ -122,8 +117,8 @@ export class UnshareDirectoryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UnshareDirectoryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UnshareDirectoryResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

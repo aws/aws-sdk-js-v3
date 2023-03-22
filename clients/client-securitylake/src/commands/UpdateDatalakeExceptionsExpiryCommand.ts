@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateDatalakeExceptionsExpiryRequest,
-  UpdateDatalakeExceptionsExpiryRequestFilterSensitiveLog,
-  UpdateDatalakeExceptionsExpiryResponse,
-  UpdateDatalakeExceptionsExpiryResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateDatalakeExceptionsExpiryRequest, UpdateDatalakeExceptionsExpiryResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateDatalakeExceptionsExpiryCommand,
   serializeAws_restJson1UpdateDatalakeExceptionsExpiryCommand,
@@ -129,8 +124,8 @@ export class UpdateDatalakeExceptionsExpiryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateDatalakeExceptionsExpiryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateDatalakeExceptionsExpiryResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

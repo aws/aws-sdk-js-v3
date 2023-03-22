@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CustomerProfilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CustomerProfilesClient";
-import {
-  PutIntegrationRequest,
-  PutIntegrationRequestFilterSensitiveLog,
-  PutIntegrationResponse,
-  PutIntegrationResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { PutIntegrationRequest, PutIntegrationResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1PutIntegrationCommand,
   serializeAws_restJson1PutIntegrationCommand,
@@ -127,8 +122,8 @@ export class PutIntegrationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutIntegrationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutIntegrationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

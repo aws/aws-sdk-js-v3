@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  ImportVolumeRequest,
-  ImportVolumeRequestFilterSensitiveLog,
-  ImportVolumeResult,
-  ImportVolumeResultFilterSensitiveLog,
-} from "../models/models_6";
+import { ImportVolumeRequest, ImportVolumeRequestFilterSensitiveLog, ImportVolumeResult } from "../models/models_6";
 import { deserializeAws_ec2ImportVolumeCommand, serializeAws_ec2ImportVolumeCommand } from "../protocols/Aws_ec2";
 
 /**
@@ -109,7 +104,7 @@ export class ImportVolumeCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: ImportVolumeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ImportVolumeResultFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

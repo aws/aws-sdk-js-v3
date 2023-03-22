@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
-import {
-  ListConfiguredTablesInput,
-  ListConfiguredTablesInputFilterSensitiveLog,
-  ListConfiguredTablesOutput,
-  ListConfiguredTablesOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { ListConfiguredTablesInput, ListConfiguredTablesOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1ListConfiguredTablesCommand,
   serializeAws_restJson1ListConfiguredTablesCommand,
@@ -119,8 +114,8 @@ export class ListConfiguredTablesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListConfiguredTablesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListConfiguredTablesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

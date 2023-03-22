@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import {
-  UpdateConferenceProviderRequest,
-  UpdateConferenceProviderRequestFilterSensitiveLog,
-  UpdateConferenceProviderResponse,
-  UpdateConferenceProviderResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateConferenceProviderRequest, UpdateConferenceProviderResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateConferenceProviderCommand,
   serializeAws_json1_1UpdateConferenceProviderCommand,
@@ -110,8 +105,8 @@ export class UpdateConferenceProviderCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateConferenceProviderRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateConferenceProviderResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

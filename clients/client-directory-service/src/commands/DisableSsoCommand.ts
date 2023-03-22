@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
-import {
-  DisableSsoRequest,
-  DisableSsoRequestFilterSensitiveLog,
-  DisableSsoResult,
-  DisableSsoResultFilterSensitiveLog,
-} from "../models/models_0";
+import { DisableSsoRequest, DisableSsoRequestFilterSensitiveLog, DisableSsoResult } from "../models/models_0";
 import {
   deserializeAws_json1_1DisableSsoCommand,
   serializeAws_json1_1DisableSsoCommand,
@@ -121,7 +116,7 @@ export class DisableSsoCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: DisableSsoRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisableSsoResultFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

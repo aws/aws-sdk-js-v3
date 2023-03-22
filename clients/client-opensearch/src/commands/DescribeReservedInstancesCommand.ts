@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeReservedInstancesRequest,
-  DescribeReservedInstancesRequestFilterSensitiveLog,
-  DescribeReservedInstancesResponse,
-  DescribeReservedInstancesResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeReservedInstancesRequest, DescribeReservedInstancesResponse } from "../models/models_0";
 import { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
 import {
   deserializeAws_restJson1DescribeReservedInstancesCommand,
@@ -121,8 +116,8 @@ export class DescribeReservedInstancesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeReservedInstancesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeReservedInstancesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -18,7 +18,6 @@ import {
   UpdatePermissionGroupRequest,
   UpdatePermissionGroupRequestFilterSensitiveLog,
   UpdatePermissionGroupResponse,
-  UpdatePermissionGroupResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdatePermissionGroupCommand,
@@ -127,7 +126,7 @@ export class UpdatePermissionGroupCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: UpdatePermissionGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdatePermissionGroupResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

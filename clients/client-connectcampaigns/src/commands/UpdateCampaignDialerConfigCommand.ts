@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectCampaignsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCampaignsClient";
-import {
-  UpdateCampaignDialerConfigRequest,
-  UpdateCampaignDialerConfigRequestFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateCampaignDialerConfigRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateCampaignDialerConfigCommand,
   serializeAws_restJson1UpdateCampaignDialerConfigCommand,
@@ -120,8 +117,8 @@ export class UpdateCampaignDialerConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateCampaignDialerConfigRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GroundStationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GroundStationClient";
-import {
-  CreateEphemerisRequest,
-  CreateEphemerisRequestFilterSensitiveLog,
-  EphemerisIdResponse,
-  EphemerisIdResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateEphemerisRequest, EphemerisIdResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateEphemerisCommand,
   serializeAws_restJson1CreateEphemerisCommand,
@@ -116,8 +111,8 @@ export class CreateEphemerisCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateEphemerisRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: EphemerisIdResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

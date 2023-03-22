@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AppConfigClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppConfigClient";
-import {
-  Extensions,
-  ExtensionsFilterSensitiveLog,
-  ListExtensionsRequest,
-  ListExtensionsRequestFilterSensitiveLog,
-} from "../models/models_0";
+import { Extensions, ListExtensionsRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1ListExtensionsCommand,
   serializeAws_restJson1ListExtensionsCommand,
@@ -116,8 +111,8 @@ export class ListExtensionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListExtensionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ExtensionsFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

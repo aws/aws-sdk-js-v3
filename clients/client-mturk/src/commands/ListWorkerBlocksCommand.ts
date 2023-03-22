@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListWorkerBlocksRequest,
-  ListWorkerBlocksRequestFilterSensitiveLog,
-  ListWorkerBlocksResponse,
-  ListWorkerBlocksResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListWorkerBlocksRequest, ListWorkerBlocksResponse } from "../models/models_0";
 import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
 import {
   deserializeAws_json1_1ListWorkerBlocksCommand,
@@ -113,8 +108,8 @@ export class ListWorkerBlocksCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListWorkerBlocksRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListWorkerBlocksResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

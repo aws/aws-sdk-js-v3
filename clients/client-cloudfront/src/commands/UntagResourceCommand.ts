@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import { UntagResourceRequest, UntagResourceRequestFilterSensitiveLog } from "../models/models_1";
+import { UntagResourceRequest } from "../models/models_1";
 import {
   deserializeAws_restXmlUntagResourceCommand,
   serializeAws_restXmlUntagResourceCommand,
@@ -112,8 +112,8 @@ export class UntagResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UntagResourceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

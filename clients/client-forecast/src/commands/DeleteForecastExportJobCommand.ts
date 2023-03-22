@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ForecastClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastClient";
-import { DeleteForecastExportJobRequest, DeleteForecastExportJobRequestFilterSensitiveLog } from "../models/models_0";
+import { DeleteForecastExportJobRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteForecastExportJobCommand,
   serializeAws_json1_1DeleteForecastExportJobCommand,
@@ -115,8 +115,8 @@ export class DeleteForecastExportJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteForecastExportJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

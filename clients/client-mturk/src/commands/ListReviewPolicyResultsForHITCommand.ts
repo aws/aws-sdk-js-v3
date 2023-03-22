@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListReviewPolicyResultsForHITRequest,
-  ListReviewPolicyResultsForHITRequestFilterSensitiveLog,
-  ListReviewPolicyResultsForHITResponse,
-  ListReviewPolicyResultsForHITResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListReviewPolicyResultsForHITRequest, ListReviewPolicyResultsForHITResponse } from "../models/models_0";
 import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
 import {
   deserializeAws_json1_1ListReviewPolicyResultsForHITCommand,
@@ -121,8 +116,8 @@ export class ListReviewPolicyResultsForHITCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListReviewPolicyResultsForHITRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListReviewPolicyResultsForHITResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

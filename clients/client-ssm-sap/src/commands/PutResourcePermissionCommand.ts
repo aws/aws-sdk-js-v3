@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  PutResourcePermissionInput,
-  PutResourcePermissionInputFilterSensitiveLog,
-  PutResourcePermissionOutput,
-  PutResourcePermissionOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { PutResourcePermissionInput, PutResourcePermissionOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1PutResourcePermissionCommand,
   serializeAws_restJson1PutResourcePermissionCommand,
@@ -116,8 +111,8 @@ export class PutResourcePermissionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutResourcePermissionInputFilterSensitiveLog,
-      outputFilterSensitiveLog: PutResourcePermissionOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

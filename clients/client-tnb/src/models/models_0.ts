@@ -2203,13 +2203,6 @@ export interface ValidateSolNetworkPackageContentOutput {
 /**
  * @internal
  */
-export const CancelSolNetworkOperationInputFilterSensitiveLog = (obj: CancelSolNetworkOperationInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const CreateSolFunctionPackageInputFilterSensitiveLog = (obj: CreateSolFunctionPackageInput): any => ({
   ...obj,
   ...(obj.tags && { tags: SENSITIVE_STRING }),
@@ -2258,100 +2251,9 @@ export const CreateSolNetworkPackageOutputFilterSensitiveLog = (obj: CreateSolNe
 /**
  * @internal
  */
-export const DeleteSolFunctionPackageInputFilterSensitiveLog = (obj: DeleteSolFunctionPackageInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteSolNetworkInstanceInputFilterSensitiveLog = (obj: DeleteSolNetworkInstanceInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteSolNetworkPackageInputFilterSensitiveLog = (obj: DeleteSolNetworkPackageInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ErrorInfoFilterSensitiveLog = (obj: ErrorInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ToscaOverrideFilterSensitiveLog = (obj: ToscaOverride): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FunctionArtifactMetaFilterSensitiveLog = (obj: FunctionArtifactMeta): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetSolFunctionInstanceInputFilterSensitiveLog = (obj: GetSolFunctionInstanceInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetSolVnfcResourceInfoMetadataFilterSensitiveLog = (obj: GetSolVnfcResourceInfoMetadata): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetSolVnfcResourceInfoFilterSensitiveLog = (obj: GetSolVnfcResourceInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetSolVnfInfoFilterSensitiveLog = (obj: GetSolVnfInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetSolFunctionInstanceMetadataFilterSensitiveLog = (obj: GetSolFunctionInstanceMetadata): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const GetSolFunctionInstanceOutputFilterSensitiveLog = (obj: GetSolFunctionInstanceOutput): any => ({
   ...obj,
   ...(obj.tags && { tags: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const GetSolFunctionPackageInputFilterSensitiveLog = (obj: GetSolFunctionPackageInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetSolFunctionPackageMetadataFilterSensitiveLog = (obj: GetSolFunctionPackageMetadata): any => ({
-  ...obj,
 });
 
 /**
@@ -2365,97 +2267,9 @@ export const GetSolFunctionPackageOutputFilterSensitiveLog = (obj: GetSolFunctio
 /**
  * @internal
  */
-export const GetSolFunctionPackageContentInputFilterSensitiveLog = (obj: GetSolFunctionPackageContentInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetSolFunctionPackageContentOutputFilterSensitiveLog = (obj: GetSolFunctionPackageContentOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetSolFunctionPackageDescriptorInputFilterSensitiveLog = (
-  obj: GetSolFunctionPackageDescriptorInput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetSolFunctionPackageDescriptorOutputFilterSensitiveLog = (
-  obj: GetSolFunctionPackageDescriptorOutput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetSolInstantiatedVnfInfoFilterSensitiveLog = (obj: GetSolInstantiatedVnfInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetSolNetworkInstanceInputFilterSensitiveLog = (obj: GetSolNetworkInstanceInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LcmOperationInfoFilterSensitiveLog = (obj: LcmOperationInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetSolNetworkInstanceMetadataFilterSensitiveLog = (obj: GetSolNetworkInstanceMetadata): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const GetSolNetworkInstanceOutputFilterSensitiveLog = (obj: GetSolNetworkInstanceOutput): any => ({
   ...obj,
   ...(obj.tags && { tags: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const GetSolNetworkOperationInputFilterSensitiveLog = (obj: GetSolNetworkOperationInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ProblemDetailsFilterSensitiveLog = (obj: ProblemDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetSolNetworkOperationMetadataFilterSensitiveLog = (obj: GetSolNetworkOperationMetadata): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetSolNetworkOperationTaskDetailsFilterSensitiveLog = (obj: GetSolNetworkOperationTaskDetails): any => ({
-  ...obj,
 });
 
 /**
@@ -2469,62 +2283,9 @@ export const GetSolNetworkOperationOutputFilterSensitiveLog = (obj: GetSolNetwor
 /**
  * @internal
  */
-export const GetSolNetworkPackageInputFilterSensitiveLog = (obj: GetSolNetworkPackageInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NetworkArtifactMetaFilterSensitiveLog = (obj: NetworkArtifactMeta): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetSolNetworkPackageMetadataFilterSensitiveLog = (obj: GetSolNetworkPackageMetadata): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const GetSolNetworkPackageOutputFilterSensitiveLog = (obj: GetSolNetworkPackageOutput): any => ({
   ...obj,
   ...(obj.tags && { tags: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const GetSolNetworkPackageContentInputFilterSensitiveLog = (obj: GetSolNetworkPackageContentInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetSolNetworkPackageContentOutputFilterSensitiveLog = (obj: GetSolNetworkPackageContentOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetSolNetworkPackageDescriptorInputFilterSensitiveLog = (
-  obj: GetSolNetworkPackageDescriptorInput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetSolNetworkPackageDescriptorOutputFilterSensitiveLog = (
-  obj: GetSolNetworkPackageDescriptorOutput
-): any => ({
-  ...obj,
 });
 
 /**
@@ -2548,153 +2309,6 @@ export const InstantiateSolNetworkInstanceOutputFilterSensitiveLog = (
 /**
  * @internal
  */
-export const ListSolFunctionInstanceMetadataFilterSensitiveLog = (obj: ListSolFunctionInstanceMetadata): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListSolFunctionInstanceInfoFilterSensitiveLog = (obj: ListSolFunctionInstanceInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListSolFunctionInstancesInputFilterSensitiveLog = (obj: ListSolFunctionInstancesInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListSolFunctionInstancesOutputFilterSensitiveLog = (obj: ListSolFunctionInstancesOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListSolFunctionPackageMetadataFilterSensitiveLog = (obj: ListSolFunctionPackageMetadata): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListSolFunctionPackageInfoFilterSensitiveLog = (obj: ListSolFunctionPackageInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListSolFunctionPackagesInputFilterSensitiveLog = (obj: ListSolFunctionPackagesInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListSolFunctionPackagesOutputFilterSensitiveLog = (obj: ListSolFunctionPackagesOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListSolNetworkInstanceMetadataFilterSensitiveLog = (obj: ListSolNetworkInstanceMetadata): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListSolNetworkInstanceInfoFilterSensitiveLog = (obj: ListSolNetworkInstanceInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListSolNetworkInstancesInputFilterSensitiveLog = (obj: ListSolNetworkInstancesInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListSolNetworkInstancesOutputFilterSensitiveLog = (obj: ListSolNetworkInstancesOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListSolNetworkOperationsInputFilterSensitiveLog = (obj: ListSolNetworkOperationsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListSolNetworkOperationsMetadataFilterSensitiveLog = (obj: ListSolNetworkOperationsMetadata): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListSolNetworkOperationsInfoFilterSensitiveLog = (obj: ListSolNetworkOperationsInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListSolNetworkOperationsOutputFilterSensitiveLog = (obj: ListSolNetworkOperationsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListSolNetworkPackageMetadataFilterSensitiveLog = (obj: ListSolNetworkPackageMetadata): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListSolNetworkPackageInfoFilterSensitiveLog = (obj: ListSolNetworkPackageInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListSolNetworkPackagesInputFilterSensitiveLog = (obj: ListSolNetworkPackagesInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListSolNetworkPackagesOutputFilterSensitiveLog = (obj: ListSolNetworkPackagesOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceInputFilterSensitiveLog = (obj: ListTagsForResourceInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const ListTagsForResourceOutputFilterSensitiveLog = (obj: ListTagsForResourceOutput): any => ({
   ...obj,
   ...(obj.tags && { tags: SENSITIVE_STRING }),
@@ -2703,62 +2317,9 @@ export const ListTagsForResourceOutputFilterSensitiveLog = (obj: ListTagsForReso
 /**
  * @internal
  */
-export const PutSolFunctionPackageContentInputFilterSensitiveLog = (obj: PutSolFunctionPackageContentInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutSolFunctionPackageContentMetadataFilterSensitiveLog = (
-  obj: PutSolFunctionPackageContentMetadata
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutSolFunctionPackageContentOutputFilterSensitiveLog = (obj: PutSolFunctionPackageContentOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutSolNetworkPackageContentInputFilterSensitiveLog = (obj: PutSolNetworkPackageContentInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutSolNetworkPackageContentMetadataFilterSensitiveLog = (
-  obj: PutSolNetworkPackageContentMetadata
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutSolNetworkPackageContentOutputFilterSensitiveLog = (obj: PutSolNetworkPackageContentOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const TagResourceInputFilterSensitiveLog = (obj: TagResourceInput): any => ({
   ...obj,
   ...(obj.tags && { tags: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const TagResourceOutputFilterSensitiveLog = (obj: TagResourceOutput): any => ({
-  ...obj,
 });
 
 /**
@@ -2780,41 +2341,6 @@ export const TerminateSolNetworkInstanceOutputFilterSensitiveLog = (obj: Termina
 /**
  * @internal
  */
-export const UntagResourceInputFilterSensitiveLog = (obj: UntagResourceInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceOutputFilterSensitiveLog = (obj: UntagResourceOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateSolFunctionPackageInputFilterSensitiveLog = (obj: UpdateSolFunctionPackageInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateSolFunctionPackageOutputFilterSensitiveLog = (obj: UpdateSolFunctionPackageOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateSolNetworkModifyFilterSensitiveLog = (obj: UpdateSolNetworkModify): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const UpdateSolNetworkInstanceInputFilterSensitiveLog = (obj: UpdateSolNetworkInstanceInput): any => ({
   ...obj,
   ...(obj.tags && { tags: SENSITIVE_STRING }),
@@ -2826,72 +2352,4 @@ export const UpdateSolNetworkInstanceInputFilterSensitiveLog = (obj: UpdateSolNe
 export const UpdateSolNetworkInstanceOutputFilterSensitiveLog = (obj: UpdateSolNetworkInstanceOutput): any => ({
   ...obj,
   ...(obj.tags && { tags: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const UpdateSolNetworkPackageInputFilterSensitiveLog = (obj: UpdateSolNetworkPackageInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateSolNetworkPackageOutputFilterSensitiveLog = (obj: UpdateSolNetworkPackageOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ValidateSolFunctionPackageContentInputFilterSensitiveLog = (
-  obj: ValidateSolFunctionPackageContentInput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ValidateSolFunctionPackageContentMetadataFilterSensitiveLog = (
-  obj: ValidateSolFunctionPackageContentMetadata
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ValidateSolFunctionPackageContentOutputFilterSensitiveLog = (
-  obj: ValidateSolFunctionPackageContentOutput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ValidateSolNetworkPackageContentInputFilterSensitiveLog = (
-  obj: ValidateSolNetworkPackageContentInput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ValidateSolNetworkPackageContentMetadataFilterSensitiveLog = (
-  obj: ValidateSolNetworkPackageContentMetadata
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ValidateSolNetworkPackageContentOutputFilterSensitiveLog = (
-  obj: ValidateSolNetworkPackageContentOutput
-): any => ({
-  ...obj,
 });

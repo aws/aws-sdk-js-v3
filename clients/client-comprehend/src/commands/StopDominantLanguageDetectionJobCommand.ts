@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
-import {
-  StopDominantLanguageDetectionJobRequest,
-  StopDominantLanguageDetectionJobRequestFilterSensitiveLog,
-  StopDominantLanguageDetectionJobResponse,
-  StopDominantLanguageDetectionJobResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { StopDominantLanguageDetectionJobRequest, StopDominantLanguageDetectionJobResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1StopDominantLanguageDetectionJobCommand,
   serializeAws_json1_1StopDominantLanguageDetectionJobCommand,
@@ -127,8 +122,8 @@ export class StopDominantLanguageDetectionJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopDominantLanguageDetectionJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StopDominantLanguageDetectionJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

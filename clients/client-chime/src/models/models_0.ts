@@ -5325,27 +5325,6 @@ export interface GetRetentionSettingsRequest {
 /**
  * @internal
  */
-export const SigninDelegateGroupFilterSensitiveLog = (obj: SigninDelegateGroup): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AccountFilterSensitiveLog = (obj: Account): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AccountSettingsFilterSensitiveLog = (obj: AccountSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const AddressFilterSensitiveLog = (obj: Address): any => ({
   ...obj,
   ...(obj.streetName && { streetName: SENSITIVE_STRING }),
@@ -5413,20 +5392,6 @@ export const AppInstanceSummaryFilterSensitiveLog = (obj: AppInstanceSummary): a
 /**
  * @internal
  */
-export const ChannelRetentionSettingsFilterSensitiveLog = (obj: ChannelRetentionSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AppInstanceRetentionSettingsFilterSensitiveLog = (obj: AppInstanceRetentionSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const AppInstanceStreamingConfigurationFilterSensitiveLog = (obj: AppInstanceStreamingConfiguration): any => ({
   ...obj,
   ...(obj.ResourceArn && { ResourceArn: SENSITIVE_STRING }),
@@ -5453,62 +5418,11 @@ export const AppInstanceUserSummaryFilterSensitiveLog = (obj: AppInstanceUserSum
 /**
  * @internal
  */
-export const AppInstanceUserMembershipSummaryFilterSensitiveLog = (obj: AppInstanceUserMembershipSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AudioArtifactsConfigurationFilterSensitiveLog = (obj: AudioArtifactsConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ContentArtifactsConfigurationFilterSensitiveLog = (obj: ContentArtifactsConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VideoArtifactsConfigurationFilterSensitiveLog = (obj: VideoArtifactsConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ArtifactsConfigurationFilterSensitiveLog = (obj: ArtifactsConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const AssociatePhoneNumbersWithVoiceConnectorRequestFilterSensitiveLog = (
   obj: AssociatePhoneNumbersWithVoiceConnectorRequest
 ): any => ({
   ...obj,
   ...(obj.E164PhoneNumbers && { E164PhoneNumbers: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const PhoneNumberErrorFilterSensitiveLog = (obj: PhoneNumberError): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociatePhoneNumbersWithVoiceConnectorResponseFilterSensitiveLog = (
-  obj: AssociatePhoneNumbersWithVoiceConnectorResponse
-): any => ({
-  ...obj,
 });
 
 /**
@@ -5524,47 +5438,11 @@ export const AssociatePhoneNumbersWithVoiceConnectorGroupRequestFilterSensitiveL
 /**
  * @internal
  */
-export const AssociatePhoneNumbersWithVoiceConnectorGroupResponseFilterSensitiveLog = (
-  obj: AssociatePhoneNumbersWithVoiceConnectorGroupResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const AssociatePhoneNumberWithUserRequestFilterSensitiveLog = (
   obj: AssociatePhoneNumberWithUserRequest
 ): any => ({
   ...obj,
   ...(obj.E164PhoneNumber && { E164PhoneNumber: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const AssociatePhoneNumberWithUserResponseFilterSensitiveLog = (
-  obj: AssociatePhoneNumberWithUserResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateSigninDelegateGroupsWithAccountRequestFilterSensitiveLog = (
-  obj: AssociateSigninDelegateGroupsWithAccountRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateSigninDelegateGroupsWithAccountResponseFilterSensitiveLog = (
-  obj: AssociateSigninDelegateGroupsWithAccountResponse
-): any => ({
-  ...obj,
 });
 
 /**
@@ -5631,22 +5509,6 @@ export const BatchCreateAttendeeResponseFilterSensitiveLog = (obj: BatchCreateAt
 /**
  * @internal
  */
-export const BatchCreateChannelMembershipRequestFilterSensitiveLog = (
-  obj: BatchCreateChannelMembershipRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchCreateChannelMembershipErrorFilterSensitiveLog = (obj: BatchCreateChannelMembershipError): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const BatchCreateChannelMembershipResponseFilterSensitiveLog = (
   obj: BatchCreateChannelMembershipResponse
 ): any => ({
@@ -5654,83 +5516,6 @@ export const BatchCreateChannelMembershipResponseFilterSensitiveLog = (
   ...(obj.BatchChannelMemberships && {
     BatchChannelMemberships: BatchChannelMembershipsFilterSensitiveLog(obj.BatchChannelMemberships),
   }),
-});
-
-/**
- * @internal
- */
-export const MembershipItemFilterSensitiveLog = (obj: MembershipItem): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchCreateRoomMembershipRequestFilterSensitiveLog = (obj: BatchCreateRoomMembershipRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MemberErrorFilterSensitiveLog = (obj: MemberError): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchCreateRoomMembershipResponseFilterSensitiveLog = (obj: BatchCreateRoomMembershipResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchDeletePhoneNumberRequestFilterSensitiveLog = (obj: BatchDeletePhoneNumberRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchDeletePhoneNumberResponseFilterSensitiveLog = (obj: BatchDeletePhoneNumberResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchSuspendUserRequestFilterSensitiveLog = (obj: BatchSuspendUserRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UserErrorFilterSensitiveLog = (obj: UserError): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchSuspendUserResponseFilterSensitiveLog = (obj: BatchSuspendUserResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchUnsuspendUserRequestFilterSensitiveLog = (obj: BatchUnsuspendUserRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchUnsuspendUserResponseFilterSensitiveLog = (obj: BatchUnsuspendUserResponse): any => ({
-  ...obj,
 });
 
 /**
@@ -5756,13 +5541,6 @@ export const BatchUpdatePhoneNumberRequestFilterSensitiveLog = (obj: BatchUpdate
 /**
  * @internal
  */
-export const BatchUpdatePhoneNumberResponseFilterSensitiveLog = (obj: BatchUpdatePhoneNumberResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const UpdateUserRequestItemFilterSensitiveLog = (obj: UpdateUserRequestItem): any => ({
   ...obj,
   ...(obj.AlexaForBusinessMetadata && {
@@ -5783,25 +5561,11 @@ export const BatchUpdateUserRequestFilterSensitiveLog = (obj: BatchUpdateUserReq
 /**
  * @internal
  */
-export const BatchUpdateUserResponseFilterSensitiveLog = (obj: BatchUpdateUserResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const BotFilterSensitiveLog = (obj: Bot): any => ({
   ...obj,
   ...(obj.DisplayName && { DisplayName: SENSITIVE_STRING }),
   ...(obj.BotEmail && { BotEmail: SENSITIVE_STRING }),
   ...(obj.SecurityToken && { SecurityToken: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const BusinessCallingSettingsFilterSensitiveLog = (obj: BusinessCallingSettings): any => ({
-  ...obj,
 });
 
 /**
@@ -5959,47 +5723,12 @@ export const ChimeSdkMeetingConfigurationFilterSensitiveLog = (obj: ChimeSdkMeet
 /**
  * @internal
  */
-export const ConversationRetentionSettingsFilterSensitiveLog = (obj: ConversationRetentionSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateAccountRequestFilterSensitiveLog = (obj: CreateAccountRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateAccountResponseFilterSensitiveLog = (obj: CreateAccountResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const CreateAppInstanceRequestFilterSensitiveLog = (obj: CreateAppInstanceRequest): any => ({
   ...obj,
   ...(obj.Name && { Name: SENSITIVE_STRING }),
   ...(obj.Metadata && { Metadata: SENSITIVE_STRING }),
   ...(obj.ClientRequestToken && { ClientRequestToken: SENSITIVE_STRING }),
   ...(obj.Tags && { Tags: obj.Tags.map((item) => TagFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const CreateAppInstanceResponseFilterSensitiveLog = (obj: CreateAppInstanceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateAppInstanceAdminRequestFilterSensitiveLog = (obj: CreateAppInstanceAdminRequest): any => ({
-  ...obj,
 });
 
 /**
@@ -6020,13 +5749,6 @@ export const CreateAppInstanceUserRequestFilterSensitiveLog = (obj: CreateAppIns
   ...(obj.Metadata && { Metadata: SENSITIVE_STRING }),
   ...(obj.ClientRequestToken && { ClientRequestToken: SENSITIVE_STRING }),
   ...(obj.Tags && { Tags: obj.Tags.map((item) => TagFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const CreateAppInstanceUserResponseFilterSensitiveLog = (obj: CreateAppInstanceUserResponse): any => ({
-  ...obj,
 });
 
 /**
@@ -6076,20 +5798,6 @@ export const CreateChannelRequestFilterSensitiveLog = (obj: CreateChannelRequest
 /**
  * @internal
  */
-export const CreateChannelResponseFilterSensitiveLog = (obj: CreateChannelResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateChannelBanRequestFilterSensitiveLog = (obj: CreateChannelBanRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const CreateChannelBanResponseFilterSensitiveLog = (obj: CreateChannelBanResponse): any => ({
   ...obj,
   ...(obj.Member && { Member: IdentityFilterSensitiveLog(obj.Member) }),
@@ -6098,23 +5806,9 @@ export const CreateChannelBanResponseFilterSensitiveLog = (obj: CreateChannelBan
 /**
  * @internal
  */
-export const CreateChannelMembershipRequestFilterSensitiveLog = (obj: CreateChannelMembershipRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const CreateChannelMembershipResponseFilterSensitiveLog = (obj: CreateChannelMembershipResponse): any => ({
   ...obj,
   ...(obj.Member && { Member: IdentityFilterSensitiveLog(obj.Member) }),
-});
-
-/**
- * @internal
- */
-export const CreateChannelModeratorRequestFilterSensitiveLog = (obj: CreateChannelModeratorRequest): any => ({
-  ...obj,
 });
 
 /**
@@ -6186,13 +5880,6 @@ export const CreateMeetingRequestFilterSensitiveLog = (obj: CreateMeetingRequest
 /**
  * @internal
  */
-export const MediaPlacementFilterSensitiveLog = (obj: MediaPlacement): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const MeetingFilterSensitiveLog = (obj: Meeting): any => ({
   ...obj,
   ...(obj.ExternalMeetingId && { ExternalMeetingId: SENSITIVE_STRING }),
@@ -6214,13 +5901,6 @@ export const CreateMeetingDialOutRequestFilterSensitiveLog = (obj: CreateMeeting
   ...(obj.FromPhoneNumber && { FromPhoneNumber: SENSITIVE_STRING }),
   ...(obj.ToPhoneNumber && { ToPhoneNumber: SENSITIVE_STRING }),
   ...(obj.JoinToken && { JoinToken: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const CreateMeetingDialOutResponseFilterSensitiveLog = (obj: CreateMeetingDialOutResponse): any => ({
-  ...obj,
 });
 
 /**
@@ -6285,13 +5965,6 @@ export const CreatePhoneNumberOrderResponseFilterSensitiveLog = (obj: CreatePhon
 /**
  * @internal
  */
-export const GeoMatchParamsFilterSensitiveLog = (obj: GeoMatchParams): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const CreateProxySessionRequestFilterSensitiveLog = (obj: CreateProxySessionRequest): any => ({
   ...obj,
   ...(obj.ParticipantPhoneNumbers && { ParticipantPhoneNumbers: SENSITIVE_STRING }),
@@ -6346,13 +6019,6 @@ export const RoomFilterSensitiveLog = (obj: Room): any => ({
 export const CreateRoomResponseFilterSensitiveLog = (obj: CreateRoomResponse): any => ({
   ...obj,
   ...(obj.Room && { Room: RoomFilterSensitiveLog(obj.Room) }),
-});
-
-/**
- * @internal
- */
-export const CreateRoomMembershipRequestFilterSensitiveLog = (obj: CreateRoomMembershipRequest): any => ({
-  ...obj,
 });
 
 /**
@@ -6429,50 +6095,6 @@ export const CreateSipMediaApplicationCallRequestFilterSensitiveLog = (
 /**
  * @internal
  */
-export const SipMediaApplicationCallFilterSensitiveLog = (obj: SipMediaApplicationCall): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateSipMediaApplicationCallResponseFilterSensitiveLog = (
-  obj: CreateSipMediaApplicationCallResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SipRuleTargetApplicationFilterSensitiveLog = (obj: SipRuleTargetApplication): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateSipRuleRequestFilterSensitiveLog = (obj: CreateSipRuleRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SipRuleFilterSensitiveLog = (obj: SipRule): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateSipRuleResponseFilterSensitiveLog = (obj: CreateSipRuleResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const CreateUserRequestFilterSensitiveLog = (obj: CreateUserRequest): any => ({
   ...obj,
   ...(obj.Email && { Email: SENSITIVE_STRING }),
@@ -6502,265 +6124,10 @@ export const CreateUserResponseFilterSensitiveLog = (obj: CreateUserResponse): a
 /**
  * @internal
  */
-export const CreateVoiceConnectorRequestFilterSensitiveLog = (obj: CreateVoiceConnectorRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VoiceConnectorFilterSensitiveLog = (obj: VoiceConnector): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateVoiceConnectorResponseFilterSensitiveLog = (obj: CreateVoiceConnectorResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VoiceConnectorItemFilterSensitiveLog = (obj: VoiceConnectorItem): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateVoiceConnectorGroupRequestFilterSensitiveLog = (obj: CreateVoiceConnectorGroupRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VoiceConnectorGroupFilterSensitiveLog = (obj: VoiceConnectorGroup): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateVoiceConnectorGroupResponseFilterSensitiveLog = (obj: CreateVoiceConnectorGroupResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const CredentialFilterSensitiveLog = (obj: Credential): any => ({
   ...obj,
   ...(obj.Username && { Username: SENSITIVE_STRING }),
   ...(obj.Password && { Password: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const DeleteAccountRequestFilterSensitiveLog = (obj: DeleteAccountRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteAccountResponseFilterSensitiveLog = (obj: DeleteAccountResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteAppInstanceRequestFilterSensitiveLog = (obj: DeleteAppInstanceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteAppInstanceAdminRequestFilterSensitiveLog = (obj: DeleteAppInstanceAdminRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteAppInstanceStreamingConfigurationsRequestFilterSensitiveLog = (
-  obj: DeleteAppInstanceStreamingConfigurationsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteAppInstanceUserRequestFilterSensitiveLog = (obj: DeleteAppInstanceUserRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteAttendeeRequestFilterSensitiveLog = (obj: DeleteAttendeeRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteChannelRequestFilterSensitiveLog = (obj: DeleteChannelRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteChannelBanRequestFilterSensitiveLog = (obj: DeleteChannelBanRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteChannelMembershipRequestFilterSensitiveLog = (obj: DeleteChannelMembershipRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteChannelMessageRequestFilterSensitiveLog = (obj: DeleteChannelMessageRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteChannelModeratorRequestFilterSensitiveLog = (obj: DeleteChannelModeratorRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteEventsConfigurationRequestFilterSensitiveLog = (obj: DeleteEventsConfigurationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteMediaCapturePipelineRequestFilterSensitiveLog = (obj: DeleteMediaCapturePipelineRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteMeetingRequestFilterSensitiveLog = (obj: DeleteMeetingRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeletePhoneNumberRequestFilterSensitiveLog = (obj: DeletePhoneNumberRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteProxySessionRequestFilterSensitiveLog = (obj: DeleteProxySessionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteRoomRequestFilterSensitiveLog = (obj: DeleteRoomRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteRoomMembershipRequestFilterSensitiveLog = (obj: DeleteRoomMembershipRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteSipMediaApplicationRequestFilterSensitiveLog = (obj: DeleteSipMediaApplicationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteSipRuleRequestFilterSensitiveLog = (obj: DeleteSipRuleRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteVoiceConnectorRequestFilterSensitiveLog = (obj: DeleteVoiceConnectorRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteVoiceConnectorEmergencyCallingConfigurationRequestFilterSensitiveLog = (
-  obj: DeleteVoiceConnectorEmergencyCallingConfigurationRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteVoiceConnectorGroupRequestFilterSensitiveLog = (obj: DeleteVoiceConnectorGroupRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteVoiceConnectorOriginationRequestFilterSensitiveLog = (
-  obj: DeleteVoiceConnectorOriginationRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteVoiceConnectorProxyRequestFilterSensitiveLog = (obj: DeleteVoiceConnectorProxyRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteVoiceConnectorStreamingConfigurationRequestFilterSensitiveLog = (
-  obj: DeleteVoiceConnectorStreamingConfigurationRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteVoiceConnectorTerminationRequestFilterSensitiveLog = (
-  obj: DeleteVoiceConnectorTerminationRequest
-): any => ({
-  ...obj,
 });
 
 /**
@@ -6776,23 +6143,9 @@ export const DeleteVoiceConnectorTerminationCredentialsRequestFilterSensitiveLog
 /**
  * @internal
  */
-export const DescribeAppInstanceRequestFilterSensitiveLog = (obj: DescribeAppInstanceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const DescribeAppInstanceResponseFilterSensitiveLog = (obj: DescribeAppInstanceResponse): any => ({
   ...obj,
   ...(obj.AppInstance && { AppInstance: AppInstanceFilterSensitiveLog(obj.AppInstance) }),
-});
-
-/**
- * @internal
- */
-export const DescribeAppInstanceAdminRequestFilterSensitiveLog = (obj: DescribeAppInstanceAdminRequest): any => ({
-  ...obj,
 });
 
 /**
@@ -6806,23 +6159,9 @@ export const DescribeAppInstanceAdminResponseFilterSensitiveLog = (obj: Describe
 /**
  * @internal
  */
-export const DescribeAppInstanceUserRequestFilterSensitiveLog = (obj: DescribeAppInstanceUserRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const DescribeAppInstanceUserResponseFilterSensitiveLog = (obj: DescribeAppInstanceUserResponse): any => ({
   ...obj,
   ...(obj.AppInstanceUser && { AppInstanceUser: AppInstanceUserFilterSensitiveLog(obj.AppInstanceUser) }),
-});
-
-/**
- * @internal
- */
-export const DescribeChannelRequestFilterSensitiveLog = (obj: DescribeChannelRequest): any => ({
-  ...obj,
 });
 
 /**
@@ -6836,13 +6175,6 @@ export const DescribeChannelResponseFilterSensitiveLog = (obj: DescribeChannelRe
 /**
  * @internal
  */
-export const DescribeChannelBanRequestFilterSensitiveLog = (obj: DescribeChannelBanRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const DescribeChannelBanResponseFilterSensitiveLog = (obj: DescribeChannelBanResponse): any => ({
   ...obj,
   ...(obj.ChannelBan && { ChannelBan: ChannelBanFilterSensitiveLog(obj.ChannelBan) }),
@@ -6851,25 +6183,9 @@ export const DescribeChannelBanResponseFilterSensitiveLog = (obj: DescribeChanne
 /**
  * @internal
  */
-export const DescribeChannelMembershipRequestFilterSensitiveLog = (obj: DescribeChannelMembershipRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const DescribeChannelMembershipResponseFilterSensitiveLog = (obj: DescribeChannelMembershipResponse): any => ({
   ...obj,
   ...(obj.ChannelMembership && { ChannelMembership: ChannelMembershipFilterSensitiveLog(obj.ChannelMembership) }),
-});
-
-/**
- * @internal
- */
-export const DescribeChannelMembershipForAppInstanceUserRequestFilterSensitiveLog = (
-  obj: DescribeChannelMembershipForAppInstanceUserRequest
-): any => ({
-  ...obj,
 });
 
 /**
@@ -6887,15 +6203,6 @@ export const DescribeChannelMembershipForAppInstanceUserResponseFilterSensitiveL
 /**
  * @internal
  */
-export const DescribeChannelModeratedByAppInstanceUserRequestFilterSensitiveLog = (
-  obj: DescribeChannelModeratedByAppInstanceUserRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const DescribeChannelModeratedByAppInstanceUserResponseFilterSensitiveLog = (
   obj: DescribeChannelModeratedByAppInstanceUserResponse
 ): any => ({
@@ -6906,34 +6213,9 @@ export const DescribeChannelModeratedByAppInstanceUserResponseFilterSensitiveLog
 /**
  * @internal
  */
-export const DescribeChannelModeratorRequestFilterSensitiveLog = (obj: DescribeChannelModeratorRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const DescribeChannelModeratorResponseFilterSensitiveLog = (obj: DescribeChannelModeratorResponse): any => ({
   ...obj,
   ...(obj.ChannelModerator && { ChannelModerator: ChannelModeratorFilterSensitiveLog(obj.ChannelModerator) }),
-});
-
-/**
- * @internal
- */
-export const DisassociatePhoneNumberFromUserRequestFilterSensitiveLog = (
-  obj: DisassociatePhoneNumberFromUserRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociatePhoneNumberFromUserResponseFilterSensitiveLog = (
-  obj: DisassociatePhoneNumberFromUserResponse
-): any => ({
-  ...obj,
 });
 
 /**
@@ -6949,47 +6231,11 @@ export const DisassociatePhoneNumbersFromVoiceConnectorRequestFilterSensitiveLog
 /**
  * @internal
  */
-export const DisassociatePhoneNumbersFromVoiceConnectorResponseFilterSensitiveLog = (
-  obj: DisassociatePhoneNumbersFromVoiceConnectorResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const DisassociatePhoneNumbersFromVoiceConnectorGroupRequestFilterSensitiveLog = (
   obj: DisassociatePhoneNumbersFromVoiceConnectorGroupRequest
 ): any => ({
   ...obj,
   ...(obj.E164PhoneNumbers && { E164PhoneNumbers: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const DisassociatePhoneNumbersFromVoiceConnectorGroupResponseFilterSensitiveLog = (
-  obj: DisassociatePhoneNumbersFromVoiceConnectorGroupResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateSigninDelegateGroupsFromAccountRequestFilterSensitiveLog = (
-  obj: DisassociateSigninDelegateGroupsFromAccountRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateSigninDelegateGroupsFromAccountResponseFilterSensitiveLog = (
-  obj: DisassociateSigninDelegateGroupsFromAccountResponse
-): any => ({
-  ...obj,
 });
 
 /**
@@ -7012,79 +6258,10 @@ export const EmergencyCallingConfigurationFilterSensitiveLog = (obj: EmergencyCa
 /**
  * @internal
  */
-export const EngineTranscribeMedicalSettingsFilterSensitiveLog = (obj: EngineTranscribeMedicalSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EngineTranscribeSettingsFilterSensitiveLog = (obj: EngineTranscribeSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const EventsConfigurationFilterSensitiveLog = (obj: EventsConfiguration): any => ({
   ...obj,
   ...(obj.OutboundEventsHTTPSEndpoint && { OutboundEventsHTTPSEndpoint: SENSITIVE_STRING }),
   ...(obj.LambdaFunctionArn && { LambdaFunctionArn: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const GetAccountRequestFilterSensitiveLog = (obj: GetAccountRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetAccountResponseFilterSensitiveLog = (obj: GetAccountResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetAccountSettingsRequestFilterSensitiveLog = (obj: GetAccountSettingsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetAccountSettingsResponseFilterSensitiveLog = (obj: GetAccountSettingsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetAppInstanceRetentionSettingsRequestFilterSensitiveLog = (
-  obj: GetAppInstanceRetentionSettingsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetAppInstanceRetentionSettingsResponseFilterSensitiveLog = (
-  obj: GetAppInstanceRetentionSettingsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetAppInstanceStreamingConfigurationsRequestFilterSensitiveLog = (
-  obj: GetAppInstanceStreamingConfigurationsRequest
-): any => ({
-  ...obj,
 });
 
 /**
@@ -7104,23 +6281,9 @@ export const GetAppInstanceStreamingConfigurationsResponseFilterSensitiveLog = (
 /**
  * @internal
  */
-export const GetAttendeeRequestFilterSensitiveLog = (obj: GetAttendeeRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const GetAttendeeResponseFilterSensitiveLog = (obj: GetAttendeeResponse): any => ({
   ...obj,
   ...(obj.Attendee && { Attendee: AttendeeFilterSensitiveLog(obj.Attendee) }),
-});
-
-/**
- * @internal
- */
-export const GetBotRequestFilterSensitiveLog = (obj: GetBotRequest): any => ({
-  ...obj,
 });
 
 /**
@@ -7134,23 +6297,9 @@ export const GetBotResponseFilterSensitiveLog = (obj: GetBotResponse): any => ({
 /**
  * @internal
  */
-export const GetChannelMessageRequestFilterSensitiveLog = (obj: GetChannelMessageRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const GetChannelMessageResponseFilterSensitiveLog = (obj: GetChannelMessageResponse): any => ({
   ...obj,
   ...(obj.ChannelMessage && { ChannelMessage: ChannelMessageFilterSensitiveLog(obj.ChannelMessage) }),
-});
-
-/**
- * @internal
- */
-export const GetEventsConfigurationRequestFilterSensitiveLog = (obj: GetEventsConfigurationRequest): any => ({
-  ...obj,
 });
 
 /**
@@ -7166,27 +6315,6 @@ export const GetEventsConfigurationResponseFilterSensitiveLog = (obj: GetEventsC
 /**
  * @internal
  */
-export const VoiceConnectorSettingsFilterSensitiveLog = (obj: VoiceConnectorSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetGlobalSettingsResponseFilterSensitiveLog = (obj: GetGlobalSettingsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetMediaCapturePipelineRequestFilterSensitiveLog = (obj: GetMediaCapturePipelineRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const GetMediaCapturePipelineResponseFilterSensitiveLog = (obj: GetMediaCapturePipelineResponse): any => ({
   ...obj,
   ...(obj.MediaCapturePipeline && {
@@ -7197,60 +6325,9 @@ export const GetMediaCapturePipelineResponseFilterSensitiveLog = (obj: GetMediaC
 /**
  * @internal
  */
-export const GetMeetingRequestFilterSensitiveLog = (obj: GetMeetingRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const GetMeetingResponseFilterSensitiveLog = (obj: GetMeetingResponse): any => ({
   ...obj,
   ...(obj.Meeting && { Meeting: MeetingFilterSensitiveLog(obj.Meeting) }),
-});
-
-/**
- * @internal
- */
-export const GetMessagingSessionEndpointRequestFilterSensitiveLog = (obj: GetMessagingSessionEndpointRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MessagingSessionEndpointFilterSensitiveLog = (obj: MessagingSessionEndpoint): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetMessagingSessionEndpointResponseFilterSensitiveLog = (
-  obj: GetMessagingSessionEndpointResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetPhoneNumberRequestFilterSensitiveLog = (obj: GetPhoneNumberRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PhoneNumberAssociationFilterSensitiveLog = (obj: PhoneNumberAssociation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PhoneNumberCapabilitiesFilterSensitiveLog = (obj: PhoneNumberCapabilities): any => ({
-  ...obj,
 });
 
 /**
@@ -7273,13 +6350,6 @@ export const GetPhoneNumberResponseFilterSensitiveLog = (obj: GetPhoneNumberResp
 /**
  * @internal
  */
-export const GetPhoneNumberOrderRequestFilterSensitiveLog = (obj: GetPhoneNumberOrderRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const GetPhoneNumberOrderResponseFilterSensitiveLog = (obj: GetPhoneNumberOrderResponse): any => ({
   ...obj,
   ...(obj.PhoneNumberOrder && { PhoneNumberOrder: PhoneNumberOrderFilterSensitiveLog(obj.PhoneNumberOrder) }),
@@ -7296,21 +6366,7 @@ export const GetPhoneNumberSettingsResponseFilterSensitiveLog = (obj: GetPhoneNu
 /**
  * @internal
  */
-export const GetProxySessionRequestFilterSensitiveLog = (obj: GetProxySessionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const GetProxySessionResponseFilterSensitiveLog = (obj: GetProxySessionResponse): any => ({
   ...obj,
   ...(obj.ProxySession && { ProxySession: ProxySessionFilterSensitiveLog(obj.ProxySession) }),
-});
-
-/**
- * @internal
- */
-export const GetRetentionSettingsRequestFilterSensitiveLog = (obj: GetRetentionSettingsRequest): any => ({
-  ...obj,
 });

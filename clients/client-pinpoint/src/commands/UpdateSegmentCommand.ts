@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateSegmentRequest,
-  UpdateSegmentRequestFilterSensitiveLog,
-  UpdateSegmentResponse,
-  UpdateSegmentResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { UpdateSegmentRequest, UpdateSegmentResponse } from "../models/models_1";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
 import {
   deserializeAws_restJson1UpdateSegmentCommand,
@@ -126,8 +121,8 @@ export class UpdateSegmentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateSegmentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateSegmentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -17,7 +17,6 @@ import {
   CreateProfileRequest,
   CreateProfileRequestFilterSensitiveLog,
   ProfileDetailResponse,
-  ProfileDetailResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateProfileCommand,
@@ -116,7 +115,7 @@ export class CreateProfileCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateProfileRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ProfileDetailResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

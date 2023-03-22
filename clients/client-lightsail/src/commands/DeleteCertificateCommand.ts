@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import {
-  DeleteCertificateRequest,
-  DeleteCertificateRequestFilterSensitiveLog,
-  DeleteCertificateResult,
-  DeleteCertificateResultFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteCertificateRequest, DeleteCertificateResult } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteCertificateCommand,
   serializeAws_json1_1DeleteCertificateCommand,
@@ -134,8 +129,8 @@ export class DeleteCertificateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteCertificateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteCertificateResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

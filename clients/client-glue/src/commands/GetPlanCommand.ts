@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  GetPlanRequest,
-  GetPlanRequestFilterSensitiveLog,
-  GetPlanResponse,
-  GetPlanResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { GetPlanRequest, GetPlanResponse } from "../models/models_1";
 import { deserializeAws_json1_1GetPlanCommand, serializeAws_json1_1GetPlanCommand } from "../protocols/Aws_json1_1";
 
 /**
@@ -107,8 +102,8 @@ export class GetPlanCommand extends $Command<GetPlanCommandInput, GetPlanCommand
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetPlanRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetPlanResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

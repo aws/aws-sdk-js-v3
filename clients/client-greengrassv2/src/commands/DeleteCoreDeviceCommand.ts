@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GreengrassV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassV2Client";
-import { DeleteCoreDeviceRequest, DeleteCoreDeviceRequestFilterSensitiveLog } from "../models/models_0";
+import { DeleteCoreDeviceRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteCoreDeviceCommand,
   serializeAws_restJson1DeleteCoreDeviceCommand,
@@ -126,8 +126,8 @@ export class DeleteCoreDeviceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteCoreDeviceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

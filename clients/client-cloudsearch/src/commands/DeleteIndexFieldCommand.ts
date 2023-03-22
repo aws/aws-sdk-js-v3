@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudSearchClient";
-import {
-  DeleteIndexFieldRequest,
-  DeleteIndexFieldRequestFilterSensitiveLog,
-  DeleteIndexFieldResponse,
-  DeleteIndexFieldResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteIndexFieldRequest, DeleteIndexFieldResponse } from "../models/models_0";
 import {
   deserializeAws_queryDeleteIndexFieldCommand,
   serializeAws_queryDeleteIndexFieldCommand,
@@ -123,8 +118,8 @@ export class DeleteIndexFieldCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteIndexFieldRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteIndexFieldResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

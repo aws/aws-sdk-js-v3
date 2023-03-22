@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CommitTransactionRequest,
-  CommitTransactionRequestFilterSensitiveLog,
-  CommitTransactionResponse,
-  CommitTransactionResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CommitTransactionRequest, CommitTransactionResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CommitTransactionCommand,
   serializeAws_restJson1CommitTransactionCommand,
@@ -130,8 +125,8 @@ export class CommitTransactionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CommitTransactionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CommitTransactionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
-import {
-  DescribeContinuousBackupsInput,
-  DescribeContinuousBackupsInputFilterSensitiveLog,
-  DescribeContinuousBackupsOutput,
-  DescribeContinuousBackupsOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeContinuousBackupsInput, DescribeContinuousBackupsOutput } from "../models/models_0";
 import {
   deserializeAws_json1_0DescribeContinuousBackupsCommand,
   serializeAws_json1_0DescribeContinuousBackupsCommand,
@@ -127,8 +122,8 @@ export class DescribeContinuousBackupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeContinuousBackupsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeContinuousBackupsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateSimulationJobRequest,
-  CreateSimulationJobRequestFilterSensitiveLog,
-  CreateSimulationJobResponse,
-  CreateSimulationJobResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateSimulationJobRequest, CreateSimulationJobResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateSimulationJobCommand,
   serializeAws_restJson1CreateSimulationJobCommand,
@@ -135,8 +130,8 @@ export class CreateSimulationJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateSimulationJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateSimulationJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

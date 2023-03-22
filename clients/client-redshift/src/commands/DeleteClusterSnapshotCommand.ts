@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteClusterSnapshotMessage,
-  DeleteClusterSnapshotMessageFilterSensitiveLog,
-  DeleteClusterSnapshotResult,
-  DeleteClusterSnapshotResultFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteClusterSnapshotMessage, DeleteClusterSnapshotResult } from "../models/models_0";
 import {
   deserializeAws_queryDeleteClusterSnapshotCommand,
   serializeAws_queryDeleteClusterSnapshotCommand,
@@ -120,8 +115,8 @@ export class DeleteClusterSnapshotCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteClusterSnapshotMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteClusterSnapshotResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

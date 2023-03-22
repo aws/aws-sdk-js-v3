@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingV2Client";
-import {
-  DeleteTargetGroupInput,
-  DeleteTargetGroupInputFilterSensitiveLog,
-  DeleteTargetGroupOutput,
-  DeleteTargetGroupOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteTargetGroupInput, DeleteTargetGroupOutput } from "../models/models_0";
 import {
   deserializeAws_queryDeleteTargetGroupCommand,
   serializeAws_queryDeleteTargetGroupCommand,
@@ -129,8 +124,8 @@ export class DeleteTargetGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteTargetGroupInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteTargetGroupOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

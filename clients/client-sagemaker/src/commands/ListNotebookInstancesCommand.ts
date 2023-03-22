@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListNotebookInstancesInput,
-  ListNotebookInstancesInputFilterSensitiveLog,
-  ListNotebookInstancesOutput,
-  ListNotebookInstancesOutputFilterSensitiveLog,
-} from "../models/models_3";
+import { ListNotebookInstancesInput, ListNotebookInstancesOutput } from "../models/models_3";
 import {
   deserializeAws_json1_1ListNotebookInstancesCommand,
   serializeAws_json1_1ListNotebookInstancesCommand,
@@ -108,8 +103,8 @@ export class ListNotebookInstancesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListNotebookInstancesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListNotebookInstancesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import {
-  DeleteServiceLinkedRoleRequest,
-  DeleteServiceLinkedRoleRequestFilterSensitiveLog,
-  DeleteServiceLinkedRoleResponse,
-  DeleteServiceLinkedRoleResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteServiceLinkedRoleRequest, DeleteServiceLinkedRoleResponse } from "../models/models_0";
 import {
   deserializeAws_queryDeleteServiceLinkedRoleCommand,
   serializeAws_queryDeleteServiceLinkedRoleCommand,
@@ -135,8 +130,8 @@ export class DeleteServiceLinkedRoleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteServiceLinkedRoleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteServiceLinkedRoleResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import {
-  GetJobRequest,
-  GetJobRequestFilterSensitiveLog,
-  GetJobResult,
-  GetJobResultFilterSensitiveLog,
-} from "../models/models_0";
+import { GetJobRequest, GetJobResult } from "../models/models_0";
 import { deserializeAws_json1_1GetJobCommand, serializeAws_json1_1GetJobCommand } from "../protocols/Aws_json1_1";
 
 /**
@@ -126,8 +121,8 @@ export class GetJobCommand extends $Command<GetJobCommandInput, GetJobCommandOut
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetJobResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

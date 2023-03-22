@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient";
-import {
-  GetExclusionsPreviewRequest,
-  GetExclusionsPreviewRequestFilterSensitiveLog,
-  GetExclusionsPreviewResponse,
-  GetExclusionsPreviewResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetExclusionsPreviewRequest, GetExclusionsPreviewResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GetExclusionsPreviewCommand,
   serializeAws_json1_1GetExclusionsPreviewCommand,
@@ -123,8 +118,8 @@ export class GetExclusionsPreviewCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetExclusionsPreviewRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetExclusionsPreviewResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

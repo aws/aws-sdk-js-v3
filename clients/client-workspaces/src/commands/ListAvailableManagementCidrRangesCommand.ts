@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListAvailableManagementCidrRangesRequest,
-  ListAvailableManagementCidrRangesRequestFilterSensitiveLog,
-  ListAvailableManagementCidrRangesResult,
-  ListAvailableManagementCidrRangesResultFilterSensitiveLog,
-} from "../models/models_0";
+import { ListAvailableManagementCidrRangesRequest, ListAvailableManagementCidrRangesResult } from "../models/models_0";
 import {
   deserializeAws_json1_1ListAvailableManagementCidrRangesCommand,
   serializeAws_json1_1ListAvailableManagementCidrRangesCommand,
@@ -122,8 +117,8 @@ export class ListAvailableManagementCidrRangesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAvailableManagementCidrRangesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAvailableManagementCidrRangesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

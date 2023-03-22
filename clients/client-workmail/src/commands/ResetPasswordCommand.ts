@@ -17,7 +17,6 @@ import {
   ResetPasswordRequest,
   ResetPasswordRequestFilterSensitiveLog,
   ResetPasswordResponse,
-  ResetPasswordResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1ResetPasswordCommand,
@@ -138,7 +137,7 @@ export class ResetPasswordCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: ResetPasswordRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ResetPasswordResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

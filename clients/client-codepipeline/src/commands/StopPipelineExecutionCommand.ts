@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CodePipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodePipelineClient";
-import {
-  StopPipelineExecutionInput,
-  StopPipelineExecutionInputFilterSensitiveLog,
-  StopPipelineExecutionOutput,
-  StopPipelineExecutionOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { StopPipelineExecutionInput, StopPipelineExecutionOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1StopPipelineExecutionCommand,
   serializeAws_json1_1StopPipelineExecutionCommand,
@@ -133,8 +128,8 @@ export class StopPipelineExecutionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopPipelineExecutionInputFilterSensitiveLog,
-      outputFilterSensitiveLog: StopPipelineExecutionOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

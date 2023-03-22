@@ -18,7 +18,6 @@ import {
   UpdateAppInstanceRequest,
   UpdateAppInstanceRequestFilterSensitiveLog,
   UpdateAppInstanceResponse,
-  UpdateAppInstanceResponseFilterSensitiveLog,
 } from "../models/models_1";
 import {
   deserializeAws_restJson1UpdateAppInstanceCommand,
@@ -130,7 +129,7 @@ export class UpdateAppInstanceCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: UpdateAppInstanceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateAppInstanceResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

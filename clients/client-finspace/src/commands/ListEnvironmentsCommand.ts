@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { FinspaceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FinspaceClient";
-import {
-  ListEnvironmentsRequest,
-  ListEnvironmentsRequestFilterSensitiveLog,
-  ListEnvironmentsResponse,
-  ListEnvironmentsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListEnvironmentsRequest, ListEnvironmentsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListEnvironmentsCommand,
   serializeAws_restJson1ListEnvironmentsCommand,
@@ -114,8 +109,8 @@ export class ListEnvironmentsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListEnvironmentsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListEnvironmentsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

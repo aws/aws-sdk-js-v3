@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
-import {
-  UpdateSettingsRequest,
-  UpdateSettingsRequestFilterSensitiveLog,
-  UpdateSettingsResult,
-  UpdateSettingsResultFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateSettingsRequest, UpdateSettingsResult } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateSettingsCommand,
   serializeAws_json1_1UpdateSettingsCommand,
@@ -131,8 +126,8 @@ export class UpdateSettingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateSettingsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateSettingsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

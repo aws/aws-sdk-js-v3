@@ -15,7 +15,6 @@ import {
 
 import {
   ListDelegatedAdministratorsRequest,
-  ListDelegatedAdministratorsRequestFilterSensitiveLog,
   ListDelegatedAdministratorsResponse,
   ListDelegatedAdministratorsResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -438,7 +437,7 @@ export class ListDelegatedAdministratorsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDelegatedAdministratorsRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListDelegatedAdministratorsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

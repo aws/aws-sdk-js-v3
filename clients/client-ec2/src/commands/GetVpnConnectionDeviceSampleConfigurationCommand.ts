@@ -16,7 +16,6 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   GetVpnConnectionDeviceSampleConfigurationRequest,
-  GetVpnConnectionDeviceSampleConfigurationRequestFilterSensitiveLog,
   GetVpnConnectionDeviceSampleConfigurationResult,
   GetVpnConnectionDeviceSampleConfigurationResultFilterSensitiveLog,
 } from "../models/models_5";
@@ -117,7 +116,7 @@ export class GetVpnConnectionDeviceSampleConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetVpnConnectionDeviceSampleConfigurationRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetVpnConnectionDeviceSampleConfigurationResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

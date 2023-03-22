@@ -18,7 +18,6 @@ import {
   CreateBatchLoadTaskRequest,
   CreateBatchLoadTaskRequestFilterSensitiveLog,
   CreateBatchLoadTaskResponse,
-  CreateBatchLoadTaskResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_0CreateBatchLoadTaskCommand,
@@ -149,7 +148,7 @@ export class CreateBatchLoadTaskCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateBatchLoadTaskRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateBatchLoadTaskResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

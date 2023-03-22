@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import {
-  GetGatewayGroupRequest,
-  GetGatewayGroupRequestFilterSensitiveLog,
-  GetGatewayGroupResponse,
-  GetGatewayGroupResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetGatewayGroupRequest, GetGatewayGroupResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GetGatewayGroupCommand,
   serializeAws_json1_1GetGatewayGroupCommand,
@@ -110,8 +105,8 @@ export class GetGatewayGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetGatewayGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetGatewayGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

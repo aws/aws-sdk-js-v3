@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateSmsChannelRequest,
-  UpdateSmsChannelRequestFilterSensitiveLog,
-  UpdateSmsChannelResponse,
-  UpdateSmsChannelResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { UpdateSmsChannelRequest, UpdateSmsChannelResponse } from "../models/models_1";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
 import {
   deserializeAws_restJson1UpdateSmsChannelCommand,
@@ -128,8 +123,8 @@ export class UpdateSmsChannelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateSmsChannelRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateSmsChannelResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

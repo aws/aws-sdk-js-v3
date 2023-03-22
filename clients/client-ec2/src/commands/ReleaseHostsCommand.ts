@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  ReleaseHostsRequest,
-  ReleaseHostsRequestFilterSensitiveLog,
-  ReleaseHostsResult,
-  ReleaseHostsResultFilterSensitiveLog,
-} from "../models/models_6";
+import { ReleaseHostsRequest, ReleaseHostsResult } from "../models/models_6";
 import { deserializeAws_ec2ReleaseHostsCommand, serializeAws_ec2ReleaseHostsCommand } from "../protocols/Aws_ec2";
 
 /**
@@ -110,8 +105,8 @@ export class ReleaseHostsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ReleaseHostsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ReleaseHostsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

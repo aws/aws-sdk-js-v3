@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  CancelCapacityReservationFleetsRequest,
-  CancelCapacityReservationFleetsRequestFilterSensitiveLog,
-  CancelCapacityReservationFleetsResult,
-  CancelCapacityReservationFleetsResultFilterSensitiveLog,
-} from "../models/models_0";
+import { CancelCapacityReservationFleetsRequest, CancelCapacityReservationFleetsResult } from "../models/models_0";
 import {
   deserializeAws_ec2CancelCapacityReservationFleetsCommand,
   serializeAws_ec2CancelCapacityReservationFleetsCommand,
@@ -123,8 +118,8 @@ export class CancelCapacityReservationFleetsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelCapacityReservationFleetsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CancelCapacityReservationFleetsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

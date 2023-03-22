@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AccountClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AccountClient";
-import {
-  GetRegionOptStatusRequest,
-  GetRegionOptStatusRequestFilterSensitiveLog,
-  GetRegionOptStatusResponse,
-  GetRegionOptStatusResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetRegionOptStatusRequest, GetRegionOptStatusResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetRegionOptStatusCommand,
   serializeAws_restJson1GetRegionOptStatusCommand,
@@ -122,8 +117,8 @@ export class GetRegionOptStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetRegionOptStatusRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetRegionOptStatusResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

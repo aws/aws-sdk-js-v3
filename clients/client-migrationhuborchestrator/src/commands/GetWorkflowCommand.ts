@@ -20,7 +20,6 @@ import {
 } from "../MigrationHubOrchestratorClient";
 import {
   GetMigrationWorkflowRequest,
-  GetMigrationWorkflowRequestFilterSensitiveLog,
   GetMigrationWorkflowResponse,
   GetMigrationWorkflowResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -124,7 +123,7 @@ export class GetWorkflowCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetMigrationWorkflowRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetMigrationWorkflowResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

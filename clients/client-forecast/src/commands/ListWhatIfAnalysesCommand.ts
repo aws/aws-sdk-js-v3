@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ForecastClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastClient";
-import {
-  ListWhatIfAnalysesRequest,
-  ListWhatIfAnalysesRequestFilterSensitiveLog,
-  ListWhatIfAnalysesResponse,
-  ListWhatIfAnalysesResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListWhatIfAnalysesRequest, ListWhatIfAnalysesResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ListWhatIfAnalysesCommand,
   serializeAws_json1_1ListWhatIfAnalysesCommand,
@@ -114,8 +109,8 @@ export class ListWhatIfAnalysesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListWhatIfAnalysesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListWhatIfAnalysesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

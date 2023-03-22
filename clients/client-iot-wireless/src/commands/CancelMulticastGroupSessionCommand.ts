@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
-import {
-  CancelMulticastGroupSessionRequest,
-  CancelMulticastGroupSessionRequestFilterSensitiveLog,
-  CancelMulticastGroupSessionResponse,
-  CancelMulticastGroupSessionResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CancelMulticastGroupSessionRequest, CancelMulticastGroupSessionResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CancelMulticastGroupSessionCommand,
   serializeAws_restJson1CancelMulticastGroupSessionCommand,
@@ -127,8 +122,8 @@ export class CancelMulticastGroupSessionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelMulticastGroupSessionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CancelMulticastGroupSessionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

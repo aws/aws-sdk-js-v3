@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LexRuntimeV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexRuntimeV2Client";
-import {
-  DeleteSessionRequest,
-  DeleteSessionRequestFilterSensitiveLog,
-  DeleteSessionResponse,
-  DeleteSessionResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteSessionRequest, DeleteSessionResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteSessionCommand,
   serializeAws_restJson1DeleteSessionCommand,
@@ -136,8 +131,8 @@ export class DeleteSessionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteSessionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteSessionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

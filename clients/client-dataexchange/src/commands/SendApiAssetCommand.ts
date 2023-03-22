@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DataExchangeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataExchangeClient";
-import {
-  SendApiAssetRequest,
-  SendApiAssetRequestFilterSensitiveLog,
-  SendApiAssetResponse,
-  SendApiAssetResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { SendApiAssetRequest, SendApiAssetResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1SendApiAssetCommand,
   serializeAws_restJson1SendApiAssetCommand,
@@ -120,8 +115,8 @@ export class SendApiAssetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SendApiAssetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SendApiAssetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

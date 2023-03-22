@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  PutSinkPolicyInput,
-  PutSinkPolicyInputFilterSensitiveLog,
-  PutSinkPolicyOutput,
-  PutSinkPolicyOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { PutSinkPolicyInput, PutSinkPolicyOutput } from "../models/models_0";
 import { OAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OAMClient";
 import {
   deserializeAws_restJson1PutSinkPolicyCommand,
@@ -140,8 +135,8 @@ export class PutSinkPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutSinkPolicyInputFilterSensitiveLog,
-      outputFilterSensitiveLog: PutSinkPolicyOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

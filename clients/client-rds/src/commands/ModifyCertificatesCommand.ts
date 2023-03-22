@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ModifyCertificatesMessage,
-  ModifyCertificatesMessageFilterSensitiveLog,
-  ModifyCertificatesResult,
-  ModifyCertificatesResultFilterSensitiveLog,
-} from "../models/models_1";
+import { ModifyCertificatesMessage, ModifyCertificatesResult } from "../models/models_1";
 import {
   deserializeAws_queryModifyCertificatesCommand,
   serializeAws_queryModifyCertificatesCommand,
@@ -136,8 +131,8 @@ export class ModifyCertificatesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyCertificatesMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifyCertificatesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

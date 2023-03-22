@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeCatalystClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCatalystClient";
-import {
-  DeleteDevEnvironmentRequest,
-  DeleteDevEnvironmentRequestFilterSensitiveLog,
-  DeleteDevEnvironmentResponse,
-  DeleteDevEnvironmentResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteDevEnvironmentRequest, DeleteDevEnvironmentResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteDevEnvironmentCommand,
   serializeAws_restJson1DeleteDevEnvironmentCommand,
@@ -126,8 +121,8 @@ export class DeleteDevEnvironmentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDevEnvironmentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteDevEnvironmentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

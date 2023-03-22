@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateArtifactRequest,
-  UpdateArtifactRequestFilterSensitiveLog,
-  UpdateArtifactResponse,
-  UpdateArtifactResponseFilterSensitiveLog,
-} from "../models/models_3";
+import { UpdateArtifactRequest, UpdateArtifactResponse } from "../models/models_3";
 import {
   deserializeAws_json1_1UpdateArtifactCommand,
   serializeAws_json1_1UpdateArtifactCommand,
@@ -114,8 +109,8 @@ export class UpdateArtifactCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateArtifactRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateArtifactResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

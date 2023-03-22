@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MarketplaceCatalogClient";
-import {
-  CancelChangeSetRequest,
-  CancelChangeSetRequestFilterSensitiveLog,
-  CancelChangeSetResponse,
-  CancelChangeSetResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CancelChangeSetRequest, CancelChangeSetResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CancelChangeSetCommand,
   serializeAws_restJson1CancelChangeSetCommand,
@@ -132,8 +127,8 @@ export class CancelChangeSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelChangeSetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CancelChangeSetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

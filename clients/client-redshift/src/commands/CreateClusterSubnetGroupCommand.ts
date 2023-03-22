@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateClusterSubnetGroupMessage,
-  CreateClusterSubnetGroupMessageFilterSensitiveLog,
-  CreateClusterSubnetGroupResult,
-  CreateClusterSubnetGroupResultFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateClusterSubnetGroupMessage, CreateClusterSubnetGroupResult } from "../models/models_0";
 import {
   deserializeAws_queryCreateClusterSubnetGroupCommand,
   serializeAws_queryCreateClusterSubnetGroupCommand,
@@ -148,8 +143,8 @@ export class CreateClusterSubnetGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateClusterSubnetGroupMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateClusterSubnetGroupResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

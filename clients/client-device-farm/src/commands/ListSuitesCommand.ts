@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import {
-  ListSuitesRequest,
-  ListSuitesRequestFilterSensitiveLog,
-  ListSuitesResult,
-  ListSuitesResultFilterSensitiveLog,
-} from "../models/models_0";
+import { ListSuitesRequest, ListSuitesResult } from "../models/models_0";
 import {
   deserializeAws_json1_1ListSuitesCommand,
   serializeAws_json1_1ListSuitesCommand,
@@ -134,8 +129,8 @@ export class ListSuitesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListSuitesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListSuitesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

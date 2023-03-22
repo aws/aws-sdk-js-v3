@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  PutVerificationStateOnViolationRequest,
-  PutVerificationStateOnViolationRequestFilterSensitiveLog,
-  PutVerificationStateOnViolationResponse,
-  PutVerificationStateOnViolationResponseFilterSensitiveLog,
-} from "../models/models_2";
+import { PutVerificationStateOnViolationRequest, PutVerificationStateOnViolationResponse } from "../models/models_2";
 import {
   deserializeAws_restJson1PutVerificationStateOnViolationCommand,
   serializeAws_restJson1PutVerificationStateOnViolationCommand,
@@ -118,8 +113,8 @@ export class PutVerificationStateOnViolationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutVerificationStateOnViolationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutVerificationStateOnViolationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

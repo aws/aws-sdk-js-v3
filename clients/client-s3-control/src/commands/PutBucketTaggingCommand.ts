@@ -15,7 +15,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { PutBucketTaggingRequest, PutBucketTaggingRequestFilterSensitiveLog } from "../models/models_0";
+import { PutBucketTaggingRequest } from "../models/models_0";
 import {
   deserializeAws_restXmlPutBucketTaggingCommand,
   serializeAws_restXmlPutBucketTaggingCommand,
@@ -192,8 +192,8 @@ export class PutBucketTaggingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutBucketTaggingRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

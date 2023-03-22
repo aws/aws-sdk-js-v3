@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DAXClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DAXClient";
-import {
-  IncreaseReplicationFactorRequest,
-  IncreaseReplicationFactorRequestFilterSensitiveLog,
-  IncreaseReplicationFactorResponse,
-  IncreaseReplicationFactorResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { IncreaseReplicationFactorRequest, IncreaseReplicationFactorResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1IncreaseReplicationFactorCommand,
   serializeAws_json1_1IncreaseReplicationFactorCommand,
@@ -138,8 +133,8 @@ export class IncreaseReplicationFactorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: IncreaseReplicationFactorRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: IncreaseReplicationFactorResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

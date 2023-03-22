@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DLMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DLMClient";
-import {
-  DeleteLifecyclePolicyRequest,
-  DeleteLifecyclePolicyRequestFilterSensitiveLog,
-  DeleteLifecyclePolicyResponse,
-  DeleteLifecyclePolicyResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteLifecyclePolicyRequest, DeleteLifecyclePolicyResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteLifecyclePolicyCommand,
   serializeAws_restJson1DeleteLifecyclePolicyCommand,
@@ -119,8 +114,8 @@ export class DeleteLifecyclePolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteLifecyclePolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteLifecyclePolicyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

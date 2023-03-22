@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
-import {
-  ListInvitationsRequest,
-  ListInvitationsRequestFilterSensitiveLog,
-  ListInvitationsResponse,
-  ListInvitationsResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { ListInvitationsRequest, ListInvitationsResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1ListInvitationsCommand,
   serializeAws_restJson1ListInvitationsCommand,
@@ -128,8 +123,8 @@ export class ListInvitationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListInvitationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListInvitationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

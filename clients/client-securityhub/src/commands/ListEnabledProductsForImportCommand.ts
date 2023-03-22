@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListEnabledProductsForImportRequest,
-  ListEnabledProductsForImportRequestFilterSensitiveLog,
-  ListEnabledProductsForImportResponse,
-  ListEnabledProductsForImportResponseFilterSensitiveLog,
-} from "../models/models_2";
+import { ListEnabledProductsForImportRequest, ListEnabledProductsForImportResponse } from "../models/models_2";
 import {
   deserializeAws_restJson1ListEnabledProductsForImportCommand,
   serializeAws_restJson1ListEnabledProductsForImportCommand,
@@ -120,8 +115,8 @@ export class ListEnabledProductsForImportCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListEnabledProductsForImportRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListEnabledProductsForImportResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

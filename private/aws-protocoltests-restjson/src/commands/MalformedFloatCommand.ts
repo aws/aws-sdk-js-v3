@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { MalformedFloatInput, MalformedFloatInputFilterSensitiveLog } from "../models/models_0";
+import { MalformedFloatInput } from "../models/models_0";
 import {
   deserializeAws_restJson1MalformedFloatCommand,
   serializeAws_restJson1MalformedFloatCommand,
@@ -20,10 +20,14 @@ import {
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
 /**
+ * @public
+ *
  * The input for {@link MalformedFloatCommand}.
  */
 export interface MalformedFloatCommandInput extends MalformedFloatInput {}
 /**
+ * @public
+ *
  * The output of {@link MalformedFloatCommand}.
  */
 export interface MalformedFloatCommandOutput extends __MetadataBearer {}
@@ -36,6 +40,9 @@ export class MalformedFloatCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: MalformedFloatCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,8 +68,8 @@ export class MalformedFloatCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: MalformedFloatInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -72,10 +79,16 @@ export class MalformedFloatCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: MalformedFloatCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1MalformedFloatCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<MalformedFloatCommandOutput> {
     return deserializeAws_restJson1MalformedFloatCommand(output, context);
   }

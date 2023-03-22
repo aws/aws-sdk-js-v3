@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaTailorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaTailorClient";
-import {
-  UpdateVodSourceRequest,
-  UpdateVodSourceRequestFilterSensitiveLog,
-  UpdateVodSourceResponse,
-  UpdateVodSourceResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateVodSourceRequest, UpdateVodSourceResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateVodSourceCommand,
   serializeAws_restJson1UpdateVodSourceCommand,
@@ -107,8 +102,8 @@ export class UpdateVodSourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateVodSourceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateVodSourceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

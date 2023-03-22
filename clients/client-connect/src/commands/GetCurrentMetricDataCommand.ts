@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import {
-  GetCurrentMetricDataRequest,
-  GetCurrentMetricDataRequestFilterSensitiveLog,
-  GetCurrentMetricDataResponse,
-  GetCurrentMetricDataResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetCurrentMetricDataRequest, GetCurrentMetricDataResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetCurrentMetricDataCommand,
   serializeAws_restJson1GetCurrentMetricDataCommand,
@@ -124,8 +119,8 @@ export class GetCurrentMetricDataCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetCurrentMetricDataRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetCurrentMetricDataResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

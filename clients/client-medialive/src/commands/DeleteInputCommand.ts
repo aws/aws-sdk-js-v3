@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
-import {
-  DeleteInputRequest,
-  DeleteInputRequestFilterSensitiveLog,
-  DeleteInputResponse,
-  DeleteInputResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { DeleteInputRequest, DeleteInputResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1DeleteInputCommand,
   serializeAws_restJson1DeleteInputCommand,
@@ -129,8 +124,8 @@ export class DeleteInputCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteInputRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteInputResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

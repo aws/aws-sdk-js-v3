@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateDiscovererRequest,
-  UpdateDiscovererRequestFilterSensitiveLog,
-  UpdateDiscovererResponse,
-  UpdateDiscovererResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateDiscovererRequest, UpdateDiscovererResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateDiscovererCommand,
   serializeAws_restJson1UpdateDiscovererCommand,
@@ -119,8 +114,8 @@ export class UpdateDiscovererCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateDiscovererRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateDiscovererResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

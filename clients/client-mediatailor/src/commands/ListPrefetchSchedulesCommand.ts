@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaTailorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaTailorClient";
-import {
-  ListPrefetchSchedulesRequest,
-  ListPrefetchSchedulesRequestFilterSensitiveLog,
-  ListPrefetchSchedulesResponse,
-  ListPrefetchSchedulesResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListPrefetchSchedulesRequest, ListPrefetchSchedulesResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListPrefetchSchedulesCommand,
   serializeAws_restJson1ListPrefetchSchedulesCommand,
@@ -107,8 +102,8 @@ export class ListPrefetchSchedulesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListPrefetchSchedulesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListPrefetchSchedulesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

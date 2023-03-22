@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient";
-import {
-  CreateAgentRequest,
-  CreateAgentRequestFilterSensitiveLog,
-  CreateAgentResponse,
-  CreateAgentResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateAgentRequest, CreateAgentResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateAgentCommand,
   serializeAws_json1_1CreateAgentCommand,
@@ -122,8 +117,8 @@ export class CreateAgentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateAgentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateAgentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { StopProcessingJobRequest, StopProcessingJobRequestFilterSensitiveLog } from "../models/models_3";
+import { StopProcessingJobRequest } from "../models/models_3";
 import {
   deserializeAws_json1_1StopProcessingJobCommand,
   serializeAws_json1_1StopProcessingJobCommand,
@@ -105,8 +105,8 @@ export class StopProcessingJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopProcessingJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

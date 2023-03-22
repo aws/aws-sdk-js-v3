@@ -16,9 +16,7 @@ import {
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
 import {
   UpdateGroupCertificateConfigurationRequest,
-  UpdateGroupCertificateConfigurationRequestFilterSensitiveLog,
   UpdateGroupCertificateConfigurationResponse,
-  UpdateGroupCertificateConfigurationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateGroupCertificateConfigurationCommand,
@@ -115,8 +113,8 @@ export class UpdateGroupCertificateConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateGroupCertificateConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateGroupCertificateConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

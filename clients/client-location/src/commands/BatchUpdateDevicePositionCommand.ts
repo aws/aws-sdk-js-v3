@@ -18,7 +18,6 @@ import {
   BatchUpdateDevicePositionRequest,
   BatchUpdateDevicePositionRequestFilterSensitiveLog,
   BatchUpdateDevicePositionResponse,
-  BatchUpdateDevicePositionResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1BatchUpdateDevicePositionCommand,
@@ -142,7 +141,7 @@ export class BatchUpdateDevicePositionCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: BatchUpdateDevicePositionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchUpdateDevicePositionResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

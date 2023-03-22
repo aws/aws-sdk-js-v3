@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient";
-import {
-  DeleteDomainPermissionsPolicyRequest,
-  DeleteDomainPermissionsPolicyRequestFilterSensitiveLog,
-  DeleteDomainPermissionsPolicyResult,
-  DeleteDomainPermissionsPolicyResultFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteDomainPermissionsPolicyRequest, DeleteDomainPermissionsPolicyResult } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteDomainPermissionsPolicyCommand,
   serializeAws_restJson1DeleteDomainPermissionsPolicyCommand,
@@ -139,8 +134,8 @@ export class DeleteDomainPermissionsPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDomainPermissionsPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteDomainPermissionsPolicyResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

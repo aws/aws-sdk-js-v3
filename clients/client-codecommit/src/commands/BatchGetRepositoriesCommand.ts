@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
-import {
-  BatchGetRepositoriesInput,
-  BatchGetRepositoriesInputFilterSensitiveLog,
-  BatchGetRepositoriesOutput,
-  BatchGetRepositoriesOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { BatchGetRepositoriesInput, BatchGetRepositoriesOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1BatchGetRepositoriesCommand,
   serializeAws_json1_1BatchGetRepositoriesCommand,
@@ -144,8 +139,8 @@ export class BatchGetRepositoriesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchGetRepositoriesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchGetRepositoriesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

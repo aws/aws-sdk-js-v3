@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  AssociateDataShareConsumerMessage,
-  AssociateDataShareConsumerMessageFilterSensitiveLog,
-  DataShare,
-  DataShareFilterSensitiveLog,
-} from "../models/models_0";
+import { AssociateDataShareConsumerMessage, DataShare } from "../models/models_0";
 import {
   deserializeAws_queryAssociateDataShareConsumerCommand,
   serializeAws_queryAssociateDataShareConsumerCommand,
@@ -115,8 +110,8 @@ export class AssociateDataShareConsumerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateDataShareConsumerMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: DataShareFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

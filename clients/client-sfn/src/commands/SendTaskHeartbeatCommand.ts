@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  SendTaskHeartbeatInput,
-  SendTaskHeartbeatInputFilterSensitiveLog,
-  SendTaskHeartbeatOutput,
-  SendTaskHeartbeatOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { SendTaskHeartbeatInput, SendTaskHeartbeatOutput } from "../models/models_0";
 import {
   deserializeAws_json1_0SendTaskHeartbeatCommand,
   serializeAws_json1_0SendTaskHeartbeatCommand,
@@ -128,8 +123,8 @@ export class SendTaskHeartbeatCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SendTaskHeartbeatInputFilterSensitiveLog,
-      outputFilterSensitiveLog: SendTaskHeartbeatOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
-import {
-  CreateListRequest,
-  CreateListRequestFilterSensitiveLog,
-  CreateListResult,
-  CreateListResultFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateListRequest, CreateListRequestFilterSensitiveLog, CreateListResult } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateListCommand,
   serializeAws_json1_1CreateListCommand,
@@ -122,7 +117,7 @@ export class CreateListCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateListRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateListResultFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

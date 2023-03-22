@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListPoolOriginationIdentitiesRequest,
-  ListPoolOriginationIdentitiesRequestFilterSensitiveLog,
-  ListPoolOriginationIdentitiesResult,
-  ListPoolOriginationIdentitiesResultFilterSensitiveLog,
-} from "../models/models_0";
+import { ListPoolOriginationIdentitiesRequest, ListPoolOriginationIdentitiesResult } from "../models/models_0";
 import {
   PinpointSMSVoiceV2ClientResolvedConfig,
   ServiceInputTypes,
@@ -133,8 +128,8 @@ export class ListPoolOriginationIdentitiesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListPoolOriginationIdentitiesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListPoolOriginationIdentitiesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

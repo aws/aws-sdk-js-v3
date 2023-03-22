@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
-import {
-  StartEventsDetectionJobRequest,
-  StartEventsDetectionJobRequestFilterSensitiveLog,
-  StartEventsDetectionJobResponse,
-  StartEventsDetectionJobResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { StartEventsDetectionJobRequest, StartEventsDetectionJobResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1StartEventsDetectionJobCommand,
   serializeAws_json1_1StartEventsDetectionJobCommand,
@@ -125,8 +120,8 @@ export class StartEventsDetectionJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartEventsDetectionJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartEventsDetectionJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteSiteInput,
-  DeleteSiteInputFilterSensitiveLog,
-  DeleteSiteOutput,
-  DeleteSiteOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteSiteInput, DeleteSiteOutput } from "../models/models_0";
 import { OutpostsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OutpostsClient";
 import {
   deserializeAws_restJson1DeleteSiteCommand,
@@ -120,8 +115,8 @@ export class DeleteSiteCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteSiteInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteSiteOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

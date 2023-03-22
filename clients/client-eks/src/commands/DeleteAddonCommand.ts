@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
-import {
-  DeleteAddonRequest,
-  DeleteAddonRequestFilterSensitiveLog,
-  DeleteAddonResponse,
-  DeleteAddonResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteAddonRequest, DeleteAddonResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteAddonCommand,
   serializeAws_restJson1DeleteAddonCommand,
@@ -129,8 +124,8 @@ export class DeleteAddonCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAddonRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteAddonResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

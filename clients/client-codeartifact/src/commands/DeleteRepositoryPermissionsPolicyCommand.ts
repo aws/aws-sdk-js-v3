@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient";
-import {
-  DeleteRepositoryPermissionsPolicyRequest,
-  DeleteRepositoryPermissionsPolicyRequestFilterSensitiveLog,
-  DeleteRepositoryPermissionsPolicyResult,
-  DeleteRepositoryPermissionsPolicyResultFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteRepositoryPermissionsPolicyRequest, DeleteRepositoryPermissionsPolicyResult } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteRepositoryPermissionsPolicyCommand,
   serializeAws_restJson1DeleteRepositoryPermissionsPolicyCommand,
@@ -146,8 +141,8 @@ export class DeleteRepositoryPermissionsPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteRepositoryPermissionsPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteRepositoryPermissionsPolicyResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

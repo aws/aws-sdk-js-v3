@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  ModifyFleetRequest,
-  ModifyFleetRequestFilterSensitiveLog,
-  ModifyFleetResult,
-  ModifyFleetResultFilterSensitiveLog,
-} from "../models/models_6";
+import { ModifyFleetRequest, ModifyFleetResult } from "../models/models_6";
 import { deserializeAws_ec2ModifyFleetCommand, serializeAws_ec2ModifyFleetCommand } from "../protocols/Aws_ec2";
 
 /**
@@ -123,8 +118,8 @@ export class ModifyFleetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyFleetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifyFleetResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

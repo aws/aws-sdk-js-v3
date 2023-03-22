@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
-import {
-  DescribeCertificatesMessage,
-  DescribeCertificatesMessageFilterSensitiveLog,
-  DescribeCertificatesResponse,
-  DescribeCertificatesResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeCertificatesMessage, DescribeCertificatesResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeCertificatesCommand,
   serializeAws_json1_1DescribeCertificatesCommand,
@@ -141,8 +136,8 @@ export class DescribeCertificatesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeCertificatesMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeCertificatesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

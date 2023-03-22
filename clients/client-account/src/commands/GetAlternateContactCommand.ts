@@ -16,7 +16,6 @@ import {
 import { AccountClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AccountClient";
 import {
   GetAlternateContactRequest,
-  GetAlternateContactRequestFilterSensitiveLog,
   GetAlternateContactResponse,
   GetAlternateContactResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -133,7 +132,7 @@ export class GetAlternateContactCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAlternateContactRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetAlternateContactResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

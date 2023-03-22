@@ -16,9 +16,7 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   CreateVpcEndpointConnectionNotificationRequest,
-  CreateVpcEndpointConnectionNotificationRequestFilterSensitiveLog,
   CreateVpcEndpointConnectionNotificationResult,
-  CreateVpcEndpointConnectionNotificationResultFilterSensitiveLog,
 } from "../models/models_2";
 import {
   deserializeAws_ec2CreateVpcEndpointConnectionNotificationCommand,
@@ -120,8 +118,8 @@ export class CreateVpcEndpointConnectionNotificationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateVpcEndpointConnectionNotificationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateVpcEndpointConnectionNotificationResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

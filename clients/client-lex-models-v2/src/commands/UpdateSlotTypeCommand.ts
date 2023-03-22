@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
-import {
-  UpdateSlotTypeRequest,
-  UpdateSlotTypeRequestFilterSensitiveLog,
-  UpdateSlotTypeResponse,
-  UpdateSlotTypeResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { UpdateSlotTypeRequest, UpdateSlotTypeResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1UpdateSlotTypeCommand,
   serializeAws_restJson1UpdateSlotTypeCommand,
@@ -132,8 +127,8 @@ export class UpdateSlotTypeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateSlotTypeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateSlotTypeResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

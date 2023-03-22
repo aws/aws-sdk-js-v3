@@ -15,7 +15,6 @@ import {
 
 import {
   CancelHandshakeRequest,
-  CancelHandshakeRequestFilterSensitiveLog,
   CancelHandshakeResponse,
   CancelHandshakeResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -312,7 +311,7 @@ export class CancelHandshakeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelHandshakeRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: CancelHandshakeResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
-import {
-  StopKeyPhrasesDetectionJobRequest,
-  StopKeyPhrasesDetectionJobRequestFilterSensitiveLog,
-  StopKeyPhrasesDetectionJobResponse,
-  StopKeyPhrasesDetectionJobResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { StopKeyPhrasesDetectionJobRequest, StopKeyPhrasesDetectionJobResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1StopKeyPhrasesDetectionJobCommand,
   serializeAws_json1_1StopKeyPhrasesDetectionJobCommand,
@@ -125,8 +120,8 @@ export class StopKeyPhrasesDetectionJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopKeyPhrasesDetectionJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StopKeyPhrasesDetectionJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

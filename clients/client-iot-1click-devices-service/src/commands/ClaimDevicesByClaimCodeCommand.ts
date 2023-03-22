@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../IoT1ClickDevicesServiceClient";
-import {
-  ClaimDevicesByClaimCodeRequest,
-  ClaimDevicesByClaimCodeRequestFilterSensitiveLog,
-  ClaimDevicesByClaimCodeResponse,
-  ClaimDevicesByClaimCodeResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ClaimDevicesByClaimCodeRequest, ClaimDevicesByClaimCodeResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ClaimDevicesByClaimCodeCommand,
   serializeAws_restJson1ClaimDevicesByClaimCodeCommand,
@@ -118,8 +113,8 @@ export class ClaimDevicesByClaimCodeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ClaimDevicesByClaimCodeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ClaimDevicesByClaimCodeResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

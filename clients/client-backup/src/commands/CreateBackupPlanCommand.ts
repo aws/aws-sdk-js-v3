@@ -18,7 +18,6 @@ import {
   CreateBackupPlanInput,
   CreateBackupPlanInputFilterSensitiveLog,
   CreateBackupPlanOutput,
-  CreateBackupPlanOutputFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateBackupPlanCommand,
@@ -129,7 +128,7 @@ export class CreateBackupPlanCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateBackupPlanInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateBackupPlanOutputFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

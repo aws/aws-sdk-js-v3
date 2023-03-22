@@ -22,7 +22,6 @@ import {
   UpdateElasticsearchDomainConfigRequest,
   UpdateElasticsearchDomainConfigRequestFilterSensitiveLog,
   UpdateElasticsearchDomainConfigResponse,
-  UpdateElasticsearchDomainConfigResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateElasticsearchDomainConfigCommand,
@@ -132,7 +131,7 @@ export class UpdateElasticsearchDomainConfigCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: UpdateElasticsearchDomainConfigRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateElasticsearchDomainConfigResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

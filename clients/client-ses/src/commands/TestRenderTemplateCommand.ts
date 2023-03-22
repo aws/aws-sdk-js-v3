@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  TestRenderTemplateRequest,
-  TestRenderTemplateRequestFilterSensitiveLog,
-  TestRenderTemplateResponse,
-  TestRenderTemplateResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { TestRenderTemplateRequest, TestRenderTemplateResponse } from "../models/models_0";
 import {
   deserializeAws_queryTestRenderTemplateCommand,
   serializeAws_queryTestRenderTemplateCommand,
@@ -122,8 +117,8 @@ export class TestRenderTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TestRenderTemplateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: TestRenderTemplateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

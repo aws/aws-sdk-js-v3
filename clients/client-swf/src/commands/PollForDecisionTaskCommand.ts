@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DecisionTask,
-  DecisionTaskFilterSensitiveLog,
-  PollForDecisionTaskInput,
-  PollForDecisionTaskInputFilterSensitiveLog,
-} from "../models/models_0";
+import { DecisionTask, PollForDecisionTaskInput } from "../models/models_0";
 import {
   deserializeAws_json1_0PollForDecisionTaskCommand,
   serializeAws_json1_0PollForDecisionTaskCommand,
@@ -163,8 +158,8 @@ export class PollForDecisionTaskCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PollForDecisionTaskInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DecisionTaskFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

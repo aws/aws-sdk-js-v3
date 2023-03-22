@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ModifyDBSubnetGroupMessage,
-  ModifyDBSubnetGroupMessageFilterSensitiveLog,
-  ModifyDBSubnetGroupResult,
-  ModifyDBSubnetGroupResultFilterSensitiveLog,
-} from "../models/models_1";
+import { ModifyDBSubnetGroupMessage, ModifyDBSubnetGroupResult } from "../models/models_1";
 import {
   deserializeAws_queryModifyDBSubnetGroupCommand,
   serializeAws_queryModifyDBSubnetGroupCommand,
@@ -144,8 +139,8 @@ export class ModifyDBSubnetGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyDBSubnetGroupMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifyDBSubnetGroupResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -18,7 +18,6 @@ import {
   CreatePredictorBacktestExportJobRequest,
   CreatePredictorBacktestExportJobRequestFilterSensitiveLog,
   CreatePredictorBacktestExportJobResponse,
-  CreatePredictorBacktestExportJobResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1CreatePredictorBacktestExportJobCommand,
@@ -141,7 +140,7 @@ export class CreatePredictorBacktestExportJobCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreatePredictorBacktestExportJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreatePredictorBacktestExportJobResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

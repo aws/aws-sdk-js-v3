@@ -20,7 +20,6 @@ import {
 } from "../DatabaseMigrationServiceClient";
 import {
   DeleteEndpointMessage,
-  DeleteEndpointMessageFilterSensitiveLog,
   DeleteEndpointResponse,
   DeleteEndpointResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -149,7 +148,7 @@ export class DeleteEndpointCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteEndpointMessageFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DeleteEndpointResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

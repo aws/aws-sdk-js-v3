@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MachineLearningClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MachineLearningClient";
-import {
-  CreateBatchPredictionInput,
-  CreateBatchPredictionInputFilterSensitiveLog,
-  CreateBatchPredictionOutput,
-  CreateBatchPredictionOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateBatchPredictionInput, CreateBatchPredictionOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateBatchPredictionCommand,
   serializeAws_json1_1CreateBatchPredictionCommand,
@@ -127,8 +122,8 @@ export class CreateBatchPredictionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateBatchPredictionInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateBatchPredictionOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

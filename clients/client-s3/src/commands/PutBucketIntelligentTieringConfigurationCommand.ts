@@ -13,10 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  PutBucketIntelligentTieringConfigurationRequest,
-  PutBucketIntelligentTieringConfigurationRequestFilterSensitiveLog,
-} from "../models/models_0";
+import { PutBucketIntelligentTieringConfigurationRequest } from "../models/models_0";
 import {
   deserializeAws_restXmlPutBucketIntelligentTieringConfigurationCommand,
   serializeAws_restXmlPutBucketIntelligentTieringConfigurationCommand,
@@ -199,8 +196,8 @@ export class PutBucketIntelligentTieringConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutBucketIntelligentTieringConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

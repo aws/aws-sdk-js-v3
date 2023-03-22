@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  PutFirewallRuleGroupPolicyRequest,
-  PutFirewallRuleGroupPolicyRequestFilterSensitiveLog,
-  PutFirewallRuleGroupPolicyResponse,
-  PutFirewallRuleGroupPolicyResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { PutFirewallRuleGroupPolicyRequest, PutFirewallRuleGroupPolicyResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1PutFirewallRuleGroupPolicyCommand,
   serializeAws_json1_1PutFirewallRuleGroupPolicyCommand,
@@ -125,8 +120,8 @@ export class PutFirewallRuleGroupPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutFirewallRuleGroupPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutFirewallRuleGroupPolicyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

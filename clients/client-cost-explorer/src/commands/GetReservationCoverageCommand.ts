@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CostExplorerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CostExplorerClient";
-import {
-  GetReservationCoverageRequest,
-  GetReservationCoverageRequestFilterSensitiveLog,
-  GetReservationCoverageResponse,
-  GetReservationCoverageResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetReservationCoverageRequest, GetReservationCoverageResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GetReservationCoverageCommand,
   serializeAws_json1_1GetReservationCoverageCommand,
@@ -161,8 +156,8 @@ export class GetReservationCoverageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetReservationCoverageRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetReservationCoverageResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

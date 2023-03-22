@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  RevokeDomainAccessRequest,
-  RevokeDomainAccessRequestFilterSensitiveLog,
-  RevokeDomainAccessResponse,
-  RevokeDomainAccessResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { RevokeDomainAccessRequest, RevokeDomainAccessResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1RevokeDomainAccessCommand,
   serializeAws_restJson1RevokeDomainAccessCommand,
@@ -124,8 +119,8 @@ export class RevokeDomainAccessCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RevokeDomainAccessRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RevokeDomainAccessResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DisassociateSubnetsRequest,
-  DisassociateSubnetsRequestFilterSensitiveLog,
-  DisassociateSubnetsResponse,
-  DisassociateSubnetsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DisassociateSubnetsRequest, DisassociateSubnetsResponse } from "../models/models_0";
 import { NetworkFirewallClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkFirewallClient";
 import {
   deserializeAws_json1_0DisassociateSubnetsCommand,
@@ -143,8 +138,8 @@ export class DisassociateSubnetsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateSubnetsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateSubnetsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { AllQueryStringTypesInput, AllQueryStringTypesInputFilterSensitiveLog } from "../models/models_0";
+import { AllQueryStringTypesInput } from "../models/models_0";
 import {
   deserializeAws_restXmlAllQueryStringTypesCommand,
   serializeAws_restXmlAllQueryStringTypesCommand,
@@ -20,15 +20,20 @@ import {
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 
 /**
+ * @public
+ *
  * The input for {@link AllQueryStringTypesCommand}.
  */
 export interface AllQueryStringTypesCommandInput extends AllQueryStringTypesInput {}
 /**
+ * @public
+ *
  * The output of {@link AllQueryStringTypesCommand}.
  */
 export interface AllQueryStringTypesCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * This example uses all query string types.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,6 +45,8 @@ export interface AllQueryStringTypesCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param AllQueryStringTypesCommandInput - {@link AllQueryStringTypesCommandInput}
+ * @returns {@link AllQueryStringTypesCommandOutput}
  * @see {@link AllQueryStringTypesCommandInput} for command's `input` shape.
  * @see {@link AllQueryStringTypesCommandOutput} for command's `response` shape.
  * @see {@link RestXmlProtocolClientResolvedConfig | config} for RestXmlProtocolClient's `config` shape.
@@ -54,6 +61,9 @@ export class AllQueryStringTypesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: AllQueryStringTypesCommandInput) {
     // Start section: command_constructor
     super();
@@ -79,8 +89,8 @@ export class AllQueryStringTypesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AllQueryStringTypesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -90,10 +100,16 @@ export class AllQueryStringTypesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AllQueryStringTypesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlAllQueryStringTypesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AllQueryStringTypesCommandOutput> {
     return deserializeAws_restXmlAllQueryStringTypesCommand(output, context);
   }

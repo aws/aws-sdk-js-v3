@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
-import {
-  CreateResourcePolicyRequest,
-  CreateResourcePolicyRequestFilterSensitiveLog,
-  CreateResourcePolicyResponse,
-  CreateResourcePolicyResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateResourcePolicyRequest, CreateResourcePolicyResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateResourcePolicyCommand,
   serializeAws_restJson1CreateResourcePolicyCommand,
@@ -132,8 +127,8 @@ export class CreateResourcePolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateResourcePolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateResourcePolicyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

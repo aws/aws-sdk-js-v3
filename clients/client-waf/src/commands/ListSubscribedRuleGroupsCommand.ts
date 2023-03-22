@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListSubscribedRuleGroupsRequest,
-  ListSubscribedRuleGroupsRequestFilterSensitiveLog,
-  ListSubscribedRuleGroupsResponse,
-  ListSubscribedRuleGroupsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListSubscribedRuleGroupsRequest, ListSubscribedRuleGroupsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ListSubscribedRuleGroupsCommand,
   serializeAws_json1_1ListSubscribedRuleGroupsCommand,
@@ -121,8 +116,8 @@ export class ListSubscribedRuleGroupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListSubscribedRuleGroupsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListSubscribedRuleGroupsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

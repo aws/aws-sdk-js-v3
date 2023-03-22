@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetResolverRuleRequest,
-  GetResolverRuleRequestFilterSensitiveLog,
-  GetResolverRuleResponse,
-  GetResolverRuleResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetResolverRuleRequest, GetResolverRuleResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GetResolverRuleCommand,
   serializeAws_json1_1GetResolverRuleCommand,
@@ -120,8 +115,8 @@ export class GetResolverRuleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetResolverRuleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetResolverRuleResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

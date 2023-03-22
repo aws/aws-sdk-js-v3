@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  ReleaseIpamPoolAllocationRequest,
-  ReleaseIpamPoolAllocationRequestFilterSensitiveLog,
-  ReleaseIpamPoolAllocationResult,
-  ReleaseIpamPoolAllocationResultFilterSensitiveLog,
-} from "../models/models_6";
+import { ReleaseIpamPoolAllocationRequest, ReleaseIpamPoolAllocationResult } from "../models/models_6";
 import {
   deserializeAws_ec2ReleaseIpamPoolAllocationCommand,
   serializeAws_ec2ReleaseIpamPoolAllocationCommand,
@@ -111,8 +106,8 @@ export class ReleaseIpamPoolAllocationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ReleaseIpamPoolAllocationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ReleaseIpamPoolAllocationResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

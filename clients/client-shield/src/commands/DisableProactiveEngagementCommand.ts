@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DisableProactiveEngagementRequest,
-  DisableProactiveEngagementRequestFilterSensitiveLog,
-  DisableProactiveEngagementResponse,
-  DisableProactiveEngagementResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DisableProactiveEngagementRequest, DisableProactiveEngagementResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DisableProactiveEngagementCommand,
   serializeAws_json1_1DisableProactiveEngagementCommand,
@@ -123,8 +118,8 @@ export class DisableProactiveEngagementCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisableProactiveEngagementRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisableProactiveEngagementResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -17,7 +17,6 @@ import {
   CreateTrustStoreRequest,
   CreateTrustStoreRequestFilterSensitiveLog,
   CreateTrustStoreResponse,
-  CreateTrustStoreResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateTrustStoreCommand,
@@ -130,7 +129,7 @@ export class CreateTrustStoreCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateTrustStoreRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateTrustStoreResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
-import {
-  UpdateIntentRequest,
-  UpdateIntentRequestFilterSensitiveLog,
-  UpdateIntentResponse,
-  UpdateIntentResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { UpdateIntentRequest, UpdateIntentResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1UpdateIntentCommand,
   serializeAws_restJson1UpdateIntentCommand,
@@ -130,8 +125,8 @@ export class UpdateIntentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateIntentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateIntentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

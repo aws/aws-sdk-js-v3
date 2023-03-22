@@ -16,7 +16,6 @@ import {
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
 import {
   GetPartnerAccountRequest,
-  GetPartnerAccountRequestFilterSensitiveLog,
   GetPartnerAccountResponse,
   GetPartnerAccountResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -119,7 +118,7 @@ export class GetPartnerAccountCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetPartnerAccountRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetPartnerAccountResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

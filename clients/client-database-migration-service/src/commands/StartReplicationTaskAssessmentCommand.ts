@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
-import {
-  StartReplicationTaskAssessmentMessage,
-  StartReplicationTaskAssessmentMessageFilterSensitiveLog,
-  StartReplicationTaskAssessmentResponse,
-  StartReplicationTaskAssessmentResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { StartReplicationTaskAssessmentMessage, StartReplicationTaskAssessmentResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1StartReplicationTaskAssessmentCommand,
   serializeAws_json1_1StartReplicationTaskAssessmentCommand,
@@ -133,8 +128,8 @@ export class StartReplicationTaskAssessmentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartReplicationTaskAssessmentMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: StartReplicationTaskAssessmentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

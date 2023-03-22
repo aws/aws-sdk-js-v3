@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetCalendarStateRequest,
-  GetCalendarStateRequestFilterSensitiveLog,
-  GetCalendarStateResponse,
-  GetCalendarStateResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { GetCalendarStateRequest, GetCalendarStateResponse } from "../models/models_1";
 import {
   deserializeAws_json1_1GetCalendarStateCommand,
   serializeAws_json1_1GetCalendarStateCommand,
@@ -128,8 +123,8 @@ export class GetCalendarStateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetCalendarStateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetCalendarStateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

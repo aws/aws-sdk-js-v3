@@ -16,7 +16,6 @@ import {
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
 import {
   ListFunctionsRequest,
-  ListFunctionsRequestFilterSensitiveLog,
   ListFunctionsResponse,
   ListFunctionsResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -122,7 +121,7 @@ export class ListFunctionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListFunctionsRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListFunctionsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

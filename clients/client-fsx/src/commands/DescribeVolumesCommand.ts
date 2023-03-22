@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
-import {
-  DescribeVolumesRequest,
-  DescribeVolumesRequestFilterSensitiveLog,
-  DescribeVolumesResponse,
-  DescribeVolumesResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeVolumesRequest, DescribeVolumesResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeVolumesCommand,
   serializeAws_json1_1DescribeVolumesCommand,
@@ -117,8 +112,8 @@ export class DescribeVolumesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeVolumesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeVolumesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

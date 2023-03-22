@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
-import {
-  DeleteSnapshotMessage,
-  DeleteSnapshotMessageFilterSensitiveLog,
-  DeleteSnapshotResult,
-  DeleteSnapshotResultFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteSnapshotMessage, DeleteSnapshotResult } from "../models/models_0";
 import {
   deserializeAws_queryDeleteSnapshotCommand,
   serializeAws_queryDeleteSnapshotCommand,
@@ -167,8 +162,8 @@ export class DeleteSnapshotCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteSnapshotMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteSnapshotResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

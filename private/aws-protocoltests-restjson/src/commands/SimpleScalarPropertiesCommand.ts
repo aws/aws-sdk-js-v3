@@ -12,10 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  SimpleScalarPropertiesInputOutput,
-  SimpleScalarPropertiesInputOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { SimpleScalarPropertiesInputOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1SimpleScalarPropertiesCommand,
   serializeAws_restJson1SimpleScalarPropertiesCommand,
@@ -23,10 +20,14 @@ import {
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
 /**
+ * @public
+ *
  * The input for {@link SimpleScalarPropertiesCommand}.
  */
 export interface SimpleScalarPropertiesCommandInput extends SimpleScalarPropertiesInputOutput {}
 /**
+ * @public
+ *
  * The output of {@link SimpleScalarPropertiesCommand}.
  */
 export interface SimpleScalarPropertiesCommandOutput extends SimpleScalarPropertiesInputOutput, __MetadataBearer {}
@@ -39,6 +40,9 @@ export class SimpleScalarPropertiesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: SimpleScalarPropertiesCommandInput) {
     // Start section: command_constructor
     super();
@@ -64,8 +68,8 @@ export class SimpleScalarPropertiesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SimpleScalarPropertiesInputOutputFilterSensitiveLog,
-      outputFilterSensitiveLog: SimpleScalarPropertiesInputOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -75,10 +79,16 @@ export class SimpleScalarPropertiesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SimpleScalarPropertiesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1SimpleScalarPropertiesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SimpleScalarPropertiesCommandOutput> {
     return deserializeAws_restJson1SimpleScalarPropertiesCommand(output, context);
   }

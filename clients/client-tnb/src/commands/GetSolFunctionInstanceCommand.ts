@@ -15,7 +15,6 @@ import {
 
 import {
   GetSolFunctionInstanceInput,
-  GetSolFunctionInstanceInputFilterSensitiveLog,
   GetSolFunctionInstanceOutput,
   GetSolFunctionInstanceOutputFilterSensitiveLog,
 } from "../models/models_0";
@@ -123,7 +122,7 @@ export class GetSolFunctionInstanceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSolFunctionInstanceInputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetSolFunctionInstanceOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

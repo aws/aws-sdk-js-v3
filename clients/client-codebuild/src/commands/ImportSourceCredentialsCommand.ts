@@ -18,7 +18,6 @@ import {
   ImportSourceCredentialsInput,
   ImportSourceCredentialsInputFilterSensitiveLog,
   ImportSourceCredentialsOutput,
-  ImportSourceCredentialsOutputFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1ImportSourceCredentialsCommand,
@@ -119,7 +118,7 @@ export class ImportSourceCredentialsCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: ImportSourceCredentialsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ImportSourceCredentialsOutputFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

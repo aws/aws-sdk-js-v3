@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../LicenseManagerLinuxSubscriptionsClient";
-import {
-  UpdateServiceSettingsRequest,
-  UpdateServiceSettingsRequestFilterSensitiveLog,
-  UpdateServiceSettingsResponse,
-  UpdateServiceSettingsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateServiceSettingsRequest, UpdateServiceSettingsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateServiceSettingsCommand,
   serializeAws_restJson1UpdateServiceSettingsCommand,
@@ -120,8 +115,8 @@ export class UpdateServiceSettingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateServiceSettingsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateServiceSettingsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

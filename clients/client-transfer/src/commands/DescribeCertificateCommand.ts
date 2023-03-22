@@ -15,7 +15,6 @@ import {
 
 import {
   DescribeCertificateRequest,
-  DescribeCertificateRequestFilterSensitiveLog,
   DescribeCertificateResponse,
   DescribeCertificateResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -120,7 +119,7 @@ export class DescribeCertificateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeCertificateRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeCertificateResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

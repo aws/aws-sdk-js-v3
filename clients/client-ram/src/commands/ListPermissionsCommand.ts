@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListPermissionsRequest,
-  ListPermissionsRequestFilterSensitiveLog,
-  ListPermissionsResponse,
-  ListPermissionsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListPermissionsRequest, ListPermissionsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListPermissionsCommand,
   serializeAws_restJson1ListPermissionsCommand,
@@ -123,8 +118,8 @@ export class ListPermissionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListPermissionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListPermissionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

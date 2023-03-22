@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { Inspector2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Inspector2Client";
-import {
-  BatchGetAccountStatusRequest,
-  BatchGetAccountStatusRequestFilterSensitiveLog,
-  BatchGetAccountStatusResponse,
-  BatchGetAccountStatusResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { BatchGetAccountStatusRequest, BatchGetAccountStatusResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1BatchGetAccountStatusCommand,
   serializeAws_restJson1BatchGetAccountStatusCommand,
@@ -123,8 +118,8 @@ export class BatchGetAccountStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchGetAccountStatusRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchGetAccountStatusResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingV2Client";
-import {
-  RegisterTargetsInput,
-  RegisterTargetsInputFilterSensitiveLog,
-  RegisterTargetsOutput,
-  RegisterTargetsOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { RegisterTargetsInput, RegisterTargetsOutput } from "../models/models_0";
 import {
   deserializeAws_queryRegisterTargetsCommand,
   serializeAws_queryRegisterTargetsCommand,
@@ -174,8 +169,8 @@ export class RegisterTargetsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RegisterTargetsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: RegisterTargetsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

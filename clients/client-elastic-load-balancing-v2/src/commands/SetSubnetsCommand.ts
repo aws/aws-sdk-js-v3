@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingV2Client";
-import {
-  SetSubnetsInput,
-  SetSubnetsInputFilterSensitiveLog,
-  SetSubnetsOutput,
-  SetSubnetsOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { SetSubnetsInput, SetSubnetsOutput } from "../models/models_0";
 import { deserializeAws_querySetSubnetsCommand, serializeAws_querySetSubnetsCommand } from "../protocols/Aws_query";
 
 /**
@@ -158,8 +153,8 @@ export class SetSubnetsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SetSubnetsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: SetSubnetsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

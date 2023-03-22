@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateDatalakeAutoEnableRequest,
-  CreateDatalakeAutoEnableRequestFilterSensitiveLog,
-  CreateDatalakeAutoEnableResponse,
-  CreateDatalakeAutoEnableResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateDatalakeAutoEnableRequest, CreateDatalakeAutoEnableResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateDatalakeAutoEnableCommand,
   serializeAws_restJson1CreateDatalakeAutoEnableCommand,
@@ -127,8 +122,8 @@ export class CreateDatalakeAutoEnableCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDatalakeAutoEnableRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateDatalakeAutoEnableResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

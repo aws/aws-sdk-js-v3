@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DescribeLaunchTemplatesRequest,
-  DescribeLaunchTemplatesRequestFilterSensitiveLog,
-  DescribeLaunchTemplatesResult,
-  DescribeLaunchTemplatesResultFilterSensitiveLog,
-} from "../models/models_4";
+import { DescribeLaunchTemplatesRequest, DescribeLaunchTemplatesResult } from "../models/models_4";
 import {
   deserializeAws_ec2DescribeLaunchTemplatesCommand,
   serializeAws_ec2DescribeLaunchTemplatesCommand,
@@ -134,8 +129,8 @@ export class DescribeLaunchTemplatesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeLaunchTemplatesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeLaunchTemplatesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

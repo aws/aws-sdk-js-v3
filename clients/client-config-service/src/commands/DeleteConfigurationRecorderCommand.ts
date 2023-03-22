@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import {
-  DeleteConfigurationRecorderRequest,
-  DeleteConfigurationRecorderRequestFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteConfigurationRecorderRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteConfigurationRecorderCommand,
   serializeAws_json1_1DeleteConfigurationRecorderCommand,
@@ -118,8 +115,8 @@ export class DeleteConfigurationRecorderCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteConfigurationRecorderRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

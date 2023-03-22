@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetInvitationsCountRequest,
-  GetInvitationsCountRequestFilterSensitiveLog,
-  GetInvitationsCountResponse,
-  GetInvitationsCountResponseFilterSensitiveLog,
-} from "../models/models_2";
+import { GetInvitationsCountRequest, GetInvitationsCountResponse } from "../models/models_2";
 import {
   deserializeAws_restJson1GetInvitationsCountCommand,
   serializeAws_restJson1GetInvitationsCountCommand,
@@ -122,8 +117,8 @@ export class GetInvitationsCountCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetInvitationsCountRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetInvitationsCountResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

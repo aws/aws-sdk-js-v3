@@ -13,7 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { RegisterDevicesRequest, RegisterDevicesRequestFilterSensitiveLog } from "../models/models_3";
+import { RegisterDevicesRequest } from "../models/models_3";
 import {
   deserializeAws_json1_1RegisterDevicesCommand,
   serializeAws_json1_1RegisterDevicesCommand,
@@ -106,8 +106,8 @@ export class RegisterDevicesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RegisterDevicesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

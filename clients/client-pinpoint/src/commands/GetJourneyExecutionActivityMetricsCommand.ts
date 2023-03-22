@@ -15,9 +15,7 @@ import {
 
 import {
   GetJourneyExecutionActivityMetricsRequest,
-  GetJourneyExecutionActivityMetricsRequestFilterSensitiveLog,
   GetJourneyExecutionActivityMetricsResponse,
-  GetJourneyExecutionActivityMetricsResponseFilterSensitiveLog,
 } from "../models/models_1";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
 import {
@@ -130,8 +128,8 @@ export class GetJourneyExecutionActivityMetricsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetJourneyExecutionActivityMetricsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetJourneyExecutionActivityMetricsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

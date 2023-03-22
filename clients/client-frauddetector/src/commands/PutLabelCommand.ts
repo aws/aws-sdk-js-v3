@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
-import {
-  PutLabelRequest,
-  PutLabelRequestFilterSensitiveLog,
-  PutLabelResult,
-  PutLabelResultFilterSensitiveLog,
-} from "../models/models_0";
+import { PutLabelRequest, PutLabelResult } from "../models/models_0";
 import { deserializeAws_json1_1PutLabelCommand, serializeAws_json1_1PutLabelCommand } from "../protocols/Aws_json1_1";
 
 /**
@@ -117,8 +112,8 @@ export class PutLabelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutLabelRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutLabelResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

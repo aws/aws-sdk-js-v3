@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { ModifyVolumeAttributeRequest, ModifyVolumeAttributeRequestFilterSensitiveLog } from "../models/models_6";
+import { ModifyVolumeAttributeRequest } from "../models/models_6";
 import {
   deserializeAws_ec2ModifyVolumeAttributeCommand,
   serializeAws_ec2ModifyVolumeAttributeCommand,
@@ -123,8 +123,8 @@ export class ModifyVolumeAttributeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyVolumeAttributeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

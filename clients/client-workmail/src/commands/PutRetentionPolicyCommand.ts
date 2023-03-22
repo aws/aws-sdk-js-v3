@@ -17,7 +17,6 @@ import {
   PutRetentionPolicyRequest,
   PutRetentionPolicyRequestFilterSensitiveLog,
   PutRetentionPolicyResponse,
-  PutRetentionPolicyResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1PutRetentionPolicyCommand,
@@ -122,7 +121,7 @@ export class PutRetentionPolicyCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: PutRetentionPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutRetentionPolicyResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

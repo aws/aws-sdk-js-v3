@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { SearchResponse, SearchResponseFilterSensitiveLog } from "../models/models_3";
-import { SearchRequest, SearchRequestFilterSensitiveLog } from "../models/models_4";
+import { SearchRequest } from "../models/models_4";
 import { deserializeAws_json1_1SearchCommand, serializeAws_json1_1SearchCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
@@ -103,7 +103,7 @@ export class SearchCommand extends $Command<SearchCommandInput, SearchCommandOut
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SearchRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: SearchResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

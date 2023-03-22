@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  DetachThingPrincipalRequest,
-  DetachThingPrincipalRequestFilterSensitiveLog,
-  DetachThingPrincipalResponse,
-  DetachThingPrincipalResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { DetachThingPrincipalRequest, DetachThingPrincipalResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1DetachThingPrincipalCommand,
   serializeAws_restJson1DetachThingPrincipalCommand,
@@ -132,8 +127,8 @@ export class DetachThingPrincipalCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DetachThingPrincipalRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DetachThingPrincipalResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

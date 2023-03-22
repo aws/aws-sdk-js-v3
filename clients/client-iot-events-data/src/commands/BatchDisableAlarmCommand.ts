@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTEventsDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTEventsDataClient";
-import {
-  BatchDisableAlarmRequest,
-  BatchDisableAlarmRequestFilterSensitiveLog,
-  BatchDisableAlarmResponse,
-  BatchDisableAlarmResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { BatchDisableAlarmRequest, BatchDisableAlarmResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1BatchDisableAlarmCommand,
   serializeAws_restJson1BatchDisableAlarmCommand,
@@ -120,8 +115,8 @@ export class BatchDisableAlarmCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchDisableAlarmRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchDisableAlarmResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

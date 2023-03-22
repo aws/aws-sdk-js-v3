@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingV2Client";
-import {
-  DescribeSSLPoliciesInput,
-  DescribeSSLPoliciesInputFilterSensitiveLog,
-  DescribeSSLPoliciesOutput,
-  DescribeSSLPoliciesOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeSSLPoliciesInput, DescribeSSLPoliciesOutput } from "../models/models_0";
 import {
   deserializeAws_queryDescribeSSLPoliciesCommand,
   serializeAws_queryDescribeSSLPoliciesCommand,
@@ -221,8 +216,8 @@ export class DescribeSSLPoliciesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeSSLPoliciesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeSSLPoliciesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

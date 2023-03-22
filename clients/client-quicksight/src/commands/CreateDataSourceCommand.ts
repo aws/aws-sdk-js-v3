@@ -17,7 +17,6 @@ import {
   CreateDataSourceRequest,
   CreateDataSourceRequestFilterSensitiveLog,
   CreateDataSourceResponse,
-  CreateDataSourceResponseFilterSensitiveLog,
 } from "../models/models_2";
 import {
   deserializeAws_restJson1CreateDataSourceCommand,
@@ -135,7 +134,7 @@ export class CreateDataSourceCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateDataSourceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateDataSourceResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteSqlInjectionMatchSetRequest,
-  DeleteSqlInjectionMatchSetRequestFilterSensitiveLog,
-  DeleteSqlInjectionMatchSetResponse,
-  DeleteSqlInjectionMatchSetResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteSqlInjectionMatchSetRequest, DeleteSqlInjectionMatchSetResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteSqlInjectionMatchSetCommand,
   serializeAws_json1_1DeleteSqlInjectionMatchSetCommand,
@@ -189,8 +184,8 @@ export class DeleteSqlInjectionMatchSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteSqlInjectionMatchSetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteSqlInjectionMatchSetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -17,7 +17,6 @@ import {
   UpdateAvailabilityConfigurationRequest,
   UpdateAvailabilityConfigurationRequestFilterSensitiveLog,
   UpdateAvailabilityConfigurationResponse,
-  UpdateAvailabilityConfigurationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateAvailabilityConfigurationCommand,
@@ -125,7 +124,7 @@ export class UpdateAvailabilityConfigurationCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: UpdateAvailabilityConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateAvailabilityConfigurationResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

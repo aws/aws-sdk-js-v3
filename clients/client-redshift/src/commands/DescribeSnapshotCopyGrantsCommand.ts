@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeSnapshotCopyGrantsMessage,
-  DescribeSnapshotCopyGrantsMessageFilterSensitiveLog,
-  SnapshotCopyGrantMessage,
-  SnapshotCopyGrantMessageFilterSensitiveLog,
-} from "../models/models_1";
+import { DescribeSnapshotCopyGrantsMessage, SnapshotCopyGrantMessage } from "../models/models_1";
 import {
   deserializeAws_queryDescribeSnapshotCopyGrantsCommand,
   serializeAws_queryDescribeSnapshotCopyGrantsCommand,
@@ -120,8 +115,8 @@ export class DescribeSnapshotCopyGrantsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeSnapshotCopyGrantsMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: SnapshotCopyGrantMessageFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

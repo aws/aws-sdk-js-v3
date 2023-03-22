@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  ReplaceNetworkAclAssociationRequest,
-  ReplaceNetworkAclAssociationRequestFilterSensitiveLog,
-  ReplaceNetworkAclAssociationResult,
-  ReplaceNetworkAclAssociationResultFilterSensitiveLog,
-} from "../models/models_6";
+import { ReplaceNetworkAclAssociationRequest, ReplaceNetworkAclAssociationResult } from "../models/models_6";
 import {
   deserializeAws_ec2ReplaceNetworkAclAssociationCommand,
   serializeAws_ec2ReplaceNetworkAclAssociationCommand,
@@ -130,8 +125,8 @@ export class ReplaceNetworkAclAssociationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ReplaceNetworkAclAssociationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ReplaceNetworkAclAssociationResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

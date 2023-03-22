@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
-import {
-  DeleteCollaborationInput,
-  DeleteCollaborationInputFilterSensitiveLog,
-  DeleteCollaborationOutput,
-  DeleteCollaborationOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteCollaborationInput, DeleteCollaborationOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteCollaborationCommand,
   serializeAws_restJson1DeleteCollaborationCommand,
@@ -119,8 +114,8 @@ export class DeleteCollaborationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteCollaborationInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteCollaborationOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

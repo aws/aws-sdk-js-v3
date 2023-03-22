@@ -16,9 +16,7 @@ import {
 import { AuditManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AuditManagerClient";
 import {
   ValidateAssessmentReportIntegrityRequest,
-  ValidateAssessmentReportIntegrityRequestFilterSensitiveLog,
   ValidateAssessmentReportIntegrityResponse,
-  ValidateAssessmentReportIntegrityResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1ValidateAssessmentReportIntegrityCommand,
@@ -123,8 +121,8 @@ export class ValidateAssessmentReportIntegrityCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ValidateAssessmentReportIntegrityRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ValidateAssessmentReportIntegrityResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

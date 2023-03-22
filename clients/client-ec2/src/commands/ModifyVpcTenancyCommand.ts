@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  ModifyVpcTenancyRequest,
-  ModifyVpcTenancyRequestFilterSensitiveLog,
-  ModifyVpcTenancyResult,
-  ModifyVpcTenancyResultFilterSensitiveLog,
-} from "../models/models_6";
+import { ModifyVpcTenancyRequest, ModifyVpcTenancyResult } from "../models/models_6";
 import {
   deserializeAws_ec2ModifyVpcTenancyCommand,
   serializeAws_ec2ModifyVpcTenancyCommand,
@@ -114,8 +109,8 @@ export class ModifyVpcTenancyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyVpcTenancyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifyVpcTenancyResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

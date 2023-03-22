@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaTailorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaTailorClient";
-import {
-  StartChannelRequest,
-  StartChannelRequestFilterSensitiveLog,
-  StartChannelResponse,
-  StartChannelResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { StartChannelRequest, StartChannelResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1StartChannelCommand,
   serializeAws_restJson1StartChannelCommand,
@@ -105,8 +100,8 @@ export class StartChannelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartChannelRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartChannelResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

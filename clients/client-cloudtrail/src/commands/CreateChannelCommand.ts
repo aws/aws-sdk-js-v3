@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
-import {
-  CreateChannelRequest,
-  CreateChannelRequestFilterSensitiveLog,
-  CreateChannelResponse,
-  CreateChannelResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateChannelRequest, CreateChannelResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateChannelCommand,
   serializeAws_json1_1CreateChannelCommand,
@@ -151,8 +146,8 @@ export class CreateChannelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateChannelRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateChannelResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -16,7 +16,6 @@ import {
 import { IvsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IvsClient";
 import {
   CreateStreamKeyRequest,
-  CreateStreamKeyRequestFilterSensitiveLog,
   CreateStreamKeyResponse,
   CreateStreamKeyResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -125,7 +124,7 @@ export class CreateStreamKeyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateStreamKeyRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: CreateStreamKeyResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

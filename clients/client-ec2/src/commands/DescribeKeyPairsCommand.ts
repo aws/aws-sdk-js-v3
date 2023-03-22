@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DescribeKeyPairsRequest,
-  DescribeKeyPairsRequestFilterSensitiveLog,
-  DescribeKeyPairsResult,
-  DescribeKeyPairsResultFilterSensitiveLog,
-} from "../models/models_4";
+import { DescribeKeyPairsRequest, DescribeKeyPairsResult } from "../models/models_4";
 import {
   deserializeAws_ec2DescribeKeyPairsCommand,
   serializeAws_ec2DescribeKeyPairsCommand,
@@ -132,8 +127,8 @@ export class DescribeKeyPairsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeKeyPairsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeKeyPairsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

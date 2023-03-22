@@ -15,7 +15,6 @@ import {
 
 import {
   GetSolFunctionPackageInput,
-  GetSolFunctionPackageInputFilterSensitiveLog,
   GetSolFunctionPackageOutput,
   GetSolFunctionPackageOutputFilterSensitiveLog,
 } from "../models/models_0";
@@ -123,7 +122,7 @@ export class GetSolFunctionPackageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSolFunctionPackageInputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetSolFunctionPackageOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

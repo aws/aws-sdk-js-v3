@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  PutOptedOutNumberRequest,
-  PutOptedOutNumberRequestFilterSensitiveLog,
-  PutOptedOutNumberResult,
-  PutOptedOutNumberResultFilterSensitiveLog,
-} from "../models/models_0";
+import { PutOptedOutNumberRequest, PutOptedOutNumberResult } from "../models/models_0";
 import {
   PinpointSMSVoiceV2ClientResolvedConfig,
   ServiceInputTypes,
@@ -131,8 +126,8 @@ export class PutOptedOutNumberCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutOptedOutNumberRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutOptedOutNumberResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

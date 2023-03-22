@@ -13,7 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteApplicationRequest, DeleteApplicationRequestFilterSensitiveLog } from "../models/models_0";
+import { DeleteApplicationRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteApplicationCommand,
   serializeAws_restJson1DeleteApplicationCommand,
@@ -124,8 +124,8 @@ export class DeleteApplicationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteApplicationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

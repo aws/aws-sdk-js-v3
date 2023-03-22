@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EventBridgeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EventBridgeClient";
-import {
-  CreateArchiveRequest,
-  CreateArchiveRequestFilterSensitiveLog,
-  CreateArchiveResponse,
-  CreateArchiveResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateArchiveRequest, CreateArchiveResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateArchiveCommand,
   serializeAws_json1_1CreateArchiveCommand,
@@ -128,8 +123,8 @@ export class CreateArchiveCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateArchiveRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateArchiveResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

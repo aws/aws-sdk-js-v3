@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
-import {
-  AssociateIdentityProviderConfigRequest,
-  AssociateIdentityProviderConfigRequestFilterSensitiveLog,
-  AssociateIdentityProviderConfigResponse,
-  AssociateIdentityProviderConfigResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { AssociateIdentityProviderConfigRequest, AssociateIdentityProviderConfigResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1AssociateIdentityProviderConfigCommand,
   serializeAws_restJson1AssociateIdentityProviderConfigCommand,
@@ -141,8 +136,8 @@ export class AssociateIdentityProviderConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateIdentityProviderConfigRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssociateIdentityProviderConfigResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

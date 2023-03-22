@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeDRTAccessRequest,
-  DescribeDRTAccessRequestFilterSensitiveLog,
-  DescribeDRTAccessResponse,
-  DescribeDRTAccessResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeDRTAccessRequest, DescribeDRTAccessResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeDRTAccessCommand,
   serializeAws_json1_1DescribeDRTAccessCommand,
@@ -113,8 +108,8 @@ export class DescribeDRTAccessCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDRTAccessRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeDRTAccessResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

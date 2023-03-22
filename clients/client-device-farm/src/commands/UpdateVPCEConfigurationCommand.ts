@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import {
-  UpdateVPCEConfigurationRequest,
-  UpdateVPCEConfigurationRequestFilterSensitiveLog,
-  UpdateVPCEConfigurationResult,
-  UpdateVPCEConfigurationResultFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateVPCEConfigurationRequest, UpdateVPCEConfigurationResult } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateVPCEConfigurationCommand,
   serializeAws_json1_1UpdateVPCEConfigurationCommand,
@@ -120,8 +115,8 @@ export class UpdateVPCEConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateVPCEConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateVPCEConfigurationResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

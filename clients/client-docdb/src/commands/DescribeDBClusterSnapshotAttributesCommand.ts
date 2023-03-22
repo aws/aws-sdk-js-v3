@@ -16,9 +16,7 @@ import {
 import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
 import {
   DescribeDBClusterSnapshotAttributesMessage,
-  DescribeDBClusterSnapshotAttributesMessageFilterSensitiveLog,
   DescribeDBClusterSnapshotAttributesResult,
-  DescribeDBClusterSnapshotAttributesResultFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_queryDescribeDBClusterSnapshotAttributesCommand,
@@ -116,8 +114,8 @@ export class DescribeDBClusterSnapshotAttributesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDBClusterSnapshotAttributesMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeDBClusterSnapshotAttributesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

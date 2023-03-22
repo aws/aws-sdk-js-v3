@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeregisterDBProxyTargetsRequest,
-  DeregisterDBProxyTargetsRequestFilterSensitiveLog,
-  DeregisterDBProxyTargetsResponse,
-  DeregisterDBProxyTargetsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeregisterDBProxyTargetsRequest, DeregisterDBProxyTargetsResponse } from "../models/models_0";
 import {
   deserializeAws_queryDeregisterDBProxyTargetsCommand,
   serializeAws_queryDeregisterDBProxyTargetsCommand,
@@ -119,8 +114,8 @@ export class DeregisterDBProxyTargetsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeregisterDBProxyTargetsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeregisterDBProxyTargetsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

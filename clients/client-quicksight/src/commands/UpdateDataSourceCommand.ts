@@ -17,7 +17,6 @@ import {
   UpdateDataSourceRequest,
   UpdateDataSourceRequestFilterSensitiveLog,
   UpdateDataSourceResponse,
-  UpdateDataSourceResponseFilterSensitiveLog,
 } from "../models/models_3";
 import {
   deserializeAws_restJson1UpdateDataSourceCommand,
@@ -129,7 +128,7 @@ export class UpdateDataSourceCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: UpdateDataSourceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateDataSourceResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

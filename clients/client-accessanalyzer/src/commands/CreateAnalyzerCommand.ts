@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AccessAnalyzerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AccessAnalyzerClient";
-import {
-  CreateAnalyzerRequest,
-  CreateAnalyzerRequestFilterSensitiveLog,
-  CreateAnalyzerResponse,
-  CreateAnalyzerResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateAnalyzerRequest, CreateAnalyzerResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateAnalyzerCommand,
   serializeAws_restJson1CreateAnalyzerCommand,
@@ -125,8 +120,8 @@ export class CreateAnalyzerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateAnalyzerRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateAnalyzerResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

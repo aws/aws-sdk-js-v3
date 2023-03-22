@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
-import {
-  StopTrainingEntityRecognizerRequest,
-  StopTrainingEntityRecognizerRequestFilterSensitiveLog,
-  StopTrainingEntityRecognizerResponse,
-  StopTrainingEntityRecognizerResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { StopTrainingEntityRecognizerRequest, StopTrainingEntityRecognizerResponse } from "../models/models_1";
 import {
   deserializeAws_json1_1StopTrainingEntityRecognizerCommand,
   serializeAws_json1_1StopTrainingEntityRecognizerCommand,
@@ -126,8 +121,8 @@ export class StopTrainingEntityRecognizerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopTrainingEntityRecognizerRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StopTrainingEntityRecognizerResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

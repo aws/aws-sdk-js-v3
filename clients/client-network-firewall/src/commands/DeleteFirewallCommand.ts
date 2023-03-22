@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteFirewallRequest,
-  DeleteFirewallRequestFilterSensitiveLog,
-  DeleteFirewallResponse,
-  DeleteFirewallResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteFirewallRequest, DeleteFirewallResponse } from "../models/models_0";
 import { NetworkFirewallClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkFirewallClient";
 import {
   deserializeAws_json1_0DeleteFirewallCommand,
@@ -150,8 +145,8 @@ export class DeleteFirewallCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteFirewallRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteFirewallResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

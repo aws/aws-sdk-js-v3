@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DataBrewClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataBrewClient";
-import {
-  DeleteRecipeVersionRequest,
-  DeleteRecipeVersionRequestFilterSensitiveLog,
-  DeleteRecipeVersionResponse,
-  DeleteRecipeVersionResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteRecipeVersionRequest, DeleteRecipeVersionResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteRecipeVersionCommand,
   serializeAws_restJson1DeleteRecipeVersionCommand,
@@ -116,8 +111,8 @@ export class DeleteRecipeVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteRecipeVersionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteRecipeVersionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

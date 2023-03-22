@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  BundleInstanceRequest,
-  BundleInstanceRequestFilterSensitiveLog,
-  BundleInstanceResult,
-  BundleInstanceResultFilterSensitiveLog,
-} from "../models/models_0";
+import { BundleInstanceRequest, BundleInstanceResult } from "../models/models_0";
 import { deserializeAws_ec2BundleInstanceCommand, serializeAws_ec2BundleInstanceCommand } from "../protocols/Aws_ec2";
 
 /**
@@ -108,8 +103,8 @@ export class BundleInstanceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BundleInstanceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BundleInstanceResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

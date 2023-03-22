@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  CreateWorkflowRequest,
-  CreateWorkflowRequestFilterSensitiveLog,
-  CreateWorkflowResponse,
-  CreateWorkflowResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { CreateWorkflowRequest, CreateWorkflowResponse } from "../models/models_1";
 import {
   deserializeAws_json1_1CreateWorkflowCommand,
   serializeAws_json1_1CreateWorkflowCommand,
@@ -125,8 +120,8 @@ export class CreateWorkflowCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateWorkflowRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateWorkflowResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

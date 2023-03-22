@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ECRPUBLICClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRPUBLICClient";
-import {
-  UploadLayerPartRequest,
-  UploadLayerPartRequestFilterSensitiveLog,
-  UploadLayerPartResponse,
-  UploadLayerPartResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UploadLayerPartRequest, UploadLayerPartResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1UploadLayerPartCommand,
   serializeAws_json1_1UploadLayerPartCommand,
@@ -143,8 +138,8 @@ export class UploadLayerPartCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UploadLayerPartRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UploadLayerPartResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

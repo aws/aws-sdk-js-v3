@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  CreateFleetRequest,
-  CreateFleetRequestFilterSensitiveLog,
-  CreateFleetResult,
-  CreateFleetResultFilterSensitiveLog,
-} from "../models/models_1";
+import { CreateFleetRequest, CreateFleetResult } from "../models/models_1";
 import { deserializeAws_ec2CreateFleetCommand, serializeAws_ec2CreateFleetCommand } from "../protocols/Aws_ec2";
 
 /**
@@ -105,8 +100,8 @@ export class CreateFleetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateFleetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateFleetResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

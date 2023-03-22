@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CostExplorerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CostExplorerClient";
-import {
-  GetRightsizingRecommendationRequest,
-  GetRightsizingRecommendationRequestFilterSensitiveLog,
-  GetRightsizingRecommendationResponse,
-  GetRightsizingRecommendationResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetRightsizingRecommendationRequest, GetRightsizingRecommendationResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GetRightsizingRecommendationCommand,
   serializeAws_json1_1GetRightsizingRecommendationCommand,
@@ -119,8 +114,8 @@ export class GetRightsizingRecommendationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetRightsizingRecommendationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetRightsizingRecommendationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

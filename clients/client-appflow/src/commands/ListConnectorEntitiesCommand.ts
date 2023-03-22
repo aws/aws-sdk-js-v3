@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AppflowClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppflowClient";
-import {
-  ListConnectorEntitiesRequest,
-  ListConnectorEntitiesRequestFilterSensitiveLog,
-  ListConnectorEntitiesResponse,
-  ListConnectorEntitiesResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListConnectorEntitiesRequest, ListConnectorEntitiesResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListConnectorEntitiesCommand,
   serializeAws_restJson1ListConnectorEntitiesCommand,
@@ -127,8 +122,8 @@ export class ListConnectorEntitiesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListConnectorEntitiesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListConnectorEntitiesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

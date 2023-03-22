@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticsearchServiceClient";
-import {
-  DeletePackageRequest,
-  DeletePackageRequestFilterSensitiveLog,
-  DeletePackageResponse,
-  DeletePackageResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeletePackageRequest, DeletePackageResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeletePackageCommand,
   serializeAws_restJson1DeletePackageCommand,
@@ -127,8 +122,8 @@ export class DeletePackageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeletePackageRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeletePackageResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

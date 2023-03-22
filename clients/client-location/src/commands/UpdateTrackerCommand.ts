@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
-import {
-  UpdateTrackerRequest,
-  UpdateTrackerRequestFilterSensitiveLog,
-  UpdateTrackerResponse,
-  UpdateTrackerResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateTrackerRequest, UpdateTrackerResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateTrackerCommand,
   serializeAws_restJson1UpdateTrackerCommand,
@@ -121,8 +116,8 @@ export class UpdateTrackerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateTrackerRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateTrackerResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

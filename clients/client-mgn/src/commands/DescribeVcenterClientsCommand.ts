@@ -16,7 +16,6 @@ import {
 import { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
 import {
   DescribeVcenterClientsRequest,
-  DescribeVcenterClientsRequestFilterSensitiveLog,
   DescribeVcenterClientsResponse,
   DescribeVcenterClientsResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -116,7 +115,7 @@ export class DescribeVcenterClientsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeVcenterClientsRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeVcenterClientsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

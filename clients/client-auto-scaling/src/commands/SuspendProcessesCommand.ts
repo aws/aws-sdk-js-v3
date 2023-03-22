@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import { ScalingProcessQuery, ScalingProcessQueryFilterSensitiveLog } from "../models/models_0";
+import { ScalingProcessQuery } from "../models/models_0";
 import {
   deserializeAws_querySuspendProcessesCommand,
   serializeAws_querySuspendProcessesCommand,
@@ -129,8 +129,8 @@ export class SuspendProcessesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ScalingProcessQueryFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

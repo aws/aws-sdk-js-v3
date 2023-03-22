@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
-import { StopDataSourceSyncJobRequest, StopDataSourceSyncJobRequestFilterSensitiveLog } from "../models/models_0";
+import { StopDataSourceSyncJobRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1StopDataSourceSyncJobCommand,
   serializeAws_json1_1StopDataSourceSyncJobCommand,
@@ -123,8 +123,8 @@ export class StopDataSourceSyncJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopDataSourceSyncJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -18,7 +18,6 @@ import {
   CreateComputerRequest,
   CreateComputerRequestFilterSensitiveLog,
   CreateComputerResult,
-  CreateComputerResultFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateComputerCommand,
@@ -132,7 +131,7 @@ export class CreateComputerCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateComputerRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateComputerResultFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
-import {
-  UpdateItemInput,
-  UpdateItemInputFilterSensitiveLog,
-  UpdateItemOutput,
-  UpdateItemOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateItemInput, UpdateItemOutput } from "../models/models_0";
 import {
   deserializeAws_json1_0UpdateItemCommand,
   serializeAws_json1_0UpdateItemCommand,
@@ -193,8 +188,8 @@ export class UpdateItemCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateItemInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateItemOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

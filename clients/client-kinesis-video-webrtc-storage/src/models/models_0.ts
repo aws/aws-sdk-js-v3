@@ -96,10 +96,3 @@ export class ResourceNotFoundException extends __BaseException {
     Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
   }
 }
-
-/**
- * @internal
- */
-export const JoinStorageSessionInputFilterSensitiveLog = (obj: JoinStorageSessionInput): any => ({
-  ...obj,
-});

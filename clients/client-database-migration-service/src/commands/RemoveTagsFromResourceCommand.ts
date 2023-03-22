@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
-import {
-  RemoveTagsFromResourceMessage,
-  RemoveTagsFromResourceMessageFilterSensitiveLog,
-  RemoveTagsFromResourceResponse,
-  RemoveTagsFromResourceResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { RemoveTagsFromResourceMessage, RemoveTagsFromResourceResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1RemoveTagsFromResourceCommand,
   serializeAws_json1_1RemoveTagsFromResourceCommand,
@@ -131,8 +126,8 @@ export class RemoveTagsFromResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RemoveTagsFromResourceMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: RemoveTagsFromResourceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

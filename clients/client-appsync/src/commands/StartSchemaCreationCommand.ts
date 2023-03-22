@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
-import {
-  StartSchemaCreationRequest,
-  StartSchemaCreationRequestFilterSensitiveLog,
-  StartSchemaCreationResponse,
-  StartSchemaCreationResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { StartSchemaCreationRequest, StartSchemaCreationResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1StartSchemaCreationCommand,
   serializeAws_restJson1StartSchemaCreationCommand,
@@ -126,8 +121,8 @@ export class StartSchemaCreationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartSchemaCreationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartSchemaCreationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

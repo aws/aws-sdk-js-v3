@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectCasesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCasesClient";
-import {
-  CreateLayoutRequest,
-  CreateLayoutRequestFilterSensitiveLog,
-  CreateLayoutResponse,
-  CreateLayoutResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateLayoutRequest, CreateLayoutResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateLayoutCommand,
   serializeAws_restJson1CreateLayoutCommand,
@@ -144,8 +139,8 @@ export class CreateLayoutCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateLayoutRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateLayoutResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

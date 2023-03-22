@@ -16,9 +16,7 @@ import {
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
 import {
   GetInterpolatedAssetPropertyValuesRequest,
-  GetInterpolatedAssetPropertyValuesRequestFilterSensitiveLog,
   GetInterpolatedAssetPropertyValuesResponse,
-  GetInterpolatedAssetPropertyValuesResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1GetInterpolatedAssetPropertyValuesCommand,
@@ -142,8 +140,8 @@ export class GetInterpolatedAssetPropertyValuesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetInterpolatedAssetPropertyValuesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetInterpolatedAssetPropertyValuesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

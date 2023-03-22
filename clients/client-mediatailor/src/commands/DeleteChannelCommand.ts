@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaTailorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaTailorClient";
-import {
-  DeleteChannelRequest,
-  DeleteChannelRequestFilterSensitiveLog,
-  DeleteChannelResponse,
-  DeleteChannelResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteChannelRequest, DeleteChannelResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteChannelCommand,
   serializeAws_restJson1DeleteChannelCommand,
@@ -105,8 +100,8 @@ export class DeleteChannelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteChannelRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteChannelResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

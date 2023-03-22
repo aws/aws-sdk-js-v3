@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EMRServerlessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRServerlessClient";
-import {
-  GetDashboardForJobRunRequest,
-  GetDashboardForJobRunRequestFilterSensitiveLog,
-  GetDashboardForJobRunResponse,
-  GetDashboardForJobRunResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetDashboardForJobRunRequest, GetDashboardForJobRunResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetDashboardForJobRunCommand,
   serializeAws_restJson1GetDashboardForJobRunCommand,
@@ -116,8 +111,8 @@ export class GetDashboardForJobRunCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDashboardForJobRunRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetDashboardForJobRunResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

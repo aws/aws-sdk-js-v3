@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
-import {
-  ListBackupsInput,
-  ListBackupsInputFilterSensitiveLog,
-  ListBackupsOutput,
-  ListBackupsOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { ListBackupsInput, ListBackupsOutput } from "../models/models_0";
 import {
   deserializeAws_json1_0ListBackupsCommand,
   serializeAws_json1_0ListBackupsCommand,
@@ -116,8 +111,8 @@ export class ListBackupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListBackupsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListBackupsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

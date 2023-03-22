@@ -16,9 +16,7 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   DescribeEgressOnlyInternetGatewaysRequest,
-  DescribeEgressOnlyInternetGatewaysRequestFilterSensitiveLog,
   DescribeEgressOnlyInternetGatewaysResult,
-  DescribeEgressOnlyInternetGatewaysResultFilterSensitiveLog,
 } from "../models/models_3";
 import {
   deserializeAws_ec2DescribeEgressOnlyInternetGatewaysCommand,
@@ -109,8 +107,8 @@ export class DescribeEgressOnlyInternetGatewaysCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeEgressOnlyInternetGatewaysRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeEgressOnlyInternetGatewaysResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

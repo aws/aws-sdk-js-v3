@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LicenseManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LicenseManagerClient";
-import {
-  CheckoutBorrowLicenseRequest,
-  CheckoutBorrowLicenseRequestFilterSensitiveLog,
-  CheckoutBorrowLicenseResponse,
-  CheckoutBorrowLicenseResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CheckoutBorrowLicenseRequest, CheckoutBorrowLicenseResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1CheckoutBorrowLicenseCommand,
   serializeAws_json1_1CheckoutBorrowLicenseCommand,
@@ -141,8 +136,8 @@ export class CheckoutBorrowLicenseCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CheckoutBorrowLicenseRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CheckoutBorrowLicenseResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

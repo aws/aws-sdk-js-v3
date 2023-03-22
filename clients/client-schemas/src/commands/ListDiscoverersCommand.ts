@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListDiscoverersRequest,
-  ListDiscoverersRequestFilterSensitiveLog,
-  ListDiscoverersResponse,
-  ListDiscoverersResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListDiscoverersRequest, ListDiscoverersResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListDiscoverersCommand,
   serializeAws_restJson1ListDiscoverersCommand,
@@ -117,8 +112,8 @@ export class ListDiscoverersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDiscoverersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListDiscoverersResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

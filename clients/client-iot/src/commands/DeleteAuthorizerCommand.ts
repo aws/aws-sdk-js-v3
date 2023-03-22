@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  DeleteAuthorizerRequest,
-  DeleteAuthorizerRequestFilterSensitiveLog,
-  DeleteAuthorizerResponse,
-  DeleteAuthorizerResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteAuthorizerRequest, DeleteAuthorizerResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteAuthorizerCommand,
   serializeAws_restJson1DeleteAuthorizerCommand,
@@ -130,8 +125,8 @@ export class DeleteAuthorizerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAuthorizerRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteAuthorizerResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

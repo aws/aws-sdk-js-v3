@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
-import { DeleteFrameworkInput, DeleteFrameworkInputFilterSensitiveLog } from "../models/models_0";
+import { DeleteFrameworkInput } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteFrameworkCommand,
   serializeAws_restJson1DeleteFrameworkCommand,
@@ -119,8 +119,8 @@ export class DeleteFrameworkCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteFrameworkInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

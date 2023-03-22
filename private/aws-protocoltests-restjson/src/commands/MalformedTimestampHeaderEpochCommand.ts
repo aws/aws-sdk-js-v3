@@ -12,10 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  MalformedTimestampHeaderEpochInput,
-  MalformedTimestampHeaderEpochInputFilterSensitiveLog,
-} from "../models/models_0";
+import { MalformedTimestampHeaderEpochInput } from "../models/models_0";
 import {
   deserializeAws_restJson1MalformedTimestampHeaderEpochCommand,
   serializeAws_restJson1MalformedTimestampHeaderEpochCommand,
@@ -23,10 +20,14 @@ import {
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
 /**
+ * @public
+ *
  * The input for {@link MalformedTimestampHeaderEpochCommand}.
  */
 export interface MalformedTimestampHeaderEpochCommandInput extends MalformedTimestampHeaderEpochInput {}
 /**
+ * @public
+ *
  * The output of {@link MalformedTimestampHeaderEpochCommand}.
  */
 export interface MalformedTimestampHeaderEpochCommandOutput extends __MetadataBearer {}
@@ -39,6 +40,9 @@ export class MalformedTimestampHeaderEpochCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: MalformedTimestampHeaderEpochCommandInput) {
     // Start section: command_constructor
     super();
@@ -64,8 +68,8 @@ export class MalformedTimestampHeaderEpochCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: MalformedTimestampHeaderEpochInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -75,10 +79,16 @@ export class MalformedTimestampHeaderEpochCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: MalformedTimestampHeaderEpochCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1MalformedTimestampHeaderEpochCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

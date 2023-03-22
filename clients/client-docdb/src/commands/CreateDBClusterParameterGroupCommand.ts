@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
-import {
-  CreateDBClusterParameterGroupMessage,
-  CreateDBClusterParameterGroupMessageFilterSensitiveLog,
-  CreateDBClusterParameterGroupResult,
-  CreateDBClusterParameterGroupResultFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateDBClusterParameterGroupMessage, CreateDBClusterParameterGroupResult } from "../models/models_0";
 import {
   deserializeAws_queryCreateDBClusterParameterGroupCommand,
   serializeAws_queryCreateDBClusterParameterGroupCommand,
@@ -133,8 +128,8 @@ export class CreateDBClusterParameterGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDBClusterParameterGroupMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateDBClusterParameterGroupResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import {
-  GetContactMethodsRequest,
-  GetContactMethodsRequestFilterSensitiveLog,
-  GetContactMethodsResult,
-  GetContactMethodsResultFilterSensitiveLog,
-} from "../models/models_0";
+import { GetContactMethodsRequest, GetContactMethodsResult } from "../models/models_0";
 import {
   deserializeAws_json1_1GetContactMethodsCommand,
   serializeAws_json1_1GetContactMethodsCommand,
@@ -138,8 +133,8 @@ export class GetContactMethodsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetContactMethodsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetContactMethodsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

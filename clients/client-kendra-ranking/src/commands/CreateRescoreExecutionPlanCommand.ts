@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { KendraRankingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraRankingClient";
-import {
-  CreateRescoreExecutionPlanRequest,
-  CreateRescoreExecutionPlanRequestFilterSensitiveLog,
-  CreateRescoreExecutionPlanResponse,
-  CreateRescoreExecutionPlanResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateRescoreExecutionPlanRequest, CreateRescoreExecutionPlanResponse } from "../models/models_0";
 import {
   deserializeAws_json1_0CreateRescoreExecutionPlanCommand,
   serializeAws_json1_0CreateRescoreExecutionPlanCommand,
@@ -147,8 +142,8 @@ export class CreateRescoreExecutionPlanCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateRescoreExecutionPlanRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateRescoreExecutionPlanResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

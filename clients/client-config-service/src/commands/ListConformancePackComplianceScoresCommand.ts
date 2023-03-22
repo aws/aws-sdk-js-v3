@@ -16,9 +16,7 @@ import {
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
 import {
   ListConformancePackComplianceScoresRequest,
-  ListConformancePackComplianceScoresRequestFilterSensitiveLog,
   ListConformancePackComplianceScoresResponse,
-  ListConformancePackComplianceScoresResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1ListConformancePackComplianceScoresCommand,
@@ -127,8 +125,8 @@ export class ListConformancePackComplianceScoresCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListConformancePackComplianceScoresRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListConformancePackComplianceScoresResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

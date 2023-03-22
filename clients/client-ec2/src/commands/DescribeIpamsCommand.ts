@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DescribeIpamsRequest,
-  DescribeIpamsRequestFilterSensitiveLog,
-  DescribeIpamsResult,
-  DescribeIpamsResultFilterSensitiveLog,
-} from "../models/models_4";
+import { DescribeIpamsRequest, DescribeIpamsResult } from "../models/models_4";
 import { deserializeAws_ec2DescribeIpamsCommand, serializeAws_ec2DescribeIpamsCommand } from "../protocols/Aws_ec2";
 
 /**
@@ -104,8 +99,8 @@ export class DescribeIpamsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeIpamsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeIpamsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

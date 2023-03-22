@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import {
-  AssociateSecurityKeyRequest,
-  AssociateSecurityKeyRequestFilterSensitiveLog,
-  AssociateSecurityKeyResponse,
-  AssociateSecurityKeyResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { AssociateSecurityKeyRequest, AssociateSecurityKeyResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1AssociateSecurityKeyCommand,
   serializeAws_restJson1AssociateSecurityKeyCommand,
@@ -129,8 +124,8 @@ export class AssociateSecurityKeyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateSecurityKeyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssociateSecurityKeyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

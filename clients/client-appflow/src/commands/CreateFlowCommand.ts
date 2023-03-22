@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AppflowClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppflowClient";
-import {
-  CreateFlowRequest,
-  CreateFlowRequestFilterSensitiveLog,
-  CreateFlowResponse,
-  CreateFlowResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateFlowRequest, CreateFlowResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateFlowCommand,
   serializeAws_restJson1CreateFlowCommand,
@@ -134,8 +129,8 @@ export class CreateFlowCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateFlowRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateFlowResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

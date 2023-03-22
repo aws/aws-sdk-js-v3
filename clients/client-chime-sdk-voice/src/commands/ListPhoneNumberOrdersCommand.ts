@@ -16,7 +16,6 @@ import {
 import { ChimeSDKVoiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKVoiceClient";
 import {
   ListPhoneNumberOrdersRequest,
-  ListPhoneNumberOrdersRequestFilterSensitiveLog,
   ListPhoneNumberOrdersResponse,
   ListPhoneNumberOrdersResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -86,7 +85,7 @@ export class ListPhoneNumberOrdersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListPhoneNumberOrdersRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListPhoneNumberOrdersResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

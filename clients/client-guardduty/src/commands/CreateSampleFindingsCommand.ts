@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
-import {
-  CreateSampleFindingsRequest,
-  CreateSampleFindingsRequestFilterSensitiveLog,
-  CreateSampleFindingsResponse,
-  CreateSampleFindingsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateSampleFindingsRequest, CreateSampleFindingsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateSampleFindingsCommand,
   serializeAws_restJson1CreateSampleFindingsCommand,
@@ -115,8 +110,8 @@ export class CreateSampleFindingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateSampleFindingsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateSampleFindingsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

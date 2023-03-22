@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
-import {
-  ApplySchemaRequest,
-  ApplySchemaRequestFilterSensitiveLog,
-  ApplySchemaResponse,
-  ApplySchemaResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ApplySchemaRequest, ApplySchemaResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ApplySchemaCommand,
   serializeAws_restJson1ApplySchemaCommand,
@@ -136,8 +131,8 @@ export class ApplySchemaCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ApplySchemaRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ApplySchemaResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

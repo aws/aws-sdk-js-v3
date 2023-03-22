@@ -18,7 +18,6 @@ import {
   CreateLocationFsxWindowsRequest,
   CreateLocationFsxWindowsRequestFilterSensitiveLog,
   CreateLocationFsxWindowsResponse,
-  CreateLocationFsxWindowsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateLocationFsxWindowsCommand,
@@ -114,7 +113,7 @@ export class CreateLocationFsxWindowsCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateLocationFsxWindowsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateLocationFsxWindowsResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

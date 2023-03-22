@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MigrationHubRefactorSpacesClient";
-import {
-  DeleteServiceRequest,
-  DeleteServiceRequestFilterSensitiveLog,
-  DeleteServiceResponse,
-  DeleteServiceResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteServiceRequest, DeleteServiceResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteServiceCommand,
   serializeAws_restJson1DeleteServiceCommand,
@@ -128,8 +123,8 @@ export class DeleteServiceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteServiceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteServiceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

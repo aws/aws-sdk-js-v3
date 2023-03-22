@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
-import {
-  BatchGetSchemaInput,
-  BatchGetSchemaInputFilterSensitiveLog,
-  BatchGetSchemaOutput,
-  BatchGetSchemaOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { BatchGetSchemaInput, BatchGetSchemaOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1BatchGetSchemaCommand,
   serializeAws_restJson1BatchGetSchemaCommand,
@@ -122,8 +117,8 @@ export class BatchGetSchemaCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchGetSchemaInputFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchGetSchemaOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

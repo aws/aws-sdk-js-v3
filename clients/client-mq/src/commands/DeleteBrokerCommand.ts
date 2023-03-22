@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteBrokerRequest,
-  DeleteBrokerRequestFilterSensitiveLog,
-  DeleteBrokerResponse,
-  DeleteBrokerResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteBrokerRequest, DeleteBrokerResponse } from "../models/models_0";
 import { MqClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MqClient";
 import {
   deserializeAws_restJson1DeleteBrokerCommand,
@@ -117,8 +112,8 @@ export class DeleteBrokerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteBrokerRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteBrokerResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -15,9 +15,7 @@ import {
 
 import {
   DisableSagemakerServicecatalogPortfolioInput,
-  DisableSagemakerServicecatalogPortfolioInputFilterSensitiveLog,
   DisableSagemakerServicecatalogPortfolioOutput,
-  DisableSagemakerServicecatalogPortfolioOutputFilterSensitiveLog,
 } from "../models/models_2";
 import {
   deserializeAws_json1_1DisableSagemakerServicecatalogPortfolioCommand,
@@ -117,8 +115,8 @@ export class DisableSagemakerServicecatalogPortfolioCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisableSagemakerServicecatalogPortfolioInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DisableSagemakerServicecatalogPortfolioOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

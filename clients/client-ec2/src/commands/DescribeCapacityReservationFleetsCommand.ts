@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DescribeCapacityReservationFleetsRequest,
-  DescribeCapacityReservationFleetsRequestFilterSensitiveLog,
-  DescribeCapacityReservationFleetsResult,
-  DescribeCapacityReservationFleetsResultFilterSensitiveLog,
-} from "../models/models_3";
+import { DescribeCapacityReservationFleetsRequest, DescribeCapacityReservationFleetsResult } from "../models/models_3";
 import {
   deserializeAws_ec2DescribeCapacityReservationFleetsCommand,
   serializeAws_ec2DescribeCapacityReservationFleetsCommand,
@@ -109,8 +104,8 @@ export class DescribeCapacityReservationFleetsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeCapacityReservationFleetsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeCapacityReservationFleetsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

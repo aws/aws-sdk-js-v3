@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import {
-  StartRemediationExecutionRequest,
-  StartRemediationExecutionRequestFilterSensitiveLog,
-  StartRemediationExecutionResponse,
-  StartRemediationExecutionResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { StartRemediationExecutionRequest, StartRemediationExecutionResponse } from "../models/models_1";
 import {
   deserializeAws_json1_1StartRemediationExecutionCommand,
   serializeAws_json1_1StartRemediationExecutionCommand,
@@ -140,8 +135,8 @@ export class StartRemediationExecutionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartRemediationExecutionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartRemediationExecutionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

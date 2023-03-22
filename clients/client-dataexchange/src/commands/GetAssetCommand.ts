@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DataExchangeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataExchangeClient";
-import {
-  GetAssetRequest,
-  GetAssetRequestFilterSensitiveLog,
-  GetAssetResponse,
-  GetAssetResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetAssetRequest, GetAssetResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetAssetCommand,
   serializeAws_restJson1GetAssetCommand,
@@ -117,8 +112,8 @@ export class GetAssetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAssetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetAssetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

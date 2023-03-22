@@ -21,7 +21,6 @@ import {
 } from "../CognitoIdentityProviderClient";
 import {
   CreateUserPoolClientRequest,
-  CreateUserPoolClientRequestFilterSensitiveLog,
   CreateUserPoolClientResponse,
   CreateUserPoolClientResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -143,7 +142,7 @@ export class CreateUserPoolClientCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateUserPoolClientRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: CreateUserPoolClientResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

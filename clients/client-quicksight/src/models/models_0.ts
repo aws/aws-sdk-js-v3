@@ -6499,228 +6499,6 @@ export interface ComboChartConfiguration {
 /**
  * @internal
  */
-export const AccountCustomizationFilterSensitiveLog = (obj: AccountCustomization): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AccountInfoFilterSensitiveLog = (obj: AccountInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AccountSettingsFilterSensitiveLog = (obj: AccountSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ActiveIAMPolicyAssignmentFilterSensitiveLog = (obj: ActiveIAMPolicyAssignment): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AdHocFilteringOptionFilterSensitiveLog = (obj: AdHocFilteringOption): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PercentileAggregationFilterSensitiveLog = (obj: PercentileAggregation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NumericalAggregationFunctionFilterSensitiveLog = (obj: NumericalAggregationFunction): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AggregationFunctionFilterSensitiveLog = (obj: AggregationFunction): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ColumnIdentifierFilterSensitiveLog = (obj: ColumnIdentifier): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AggregationSortConfigurationFilterSensitiveLog = (obj: AggregationSortConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AmazonElasticsearchParametersFilterSensitiveLog = (obj: AmazonElasticsearchParameters): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AmazonOpenSearchParametersFilterSensitiveLog = (obj: AmazonOpenSearchParameters): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EntityFilterSensitiveLog = (obj: Entity): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AnalysisErrorFilterSensitiveLog = (obj: AnalysisError): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SheetFilterSensitiveLog = (obj: Sheet): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AnalysisFilterSensitiveLog = (obj: Analysis): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FreeFormLayoutScreenCanvasSizeOptionsFilterSensitiveLog = (
-  obj: FreeFormLayoutScreenCanvasSizeOptions
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FreeFormLayoutCanvasSizeOptionsFilterSensitiveLog = (obj: FreeFormLayoutCanvasSizeOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DefaultFreeFormLayoutConfigurationFilterSensitiveLog = (obj: DefaultFreeFormLayoutConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GridLayoutScreenCanvasSizeOptionsFilterSensitiveLog = (obj: GridLayoutScreenCanvasSizeOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GridLayoutCanvasSizeOptionsFilterSensitiveLog = (obj: GridLayoutCanvasSizeOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DefaultGridLayoutConfigurationFilterSensitiveLog = (obj: DefaultGridLayoutConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DefaultInteractiveLayoutConfigurationFilterSensitiveLog = (
-  obj: DefaultInteractiveLayoutConfiguration
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SpacingFilterSensitiveLog = (obj: Spacing): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SectionBasedLayoutPaperCanvasSizeOptionsFilterSensitiveLog = (
-  obj: SectionBasedLayoutPaperCanvasSizeOptions
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SectionBasedLayoutCanvasSizeOptionsFilterSensitiveLog = (
-  obj: SectionBasedLayoutCanvasSizeOptions
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DefaultSectionBasedLayoutConfigurationFilterSensitiveLog = (
-  obj: DefaultSectionBasedLayoutConfiguration
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DefaultPaginatedLayoutConfigurationFilterSensitiveLog = (
-  obj: DefaultPaginatedLayoutConfiguration
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DefaultNewSheetConfigurationFilterSensitiveLog = (obj: DefaultNewSheetConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AnalysisDefaultsFilterSensitiveLog = (obj: AnalysisDefaults): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const CalculatedFieldFilterSensitiveLog = (obj: CalculatedField): any => ({
   ...obj,
   ...(obj.Expression && { Expression: SENSITIVE_STRING }),
@@ -6732,34 +6510,6 @@ export const CalculatedFieldFilterSensitiveLog = (obj: CalculatedField): any => 
 export const NullValueFormatConfigurationFilterSensitiveLog = (obj: NullValueFormatConfiguration): any => ({
   ...obj,
   ...(obj.NullString && { NullString: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const DecimalPlacesConfigurationFilterSensitiveLog = (obj: DecimalPlacesConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NegativeValueConfigurationFilterSensitiveLog = (obj: NegativeValueConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ThousandSeparatorOptionsFilterSensitiveLog = (obj: ThousandSeparatorOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NumericSeparatorConfigurationFilterSensitiveLog = (obj: NumericSeparatorConfiguration): any => ({
-  ...obj,
 });
 
 /**
@@ -6887,97 +6637,6 @@ export const ColumnConfigurationFilterSensitiveLog = (obj: ColumnConfiguration):
 /**
  * @internal
  */
-export const DataSetIdentifierDeclarationFilterSensitiveLog = (obj: DataSetIdentifierDeclaration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CustomFilterConfigurationFilterSensitiveLog = (obj: CustomFilterConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CustomFilterListConfigurationFilterSensitiveLog = (obj: CustomFilterListConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FilterListConfigurationFilterSensitiveLog = (obj: FilterListConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CategoryFilterConfigurationFilterSensitiveLog = (obj: CategoryFilterConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CategoryFilterFilterSensitiveLog = (obj: CategoryFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NumericEqualityFilterFilterSensitiveLog = (obj: NumericEqualityFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NumericRangeFilterValueFilterSensitiveLog = (obj: NumericRangeFilterValue): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NumericRangeFilterFilterSensitiveLog = (obj: NumericRangeFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AnchorDateConfigurationFilterSensitiveLog = (obj: AnchorDateConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExcludePeriodConfigurationFilterSensitiveLog = (obj: ExcludePeriodConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RelativeDatesFilterFilterSensitiveLog = (obj: RelativeDatesFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TimeEqualityFilterFilterSensitiveLog = (obj: TimeEqualityFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const RollingDateConfigurationFilterSensitiveLog = (obj: RollingDateConfiguration): any => ({
   ...obj,
   ...(obj.Expression && { Expression: SENSITIVE_STRING }),
@@ -7003,13 +6662,6 @@ export const TimeRangeFilterFilterSensitiveLog = (obj: TimeRangeFilter): any => 
 /**
  * @internal
  */
-export const TopBottomFilterFilterSensitiveLog = (obj: TopBottomFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const FilterFilterSensitiveLog = (obj: Filter): any => ({
   ...obj,
   ...(obj.TimeRangeFilter && { TimeRangeFilter: TimeRangeFilterFilterSensitiveLog(obj.TimeRangeFilter) }),
@@ -7018,39 +6670,9 @@ export const FilterFilterSensitiveLog = (obj: Filter): any => ({
 /**
  * @internal
  */
-export const SheetVisualScopingConfigurationFilterSensitiveLog = (obj: SheetVisualScopingConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SelectedSheetsFilterScopeConfigurationFilterSensitiveLog = (
-  obj: SelectedSheetsFilterScopeConfiguration
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FilterScopeConfigurationFilterSensitiveLog = (obj: FilterScopeConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const FilterGroupFilterSensitiveLog = (obj: FilterGroup): any => ({
   ...obj,
   ...(obj.Filters && { Filters: obj.Filters.map((item) => FilterFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const DynamicDefaultValueFilterSensitiveLog = (obj: DynamicDefaultValue): any => ({
-  ...obj,
 });
 
 /**
@@ -7186,215 +6808,6 @@ export const ParameterDeclarationFilterSensitiveLog = (obj: ParameterDeclaration
 /**
  * @internal
  */
-export const FontSizeFilterSensitiveLog = (obj: FontSize): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FontWeightFilterSensitiveLog = (obj: FontWeight): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FontConfigurationFilterSensitiveLog = (obj: FontConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LabelOptionsFilterSensitiveLog = (obj: LabelOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DateTimePickerControlDisplayOptionsFilterSensitiveLog = (
-  obj: DateTimePickerControlDisplayOptions
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FilterDateTimePickerControlFilterSensitiveLog = (obj: FilterDateTimePickerControl): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CascadingControlSourceFilterSensitiveLog = (obj: CascadingControlSource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CascadingControlConfigurationFilterSensitiveLog = (obj: CascadingControlConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListControlSelectAllOptionsFilterSensitiveLog = (obj: ListControlSelectAllOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DropDownControlDisplayOptionsFilterSensitiveLog = (obj: DropDownControlDisplayOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FilterSelectableValuesFilterSensitiveLog = (obj: FilterSelectableValues): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FilterDropDownControlFilterSensitiveLog = (obj: FilterDropDownControl): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListControlSearchOptionsFilterSensitiveLog = (obj: ListControlSearchOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListControlDisplayOptionsFilterSensitiveLog = (obj: ListControlDisplayOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FilterListControlFilterSensitiveLog = (obj: FilterListControl): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RelativeDateTimeControlDisplayOptionsFilterSensitiveLog = (
-  obj: RelativeDateTimeControlDisplayOptions
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FilterRelativeDateTimeControlFilterSensitiveLog = (obj: FilterRelativeDateTimeControl): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SliderControlDisplayOptionsFilterSensitiveLog = (obj: SliderControlDisplayOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FilterSliderControlFilterSensitiveLog = (obj: FilterSliderControl): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TextControlPlaceholderOptionsFilterSensitiveLog = (obj: TextControlPlaceholderOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TextAreaControlDisplayOptionsFilterSensitiveLog = (obj: TextAreaControlDisplayOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FilterTextAreaControlFilterSensitiveLog = (obj: FilterTextAreaControl): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TextFieldControlDisplayOptionsFilterSensitiveLog = (obj: TextFieldControlDisplayOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FilterTextFieldControlFilterSensitiveLog = (obj: FilterTextFieldControl): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FilterControlFilterSensitiveLog = (obj: FilterControl): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FreeFormLayoutElementBackgroundStyleFilterSensitiveLog = (
-  obj: FreeFormLayoutElementBackgroundStyle
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FreeFormLayoutElementBorderStyleFilterSensitiveLog = (obj: FreeFormLayoutElementBorderStyle): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LoadingAnimationFilterSensitiveLog = (obj: LoadingAnimation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SheetElementConfigurationOverridesFilterSensitiveLog = (obj: SheetElementConfigurationOverrides): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const SheetElementRenderingRuleFilterSensitiveLog = (obj: SheetElementRenderingRule): any => ({
   ...obj,
   ...(obj.Expression && { Expression: SENSITIVE_STRING }),
@@ -7420,20 +6833,6 @@ export const FreeFormLayoutConfigurationFilterSensitiveLog = (obj: FreeFormLayou
 /**
  * @internal
  */
-export const GridLayoutElementFilterSensitiveLog = (obj: GridLayoutElement): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GridLayoutConfigurationFilterSensitiveLog = (obj: GridLayoutConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const FreeFormSectionLayoutConfigurationFilterSensitiveLog = (obj: FreeFormSectionLayoutConfiguration): any => ({
   ...obj,
 });
@@ -7449,27 +6848,6 @@ export const SectionLayoutConfigurationFilterSensitiveLog = (obj: SectionLayoutC
  * @internal
  */
 export const BodySectionContentFilterSensitiveLog = (obj: BodySectionContent): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SectionAfterPageBreakFilterSensitiveLog = (obj: SectionAfterPageBreak): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SectionPageBreakConfigurationFilterSensitiveLog = (obj: SectionPageBreakConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SectionStyleFilterSensitiveLog = (obj: SectionStyle): any => ({
   ...obj,
 });
 
@@ -7505,129 +6883,6 @@ export const LayoutConfigurationFilterSensitiveLog = (obj: LayoutConfiguration):
  * @internal
  */
 export const LayoutFilterSensitiveLog = (obj: Layout): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ParameterDateTimePickerControlFilterSensitiveLog = (obj: ParameterDateTimePickerControl): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ParameterSelectableValuesFilterSensitiveLog = (obj: ParameterSelectableValues): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ParameterDropDownControlFilterSensitiveLog = (obj: ParameterDropDownControl): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ParameterListControlFilterSensitiveLog = (obj: ParameterListControl): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ParameterSliderControlFilterSensitiveLog = (obj: ParameterSliderControl): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ParameterTextAreaControlFilterSensitiveLog = (obj: ParameterTextAreaControl): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ParameterTextFieldControlFilterSensitiveLog = (obj: ParameterTextFieldControl): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ParameterControlFilterSensitiveLog = (obj: ParameterControl): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SheetControlLayoutConfigurationFilterSensitiveLog = (obj: SheetControlLayoutConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SheetControlLayoutFilterSensitiveLog = (obj: SheetControlLayout): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SheetTextBoxFilterSensitiveLog = (obj: SheetTextBox): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FilterOperationSelectedFieldsConfigurationFilterSensitiveLog = (
-  obj: FilterOperationSelectedFieldsConfiguration
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SameSheetTargetVisualConfigurationFilterSensitiveLog = (obj: SameSheetTargetVisualConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FilterOperationTargetVisualsConfigurationFilterSensitiveLog = (
-  obj: FilterOperationTargetVisualsConfiguration
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CustomActionFilterOperationFilterSensitiveLog = (obj: CustomActionFilterOperation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LocalNavigationConfigurationFilterSensitiveLog = (obj: LocalNavigationConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CustomActionNavigationOperationFilterSensitiveLog = (obj: CustomActionNavigationOperation): any => ({
   ...obj,
 });
 
@@ -7685,13 +6940,6 @@ export const CustomActionSetParametersOperationFilterSensitiveLog = (obj: Custom
 /**
  * @internal
  */
-export const CustomActionURLOperationFilterSensitiveLog = (obj: CustomActionURLOperation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const VisualCustomActionOperationFilterSensitiveLog = (obj: VisualCustomActionOperation): any => ({
   ...obj,
   ...(obj.SetParametersOperation && {
@@ -7709,163 +6957,9 @@ export const VisualCustomActionFilterSensitiveLog = (obj: VisualCustomAction): a
 /**
  * @internal
  */
-export const DateAxisOptionsFilterSensitiveLog = (obj: DateAxisOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AxisDisplayDataDrivenRangeFilterSensitiveLog = (obj: AxisDisplayDataDrivenRange): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AxisDisplayMinMaxRangeFilterSensitiveLog = (obj: AxisDisplayMinMaxRange): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AxisDisplayRangeFilterSensitiveLog = (obj: AxisDisplayRange): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AxisLinearScaleFilterSensitiveLog = (obj: AxisLinearScale): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AxisLogarithmicScaleFilterSensitiveLog = (obj: AxisLogarithmicScale): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AxisScaleFilterSensitiveLog = (obj: AxisScale): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NumericAxisOptionsFilterSensitiveLog = (obj: NumericAxisOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AxisDataOptionsFilterSensitiveLog = (obj: AxisDataOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PercentVisibleRangeFilterSensitiveLog = (obj: PercentVisibleRange): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VisibleRangeOptionsFilterSensitiveLog = (obj: VisibleRangeOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ScrollBarOptionsFilterSensitiveLog = (obj: ScrollBarOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AxisTickLabelOptionsFilterSensitiveLog = (obj: AxisTickLabelOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AxisDisplayOptionsFilterSensitiveLog = (obj: AxisDisplayOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AxisLabelReferenceOptionsFilterSensitiveLog = (obj: AxisLabelReferenceOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AxisLabelOptionsFilterSensitiveLog = (obj: AxisLabelOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ChartAxisLabelOptionsFilterSensitiveLog = (obj: ChartAxisLabelOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ContributionAnalysisDefaultFilterSensitiveLog = (obj: ContributionAnalysisDefault): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const DataPathLabelTypeFilterSensitiveLog = (obj: DataPathLabelType): any => ({
   ...obj,
   ...(obj.FieldValue && { FieldValue: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const FieldLabelTypeFilterSensitiveLog = (obj: FieldLabelType): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MaximumLabelTypeFilterSensitiveLog = (obj: MaximumLabelType): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MinimumLabelTypeFilterSensitiveLog = (obj: MinimumLabelType): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RangeEndsLabelTypeFilterSensitiveLog = (obj: RangeEndsLabelType): any => ({
-  ...obj,
 });
 
 /**
@@ -7991,22 +7085,6 @@ export const BarChartFieldWellsFilterSensitiveLog = (obj: BarChartFieldWells): a
 /**
  * @internal
  */
-export const LegendOptionsFilterSensitiveLog = (obj: LegendOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReferenceLineDynamicDataConfigurationFilterSensitiveLog = (
-  obj: ReferenceLineDynamicDataConfiguration
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const ReferenceLineStaticDataConfigurationFilterSensitiveLog = (
   obj: ReferenceLineStaticDataConfiguration
 ): any => ({
@@ -8022,15 +7100,6 @@ export const ReferenceLineDataConfigurationFilterSensitiveLog = (obj: ReferenceL
   ...(obj.StaticConfiguration && {
     StaticConfiguration: ReferenceLineStaticDataConfigurationFilterSensitiveLog(obj.StaticConfiguration),
   }),
-});
-
-/**
- * @internal
- */
-export const ReferenceLineCustomLabelConfigurationFilterSensitiveLog = (
-  obj: ReferenceLineCustomLabelConfiguration
-): any => ({
-  ...obj,
 });
 
 /**
@@ -8058,13 +7127,6 @@ export const ReferenceLineLabelConfigurationFilterSensitiveLog = (obj: Reference
 /**
  * @internal
  */
-export const ReferenceLineStyleConfigurationFilterSensitiveLog = (obj: ReferenceLineStyleConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const ReferenceLineFilterSensitiveLog = (obj: ReferenceLine): any => ({
   ...obj,
   ...(obj.DataConfiguration && {
@@ -8073,97 +7135,6 @@ export const ReferenceLineFilterSensitiveLog = (obj: ReferenceLine): any => ({
   ...(obj.LabelConfiguration && {
     LabelConfiguration: ReferenceLineLabelConfigurationFilterSensitiveLog(obj.LabelConfiguration),
   }),
-});
-
-/**
- * @internal
- */
-export const PanelTitleOptionsFilterSensitiveLog = (obj: PanelTitleOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PanelConfigurationFilterSensitiveLog = (obj: PanelConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SmallMultiplesOptionsFilterSensitiveLog = (obj: SmallMultiplesOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ItemsLimitConfigurationFilterSensitiveLog = (obj: ItemsLimitConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ColumnSortFilterSensitiveLog = (obj: ColumnSort): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FieldSortFilterSensitiveLog = (obj: FieldSort): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FieldSortOptionsFilterSensitiveLog = (obj: FieldSortOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BarChartSortConfigurationFilterSensitiveLog = (obj: BarChartSortConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ColumnTooltipItemFilterSensitiveLog = (obj: ColumnTooltipItem): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FieldTooltipItemFilterSensitiveLog = (obj: FieldTooltipItem): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TooltipItemFilterSensitiveLog = (obj: TooltipItem): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FieldBasedTooltipFilterSensitiveLog = (obj: FieldBasedTooltip): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TooltipOptionsFilterSensitiveLog = (obj: TooltipOptions): any => ({
-  ...obj,
 });
 
 /**
@@ -8205,105 +7176,7 @@ export const BarChartConfigurationFilterSensitiveLog = (obj: BarChartConfigurati
 /**
  * @internal
  */
-export const CategoryDrillDownFilterFilterSensitiveLog = (obj: CategoryDrillDownFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NumericEqualityDrillDownFilterFilterSensitiveLog = (obj: NumericEqualityDrillDownFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TimeRangeDrillDownFilterFilterSensitiveLog = (obj: TimeRangeDrillDownFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DrillDownFilterFilterSensitiveLog = (obj: DrillDownFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DateTimeHierarchyFilterSensitiveLog = (obj: DateTimeHierarchy): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExplicitHierarchyFilterSensitiveLog = (obj: ExplicitHierarchy): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PredefinedHierarchyFilterSensitiveLog = (obj: PredefinedHierarchy): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ColumnHierarchyFilterSensitiveLog = (obj: ColumnHierarchy): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LongFormatTextFilterSensitiveLog = (obj: LongFormatText): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VisualSubtitleLabelOptionsFilterSensitiveLog = (obj: VisualSubtitleLabelOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ShortFormatTextFilterSensitiveLog = (obj: ShortFormatText): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VisualTitleLabelOptionsFilterSensitiveLog = (obj: VisualTitleLabelOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const BarChartVisualFilterSensitiveLog = (obj: BarChartVisual): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BoxPlotStyleOptionsFilterSensitiveLog = (obj: BoxPlotStyleOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BoxPlotOptionsFilterSensitiveLog = (obj: BoxPlotOptions): any => ({
   ...obj,
 });
 
@@ -8319,20 +7192,6 @@ export const BoxPlotAggregatedFieldWellsFilterSensitiveLog = (obj: BoxPlotAggreg
  * @internal
  */
 export const BoxPlotFieldWellsFilterSensitiveLog = (obj: BoxPlotFieldWells): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PaginationConfigurationFilterSensitiveLog = (obj: PaginationConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BoxPlotSortConfigurationFilterSensitiveLog = (obj: BoxPlotSortConfiguration): any => ({
   ...obj,
 });
 
@@ -8367,13 +7226,6 @@ export const ComboChartAggregatedFieldWellsFilterSensitiveLog = (obj: ComboChart
  * @internal
  */
 export const ComboChartFieldWellsFilterSensitiveLog = (obj: ComboChartFieldWells): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ComboChartSortConfigurationFilterSensitiveLog = (obj: ComboChartSortConfiguration): any => ({
   ...obj,
 });
 

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
-import {
-  DeleteMembershipInput,
-  DeleteMembershipInputFilterSensitiveLog,
-  DeleteMembershipOutput,
-  DeleteMembershipOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteMembershipInput, DeleteMembershipOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteMembershipCommand,
   serializeAws_restJson1DeleteMembershipCommand,
@@ -125,8 +120,8 @@ export class DeleteMembershipCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteMembershipInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteMembershipOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

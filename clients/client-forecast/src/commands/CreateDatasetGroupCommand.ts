@@ -18,7 +18,6 @@ import {
   CreateDatasetGroupRequest,
   CreateDatasetGroupRequestFilterSensitiveLog,
   CreateDatasetGroupResponse,
-  CreateDatasetGroupResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateDatasetGroupCommand,
@@ -134,7 +133,7 @@ export class CreateDatasetGroupCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateDatasetGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateDatasetGroupResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

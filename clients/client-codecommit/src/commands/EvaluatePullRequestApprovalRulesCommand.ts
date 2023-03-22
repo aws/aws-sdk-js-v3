@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
-import {
-  EvaluatePullRequestApprovalRulesInput,
-  EvaluatePullRequestApprovalRulesInputFilterSensitiveLog,
-  EvaluatePullRequestApprovalRulesOutput,
-  EvaluatePullRequestApprovalRulesOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { EvaluatePullRequestApprovalRulesInput, EvaluatePullRequestApprovalRulesOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1EvaluatePullRequestApprovalRulesCommand,
   serializeAws_json1_1EvaluatePullRequestApprovalRulesCommand,
@@ -142,8 +137,8 @@ export class EvaluatePullRequestApprovalRulesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: EvaluatePullRequestApprovalRulesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: EvaluatePullRequestApprovalRulesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

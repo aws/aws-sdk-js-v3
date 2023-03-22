@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DataExchangeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataExchangeClient";
-import {
-  StartJobRequest,
-  StartJobRequestFilterSensitiveLog,
-  StartJobResponse,
-  StartJobResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { StartJobRequest, StartJobResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1StartJobCommand,
   serializeAws_restJson1StartJobCommand,
@@ -123,8 +118,8 @@ export class StartJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -16,9 +16,7 @@ import {
 import { IoTFleetWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTFleetWiseClient";
 import {
   ListDecoderManifestNetworkInterfacesRequest,
-  ListDecoderManifestNetworkInterfacesRequestFilterSensitiveLog,
   ListDecoderManifestNetworkInterfacesResponse,
-  ListDecoderManifestNetworkInterfacesResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_0ListDecoderManifestNetworkInterfacesCommand,
@@ -127,8 +125,8 @@ export class ListDecoderManifestNetworkInterfacesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDecoderManifestNetworkInterfacesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListDecoderManifestNetworkInterfacesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

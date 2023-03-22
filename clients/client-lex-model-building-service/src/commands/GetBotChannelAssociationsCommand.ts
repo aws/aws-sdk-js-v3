@@ -20,7 +20,6 @@ import {
 } from "../LexModelBuildingServiceClient";
 import {
   GetBotChannelAssociationsRequest,
-  GetBotChannelAssociationsRequestFilterSensitiveLog,
   GetBotChannelAssociationsResponse,
   GetBotChannelAssociationsResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -126,7 +125,7 @@ export class GetBotChannelAssociationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetBotChannelAssociationsRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetBotChannelAssociationsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

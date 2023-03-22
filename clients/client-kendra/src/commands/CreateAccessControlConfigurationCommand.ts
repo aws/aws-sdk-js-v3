@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
-import {
-  CreateAccessControlConfigurationRequest,
-  CreateAccessControlConfigurationRequestFilterSensitiveLog,
-  CreateAccessControlConfigurationResponse,
-  CreateAccessControlConfigurationResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateAccessControlConfigurationRequest, CreateAccessControlConfigurationResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateAccessControlConfigurationCommand,
   serializeAws_json1_1CreateAccessControlConfigurationCommand,
@@ -160,8 +155,8 @@ export class CreateAccessControlConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateAccessControlConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateAccessControlConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

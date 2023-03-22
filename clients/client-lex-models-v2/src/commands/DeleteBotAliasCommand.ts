@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
-import {
-  DeleteBotAliasRequest,
-  DeleteBotAliasRequestFilterSensitiveLog,
-  DeleteBotAliasResponse,
-  DeleteBotAliasResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteBotAliasRequest, DeleteBotAliasResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteBotAliasCommand,
   serializeAws_restJson1DeleteBotAliasCommand,
@@ -132,8 +127,8 @@ export class DeleteBotAliasCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteBotAliasRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteBotAliasResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

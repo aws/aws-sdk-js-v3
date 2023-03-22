@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectCasesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCasesClient";
-import {
-  CreateTemplateRequest,
-  CreateTemplateRequestFilterSensitiveLog,
-  CreateTemplateResponse,
-  CreateTemplateResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateTemplateRequest, CreateTemplateResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateTemplateCommand,
   serializeAws_restJson1CreateTemplateCommand,
@@ -138,8 +133,8 @@ export class CreateTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateTemplateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateTemplateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ModifyGlobalClusterMessage,
-  ModifyGlobalClusterMessageFilterSensitiveLog,
-  ModifyGlobalClusterResult,
-  ModifyGlobalClusterResultFilterSensitiveLog,
-} from "../models/models_1";
+import { ModifyGlobalClusterMessage, ModifyGlobalClusterResult } from "../models/models_1";
 import {
   deserializeAws_queryModifyGlobalClusterCommand,
   serializeAws_queryModifyGlobalClusterCommand,
@@ -125,8 +120,8 @@ export class ModifyGlobalClusterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyGlobalClusterMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifyGlobalClusterResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

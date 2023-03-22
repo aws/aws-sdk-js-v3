@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient";
-import {
-  DescribeLocationHdfsRequest,
-  DescribeLocationHdfsRequestFilterSensitiveLog,
-  DescribeLocationHdfsResponse,
-  DescribeLocationHdfsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeLocationHdfsRequest, DescribeLocationHdfsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeLocationHdfsCommand,
   serializeAws_json1_1DescribeLocationHdfsCommand,
@@ -114,8 +109,8 @@ export class DescribeLocationHdfsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeLocationHdfsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeLocationHdfsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

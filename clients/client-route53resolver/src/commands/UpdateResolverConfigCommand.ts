@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateResolverConfigRequest,
-  UpdateResolverConfigRequestFilterSensitiveLog,
-  UpdateResolverConfigResponse,
-  UpdateResolverConfigResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateResolverConfigRequest, UpdateResolverConfigResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateResolverConfigCommand,
   serializeAws_json1_1UpdateResolverConfigCommand,
@@ -136,8 +131,8 @@ export class UpdateResolverConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateResolverConfigRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateResolverConfigResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

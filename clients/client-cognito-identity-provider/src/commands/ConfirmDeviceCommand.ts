@@ -23,7 +23,6 @@ import {
   ConfirmDeviceRequest,
   ConfirmDeviceRequestFilterSensitiveLog,
   ConfirmDeviceResponse,
-  ConfirmDeviceResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1ConfirmDeviceCommand,
@@ -156,7 +155,7 @@ export class ConfirmDeviceCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: ConfirmDeviceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ConfirmDeviceResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

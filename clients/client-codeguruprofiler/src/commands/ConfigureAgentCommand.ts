@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeGuruProfilerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeGuruProfilerClient";
-import {
-  ConfigureAgentRequest,
-  ConfigureAgentRequestFilterSensitiveLog,
-  ConfigureAgentResponse,
-  ConfigureAgentResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ConfigureAgentRequest, ConfigureAgentResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ConfigureAgentCommand,
   serializeAws_restJson1ConfigureAgentCommand,
@@ -123,8 +118,8 @@ export class ConfigureAgentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ConfigureAgentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ConfigureAgentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

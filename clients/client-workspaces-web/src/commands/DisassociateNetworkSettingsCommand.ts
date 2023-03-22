@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DisassociateNetworkSettingsRequest,
-  DisassociateNetworkSettingsRequestFilterSensitiveLog,
-  DisassociateNetworkSettingsResponse,
-  DisassociateNetworkSettingsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DisassociateNetworkSettingsRequest, DisassociateNetworkSettingsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DisassociateNetworkSettingsCommand,
   serializeAws_restJson1DisassociateNetworkSettingsCommand,
@@ -124,8 +119,8 @@ export class DisassociateNetworkSettingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateNetworkSettingsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateNetworkSettingsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
