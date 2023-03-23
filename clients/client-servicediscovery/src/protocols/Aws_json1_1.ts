@@ -562,9 +562,6 @@ const deserializeAws_json1_1CreateHttpNamespaceCommandError = async (
     case "NamespaceAlreadyExists":
     case "com.amazonaws.servicediscovery#NamespaceAlreadyExists":
       throw await deserializeAws_json1_1NamespaceAlreadyExistsResponse(parsedOutput, context);
-    case "RequestLimitExceeded":
-    case "com.amazonaws.servicediscovery#RequestLimitExceeded":
-      throw await deserializeAws_json1_1RequestLimitExceededResponse(parsedOutput, context);
     case "ResourceLimitExceeded":
     case "com.amazonaws.servicediscovery#ResourceLimitExceeded":
       throw await deserializeAws_json1_1ResourceLimitExceededResponse(parsedOutput, context);
@@ -618,9 +615,6 @@ const deserializeAws_json1_1CreatePrivateDnsNamespaceCommandError = async (
     case "NamespaceAlreadyExists":
     case "com.amazonaws.servicediscovery#NamespaceAlreadyExists":
       throw await deserializeAws_json1_1NamespaceAlreadyExistsResponse(parsedOutput, context);
-    case "RequestLimitExceeded":
-    case "com.amazonaws.servicediscovery#RequestLimitExceeded":
-      throw await deserializeAws_json1_1RequestLimitExceededResponse(parsedOutput, context);
     case "ResourceLimitExceeded":
     case "com.amazonaws.servicediscovery#ResourceLimitExceeded":
       throw await deserializeAws_json1_1ResourceLimitExceededResponse(parsedOutput, context);
@@ -674,9 +668,6 @@ const deserializeAws_json1_1CreatePublicDnsNamespaceCommandError = async (
     case "NamespaceAlreadyExists":
     case "com.amazonaws.servicediscovery#NamespaceAlreadyExists":
       throw await deserializeAws_json1_1NamespaceAlreadyExistsResponse(parsedOutput, context);
-    case "RequestLimitExceeded":
-    case "com.amazonaws.servicediscovery#RequestLimitExceeded":
-      throw await deserializeAws_json1_1RequestLimitExceededResponse(parsedOutput, context);
     case "ResourceLimitExceeded":
     case "com.amazonaws.servicediscovery#ResourceLimitExceeded":
       throw await deserializeAws_json1_1ResourceLimitExceededResponse(parsedOutput, context);
@@ -727,9 +718,6 @@ const deserializeAws_json1_1CreateServiceCommandError = async (
     case "NamespaceNotFound":
     case "com.amazonaws.servicediscovery#NamespaceNotFound":
       throw await deserializeAws_json1_1NamespaceNotFoundResponse(parsedOutput, context);
-    case "RequestLimitExceeded":
-    case "com.amazonaws.servicediscovery#RequestLimitExceeded":
-      throw await deserializeAws_json1_1RequestLimitExceededResponse(parsedOutput, context);
     case "ResourceLimitExceeded":
     case "com.amazonaws.servicediscovery#ResourceLimitExceeded":
       throw await deserializeAws_json1_1ResourceLimitExceededResponse(parsedOutput, context);
@@ -786,9 +774,6 @@ const deserializeAws_json1_1DeleteNamespaceCommandError = async (
     case "NamespaceNotFound":
     case "com.amazonaws.servicediscovery#NamespaceNotFound":
       throw await deserializeAws_json1_1NamespaceNotFoundResponse(parsedOutput, context);
-    case "RequestLimitExceeded":
-    case "com.amazonaws.servicediscovery#RequestLimitExceeded":
-      throw await deserializeAws_json1_1RequestLimitExceededResponse(parsedOutput, context);
     case "ResourceInUse":
     case "com.amazonaws.servicediscovery#ResourceInUse":
       throw await deserializeAws_json1_1ResourceInUseResponse(parsedOutput, context);
@@ -833,9 +818,6 @@ const deserializeAws_json1_1DeleteServiceCommandError = async (
     case "InvalidInput":
     case "com.amazonaws.servicediscovery#InvalidInput":
       throw await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context);
-    case "RequestLimitExceeded":
-    case "com.amazonaws.servicediscovery#RequestLimitExceeded":
-      throw await deserializeAws_json1_1RequestLimitExceededResponse(parsedOutput, context);
     case "ResourceInUse":
     case "com.amazonaws.servicediscovery#ResourceInUse":
       throw await deserializeAws_json1_1ResourceInUseResponse(parsedOutput, context);
@@ -889,9 +871,6 @@ const deserializeAws_json1_1DeregisterInstanceCommandError = async (
     case "InvalidInput":
     case "com.amazonaws.servicediscovery#InvalidInput":
       throw await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context);
-    case "RequestLimitExceeded":
-    case "com.amazonaws.servicediscovery#RequestLimitExceeded":
-      throw await deserializeAws_json1_1RequestLimitExceededResponse(parsedOutput, context);
     case "ResourceInUse":
     case "com.amazonaws.servicediscovery#ResourceInUse":
       throw await deserializeAws_json1_1ResourceInUseResponse(parsedOutput, context);
@@ -992,9 +971,6 @@ const deserializeAws_json1_1GetInstanceCommandError = async (
     case "InvalidInput":
     case "com.amazonaws.servicediscovery#InvalidInput":
       throw await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context);
-    case "RequestLimitExceeded":
-    case "com.amazonaws.servicediscovery#RequestLimitExceeded":
-      throw await deserializeAws_json1_1RequestLimitExceededResponse(parsedOutput, context);
     case "ServiceNotFound":
     case "com.amazonaws.servicediscovery#ServiceNotFound":
       throw await deserializeAws_json1_1ServiceNotFoundResponse(parsedOutput, context);
@@ -1042,9 +1018,6 @@ const deserializeAws_json1_1GetInstancesHealthStatusCommandError = async (
     case "InvalidInput":
     case "com.amazonaws.servicediscovery#InvalidInput":
       throw await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context);
-    case "RequestLimitExceeded":
-    case "com.amazonaws.servicediscovery#RequestLimitExceeded":
-      throw await deserializeAws_json1_1RequestLimitExceededResponse(parsedOutput, context);
     case "ServiceNotFound":
     case "com.amazonaws.servicediscovery#ServiceNotFound":
       throw await deserializeAws_json1_1ServiceNotFoundResponse(parsedOutput, context);
@@ -1136,9 +1109,6 @@ const deserializeAws_json1_1GetOperationCommandError = async (
     case "OperationNotFound":
     case "com.amazonaws.servicediscovery#OperationNotFound":
       throw await deserializeAws_json1_1OperationNotFoundResponse(parsedOutput, context);
-    case "RequestLimitExceeded":
-    case "com.amazonaws.servicediscovery#RequestLimitExceeded":
-      throw await deserializeAws_json1_1RequestLimitExceededResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1180,9 +1150,6 @@ const deserializeAws_json1_1GetServiceCommandError = async (
     case "InvalidInput":
     case "com.amazonaws.servicediscovery#InvalidInput":
       throw await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context);
-    case "RequestLimitExceeded":
-    case "com.amazonaws.servicediscovery#RequestLimitExceeded":
-      throw await deserializeAws_json1_1RequestLimitExceededResponse(parsedOutput, context);
     case "ServiceNotFound":
     case "com.amazonaws.servicediscovery#ServiceNotFound":
       throw await deserializeAws_json1_1ServiceNotFoundResponse(parsedOutput, context);
@@ -1227,9 +1194,6 @@ const deserializeAws_json1_1ListInstancesCommandError = async (
     case "InvalidInput":
     case "com.amazonaws.servicediscovery#InvalidInput":
       throw await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context);
-    case "RequestLimitExceeded":
-    case "com.amazonaws.servicediscovery#RequestLimitExceeded":
-      throw await deserializeAws_json1_1RequestLimitExceededResponse(parsedOutput, context);
     case "ServiceNotFound":
     case "com.amazonaws.servicediscovery#ServiceNotFound":
       throw await deserializeAws_json1_1ServiceNotFoundResponse(parsedOutput, context);
@@ -1274,9 +1238,6 @@ const deserializeAws_json1_1ListNamespacesCommandError = async (
     case "InvalidInput":
     case "com.amazonaws.servicediscovery#InvalidInput":
       throw await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context);
-    case "RequestLimitExceeded":
-    case "com.amazonaws.servicediscovery#RequestLimitExceeded":
-      throw await deserializeAws_json1_1RequestLimitExceededResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1318,9 +1279,6 @@ const deserializeAws_json1_1ListOperationsCommandError = async (
     case "InvalidInput":
     case "com.amazonaws.servicediscovery#InvalidInput":
       throw await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context);
-    case "RequestLimitExceeded":
-    case "com.amazonaws.servicediscovery#RequestLimitExceeded":
-      throw await deserializeAws_json1_1RequestLimitExceededResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1362,9 +1320,6 @@ const deserializeAws_json1_1ListServicesCommandError = async (
     case "InvalidInput":
     case "com.amazonaws.servicediscovery#InvalidInput":
       throw await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context);
-    case "RequestLimitExceeded":
-    case "com.amazonaws.servicediscovery#RequestLimitExceeded":
-      throw await deserializeAws_json1_1RequestLimitExceededResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1406,9 +1361,6 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
     case "InvalidInput":
     case "com.amazonaws.servicediscovery#InvalidInput":
       throw await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context);
-    case "RequestLimitExceeded":
-    case "com.amazonaws.servicediscovery#RequestLimitExceeded":
-      throw await deserializeAws_json1_1RequestLimitExceededResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.servicediscovery#ResourceNotFoundException":
       throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
@@ -1456,9 +1408,6 @@ const deserializeAws_json1_1RegisterInstanceCommandError = async (
     case "InvalidInput":
     case "com.amazonaws.servicediscovery#InvalidInput":
       throw await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context);
-    case "RequestLimitExceeded":
-    case "com.amazonaws.servicediscovery#RequestLimitExceeded":
-      throw await deserializeAws_json1_1RequestLimitExceededResponse(parsedOutput, context);
     case "ResourceInUse":
     case "com.amazonaws.servicediscovery#ResourceInUse":
       throw await deserializeAws_json1_1ResourceInUseResponse(parsedOutput, context);
@@ -1509,9 +1458,6 @@ const deserializeAws_json1_1TagResourceCommandError = async (
     case "InvalidInput":
     case "com.amazonaws.servicediscovery#InvalidInput":
       throw await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context);
-    case "RequestLimitExceeded":
-    case "com.amazonaws.servicediscovery#RequestLimitExceeded":
-      throw await deserializeAws_json1_1RequestLimitExceededResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.servicediscovery#ResourceNotFoundException":
       throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
@@ -1559,9 +1505,6 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
     case "InvalidInput":
     case "com.amazonaws.servicediscovery#InvalidInput":
       throw await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context);
-    case "RequestLimitExceeded":
-    case "com.amazonaws.servicediscovery#RequestLimitExceeded":
-      throw await deserializeAws_json1_1RequestLimitExceededResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.servicediscovery#ResourceNotFoundException":
       throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
@@ -1612,9 +1555,6 @@ const deserializeAws_json1_1UpdateHttpNamespaceCommandError = async (
     case "NamespaceNotFound":
     case "com.amazonaws.servicediscovery#NamespaceNotFound":
       throw await deserializeAws_json1_1NamespaceNotFoundResponse(parsedOutput, context);
-    case "RequestLimitExceeded":
-    case "com.amazonaws.servicediscovery#RequestLimitExceeded":
-      throw await deserializeAws_json1_1RequestLimitExceededResponse(parsedOutput, context);
     case "ResourceInUse":
     case "com.amazonaws.servicediscovery#ResourceInUse":
       throw await deserializeAws_json1_1ResourceInUseResponse(parsedOutput, context);
@@ -1662,9 +1602,6 @@ const deserializeAws_json1_1UpdateInstanceCustomHealthStatusCommandError = async
     case "InvalidInput":
     case "com.amazonaws.servicediscovery#InvalidInput":
       throw await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context);
-    case "RequestLimitExceeded":
-    case "com.amazonaws.servicediscovery#RequestLimitExceeded":
-      throw await deserializeAws_json1_1RequestLimitExceededResponse(parsedOutput, context);
     case "ServiceNotFound":
     case "com.amazonaws.servicediscovery#ServiceNotFound":
       throw await deserializeAws_json1_1ServiceNotFoundResponse(parsedOutput, context);
@@ -1715,9 +1652,6 @@ const deserializeAws_json1_1UpdatePrivateDnsNamespaceCommandError = async (
     case "NamespaceNotFound":
     case "com.amazonaws.servicediscovery#NamespaceNotFound":
       throw await deserializeAws_json1_1NamespaceNotFoundResponse(parsedOutput, context);
-    case "RequestLimitExceeded":
-    case "com.amazonaws.servicediscovery#RequestLimitExceeded":
-      throw await deserializeAws_json1_1RequestLimitExceededResponse(parsedOutput, context);
     case "ResourceInUse":
     case "com.amazonaws.servicediscovery#ResourceInUse":
       throw await deserializeAws_json1_1ResourceInUseResponse(parsedOutput, context);
@@ -1768,9 +1702,6 @@ const deserializeAws_json1_1UpdatePublicDnsNamespaceCommandError = async (
     case "NamespaceNotFound":
     case "com.amazonaws.servicediscovery#NamespaceNotFound":
       throw await deserializeAws_json1_1NamespaceNotFoundResponse(parsedOutput, context);
-    case "RequestLimitExceeded":
-    case "com.amazonaws.servicediscovery#RequestLimitExceeded":
-      throw await deserializeAws_json1_1RequestLimitExceededResponse(parsedOutput, context);
     case "ResourceInUse":
     case "com.amazonaws.servicediscovery#ResourceInUse":
       throw await deserializeAws_json1_1ResourceInUseResponse(parsedOutput, context);
@@ -1818,9 +1749,6 @@ const deserializeAws_json1_1UpdateServiceCommandError = async (
     case "InvalidInput":
     case "com.amazonaws.servicediscovery#InvalidInput":
       throw await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context);
-    case "RequestLimitExceeded":
-    case "com.amazonaws.servicediscovery#RequestLimitExceeded":
-      throw await deserializeAws_json1_1RequestLimitExceededResponse(parsedOutput, context);
     case "ServiceNotFound":
     case "com.amazonaws.servicediscovery#ServiceNotFound":
       throw await deserializeAws_json1_1ServiceNotFoundResponse(parsedOutput, context);

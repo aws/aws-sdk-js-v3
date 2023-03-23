@@ -64,11 +64,6 @@ export interface GetOperationCommandOutput extends GetOperationResponse, __Metad
  * @throws {@link OperationNotFound} (client fault)
  *  <p>No operation exists with the specified ID.</p>
  *
- * @throws {@link RequestLimitExceeded} (client fault)
- *  <p>The operation can't be completed because you've reached the quota for the number of
- *    requests. For more information, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/throttling.html">Cloud Map API request throttling quota</a> in the
- *     <i>Cloud Map Developer Guide</i>.</p>
- *
  *
  * @example Example: Get operation result
  * ```javascript

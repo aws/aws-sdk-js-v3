@@ -72,11 +72,6 @@ export interface CreatePublicDnsNamespaceCommandOutput extends CreatePublicDnsNa
  * @throws {@link NamespaceAlreadyExists} (client fault)
  *  <p>The namespace that you're trying to create already exists.</p>
  *
- * @throws {@link RequestLimitExceeded} (client fault)
- *  <p>The operation can't be completed because you've reached the quota for the number of
- *    requests. For more information, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/throttling.html">Cloud Map API request throttling quota</a> in the
- *     <i>Cloud Map Developer Guide</i>.</p>
- *
  * @throws {@link ResourceLimitExceeded} (client fault)
  *  <p>The resource can't be created because you've reached the quota on the number of
  *    resources.</p>

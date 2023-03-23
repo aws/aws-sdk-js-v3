@@ -147,30 +147,6 @@ export class NamespaceAlreadyExists extends __BaseException {
 
 /**
  * @public
- * <p>The operation can't be completed because you've reached the quota for the number of
- *    requests. For more information, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/throttling.html">Cloud Map API request throttling quota</a> in the
- *     <i>Cloud Map Developer Guide</i>.</p>
- */
-export class RequestLimitExceeded extends __BaseException {
-  readonly name: "RequestLimitExceeded" = "RequestLimitExceeded";
-  readonly $fault: "client" = "client";
-  Message?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<RequestLimitExceeded, __BaseException>) {
-    super({
-      name: "RequestLimitExceeded",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, RequestLimitExceeded.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
  * <p>The resource can't be created because you've reached the quota on the number of
  *    resources.</p>
  */
@@ -1424,6 +1400,30 @@ export interface DiscoverInstancesResponse {
    *    instance.</p>
    */
   Instances?: HttpInstanceSummary[];
+}
+
+/**
+ * @public
+ * <p>The operation can't be completed because you've reached the quota for the number of
+ *    requests. For more information, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/throttling.html">Cloud Map API request throttling quota</a> in the
+ *     <i>Cloud Map Developer Guide</i>.</p>
+ */
+export class RequestLimitExceeded extends __BaseException {
+  readonly name: "RequestLimitExceeded" = "RequestLimitExceeded";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<RequestLimitExceeded, __BaseException>) {
+    super({
+      name: "RequestLimitExceeded",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, RequestLimitExceeded.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**

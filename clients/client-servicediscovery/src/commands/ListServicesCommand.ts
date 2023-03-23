@@ -58,11 +58,6 @@ export interface ListServicesCommandOutput extends ListServicesResponse, __Metad
  *    numeric value might be outside the allowed range, or a string value might exceed length
  *    constraints.</p>
  *
- * @throws {@link RequestLimitExceeded} (client fault)
- *  <p>The operation can't be completed because you've reached the quota for the number of
- *    requests. For more information, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/throttling.html">Cloud Map API request throttling quota</a> in the
- *     <i>Cloud Map Developer Guide</i>.</p>
- *
  *
  * @example Example: List services
  * ```javascript
