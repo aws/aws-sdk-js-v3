@@ -45,7 +45,7 @@ export interface AppInstance {
 
 /**
  * @public
- * <p>The details of a user.</p>
+ * <p>The details of a user or bot.</p>
  */
 export interface Identity {
   /**
@@ -61,7 +61,7 @@ export interface Identity {
 
 /**
  * @public
- * <p>The details of an <code>AppInstanceAdmin</code>.</p>
+ * <p>The name and ARN of the admin for the <code>AppInstance</code>.</p>
  */
 export interface AppInstanceAdmin {
   /**
@@ -89,6 +89,111 @@ export interface AppInstanceAdminSummary {
    * <p>The details of the <code>AppInstanceAdmin</code>.</p>
    */
   Admin?: Identity;
+}
+
+/**
+ * @public
+ */
+export enum RespondsTo {
+  STANDARD_MESSAGES = "STANDARD_MESSAGES",
+}
+
+/**
+ * @public
+ * <p>The configuration for an Amazon Lex V2 bot.</p>
+ */
+export interface LexConfiguration {
+  /**
+   * <p>Determines whether the Amazon Lex V2 bot responds to all standard messages. Control messages are not supported.</p>
+   */
+  RespondsTo: RespondsTo | string | undefined;
+
+  /**
+   * <p>The ARN of the Amazon Lex V2 bot's alias. The ARN uses this format:
+   *          <code>arn:aws:lex:REGION:ACCOUNT:bot-alias/MYBOTID/MYBOTALIAS</code>
+   *          </p>
+   */
+  LexBotAliasArn: string | undefined;
+
+  /**
+   * <p>Identifies the Amazon Lex V2 bot's language and locale. The string must match one of the
+   *          supported locales in Amazon Lex V2. All of the intents, slot types, and slots used in the bot must have the same
+   *          locale. For more information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html">Supported languages</a> in the <i>Amazon Lex V2 Developer Guide</i>.</p>
+   */
+  LocaleId: string | undefined;
+
+  /**
+   * <p>The name of the welcome intent configured in the Amazon Lex V2 bot.</p>
+   */
+  WelcomeIntent?: string;
+}
+
+/**
+ * @public
+ * <p>A structure that contains configuration data.</p>
+ */
+export interface Configuration {
+  /**
+   * <p>The configuration for an Amazon Lex V2 bot.</p>
+   */
+  Lex: LexConfiguration | undefined;
+}
+
+/**
+ * @public
+ * <p>An Amazon Lex V2 chat bot created under an <code>AppInstance</code>.</p>
+ */
+export interface AppInstanceBot {
+  /**
+   * <p>The ARN of the AppInstanceBot.</p>
+   */
+  AppInstanceBotArn?: string;
+
+  /**
+   * <p>The name of the AppInstanceBot.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The data processing instructions for an AppInstanceBot.</p>
+   */
+  Configuration?: Configuration;
+
+  /**
+   * <p>The time at which the <code>AppInstanceBot</code> was created.</p>
+   */
+  CreatedTimestamp?: Date;
+
+  /**
+   * <p>The time at which the <code>AppInstanceBot</code> was last updated.</p>
+   */
+  LastUpdatedTimestamp?: Date;
+
+  /**
+   * <p>The metadata for an AppInstanceBot.</p>
+   */
+  Metadata?: string;
+}
+
+/**
+ * @public
+ * <p>High-level information about an AppInstanceBot.</p>
+ */
+export interface AppInstanceBotSummary {
+  /**
+   * <p>The ARN of the AppInstanceBot.</p>
+   */
+  AppInstanceBotArn?: string;
+
+  /**
+   * <p>The name of the AppInstanceBox.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The metadata of the AppInstanceBot.</p>
+   */
+  Metadata?: string;
 }
 
 /**
@@ -136,6 +241,29 @@ export interface AppInstanceRetentionSettings {
 
 /**
  * @public
+ */
+export enum ExpirationCriterion {
+  CREATED_TIMESTAMP = "CREATED_TIMESTAMP",
+}
+
+/**
+ * @public
+ * <p>Determines the interval after which an <code>AppInstanceUser</code> is automatically deleted.</p>
+ */
+export interface ExpirationSettings {
+  /**
+   * <p>The period in days after which an <code>AppInstanceUser</code> will be automatically deleted.</p>
+   */
+  ExpirationDays: number | undefined;
+
+  /**
+   * <p>Specifies the conditions under which an <code>AppInstanceUser</code> will expire.</p>
+   */
+  ExpirationCriterion: ExpirationCriterion | string | undefined;
+}
+
+/**
+ * @public
  * <p>The details of an <code>AppInstanceUser</code>.</p>
  */
 export interface AppInstanceUser {
@@ -163,6 +291,11 @@ export interface AppInstanceUser {
    * <p>The time at which the <code>AppInstanceUser</code> was last updated.</p>
    */
   LastUpdatedTimestamp?: Date;
+
+  /**
+   * <p>The interval after which an <code>AppInstanceUser</code> is automatically deleted.</p>
+   */
+  ExpirationSettings?: ExpirationSettings;
 }
 
 /**
@@ -478,12 +611,12 @@ export interface CreateAppInstanceRequest {
   Metadata?: string;
 
   /**
-   * <p>The <code>ClientRequestToken</code> of the <code>AppInstance</code>.</p>
+   * <p>The unique ID of the request. Use different tokens to create different <code>AppInstances</code>.</p>
    */
   ClientRequestToken?: string;
 
   /**
-   * <p>Tags assigned to the <code>AppInstanceUser</code>.</p>
+   * <p>Tags assigned to the <code>AppInstance</code>.</p>
    */
   Tags?: Tag[];
 }
@@ -662,7 +795,8 @@ export interface CreateAppInstanceAdminRequest {
  */
 export interface CreateAppInstanceAdminResponse {
   /**
-   * <p>The name and ARN of the admin for the <code>AppInstance</code>.</p>
+   * <p>The ARN and name of the administrator, the ARN of the <code>AppInstance</code>, and the created and
+   *          last-updated timestamps. All timestamps use epoch milliseconds.</p>
    */
   AppInstanceAdmin?: Identity;
 
@@ -670,6 +804,51 @@ export interface CreateAppInstanceAdminResponse {
    * <p>The ARN of the of the admin for the <code>AppInstance</code>.</p>
    */
   AppInstanceArn?: string;
+}
+
+/**
+ * @public
+ */
+export interface CreateAppInstanceBotRequest {
+  /**
+   * <p>The ARN of the <code>AppInstance</code> request.</p>
+   */
+  AppInstanceArn: string | undefined;
+
+  /**
+   * <p>The user's name.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The request metadata. Limited to a 1KB string in UTF-8.</p>
+   */
+  Metadata?: string;
+
+  /**
+   * <p>The unique ID for the client making the request. Use different tokens for different <code>AppInstanceBots</code>.</p>
+   */
+  ClientRequestToken?: string;
+
+  /**
+   * <p>The tags assigned to the <code>AppInstanceBot</code>.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>Configuration information about the Amazon Lex V2 V2 bot.</p>
+   */
+  Configuration: Configuration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateAppInstanceBotResponse {
+  /**
+   * <p>The ARN of the <code>AppinstanceBot</code>.</p>
+   */
+  AppInstanceBotArn?: string;
 }
 
 /**
@@ -697,7 +876,7 @@ export interface CreateAppInstanceUserRequest {
   Metadata?: string;
 
   /**
-   * <p>The token assigned to the user requesting an <code>AppInstance</code>.</p>
+   * <p>The unique ID of the request. Use different tokens to request additional <code>AppInstances</code>.</p>
    */
   ClientRequestToken?: string;
 
@@ -705,6 +884,11 @@ export interface CreateAppInstanceUserRequest {
    * <p>Tags assigned to the <code>AppInstanceUser</code>.</p>
    */
   Tags?: Tag[];
+
+  /**
+   * <p>Settings that control the interval after which the <code>AppInstanceUser</code> is automatically deleted.</p>
+   */
+  ExpirationSettings?: ExpirationSettings;
 }
 
 /**
@@ -740,6 +924,16 @@ export interface DeleteAppInstanceAdminRequest {
    * <p>The ARN of the <code>AppInstance</code>.</p>
    */
   AppInstanceArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteAppInstanceBotRequest {
+  /**
+   * <p>The ARN of the <code>AppInstanceBot</code> being deleted.</p>
+   */
+  AppInstanceBotArn: string | undefined;
 }
 
 /**
@@ -813,6 +1007,50 @@ export interface DescribeAppInstanceAdminResponse {
    *          use epoch milliseconds.</p>
    */
   AppInstanceAdmin?: AppInstanceAdmin;
+}
+
+/**
+ * @public
+ */
+export interface DescribeAppInstanceBotRequest {
+  /**
+   * <p>The ARN of the <code>AppInstanceBot</code>.</p>
+   */
+  AppInstanceBotArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeAppInstanceBotResponse {
+  /**
+   * <p>The detials of the <code>AppInstanceBot</code>.</p>
+   */
+  AppInstanceBot?: AppInstanceBot;
+}
+
+/**
+ * @public
+ * <p>One or more of the resources in the request does not exist in the system.</p>
+ */
+export class NotFoundException extends __BaseException {
+  readonly name: "NotFoundException" = "NotFoundException";
+  readonly $fault: "client" = "client";
+  Code?: ErrorCode | string;
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<NotFoundException, __BaseException>) {
+    super({
+      name: "NotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NotFoundException.prototype);
+    this.Code = opts.Code;
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -925,6 +1163,46 @@ export interface ListAppInstanceAdminsResponse {
   /**
    * <p>The token returned from previous API requests until the number of administrators is
    *          reached.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListAppInstanceBotsRequest {
+  /**
+   * <p>The ARN of the <code>AppInstance</code>.</p>
+   */
+  AppInstanceArn: string | undefined;
+
+  /**
+   * <p>The maximum number of requests to return.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token passed by previous API calls until all requested bots are returned.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListAppInstanceBotsResponse {
+  /**
+   * <p>The ARN of the AppInstance.</p>
+   */
+  AppInstanceArn?: string;
+
+  /**
+   * <p>The information for each requested <code>AppInstanceBot</code>.</p>
+   */
+  AppInstanceBots?: AppInstanceBotSummary[];
+
+  /**
+   * <p>The token passed by previous API calls until all requested bots are returned.</p>
    */
   NextToken?: string;
 }
@@ -1089,6 +1367,36 @@ export interface PutAppInstanceRetentionSettingsResponse {
 /**
  * @public
  */
+export interface PutAppInstanceUserExpirationSettingsRequest {
+  /**
+   * <p>The ARN of the <code>AppInstanceUser</code>.</p>
+   */
+  AppInstanceUserArn: string | undefined;
+
+  /**
+   * <p>Settings that control the interval after which an <code>AppInstanceUser</code> is automatically deleted.</p>
+   */
+  ExpirationSettings?: ExpirationSettings;
+}
+
+/**
+ * @public
+ */
+export interface PutAppInstanceUserExpirationSettingsResponse {
+  /**
+   * <p>The ARN of the <code>AppInstanceUser</code>.</p>
+   */
+  AppInstanceUserArn?: string;
+
+  /**
+   * <p>Settings that control the interval after which an <code>AppInstanceUser</code> is automatically deleted.</p>
+   */
+  ExpirationSettings?: ExpirationSettings;
+}
+
+/**
+ * @public
+ */
 export interface RegisterAppInstanceUserEndpointRequest {
   /**
    * <p>The ARN of the <code>AppInstanceUser</code>.</p>
@@ -1131,7 +1439,7 @@ export interface RegisterAppInstanceUserEndpointRequest {
   EndpointAttributes: EndpointAttributes | undefined;
 
   /**
-   * <p>The idempotency token for each client request. </p>
+   * <p>The unique ID assigned to the request. Use different tokens to register other endpoints.</p>
    */
   ClientRequestToken?: string;
 
@@ -1215,6 +1523,36 @@ export interface UpdateAppInstanceResponse {
    * <p>The ARN of the <code>AppInstance</code>.</p>
    */
   AppInstanceArn?: string;
+}
+
+/**
+ * @public
+ */
+export interface UpdateAppInstanceBotRequest {
+  /**
+   * <p>The ARN of the <code>AppInstanceBot</code>.</p>
+   */
+  AppInstanceBotArn: string | undefined;
+
+  /**
+   * <p>The name of the <code>AppInstanceBot</code>.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The metadata of the <code>AppInstanceBot</code>.</p>
+   */
+  Metadata: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateAppInstanceBotResponse {
+  /**
+   * <p>The ARN of the <code>AppInstanceBot</code>.</p>
+   */
+  AppInstanceBotArn?: string;
 }
 
 /**
@@ -1324,6 +1662,24 @@ export const AppInstanceAdminSummaryFilterSensitiveLog = (obj: AppInstanceAdminS
 /**
  * @internal
  */
+export const AppInstanceBotFilterSensitiveLog = (obj: AppInstanceBot): any => ({
+  ...obj,
+  ...(obj.Name && { Name: SENSITIVE_STRING }),
+  ...(obj.Metadata && { Metadata: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const AppInstanceBotSummaryFilterSensitiveLog = (obj: AppInstanceBotSummary): any => ({
+  ...obj,
+  ...(obj.Name && { Name: SENSITIVE_STRING }),
+  ...(obj.Metadata && { Metadata: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
 export const AppInstanceSummaryFilterSensitiveLog = (obj: AppInstanceSummary): any => ({
   ...obj,
   ...(obj.Name && { Name: SENSITIVE_STRING }),
@@ -1356,7 +1712,6 @@ export const AppInstanceUserEndpointFilterSensitiveLog = (obj: AppInstanceUserEn
   ...(obj.AppInstanceUserArn && { AppInstanceUserArn: SENSITIVE_STRING }),
   ...(obj.EndpointId && { EndpointId: SENSITIVE_STRING }),
   ...(obj.Name && { Name: SENSITIVE_STRING }),
-  ...(obj.ResourceArn && { ResourceArn: SENSITIVE_STRING }),
   ...(obj.EndpointAttributes && { EndpointAttributes: EndpointAttributesFilterSensitiveLog(obj.EndpointAttributes) }),
 });
 
@@ -1395,7 +1750,6 @@ export const CreateAppInstanceRequestFilterSensitiveLog = (obj: CreateAppInstanc
   ...obj,
   ...(obj.Name && { Name: SENSITIVE_STRING }),
   ...(obj.Metadata && { Metadata: SENSITIVE_STRING }),
-  ...(obj.ClientRequestToken && { ClientRequestToken: SENSITIVE_STRING }),
   ...(obj.Tags && { Tags: obj.Tags.map((item) => TagFilterSensitiveLog(item)) }),
 });
 
@@ -1410,12 +1764,21 @@ export const CreateAppInstanceAdminResponseFilterSensitiveLog = (obj: CreateAppI
 /**
  * @internal
  */
+export const CreateAppInstanceBotRequestFilterSensitiveLog = (obj: CreateAppInstanceBotRequest): any => ({
+  ...obj,
+  ...(obj.Name && { Name: SENSITIVE_STRING }),
+  ...(obj.Metadata && { Metadata: SENSITIVE_STRING }),
+  ...(obj.Tags && { Tags: obj.Tags.map((item) => TagFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
 export const CreateAppInstanceUserRequestFilterSensitiveLog = (obj: CreateAppInstanceUserRequest): any => ({
   ...obj,
   ...(obj.AppInstanceUserId && { AppInstanceUserId: SENSITIVE_STRING }),
   ...(obj.Name && { Name: SENSITIVE_STRING }),
   ...(obj.Metadata && { Metadata: SENSITIVE_STRING }),
-  ...(obj.ClientRequestToken && { ClientRequestToken: SENSITIVE_STRING }),
   ...(obj.Tags && { Tags: obj.Tags.map((item) => TagFilterSensitiveLog(item)) }),
 });
 
@@ -1444,6 +1807,14 @@ export const DescribeAppInstanceResponseFilterSensitiveLog = (obj: DescribeAppIn
 export const DescribeAppInstanceAdminResponseFilterSensitiveLog = (obj: DescribeAppInstanceAdminResponse): any => ({
   ...obj,
   ...(obj.AppInstanceAdmin && { AppInstanceAdmin: AppInstanceAdminFilterSensitiveLog(obj.AppInstanceAdmin) }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeAppInstanceBotResponseFilterSensitiveLog = (obj: DescribeAppInstanceBotResponse): any => ({
+  ...obj,
+  ...(obj.AppInstanceBot && { AppInstanceBot: AppInstanceBotFilterSensitiveLog(obj.AppInstanceBot) }),
 });
 
 /**
@@ -1492,6 +1863,25 @@ export const ListAppInstanceAdminsResponseFilterSensitiveLog = (obj: ListAppInst
   ...obj,
   ...(obj.AppInstanceAdmins && {
     AppInstanceAdmins: obj.AppInstanceAdmins.map((item) => AppInstanceAdminSummaryFilterSensitiveLog(item)),
+  }),
+  ...(obj.NextToken && { NextToken: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListAppInstanceBotsRequestFilterSensitiveLog = (obj: ListAppInstanceBotsRequest): any => ({
+  ...obj,
+  ...(obj.NextToken && { NextToken: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListAppInstanceBotsResponseFilterSensitiveLog = (obj: ListAppInstanceBotsResponse): any => ({
+  ...obj,
+  ...(obj.AppInstanceBots && {
+    AppInstanceBots: obj.AppInstanceBots.map((item) => AppInstanceBotSummaryFilterSensitiveLog(item)),
   }),
   ...(obj.NextToken && { NextToken: SENSITIVE_STRING }),
 });
@@ -1575,9 +1965,7 @@ export const RegisterAppInstanceUserEndpointRequestFilterSensitiveLog = (
   ...obj,
   ...(obj.AppInstanceUserArn && { AppInstanceUserArn: SENSITIVE_STRING }),
   ...(obj.Name && { Name: SENSITIVE_STRING }),
-  ...(obj.ResourceArn && { ResourceArn: SENSITIVE_STRING }),
   ...(obj.EndpointAttributes && { EndpointAttributes: EndpointAttributesFilterSensitiveLog(obj.EndpointAttributes) }),
-  ...(obj.ClientRequestToken && { ClientRequestToken: SENSITIVE_STRING }),
 });
 
 /**
@@ -1611,6 +1999,15 @@ export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest
  * @internal
  */
 export const UpdateAppInstanceRequestFilterSensitiveLog = (obj: UpdateAppInstanceRequest): any => ({
+  ...obj,
+  ...(obj.Name && { Name: SENSITIVE_STRING }),
+  ...(obj.Metadata && { Metadata: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateAppInstanceBotRequestFilterSensitiveLog = (obj: UpdateAppInstanceBotRequest): any => ({
   ...obj,
   ...(obj.Name && { Name: SENSITIVE_STRING }),
   ...(obj.Metadata && { Metadata: SENSITIVE_STRING }),

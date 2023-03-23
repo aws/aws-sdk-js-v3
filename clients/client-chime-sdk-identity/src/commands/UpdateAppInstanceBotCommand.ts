@@ -14,44 +14,46 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeSDKIdentityClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKIdentityClient";
-import { DeleteAppInstanceAdminRequest } from "../models/models_0";
 import {
-  deserializeAws_restJson1DeleteAppInstanceAdminCommand,
-  serializeAws_restJson1DeleteAppInstanceAdminCommand,
+  UpdateAppInstanceBotRequest,
+  UpdateAppInstanceBotRequestFilterSensitiveLog,
+  UpdateAppInstanceBotResponse,
+} from "../models/models_0";
+import {
+  deserializeAws_restJson1UpdateAppInstanceBotCommand,
+  serializeAws_restJson1UpdateAppInstanceBotCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
  * @public
  *
- * The input for {@link DeleteAppInstanceAdminCommand}.
+ * The input for {@link UpdateAppInstanceBotCommand}.
  */
-export interface DeleteAppInstanceAdminCommandInput extends DeleteAppInstanceAdminRequest {}
+export interface UpdateAppInstanceBotCommandInput extends UpdateAppInstanceBotRequest {}
 /**
  * @public
  *
- * The output of {@link DeleteAppInstanceAdminCommand}.
+ * The output of {@link UpdateAppInstanceBotCommand}.
  */
-export interface DeleteAppInstanceAdminCommandOutput extends __MetadataBearer {}
+export interface UpdateAppInstanceBotCommandOutput extends UpdateAppInstanceBotResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Demotes an <code>AppInstanceAdmin</code> to an <code>AppInstanceUser</code> or
- *          <code>AppInstanceBot</code>. This action
- *          does not delete the user.</p>
+ * <p>Updates the name and metadata of an <code>AppInstanceBot</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeSDKIdentityClient, DeleteAppInstanceAdminCommand } from "@aws-sdk/client-chime-sdk-identity"; // ES Modules import
- * // const { ChimeSDKIdentityClient, DeleteAppInstanceAdminCommand } = require("@aws-sdk/client-chime-sdk-identity"); // CommonJS import
+ * import { ChimeSDKIdentityClient, UpdateAppInstanceBotCommand } from "@aws-sdk/client-chime-sdk-identity"; // ES Modules import
+ * // const { ChimeSDKIdentityClient, UpdateAppInstanceBotCommand } = require("@aws-sdk/client-chime-sdk-identity"); // CommonJS import
  * const client = new ChimeSDKIdentityClient(config);
- * const command = new DeleteAppInstanceAdminCommand(input);
+ * const command = new UpdateAppInstanceBotCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @param DeleteAppInstanceAdminCommandInput - {@link DeleteAppInstanceAdminCommandInput}
- * @returns {@link DeleteAppInstanceAdminCommandOutput}
- * @see {@link DeleteAppInstanceAdminCommandInput} for command's `input` shape.
- * @see {@link DeleteAppInstanceAdminCommandOutput} for command's `response` shape.
+ * @param UpdateAppInstanceBotCommandInput - {@link UpdateAppInstanceBotCommandInput}
+ * @returns {@link UpdateAppInstanceBotCommandOutput}
+ * @see {@link UpdateAppInstanceBotCommandInput} for command's `input` shape.
+ * @see {@link UpdateAppInstanceBotCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKIdentityClientResolvedConfig | config} for ChimeSDKIdentityClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
@@ -81,9 +83,9 @@ export interface DeleteAppInstanceAdminCommandOutput extends __MetadataBearer {}
  *
  *
  */
-export class DeleteAppInstanceAdminCommand extends $Command<
-  DeleteAppInstanceAdminCommandInput,
-  DeleteAppInstanceAdminCommandOutput,
+export class UpdateAppInstanceBotCommand extends $Command<
+  UpdateAppInstanceBotCommandInput,
+  UpdateAppInstanceBotCommandOutput,
   ChimeSDKIdentityClientResolvedConfig
 > {
   // Start section: command_properties
@@ -101,7 +103,7 @@ export class DeleteAppInstanceAdminCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: DeleteAppInstanceAdminCommandInput) {
+  constructor(readonly input: UpdateAppInstanceBotCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -114,22 +116,22 @@ export class DeleteAppInstanceAdminCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeSDKIdentityClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DeleteAppInstanceAdminCommandInput, DeleteAppInstanceAdminCommandOutput> {
+  ): Handler<UpdateAppInstanceBotCommandInput, UpdateAppInstanceBotCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, DeleteAppInstanceAdminCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, UpdateAppInstanceBotCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "ChimeSDKIdentityClient";
-    const commandName = "DeleteAppInstanceAdminCommand";
+    const commandName = "UpdateAppInstanceBotCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (_: any) => _,
+      inputFilterSensitiveLog: UpdateAppInstanceBotRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
@@ -143,15 +145,15 @@ export class DeleteAppInstanceAdminCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: DeleteAppInstanceAdminCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteAppInstanceAdminCommand(input, context);
+  private serialize(input: UpdateAppInstanceBotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1UpdateAppInstanceBotCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAppInstanceAdminCommandOutput> {
-    return deserializeAws_restJson1DeleteAppInstanceAdminCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateAppInstanceBotCommandOutput> {
+    return deserializeAws_restJson1UpdateAppInstanceBotCommand(output, context);
   }
 
   // Start section: command_body_extra

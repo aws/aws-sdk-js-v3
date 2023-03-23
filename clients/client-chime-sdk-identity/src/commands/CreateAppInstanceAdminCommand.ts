@@ -39,9 +39,9 @@ export interface CreateAppInstanceAdminCommandOutput extends CreateAppInstanceAd
 
 /**
  * @public
- * <p>Promotes an <code>AppInstanceUser</code> to an <code>AppInstanceAdmin</code>. The
- *          promoted user can perform the following actions. </p>
- *
+ * <p>Promotes an <code>AppInstanceUser</code> or <code>AppInstanceBot</code> to an
+ *          <code>AppInstanceAdmin</code>. The
+ *          promoted entity can perform the following actions. </p>
  *          <ul>
  *             <li>
  *                <p>
@@ -53,8 +53,7 @@ export interface CreateAppInstanceAdminCommandOutput extends CreateAppInstanceAd
  *                   <code>DeleteChannelMessage</code> actions.</p>
  *             </li>
  *          </ul>
- *
- *          <p>Only an <code>AppInstanceUser</code> can be promoted to an <code>AppInstanceAdmin</code>
+ *          <p>Only an <code>AppInstanceUser</code> and <code>AppInstanceBot</code> can be promoted to an <code>AppInstanceAdmin</code>
  *          role.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

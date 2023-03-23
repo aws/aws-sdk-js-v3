@@ -53,6 +53,10 @@ import {
   CreateAppInstanceAdminCommandInput,
   CreateAppInstanceAdminCommandOutput,
 } from "./commands/CreateAppInstanceAdminCommand";
+import {
+  CreateAppInstanceBotCommandInput,
+  CreateAppInstanceBotCommandOutput,
+} from "./commands/CreateAppInstanceBotCommand";
 import { CreateAppInstanceCommandInput, CreateAppInstanceCommandOutput } from "./commands/CreateAppInstanceCommand";
 import {
   CreateAppInstanceUserCommandInput,
@@ -62,6 +66,10 @@ import {
   DeleteAppInstanceAdminCommandInput,
   DeleteAppInstanceAdminCommandOutput,
 } from "./commands/DeleteAppInstanceAdminCommand";
+import {
+  DeleteAppInstanceBotCommandInput,
+  DeleteAppInstanceBotCommandOutput,
+} from "./commands/DeleteAppInstanceBotCommand";
 import { DeleteAppInstanceCommandInput, DeleteAppInstanceCommandOutput } from "./commands/DeleteAppInstanceCommand";
 import {
   DeleteAppInstanceUserCommandInput,
@@ -75,6 +83,10 @@ import {
   DescribeAppInstanceAdminCommandInput,
   DescribeAppInstanceAdminCommandOutput,
 } from "./commands/DescribeAppInstanceAdminCommand";
+import {
+  DescribeAppInstanceBotCommandInput,
+  DescribeAppInstanceBotCommandOutput,
+} from "./commands/DescribeAppInstanceBotCommand";
 import {
   DescribeAppInstanceCommandInput,
   DescribeAppInstanceCommandOutput,
@@ -95,6 +107,10 @@ import {
   ListAppInstanceAdminsCommandInput,
   ListAppInstanceAdminsCommandOutput,
 } from "./commands/ListAppInstanceAdminsCommand";
+import {
+  ListAppInstanceBotsCommandInput,
+  ListAppInstanceBotsCommandOutput,
+} from "./commands/ListAppInstanceBotsCommand";
 import { ListAppInstancesCommandInput, ListAppInstancesCommandOutput } from "./commands/ListAppInstancesCommand";
 import {
   ListAppInstanceUserEndpointsCommandInput,
@@ -113,11 +129,19 @@ import {
   PutAppInstanceRetentionSettingsCommandOutput,
 } from "./commands/PutAppInstanceRetentionSettingsCommand";
 import {
+  PutAppInstanceUserExpirationSettingsCommandInput,
+  PutAppInstanceUserExpirationSettingsCommandOutput,
+} from "./commands/PutAppInstanceUserExpirationSettingsCommand";
+import {
   RegisterAppInstanceUserEndpointCommandInput,
   RegisterAppInstanceUserEndpointCommandOutput,
 } from "./commands/RegisterAppInstanceUserEndpointCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import {
+  UpdateAppInstanceBotCommandInput,
+  UpdateAppInstanceBotCommandOutput,
+} from "./commands/UpdateAppInstanceBotCommand";
 import { UpdateAppInstanceCommandInput, UpdateAppInstanceCommandOutput } from "./commands/UpdateAppInstanceCommand";
 import {
   UpdateAppInstanceUserCommandInput,
@@ -140,26 +164,32 @@ import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
  */
 export type ServiceInputTypes =
   | CreateAppInstanceAdminCommandInput
+  | CreateAppInstanceBotCommandInput
   | CreateAppInstanceCommandInput
   | CreateAppInstanceUserCommandInput
   | DeleteAppInstanceAdminCommandInput
+  | DeleteAppInstanceBotCommandInput
   | DeleteAppInstanceCommandInput
   | DeleteAppInstanceUserCommandInput
   | DeregisterAppInstanceUserEndpointCommandInput
   | DescribeAppInstanceAdminCommandInput
+  | DescribeAppInstanceBotCommandInput
   | DescribeAppInstanceCommandInput
   | DescribeAppInstanceUserCommandInput
   | DescribeAppInstanceUserEndpointCommandInput
   | GetAppInstanceRetentionSettingsCommandInput
   | ListAppInstanceAdminsCommandInput
+  | ListAppInstanceBotsCommandInput
   | ListAppInstanceUserEndpointsCommandInput
   | ListAppInstanceUsersCommandInput
   | ListAppInstancesCommandInput
   | ListTagsForResourceCommandInput
   | PutAppInstanceRetentionSettingsCommandInput
+  | PutAppInstanceUserExpirationSettingsCommandInput
   | RegisterAppInstanceUserEndpointCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
+  | UpdateAppInstanceBotCommandInput
   | UpdateAppInstanceCommandInput
   | UpdateAppInstanceUserCommandInput
   | UpdateAppInstanceUserEndpointCommandInput;
@@ -169,26 +199,32 @@ export type ServiceInputTypes =
  */
 export type ServiceOutputTypes =
   | CreateAppInstanceAdminCommandOutput
+  | CreateAppInstanceBotCommandOutput
   | CreateAppInstanceCommandOutput
   | CreateAppInstanceUserCommandOutput
   | DeleteAppInstanceAdminCommandOutput
+  | DeleteAppInstanceBotCommandOutput
   | DeleteAppInstanceCommandOutput
   | DeleteAppInstanceUserCommandOutput
   | DeregisterAppInstanceUserEndpointCommandOutput
   | DescribeAppInstanceAdminCommandOutput
+  | DescribeAppInstanceBotCommandOutput
   | DescribeAppInstanceCommandOutput
   | DescribeAppInstanceUserCommandOutput
   | DescribeAppInstanceUserEndpointCommandOutput
   | GetAppInstanceRetentionSettingsCommandOutput
   | ListAppInstanceAdminsCommandOutput
+  | ListAppInstanceBotsCommandOutput
   | ListAppInstanceUserEndpointsCommandOutput
   | ListAppInstanceUsersCommandOutput
   | ListAppInstancesCommandOutput
   | ListTagsForResourceCommandOutput
   | PutAppInstanceRetentionSettingsCommandOutput
+  | PutAppInstanceUserExpirationSettingsCommandOutput
   | RegisterAppInstanceUserEndpointCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
+  | UpdateAppInstanceBotCommandOutput
   | UpdateAppInstanceCommandOutput
   | UpdateAppInstanceUserCommandOutput
   | UpdateAppInstanceUserEndpointCommandOutput;
