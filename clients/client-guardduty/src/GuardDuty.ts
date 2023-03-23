@@ -817,6 +817,8 @@ export class GuardDuty extends GuardDutyClient {
    * @public
    * <p>Deletes GuardDuty member accounts (to the current GuardDuty administrator account) specified by
    *       the account IDs.</p>
+   *          <p>With <code>autoEnableOrganizationMembers</code> configuration for your organization set to <code>ALL</code>, you'll
+   *       receive an error if you attempt to disable GuardDuty for a member account in your organization.</p>
    */
   public deleteMembers(
     args: DeleteMembersCommandInput,
@@ -1058,6 +1060,8 @@ export class GuardDuty extends GuardDutyClient {
   /**
    * @public
    * <p>Disassociates the current GuardDuty member account from its administrator account.</p>
+   *          <p>With <code>autoEnableOrganizationMembers</code> configuration for your organization set to <code>ALL</code>, you'll
+   *       receive an error if you attempt to disable GuardDuty in a member account.</p>
    */
   public disassociateFromAdministratorAccount(
     args: DisassociateFromAdministratorAccountCommandInput,
@@ -1126,6 +1130,8 @@ export class GuardDuty extends GuardDutyClient {
   /**
    * @public
    * <p>Disassociates GuardDuty member accounts (to the current administrator account) specified by the account IDs.</p>
+   *          <p>With <code>autoEnableOrganizationMembers</code> configuration for your organization set to <code>ALL</code>, you'll
+   *       receive an error if you attempt to disassociate a member account before removing them from your Amazon Web Services organization.</p>
    */
   public disassociateMembers(
     args: DisassociateMembersCommandInput,
@@ -1995,8 +2001,8 @@ export class GuardDuty extends GuardDutyClient {
   /**
    * @public
    * <p>Turns on GuardDuty monitoring of the specified member accounts. Use this operation to
-   *       restart monitoring of accounts that you stopped monitoring with the
-   *         <code>StopMonitoringMembers</code> operation.</p>
+   *       restart monitoring of accounts that you stopped monitoring with the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_StopMonitoringMembers.html">StopMonitoringMembers</a>
+   *        operation.</p>
    */
   public startMonitoringMembers(
     args: StartMonitoringMembersCommandInput,
@@ -2032,6 +2038,8 @@ export class GuardDuty extends GuardDutyClient {
    * <p>Stops GuardDuty monitoring for the specified member accounts. Use the
    *         <code>StartMonitoringMembers</code> operation to restart monitoring for those
    *       accounts.</p>
+   *          <p>With <code>autoEnableOrganizationMembers</code> configuration for your organization set to <code>ALL</code>, you'll
+   *       receive an error if you attempt to stop monitoring the member accounts in your organization.</p>
    */
   public stopMonitoringMembers(
     args: StopMonitoringMembersCommandInput,
@@ -2355,7 +2363,8 @@ export class GuardDuty extends GuardDutyClient {
 
   /**
    * @public
-   * <p>Updates the delegated administrator account with the values provided.</p>
+   * <p>Configures the delegated administrator account with the provided values. You must provide the value for either
+   *       <code>autoEnableOrganizationMembers</code> or <code>autoEnable</code>. </p>
    *          <p>There might be regional differences because some data sources might not be
    *       available in all the Amazon Web Services Regions where GuardDuty is presently supported. For more
    *       information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html">Regions and endpoints</a>.</p>

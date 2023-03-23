@@ -2002,6 +2002,9 @@ export const serializeAws_restJson1UpdateOrganizationConfigurationCommand = asyn
   let body: any;
   body = JSON.stringify({
     ...(input.AutoEnable != null && { autoEnable: input.AutoEnable }),
+    ...(input.AutoEnableOrganizationMembers != null && {
+      autoEnableOrganizationMembers: input.AutoEnableOrganizationMembers,
+    }),
     ...(input.DataSources != null && {
       dataSources: serializeAws_restJson1OrganizationDataSourceConfigurations(input.DataSources, context),
     }),
@@ -2925,6 +2928,9 @@ export const deserializeAws_restJson1DescribeOrganizationConfigurationCommand = 
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.autoEnable != null) {
     contents.AutoEnable = __expectBoolean(data.autoEnable);
+  }
+  if (data.autoEnableOrganizationMembers != null) {
+    contents.AutoEnableOrganizationMembers = __expectString(data.autoEnableOrganizationMembers);
   }
   if (data.dataSources != null) {
     contents.DataSources = deserializeAws_restJson1OrganizationDataSourceConfigurationsResult(

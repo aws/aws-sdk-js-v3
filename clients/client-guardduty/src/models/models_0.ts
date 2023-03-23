@@ -857,6 +857,15 @@ export interface ArchiveFindingsResponse {}
 
 /**
  * @public
+ */
+export enum AutoEnableMembers {
+  ALL = "ALL",
+  NEW = "NEW",
+  NONE = "NONE",
+}
+
+/**
+ * @public
  * <p>Contains information on the current bucket policies for the S3 bucket.</p>
  */
 export interface BucketPolicy {
@@ -2577,10 +2586,12 @@ export interface OrganizationFeatureConfigurationResult {
  */
 export interface DescribeOrganizationConfigurationResponse {
   /**
+   * @deprecated
+   *
    * <p>Indicates whether GuardDuty is automatically enabled for accounts added to the
    *       organization.</p>
    */
-  AutoEnable: boolean | undefined;
+  AutoEnable?: boolean;
 
   /**
    * <p>Indicates whether the maximum number of allowed member accounts are already associated
@@ -2605,6 +2616,26 @@ export interface DescribeOrganizationConfigurationResponse {
    * <p>The pagination parameter to be used on the next list operation to retrieve more items.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>Indicates the auto-enablement configuration of GuardDuty for the member accounts in the organization.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>NEW</code>: Indicates that new accounts joining the organization are configured to have GuardDuty enabled automatically.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ALL</code>: Indicates that all accounts (new and existing members) in the organization are
+   *         configured to have GuardDuty enabled automatically.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NONE</code>: Indicates that no account in the organization will be configured to have GuardDuty enabled automatically.</p>
+   *             </li>
+   *          </ul>
+   */
+  AutoEnableOrganizationMembers?: AutoEnableMembers | string;
 }
 
 /**
@@ -5866,14 +5897,16 @@ export interface OrganizationFeatureConfiguration {
  */
 export interface UpdateOrganizationConfigurationRequest {
   /**
-   * <p>The ID of the detector to update the delegated administrator for.</p>
+   * <p>The ID of the detector that configures the delegated administrator.</p>
    */
   DetectorId: string | undefined;
 
   /**
+   * @deprecated
+   *
    * <p>Indicates whether to automatically enable member accounts in the organization.</p>
    */
-  AutoEnable: boolean | undefined;
+  AutoEnable?: boolean;
 
   /**
    * @deprecated
@@ -5886,6 +5919,26 @@ export interface UpdateOrganizationConfigurationRequest {
    * <p>A list of features that will be configured for the organization.</p>
    */
   Features?: OrganizationFeatureConfiguration[];
+
+  /**
+   * <p>Indicates the auto-enablement configuration of GuardDuty for the member accounts in the organization. </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>NEW</code>: Indicates that new accounts joining the organization are configured to have GuardDuty enabled automatically.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ALL</code>: Indicates that all accounts (new and existing members) in the organization are
+   *         configured to have GuardDuty enabled automatically.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NONE</code>: Indicates that no account in the organization will be configured to have GuardDuty enabled automatically.</p>
+   *             </li>
+   *          </ul>
+   */
+  AutoEnableOrganizationMembers?: AutoEnableMembers | string;
 }
 
 /**
@@ -5950,8 +6003,3 @@ export interface UpdateThreatIntelSetRequest {
    */
   Activate?: boolean;
 }
-
-/**
- * @public
- */
-export interface UpdateThreatIntelSetResponse {}

@@ -41,6 +41,8 @@ export interface DisassociateFromAdministratorAccountCommandOutput
 /**
  * @public
  * <p>Disassociates the current GuardDuty member account from its administrator account.</p>
+ *          <p>With <code>autoEnableOrganizationMembers</code> configuration for your organization set to <code>ALL</code>, you'll
+ *       receive an error if you attempt to disable GuardDuty in a member account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

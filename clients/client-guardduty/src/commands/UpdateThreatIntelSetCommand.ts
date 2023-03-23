@@ -14,7 +14,8 @@ import {
 } from "@aws-sdk/types";
 
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
-import { UpdateThreatIntelSetRequest, UpdateThreatIntelSetResponse } from "../models/models_0";
+import { UpdateThreatIntelSetRequest } from "../models/models_0";
+import { UpdateThreatIntelSetResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1UpdateThreatIntelSetCommand,
   serializeAws_restJson1UpdateThreatIntelSetCommand,

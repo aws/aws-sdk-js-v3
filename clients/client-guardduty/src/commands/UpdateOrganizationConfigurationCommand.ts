@@ -37,7 +37,8 @@ export interface UpdateOrganizationConfigurationCommandOutput
 
 /**
  * @public
- * <p>Updates the delegated administrator account with the values provided.</p>
+ * <p>Configures the delegated administrator account with the provided values. You must provide the value for either
+ *       <code>autoEnableOrganizationMembers</code> or <code>autoEnable</code>. </p>
  *          <p>There might be regional differences because some data sources might not be
  *       available in all the Amazon Web Services Regions where GuardDuty is presently supported. For more
  *       information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html">Regions and endpoints</a>.</p>
