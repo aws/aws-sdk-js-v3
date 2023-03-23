@@ -36,7 +36,6 @@ export class AccessDeniedException extends __BaseException {
  * <p>The S3 bucket name and file name that identifies the document.</p>
  *          <p>The AWS Region for the S3 bucket that contains the document must match the Region that
  *          you use for Amazon Textract operations.</p>
- *
  *          <p>For Amazon Textract to process a file in an S3 bucket, the user must have
  *          permission to access the S3 bucket and file.
  *
@@ -77,7 +76,6 @@ export interface S3Object {
  *          <p>If you use the AWS CLI to call Amazon Textract operations, passing image bytes using
  *          the Bytes property isn't supported. You must first upload the document to an Amazon S3
  *          bucket, and then call the operation using the S3Object property.</p>
- *
  *          <p>For Amazon Textract to process an S3 object, the user must have permission
  *          to access the S3 object. </p>
  */
@@ -253,6 +251,8 @@ export enum BlockType {
   SELECTION_ELEMENT = "SELECTION_ELEMENT",
   SIGNATURE = "SIGNATURE",
   TABLE = "TABLE",
+  TABLE_FOOTER = "TABLE_FOOTER",
+  TABLE_TITLE = "TABLE_TITLE",
   TITLE = "TITLE",
   WORD = "WORD",
 }
@@ -263,6 +263,12 @@ export enum BlockType {
 export enum EntityType {
   COLUMN_HEADER = "COLUMN_HEADER",
   KEY = "KEY",
+  SEMI_STRUCTURED_TABLE = "SEMI_STRUCTURED_TABLE",
+  STRUCTURED_TABLE = "STRUCTURED_TABLE",
+  TABLE_FOOTER = "TABLE_FOOTER",
+  TABLE_SECTION_TITLE = "TABLE_SECTION_TITLE",
+  TABLE_SUMMARY = "TABLE_SUMMARY",
+  TABLE_TITLE = "TABLE_TITLE",
   VALUE = "VALUE",
 }
 
@@ -313,7 +319,6 @@ export interface BoundingBox {
  *          values that are returned are ratios of the overall document page size. For example, if the
  *          input document is 700 x 200 and the operation returns X=0.5 and Y=0.25, then the point is
  *          at the (350,50) pixel coordinate on the document page.</p>
- *
  *          <p>An array of <code>Point</code> objects, <code>Polygon</code>, is returned
  *          by <a>DetectDocumentText</a>. <code>Polygon</code> represents a fine-grained
  *          polygon around detected text. For more information, see Geometry in the Amazon Textract
@@ -357,6 +362,9 @@ export enum RelationshipType {
   CHILD = "CHILD",
   COMPLEX_FEATURES = "COMPLEX_FEATURES",
   MERGED_CELL = "MERGED_CELL",
+  TABLE = "TABLE",
+  TABLE_FOOTER = "TABLE_FOOTER",
+  TABLE_TITLE = "TABLE_TITLE",
   TITLE = "TITLE",
   VALUE = "VALUE",
 }
@@ -371,12 +379,46 @@ export enum RelationshipType {
  */
 export interface Relationship {
   /**
-   * <p>The type of relationship that the blocks in the IDs array have with the current block.
-   *          The relationship can be <code>VALUE</code> or <code>CHILD</code>. A relationship of type
-   *          VALUE is a list that contains the ID of the VALUE block that's associated with the KEY of a
-   *          key-value pair. A relationship of type CHILD is a list of IDs that identify WORD blocks in
-   *          the case of lines Cell blocks in the case of Tables, and WORD blocks in the case of
-   *          Selection Elements.</p>
+   * <p>The type of relationship between the blocks in the IDs array and the current block. The
+   *          following list describes the relationship types that can be returned. </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <i>VALUE</i> - A list that contains the ID of the VALUE block that's associated with the
+   *                KEY of a key-value pair.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <i>CHILD</i> - A list of IDs that identify blocks found within the
+   *                current block object. For example, WORD blocks have a CHILD relationship to the LINE
+   *                block type.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <i>MERGED_CELL</i> - A list of IDs that identify each of the
+   *                MERGED_CELL block types in a table.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <i>ANSWER</i> - A list that contains the ID of the QUERY_RESULT
+   *                block that’s associated with the corresponding QUERY block. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <i>TABLE</i> - A list of IDs that identify associated TABLE block
+   *                types. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <i>TABLE_TITLE</i> - A list that contains the ID for the TABLE_TITLE
+   *                block type in a table. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <i>TABLE_FOOTER</i> - A list of IDs that identify the TABLE_FOOTER
+   *                block types in a table. </p>
+   *             </li>
+   *          </ul>
    */
   Type?: RelationshipType | string;
 
@@ -472,8 +514,25 @@ export interface Block {
    *             </li>
    *             <li>
    *                <p>
+   *                   <i>TABLE_TITLE</i> - The title of a table. A title is typically a
+   *                line of text above or below a table, or embedded as the first row of a table. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <i>TABLE_FOOTER</i> - The footer associated with a table. A footer
+   *                is typically a line or lines of text below a table or embedded as the last row of a
+   *                table. </p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <i>CELL</i> - A cell within a detected table. The cell is the parent
    *                of the block that contains the text in the cell.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <i>MERGED_CELL</i>  - A cell in a table whose content spans more than
+   *                one row or column. The <code>Relationships</code> array for this cell contain data
+   *                from individual cells.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -534,15 +593,13 @@ export interface Block {
   ColumnIndex?: number;
 
   /**
-   * <p>The number of rows that a table cell spans. Currently this value is always 1, even if
-   *          the number of rows spanned is greater than 1. <code>RowSpan</code> isn't returned by
+   * <p>The number of rows that a table cell spans. <code>RowSpan</code> isn't returned by
    *             <code>DetectDocumentText</code> and <code>GetDocumentTextDetection</code>.</p>
    */
   RowSpan?: number;
 
   /**
-   * <p>The number of columns that a table cell spans. Currently this value is always 1, even if
-   *          the number of columns spanned is greater than 1. <code>ColumnSpan</code> isn't returned by
+   * <p>The number of columns that a table cell spans. <code>ColumnSpan</code> isn't returned by
    *             <code>DetectDocumentText</code> and <code>GetDocumentTextDetection</code>. </p>
    */
   ColumnSpan?: number;
@@ -561,23 +618,16 @@ export interface Block {
   Id?: string;
 
   /**
-   * <p>A list of child blocks of the current block. For example, a LINE object has child blocks
-   *          for each WORD block that's part of the line of text. There aren't Relationship objects in
-   *          the list for relationships that don't exist, such as when the current block has no child
-   *          blocks. The list size can be the following:</p>
-   *          <ul>
-   *             <li>
-   *                <p>0 - The block has no child blocks.</p>
-   *             </li>
-   *             <li>
-   *                <p>1 - The block has child blocks.</p>
-   *             </li>
-   *          </ul>
+   * <p>A list of relationship objects that describe how blocks are related to each other. For
+   *          example, a LINE block object contains a CHILD relationship type with the WORD blocks that
+   *          make up the line of text. There aren't Relationship objects in the list for relationships
+   *          that don't exist, such as when the current block has no child blocks.</p>
    */
   Relationships?: Relationship[];
 
   /**
-   * <p>The type of entity. The following can be returned:</p>
+   * <p>The type of entity. </p>
+   *          <p>The following entity types can be returned by FORMS analysis:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -586,6 +636,43 @@ export interface Block {
    *             <li>
    *                <p>
    *                   <i>VALUE</i> - The field text.</p>
+   *             </li>
+   *          </ul>
+   *          <p>The following entity types can be returned by TABLES analysis:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <i>COLUMN_HEADER</i> - Identifies a cell that is a header of a column. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <i>TABLE_TITLE</i> - Identifies a cell that is a title within the
+   *                table. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <i>TABLE_SECTION_TITLE</i> - Identifies a cell that is a title of a
+   *                section within a table. A section title is a cell that typically spans an entire row
+   *                above a section. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <i>TABLE_FOOTER</i> - Identifies a cell that is a footer of a table. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <i>TABLE_SUMMARY</i> - Identifies a summary cell of a table. A
+   *                summary cell can be a row of a table or an additional, smaller table that contains
+   *                summary information for another table. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <i>STRUCTURED_TABLE </i> - Identifies a table with column headers
+   *                where the content of each row corresponds to the headers. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <i>SEMI_STRUCTURED_TABLE</i> - Identifies a non-structured table. </p>
    *             </li>
    *          </ul>
    *          <p>
@@ -606,7 +693,7 @@ export interface Block {
    *          documents that are in PDF or TIFF format. A scanned image (JPEG/PNG) provided to an
    *          asynchronous operation, even if it contains multiple document pages, is considered a
    *          single-page document. This means that for scanned images the value of <code>Page</code> is
-   *          always 1. Synchronous operations operations will also return a <code>Page</code> value of 1
+   *          always 1. Synchronous operations will also return a <code>Page</code> value of 1
    *          because every input document is considered to be a single-page document.</p>
    */
   Page?: number;
@@ -941,7 +1028,6 @@ export interface AnalyzeExpenseRequest {
    *          <p>If you use the AWS CLI to call Amazon Textract operations, passing image bytes using
    *          the Bytes property isn't supported. You must first upload the document to an Amazon S3
    *          bucket, and then call the operation using the S3Object property.</p>
-   *
    *          <p>For Amazon Textract to process an S3 object, the user must have permission
    *          to access the S3 object. </p>
    */
@@ -1364,7 +1450,7 @@ export interface UndetectedSignature {
  */
 export interface DocumentGroup {
   /**
-   * <p>The type of document that Amazon Textract has detected. See LINK for a list of all types returned by Textract.</p>
+   * <p>The type of document that Amazon Textract has detected. See <a href="https://docs.aws.amazon.com/textract/latest/dg/lending-response-objects.html">Analyze Lending Response Objects</a> for a list of all types returned by Textract.</p>
    */
   Type?: string;
 

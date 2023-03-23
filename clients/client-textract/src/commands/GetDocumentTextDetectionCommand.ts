@@ -51,7 +51,6 @@ export interface GetDocumentTextDetectionCommandOutput extends GetDocumentTextDe
  *          <p>Each document page has as an associated <code>Block</code> of type PAGE. Each PAGE <code>Block</code> object
  *         is the parent of LINE <code>Block</code> objects that represent the lines of detected text on a page. A LINE <code>Block</code> object is
  *         a parent for each word that makes up the line. Words are represented by <code>Block</code> objects of type WORD.</p>
- *
  *          <p>Use the MaxResults parameter to limit the number of blocks that are returned. If there
  *          are more results than specified in <code>MaxResults</code>, the value of
  *             <code>NextToken</code> in the operation response contains a pagination token for getting

@@ -71,11 +71,9 @@ export interface AnalyzeDocumentCommandOutput extends AnalyzeDocumentResponse, _
  *                score.</p>
  *             </li>
  *          </ul>
- *
  *          <p>Selection elements such as check boxes and option buttons (radio buttons) can be
  *          detected in form data and in tables. A SELECTION_ELEMENT <code>Block</code> object contains
  *          information about a selection element, including the selection status.</p>
- *
  *          <p>You can choose which type of analysis to perform by specifying the
  *             <code>FeatureTypes</code> list. </p>
  *          <p>The output is returned in a list of <code>Block</code> objects.</p>

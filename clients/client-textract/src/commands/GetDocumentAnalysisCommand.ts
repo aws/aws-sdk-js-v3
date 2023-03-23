@@ -78,19 +78,15 @@ export interface GetDocumentAnalysisCommandOutput extends GetDocumentAnalysisRes
  *                score.</p>
  *             </li>
  *          </ul>
- *
  *          <note>
  *             <p>While processing a document with queries, look out for
  *                <code>INVALID_REQUEST_PARAMETERS</code> output. This indicates that either the per
  *             page query limit has been exceeded or that the operation is trying to query a page in
  *             the document which doesn’t exist. </p>
  *          </note>
- *
  *          <p>Selection elements such as check boxes and option buttons (radio buttons) can be
  *          detected in form data and in tables. A SELECTION_ELEMENT <code>Block</code> object contains
  *          information about a selection element, including the selection status.</p>
- *
- *
  *          <p>Use the <code>MaxResults</code> parameter to limit the number of blocks that are
  *          returned. If there are more results than specified in <code>MaxResults</code>, the value of
  *             <code>NextToken</code> in the operation response contains a pagination token for getting

@@ -37,7 +37,6 @@ export interface StartExpenseAnalysisCommandOutput extends StartExpenseAnalysisR
  * @public
  * <p>Starts the asynchronous analysis of invoices or receipts for data like contact information,
  *    items purchased, and vendor names.</p>
- *
  *          <p>
  *             <code>StartExpenseAnalysis</code> can analyze text in documents that are in JPEG, PNG, and
  *    PDF format. The documents must be stored in an Amazon S3 bucket. Use the <a>DocumentLocation</a> parameter to specify the name of your S3 bucket and the name of the

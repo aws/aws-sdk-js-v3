@@ -37,12 +37,12 @@ export interface GetLendingAnalysisCommandOutput extends GetLendingAnalysisRespo
  * @public
  * <p>Gets the results for an Amazon Textract asynchronous operation that analyzes text in a
  *             lending document. </p>
- *         <p>You start asynchronous text analysis by calling <code>StartLendingAnalysis</code>,
+ *          <p>You start asynchronous text analysis by calling <code>StartLendingAnalysis</code>,
  *             which returns a job identifier (<code>JobId</code>). When the text analysis operation
  *             finishes, Amazon Textract publishes a completion status to the Amazon Simple
  *             Notification Service (Amazon SNS) topic that's registered in the initial call to
  *                 <code>StartLendingAnalysis</code>. </p>
- *         <p>To get the results of the text analysis operation, first check that the status value
+ *          <p>To get the results of the text analysis operation, first check that the status value
  *             published to the Amazon SNS topic is SUCCEEDED. If so, call GetLendingAnalysis, and pass
  *             the job identifier (<code>JobId</code>) from the initial call to
  *                 <code>StartLendingAnalysis</code>.</p>
