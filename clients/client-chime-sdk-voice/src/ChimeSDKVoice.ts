@@ -58,6 +58,16 @@ import {
   CreateVoiceConnectorGroupCommandOutput,
 } from "./commands/CreateVoiceConnectorGroupCommand";
 import {
+  CreateVoiceProfileCommand,
+  CreateVoiceProfileCommandInput,
+  CreateVoiceProfileCommandOutput,
+} from "./commands/CreateVoiceProfileCommand";
+import {
+  CreateVoiceProfileDomainCommand,
+  CreateVoiceProfileDomainCommandInput,
+  CreateVoiceProfileDomainCommandOutput,
+} from "./commands/CreateVoiceProfileDomainCommand";
+import {
   DeletePhoneNumberCommand,
   DeletePhoneNumberCommandInput,
   DeletePhoneNumberCommandOutput,
@@ -118,6 +128,16 @@ import {
   DeleteVoiceConnectorTerminationCredentialsCommandOutput,
 } from "./commands/DeleteVoiceConnectorTerminationCredentialsCommand";
 import {
+  DeleteVoiceProfileCommand,
+  DeleteVoiceProfileCommandInput,
+  DeleteVoiceProfileCommandOutput,
+} from "./commands/DeleteVoiceProfileCommand";
+import {
+  DeleteVoiceProfileDomainCommand,
+  DeleteVoiceProfileDomainCommandInput,
+  DeleteVoiceProfileDomainCommandOutput,
+} from "./commands/DeleteVoiceProfileDomainCommand";
+import {
   DisassociatePhoneNumbersFromVoiceConnectorCommand,
   DisassociatePhoneNumbersFromVoiceConnectorCommandInput,
   DisassociatePhoneNumbersFromVoiceConnectorCommandOutput,
@@ -169,6 +189,11 @@ import {
 } from "./commands/GetSipMediaApplicationLoggingConfigurationCommand";
 import { GetSipRuleCommand, GetSipRuleCommandInput, GetSipRuleCommandOutput } from "./commands/GetSipRuleCommand";
 import {
+  GetSpeakerSearchTaskCommand,
+  GetSpeakerSearchTaskCommandInput,
+  GetSpeakerSearchTaskCommandOutput,
+} from "./commands/GetSpeakerSearchTaskCommand";
+import {
   GetVoiceConnectorCommand,
   GetVoiceConnectorCommandInput,
   GetVoiceConnectorCommandOutput,
@@ -214,6 +239,21 @@ import {
   GetVoiceConnectorTerminationHealthCommandOutput,
 } from "./commands/GetVoiceConnectorTerminationHealthCommand";
 import {
+  GetVoiceProfileCommand,
+  GetVoiceProfileCommandInput,
+  GetVoiceProfileCommandOutput,
+} from "./commands/GetVoiceProfileCommand";
+import {
+  GetVoiceProfileDomainCommand,
+  GetVoiceProfileDomainCommandInput,
+  GetVoiceProfileDomainCommandOutput,
+} from "./commands/GetVoiceProfileDomainCommand";
+import {
+  GetVoiceToneAnalysisTaskCommand,
+  GetVoiceToneAnalysisTaskCommandInput,
+  GetVoiceToneAnalysisTaskCommandOutput,
+} from "./commands/GetVoiceToneAnalysisTaskCommand";
+import {
   ListAvailableVoiceConnectorRegionsCommand,
   ListAvailableVoiceConnectorRegionsCommandInput,
   ListAvailableVoiceConnectorRegionsCommandOutput,
@@ -249,6 +289,11 @@ import {
   ListSupportedPhoneNumberCountriesCommandOutput,
 } from "./commands/ListSupportedPhoneNumberCountriesCommand";
 import {
+  ListTagsForResourceCommand,
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand";
+import {
   ListVoiceConnectorGroupsCommand,
   ListVoiceConnectorGroupsCommandInput,
   ListVoiceConnectorGroupsCommandOutput,
@@ -263,6 +308,16 @@ import {
   ListVoiceConnectorTerminationCredentialsCommandInput,
   ListVoiceConnectorTerminationCredentialsCommandOutput,
 } from "./commands/ListVoiceConnectorTerminationCredentialsCommand";
+import {
+  ListVoiceProfileDomainsCommand,
+  ListVoiceProfileDomainsCommandInput,
+  ListVoiceProfileDomainsCommandOutput,
+} from "./commands/ListVoiceProfileDomainsCommand";
+import {
+  ListVoiceProfilesCommand,
+  ListVoiceProfilesCommandInput,
+  ListVoiceProfilesCommandOutput,
+} from "./commands/ListVoiceProfilesCommand";
 import {
   PutSipMediaApplicationAlexaSkillConfigurationCommand,
   PutSipMediaApplicationAlexaSkillConfigurationCommandInput,
@@ -319,6 +374,32 @@ import {
   SearchAvailablePhoneNumbersCommandOutput,
 } from "./commands/SearchAvailablePhoneNumbersCommand";
 import {
+  StartSpeakerSearchTaskCommand,
+  StartSpeakerSearchTaskCommandInput,
+  StartSpeakerSearchTaskCommandOutput,
+} from "./commands/StartSpeakerSearchTaskCommand";
+import {
+  StartVoiceToneAnalysisTaskCommand,
+  StartVoiceToneAnalysisTaskCommandInput,
+  StartVoiceToneAnalysisTaskCommandOutput,
+} from "./commands/StartVoiceToneAnalysisTaskCommand";
+import {
+  StopSpeakerSearchTaskCommand,
+  StopSpeakerSearchTaskCommandInput,
+  StopSpeakerSearchTaskCommandOutput,
+} from "./commands/StopSpeakerSearchTaskCommand";
+import {
+  StopVoiceToneAnalysisTaskCommand,
+  StopVoiceToneAnalysisTaskCommandInput,
+  StopVoiceToneAnalysisTaskCommandOutput,
+} from "./commands/StopVoiceToneAnalysisTaskCommand";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import {
+  UntagResourceCommand,
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput,
+} from "./commands/UntagResourceCommand";
+import {
   UpdateGlobalSettingsCommand,
   UpdateGlobalSettingsCommandInput,
   UpdateGlobalSettingsCommandOutput,
@@ -363,6 +444,16 @@ import {
   UpdateVoiceConnectorGroupCommandInput,
   UpdateVoiceConnectorGroupCommandOutput,
 } from "./commands/UpdateVoiceConnectorGroupCommand";
+import {
+  UpdateVoiceProfileCommand,
+  UpdateVoiceProfileCommandInput,
+  UpdateVoiceProfileCommandOutput,
+} from "./commands/UpdateVoiceProfileCommand";
+import {
+  UpdateVoiceProfileDomainCommand,
+  UpdateVoiceProfileDomainCommandInput,
+  UpdateVoiceProfileDomainCommandOutput,
+} from "./commands/UpdateVoiceProfileDomainCommand";
 import {
   ValidateE911AddressCommand,
   ValidateE911AddressCommandInput,
@@ -719,6 +810,70 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
     cb?: (err: any, data?: CreateVoiceConnectorGroupCommandOutput) => void
   ): Promise<CreateVoiceConnectorGroupCommandOutput> | void {
     const command = new CreateVoiceConnectorGroupCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
+   */
+  public createVoiceProfile(
+    args: CreateVoiceProfileCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateVoiceProfileCommandOutput>;
+  public createVoiceProfile(
+    args: CreateVoiceProfileCommandInput,
+    cb: (err: any, data?: CreateVoiceProfileCommandOutput) => void
+  ): void;
+  public createVoiceProfile(
+    args: CreateVoiceProfileCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateVoiceProfileCommandOutput) => void
+  ): void;
+  public createVoiceProfile(
+    args: CreateVoiceProfileCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateVoiceProfileCommandOutput) => void),
+    cb?: (err: any, data?: CreateVoiceProfileCommandOutput) => void
+  ): Promise<CreateVoiceProfileCommandOutput> | void {
+    const command = new CreateVoiceProfileCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
+   */
+  public createVoiceProfileDomain(
+    args: CreateVoiceProfileDomainCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateVoiceProfileDomainCommandOutput>;
+  public createVoiceProfileDomain(
+    args: CreateVoiceProfileDomainCommandInput,
+    cb: (err: any, data?: CreateVoiceProfileDomainCommandOutput) => void
+  ): void;
+  public createVoiceProfileDomain(
+    args: CreateVoiceProfileDomainCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateVoiceProfileDomainCommandOutput) => void
+  ): void;
+  public createVoiceProfileDomain(
+    args: CreateVoiceProfileDomainCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateVoiceProfileDomainCommandOutput) => void),
+    cb?: (err: any, data?: CreateVoiceProfileDomainCommandOutput) => void
+  ): Promise<CreateVoiceProfileDomainCommandOutput> | void {
+    const command = new CreateVoiceProfileDomainCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1122,6 +1277,70 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
   /**
    * @public
    */
+  public deleteVoiceProfile(
+    args: DeleteVoiceProfileCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteVoiceProfileCommandOutput>;
+  public deleteVoiceProfile(
+    args: DeleteVoiceProfileCommandInput,
+    cb: (err: any, data?: DeleteVoiceProfileCommandOutput) => void
+  ): void;
+  public deleteVoiceProfile(
+    args: DeleteVoiceProfileCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteVoiceProfileCommandOutput) => void
+  ): void;
+  public deleteVoiceProfile(
+    args: DeleteVoiceProfileCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteVoiceProfileCommandOutput) => void),
+    cb?: (err: any, data?: DeleteVoiceProfileCommandOutput) => void
+  ): Promise<DeleteVoiceProfileCommandOutput> | void {
+    const command = new DeleteVoiceProfileCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
+   */
+  public deleteVoiceProfileDomain(
+    args: DeleteVoiceProfileDomainCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteVoiceProfileDomainCommandOutput>;
+  public deleteVoiceProfileDomain(
+    args: DeleteVoiceProfileDomainCommandInput,
+    cb: (err: any, data?: DeleteVoiceProfileDomainCommandOutput) => void
+  ): void;
+  public deleteVoiceProfileDomain(
+    args: DeleteVoiceProfileDomainCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteVoiceProfileDomainCommandOutput) => void
+  ): void;
+  public deleteVoiceProfileDomain(
+    args: DeleteVoiceProfileDomainCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteVoiceProfileDomainCommandOutput) => void),
+    cb?: (err: any, data?: DeleteVoiceProfileDomainCommandOutput) => void
+  ): Promise<DeleteVoiceProfileDomainCommandOutput> | void {
+    const command = new DeleteVoiceProfileDomainCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
+   */
   public disassociatePhoneNumbersFromVoiceConnector(
     args: DisassociatePhoneNumbersFromVoiceConnectorCommandInput,
     options?: __HttpHandlerOptions
@@ -1476,6 +1695,38 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
   /**
    * @public
    */
+  public getSpeakerSearchTask(
+    args: GetSpeakerSearchTaskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetSpeakerSearchTaskCommandOutput>;
+  public getSpeakerSearchTask(
+    args: GetSpeakerSearchTaskCommandInput,
+    cb: (err: any, data?: GetSpeakerSearchTaskCommandOutput) => void
+  ): void;
+  public getSpeakerSearchTask(
+    args: GetSpeakerSearchTaskCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetSpeakerSearchTaskCommandOutput) => void
+  ): void;
+  public getSpeakerSearchTask(
+    args: GetSpeakerSearchTaskCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSpeakerSearchTaskCommandOutput) => void),
+    cb?: (err: any, data?: GetSpeakerSearchTaskCommandOutput) => void
+  ): Promise<GetSpeakerSearchTaskCommandOutput> | void {
+    const command = new GetSpeakerSearchTaskCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
+   */
   public getVoiceConnector(
     args: GetVoiceConnectorCommandInput,
     options?: __HttpHandlerOptions
@@ -1770,6 +2021,102 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
   /**
    * @public
    */
+  public getVoiceProfile(
+    args: GetVoiceProfileCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetVoiceProfileCommandOutput>;
+  public getVoiceProfile(
+    args: GetVoiceProfileCommandInput,
+    cb: (err: any, data?: GetVoiceProfileCommandOutput) => void
+  ): void;
+  public getVoiceProfile(
+    args: GetVoiceProfileCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetVoiceProfileCommandOutput) => void
+  ): void;
+  public getVoiceProfile(
+    args: GetVoiceProfileCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetVoiceProfileCommandOutput) => void),
+    cb?: (err: any, data?: GetVoiceProfileCommandOutput) => void
+  ): Promise<GetVoiceProfileCommandOutput> | void {
+    const command = new GetVoiceProfileCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
+   */
+  public getVoiceProfileDomain(
+    args: GetVoiceProfileDomainCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetVoiceProfileDomainCommandOutput>;
+  public getVoiceProfileDomain(
+    args: GetVoiceProfileDomainCommandInput,
+    cb: (err: any, data?: GetVoiceProfileDomainCommandOutput) => void
+  ): void;
+  public getVoiceProfileDomain(
+    args: GetVoiceProfileDomainCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetVoiceProfileDomainCommandOutput) => void
+  ): void;
+  public getVoiceProfileDomain(
+    args: GetVoiceProfileDomainCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetVoiceProfileDomainCommandOutput) => void),
+    cb?: (err: any, data?: GetVoiceProfileDomainCommandOutput) => void
+  ): Promise<GetVoiceProfileDomainCommandOutput> | void {
+    const command = new GetVoiceProfileDomainCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
+   */
+  public getVoiceToneAnalysisTask(
+    args: GetVoiceToneAnalysisTaskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetVoiceToneAnalysisTaskCommandOutput>;
+  public getVoiceToneAnalysisTask(
+    args: GetVoiceToneAnalysisTaskCommandInput,
+    cb: (err: any, data?: GetVoiceToneAnalysisTaskCommandOutput) => void
+  ): void;
+  public getVoiceToneAnalysisTask(
+    args: GetVoiceToneAnalysisTaskCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetVoiceToneAnalysisTaskCommandOutput) => void
+  ): void;
+  public getVoiceToneAnalysisTask(
+    args: GetVoiceToneAnalysisTaskCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetVoiceToneAnalysisTaskCommandOutput) => void),
+    cb?: (err: any, data?: GetVoiceToneAnalysisTaskCommandOutput) => void
+  ): Promise<GetVoiceToneAnalysisTaskCommandOutput> | void {
+    const command = new GetVoiceToneAnalysisTaskCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
+   */
   public listAvailableVoiceConnectorRegions(
     args: ListAvailableVoiceConnectorRegionsCommandInput,
     options?: __HttpHandlerOptions
@@ -1991,6 +2338,38 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
   /**
    * @public
    */
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTagsForResourceCommandOutput>;
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
+    cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): Promise<ListTagsForResourceCommandOutput> | void {
+    const command = new ListTagsForResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
+   */
   public listVoiceConnectorGroups(
     args: ListVoiceConnectorGroupsCommandInput,
     options?: __HttpHandlerOptions
@@ -2076,6 +2455,70 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
     cb?: (err: any, data?: ListVoiceConnectorTerminationCredentialsCommandOutput) => void
   ): Promise<ListVoiceConnectorTerminationCredentialsCommandOutput> | void {
     const command = new ListVoiceConnectorTerminationCredentialsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
+   */
+  public listVoiceProfileDomains(
+    args: ListVoiceProfileDomainsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListVoiceProfileDomainsCommandOutput>;
+  public listVoiceProfileDomains(
+    args: ListVoiceProfileDomainsCommandInput,
+    cb: (err: any, data?: ListVoiceProfileDomainsCommandOutput) => void
+  ): void;
+  public listVoiceProfileDomains(
+    args: ListVoiceProfileDomainsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListVoiceProfileDomainsCommandOutput) => void
+  ): void;
+  public listVoiceProfileDomains(
+    args: ListVoiceProfileDomainsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListVoiceProfileDomainsCommandOutput) => void),
+    cb?: (err: any, data?: ListVoiceProfileDomainsCommandOutput) => void
+  ): Promise<ListVoiceProfileDomainsCommandOutput> | void {
+    const command = new ListVoiceProfileDomainsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
+   */
+  public listVoiceProfiles(
+    args: ListVoiceProfilesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListVoiceProfilesCommandOutput>;
+  public listVoiceProfiles(
+    args: ListVoiceProfilesCommandInput,
+    cb: (err: any, data?: ListVoiceProfilesCommandOutput) => void
+  ): void;
+  public listVoiceProfiles(
+    args: ListVoiceProfilesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListVoiceProfilesCommandOutput) => void
+  ): void;
+  public listVoiceProfiles(
+    args: ListVoiceProfilesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListVoiceProfilesCommandOutput) => void),
+    cb?: (err: any, data?: ListVoiceProfilesCommandOutput) => void
+  ): Promise<ListVoiceProfilesCommandOutput> | void {
+    const command = new ListVoiceProfilesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2453,6 +2896,192 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
   /**
    * @public
    */
+  public startSpeakerSearchTask(
+    args: StartSpeakerSearchTaskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartSpeakerSearchTaskCommandOutput>;
+  public startSpeakerSearchTask(
+    args: StartSpeakerSearchTaskCommandInput,
+    cb: (err: any, data?: StartSpeakerSearchTaskCommandOutput) => void
+  ): void;
+  public startSpeakerSearchTask(
+    args: StartSpeakerSearchTaskCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartSpeakerSearchTaskCommandOutput) => void
+  ): void;
+  public startSpeakerSearchTask(
+    args: StartSpeakerSearchTaskCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartSpeakerSearchTaskCommandOutput) => void),
+    cb?: (err: any, data?: StartSpeakerSearchTaskCommandOutput) => void
+  ): Promise<StartSpeakerSearchTaskCommandOutput> | void {
+    const command = new StartSpeakerSearchTaskCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
+   */
+  public startVoiceToneAnalysisTask(
+    args: StartVoiceToneAnalysisTaskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartVoiceToneAnalysisTaskCommandOutput>;
+  public startVoiceToneAnalysisTask(
+    args: StartVoiceToneAnalysisTaskCommandInput,
+    cb: (err: any, data?: StartVoiceToneAnalysisTaskCommandOutput) => void
+  ): void;
+  public startVoiceToneAnalysisTask(
+    args: StartVoiceToneAnalysisTaskCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartVoiceToneAnalysisTaskCommandOutput) => void
+  ): void;
+  public startVoiceToneAnalysisTask(
+    args: StartVoiceToneAnalysisTaskCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartVoiceToneAnalysisTaskCommandOutput) => void),
+    cb?: (err: any, data?: StartVoiceToneAnalysisTaskCommandOutput) => void
+  ): Promise<StartVoiceToneAnalysisTaskCommandOutput> | void {
+    const command = new StartVoiceToneAnalysisTaskCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
+   */
+  public stopSpeakerSearchTask(
+    args: StopSpeakerSearchTaskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopSpeakerSearchTaskCommandOutput>;
+  public stopSpeakerSearchTask(
+    args: StopSpeakerSearchTaskCommandInput,
+    cb: (err: any, data?: StopSpeakerSearchTaskCommandOutput) => void
+  ): void;
+  public stopSpeakerSearchTask(
+    args: StopSpeakerSearchTaskCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StopSpeakerSearchTaskCommandOutput) => void
+  ): void;
+  public stopSpeakerSearchTask(
+    args: StopSpeakerSearchTaskCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopSpeakerSearchTaskCommandOutput) => void),
+    cb?: (err: any, data?: StopSpeakerSearchTaskCommandOutput) => void
+  ): Promise<StopSpeakerSearchTaskCommandOutput> | void {
+    const command = new StopSpeakerSearchTaskCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
+   */
+  public stopVoiceToneAnalysisTask(
+    args: StopVoiceToneAnalysisTaskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopVoiceToneAnalysisTaskCommandOutput>;
+  public stopVoiceToneAnalysisTask(
+    args: StopVoiceToneAnalysisTaskCommandInput,
+    cb: (err: any, data?: StopVoiceToneAnalysisTaskCommandOutput) => void
+  ): void;
+  public stopVoiceToneAnalysisTask(
+    args: StopVoiceToneAnalysisTaskCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StopVoiceToneAnalysisTaskCommandOutput) => void
+  ): void;
+  public stopVoiceToneAnalysisTask(
+    args: StopVoiceToneAnalysisTaskCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopVoiceToneAnalysisTaskCommandOutput) => void),
+    cb?: (err: any, data?: StopVoiceToneAnalysisTaskCommandOutput) => void
+  ): Promise<StopVoiceToneAnalysisTaskCommandOutput> | void {
+    const command = new StopVoiceToneAnalysisTaskCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
+   */
+  public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
+  public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  public tagResource(
+    args: TagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
+  public tagResource(
+    args: TagResourceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
+    cb?: (err: any, data?: TagResourceCommandOutput) => void
+  ): Promise<TagResourceCommandOutput> | void {
+    const command = new TagResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
+   */
+  public untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  public untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+  public untagResource(
+    args: UntagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+  public untagResource(
+    args: UntagResourceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
+    cb?: (err: any, data?: UntagResourceCommandOutput) => void
+  ): Promise<UntagResourceCommandOutput> | void {
+    const command = new UntagResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
+   */
   public updateGlobalSettings(
     args: UpdateGlobalSettingsCommandInput,
     options?: __HttpHandlerOptions
@@ -2728,6 +3357,70 @@ export class ChimeSDKVoice extends ChimeSDKVoiceClient {
     cb?: (err: any, data?: UpdateVoiceConnectorGroupCommandOutput) => void
   ): Promise<UpdateVoiceConnectorGroupCommandOutput> | void {
     const command = new UpdateVoiceConnectorGroupCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
+   */
+  public updateVoiceProfile(
+    args: UpdateVoiceProfileCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateVoiceProfileCommandOutput>;
+  public updateVoiceProfile(
+    args: UpdateVoiceProfileCommandInput,
+    cb: (err: any, data?: UpdateVoiceProfileCommandOutput) => void
+  ): void;
+  public updateVoiceProfile(
+    args: UpdateVoiceProfileCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateVoiceProfileCommandOutput) => void
+  ): void;
+  public updateVoiceProfile(
+    args: UpdateVoiceProfileCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateVoiceProfileCommandOutput) => void),
+    cb?: (err: any, data?: UpdateVoiceProfileCommandOutput) => void
+  ): Promise<UpdateVoiceProfileCommandOutput> | void {
+    const command = new UpdateVoiceProfileCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
+   */
+  public updateVoiceProfileDomain(
+    args: UpdateVoiceProfileDomainCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateVoiceProfileDomainCommandOutput>;
+  public updateVoiceProfileDomain(
+    args: UpdateVoiceProfileDomainCommandInput,
+    cb: (err: any, data?: UpdateVoiceProfileDomainCommandOutput) => void
+  ): void;
+  public updateVoiceProfileDomain(
+    args: UpdateVoiceProfileDomainCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateVoiceProfileDomainCommandOutput) => void
+  ): void;
+  public updateVoiceProfileDomain(
+    args: UpdateVoiceProfileDomainCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateVoiceProfileDomainCommandOutput) => void),
+    cb?: (err: any, data?: UpdateVoiceProfileDomainCommandOutput) => void
+  ): Promise<UpdateVoiceProfileDomainCommandOutput> | void {
+    const command = new UpdateVoiceProfileDomainCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

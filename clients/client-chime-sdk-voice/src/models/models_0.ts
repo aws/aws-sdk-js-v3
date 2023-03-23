@@ -322,6 +322,15 @@ export interface BatchUpdatePhoneNumberResponse {
 /**
  * @public
  */
+export interface CallDetails {
+  VoiceConnectorId?: string;
+  TransactionId?: string;
+  IsCaller?: boolean;
+}
+
+/**
+ * @public
+ */
 export enum CallingNameStatus {
   Unassigned = "Unassigned",
   UpdateFailed = "UpdateFailed",
@@ -740,6 +749,101 @@ export interface CreateVoiceConnectorGroupResponse {
 /**
  * @public
  */
+export interface CreateVoiceProfileRequest {
+  SpeakerSearchTaskId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface VoiceProfile {
+  VoiceProfileId?: string;
+  VoiceProfileArn?: string;
+  VoiceProfileDomainId?: string;
+  CreatedTimestamp?: Date;
+  UpdatedTimestamp?: Date;
+  ExpirationTimestamp?: Date;
+}
+
+/**
+ * @public
+ */
+export interface CreateVoiceProfileResponse {
+  VoiceProfile?: VoiceProfile;
+}
+
+/**
+ * @public
+ */
+export class GoneException extends __BaseException {
+  readonly name: "GoneException" = "GoneException";
+  readonly $fault: "client" = "client";
+  Code?: ErrorCode | string;
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<GoneException, __BaseException>) {
+    super({
+      name: "GoneException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, GoneException.prototype);
+    this.Code = opts.Code;
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
+ */
+export interface ServerSideEncryptionConfiguration {
+  KmsKeyArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface Tag {
+  Key: string | undefined;
+  Value: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateVoiceProfileDomainRequest {
+  Name: string | undefined;
+  Description?: string;
+  ServerSideEncryptionConfiguration: ServerSideEncryptionConfiguration | undefined;
+  ClientRequestToken?: string;
+  Tags?: Tag[];
+}
+
+/**
+ * @public
+ */
+export interface VoiceProfileDomain {
+  VoiceProfileDomainId?: string;
+  VoiceProfileDomainArn?: string;
+  Name?: string;
+  Description?: string;
+  ServerSideEncryptionConfiguration?: ServerSideEncryptionConfiguration;
+  CreatedTimestamp?: Date;
+  UpdatedTimestamp?: Date;
+}
+
+/**
+ * @public
+ */
+export interface CreateVoiceProfileDomainResponse {
+  VoiceProfileDomain?: VoiceProfileDomain;
+}
+
+/**
+ * @public
+ */
 export interface DeletePhoneNumberRequest {
   PhoneNumberId: string | undefined;
 }
@@ -821,6 +925,20 @@ export interface DeleteVoiceConnectorTerminationRequest {
 export interface DeleteVoiceConnectorTerminationCredentialsRequest {
   VoiceConnectorId: string | undefined;
   Usernames: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteVoiceProfileRequest {
+  VoiceProfileId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteVoiceProfileDomainRequest {
+  VoiceProfileDomainId: string | undefined;
 }
 
 /**
@@ -1067,6 +1185,51 @@ export interface GetSipRuleResponse {
 /**
  * @public
  */
+export interface GetSpeakerSearchTaskRequest {
+  VoiceConnectorId: string | undefined;
+  SpeakerSearchTaskId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SpeakerSearchResult {
+  ConfidenceScore?: number;
+  VoiceProfileId?: string;
+}
+
+/**
+ * @public
+ */
+export interface SpeakerSearchDetails {
+  Results?: SpeakerSearchResult[];
+  VoiceprintGenerationStatus?: string;
+}
+
+/**
+ * @public
+ */
+export interface SpeakerSearchTask {
+  SpeakerSearchTaskId?: string;
+  SpeakerSearchTaskStatus?: string;
+  CallDetails?: CallDetails;
+  SpeakerSearchDetails?: SpeakerSearchDetails;
+  CreatedTimestamp?: Date;
+  UpdatedTimestamp?: Date;
+  StartedTimestamp?: Date;
+  StatusMessage?: string;
+}
+
+/**
+ * @public
+ */
+export interface GetSpeakerSearchTaskResponse {
+  SpeakerSearchTask?: SpeakerSearchTask;
+}
+
+/**
+ * @public
+ */
 export interface GetVoiceConnectorRequest {
   VoiceConnectorId: string | undefined;
 }
@@ -1219,6 +1382,14 @@ export interface GetVoiceConnectorStreamingConfigurationRequest {
 /**
  * @public
  */
+export interface MediaInsightsConfiguration {
+  Disabled?: boolean;
+  ConfigurationArn?: string;
+}
+
+/**
+ * @public
+ */
 export enum NotificationTarget {
   EventBridge = "EventBridge",
   SNS = "SNS",
@@ -1239,6 +1410,7 @@ export interface StreamingConfiguration {
   DataRetentionInHours: number | undefined;
   Disabled: boolean | undefined;
   StreamingNotificationTargets?: StreamingNotificationTarget[];
+  MediaInsightsConfiguration?: MediaInsightsConfiguration;
 }
 
 /**
@@ -1293,6 +1465,63 @@ export interface TerminationHealth {
  */
 export interface GetVoiceConnectorTerminationHealthResponse {
   TerminationHealth?: TerminationHealth;
+}
+
+/**
+ * @public
+ */
+export interface GetVoiceProfileRequest {
+  VoiceProfileId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetVoiceProfileResponse {
+  VoiceProfile?: VoiceProfile;
+}
+
+/**
+ * @public
+ */
+export interface GetVoiceProfileDomainRequest {
+  VoiceProfileDomainId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetVoiceProfileDomainResponse {
+  VoiceProfileDomain?: VoiceProfileDomain;
+}
+
+/**
+ * @public
+ */
+export interface GetVoiceToneAnalysisTaskRequest {
+  VoiceConnectorId: string | undefined;
+  VoiceToneAnalysisTaskId: string | undefined;
+  IsCaller: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface VoiceToneAnalysisTask {
+  VoiceToneAnalysisTaskId?: string;
+  VoiceToneAnalysisTaskStatus?: string;
+  CallDetails?: CallDetails;
+  CreatedTimestamp?: Date;
+  UpdatedTimestamp?: Date;
+  StartedTimestamp?: Date;
+  StatusMessage?: string;
+}
+
+/**
+ * @public
+ */
+export interface GetVoiceToneAnalysisTaskResponse {
+  VoiceToneAnalysisTask?: VoiceToneAnalysisTask;
 }
 
 /**
@@ -1414,6 +1643,20 @@ export interface ListSupportedPhoneNumberCountriesResponse {
 /**
  * @public
  */
+export interface ListTagsForResourceRequest {
+  ResourceARN: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTagsForResourceResponse {
+  Tags?: Tag[];
+}
+
+/**
+ * @public
+ */
 export interface ListVoiceConnectorGroupsRequest {
   NextToken?: string;
   MaxResults?: number;
@@ -1455,6 +1698,63 @@ export interface ListVoiceConnectorTerminationCredentialsRequest {
  */
 export interface ListVoiceConnectorTerminationCredentialsResponse {
   Usernames?: string[];
+}
+
+/**
+ * @public
+ */
+export interface ListVoiceProfileDomainsRequest {
+  NextToken?: string;
+  MaxResults?: number;
+}
+
+/**
+ * @public
+ */
+export interface VoiceProfileDomainSummary {
+  VoiceProfileDomainId?: string;
+  VoiceProfileDomainArn?: string;
+  Name?: string;
+  Description?: string;
+  CreatedTimestamp?: Date;
+  UpdatedTimestamp?: Date;
+}
+
+/**
+ * @public
+ */
+export interface ListVoiceProfileDomainsResponse {
+  VoiceProfileDomains?: VoiceProfileDomainSummary[];
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListVoiceProfilesRequest {
+  VoiceProfileDomainId: string | undefined;
+  NextToken?: string;
+  MaxResults?: number;
+}
+
+/**
+ * @public
+ */
+export interface VoiceProfileSummary {
+  VoiceProfileId?: string;
+  VoiceProfileArn?: string;
+  VoiceProfileDomainId?: string;
+  CreatedTimestamp?: Date;
+  UpdatedTimestamp?: Date;
+  ExpirationTimestamp?: Date;
+}
+
+/**
+ * @public
+ */
+export interface ListVoiceProfilesResponse {
+  VoiceProfiles?: VoiceProfileSummary[];
+  NextToken?: string;
 }
 
 /**
@@ -1635,6 +1935,102 @@ export interface SearchAvailablePhoneNumbersResponse {
 /**
  * @public
  */
+export interface StartSpeakerSearchTaskRequest {
+  VoiceConnectorId: string | undefined;
+  TransactionId: string | undefined;
+  VoiceProfileDomainId: string | undefined;
+  ClientRequestToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface StartSpeakerSearchTaskResponse {
+  SpeakerSearchTask?: SpeakerSearchTask;
+}
+
+/**
+ * @public
+ */
+export class UnprocessableEntityException extends __BaseException {
+  readonly name: "UnprocessableEntityException" = "UnprocessableEntityException";
+  readonly $fault: "client" = "client";
+  Code?: ErrorCode | string;
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UnprocessableEntityException, __BaseException>) {
+    super({
+      name: "UnprocessableEntityException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnprocessableEntityException.prototype);
+    this.Code = opts.Code;
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
+ */
+export enum LanguageCode {
+  EN_US = "en-US",
+}
+
+/**
+ * @public
+ */
+export interface StartVoiceToneAnalysisTaskRequest {
+  VoiceConnectorId: string | undefined;
+  TransactionId: string | undefined;
+  LanguageCode: LanguageCode | string | undefined;
+  ClientRequestToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface StartVoiceToneAnalysisTaskResponse {
+  VoiceToneAnalysisTask?: VoiceToneAnalysisTask;
+}
+
+/**
+ * @public
+ */
+export interface StopSpeakerSearchTaskRequest {
+  VoiceConnectorId: string | undefined;
+  SpeakerSearchTaskId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StopVoiceToneAnalysisTaskRequest {
+  VoiceConnectorId: string | undefined;
+  VoiceToneAnalysisTaskId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface TagResourceRequest {
+  ResourceARN: string | undefined;
+  Tags: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UntagResourceRequest {
+  ResourceARN: string | undefined;
+  TagKeys: string[] | undefined;
+}
+
+/**
+ * @public
+ */
 export interface UpdateGlobalSettingsRequest {
   VoiceConnector?: VoiceConnectorSettings;
 }
@@ -1758,6 +2154,37 @@ export interface UpdateVoiceConnectorGroupRequest {
  */
 export interface UpdateVoiceConnectorGroupResponse {
   VoiceConnectorGroup?: VoiceConnectorGroup;
+}
+
+/**
+ * @public
+ */
+export interface UpdateVoiceProfileRequest {
+  VoiceProfileId: string | undefined;
+  SpeakerSearchTaskId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateVoiceProfileResponse {
+  VoiceProfile?: VoiceProfile;
+}
+
+/**
+ * @public
+ */
+export interface UpdateVoiceProfileDomainRequest {
+  VoiceProfileDomainId: string | undefined;
+  Name?: string;
+  Description?: string;
+}
+
+/**
+ * @public
+ */
+export interface UpdateVoiceProfileDomainResponse {
+  VoiceProfileDomain?: VoiceProfileDomain;
 }
 
 /**
@@ -2025,6 +2452,73 @@ export const CreateSipMediaApplicationCallRequestFilterSensitiveLog = (
 /**
  * @internal
  */
+export const VoiceProfileFilterSensitiveLog = (obj: VoiceProfile): any => ({
+  ...obj,
+  ...(obj.VoiceProfileArn && { VoiceProfileArn: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateVoiceProfileResponseFilterSensitiveLog = (obj: CreateVoiceProfileResponse): any => ({
+  ...obj,
+  ...(obj.VoiceProfile && { VoiceProfile: VoiceProfileFilterSensitiveLog(obj.VoiceProfile) }),
+});
+
+/**
+ * @internal
+ */
+export const ServerSideEncryptionConfigurationFilterSensitiveLog = (obj: ServerSideEncryptionConfiguration): any => ({
+  ...obj,
+  ...(obj.KmsKeyArn && { KmsKeyArn: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const TagFilterSensitiveLog = (obj: Tag): any => ({
+  ...obj,
+  ...(obj.Key && { Key: SENSITIVE_STRING }),
+  ...(obj.Value && { Value: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateVoiceProfileDomainRequestFilterSensitiveLog = (obj: CreateVoiceProfileDomainRequest): any => ({
+  ...obj,
+  ...(obj.ServerSideEncryptionConfiguration && {
+    ServerSideEncryptionConfiguration: ServerSideEncryptionConfigurationFilterSensitiveLog(
+      obj.ServerSideEncryptionConfiguration
+    ),
+  }),
+  ...(obj.Tags && { Tags: obj.Tags.map((item) => TagFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const VoiceProfileDomainFilterSensitiveLog = (obj: VoiceProfileDomain): any => ({
+  ...obj,
+  ...(obj.VoiceProfileDomainArn && { VoiceProfileDomainArn: SENSITIVE_STRING }),
+  ...(obj.ServerSideEncryptionConfiguration && {
+    ServerSideEncryptionConfiguration: ServerSideEncryptionConfigurationFilterSensitiveLog(
+      obj.ServerSideEncryptionConfiguration
+    ),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const CreateVoiceProfileDomainResponseFilterSensitiveLog = (obj: CreateVoiceProfileDomainResponse): any => ({
+  ...obj,
+  ...(obj.VoiceProfileDomain && { VoiceProfileDomain: VoiceProfileDomainFilterSensitiveLog(obj.VoiceProfileDomain) }),
+});
+
+/**
+ * @internal
+ */
 export const DeletePhoneNumberRequestFilterSensitiveLog = (obj: DeletePhoneNumberRequest): any => ({
   ...obj,
   ...(obj.PhoneNumberId && { PhoneNumberId: SENSITIVE_STRING }),
@@ -2216,6 +2710,36 @@ export const GetVoiceConnectorProxyResponseFilterSensitiveLog = (obj: GetVoiceCo
 /**
  * @internal
  */
+export const MediaInsightsConfigurationFilterSensitiveLog = (obj: MediaInsightsConfiguration): any => ({
+  ...obj,
+  ...(obj.ConfigurationArn && { ConfigurationArn: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const StreamingConfigurationFilterSensitiveLog = (obj: StreamingConfiguration): any => ({
+  ...obj,
+  ...(obj.MediaInsightsConfiguration && {
+    MediaInsightsConfiguration: MediaInsightsConfigurationFilterSensitiveLog(obj.MediaInsightsConfiguration),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const GetVoiceConnectorStreamingConfigurationResponseFilterSensitiveLog = (
+  obj: GetVoiceConnectorStreamingConfigurationResponse
+): any => ({
+  ...obj,
+  ...(obj.StreamingConfiguration && {
+    StreamingConfiguration: StreamingConfigurationFilterSensitiveLog(obj.StreamingConfiguration),
+  }),
+});
+
+/**
+ * @internal
+ */
 export const TerminationFilterSensitiveLog = (obj: Termination): any => ({
   ...obj,
   ...(obj.DefaultPhoneNumber && { DefaultPhoneNumber: SENSITIVE_STRING }),
@@ -2229,6 +2753,22 @@ export const GetVoiceConnectorTerminationResponseFilterSensitiveLog = (
 ): any => ({
   ...obj,
   ...(obj.Termination && { Termination: TerminationFilterSensitiveLog(obj.Termination) }),
+});
+
+/**
+ * @internal
+ */
+export const GetVoiceProfileResponseFilterSensitiveLog = (obj: GetVoiceProfileResponse): any => ({
+  ...obj,
+  ...(obj.VoiceProfile && { VoiceProfile: VoiceProfileFilterSensitiveLog(obj.VoiceProfile) }),
+});
+
+/**
+ * @internal
+ */
+export const GetVoiceProfileDomainResponseFilterSensitiveLog = (obj: GetVoiceProfileDomainResponse): any => ({
+  ...obj,
+  ...(obj.VoiceProfileDomain && { VoiceProfileDomain: VoiceProfileDomainFilterSensitiveLog(obj.VoiceProfileDomain) }),
 });
 
 /**
@@ -2263,11 +2803,63 @@ export const ListSipMediaApplicationsResponseFilterSensitiveLog = (obj: ListSipM
 /**
  * @internal
  */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+  ...(obj.ResourceARN && { ResourceARN: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+  ...(obj.Tags && { Tags: obj.Tags.map((item) => TagFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
 export const ListVoiceConnectorTerminationCredentialsResponseFilterSensitiveLog = (
   obj: ListVoiceConnectorTerminationCredentialsResponse
 ): any => ({
   ...obj,
   ...(obj.Usernames && { Usernames: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const VoiceProfileDomainSummaryFilterSensitiveLog = (obj: VoiceProfileDomainSummary): any => ({
+  ...obj,
+  ...(obj.VoiceProfileDomainArn && { VoiceProfileDomainArn: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListVoiceProfileDomainsResponseFilterSensitiveLog = (obj: ListVoiceProfileDomainsResponse): any => ({
+  ...obj,
+  ...(obj.VoiceProfileDomains && {
+    VoiceProfileDomains: obj.VoiceProfileDomains.map((item) => VoiceProfileDomainSummaryFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const VoiceProfileSummaryFilterSensitiveLog = (obj: VoiceProfileSummary): any => ({
+  ...obj,
+  ...(obj.VoiceProfileArn && { VoiceProfileArn: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListVoiceProfilesResponseFilterSensitiveLog = (obj: ListVoiceProfilesResponse): any => ({
+  ...obj,
+  ...(obj.VoiceProfiles && {
+    VoiceProfiles: obj.VoiceProfiles.map((item) => VoiceProfileSummaryFilterSensitiveLog(item)),
+  }),
 });
 
 /**
@@ -2341,6 +2933,30 @@ export const PutVoiceConnectorProxyResponseFilterSensitiveLog = (obj: PutVoiceCo
 /**
  * @internal
  */
+export const PutVoiceConnectorStreamingConfigurationRequestFilterSensitiveLog = (
+  obj: PutVoiceConnectorStreamingConfigurationRequest
+): any => ({
+  ...obj,
+  ...(obj.StreamingConfiguration && {
+    StreamingConfiguration: StreamingConfigurationFilterSensitiveLog(obj.StreamingConfiguration),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const PutVoiceConnectorStreamingConfigurationResponseFilterSensitiveLog = (
+  obj: PutVoiceConnectorStreamingConfigurationResponse
+): any => ({
+  ...obj,
+  ...(obj.StreamingConfiguration && {
+    StreamingConfiguration: StreamingConfigurationFilterSensitiveLog(obj.StreamingConfiguration),
+  }),
+});
+
+/**
+ * @internal
+ */
 export const PutVoiceConnectorTerminationRequestFilterSensitiveLog = (
   obj: PutVoiceConnectorTerminationRequest
 ): any => ({
@@ -2406,6 +3022,24 @@ export const SearchAvailablePhoneNumbersResponseFilterSensitiveLog = (
 /**
  * @internal
  */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+  ...(obj.ResourceARN && { ResourceARN: SENSITIVE_STRING }),
+  ...(obj.Tags && { Tags: obj.Tags.map((item) => TagFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+  ...(obj.ResourceARN && { ResourceARN: SENSITIVE_STRING }),
+  ...(obj.TagKeys && { TagKeys: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
 export const UpdatePhoneNumberRequestFilterSensitiveLog = (obj: UpdatePhoneNumberRequest): any => ({
   ...obj,
   ...(obj.PhoneNumberId && { PhoneNumberId: SENSITIVE_STRING }),
@@ -2462,6 +3096,22 @@ export const UpdateSipMediaApplicationCallRequestFilterSensitiveLog = (
 ): any => ({
   ...obj,
   ...(obj.Arguments && { Arguments: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateVoiceProfileResponseFilterSensitiveLog = (obj: UpdateVoiceProfileResponse): any => ({
+  ...obj,
+  ...(obj.VoiceProfile && { VoiceProfile: VoiceProfileFilterSensitiveLog(obj.VoiceProfile) }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateVoiceProfileDomainResponseFilterSensitiveLog = (obj: UpdateVoiceProfileDomainResponse): any => ({
+  ...obj,
+  ...(obj.VoiceProfileDomain && { VoiceProfileDomain: VoiceProfileDomainFilterSensitiveLog(obj.VoiceProfileDomain) }),
 });
 
 /**

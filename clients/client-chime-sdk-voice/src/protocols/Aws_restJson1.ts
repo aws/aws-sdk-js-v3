@@ -8,6 +8,7 @@ import {
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  limitedParseFloat32 as __limitedParseFloat32,
   map as __map,
   parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   resolvedPath as __resolvedPath,
@@ -57,6 +58,11 @@ import {
   CreateVoiceConnectorGroupCommandInput,
   CreateVoiceConnectorGroupCommandOutput,
 } from "../commands/CreateVoiceConnectorGroupCommand";
+import { CreateVoiceProfileCommandInput, CreateVoiceProfileCommandOutput } from "../commands/CreateVoiceProfileCommand";
+import {
+  CreateVoiceProfileDomainCommandInput,
+  CreateVoiceProfileDomainCommandOutput,
+} from "../commands/CreateVoiceProfileDomainCommand";
 import { DeletePhoneNumberCommandInput, DeletePhoneNumberCommandOutput } from "../commands/DeletePhoneNumberCommand";
 import { DeleteProxySessionCommandInput, DeleteProxySessionCommandOutput } from "../commands/DeleteProxySessionCommand";
 import {
@@ -96,6 +102,11 @@ import {
   DeleteVoiceConnectorTerminationCredentialsCommandInput,
   DeleteVoiceConnectorTerminationCredentialsCommandOutput,
 } from "../commands/DeleteVoiceConnectorTerminationCredentialsCommand";
+import { DeleteVoiceProfileCommandInput, DeleteVoiceProfileCommandOutput } from "../commands/DeleteVoiceProfileCommand";
+import {
+  DeleteVoiceProfileDomainCommandInput,
+  DeleteVoiceProfileDomainCommandOutput,
+} from "../commands/DeleteVoiceProfileDomainCommand";
 import {
   DisassociatePhoneNumbersFromVoiceConnectorCommandInput,
   DisassociatePhoneNumbersFromVoiceConnectorCommandOutput,
@@ -128,6 +139,10 @@ import {
   GetSipMediaApplicationLoggingConfigurationCommandOutput,
 } from "../commands/GetSipMediaApplicationLoggingConfigurationCommand";
 import { GetSipRuleCommandInput, GetSipRuleCommandOutput } from "../commands/GetSipRuleCommand";
+import {
+  GetSpeakerSearchTaskCommandInput,
+  GetSpeakerSearchTaskCommandOutput,
+} from "../commands/GetSpeakerSearchTaskCommand";
 import { GetVoiceConnectorCommandInput, GetVoiceConnectorCommandOutput } from "../commands/GetVoiceConnectorCommand";
 import {
   GetVoiceConnectorEmergencyCallingConfigurationCommandInput,
@@ -161,6 +176,15 @@ import {
   GetVoiceConnectorTerminationHealthCommandInput,
   GetVoiceConnectorTerminationHealthCommandOutput,
 } from "../commands/GetVoiceConnectorTerminationHealthCommand";
+import { GetVoiceProfileCommandInput, GetVoiceProfileCommandOutput } from "../commands/GetVoiceProfileCommand";
+import {
+  GetVoiceProfileDomainCommandInput,
+  GetVoiceProfileDomainCommandOutput,
+} from "../commands/GetVoiceProfileDomainCommand";
+import {
+  GetVoiceToneAnalysisTaskCommandInput,
+  GetVoiceToneAnalysisTaskCommandOutput,
+} from "../commands/GetVoiceToneAnalysisTaskCommand";
 import {
   ListAvailableVoiceConnectorRegionsCommandInput,
   ListAvailableVoiceConnectorRegionsCommandOutput,
@@ -181,6 +205,10 @@ import {
   ListSupportedPhoneNumberCountriesCommandOutput,
 } from "../commands/ListSupportedPhoneNumberCountriesCommand";
 import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "../commands/ListTagsForResourceCommand";
+import {
   ListVoiceConnectorGroupsCommandInput,
   ListVoiceConnectorGroupsCommandOutput,
 } from "../commands/ListVoiceConnectorGroupsCommand";
@@ -192,6 +220,11 @@ import {
   ListVoiceConnectorTerminationCredentialsCommandInput,
   ListVoiceConnectorTerminationCredentialsCommandOutput,
 } from "../commands/ListVoiceConnectorTerminationCredentialsCommand";
+import {
+  ListVoiceProfileDomainsCommandInput,
+  ListVoiceProfileDomainsCommandOutput,
+} from "../commands/ListVoiceProfileDomainsCommand";
+import { ListVoiceProfilesCommandInput, ListVoiceProfilesCommandOutput } from "../commands/ListVoiceProfilesCommand";
 import {
   PutSipMediaApplicationAlexaSkillConfigurationCommandInput,
   PutSipMediaApplicationAlexaSkillConfigurationCommandOutput,
@@ -234,6 +267,24 @@ import {
   SearchAvailablePhoneNumbersCommandOutput,
 } from "../commands/SearchAvailablePhoneNumbersCommand";
 import {
+  StartSpeakerSearchTaskCommandInput,
+  StartSpeakerSearchTaskCommandOutput,
+} from "../commands/StartSpeakerSearchTaskCommand";
+import {
+  StartVoiceToneAnalysisTaskCommandInput,
+  StartVoiceToneAnalysisTaskCommandOutput,
+} from "../commands/StartVoiceToneAnalysisTaskCommand";
+import {
+  StopSpeakerSearchTaskCommandInput,
+  StopSpeakerSearchTaskCommandOutput,
+} from "../commands/StopSpeakerSearchTaskCommand";
+import {
+  StopVoiceToneAnalysisTaskCommandInput,
+  StopVoiceToneAnalysisTaskCommandOutput,
+} from "../commands/StopVoiceToneAnalysisTaskCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
+import {
   UpdateGlobalSettingsCommandInput,
   UpdateGlobalSettingsCommandOutput,
 } from "../commands/UpdateGlobalSettingsCommand";
@@ -260,6 +311,11 @@ import {
   UpdateVoiceConnectorGroupCommandInput,
   UpdateVoiceConnectorGroupCommandOutput,
 } from "../commands/UpdateVoiceConnectorGroupCommand";
+import { UpdateVoiceProfileCommandInput, UpdateVoiceProfileCommandOutput } from "../commands/UpdateVoiceProfileCommand";
+import {
+  UpdateVoiceProfileDomainCommandInput,
+  UpdateVoiceProfileDomainCommandOutput,
+} from "../commands/UpdateVoiceProfileDomainCommand";
 import {
   ValidateE911AddressCommandInput,
   ValidateE911AddressCommandOutput,
@@ -269,6 +325,7 @@ import {
   AccessDeniedException,
   Address,
   BadRequestException,
+  CallDetails,
   CandidateAddress,
   Capability,
   ConflictException,
@@ -277,7 +334,9 @@ import {
   EmergencyCallingConfiguration,
   ForbiddenException,
   GeoMatchParams,
+  GoneException,
   LoggingConfiguration,
+  MediaInsightsConfiguration,
   NotFoundException,
   OrderedPhoneNumber,
   Origination,
@@ -293,6 +352,7 @@ import {
   Proxy,
   ProxySession,
   ResourceLimitExceededException,
+  ServerSideEncryptionConfiguration,
   ServiceFailureException,
   ServiceUnavailableException,
   SipMediaApplication,
@@ -302,18 +362,28 @@ import {
   SipMediaApplicationLoggingConfiguration,
   SipRule,
   SipRuleTargetApplication,
+  SpeakerSearchDetails,
+  SpeakerSearchResult,
+  SpeakerSearchTask,
   StreamingConfiguration,
   StreamingNotificationTarget,
+  Tag,
   Termination,
   TerminationHealth,
   ThrottledClientException,
   UnauthorizedClientException,
+  UnprocessableEntityException,
   UpdatePhoneNumberRequestItem,
   VoiceConnector,
   VoiceConnectorAwsRegion,
   VoiceConnectorGroup,
   VoiceConnectorItem,
   VoiceConnectorSettings,
+  VoiceProfile,
+  VoiceProfileDomain,
+  VoiceProfileDomainSummary,
+  VoiceProfileSummary,
+  VoiceToneAnalysisTask,
 } from "../models/models_0";
 
 export const serializeAws_restJson1AssociatePhoneNumbersWithVoiceConnectorCommand = async (
@@ -685,6 +755,63 @@ export const serializeAws_restJson1CreateVoiceConnectorGroupCommand = async (
   });
 };
 
+export const serializeAws_restJson1CreateVoiceProfileCommand = async (
+  input: CreateVoiceProfileCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/voice-profiles";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.SpeakerSearchTaskId != null && { SpeakerSearchTaskId: input.SpeakerSearchTaskId }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1CreateVoiceProfileDomainCommand = async (
+  input: CreateVoiceProfileDomainCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/voice-profile-domains";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.ClientRequestToken != null && { ClientRequestToken: input.ClientRequestToken }),
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.ServerSideEncryptionConfiguration != null && {
+      ServerSideEncryptionConfiguration: serializeAws_restJson1ServerSideEncryptionConfiguration(
+        input.ServerSideEncryptionConfiguration,
+        context
+      ),
+    }),
+    ...(input.Tags != null && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1DeletePhoneNumberCommand = async (
   input: DeletePhoneNumberCommandInput,
   context: __SerdeContext
@@ -1039,6 +1166,63 @@ export const serializeAws_restJson1DeleteVoiceConnectorTerminationCredentialsCom
   });
 };
 
+export const serializeAws_restJson1DeleteVoiceProfileCommand = async (
+  input: DeleteVoiceProfileCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/voice-profiles/{VoiceProfileId}";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "VoiceProfileId",
+    () => input.VoiceProfileId!,
+    "{VoiceProfileId}",
+    false
+  );
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DeleteVoiceProfileDomainCommand = async (
+  input: DeleteVoiceProfileDomainCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/voice-profile-domains/{VoiceProfileDomainId}";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "VoiceProfileDomainId",
+    () => input.VoiceProfileDomainId!,
+    "{VoiceProfileDomainId}",
+    false
+  );
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1DisassociatePhoneNumbersFromVoiceConnectorCommand = async (
   input: DisassociatePhoneNumbersFromVoiceConnectorCommandInput,
   context: __SerdeContext
@@ -1362,6 +1546,43 @@ export const serializeAws_restJson1GetSipRuleCommand = async (
   });
 };
 
+export const serializeAws_restJson1GetSpeakerSearchTaskCommand = async (
+  input: GetSpeakerSearchTaskCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/voice-connectors/{VoiceConnectorId}/speaker-search-tasks/{SpeakerSearchTaskId}";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "VoiceConnectorId",
+    () => input.VoiceConnectorId!,
+    "{VoiceConnectorId}",
+    false
+  );
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "SpeakerSearchTaskId",
+    () => input.SpeakerSearchTaskId!,
+    "{SpeakerSearchTaskId}",
+    false
+  );
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1GetVoiceConnectorCommand = async (
   input: GetVoiceConnectorCommandInput,
   context: __SerdeContext
@@ -1622,6 +1843,104 @@ export const serializeAws_restJson1GetVoiceConnectorTerminationHealthCommand = a
   });
 };
 
+export const serializeAws_restJson1GetVoiceProfileCommand = async (
+  input: GetVoiceProfileCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/voice-profiles/{VoiceProfileId}";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "VoiceProfileId",
+    () => input.VoiceProfileId!,
+    "{VoiceProfileId}",
+    false
+  );
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1GetVoiceProfileDomainCommand = async (
+  input: GetVoiceProfileDomainCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/voice-profile-domains/{VoiceProfileDomainId}";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "VoiceProfileDomainId",
+    () => input.VoiceProfileDomainId!,
+    "{VoiceProfileDomainId}",
+    false
+  );
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1GetVoiceToneAnalysisTaskCommand = async (
+  input: GetVoiceToneAnalysisTaskCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/voice-connectors/{VoiceConnectorId}/voice-tone-analysis-tasks/{VoiceToneAnalysisTaskId}";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "VoiceConnectorId",
+    () => input.VoiceConnectorId!,
+    "{VoiceConnectorId}",
+    false
+  );
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "VoiceToneAnalysisTaskId",
+    () => input.VoiceToneAnalysisTaskId!,
+    "{VoiceToneAnalysisTaskId}",
+    false
+  );
+  const query: any = map({
+    isCaller: [__expectNonNull(input.IsCaller, `IsCaller`) != null, () => input.IsCaller!.toString()],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
 export const serializeAws_restJson1ListAvailableVoiceConnectorRegionsCommand = async (
   input: ListAvailableVoiceConnectorRegionsCommandInput,
   context: __SerdeContext
@@ -1806,6 +2125,29 @@ export const serializeAws_restJson1ListSupportedPhoneNumberCountriesCommand = as
   });
 };
 
+export const serializeAws_restJson1ListTagsForResourceCommand = async (
+  input: ListTagsForResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags";
+  const query: any = map({
+    arn: [, __expectNonNull(input.ResourceARN!, `ResourceARN`)],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
 export const serializeAws_restJson1ListVoiceConnectorGroupsCommand = async (
   input: ListVoiceConnectorGroupsCommandInput,
   context: __SerdeContext
@@ -1880,6 +2222,55 @@ export const serializeAws_restJson1ListVoiceConnectorTerminationCredentialsComma
     method: "GET",
     headers,
     path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ListVoiceProfileDomainsCommand = async (
+  input: ListVoiceProfileDomainsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/voice-profile-domains";
+  const query: any = map({
+    "next-token": [, input.NextToken!],
+    "max-results": [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ListVoiceProfilesCommand = async (
+  input: ListVoiceProfilesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/voice-profiles";
+  const query: any = map({
+    "voice-profile-domain-id": [, __expectNonNull(input.VoiceProfileDomainId!, `VoiceProfileDomainId`)],
+    "next-token": [, input.NextToken!],
+    "max-results": [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
     body,
   });
 };
@@ -2283,6 +2674,218 @@ export const serializeAws_restJson1SearchAvailablePhoneNumbersCommand = async (
   });
 };
 
+export const serializeAws_restJson1StartSpeakerSearchTaskCommand = async (
+  input: StartSpeakerSearchTaskCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/voice-connectors/{VoiceConnectorId}/speaker-search-tasks";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "VoiceConnectorId",
+    () => input.VoiceConnectorId!,
+    "{VoiceConnectorId}",
+    false
+  );
+  let body: any;
+  body = JSON.stringify({
+    ...(input.ClientRequestToken != null && { ClientRequestToken: input.ClientRequestToken }),
+    ...(input.TransactionId != null && { TransactionId: input.TransactionId }),
+    ...(input.VoiceProfileDomainId != null && { VoiceProfileDomainId: input.VoiceProfileDomainId }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1StartVoiceToneAnalysisTaskCommand = async (
+  input: StartVoiceToneAnalysisTaskCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/voice-connectors/{VoiceConnectorId}/voice-tone-analysis-tasks";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "VoiceConnectorId",
+    () => input.VoiceConnectorId!,
+    "{VoiceConnectorId}",
+    false
+  );
+  let body: any;
+  body = JSON.stringify({
+    ...(input.ClientRequestToken != null && { ClientRequestToken: input.ClientRequestToken }),
+    ...(input.LanguageCode != null && { LanguageCode: input.LanguageCode }),
+    ...(input.TransactionId != null && { TransactionId: input.TransactionId }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1StopSpeakerSearchTaskCommand = async (
+  input: StopSpeakerSearchTaskCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/voice-connectors/{VoiceConnectorId}/speaker-search-tasks/{SpeakerSearchTaskId}";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "VoiceConnectorId",
+    () => input.VoiceConnectorId!,
+    "{VoiceConnectorId}",
+    false
+  );
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "SpeakerSearchTaskId",
+    () => input.SpeakerSearchTaskId!,
+    "{SpeakerSearchTaskId}",
+    false
+  );
+  const query: any = map({
+    operation: [, "stop"],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1StopVoiceToneAnalysisTaskCommand = async (
+  input: StopVoiceToneAnalysisTaskCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/voice-connectors/{VoiceConnectorId}/voice-tone-analysis-tasks/{VoiceToneAnalysisTaskId}";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "VoiceConnectorId",
+    () => input.VoiceConnectorId!,
+    "{VoiceConnectorId}",
+    false
+  );
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "VoiceToneAnalysisTaskId",
+    () => input.VoiceToneAnalysisTaskId!,
+    "{VoiceToneAnalysisTaskId}",
+    false
+  );
+  const query: any = map({
+    operation: [, "stop"],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1TagResourceCommand = async (
+  input: TagResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags";
+  const query: any = map({
+    operation: [, "tag-resource"],
+  });
+  let body: any;
+  body = JSON.stringify({
+    ...(input.ResourceARN != null && { ResourceARN: input.ResourceARN }),
+    ...(input.Tags != null && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1UntagResourceCommand = async (
+  input: UntagResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags";
+  const query: any = map({
+    operation: [, "untag-resource"],
+  });
+  let body: any;
+  body = JSON.stringify({
+    ...(input.ResourceARN != null && { ResourceARN: input.ResourceARN }),
+    ...(input.TagKeys != null && { TagKeys: serializeAws_restJson1TagKeyList(input.TagKeys, context) }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
 export const serializeAws_restJson1UpdateGlobalSettingsCommand = async (
   input: UpdateGlobalSettingsCommandInput,
   context: __SerdeContext
@@ -2581,6 +3184,74 @@ export const serializeAws_restJson1UpdateVoiceConnectorGroupCommand = async (
     ...(input.VoiceConnectorItems != null && {
       VoiceConnectorItems: serializeAws_restJson1VoiceConnectorItemList(input.VoiceConnectorItems, context),
     }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1UpdateVoiceProfileCommand = async (
+  input: UpdateVoiceProfileCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/voice-profiles/{VoiceProfileId}";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "VoiceProfileId",
+    () => input.VoiceProfileId!,
+    "{VoiceProfileId}",
+    false
+  );
+  let body: any;
+  body = JSON.stringify({
+    ...(input.SpeakerSearchTaskId != null && { SpeakerSearchTaskId: input.SpeakerSearchTaskId }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1UpdateVoiceProfileDomainCommand = async (
+  input: UpdateVoiceProfileDomainCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/voice-profile-domains/{VoiceProfileDomainId}";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "VoiceProfileDomainId",
+    () => input.VoiceProfileDomainId!,
+    "{VoiceProfileDomainId}",
+    false
+  );
+  let body: any;
+  body = JSON.stringify({
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.Name != null && { Name: input.Name }),
   });
   return new __HttpRequest({
     protocol,
@@ -3306,6 +3977,142 @@ const deserializeAws_restJson1CreateVoiceConnectorGroupCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1CreateVoiceProfileCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateVoiceProfileCommandOutput> => {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
+    return deserializeAws_restJson1CreateVoiceProfileCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.VoiceProfile != null) {
+    contents.VoiceProfile = deserializeAws_restJson1VoiceProfile(data.VoiceProfile, context);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1CreateVoiceProfileCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateVoiceProfileCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.chimesdkvoice#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "BadRequestException":
+    case "com.amazonaws.chimesdkvoice#BadRequestException":
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.chimesdkvoice#ConflictException":
+      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.chimesdkvoice#ForbiddenException":
+      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+    case "GoneException":
+    case "com.amazonaws.chimesdkvoice#GoneException":
+      throw await deserializeAws_restJson1GoneExceptionResponse(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.chimesdkvoice#NotFoundException":
+      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+    case "ResourceLimitExceededException":
+    case "com.amazonaws.chimesdkvoice#ResourceLimitExceededException":
+      throw await deserializeAws_restJson1ResourceLimitExceededExceptionResponse(parsedOutput, context);
+    case "ServiceFailureException":
+    case "com.amazonaws.chimesdkvoice#ServiceFailureException":
+      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.chimesdkvoice#ServiceUnavailableException":
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+    case "ThrottledClientException":
+    case "com.amazonaws.chimesdkvoice#ThrottledClientException":
+      throw await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context);
+    case "UnauthorizedClientException":
+    case "com.amazonaws.chimesdkvoice#UnauthorizedClientException":
+      throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1CreateVoiceProfileDomainCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateVoiceProfileDomainCommandOutput> => {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
+    return deserializeAws_restJson1CreateVoiceProfileDomainCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.VoiceProfileDomain != null) {
+    contents.VoiceProfileDomain = deserializeAws_restJson1VoiceProfileDomain(data.VoiceProfileDomain, context);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1CreateVoiceProfileDomainCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateVoiceProfileDomainCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.chimesdkvoice#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "BadRequestException":
+    case "com.amazonaws.chimesdkvoice#BadRequestException":
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.chimesdkvoice#ConflictException":
+      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.chimesdkvoice#ForbiddenException":
+      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+    case "ResourceLimitExceededException":
+    case "com.amazonaws.chimesdkvoice#ResourceLimitExceededException":
+      throw await deserializeAws_restJson1ResourceLimitExceededExceptionResponse(parsedOutput, context);
+    case "ServiceFailureException":
+    case "com.amazonaws.chimesdkvoice#ServiceFailureException":
+      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.chimesdkvoice#ServiceUnavailableException":
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+    case "ThrottledClientException":
+    case "com.amazonaws.chimesdkvoice#ThrottledClientException":
+      throw await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context);
+    case "UnauthorizedClientException":
+    case "com.amazonaws.chimesdkvoice#UnauthorizedClientException":
+      throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_restJson1DeletePhoneNumberCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -3990,6 +4797,130 @@ const deserializeAws_restJson1DeleteVoiceConnectorTerminationCredentialsCommandE
   }
 };
 
+export const deserializeAws_restJson1DeleteVoiceProfileCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteVoiceProfileCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DeleteVoiceProfileCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+const deserializeAws_restJson1DeleteVoiceProfileCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteVoiceProfileCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.chimesdkvoice#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "BadRequestException":
+    case "com.amazonaws.chimesdkvoice#BadRequestException":
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.chimesdkvoice#ConflictException":
+      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.chimesdkvoice#ForbiddenException":
+      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.chimesdkvoice#NotFoundException":
+      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceFailureException":
+    case "com.amazonaws.chimesdkvoice#ServiceFailureException":
+      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.chimesdkvoice#ServiceUnavailableException":
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+    case "ThrottledClientException":
+    case "com.amazonaws.chimesdkvoice#ThrottledClientException":
+      throw await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context);
+    case "UnauthorizedClientException":
+    case "com.amazonaws.chimesdkvoice#UnauthorizedClientException":
+      throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1DeleteVoiceProfileDomainCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteVoiceProfileDomainCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DeleteVoiceProfileDomainCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+const deserializeAws_restJson1DeleteVoiceProfileDomainCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteVoiceProfileDomainCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.chimesdkvoice#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "BadRequestException":
+    case "com.amazonaws.chimesdkvoice#BadRequestException":
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.chimesdkvoice#ConflictException":
+      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.chimesdkvoice#ForbiddenException":
+      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.chimesdkvoice#NotFoundException":
+      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceFailureException":
+    case "com.amazonaws.chimesdkvoice#ServiceFailureException":
+      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.chimesdkvoice#ServiceUnavailableException":
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+    case "ThrottledClientException":
+    case "com.amazonaws.chimesdkvoice#ThrottledClientException":
+      throw await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context);
+    case "UnauthorizedClientException":
+    case "com.amazonaws.chimesdkvoice#UnauthorizedClientException":
+      throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_restJson1DisassociatePhoneNumbersFromVoiceConnectorCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -4645,6 +5576,71 @@ const deserializeAws_restJson1GetSipRuleCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1GetSpeakerSearchTaskCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetSpeakerSearchTaskCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1GetSpeakerSearchTaskCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.SpeakerSearchTask != null) {
+    contents.SpeakerSearchTask = deserializeAws_restJson1SpeakerSearchTask(data.SpeakerSearchTask, context);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1GetSpeakerSearchTaskCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetSpeakerSearchTaskCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.chimesdkvoice#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "BadRequestException":
+    case "com.amazonaws.chimesdkvoice#BadRequestException":
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.chimesdkvoice#ConflictException":
+      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.chimesdkvoice#ForbiddenException":
+      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.chimesdkvoice#NotFoundException":
+      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceFailureException":
+    case "com.amazonaws.chimesdkvoice#ServiceFailureException":
+      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.chimesdkvoice#ServiceUnavailableException":
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+    case "ThrottledClientException":
+    case "com.amazonaws.chimesdkvoice#ThrottledClientException":
+      throw await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context);
+    case "UnauthorizedClientException":
+    case "com.amazonaws.chimesdkvoice#UnauthorizedClientException":
+      throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_restJson1GetVoiceConnectorCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -5182,6 +6178,195 @@ const deserializeAws_restJson1GetVoiceConnectorTerminationHealthCommandError = a
   }
 };
 
+export const deserializeAws_restJson1GetVoiceProfileCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetVoiceProfileCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1GetVoiceProfileCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.VoiceProfile != null) {
+    contents.VoiceProfile = deserializeAws_restJson1VoiceProfile(data.VoiceProfile, context);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1GetVoiceProfileCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetVoiceProfileCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.chimesdkvoice#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "BadRequestException":
+    case "com.amazonaws.chimesdkvoice#BadRequestException":
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.chimesdkvoice#ForbiddenException":
+      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.chimesdkvoice#NotFoundException":
+      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceFailureException":
+    case "com.amazonaws.chimesdkvoice#ServiceFailureException":
+      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.chimesdkvoice#ServiceUnavailableException":
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+    case "ThrottledClientException":
+    case "com.amazonaws.chimesdkvoice#ThrottledClientException":
+      throw await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context);
+    case "UnauthorizedClientException":
+    case "com.amazonaws.chimesdkvoice#UnauthorizedClientException":
+      throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1GetVoiceProfileDomainCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetVoiceProfileDomainCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1GetVoiceProfileDomainCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.VoiceProfileDomain != null) {
+    contents.VoiceProfileDomain = deserializeAws_restJson1VoiceProfileDomain(data.VoiceProfileDomain, context);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1GetVoiceProfileDomainCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetVoiceProfileDomainCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.chimesdkvoice#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "BadRequestException":
+    case "com.amazonaws.chimesdkvoice#BadRequestException":
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.chimesdkvoice#ForbiddenException":
+      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.chimesdkvoice#NotFoundException":
+      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceFailureException":
+    case "com.amazonaws.chimesdkvoice#ServiceFailureException":
+      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.chimesdkvoice#ServiceUnavailableException":
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+    case "ThrottledClientException":
+    case "com.amazonaws.chimesdkvoice#ThrottledClientException":
+      throw await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context);
+    case "UnauthorizedClientException":
+    case "com.amazonaws.chimesdkvoice#UnauthorizedClientException":
+      throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1GetVoiceToneAnalysisTaskCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetVoiceToneAnalysisTaskCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1GetVoiceToneAnalysisTaskCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.VoiceToneAnalysisTask != null) {
+    contents.VoiceToneAnalysisTask = deserializeAws_restJson1VoiceToneAnalysisTask(data.VoiceToneAnalysisTask, context);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1GetVoiceToneAnalysisTaskCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetVoiceToneAnalysisTaskCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.chimesdkvoice#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "BadRequestException":
+    case "com.amazonaws.chimesdkvoice#BadRequestException":
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.chimesdkvoice#ConflictException":
+      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.chimesdkvoice#ForbiddenException":
+      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.chimesdkvoice#NotFoundException":
+      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceFailureException":
+    case "com.amazonaws.chimesdkvoice#ServiceFailureException":
+      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.chimesdkvoice#ServiceUnavailableException":
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+    case "ThrottledClientException":
+    case "com.amazonaws.chimesdkvoice#ThrottledClientException":
+      throw await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context);
+    case "UnauthorizedClientException":
+    case "com.amazonaws.chimesdkvoice#UnauthorizedClientException":
+      throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_restJson1ListAvailableVoiceConnectorRegionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -5604,6 +6789,62 @@ const deserializeAws_restJson1ListSupportedPhoneNumberCountriesCommandError = as
   }
 };
 
+export const deserializeAws_restJson1ListTagsForResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTagsForResourceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListTagsForResourceCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.Tags != null) {
+    contents.Tags = deserializeAws_restJson1TagList(data.Tags, context);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1ListTagsForResourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTagsForResourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.chimesdkvoice#BadRequestException":
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.chimesdkvoice#ForbiddenException":
+      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.chimesdkvoice#NotFoundException":
+      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceFailureException":
+    case "com.amazonaws.chimesdkvoice#ServiceFailureException":
+      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.chimesdkvoice#ServiceUnavailableException":
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+    case "UnauthorizedClientException":
+    case "com.amazonaws.chimesdkvoice#UnauthorizedClientException":
+      throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_restJson1ListVoiceConnectorGroupsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -5743,6 +6984,133 @@ const deserializeAws_restJson1ListVoiceConnectorTerminationCredentialsCommandErr
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListVoiceConnectorTerminationCredentialsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.chimesdkvoice#BadRequestException":
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.chimesdkvoice#ForbiddenException":
+      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.chimesdkvoice#NotFoundException":
+      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceFailureException":
+    case "com.amazonaws.chimesdkvoice#ServiceFailureException":
+      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.chimesdkvoice#ServiceUnavailableException":
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+    case "ThrottledClientException":
+    case "com.amazonaws.chimesdkvoice#ThrottledClientException":
+      throw await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context);
+    case "UnauthorizedClientException":
+    case "com.amazonaws.chimesdkvoice#UnauthorizedClientException":
+      throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1ListVoiceProfileDomainsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListVoiceProfileDomainsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListVoiceProfileDomainsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.NextToken != null) {
+    contents.NextToken = __expectString(data.NextToken);
+  }
+  if (data.VoiceProfileDomains != null) {
+    contents.VoiceProfileDomains = deserializeAws_restJson1VoiceProfileDomainSummaryList(
+      data.VoiceProfileDomains,
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1ListVoiceProfileDomainsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListVoiceProfileDomainsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.chimesdkvoice#BadRequestException":
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.chimesdkvoice#ForbiddenException":
+      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.chimesdkvoice#NotFoundException":
+      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceFailureException":
+    case "com.amazonaws.chimesdkvoice#ServiceFailureException":
+      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.chimesdkvoice#ServiceUnavailableException":
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+    case "ThrottledClientException":
+    case "com.amazonaws.chimesdkvoice#ThrottledClientException":
+      throw await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context);
+    case "UnauthorizedClientException":
+    case "com.amazonaws.chimesdkvoice#UnauthorizedClientException":
+      throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1ListVoiceProfilesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListVoiceProfilesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListVoiceProfilesCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.NextToken != null) {
+    contents.NextToken = __expectString(data.NextToken);
+  }
+  if (data.VoiceProfiles != null) {
+    contents.VoiceProfiles = deserializeAws_restJson1VoiceProfileSummaryList(data.VoiceProfiles, context);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1ListVoiceProfilesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListVoiceProfilesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -6452,6 +7820,393 @@ const deserializeAws_restJson1SearchAvailablePhoneNumbersCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1StartSpeakerSearchTaskCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartSpeakerSearchTaskCommandOutput> => {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
+    return deserializeAws_restJson1StartSpeakerSearchTaskCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.SpeakerSearchTask != null) {
+    contents.SpeakerSearchTask = deserializeAws_restJson1SpeakerSearchTask(data.SpeakerSearchTask, context);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1StartSpeakerSearchTaskCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartSpeakerSearchTaskCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.chimesdkvoice#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "BadRequestException":
+    case "com.amazonaws.chimesdkvoice#BadRequestException":
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.chimesdkvoice#ConflictException":
+      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.chimesdkvoice#ForbiddenException":
+      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+    case "GoneException":
+    case "com.amazonaws.chimesdkvoice#GoneException":
+      throw await deserializeAws_restJson1GoneExceptionResponse(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.chimesdkvoice#NotFoundException":
+      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+    case "ResourceLimitExceededException":
+    case "com.amazonaws.chimesdkvoice#ResourceLimitExceededException":
+      throw await deserializeAws_restJson1ResourceLimitExceededExceptionResponse(parsedOutput, context);
+    case "ServiceFailureException":
+    case "com.amazonaws.chimesdkvoice#ServiceFailureException":
+      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.chimesdkvoice#ServiceUnavailableException":
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+    case "ThrottledClientException":
+    case "com.amazonaws.chimesdkvoice#ThrottledClientException":
+      throw await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context);
+    case "UnauthorizedClientException":
+    case "com.amazonaws.chimesdkvoice#UnauthorizedClientException":
+      throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+    case "UnprocessableEntityException":
+    case "com.amazonaws.chimesdkvoice#UnprocessableEntityException":
+      throw await deserializeAws_restJson1UnprocessableEntityExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1StartVoiceToneAnalysisTaskCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartVoiceToneAnalysisTaskCommandOutput> => {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
+    return deserializeAws_restJson1StartVoiceToneAnalysisTaskCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.VoiceToneAnalysisTask != null) {
+    contents.VoiceToneAnalysisTask = deserializeAws_restJson1VoiceToneAnalysisTask(data.VoiceToneAnalysisTask, context);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1StartVoiceToneAnalysisTaskCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartVoiceToneAnalysisTaskCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.chimesdkvoice#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "BadRequestException":
+    case "com.amazonaws.chimesdkvoice#BadRequestException":
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.chimesdkvoice#ConflictException":
+      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.chimesdkvoice#ForbiddenException":
+      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+    case "GoneException":
+    case "com.amazonaws.chimesdkvoice#GoneException":
+      throw await deserializeAws_restJson1GoneExceptionResponse(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.chimesdkvoice#NotFoundException":
+      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+    case "ResourceLimitExceededException":
+    case "com.amazonaws.chimesdkvoice#ResourceLimitExceededException":
+      throw await deserializeAws_restJson1ResourceLimitExceededExceptionResponse(parsedOutput, context);
+    case "ServiceFailureException":
+    case "com.amazonaws.chimesdkvoice#ServiceFailureException":
+      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.chimesdkvoice#ServiceUnavailableException":
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+    case "ThrottledClientException":
+    case "com.amazonaws.chimesdkvoice#ThrottledClientException":
+      throw await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context);
+    case "UnauthorizedClientException":
+    case "com.amazonaws.chimesdkvoice#UnauthorizedClientException":
+      throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+    case "UnprocessableEntityException":
+    case "com.amazonaws.chimesdkvoice#UnprocessableEntityException":
+      throw await deserializeAws_restJson1UnprocessableEntityExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1StopSpeakerSearchTaskCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopSpeakerSearchTaskCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return deserializeAws_restJson1StopSpeakerSearchTaskCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+const deserializeAws_restJson1StopSpeakerSearchTaskCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopSpeakerSearchTaskCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.chimesdkvoice#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "BadRequestException":
+    case "com.amazonaws.chimesdkvoice#BadRequestException":
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.chimesdkvoice#ConflictException":
+      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.chimesdkvoice#ForbiddenException":
+      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.chimesdkvoice#NotFoundException":
+      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceFailureException":
+    case "com.amazonaws.chimesdkvoice#ServiceFailureException":
+      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.chimesdkvoice#ServiceUnavailableException":
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+    case "ThrottledClientException":
+    case "com.amazonaws.chimesdkvoice#ThrottledClientException":
+      throw await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context);
+    case "UnauthorizedClientException":
+    case "com.amazonaws.chimesdkvoice#UnauthorizedClientException":
+      throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+    case "UnprocessableEntityException":
+    case "com.amazonaws.chimesdkvoice#UnprocessableEntityException":
+      throw await deserializeAws_restJson1UnprocessableEntityExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1StopVoiceToneAnalysisTaskCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopVoiceToneAnalysisTaskCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return deserializeAws_restJson1StopVoiceToneAnalysisTaskCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+const deserializeAws_restJson1StopVoiceToneAnalysisTaskCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopVoiceToneAnalysisTaskCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.chimesdkvoice#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "BadRequestException":
+    case "com.amazonaws.chimesdkvoice#BadRequestException":
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.chimesdkvoice#ConflictException":
+      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.chimesdkvoice#ForbiddenException":
+      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.chimesdkvoice#NotFoundException":
+      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceFailureException":
+    case "com.amazonaws.chimesdkvoice#ServiceFailureException":
+      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.chimesdkvoice#ServiceUnavailableException":
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+    case "ThrottledClientException":
+    case "com.amazonaws.chimesdkvoice#ThrottledClientException":
+      throw await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context);
+    case "UnauthorizedClientException":
+    case "com.amazonaws.chimesdkvoice#UnauthorizedClientException":
+      throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+    case "UnprocessableEntityException":
+    case "com.amazonaws.chimesdkvoice#UnprocessableEntityException":
+      throw await deserializeAws_restJson1UnprocessableEntityExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1TagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return deserializeAws_restJson1TagResourceCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+const deserializeAws_restJson1TagResourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.chimesdkvoice#BadRequestException":
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.chimesdkvoice#ForbiddenException":
+      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.chimesdkvoice#NotFoundException":
+      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+    case "ResourceLimitExceededException":
+    case "com.amazonaws.chimesdkvoice#ResourceLimitExceededException":
+      throw await deserializeAws_restJson1ResourceLimitExceededExceptionResponse(parsedOutput, context);
+    case "ServiceFailureException":
+    case "com.amazonaws.chimesdkvoice#ServiceFailureException":
+      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.chimesdkvoice#ServiceUnavailableException":
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+    case "UnauthorizedClientException":
+    case "com.amazonaws.chimesdkvoice#UnauthorizedClientException":
+      throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1UntagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return deserializeAws_restJson1UntagResourceCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+const deserializeAws_restJson1UntagResourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.chimesdkvoice#BadRequestException":
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.chimesdkvoice#ForbiddenException":
+      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.chimesdkvoice#NotFoundException":
+      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceFailureException":
+    case "com.amazonaws.chimesdkvoice#ServiceFailureException":
+      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.chimesdkvoice#ServiceUnavailableException":
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+    case "UnauthorizedClientException":
+    case "com.amazonaws.chimesdkvoice#UnauthorizedClientException":
+      throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_restJson1UpdateGlobalSettingsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -6992,6 +8747,136 @@ const deserializeAws_restJson1UpdateVoiceConnectorGroupCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1UpdateVoiceProfileCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateVoiceProfileCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1UpdateVoiceProfileCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.VoiceProfile != null) {
+    contents.VoiceProfile = deserializeAws_restJson1VoiceProfile(data.VoiceProfile, context);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1UpdateVoiceProfileCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateVoiceProfileCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.chimesdkvoice#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "BadRequestException":
+    case "com.amazonaws.chimesdkvoice#BadRequestException":
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.chimesdkvoice#ConflictException":
+      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.chimesdkvoice#ForbiddenException":
+      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+    case "GoneException":
+    case "com.amazonaws.chimesdkvoice#GoneException":
+      throw await deserializeAws_restJson1GoneExceptionResponse(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.chimesdkvoice#NotFoundException":
+      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceFailureException":
+    case "com.amazonaws.chimesdkvoice#ServiceFailureException":
+      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.chimesdkvoice#ServiceUnavailableException":
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+    case "ThrottledClientException":
+    case "com.amazonaws.chimesdkvoice#ThrottledClientException":
+      throw await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context);
+    case "UnauthorizedClientException":
+    case "com.amazonaws.chimesdkvoice#UnauthorizedClientException":
+      throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1UpdateVoiceProfileDomainCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateVoiceProfileDomainCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1UpdateVoiceProfileDomainCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.VoiceProfileDomain != null) {
+    contents.VoiceProfileDomain = deserializeAws_restJson1VoiceProfileDomain(data.VoiceProfileDomain, context);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1UpdateVoiceProfileDomainCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateVoiceProfileDomainCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.chimesdkvoice#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "BadRequestException":
+    case "com.amazonaws.chimesdkvoice#BadRequestException":
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.chimesdkvoice#ForbiddenException":
+      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.chimesdkvoice#NotFoundException":
+      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceFailureException":
+    case "com.amazonaws.chimesdkvoice#ServiceFailureException":
+      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.chimesdkvoice#ServiceUnavailableException":
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+    case "ThrottledClientException":
+    case "com.amazonaws.chimesdkvoice#ThrottledClientException":
+      throw await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context);
+    case "UnauthorizedClientException":
+    case "com.amazonaws.chimesdkvoice#UnauthorizedClientException":
+      throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_restJson1ValidateE911AddressCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -7137,6 +9022,25 @@ const deserializeAws_restJson1ForbiddenExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
+const deserializeAws_restJson1GoneExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<GoneException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  if (data.Code != null) {
+    contents.Code = __expectString(data.Code);
+  }
+  if (data.Message != null) {
+    contents.Message = __expectString(data.Message);
+  }
+  const exception = new GoneException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
 const deserializeAws_restJson1NotFoundExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -7251,6 +9155,25 @@ const deserializeAws_restJson1UnauthorizedClientExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
+const deserializeAws_restJson1UnprocessableEntityExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<UnprocessableEntityException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  if (data.Code != null) {
+    contents.Code = __expectString(data.Code);
+  }
+  if (data.Message != null) {
+    contents.Message = __expectString(data.Message);
+  }
+  const exception = new UnprocessableEntityException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
 const serializeAws_restJson1AlexaSkillIdList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
@@ -7353,6 +9276,16 @@ const serializeAws_restJson1LoggingConfiguration = (input: LoggingConfiguration,
   };
 };
 
+const serializeAws_restJson1MediaInsightsConfiguration = (
+  input: MediaInsightsConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ConfigurationArn != null && { ConfigurationArn: input.ConfigurationArn }),
+    ...(input.Disabled != null && { Disabled: input.Disabled }),
+  };
+};
+
 const serializeAws_restJson1NonEmptyStringList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
@@ -7400,6 +9333,15 @@ const serializeAws_restJson1SensitiveStringList = (input: string[], context: __S
     .map((entry) => {
       return entry;
     });
+};
+
+const serializeAws_restJson1ServerSideEncryptionConfiguration = (
+  input: ServerSideEncryptionConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.KmsKeyArn != null && { KmsKeyArn: input.KmsKeyArn }),
+  };
 };
 
 const serializeAws_restJson1SipHeadersMap = (input: Record<string, string>, context: __SerdeContext): any => {
@@ -7507,6 +9449,12 @@ const serializeAws_restJson1StreamingConfiguration = (input: StreamingConfigurat
   return {
     ...(input.DataRetentionInHours != null && { DataRetentionInHours: input.DataRetentionInHours }),
     ...(input.Disabled != null && { Disabled: input.Disabled }),
+    ...(input.MediaInsightsConfiguration != null && {
+      MediaInsightsConfiguration: serializeAws_restJson1MediaInsightsConfiguration(
+        input.MediaInsightsConfiguration,
+        context
+      ),
+    }),
     ...(input.StreamingNotificationTargets != null && {
       StreamingNotificationTargets: serializeAws_restJson1StreamingNotificationTargetList(
         input.StreamingNotificationTargets,
@@ -7541,6 +9489,29 @@ const serializeAws_restJson1StringList = (input: string[], context: __SerdeConte
     .filter((e: any) => e != null)
     .map((entry) => {
       return entry;
+    });
+};
+
+const serializeAws_restJson1Tag = (input: Tag, context: __SerdeContext): any => {
+  return {
+    ...(input.Key != null && { Key: input.Key }),
+    ...(input.Value != null && { Value: input.Value }),
+  };
+};
+
+const serializeAws_restJson1TagKeyList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
+const serializeAws_restJson1TagList = (input: Tag[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1Tag(entry, context);
     });
 };
 
@@ -7626,6 +9597,14 @@ const deserializeAws_restJson1AlexaSkillIdList = (output: any, context: __SerdeC
       return __expectString(entry) as any;
     });
   return retVal;
+};
+
+const deserializeAws_restJson1CallDetails = (output: any, context: __SerdeContext): CallDetails => {
+  return {
+    IsCaller: __expectBoolean(output.IsCaller),
+    TransactionId: __expectString(output.TransactionId),
+    VoiceConnectorId: __expectString(output.VoiceConnectorId),
+  } as any;
 };
 
 const deserializeAws_restJson1CallingRegionList = (output: any, context: __SerdeContext): string[] => {
@@ -7737,6 +9716,16 @@ const deserializeAws_restJson1LoggingConfiguration = (output: any, context: __Se
   return {
     EnableMediaMetricLogs: __expectBoolean(output.EnableMediaMetricLogs),
     EnableSIPLogs: __expectBoolean(output.EnableSIPLogs),
+  } as any;
+};
+
+const deserializeAws_restJson1MediaInsightsConfiguration = (
+  output: any,
+  context: __SerdeContext
+): MediaInsightsConfiguration => {
+  return {
+    ConfigurationArn: __expectString(output.ConfigurationArn),
+    Disabled: __expectBoolean(output.Disabled),
   } as any;
 };
 
@@ -8057,6 +10046,15 @@ const deserializeAws_restJson1SensitiveStringList = (output: any, context: __Ser
   return retVal;
 };
 
+const deserializeAws_restJson1ServerSideEncryptionConfiguration = (
+  output: any,
+  context: __SerdeContext
+): ServerSideEncryptionConfiguration => {
+  return {
+    KmsKeyArn: __expectString(output.KmsKeyArn),
+  } as any;
+};
+
 const deserializeAws_restJson1SipMediaApplication = (output: any, context: __SerdeContext): SipMediaApplication => {
   return {
     AwsRegion: __expectString(output.AwsRegion),
@@ -8207,6 +10205,62 @@ const deserializeAws_restJson1SipRuleTargetApplicationList = (
   return retVal;
 };
 
+const deserializeAws_restJson1SpeakerSearchDetails = (output: any, context: __SerdeContext): SpeakerSearchDetails => {
+  return {
+    Results:
+      output.Results != null ? deserializeAws_restJson1SpeakerSearchResultList(output.Results, context) : undefined,
+    VoiceprintGenerationStatus: __expectString(output.VoiceprintGenerationStatus),
+  } as any;
+};
+
+const deserializeAws_restJson1SpeakerSearchResult = (output: any, context: __SerdeContext): SpeakerSearchResult => {
+  return {
+    ConfidenceScore: __limitedParseFloat32(output.ConfidenceScore),
+    VoiceProfileId: __expectString(output.VoiceProfileId),
+  } as any;
+};
+
+const deserializeAws_restJson1SpeakerSearchResultList = (
+  output: any,
+  context: __SerdeContext
+): SpeakerSearchResult[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1SpeakerSearchResult(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1SpeakerSearchTask = (output: any, context: __SerdeContext): SpeakerSearchTask => {
+  return {
+    CallDetails:
+      output.CallDetails != null ? deserializeAws_restJson1CallDetails(output.CallDetails, context) : undefined,
+    CreatedTimestamp:
+      output.CreatedTimestamp != null
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.CreatedTimestamp))
+        : undefined,
+    SpeakerSearchDetails:
+      output.SpeakerSearchDetails != null
+        ? deserializeAws_restJson1SpeakerSearchDetails(output.SpeakerSearchDetails, context)
+        : undefined,
+    SpeakerSearchTaskId: __expectString(output.SpeakerSearchTaskId),
+    SpeakerSearchTaskStatus: __expectString(output.SpeakerSearchTaskStatus),
+    StartedTimestamp:
+      output.StartedTimestamp != null
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.StartedTimestamp))
+        : undefined,
+    StatusMessage: __expectString(output.StatusMessage),
+    UpdatedTimestamp:
+      output.UpdatedTimestamp != null
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.UpdatedTimestamp))
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1StreamingConfiguration = (
   output: any,
   context: __SerdeContext
@@ -8214,6 +10268,10 @@ const deserializeAws_restJson1StreamingConfiguration = (
   return {
     DataRetentionInHours: __expectInt32(output.DataRetentionInHours),
     Disabled: __expectBoolean(output.Disabled),
+    MediaInsightsConfiguration:
+      output.MediaInsightsConfiguration != null
+        ? deserializeAws_restJson1MediaInsightsConfiguration(output.MediaInsightsConfiguration, context)
+        : undefined,
     StreamingNotificationTargets:
       output.StreamingNotificationTargets != null
         ? deserializeAws_restJson1StreamingNotificationTargetList(output.StreamingNotificationTargets, context)
@@ -8253,6 +10311,25 @@ const deserializeAws_restJson1StringList = (output: any, context: __SerdeContext
         return null as any;
       }
       return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1Tag = (output: any, context: __SerdeContext): Tag => {
+  return {
+    Key: __expectString(output.Key),
+    Value: __expectString(output.Value),
+  } as any;
+};
+
+const deserializeAws_restJson1TagList = (output: any, context: __SerdeContext): Tag[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1Tag(entry, context);
     });
   return retVal;
 };
@@ -8385,6 +10462,139 @@ const deserializeAws_restJson1VoiceConnectorSettings = (
 ): VoiceConnectorSettings => {
   return {
     CdrBucket: __expectString(output.CdrBucket),
+  } as any;
+};
+
+const deserializeAws_restJson1VoiceProfile = (output: any, context: __SerdeContext): VoiceProfile => {
+  return {
+    CreatedTimestamp:
+      output.CreatedTimestamp != null
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.CreatedTimestamp))
+        : undefined,
+    ExpirationTimestamp:
+      output.ExpirationTimestamp != null
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.ExpirationTimestamp))
+        : undefined,
+    UpdatedTimestamp:
+      output.UpdatedTimestamp != null
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.UpdatedTimestamp))
+        : undefined,
+    VoiceProfileArn: __expectString(output.VoiceProfileArn),
+    VoiceProfileDomainId: __expectString(output.VoiceProfileDomainId),
+    VoiceProfileId: __expectString(output.VoiceProfileId),
+  } as any;
+};
+
+const deserializeAws_restJson1VoiceProfileDomain = (output: any, context: __SerdeContext): VoiceProfileDomain => {
+  return {
+    CreatedTimestamp:
+      output.CreatedTimestamp != null
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.CreatedTimestamp))
+        : undefined,
+    Description: __expectString(output.Description),
+    Name: __expectString(output.Name),
+    ServerSideEncryptionConfiguration:
+      output.ServerSideEncryptionConfiguration != null
+        ? deserializeAws_restJson1ServerSideEncryptionConfiguration(output.ServerSideEncryptionConfiguration, context)
+        : undefined,
+    UpdatedTimestamp:
+      output.UpdatedTimestamp != null
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.UpdatedTimestamp))
+        : undefined,
+    VoiceProfileDomainArn: __expectString(output.VoiceProfileDomainArn),
+    VoiceProfileDomainId: __expectString(output.VoiceProfileDomainId),
+  } as any;
+};
+
+const deserializeAws_restJson1VoiceProfileDomainSummary = (
+  output: any,
+  context: __SerdeContext
+): VoiceProfileDomainSummary => {
+  return {
+    CreatedTimestamp:
+      output.CreatedTimestamp != null
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.CreatedTimestamp))
+        : undefined,
+    Description: __expectString(output.Description),
+    Name: __expectString(output.Name),
+    UpdatedTimestamp:
+      output.UpdatedTimestamp != null
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.UpdatedTimestamp))
+        : undefined,
+    VoiceProfileDomainArn: __expectString(output.VoiceProfileDomainArn),
+    VoiceProfileDomainId: __expectString(output.VoiceProfileDomainId),
+  } as any;
+};
+
+const deserializeAws_restJson1VoiceProfileDomainSummaryList = (
+  output: any,
+  context: __SerdeContext
+): VoiceProfileDomainSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1VoiceProfileDomainSummary(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1VoiceProfileSummary = (output: any, context: __SerdeContext): VoiceProfileSummary => {
+  return {
+    CreatedTimestamp:
+      output.CreatedTimestamp != null
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.CreatedTimestamp))
+        : undefined,
+    ExpirationTimestamp:
+      output.ExpirationTimestamp != null
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.ExpirationTimestamp))
+        : undefined,
+    UpdatedTimestamp:
+      output.UpdatedTimestamp != null
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.UpdatedTimestamp))
+        : undefined,
+    VoiceProfileArn: __expectString(output.VoiceProfileArn),
+    VoiceProfileDomainId: __expectString(output.VoiceProfileDomainId),
+    VoiceProfileId: __expectString(output.VoiceProfileId),
+  } as any;
+};
+
+const deserializeAws_restJson1VoiceProfileSummaryList = (
+  output: any,
+  context: __SerdeContext
+): VoiceProfileSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1VoiceProfileSummary(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1VoiceToneAnalysisTask = (output: any, context: __SerdeContext): VoiceToneAnalysisTask => {
+  return {
+    CallDetails:
+      output.CallDetails != null ? deserializeAws_restJson1CallDetails(output.CallDetails, context) : undefined,
+    CreatedTimestamp:
+      output.CreatedTimestamp != null
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.CreatedTimestamp))
+        : undefined,
+    StartedTimestamp:
+      output.StartedTimestamp != null
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.StartedTimestamp))
+        : undefined,
+    StatusMessage: __expectString(output.StatusMessage),
+    UpdatedTimestamp:
+      output.UpdatedTimestamp != null
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.UpdatedTimestamp))
+        : undefined,
+    VoiceToneAnalysisTaskId: __expectString(output.VoiceToneAnalysisTaskId),
+    VoiceToneAnalysisTaskStatus: __expectString(output.VoiceToneAnalysisTaskStatus),
   } as any;
 };
 

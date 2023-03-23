@@ -15,34 +15,31 @@ import {
 
 import { ChimeSDKVoiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKVoiceClient";
 import {
-  GetVoiceConnectorStreamingConfigurationRequest,
-  GetVoiceConnectorStreamingConfigurationResponse,
-  GetVoiceConnectorStreamingConfigurationResponseFilterSensitiveLog,
+  GetVoiceProfileRequest,
+  GetVoiceProfileResponse,
+  GetVoiceProfileResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1GetVoiceConnectorStreamingConfigurationCommand,
-  serializeAws_restJson1GetVoiceConnectorStreamingConfigurationCommand,
+  deserializeAws_restJson1GetVoiceProfileCommand,
+  serializeAws_restJson1GetVoiceProfileCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
  * @public
  *
- * The input for {@link GetVoiceConnectorStreamingConfigurationCommand}.
+ * The input for {@link GetVoiceProfileCommand}.
  */
-export interface GetVoiceConnectorStreamingConfigurationCommandInput
-  extends GetVoiceConnectorStreamingConfigurationRequest {}
+export interface GetVoiceProfileCommandInput extends GetVoiceProfileRequest {}
 /**
  * @public
  *
- * The output of {@link GetVoiceConnectorStreamingConfigurationCommand}.
+ * The output of {@link GetVoiceProfileCommand}.
  */
-export interface GetVoiceConnectorStreamingConfigurationCommandOutput
-  extends GetVoiceConnectorStreamingConfigurationResponse,
-    __MetadataBearer {}
+export interface GetVoiceProfileCommandOutput extends GetVoiceProfileResponse, __MetadataBearer {}
 
-export class GetVoiceConnectorStreamingConfigurationCommand extends $Command<
-  GetVoiceConnectorStreamingConfigurationCommandInput,
-  GetVoiceConnectorStreamingConfigurationCommandOutput,
+export class GetVoiceProfileCommand extends $Command<
+  GetVoiceProfileCommandInput,
+  GetVoiceProfileCommandOutput,
   ChimeSDKVoiceClientResolvedConfig
 > {
   // Start section: command_properties
@@ -60,7 +57,7 @@ export class GetVoiceConnectorStreamingConfigurationCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: GetVoiceConnectorStreamingConfigurationCommandInput) {
+  constructor(readonly input: GetVoiceProfileCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -73,29 +70,23 @@ export class GetVoiceConnectorStreamingConfigurationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeSDKVoiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetVoiceConnectorStreamingConfigurationCommandInput,
-    GetVoiceConnectorStreamingConfigurationCommandOutput
-  > {
+  ): Handler<GetVoiceProfileCommandInput, GetVoiceProfileCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(
-        configuration,
-        GetVoiceConnectorStreamingConfigurationCommand.getEndpointParameterInstructions()
-      )
+      getEndpointPlugin(configuration, GetVoiceProfileCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "ChimeSDKVoiceClient";
-    const commandName = "GetVoiceConnectorStreamingConfigurationCommand";
+    const commandName = "GetVoiceProfileCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: GetVoiceConnectorStreamingConfigurationResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: GetVoiceProfileResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,21 +99,15 @@ export class GetVoiceConnectorStreamingConfigurationCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(
-    input: GetVoiceConnectorStreamingConfigurationCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetVoiceConnectorStreamingConfigurationCommand(input, context);
+  private serialize(input: GetVoiceProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1GetVoiceProfileCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetVoiceConnectorStreamingConfigurationCommandOutput> {
-    return deserializeAws_restJson1GetVoiceConnectorStreamingConfigurationCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetVoiceProfileCommandOutput> {
+    return deserializeAws_restJson1GetVoiceProfileCommand(output, context);
   }
 
   // Start section: command_body_extra
