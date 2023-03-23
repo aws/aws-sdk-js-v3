@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.298.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.297.0...v3.298.0) (2023-03-23)
+
+
+### Features
+
+* **client-codeartifact:** Repository CreationTime is added to the CreateRepository and ListRepositories API responses. ([7871c83](https://github.com/aws/aws-sdk-js-v3/commit/7871c838bc0483ed8a3bdef0d17dbba7c7e19912))
+* **clients:** remove generated log filters for data with no sensitive data ([#4544](https://github.com/aws/aws-sdk-js-v3/issues/4544)) ([569155d](https://github.com/aws/aws-sdk-js-v3/commit/569155d6cce710b102cefa7511ba1bc1d28bc87e))
+
+
+
+
+
 # [3.297.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.296.0...v3.297.0) (2023-03-22)
 
 **Note:** Version bump only for package @aws-sdk/client-codeartifact

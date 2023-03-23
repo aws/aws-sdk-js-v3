@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.298.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.297.0...v3.298.0) (2023-03-23)
+
+
+### Features
+
+* **client-chime-sdk-identity:** AppInstanceBots can be used to add a bot powered by Amazon Lex to chat channels.  ExpirationSettings provides automatic resource deletion for AppInstanceUsers. ([f12358e](https://github.com/aws/aws-sdk-js-v3/commit/f12358ef2448cb3ff90fce490e8221226bdc9ff9))
+* **clients:** remove generated log filters for data with no sensitive data ([#4544](https://github.com/aws/aws-sdk-js-v3/issues/4544)) ([569155d](https://github.com/aws/aws-sdk-js-v3/commit/569155d6cce710b102cefa7511ba1bc1d28bc87e))
+
+
+
+
+
 # [3.297.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.296.0...v3.297.0) (2023-03-22)
 
 **Note:** Version bump only for package @aws-sdk/client-chime-sdk-identity

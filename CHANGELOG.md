@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.298.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.297.0...v3.298.0) (2023-03-23)
+
+
+### Features
+
+* **client-batch:** This feature allows Batch to support configuration of ephemeral storage size for jobs running on FARGATE ([5152fa9](https://github.com/aws/aws-sdk-js-v3/commit/5152fa9be3adb3e0c68094358bed044f0f51ca76))
+* **client-chime-sdk-identity:** AppInstanceBots can be used to add a bot powered by Amazon Lex to chat channels.  ExpirationSettings provides automatic resource deletion for AppInstanceUsers. ([f12358e](https://github.com/aws/aws-sdk-js-v3/commit/f12358ef2448cb3ff90fce490e8221226bdc9ff9))
+* **client-chime-sdk-media-pipelines:** This release adds Amazon Chime SDK call analytics. Call analytics include voice analytics, which provides speaker search and voice tone analysis. These capabilities can be used with Amazon Transcribe and Transcribe Call Analytics to generate machine-learning-powered insights from real-time audio. ([1e3a44a](https://github.com/aws/aws-sdk-js-v3/commit/1e3a44abab30e58d6173db8f1cde2029c060e508))
+* **client-chime-sdk-messaging:** ExpirationSettings provides automatic resource deletion for Channels. ([f896a63](https://github.com/aws/aws-sdk-js-v3/commit/f896a6307fcc27813f2ebaf57a52731df20971fd))
+* **client-chime-sdk-voice:** This release adds Amazon Chime SDK call analytics. Call analytics include voice analytics, which provides speaker search and voice tone analysis. These capabilities can be used with Amazon Transcribe and Transcribe Call Analytics to generate machine-learning-powered insights from real-time audio. ([e298928](https://github.com/aws/aws-sdk-js-v3/commit/e2989287d557c3e38ed3812de17130b027cbabf5))
+* **client-codeartifact:** Repository CreationTime is added to the CreateRepository and ListRepositories API responses. ([7871c83](https://github.com/aws/aws-sdk-js-v3/commit/7871c838bc0483ed8a3bdef0d17dbba7c7e19912))
+* **client-guardduty:** Adds AutoEnableOrganizationMembers attribute to DescribeOrganizationConfiguration and UpdateOrganizationConfiguration APIs. ([28b5caf](https://github.com/aws/aws-sdk-js-v3/commit/28b5caf70959eabd2e7dee7bb48de43099a0de02))
+* **client-ivs-realtime:** Initial release of the Amazon Interactive Video Service RealTime API. ([6833ff3](https://github.com/aws/aws-sdk-js-v3/commit/6833ff3d59c1b7ab8233dcd4c680f12567fb654d))
+* **client-mediaconvert:** AWS Elemental MediaConvert SDK now supports passthrough of ID3v2 tags for audio inputs to audio-only HLS outputs. ([6a83a5c](https://github.com/aws/aws-sdk-js-v3/commit/6a83a5c5388f29bfad3c0a3bd3ace0f05d52af19))
+* **client-sagemaker:** Amazon SageMaker Autopilot adds two new APIs - CreateAutoMLJobV2 and DescribeAutoMLJobV2. Amazon SageMaker Notebook Instances now supports the ml.geospatial.interactive instance type. ([aa94fc4](https://github.com/aws/aws-sdk-js-v3/commit/aa94fc4a6c48bded973fc135580a5302649e98d6))
+* **client-servicediscovery:** Reverted the throttling exception RequestLimitExceeded for AWS Cloud Map APIs introduced in SDK version 1.12.424 2023-03-09 to previous exception specified in the ErrorCode. ([a460948](https://github.com/aws/aws-sdk-js-v3/commit/a46094886005e2ce5c752ab7ae3f4d8906803ce2))
+* **client-textract:** The AnalyzeDocument - Tables feature adds support for new elements in the API: table titles, footers, section titles, summary cells/tables, and table type. ([bf48e83](https://github.com/aws/aws-sdk-js-v3/commit/bf48e831dbdcf711c090d64c13c0582a280ee241))
+* **clients:** remove generated log filters for data with no sensitive data ([#4544](https://github.com/aws/aws-sdk-js-v3/issues/4544)) ([569155d](https://github.com/aws/aws-sdk-js-v3/commit/569155d6cce710b102cefa7511ba1bc1d28bc87e))
+* **clients:** update client endpoints as of 2023-03-23 ([9177f4c](https://github.com/aws/aws-sdk-js-v3/commit/9177f4c1a7ec60cf9e3fc0ce8f38ea908eedec11))
+
+
+
+
+
 # [3.297.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.296.0...v3.297.0) (2023-03-22)
 
 

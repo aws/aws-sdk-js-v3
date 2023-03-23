@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.298.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.297.0...v3.298.0) (2023-03-23)
+
+**Note:** Version bump only for package @aws-sdk/aws-client-api-test
+
+
+
+
+
 # [3.297.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.296.0...v3.297.0) (2023-03-22)
 
 **Note:** Version bump only for package @aws-sdk/aws-client-api-test

@@ -88,7 +88,7 @@
     tslib "^1.11.1"
 
 "@aws-sdk/client-sts@file:clients/client-sts":
-  version "3.297.0"
+  version "3.298.0"
   dependencies:
     "@aws-crypto/sha256-browser" "3.0.0"
     "@aws-crypto/sha256-js" "3.0.0"
@@ -11616,6 +11616,11 @@ typescript@next:
   version "5.0.0-dev.20230116"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.0.0-dev.20230116.tgz#7eb84b0b54f7c0a54dba03349ad84421d74a0f76"
   integrity sha512-J6UMkVT1XI6VtmmL316wTW6DNk5OiMit402bFx6PGr6Ag4QgUmMiS2rOPj0TZHJCT5/8dzuPQzd7pZUtLxuW6A==
+
+typescript@~4.6.2:
+  version "4.6.4"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.6.4.tgz#caa78bbc3a59e6a5c510d35703f6a09877ce45e9"
+  integrity sha512-9ia/jWHIEbo49HfjrLGfKbZSuWo9iTMwXO+Ca3pRsSpbsMbc7/IU8NKdCZVRRBafVPGnoJeFL76ZOAA84I9fEg==
 
 typescript@~4.8.4:
   version "4.8.4"
