@@ -3960,6 +3960,10 @@ const deserializeAws_restJson1RepositoryDescription = (output: any, context: __S
   return {
     administratorAccount: __expectString(output.administratorAccount),
     arn: __expectString(output.arn),
+    createdTime:
+      output.createdTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdTime)))
+        : undefined,
     description: __expectString(output.description),
     domainName: __expectString(output.domainName),
     domainOwner: __expectString(output.domainOwner),
@@ -4005,6 +4009,10 @@ const deserializeAws_restJson1RepositorySummary = (output: any, context: __Serde
   return {
     administratorAccount: __expectString(output.administratorAccount),
     arn: __expectString(output.arn),
+    createdTime:
+      output.createdTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdTime)))
+        : undefined,
     description: __expectString(output.description),
     domainName: __expectString(output.domainName),
     domainOwner: __expectString(output.domainOwner),

@@ -145,6 +145,10 @@ export interface AssociateExternalConnectionRequest {
    *                   <code>public:maven-commonsware</code> - for the CommonsWare Android repository.
    *         </p>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>public:maven-clojars</code> - for the Clojars repository. </p>
+   *             </li>
    *          </ul>
    */
   externalConnection: string | undefined;
@@ -292,6 +296,11 @@ export interface RepositoryDescription {
    *     </p>
    */
   externalConnections?: RepositoryExternalConnectionInfo[];
+
+  /**
+   * <p>A timestamp that represents the date and time the repository was created.</p>
+   */
+  createdTime?: Date;
 }
 
 /**
@@ -583,9 +592,7 @@ export interface CopyPackageVersionsRequest {
    *         </p>
    *             </li>
    *             <li>
-   *                <p>
-   *           The namespace of a generic package is it’s <code>namespace</code>.
-   *         </p>
+   *                <p> The namespace of a generic package is its <code>namespace</code>. </p>
    *             </li>
    *          </ul>
    */
@@ -1133,14 +1140,15 @@ export interface DeletePackageRequest {
    *         </p>
    *             </li>
    *             <li>
-   *                <p>
-   *           The namespace of an npm package is its <code>scope</code>.
-   *         </p>
+   *                <p> The namespace of an npm package is its <code>scope</code>.</p>
    *             </li>
    *             <li>
    *                <p>
    *           Python and NuGet packages do not contain corresponding components, packages of those formats do not have a namespace.
    *         </p>
+   *             </li>
+   *             <li>
+   *                <p> The namespace of a generic package is its <code>namespace</code>. </p>
    *             </li>
    *          </ul>
    */
@@ -1217,9 +1225,7 @@ export interface PackageSummary {
    *         </p>
    *             </li>
    *             <li>
-   *                <p>
-   *           The namespace of a generic package is it’s <code>namespace</code>.
-   *         </p>
+   *                <p> The namespace of a generic package is its <code>namespace</code>. </p>
    *             </li>
    *          </ul>
    */
@@ -1306,9 +1312,7 @@ export interface DeletePackageVersionsRequest {
    *           </p>
    *             </li>
    *             <li>
-   *                <p>
-   *             The namespace of a generic package is it’s <code>namespace</code>.
-   *           </p>
+   *                <p> The namespace of a generic package is its <code>namespace</code>. </p>
    *             </li>
    *          </ul>
    */
@@ -1554,9 +1558,7 @@ export interface DescribePackageRequest {
    *         </p>
    *             </li>
    *             <li>
-   *                <p>
-   *           The namespace of a generic package is it’s <code>namespace</code>.
-   *         </p>
+   *                <p> The namespace of a generic package is its <code>namespace</code>. </p>
    *             </li>
    *          </ul>
    */
@@ -1599,9 +1601,7 @@ export interface PackageDescription {
    *         </p>
    *             </li>
    *             <li>
-   *                <p>
-   *           The namespace of a generic package is it’s <code>namespace</code>.
-   *         </p>
+   *                <p> The namespace of a generic package is its <code>namespace</code>. </p>
    *             </li>
    *          </ul>
    */
@@ -1681,9 +1681,7 @@ export interface DescribePackageVersionRequest {
    *         </p>
    *             </li>
    *             <li>
-   *                <p>
-   *           The namespace of a generic package is it’s <code>namespace</code>.
-   *         </p>
+   *                <p> The namespace of a generic package is its <code>namespace</code>. </p>
    *             </li>
    *          </ul>
    */
@@ -1804,9 +1802,7 @@ export interface PackageVersionDescription {
    *         </p>
    *             </li>
    *             <li>
-   *                <p>
-   *           The namespace of a generic package is it’s <code>namespace</code>.
-   *         </p>
+   *                <p> The namespace of a generic package is its <code>namespace</code>. </p>
    *             </li>
    *          </ul>
    */
@@ -2040,9 +2036,7 @@ export interface DisposePackageVersionsRequest {
    *         </p>
    *             </li>
    *             <li>
-   *                <p>
-   *           The namespace of a generic package is it’s <code>namespace</code>.
-   *         </p>
+   *                <p> The namespace of a generic package is its <code>namespace</code>. </p>
    *             </li>
    *          </ul>
    */
@@ -2262,9 +2256,7 @@ export interface GetPackageVersionAssetRequest {
    *         </p>
    *             </li>
    *             <li>
-   *                <p>
-   *           The namespace of a generic package is it’s <code>namespace</code>.
-   *         </p>
+   *                <p> The namespace of a generic package is its <code>namespace</code>. </p>
    *             </li>
    *          </ul>
    */
@@ -2368,20 +2360,11 @@ export interface GetPackageVersionReadmeRequest {
    *       namespace depends on its type. For example:</p>
    *          <ul>
    *             <li>
-   *                <p>
-   *           The namespace of a Maven package version is its <code>groupId</code>.
-   *         </p>
+   *                <p> The namespace of an npm package version is its <code>scope</code>. </p>
    *             </li>
    *             <li>
-   *                <p>
-   *           The namespace of an npm package version is its <code>scope</code>.
-   *         </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *           Python and NuGet package versions do not contain a corresponding component, package versions
-   *           of those formats do not have a namespace.
-   *         </p>
+   *                <p> Python and NuGet package versions do not contain a corresponding component, package
+   *           versions of those formats do not have a namespace. </p>
    *             </li>
    *          </ul>
    */
@@ -2693,9 +2676,7 @@ export interface ListPackagesRequest {
    *         </p>
    *             </li>
    *             <li>
-   *                <p>
-   *           The namespace of a generic package is it’s <code>namespace</code>.
-   *         </p>
+   *                <p> The namespace of a generic package is its <code>namespace</code>. </p>
    *             </li>
    *          </ul>
    */
@@ -2811,9 +2792,7 @@ export interface ListPackageVersionAssetsRequest {
    *         </p>
    *             </li>
    *             <li>
-   *                <p>
-   *           The namespace of a generic package is it’s <code>namespace</code>.
-   *         </p>
+   *                <p> The namespace of a generic package is its <code>namespace</code>. </p>
    *             </li>
    *          </ul>
    */
@@ -2973,9 +2952,7 @@ export interface ListPackageVersionDependenciesRequest {
    *         </p>
    *             </li>
    *             <li>
-   *                <p>
-   *           The namespace of a generic package is it’s <code>namespace</code>.
-   *         </p>
+   *                <p> The namespace of a generic package is its <code>namespace</code>. </p>
    *             </li>
    *          </ul>
    */
@@ -3207,9 +3184,7 @@ export interface ListPackageVersionsRequest {
    *         </p>
    *             </li>
    *             <li>
-   *                <p>
-   *           The namespace of a generic package is it’s <code>namespace</code>.
-   *         </p>
+   *                <p> The namespace of a generic package is its <code>namespace</code>. </p>
    *             </li>
    *          </ul>
    */
@@ -3445,6 +3420,11 @@ export interface RepositorySummary {
    *     </p>
    */
   description?: string;
+
+  /**
+   * <p>A timestamp that represents the date and time the repository was created.</p>
+   */
+  createdTime?: Date;
 }
 
 /**
@@ -3609,8 +3589,8 @@ export interface PublishPackageVersionRequest {
 
   /**
    * <p>The SHA256 hash of the <code>assetContent</code> to publish. This value must be calculated
-   *       by the caller and provided with the
-   *       request.</p>
+   *       by the caller and provided with the request (see <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/using-generic.html#publishing-generic-packages">Publishing a generic package</a> in the <i>CodeArtifact User
+   *         Guide</i>).</p>
    *          <p>This value is used as an integrity check to verify that the <code>assetContent</code> has
    *       not changed after it was originally sent.</p>
    */
@@ -3619,7 +3599,7 @@ export interface PublishPackageVersionRequest {
   /**
    * <p>Specifies whether the package version should remain in the <code>unfinished</code>
    *       state. If omitted, the package version status will be set to <code>Published</code> (see
-   *         <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/packages-overview.html#package-version-status.html#package-version-status">Package version status</a> in the <i>CodeArtifact User Guide</i>).</p>
+   *         <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/packages-overview.html#package-version-status">Package version status</a> in the <i>CodeArtifact User Guide</i>).</p>
    *          <p>Valid values: <code>unfinished</code>
    *          </p>
    */
@@ -3758,9 +3738,7 @@ export interface PutPackageOriginConfigurationRequest {
    *         </p>
    *             </li>
    *             <li>
-   *                <p>
-   *           The namespace of a generic package is it’s <code>namespace</code>.
-   *         </p>
+   *                <p> The namespace of a generic package is its <code>namespace</code>. </p>
    *             </li>
    *          </ul>
    */
@@ -3938,9 +3916,7 @@ export interface UpdatePackageVersionsStatusRequest {
    *         </p>
    *             </li>
    *             <li>
-   *                <p>
-   *           The namespace of a generic package is it’s <code>namespace</code>.
-   *         </p>
+   *                <p> The namespace of a generic package is its <code>namespace</code>. </p>
    *             </li>
    *          </ul>
    */

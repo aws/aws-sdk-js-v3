@@ -1605,9 +1605,14 @@ export class Codeartifact extends CodeartifactClient {
   /**
    * @public
    * <p>Creates a new package version containing one or more assets (or files).</p>
-   *          <p>The <code>unfinished</code> flag can be used to keep the package version in the <code>Unfinished</code> state until all of it’s assets have been uploaded (see <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/packages-overview.html#package-version-status.html#package-version-status">Package version status</a> in the <i>CodeArtifact user guide</i>). To set the package version’s status to <code>Published</code>, omit the <code>unfinished</code> flag when uploading the final asset, or set the status using <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_UpdatePackageVersionsStatus.html">UpdatePackageVersionStatus</a>. Once a package version’s status is set to <code>Published</code>, it cannot change back to <code>Unfinished</code>.</p>
+   *          <p>The <code>unfinished</code> flag can be used to keep the package version in the
+   *         <code>Unfinished</code> state until all of its assets have been uploaded (see <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/packages-overview.html#package-version-status.html#package-version-status">Package version status</a> in the <i>CodeArtifact user guide</i>). To set
+   *       the package version’s status to <code>Published</code>, omit the <code>unfinished</code> flag
+   *       when uploading the final asset, or set the status using <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_UpdatePackageVersionsStatus.html">UpdatePackageVersionStatus</a>. Once a package version’s status is set to
+   *         <code>Published</code>, it cannot change back to <code>Unfinished</code>.</p>
    *          <note>
-   *             <p>Only generic packages can be published using this API.</p>
+   *             <p>Only generic packages can be published using this API. For more information, see <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/using-generic.html">Using generic
+   *           packages</a> in the <i>CodeArtifact User Guide</i>.</p>
    *          </note>
    */
   public publishPackageVersion(
