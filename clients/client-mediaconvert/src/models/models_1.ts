@@ -602,7 +602,7 @@ export interface MovSettings {
   Mpeg2FourCCControl?: MovMpeg2FourCCControl | string;
 
   /**
-   * To make this output compatible with Omenon, keep the default value, OMNEON. Unless you need Omneon compatibility, set this value to NONE. When you keep the default value, OMNEON, MediaConvert increases the length of the edit list atom. This might cause file rejections when a recipient of the output file doesn't expct this extra padding.
+   * Unless you need Omneon compatibility: Keep the default value, None. To make this output compatible with Omneon: Choose Omneon. When you do, MediaConvert increases the length of the 'elst' edit list atom. Note that this might cause file rejections when a recipient of the output file doesn't expect this extra padding.
    */
   PaddingControl?: MovPaddingControl | string;
 
