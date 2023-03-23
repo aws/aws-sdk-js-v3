@@ -45,8 +45,8 @@ export interface GetChannelMessageCommandOutput extends GetChannelMessageRespons
  * @public
  * <p>Gets the full details of a channel message.</p>
  *          <note>
- *             <p>The x-amz-chime-bearer request header is mandatory. Use the
- *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in
+ *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
+ *             ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in
  *             the header.</p>
  *          </note>
  * @example

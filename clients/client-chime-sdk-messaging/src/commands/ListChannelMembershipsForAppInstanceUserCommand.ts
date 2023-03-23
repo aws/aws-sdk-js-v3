@@ -47,11 +47,11 @@ export interface ListChannelMembershipsForAppInstanceUserCommandOutput
 
 /**
  * @public
- * <p> Lists all channels that a particular <code>AppInstanceUser</code> is a part of. Only an
- *             <code>AppInstanceAdmin</code> can call the API with a user ARN that is not their own. </p>
+ * <p> Lists all channels that anr <code>AppInstanceUser</code> or <code>AppInstanceBot</code> is a part of.
+ *          Only an <code>AppInstanceAdmin</code> can call the API with a user ARN that is not their own. </p>
  *          <note>
  *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
- *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in
+ *             ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in
  *             the header.</p>
  *          </note>
  * @example

@@ -167,6 +167,10 @@ import {
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  PutChannelExpirationSettingsCommandInput,
+  PutChannelExpirationSettingsCommandOutput,
+} from "./commands/PutChannelExpirationSettingsCommand";
+import {
   PutChannelMembershipPreferencesCommandInput,
   PutChannelMembershipPreferencesCommandOutput,
 } from "./commands/PutChannelMembershipPreferencesCommand";
@@ -243,6 +247,7 @@ export type ServiceInputTypes =
   | ListChannelsModeratedByAppInstanceUserCommandInput
   | ListSubChannelsCommandInput
   | ListTagsForResourceCommandInput
+  | PutChannelExpirationSettingsCommandInput
   | PutChannelMembershipPreferencesCommandInput
   | PutMessagingStreamingConfigurationsCommandInput
   | RedactChannelMessageCommandInput
@@ -298,6 +303,7 @@ export type ServiceOutputTypes =
   | ListChannelsModeratedByAppInstanceUserCommandOutput
   | ListSubChannelsCommandOutput
   | ListTagsForResourceCommandOutput
+  | PutChannelExpirationSettingsCommandOutput
   | PutChannelMembershipPreferencesCommandOutput
   | PutMessagingStreamingConfigurationsCommandOutput
   | RedactChannelMessageCommandOutput

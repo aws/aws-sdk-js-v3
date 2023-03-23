@@ -44,7 +44,12 @@ export interface SearchChannelsCommandOutput extends SearchChannelsResponse, __M
 
 /**
  * @public
- * <p>Allows <code>ChimeBearer</code> to search channels by channel members. AppInstanceUsers can search across the channels that they belong to. AppInstanceAdmins can search across all channels.</p>
+ * <p>Allows the <code>ChimeBearer</code> to search channels by channel members. Users or bots can search
+ *          across the channels that they belong to. Users in the <code>AppInstanceAdmin</code> role can search across
+ *          all channels.</p>
+ *          <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
+ *          ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in
+ *          the header.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

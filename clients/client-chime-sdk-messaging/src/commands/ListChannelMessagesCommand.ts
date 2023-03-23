@@ -51,8 +51,8 @@ export interface ListChannelMessagesCommandOutput extends ListChannelMessagesRes
  *             <p>Redacted messages appear in the results as empty, since they are only redacted, not
  *             deleted. Deleted messages do not appear in the results. This action always returns the
  *             latest version of an edited message.</p>
- *             <p>Also, the x-amz-chime-bearer request header is mandatory. Use the
- *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in
+ *             <p>Also, the <code>x-amz-chime-bearer</code> request header is mandatory. Use the
+ *             ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in
  *             the header.</p>
  *          </note>
  * @example

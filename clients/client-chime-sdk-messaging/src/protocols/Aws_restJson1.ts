@@ -139,6 +139,10 @@ import {
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
 import {
+  PutChannelExpirationSettingsCommandInput,
+  PutChannelExpirationSettingsCommandOutput,
+} from "../commands/PutChannelExpirationSettingsCommand";
+import {
   PutChannelMembershipPreferencesCommandInput,
   PutChannelMembershipPreferencesCommandOutput,
 } from "../commands/PutChannelMembershipPreferencesCommand";
@@ -190,6 +194,7 @@ import {
   ChannelSummary,
   ConflictException,
   ElasticChannelConfiguration,
+  ExpirationSettings,
   ForbiddenException,
   Identity,
   LambdaConfiguration,
@@ -324,6 +329,9 @@ export const serializeAws_restJson1CreateChannelCommand = async (
         input.ElasticChannelConfiguration,
         context
       ),
+    }),
+    ...(input.ExpirationSettings != null && {
+      ExpirationSettings: serializeAws_restJson1ExpirationSettings(input.ExpirationSettings, context),
     }),
     ...(input.MemberArns != null && { MemberArns: serializeAws_restJson1ChannelMemberArns(input.MemberArns, context) }),
     ...(input.Metadata != null && { Metadata: input.Metadata }),
@@ -1321,6 +1329,36 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   });
 };
 
+export const serializeAws_restJson1PutChannelExpirationSettingsCommand = async (
+  input: PutChannelExpirationSettingsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = map({}, isSerializableHeaderValue, {
+    "content-type": "application/json",
+    "x-amz-chime-bearer": input.ChimeBearer!,
+  });
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/channels/{ChannelArn}/expiration-settings";
+  resolvedPath = __resolvedPath(resolvedPath, input, "ChannelArn", () => input.ChannelArn!, "{ChannelArn}", false);
+  let body: any;
+  body = JSON.stringify({
+    ...(input.ExpirationSettings != null && {
+      ExpirationSettings: serializeAws_restJson1ExpirationSettings(input.ExpirationSettings, context),
+    }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1PutChannelMembershipPreferencesCommand = async (
   input: PutChannelMembershipPreferencesCommandInput,
   context: __SerdeContext
@@ -1468,6 +1506,7 @@ export const serializeAws_restJson1SendChannelMessageCommand = async (
   body = JSON.stringify({
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
     ...(input.Content != null && { Content: input.Content }),
+    ...(input.ContentType != null && { ContentType: input.ContentType }),
     ...(input.MessageAttributes != null && {
       MessageAttributes: serializeAws_restJson1MessageAttributeMap(input.MessageAttributes, context),
     }),
@@ -1627,6 +1666,7 @@ export const serializeAws_restJson1UpdateChannelMessageCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.Content != null && { Content: input.Content }),
+    ...(input.ContentType != null && { ContentType: input.ContentType }),
     ...(input.Metadata != null && { Metadata: input.Metadata }),
     ...(input.SubChannelId != null && { SubChannelId: input.SubChannelId }),
   });
@@ -3981,6 +4021,68 @@ const deserializeAws_restJson1ListTagsForResourceCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1PutChannelExpirationSettingsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutChannelExpirationSettingsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1PutChannelExpirationSettingsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.ChannelArn != null) {
+    contents.ChannelArn = __expectString(data.ChannelArn);
+  }
+  if (data.ExpirationSettings != null) {
+    contents.ExpirationSettings = deserializeAws_restJson1ExpirationSettings(data.ExpirationSettings, context);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1PutChannelExpirationSettingsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutChannelExpirationSettingsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.chimesdkmessaging#BadRequestException":
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.chimesdkmessaging#ConflictException":
+      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.chimesdkmessaging#ForbiddenException":
+      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+    case "ServiceFailureException":
+    case "com.amazonaws.chimesdkmessaging#ServiceFailureException":
+      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.chimesdkmessaging#ServiceUnavailableException":
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+    case "ThrottledClientException":
+    case "com.amazonaws.chimesdkmessaging#ThrottledClientException":
+      throw await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context);
+    case "UnauthorizedClientException":
+    case "com.amazonaws.chimesdkmessaging#UnauthorizedClientException":
+      throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_restJson1PutChannelMembershipPreferencesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -4854,6 +4956,7 @@ const serializeAws_restJson1ChannelMembershipPreferences = (
 const serializeAws_restJson1ChannelMessageCallback = (input: ChannelMessageCallback, context: __SerdeContext): any => {
   return {
     ...(input.Content != null && { Content: input.Content }),
+    ...(input.ContentType != null && { ContentType: input.ContentType }),
     ...(input.MessageAttributes != null && {
       MessageAttributes: serializeAws_restJson1MessageAttributeMap(input.MessageAttributes, context),
     }),
@@ -4886,6 +4989,13 @@ const serializeAws_restJson1ElasticChannelConfiguration = (
     ...(input.TargetMembershipsPerSubChannel != null && {
       TargetMembershipsPerSubChannel: input.TargetMembershipsPerSubChannel,
     }),
+  };
+};
+
+const serializeAws_restJson1ExpirationSettings = (input: ExpirationSettings, context: __SerdeContext): any => {
+  return {
+    ...(input.ExpirationCriterion != null && { ExpirationCriterion: input.ExpirationCriterion }),
+    ...(input.ExpirationDays != null && { ExpirationDays: input.ExpirationDays }),
   };
 };
 
@@ -5110,6 +5220,10 @@ const deserializeAws_restJson1Channel = (output: any, context: __SerdeContext): 
       output.ElasticChannelConfiguration != null
         ? deserializeAws_restJson1ElasticChannelConfiguration(output.ElasticChannelConfiguration, context)
         : undefined,
+    ExpirationSettings:
+      output.ExpirationSettings != null
+        ? deserializeAws_restJson1ExpirationSettings(output.ExpirationSettings, context)
+        : undefined,
     LastMessageTimestamp:
       output.LastMessageTimestamp != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastMessageTimestamp)))
@@ -5310,6 +5424,7 @@ const deserializeAws_restJson1ChannelMessage = (output: any, context: __SerdeCon
   return {
     ChannelArn: __expectString(output.ChannelArn),
     Content: __expectString(output.Content),
+    ContentType: __expectString(output.ContentType),
     CreatedTimestamp:
       output.CreatedTimestamp != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
@@ -5351,6 +5466,7 @@ const deserializeAws_restJson1ChannelMessageStatusStructure = (
 const deserializeAws_restJson1ChannelMessageSummary = (output: any, context: __SerdeContext): ChannelMessageSummary => {
   return {
     Content: __expectString(output.Content),
+    ContentType: __expectString(output.ContentType),
     CreatedTimestamp:
       output.CreatedTimestamp != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
@@ -5489,6 +5605,13 @@ const deserializeAws_restJson1ElasticChannelConfiguration = (
     MaximumSubChannels: __expectInt32(output.MaximumSubChannels),
     MinimumMembershipPercentage: __expectInt32(output.MinimumMembershipPercentage),
     TargetMembershipsPerSubChannel: __expectInt32(output.TargetMembershipsPerSubChannel),
+  } as any;
+};
+
+const deserializeAws_restJson1ExpirationSettings = (output: any, context: __SerdeContext): ExpirationSettings => {
+  return {
+    ExpirationCriterion: __expectString(output.ExpirationCriterion),
+    ExpirationDays: __expectInt32(output.ExpirationDays),
   } as any;
 };
 

@@ -42,8 +42,10 @@ export interface AssociateChannelFlowCommandOutput extends __MetadataBearer {}
  * <p>Associates a channel flow with a channel. Once associated, all messages to that channel go through channel flow processors. To stop processing, use the
  *          <code>DisassociateChannelFlow</code> API.</p>
  *          <note>
- *             <p>Only administrators or channel moderators can associate a channel flow. The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code>
- *          of the user that makes the API call as the value in the header.</p>
+ *             <p>Only administrators or channel moderators can associate a channel flow. The
+ *          <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the
+ *          <code>AppInstanceUser</code> or <code>AppInstanceBot</code>
+ *          that makes the API call as the value in the header.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

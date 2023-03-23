@@ -18,70 +18,69 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ChimeSDKMessagingClient";
+import { PutChannelExpirationSettingsRequest, PutChannelExpirationSettingsResponse } from "../models/models_0";
 import {
-  ListChannelsRequest,
-  ListChannelsRequestFilterSensitiveLog,
-  ListChannelsResponse,
-  ListChannelsResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListChannelsCommand,
-  serializeAws_restJson1ListChannelsCommand,
+  deserializeAws_restJson1PutChannelExpirationSettingsCommand,
+  serializeAws_restJson1PutChannelExpirationSettingsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
  * @public
  *
- * The input for {@link ListChannelsCommand}.
+ * The input for {@link PutChannelExpirationSettingsCommand}.
  */
-export interface ListChannelsCommandInput extends ListChannelsRequest {}
+export interface PutChannelExpirationSettingsCommandInput extends PutChannelExpirationSettingsRequest {}
 /**
  * @public
  *
- * The output of {@link ListChannelsCommand}.
+ * The output of {@link PutChannelExpirationSettingsCommand}.
  */
-export interface ListChannelsCommandOutput extends ListChannelsResponse, __MetadataBearer {}
+export interface PutChannelExpirationSettingsCommandOutput
+  extends PutChannelExpirationSettingsResponse,
+    __MetadataBearer {}
 
 /**
  * @public
- * <p>Lists all Channels created under a single Chime App as a paginated list. You can specify
- *          filters to narrow results.</p>
- *          <p class="title">
- *             <b>Functionality & restrictions</b>
- *          </p>
- *          <ul>
- *             <li>
- *                <p>Use privacy = <code>PUBLIC</code> to retrieve all public channels in the
- *                account.</p>
- *             </li>
- *             <li>
- *                <p>Only an <code>AppInstanceAdmin</code> can set privacy = <code>PRIVATE</code> to
- *                list the private channels in an account.</p>
- *             </li>
- *          </ul>
+ * <p>Sets the number of days before the channel is automatically deleted.</p>
  *          <note>
- *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
+ *             <ul>
+ *                <li>
+ *                   <p>A background process deletes expired channels within 6 hours of expiration.
+ *             Actual deletion times may vary.</p>
+ *                </li>
+ *                <li>
+ *                   <p>Expired channels that have not yet been deleted appear as active, and you can update
+ *             their expiration settings. The system honors the new settings.</p>
+ *                </li>
+ *                <li>
+ *                   <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
  *             ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in
  *             the header.</p>
+ *                </li>
+ *             </ul>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeSDKMessagingClient, ListChannelsCommand } from "@aws-sdk/client-chime-sdk-messaging"; // ES Modules import
- * // const { ChimeSDKMessagingClient, ListChannelsCommand } = require("@aws-sdk/client-chime-sdk-messaging"); // CommonJS import
+ * import { ChimeSDKMessagingClient, PutChannelExpirationSettingsCommand } from "@aws-sdk/client-chime-sdk-messaging"; // ES Modules import
+ * // const { ChimeSDKMessagingClient, PutChannelExpirationSettingsCommand } = require("@aws-sdk/client-chime-sdk-messaging"); // CommonJS import
  * const client = new ChimeSDKMessagingClient(config);
- * const command = new ListChannelsCommand(input);
+ * const command = new PutChannelExpirationSettingsCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @param ListChannelsCommandInput - {@link ListChannelsCommandInput}
- * @returns {@link ListChannelsCommandOutput}
- * @see {@link ListChannelsCommandInput} for command's `input` shape.
- * @see {@link ListChannelsCommandOutput} for command's `response` shape.
+ * @param PutChannelExpirationSettingsCommandInput - {@link PutChannelExpirationSettingsCommandInput}
+ * @returns {@link PutChannelExpirationSettingsCommandOutput}
+ * @see {@link PutChannelExpirationSettingsCommandInput} for command's `input` shape.
+ * @see {@link PutChannelExpirationSettingsCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMessagingClientResolvedConfig | config} for ChimeSDKMessagingClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
  *  <p>The input parameters don't match the service's restrictions.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The request could not be processed because of conflict in the current state of the
+ *          resource.</p>
  *
  * @throws {@link ForbiddenException} (client fault)
  *  <p>The client is permanently forbidden from making the request.</p>
@@ -100,9 +99,9 @@ export interface ListChannelsCommandOutput extends ListChannelsResponse, __Metad
  *
  *
  */
-export class ListChannelsCommand extends $Command<
-  ListChannelsCommandInput,
-  ListChannelsCommandOutput,
+export class PutChannelExpirationSettingsCommand extends $Command<
+  PutChannelExpirationSettingsCommandInput,
+  PutChannelExpirationSettingsCommandOutput,
   ChimeSDKMessagingClientResolvedConfig
 > {
   // Start section: command_properties
@@ -120,7 +119,7 @@ export class ListChannelsCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: ListChannelsCommandInput) {
+  constructor(readonly input: PutChannelExpirationSettingsCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -133,21 +132,23 @@ export class ListChannelsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeSDKMessagingClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<ListChannelsCommandInput, ListChannelsCommandOutput> {
+  ): Handler<PutChannelExpirationSettingsCommandInput, PutChannelExpirationSettingsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, ListChannelsCommand.getEndpointParameterInstructions()));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, PutChannelExpirationSettingsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "ChimeSDKMessagingClient";
-    const commandName = "ListChannelsCommand";
+    const commandName = "PutChannelExpirationSettingsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListChannelsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListChannelsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -160,15 +161,18 @@ export class ListChannelsCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: ListChannelsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListChannelsCommand(input, context);
+  private serialize(input: PutChannelExpirationSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1PutChannelExpirationSettingsCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListChannelsCommandOutput> {
-    return deserializeAws_restJson1ListChannelsCommand(output, context);
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext
+  ): Promise<PutChannelExpirationSettingsCommandOutput> {
+    return deserializeAws_restJson1PutChannelExpirationSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

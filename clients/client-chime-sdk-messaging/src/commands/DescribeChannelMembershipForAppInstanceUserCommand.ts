@@ -47,10 +47,10 @@ export interface DescribeChannelMembershipForAppInstanceUserCommandOutput
 /**
  * @public
  * <p> Returns the details of a channel based on the membership of the specified
- *             <code>AppInstanceUser</code>.</p>
+ *             <code>AppInstanceUser</code> or <code>AppInstanceBot</code>.</p>
  *          <note>
  *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
- *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in
+ *             ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in
  *             the header.</p>
  *          </note>
  * @example

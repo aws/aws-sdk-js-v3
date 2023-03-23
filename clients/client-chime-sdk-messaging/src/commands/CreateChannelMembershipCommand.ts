@@ -43,8 +43,8 @@ export interface CreateChannelMembershipCommandOutput extends CreateChannelMembe
 
 /**
  * @public
- * <p>Adds a user to a channel. The <code>InvitedBy</code> field in <code>ChannelMembership</code> is derived from the
- *          request header. A channel member can:</p>
+ * <p>Adds a member to a channel. The <code>InvitedBy</code> field in <code>ChannelMembership</code>
+ *          is derived from the request header. A channel member can:</p>
  *          <ul>
  *             <li>
  *                <p>List messages</p>
@@ -74,8 +74,8 @@ export interface CreateChannelMembershipCommandOutput extends CreateChannelMembe
  *          </ul>
  *          <note>
  *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
- *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in
- *             the header.</p>
+ *                ARN of the <code>AppInstanceUserArn</code> or <code>AppInstanceBot</code> that makes the API call
+ *             as the value in the header.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

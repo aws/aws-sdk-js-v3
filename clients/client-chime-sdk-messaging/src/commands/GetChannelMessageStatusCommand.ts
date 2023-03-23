@@ -69,7 +69,9 @@ export interface GetChannelMessageStatusCommandOutput extends GetChannelMessageS
  *                   <p>Only the message sender can invoke this API.</p>
  *                </li>
  *                <li>
- *                   <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes the API call as the value in the header</p>
+ *                   <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
+ *             ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in
+ *             the header.</p>
  *                </li>
  *             </ul>
  *          </note>

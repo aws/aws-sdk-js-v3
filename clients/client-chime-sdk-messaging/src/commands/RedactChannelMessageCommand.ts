@@ -43,7 +43,7 @@ export interface RedactChannelMessageCommandOutput extends RedactChannelMessageR
  *          action returns null content, and the state shows as redacted.</p>
  *          <note>
  *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
- *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in
+ *             ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in
  *             the header.</p>
  *          </note>
  * @example

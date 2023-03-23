@@ -46,9 +46,16 @@ export interface PutChannelMembershipPreferencesCommandOutput
 
 /**
  * @public
- * <p>Sets the membership preferences of an <code>AppInstanceUser</code> for the specified channel. The <code>AppInstanceUser</code> must be a member of the channel.
- *          Only the <code>AppInstanceUser</code> who owns the membership can set preferences. Users in the <code>AppInstanceAdmin</code> and channel moderator roles can't set preferences for other users.
- *          Banned users can't set membership preferences for the channel from which they are banned.</p>
+ * <p>Sets the membership preferences of an <code>AppInstanceUser</code> or <code>AppIntanceBot</code>
+ *          for the specified channel. The user or bot must be a member of the channel. Only the user or bot who owns the
+ *          membership can set preferences. Users or bots in the <code>AppInstanceAdmin</code> and channel moderator roles can't set
+ *          preferences for other users or users. Banned users or bots can't set membership preferences for the channel from
+ *          which they are banned.</p>
+ *          <note>
+ *             <p>The x-amz-chime-bearer request header is mandatory. Use the ARN of an
+ *          <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the
+ *          header.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
