@@ -18,46 +18,58 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ChimeSDKMediaPipelinesClient";
-import { TagResourceRequest, TagResourceResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1TagResourceCommand,
-  serializeAws_restJson1TagResourceCommand,
+  UpdateMediaInsightsPipelineConfigurationRequest,
+  UpdateMediaInsightsPipelineConfigurationRequestFilterSensitiveLog,
+  UpdateMediaInsightsPipelineConfigurationResponse,
+  UpdateMediaInsightsPipelineConfigurationResponseFilterSensitiveLog,
+} from "../models/models_0";
+import {
+  deserializeAws_restJson1UpdateMediaInsightsPipelineConfigurationCommand,
+  serializeAws_restJson1UpdateMediaInsightsPipelineConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
  * @public
  *
- * The input for {@link TagResourceCommand}.
+ * The input for {@link UpdateMediaInsightsPipelineConfigurationCommand}.
  */
-export interface TagResourceCommandInput extends TagResourceRequest {}
+export interface UpdateMediaInsightsPipelineConfigurationCommandInput
+  extends UpdateMediaInsightsPipelineConfigurationRequest {}
 /**
  * @public
  *
- * The output of {@link TagResourceCommand}.
+ * The output of {@link UpdateMediaInsightsPipelineConfigurationCommand}.
  */
-export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
+export interface UpdateMediaInsightsPipelineConfigurationCommandOutput
+  extends UpdateMediaInsightsPipelineConfigurationResponse,
+    __MetadataBearer {}
 
 /**
  * @public
- * <p>The ARN of the media pipeline that you want to tag. Consists of the pipeline's endpoint region, resource ID, and pipeline ID.</p>
+ * <p>Updates the media insights pipeline's configuration settings.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeSDKMediaPipelinesClient, TagResourceCommand } from "@aws-sdk/client-chime-sdk-media-pipelines"; // ES Modules import
- * // const { ChimeSDKMediaPipelinesClient, TagResourceCommand } = require("@aws-sdk/client-chime-sdk-media-pipelines"); // CommonJS import
+ * import { ChimeSDKMediaPipelinesClient, UpdateMediaInsightsPipelineConfigurationCommand } from "@aws-sdk/client-chime-sdk-media-pipelines"; // ES Modules import
+ * // const { ChimeSDKMediaPipelinesClient, UpdateMediaInsightsPipelineConfigurationCommand } = require("@aws-sdk/client-chime-sdk-media-pipelines"); // CommonJS import
  * const client = new ChimeSDKMediaPipelinesClient(config);
- * const command = new TagResourceCommand(input);
+ * const command = new UpdateMediaInsightsPipelineConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @param TagResourceCommandInput - {@link TagResourceCommandInput}
- * @returns {@link TagResourceCommandOutput}
- * @see {@link TagResourceCommandInput} for command's `input` shape.
- * @see {@link TagResourceCommandOutput} for command's `response` shape.
+ * @param UpdateMediaInsightsPipelineConfigurationCommandInput - {@link UpdateMediaInsightsPipelineConfigurationCommandInput}
+ * @returns {@link UpdateMediaInsightsPipelineConfigurationCommandOutput}
+ * @see {@link UpdateMediaInsightsPipelineConfigurationCommandInput} for command's `input` shape.
+ * @see {@link UpdateMediaInsightsPipelineConfigurationCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMediaPipelinesClientResolvedConfig | config} for ChimeSDKMediaPipelinesClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
  *  <p>The input parameters don't match the service's restrictions.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The request could not be processed because of conflict in the current state of the
+ *          resource.</p>
  *
  * @throws {@link ForbiddenException} (client fault)
  *  <p>The client is permanently forbidden from making the request.</p>
@@ -79,9 +91,9 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  *
  *
  */
-export class TagResourceCommand extends $Command<
-  TagResourceCommandInput,
-  TagResourceCommandOutput,
+export class UpdateMediaInsightsPipelineConfigurationCommand extends $Command<
+  UpdateMediaInsightsPipelineConfigurationCommandInput,
+  UpdateMediaInsightsPipelineConfigurationCommandOutput,
   ChimeSDKMediaPipelinesClientResolvedConfig
 > {
   // Start section: command_properties
@@ -99,7 +111,7 @@ export class TagResourceCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: TagResourceCommandInput) {
+  constructor(readonly input: UpdateMediaInsightsPipelineConfigurationCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -112,21 +124,29 @@ export class TagResourceCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeSDKMediaPipelinesClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<TagResourceCommandInput, TagResourceCommandOutput> {
+  ): Handler<
+    UpdateMediaInsightsPipelineConfigurationCommandInput,
+    UpdateMediaInsightsPipelineConfigurationCommandOutput
+  > {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, TagResourceCommand.getEndpointParameterInstructions()));
+    this.middlewareStack.use(
+      getEndpointPlugin(
+        configuration,
+        UpdateMediaInsightsPipelineConfigurationCommand.getEndpointParameterInstructions()
+      )
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "ChimeSDKMediaPipelinesClient";
-    const commandName = "TagResourceCommand";
+    const commandName = "UpdateMediaInsightsPipelineConfigurationCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
+      inputFilterSensitiveLog: UpdateMediaInsightsPipelineConfigurationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateMediaInsightsPipelineConfigurationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -139,15 +159,21 @@ export class TagResourceCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: TagResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1TagResourceCommand(input, context);
+  private serialize(
+    input: UpdateMediaInsightsPipelineConfigurationCommandInput,
+    context: __SerdeContext
+  ): Promise<__HttpRequest> {
+    return serializeAws_restJson1UpdateMediaInsightsPipelineConfigurationCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TagResourceCommandOutput> {
-    return deserializeAws_restJson1TagResourceCommand(output, context);
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext
+  ): Promise<UpdateMediaInsightsPipelineConfigurationCommandOutput> {
+    return deserializeAws_restJson1UpdateMediaInsightsPipelineConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

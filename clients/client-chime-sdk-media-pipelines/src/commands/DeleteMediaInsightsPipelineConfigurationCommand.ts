@@ -18,46 +18,51 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ChimeSDKMediaPipelinesClient";
-import { TagResourceRequest, TagResourceResponse } from "../models/models_0";
+import { DeleteMediaInsightsPipelineConfigurationRequest } from "../models/models_0";
 import {
-  deserializeAws_restJson1TagResourceCommand,
-  serializeAws_restJson1TagResourceCommand,
+  deserializeAws_restJson1DeleteMediaInsightsPipelineConfigurationCommand,
+  serializeAws_restJson1DeleteMediaInsightsPipelineConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
  * @public
  *
- * The input for {@link TagResourceCommand}.
+ * The input for {@link DeleteMediaInsightsPipelineConfigurationCommand}.
  */
-export interface TagResourceCommandInput extends TagResourceRequest {}
+export interface DeleteMediaInsightsPipelineConfigurationCommandInput
+  extends DeleteMediaInsightsPipelineConfigurationRequest {}
 /**
  * @public
  *
- * The output of {@link TagResourceCommand}.
+ * The output of {@link DeleteMediaInsightsPipelineConfigurationCommand}.
  */
-export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
+export interface DeleteMediaInsightsPipelineConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
  * @public
- * <p>The ARN of the media pipeline that you want to tag. Consists of the pipeline's endpoint region, resource ID, and pipeline ID.</p>
+ * <p>Deletes the specified configuration settings.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ChimeSDKMediaPipelinesClient, TagResourceCommand } from "@aws-sdk/client-chime-sdk-media-pipelines"; // ES Modules import
- * // const { ChimeSDKMediaPipelinesClient, TagResourceCommand } = require("@aws-sdk/client-chime-sdk-media-pipelines"); // CommonJS import
+ * import { ChimeSDKMediaPipelinesClient, DeleteMediaInsightsPipelineConfigurationCommand } from "@aws-sdk/client-chime-sdk-media-pipelines"; // ES Modules import
+ * // const { ChimeSDKMediaPipelinesClient, DeleteMediaInsightsPipelineConfigurationCommand } = require("@aws-sdk/client-chime-sdk-media-pipelines"); // CommonJS import
  * const client = new ChimeSDKMediaPipelinesClient(config);
- * const command = new TagResourceCommand(input);
+ * const command = new DeleteMediaInsightsPipelineConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @param TagResourceCommandInput - {@link TagResourceCommandInput}
- * @returns {@link TagResourceCommandOutput}
- * @see {@link TagResourceCommandInput} for command's `input` shape.
- * @see {@link TagResourceCommandOutput} for command's `response` shape.
+ * @param DeleteMediaInsightsPipelineConfigurationCommandInput - {@link DeleteMediaInsightsPipelineConfigurationCommandInput}
+ * @returns {@link DeleteMediaInsightsPipelineConfigurationCommandOutput}
+ * @see {@link DeleteMediaInsightsPipelineConfigurationCommandInput} for command's `input` shape.
+ * @see {@link DeleteMediaInsightsPipelineConfigurationCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMediaPipelinesClientResolvedConfig | config} for ChimeSDKMediaPipelinesClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
  *  <p>The input parameters don't match the service's restrictions.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The request could not be processed because of conflict in the current state of the
+ *          resource.</p>
  *
  * @throws {@link ForbiddenException} (client fault)
  *  <p>The client is permanently forbidden from making the request.</p>
@@ -79,9 +84,9 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  *
  *
  */
-export class TagResourceCommand extends $Command<
-  TagResourceCommandInput,
-  TagResourceCommandOutput,
+export class DeleteMediaInsightsPipelineConfigurationCommand extends $Command<
+  DeleteMediaInsightsPipelineConfigurationCommandInput,
+  DeleteMediaInsightsPipelineConfigurationCommandOutput,
   ChimeSDKMediaPipelinesClientResolvedConfig
 > {
   // Start section: command_properties
@@ -99,7 +104,7 @@ export class TagResourceCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: TagResourceCommandInput) {
+  constructor(readonly input: DeleteMediaInsightsPipelineConfigurationCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -112,15 +117,23 @@ export class TagResourceCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeSDKMediaPipelinesClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<TagResourceCommandInput, TagResourceCommandOutput> {
+  ): Handler<
+    DeleteMediaInsightsPipelineConfigurationCommandInput,
+    DeleteMediaInsightsPipelineConfigurationCommandOutput
+  > {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, TagResourceCommand.getEndpointParameterInstructions()));
+    this.middlewareStack.use(
+      getEndpointPlugin(
+        configuration,
+        DeleteMediaInsightsPipelineConfigurationCommand.getEndpointParameterInstructions()
+      )
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "ChimeSDKMediaPipelinesClient";
-    const commandName = "TagResourceCommand";
+    const commandName = "DeleteMediaInsightsPipelineConfigurationCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -139,15 +152,21 @@ export class TagResourceCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: TagResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1TagResourceCommand(input, context);
+  private serialize(
+    input: DeleteMediaInsightsPipelineConfigurationCommandInput,
+    context: __SerdeContext
+  ): Promise<__HttpRequest> {
+    return serializeAws_restJson1DeleteMediaInsightsPipelineConfigurationCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TagResourceCommandOutput> {
-    return deserializeAws_restJson1TagResourceCommand(output, context);
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext
+  ): Promise<DeleteMediaInsightsPipelineConfigurationCommandOutput> {
+    return deserializeAws_restJson1DeleteMediaInsightsPipelineConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

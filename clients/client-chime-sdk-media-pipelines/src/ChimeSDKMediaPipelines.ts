@@ -13,6 +13,16 @@ import {
   CreateMediaConcatenationPipelineCommandOutput,
 } from "./commands/CreateMediaConcatenationPipelineCommand";
 import {
+  CreateMediaInsightsPipelineCommand,
+  CreateMediaInsightsPipelineCommandInput,
+  CreateMediaInsightsPipelineCommandOutput,
+} from "./commands/CreateMediaInsightsPipelineCommand";
+import {
+  CreateMediaInsightsPipelineConfigurationCommand,
+  CreateMediaInsightsPipelineConfigurationCommandInput,
+  CreateMediaInsightsPipelineConfigurationCommandOutput,
+} from "./commands/CreateMediaInsightsPipelineConfigurationCommand";
+import {
   CreateMediaLiveConnectorPipelineCommand,
   CreateMediaLiveConnectorPipelineCommandInput,
   CreateMediaLiveConnectorPipelineCommandOutput,
@@ -22,6 +32,11 @@ import {
   DeleteMediaCapturePipelineCommandInput,
   DeleteMediaCapturePipelineCommandOutput,
 } from "./commands/DeleteMediaCapturePipelineCommand";
+import {
+  DeleteMediaInsightsPipelineConfigurationCommand,
+  DeleteMediaInsightsPipelineConfigurationCommandInput,
+  DeleteMediaInsightsPipelineConfigurationCommandOutput,
+} from "./commands/DeleteMediaInsightsPipelineConfigurationCommand";
 import {
   DeleteMediaPipelineCommand,
   DeleteMediaPipelineCommandInput,
@@ -33,6 +48,11 @@ import {
   GetMediaCapturePipelineCommandOutput,
 } from "./commands/GetMediaCapturePipelineCommand";
 import {
+  GetMediaInsightsPipelineConfigurationCommand,
+  GetMediaInsightsPipelineConfigurationCommandInput,
+  GetMediaInsightsPipelineConfigurationCommandOutput,
+} from "./commands/GetMediaInsightsPipelineConfigurationCommand";
+import {
   GetMediaPipelineCommand,
   GetMediaPipelineCommandInput,
   GetMediaPipelineCommandOutput,
@@ -42,6 +62,11 @@ import {
   ListMediaCapturePipelinesCommandInput,
   ListMediaCapturePipelinesCommandOutput,
 } from "./commands/ListMediaCapturePipelinesCommand";
+import {
+  ListMediaInsightsPipelineConfigurationsCommand,
+  ListMediaInsightsPipelineConfigurationsCommandInput,
+  ListMediaInsightsPipelineConfigurationsCommandOutput,
+} from "./commands/ListMediaInsightsPipelineConfigurationsCommand";
 import {
   ListMediaPipelinesCommand,
   ListMediaPipelinesCommandInput,
@@ -58,11 +83,21 @@ import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
+import {
+  UpdateMediaInsightsPipelineConfigurationCommand,
+  UpdateMediaInsightsPipelineConfigurationCommandInput,
+  UpdateMediaInsightsPipelineConfigurationCommandOutput,
+} from "./commands/UpdateMediaInsightsPipelineConfigurationCommand";
+import {
+  UpdateMediaInsightsPipelineStatusCommand,
+  UpdateMediaInsightsPipelineStatusCommandInput,
+  UpdateMediaInsightsPipelineStatusCommandOutput,
+} from "./commands/UpdateMediaInsightsPipelineStatusCommand";
 
 /**
  * @public
  * <p>The Amazon Chime SDK media pipeline APIs in this section allow software developers to
- *          create Amazon Chime SDK media pipelines that capture, concatenate, or stream your Amazon Chime SDK meetings. For more information about media pipleines, see <a href="http://amazonaws.com/chime/latest/APIReference/API_Operations_Amazon_Chime_SDK_Media_Pipelines.html">Amazon Chime SDK media pipelines</a>. </p>
+ *          create Amazon Chime SDK media pipelines that capture, concatenate, or stream your Amazon Chime SDK meetings. For more information about media pipelines, see <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_Operations_Amazon_Chime_SDK_Media_Pipelines.html">Amazon Chime SDK media pipelines</a>. </p>
  */
 export class ChimeSDKMediaPipelines extends ChimeSDKMediaPipelinesClient {
   /**
@@ -133,7 +168,76 @@ export class ChimeSDKMediaPipelines extends ChimeSDKMediaPipelinesClient {
 
   /**
    * @public
-   * <p>Creates a streaming media pipeline in an Amazon Chime SDK meeting.</p>
+   * <p>Creates a media insights pipeline.</p>
+   */
+  public createMediaInsightsPipeline(
+    args: CreateMediaInsightsPipelineCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateMediaInsightsPipelineCommandOutput>;
+  public createMediaInsightsPipeline(
+    args: CreateMediaInsightsPipelineCommandInput,
+    cb: (err: any, data?: CreateMediaInsightsPipelineCommandOutput) => void
+  ): void;
+  public createMediaInsightsPipeline(
+    args: CreateMediaInsightsPipelineCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateMediaInsightsPipelineCommandOutput) => void
+  ): void;
+  public createMediaInsightsPipeline(
+    args: CreateMediaInsightsPipelineCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateMediaInsightsPipelineCommandOutput) => void),
+    cb?: (err: any, data?: CreateMediaInsightsPipelineCommandOutput) => void
+  ): Promise<CreateMediaInsightsPipelineCommandOutput> | void {
+    const command = new CreateMediaInsightsPipelineCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
+   * <p>A structure that contains the static configurations for a media insights
+   *          pipeline.</p>
+   */
+  public createMediaInsightsPipelineConfiguration(
+    args: CreateMediaInsightsPipelineConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateMediaInsightsPipelineConfigurationCommandOutput>;
+  public createMediaInsightsPipelineConfiguration(
+    args: CreateMediaInsightsPipelineConfigurationCommandInput,
+    cb: (err: any, data?: CreateMediaInsightsPipelineConfigurationCommandOutput) => void
+  ): void;
+  public createMediaInsightsPipelineConfiguration(
+    args: CreateMediaInsightsPipelineConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateMediaInsightsPipelineConfigurationCommandOutput) => void
+  ): void;
+  public createMediaInsightsPipelineConfiguration(
+    args: CreateMediaInsightsPipelineConfigurationCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateMediaInsightsPipelineConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: CreateMediaInsightsPipelineConfigurationCommandOutput) => void
+  ): Promise<CreateMediaInsightsPipelineConfigurationCommandOutput> | void {
+    const command = new CreateMediaInsightsPipelineConfigurationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
+   * <p>Creates a media live connector pipeline in an Amazon Chime SDK meeting.</p>
    */
   public createMediaLiveConnectorPipeline(
     args: CreateMediaLiveConnectorPipelineCommandInput,
@@ -187,6 +291,41 @@ export class ChimeSDKMediaPipelines extends ChimeSDKMediaPipelinesClient {
     cb?: (err: any, data?: DeleteMediaCapturePipelineCommandOutput) => void
   ): Promise<DeleteMediaCapturePipelineCommandOutput> | void {
     const command = new DeleteMediaCapturePipelineCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
+   * <p>Deletes the specified configuration settings.</p>
+   */
+  public deleteMediaInsightsPipelineConfiguration(
+    args: DeleteMediaInsightsPipelineConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteMediaInsightsPipelineConfigurationCommandOutput>;
+  public deleteMediaInsightsPipelineConfiguration(
+    args: DeleteMediaInsightsPipelineConfigurationCommandInput,
+    cb: (err: any, data?: DeleteMediaInsightsPipelineConfigurationCommandOutput) => void
+  ): void;
+  public deleteMediaInsightsPipelineConfiguration(
+    args: DeleteMediaInsightsPipelineConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteMediaInsightsPipelineConfigurationCommandOutput) => void
+  ): void;
+  public deleteMediaInsightsPipelineConfiguration(
+    args: DeleteMediaInsightsPipelineConfigurationCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteMediaInsightsPipelineConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: DeleteMediaInsightsPipelineConfigurationCommandOutput) => void
+  ): Promise<DeleteMediaInsightsPipelineConfigurationCommandOutput> | void {
+    const command = new DeleteMediaInsightsPipelineConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -265,6 +404,41 @@ export class ChimeSDKMediaPipelines extends ChimeSDKMediaPipelinesClient {
 
   /**
    * @public
+   * <p>Gets the configuration settings for a media insights pipeline.</p>
+   */
+  public getMediaInsightsPipelineConfiguration(
+    args: GetMediaInsightsPipelineConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetMediaInsightsPipelineConfigurationCommandOutput>;
+  public getMediaInsightsPipelineConfiguration(
+    args: GetMediaInsightsPipelineConfigurationCommandInput,
+    cb: (err: any, data?: GetMediaInsightsPipelineConfigurationCommandOutput) => void
+  ): void;
+  public getMediaInsightsPipelineConfiguration(
+    args: GetMediaInsightsPipelineConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetMediaInsightsPipelineConfigurationCommandOutput) => void
+  ): void;
+  public getMediaInsightsPipelineConfiguration(
+    args: GetMediaInsightsPipelineConfigurationCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetMediaInsightsPipelineConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: GetMediaInsightsPipelineConfigurationCommandOutput) => void
+  ): Promise<GetMediaInsightsPipelineConfigurationCommandOutput> | void {
+    const command = new GetMediaInsightsPipelineConfigurationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
    * <p>Gets an existing media pipeline.</p>
    */
   public getMediaPipeline(
@@ -319,6 +493,41 @@ export class ChimeSDKMediaPipelines extends ChimeSDKMediaPipelinesClient {
     cb?: (err: any, data?: ListMediaCapturePipelinesCommandOutput) => void
   ): Promise<ListMediaCapturePipelinesCommandOutput> | void {
     const command = new ListMediaCapturePipelinesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
+   * <p>Lists the available media insights pipeline configurations.</p>
+   */
+  public listMediaInsightsPipelineConfigurations(
+    args: ListMediaInsightsPipelineConfigurationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListMediaInsightsPipelineConfigurationsCommandOutput>;
+  public listMediaInsightsPipelineConfigurations(
+    args: ListMediaInsightsPipelineConfigurationsCommandInput,
+    cb: (err: any, data?: ListMediaInsightsPipelineConfigurationsCommandOutput) => void
+  ): void;
+  public listMediaInsightsPipelineConfigurations(
+    args: ListMediaInsightsPipelineConfigurationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListMediaInsightsPipelineConfigurationsCommandOutput) => void
+  ): void;
+  public listMediaInsightsPipelineConfigurations(
+    args: ListMediaInsightsPipelineConfigurationsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListMediaInsightsPipelineConfigurationsCommandOutput) => void),
+    cb?: (err: any, data?: ListMediaInsightsPipelineConfigurationsCommandOutput) => void
+  ): Promise<ListMediaInsightsPipelineConfigurationsCommandOutput> | void {
+    const command = new ListMediaInsightsPipelineConfigurationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -397,7 +606,7 @@ export class ChimeSDKMediaPipelines extends ChimeSDKMediaPipelinesClient {
 
   /**
    * @public
-   * <p>The ARN of the media pipeline that you want to tag. Consists of he pipeline's endpoint region, resource ID, and pipeline ID.</p>
+   * <p>The ARN of the media pipeline that you want to tag. Consists of the pipeline's endpoint region, resource ID, and pipeline ID.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
   public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
@@ -445,6 +654,74 @@ export class ChimeSDKMediaPipelines extends ChimeSDKMediaPipelinesClient {
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
+   * <p>Updates the media insights pipeline's configuration settings.</p>
+   */
+  public updateMediaInsightsPipelineConfiguration(
+    args: UpdateMediaInsightsPipelineConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateMediaInsightsPipelineConfigurationCommandOutput>;
+  public updateMediaInsightsPipelineConfiguration(
+    args: UpdateMediaInsightsPipelineConfigurationCommandInput,
+    cb: (err: any, data?: UpdateMediaInsightsPipelineConfigurationCommandOutput) => void
+  ): void;
+  public updateMediaInsightsPipelineConfiguration(
+    args: UpdateMediaInsightsPipelineConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateMediaInsightsPipelineConfigurationCommandOutput) => void
+  ): void;
+  public updateMediaInsightsPipelineConfiguration(
+    args: UpdateMediaInsightsPipelineConfigurationCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateMediaInsightsPipelineConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: UpdateMediaInsightsPipelineConfigurationCommandOutput) => void
+  ): Promise<UpdateMediaInsightsPipelineConfigurationCommandOutput> | void {
+    const command = new UpdateMediaInsightsPipelineConfigurationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
+   * <p>Updates the status of a media insights pipeline.</p>
+   */
+  public updateMediaInsightsPipelineStatus(
+    args: UpdateMediaInsightsPipelineStatusCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateMediaInsightsPipelineStatusCommandOutput>;
+  public updateMediaInsightsPipelineStatus(
+    args: UpdateMediaInsightsPipelineStatusCommandInput,
+    cb: (err: any, data?: UpdateMediaInsightsPipelineStatusCommandOutput) => void
+  ): void;
+  public updateMediaInsightsPipelineStatus(
+    args: UpdateMediaInsightsPipelineStatusCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateMediaInsightsPipelineStatusCommandOutput) => void
+  ): void;
+  public updateMediaInsightsPipelineStatus(
+    args: UpdateMediaInsightsPipelineStatusCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateMediaInsightsPipelineStatusCommandOutput) => void),
+    cb?: (err: any, data?: UpdateMediaInsightsPipelineStatusCommandOutput) => void
+  ): Promise<UpdateMediaInsightsPipelineStatusCommandOutput> | void {
+    const command = new UpdateMediaInsightsPipelineStatusCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

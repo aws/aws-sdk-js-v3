@@ -46,7 +46,7 @@ export interface CreateMediaLiveConnectorPipelineCommandOutput
 
 /**
  * @public
- * <p>Creates a streaming media pipeline in an Amazon Chime SDK meeting.</p>
+ * <p>Creates a media live connector pipeline in an Amazon Chime SDK meeting.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

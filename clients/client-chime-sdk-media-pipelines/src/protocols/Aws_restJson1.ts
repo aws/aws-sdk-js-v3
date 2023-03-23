@@ -2,11 +2,15 @@
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   decorateServiceException as __decorateServiceException,
+  expectBoolean as __expectBoolean,
+  expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   map as __map,
+  parseEpochTimestamp as __parseEpochTimestamp,
   parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   resolvedPath as __resolvedPath,
   throwDefaultError,
@@ -27,6 +31,14 @@ import {
   CreateMediaConcatenationPipelineCommandOutput,
 } from "../commands/CreateMediaConcatenationPipelineCommand";
 import {
+  CreateMediaInsightsPipelineCommandInput,
+  CreateMediaInsightsPipelineCommandOutput,
+} from "../commands/CreateMediaInsightsPipelineCommand";
+import {
+  CreateMediaInsightsPipelineConfigurationCommandInput,
+  CreateMediaInsightsPipelineConfigurationCommandOutput,
+} from "../commands/CreateMediaInsightsPipelineConfigurationCommand";
+import {
   CreateMediaLiveConnectorPipelineCommandInput,
   CreateMediaLiveConnectorPipelineCommandOutput,
 } from "../commands/CreateMediaLiveConnectorPipelineCommand";
@@ -35,6 +47,10 @@ import {
   DeleteMediaCapturePipelineCommandOutput,
 } from "../commands/DeleteMediaCapturePipelineCommand";
 import {
+  DeleteMediaInsightsPipelineConfigurationCommandInput,
+  DeleteMediaInsightsPipelineConfigurationCommandOutput,
+} from "../commands/DeleteMediaInsightsPipelineConfigurationCommand";
+import {
   DeleteMediaPipelineCommandInput,
   DeleteMediaPipelineCommandOutput,
 } from "../commands/DeleteMediaPipelineCommand";
@@ -42,11 +58,19 @@ import {
   GetMediaCapturePipelineCommandInput,
   GetMediaCapturePipelineCommandOutput,
 } from "../commands/GetMediaCapturePipelineCommand";
+import {
+  GetMediaInsightsPipelineConfigurationCommandInput,
+  GetMediaInsightsPipelineConfigurationCommandOutput,
+} from "../commands/GetMediaInsightsPipelineConfigurationCommand";
 import { GetMediaPipelineCommandInput, GetMediaPipelineCommandOutput } from "../commands/GetMediaPipelineCommand";
 import {
   ListMediaCapturePipelinesCommandInput,
   ListMediaCapturePipelinesCommandOutput,
 } from "../commands/ListMediaCapturePipelinesCommand";
+import {
+  ListMediaInsightsPipelineConfigurationsCommandInput,
+  ListMediaInsightsPipelineConfigurationsCommandOutput,
+} from "../commands/ListMediaInsightsPipelineConfigurationsCommand";
 import { ListMediaPipelinesCommandInput, ListMediaPipelinesCommandOutput } from "../commands/ListMediaPipelinesCommand";
 import {
   ListTagsForResourceCommandInput,
@@ -54,13 +78,24 @@ import {
 } from "../commands/ListTagsForResourceCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
+import {
+  UpdateMediaInsightsPipelineConfigurationCommandInput,
+  UpdateMediaInsightsPipelineConfigurationCommandOutput,
+} from "../commands/UpdateMediaInsightsPipelineConfigurationCommand";
+import {
+  UpdateMediaInsightsPipelineStatusCommandInput,
+  UpdateMediaInsightsPipelineStatusCommandOutput,
+} from "../commands/UpdateMediaInsightsPipelineStatusCommand";
 import { ChimeSDKMediaPipelinesServiceException as __BaseException } from "../models/ChimeSDKMediaPipelinesServiceException";
 import {
+  AmazonTranscribeCallAnalyticsProcessorConfiguration,
+  AmazonTranscribeProcessorConfiguration,
   ArtifactsConcatenationConfiguration,
   ArtifactsConfiguration,
   AudioArtifactsConfiguration,
   AudioConcatenationConfiguration,
   BadRequestException,
+  ChannelDefinition,
   ChimeSdkMeetingConcatenationConfiguration,
   ChimeSdkMeetingConfiguration,
   ChimeSdkMeetingLiveConnectorConfiguration,
@@ -68,11 +103,19 @@ import {
   CompositedVideoConcatenationConfiguration,
   ConcatenationSink,
   ConcatenationSource,
+  ConflictException,
   ContentArtifactsConfiguration,
   ContentConcatenationConfiguration,
   DataChannelConcatenationConfiguration,
   ForbiddenException,
+  FragmentSelector,
   GridViewConfiguration,
+  IssueDetectionConfiguration,
+  KeywordMatchConfiguration,
+  KinesisDataStreamSinkConfiguration,
+  KinesisVideoStreamRecordingSourceRuntimeConfiguration,
+  KinesisVideoStreamSourceRuntimeConfiguration,
+  LambdaFunctionSinkConfiguration,
   LiveConnectorRTMPConfiguration,
   LiveConnectorSinkConfiguration,
   LiveConnectorSourceConfiguration,
@@ -80,24 +123,41 @@ import {
   MediaCapturePipelineSourceConfiguration,
   MediaCapturePipelineSummary,
   MediaConcatenationPipeline,
+  MediaInsightsPipeline,
+  MediaInsightsPipelineConfiguration,
+  MediaInsightsPipelineConfigurationElement,
+  MediaInsightsPipelineConfigurationSummary,
   MediaLiveConnectorPipeline,
   MediaPipeline,
   MediaPipelineSummary,
   MeetingEventsConcatenationConfiguration,
   NotFoundException,
+  PostCallAnalyticsSettings,
   PresenterOnlyConfiguration,
+  RealTimeAlertConfiguration,
+  RealTimeAlertRule,
+  RecordingStreamConfiguration,
   ResourceLimitExceededException,
   S3BucketSinkConfiguration,
+  S3RecordingSinkConfiguration,
+  S3RecordingSinkRuntimeConfiguration,
   SelectedVideoStreams,
+  SentimentConfiguration,
   ServiceFailureException,
   ServiceUnavailableException,
+  SnsTopicSinkConfiguration,
   SourceConfiguration,
+  SqsQueueSinkConfiguration,
+  StreamChannelDefinition,
+  StreamConfiguration,
   Tag,
   ThrottledClientException,
+  TimestampRange,
   TranscriptionMessagesConcatenationConfiguration,
   UnauthorizedClientException,
   VideoArtifactsConfiguration,
   VideoConcatenationConfiguration,
+  VoiceAnalyticsProcessorConfiguration,
 } from "../models/models_0";
 
 export const serializeAws_restJson1CreateMediaCapturePipelineCommand = async (
@@ -151,6 +211,99 @@ export const serializeAws_restJson1CreateMediaConcatenationPipelineCommand = asy
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
     ...(input.Sinks != null && { Sinks: serializeAws_restJson1ConcatenationSinkList(input.Sinks, context) }),
     ...(input.Sources != null && { Sources: serializeAws_restJson1ConcatenationSourceList(input.Sources, context) }),
+    ...(input.Tags != null && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1CreateMediaInsightsPipelineCommand = async (
+  input: CreateMediaInsightsPipelineCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/media-insights-pipelines";
+  let body: any;
+  body = JSON.stringify({
+    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
+    ...(input.KinesisVideoStreamRecordingSourceRuntimeConfiguration != null && {
+      KinesisVideoStreamRecordingSourceRuntimeConfiguration:
+        serializeAws_restJson1KinesisVideoStreamRecordingSourceRuntimeConfiguration(
+          input.KinesisVideoStreamRecordingSourceRuntimeConfiguration,
+          context
+        ),
+    }),
+    ...(input.KinesisVideoStreamSourceRuntimeConfiguration != null && {
+      KinesisVideoStreamSourceRuntimeConfiguration: serializeAws_restJson1KinesisVideoStreamSourceRuntimeConfiguration(
+        input.KinesisVideoStreamSourceRuntimeConfiguration,
+        context
+      ),
+    }),
+    ...(input.MediaInsightsPipelineConfigurationArn != null && {
+      MediaInsightsPipelineConfigurationArn: input.MediaInsightsPipelineConfigurationArn,
+    }),
+    ...(input.MediaInsightsRuntimeMetadata != null && {
+      MediaInsightsRuntimeMetadata: serializeAws_restJson1MediaInsightsRuntimeMetadata(
+        input.MediaInsightsRuntimeMetadata,
+        context
+      ),
+    }),
+    ...(input.S3RecordingSinkRuntimeConfiguration != null && {
+      S3RecordingSinkRuntimeConfiguration: serializeAws_restJson1S3RecordingSinkRuntimeConfiguration(
+        input.S3RecordingSinkRuntimeConfiguration,
+        context
+      ),
+    }),
+    ...(input.Tags != null && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1CreateMediaInsightsPipelineConfigurationCommand = async (
+  input: CreateMediaInsightsPipelineConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/media-insights-pipeline-configurations";
+  let body: any;
+  body = JSON.stringify({
+    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
+    ...(input.Elements != null && {
+      Elements: serializeAws_restJson1MediaInsightsPipelineConfigurationElements(input.Elements, context),
+    }),
+    ...(input.MediaInsightsPipelineConfigurationName != null && {
+      MediaInsightsPipelineConfigurationName: input.MediaInsightsPipelineConfigurationName,
+    }),
+    ...(input.RealTimeAlertConfiguration != null && {
+      RealTimeAlertConfiguration: serializeAws_restJson1RealTimeAlertConfiguration(
+        input.RealTimeAlertConfiguration,
+        context
+      ),
+    }),
+    ...(input.ResourceAccessRoleArn != null && { ResourceAccessRoleArn: input.ResourceAccessRoleArn }),
     ...(input.Tags != null && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
   });
   return new __HttpRequest({
@@ -221,6 +374,28 @@ export const serializeAws_restJson1DeleteMediaCapturePipelineCommand = async (
   });
 };
 
+export const serializeAws_restJson1DeleteMediaInsightsPipelineConfigurationCommand = async (
+  input: DeleteMediaInsightsPipelineConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/media-insights-pipeline-configurations/{Identifier}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "Identifier", () => input.Identifier!, "{Identifier}", false);
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1DeleteMediaPipelineCommand = async (
   input: DeleteMediaPipelineCommandInput,
   context: __SerdeContext
@@ -278,6 +453,28 @@ export const serializeAws_restJson1GetMediaCapturePipelineCommand = async (
   });
 };
 
+export const serializeAws_restJson1GetMediaInsightsPipelineConfigurationCommand = async (
+  input: GetMediaInsightsPipelineConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/media-insights-pipeline-configurations/{Identifier}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "Identifier", () => input.Identifier!, "{Identifier}", false);
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1GetMediaPipelineCommand = async (
   input: GetMediaPipelineCommandInput,
   context: __SerdeContext
@@ -314,6 +511,31 @@ export const serializeAws_restJson1ListMediaCapturePipelinesCommand = async (
   const headers: any = {};
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/sdk-media-capture-pipelines";
+  const query: any = map({
+    "next-token": [, input.NextToken!],
+    "max-results": [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ListMediaInsightsPipelineConfigurationsCommand = async (
+  input: ListMediaInsightsPipelineConfigurationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/media-insights-pipeline-configurations";
   const query: any = map({
     "next-token": [, input.NextToken!],
     "max-results": [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
@@ -436,6 +658,69 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   });
 };
 
+export const serializeAws_restJson1UpdateMediaInsightsPipelineConfigurationCommand = async (
+  input: UpdateMediaInsightsPipelineConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/media-insights-pipeline-configurations/{Identifier}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "Identifier", () => input.Identifier!, "{Identifier}", false);
+  let body: any;
+  body = JSON.stringify({
+    ...(input.Elements != null && {
+      Elements: serializeAws_restJson1MediaInsightsPipelineConfigurationElements(input.Elements, context),
+    }),
+    ...(input.RealTimeAlertConfiguration != null && {
+      RealTimeAlertConfiguration: serializeAws_restJson1RealTimeAlertConfiguration(
+        input.RealTimeAlertConfiguration,
+        context
+      ),
+    }),
+    ...(input.ResourceAccessRoleArn != null && { ResourceAccessRoleArn: input.ResourceAccessRoleArn }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1UpdateMediaInsightsPipelineStatusCommand = async (
+  input: UpdateMediaInsightsPipelineStatusCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/media-insights-pipeline-status/{Identifier}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "Identifier", () => input.Identifier!, "{Identifier}", false);
+  let body: any;
+  body = JSON.stringify({
+    ...(input.UpdateStatus != null && { UpdateStatus: input.UpdateStatus }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const deserializeAws_restJson1CreateMediaCapturePipelineCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -531,6 +816,133 @@ const deserializeAws_restJson1CreateMediaConcatenationPipelineCommandError = asy
     case "ForbiddenException":
     case "com.amazonaws.chimesdkmediapipelines#ForbiddenException":
       throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+    case "ResourceLimitExceededException":
+    case "com.amazonaws.chimesdkmediapipelines#ResourceLimitExceededException":
+      throw await deserializeAws_restJson1ResourceLimitExceededExceptionResponse(parsedOutput, context);
+    case "ServiceFailureException":
+    case "com.amazonaws.chimesdkmediapipelines#ServiceFailureException":
+      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.chimesdkmediapipelines#ServiceUnavailableException":
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+    case "ThrottledClientException":
+    case "com.amazonaws.chimesdkmediapipelines#ThrottledClientException":
+      throw await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context);
+    case "UnauthorizedClientException":
+    case "com.amazonaws.chimesdkmediapipelines#UnauthorizedClientException":
+      throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1CreateMediaInsightsPipelineCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateMediaInsightsPipelineCommandOutput> => {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
+    return deserializeAws_restJson1CreateMediaInsightsPipelineCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.MediaInsightsPipeline != null) {
+    contents.MediaInsightsPipeline = deserializeAws_restJson1MediaInsightsPipeline(data.MediaInsightsPipeline, context);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1CreateMediaInsightsPipelineCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateMediaInsightsPipelineCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.chimesdkmediapipelines#BadRequestException":
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.chimesdkmediapipelines#ForbiddenException":
+      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.chimesdkmediapipelines#NotFoundException":
+      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+    case "ResourceLimitExceededException":
+    case "com.amazonaws.chimesdkmediapipelines#ResourceLimitExceededException":
+      throw await deserializeAws_restJson1ResourceLimitExceededExceptionResponse(parsedOutput, context);
+    case "ServiceFailureException":
+    case "com.amazonaws.chimesdkmediapipelines#ServiceFailureException":
+      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.chimesdkmediapipelines#ServiceUnavailableException":
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+    case "ThrottledClientException":
+    case "com.amazonaws.chimesdkmediapipelines#ThrottledClientException":
+      throw await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context);
+    case "UnauthorizedClientException":
+    case "com.amazonaws.chimesdkmediapipelines#UnauthorizedClientException":
+      throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1CreateMediaInsightsPipelineConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateMediaInsightsPipelineConfigurationCommandOutput> => {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
+    return deserializeAws_restJson1CreateMediaInsightsPipelineConfigurationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.MediaInsightsPipelineConfiguration != null) {
+    contents.MediaInsightsPipelineConfiguration = deserializeAws_restJson1MediaInsightsPipelineConfiguration(
+      data.MediaInsightsPipelineConfiguration,
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1CreateMediaInsightsPipelineConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateMediaInsightsPipelineConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.chimesdkmediapipelines#BadRequestException":
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.chimesdkmediapipelines#ForbiddenException":
+      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.chimesdkmediapipelines#NotFoundException":
+      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
     case "ResourceLimitExceededException":
     case "com.amazonaws.chimesdkmediapipelines#ResourceLimitExceededException":
       throw await deserializeAws_restJson1ResourceLimitExceededExceptionResponse(parsedOutput, context);
@@ -675,6 +1087,65 @@ const deserializeAws_restJson1DeleteMediaCapturePipelineCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1DeleteMediaInsightsPipelineConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteMediaInsightsPipelineConfigurationCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DeleteMediaInsightsPipelineConfigurationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+const deserializeAws_restJson1DeleteMediaInsightsPipelineConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteMediaInsightsPipelineConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.chimesdkmediapipelines#BadRequestException":
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.chimesdkmediapipelines#ConflictException":
+      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.chimesdkmediapipelines#ForbiddenException":
+      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.chimesdkmediapipelines#NotFoundException":
+      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceFailureException":
+    case "com.amazonaws.chimesdkmediapipelines#ServiceFailureException":
+      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.chimesdkmediapipelines#ServiceUnavailableException":
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+    case "ThrottledClientException":
+    case "com.amazonaws.chimesdkmediapipelines#ThrottledClientException":
+      throw await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context);
+    case "UnauthorizedClientException":
+    case "com.amazonaws.chimesdkmediapipelines#UnauthorizedClientException":
+      throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_restJson1DeleteMediaPipelineCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -752,6 +1223,68 @@ const deserializeAws_restJson1GetMediaCapturePipelineCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetMediaCapturePipelineCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.chimesdkmediapipelines#BadRequestException":
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.chimesdkmediapipelines#ForbiddenException":
+      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.chimesdkmediapipelines#NotFoundException":
+      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceFailureException":
+    case "com.amazonaws.chimesdkmediapipelines#ServiceFailureException":
+      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.chimesdkmediapipelines#ServiceUnavailableException":
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+    case "ThrottledClientException":
+    case "com.amazonaws.chimesdkmediapipelines#ThrottledClientException":
+      throw await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context);
+    case "UnauthorizedClientException":
+    case "com.amazonaws.chimesdkmediapipelines#UnauthorizedClientException":
+      throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1GetMediaInsightsPipelineConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetMediaInsightsPipelineConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1GetMediaInsightsPipelineConfigurationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.MediaInsightsPipelineConfiguration != null) {
+    contents.MediaInsightsPipelineConfiguration = deserializeAws_restJson1MediaInsightsPipelineConfiguration(
+      data.MediaInsightsPipelineConfiguration,
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1GetMediaInsightsPipelineConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetMediaInsightsPipelineConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -876,6 +1409,72 @@ const deserializeAws_restJson1ListMediaCapturePipelinesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListMediaCapturePipelinesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.chimesdkmediapipelines#BadRequestException":
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.chimesdkmediapipelines#ForbiddenException":
+      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+    case "ResourceLimitExceededException":
+    case "com.amazonaws.chimesdkmediapipelines#ResourceLimitExceededException":
+      throw await deserializeAws_restJson1ResourceLimitExceededExceptionResponse(parsedOutput, context);
+    case "ServiceFailureException":
+    case "com.amazonaws.chimesdkmediapipelines#ServiceFailureException":
+      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.chimesdkmediapipelines#ServiceUnavailableException":
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+    case "ThrottledClientException":
+    case "com.amazonaws.chimesdkmediapipelines#ThrottledClientException":
+      throw await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context);
+    case "UnauthorizedClientException":
+    case "com.amazonaws.chimesdkmediapipelines#UnauthorizedClientException":
+      throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1ListMediaInsightsPipelineConfigurationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListMediaInsightsPipelineConfigurationsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListMediaInsightsPipelineConfigurationsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.MediaInsightsPipelineConfigurations != null) {
+    contents.MediaInsightsPipelineConfigurations =
+      deserializeAws_restJson1MediaInsightsPipelineConfigurationSummaryList(
+        data.MediaInsightsPipelineConfigurations,
+        context
+      );
+  }
+  if (data.NextToken != null) {
+    contents.NextToken = __expectString(data.NextToken);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1ListMediaInsightsPipelineConfigurationsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListMediaInsightsPipelineConfigurationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -1147,6 +1746,130 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1UpdateMediaInsightsPipelineConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateMediaInsightsPipelineConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1UpdateMediaInsightsPipelineConfigurationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.MediaInsightsPipelineConfiguration != null) {
+    contents.MediaInsightsPipelineConfiguration = deserializeAws_restJson1MediaInsightsPipelineConfiguration(
+      data.MediaInsightsPipelineConfiguration,
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1UpdateMediaInsightsPipelineConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateMediaInsightsPipelineConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.chimesdkmediapipelines#BadRequestException":
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.chimesdkmediapipelines#ConflictException":
+      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.chimesdkmediapipelines#ForbiddenException":
+      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.chimesdkmediapipelines#NotFoundException":
+      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceFailureException":
+    case "com.amazonaws.chimesdkmediapipelines#ServiceFailureException":
+      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.chimesdkmediapipelines#ServiceUnavailableException":
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+    case "ThrottledClientException":
+    case "com.amazonaws.chimesdkmediapipelines#ThrottledClientException":
+      throw await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context);
+    case "UnauthorizedClientException":
+    case "com.amazonaws.chimesdkmediapipelines#UnauthorizedClientException":
+      throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1UpdateMediaInsightsPipelineStatusCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateMediaInsightsPipelineStatusCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1UpdateMediaInsightsPipelineStatusCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+const deserializeAws_restJson1UpdateMediaInsightsPipelineStatusCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateMediaInsightsPipelineStatusCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.chimesdkmediapipelines#BadRequestException":
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.chimesdkmediapipelines#ConflictException":
+      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.chimesdkmediapipelines#ForbiddenException":
+      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.chimesdkmediapipelines#NotFoundException":
+      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceFailureException":
+    case "com.amazonaws.chimesdkmediapipelines#ServiceFailureException":
+      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.chimesdkmediapipelines#ServiceUnavailableException":
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+    case "ThrottledClientException":
+    case "com.amazonaws.chimesdkmediapipelines#ThrottledClientException":
+      throw await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context);
+    case "UnauthorizedClientException":
+    case "com.amazonaws.chimesdkmediapipelines#UnauthorizedClientException":
+      throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 const map = __map;
 const deserializeAws_restJson1BadRequestExceptionResponse = async (
   parsedOutput: any,
@@ -1164,6 +1887,28 @@ const deserializeAws_restJson1BadRequestExceptionResponse = async (
     contents.RequestId = __expectString(data.RequestId);
   }
   const exception = new BadRequestException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+const deserializeAws_restJson1ConflictExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ConflictException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  if (data.Code != null) {
+    contents.Code = __expectString(data.Code);
+  }
+  if (data.Message != null) {
+    contents.Message = __expectString(data.Message);
+  }
+  if (data.RequestId != null) {
+    contents.RequestId = __expectString(data.RequestId);
+  }
+  const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
   });
@@ -1324,6 +2069,61 @@ const deserializeAws_restJson1UnauthorizedClientExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
+const serializeAws_restJson1AmazonTranscribeCallAnalyticsProcessorConfiguration = (
+  input: AmazonTranscribeCallAnalyticsProcessorConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.CallAnalyticsStreamCategories != null && {
+      CallAnalyticsStreamCategories: serializeAws_restJson1CategoryNameList(
+        input.CallAnalyticsStreamCategories,
+        context
+      ),
+    }),
+    ...(input.ContentIdentificationType != null && { ContentIdentificationType: input.ContentIdentificationType }),
+    ...(input.ContentRedactionType != null && { ContentRedactionType: input.ContentRedactionType }),
+    ...(input.EnablePartialResultsStabilization != null && {
+      EnablePartialResultsStabilization: input.EnablePartialResultsStabilization,
+    }),
+    ...(input.FilterPartialResults != null && { FilterPartialResults: input.FilterPartialResults }),
+    ...(input.LanguageCode != null && { LanguageCode: input.LanguageCode }),
+    ...(input.LanguageModelName != null && { LanguageModelName: input.LanguageModelName }),
+    ...(input.PartialResultsStability != null && { PartialResultsStability: input.PartialResultsStability }),
+    ...(input.PiiEntityTypes != null && { PiiEntityTypes: input.PiiEntityTypes }),
+    ...(input.PostCallAnalyticsSettings != null && {
+      PostCallAnalyticsSettings: serializeAws_restJson1PostCallAnalyticsSettings(
+        input.PostCallAnalyticsSettings,
+        context
+      ),
+    }),
+    ...(input.VocabularyFilterMethod != null && { VocabularyFilterMethod: input.VocabularyFilterMethod }),
+    ...(input.VocabularyFilterName != null && { VocabularyFilterName: input.VocabularyFilterName }),
+    ...(input.VocabularyName != null && { VocabularyName: input.VocabularyName }),
+  };
+};
+
+const serializeAws_restJson1AmazonTranscribeProcessorConfiguration = (
+  input: AmazonTranscribeProcessorConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ContentIdentificationType != null && { ContentIdentificationType: input.ContentIdentificationType }),
+    ...(input.ContentRedactionType != null && { ContentRedactionType: input.ContentRedactionType }),
+    ...(input.EnablePartialResultsStabilization != null && {
+      EnablePartialResultsStabilization: input.EnablePartialResultsStabilization,
+    }),
+    ...(input.FilterPartialResults != null && { FilterPartialResults: input.FilterPartialResults }),
+    ...(input.LanguageCode != null && { LanguageCode: input.LanguageCode }),
+    ...(input.LanguageModelName != null && { LanguageModelName: input.LanguageModelName }),
+    ...(input.PartialResultsStability != null && { PartialResultsStability: input.PartialResultsStability }),
+    ...(input.PiiEntityTypes != null && { PiiEntityTypes: input.PiiEntityTypes }),
+    ...(input.ShowSpeakerLabel != null && { ShowSpeakerLabel: input.ShowSpeakerLabel }),
+    ...(input.VocabularyFilterMethod != null && { VocabularyFilterMethod: input.VocabularyFilterMethod }),
+    ...(input.VocabularyFilterName != null && { VocabularyFilterName: input.VocabularyFilterName }),
+    ...(input.VocabularyName != null && { VocabularyName: input.VocabularyName }),
+  };
+};
+
 const serializeAws_restJson1ArtifactsConcatenationConfiguration = (
   input: ArtifactsConcatenationConfiguration,
   context: __SerdeContext
@@ -1389,6 +2189,29 @@ const serializeAws_restJson1AudioConcatenationConfiguration = (
   return {
     ...(input.State != null && { State: input.State }),
   };
+};
+
+const serializeAws_restJson1CategoryNameList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
+const serializeAws_restJson1ChannelDefinition = (input: ChannelDefinition, context: __SerdeContext): any => {
+  return {
+    ...(input.ChannelId != null && { ChannelId: input.ChannelId }),
+    ...(input.ParticipantRole != null && { ParticipantRole: input.ParticipantRole }),
+  };
+};
+
+const serializeAws_restJson1ChannelDefinitions = (input: ChannelDefinition[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1ChannelDefinition(entry, context);
+    });
 };
 
 const serializeAws_restJson1ChimeSdkMeetingConcatenationConfiguration = (
@@ -1533,6 +2356,15 @@ const serializeAws_restJson1ExternalUserIdList = (input: string[], context: __Se
     });
 };
 
+const serializeAws_restJson1FragmentSelector = (input: FragmentSelector, context: __SerdeContext): any => {
+  return {
+    ...(input.FragmentSelectorType != null && { FragmentSelectorType: input.FragmentSelectorType }),
+    ...(input.TimestampRange != null && {
+      TimestampRange: serializeAws_restJson1TimestampRange(input.TimestampRange, context),
+    }),
+  };
+};
+
 const serializeAws_restJson1GridViewConfiguration = (input: GridViewConfiguration, context: __SerdeContext): any => {
   return {
     ...(input.ContentShareLayout != null && { ContentShareLayout: input.ContentShareLayout }),
@@ -1542,6 +2374,75 @@ const serializeAws_restJson1GridViewConfiguration = (input: GridViewConfiguratio
         context
       ),
     }),
+  };
+};
+
+const serializeAws_restJson1IssueDetectionConfiguration = (
+  input: IssueDetectionConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.RuleName != null && { RuleName: input.RuleName }),
+  };
+};
+
+const serializeAws_restJson1KeywordMatchConfiguration = (
+  input: KeywordMatchConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Keywords != null && { Keywords: serializeAws_restJson1KeywordMatchWordList(input.Keywords, context) }),
+    ...(input.Negate != null && { Negate: input.Negate }),
+    ...(input.RuleName != null && { RuleName: input.RuleName }),
+  };
+};
+
+const serializeAws_restJson1KeywordMatchWordList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
+const serializeAws_restJson1KinesisDataStreamSinkConfiguration = (
+  input: KinesisDataStreamSinkConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.InsightsTarget != null && { InsightsTarget: input.InsightsTarget }),
+  };
+};
+
+const serializeAws_restJson1KinesisVideoStreamRecordingSourceRuntimeConfiguration = (
+  input: KinesisVideoStreamRecordingSourceRuntimeConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.FragmentSelector != null && {
+      FragmentSelector: serializeAws_restJson1FragmentSelector(input.FragmentSelector, context),
+    }),
+    ...(input.Streams != null && { Streams: serializeAws_restJson1RecordingStreamList(input.Streams, context) }),
+  };
+};
+
+const serializeAws_restJson1KinesisVideoStreamSourceRuntimeConfiguration = (
+  input: KinesisVideoStreamSourceRuntimeConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.MediaEncoding != null && { MediaEncoding: input.MediaEncoding }),
+    ...(input.MediaSampleRate != null && { MediaSampleRate: input.MediaSampleRate }),
+    ...(input.Streams != null && { Streams: serializeAws_restJson1Streams(input.Streams, context) }),
+  };
+};
+
+const serializeAws_restJson1LambdaFunctionSinkConfiguration = (
+  input: LambdaFunctionSinkConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.InsightsTarget != null && { InsightsTarget: input.InsightsTarget }),
   };
 };
 
@@ -1620,12 +2521,106 @@ const serializeAws_restJson1MediaCapturePipelineSourceConfiguration = (
   };
 };
 
+const serializeAws_restJson1MediaInsightsPipelineConfigurationElement = (
+  input: MediaInsightsPipelineConfigurationElement,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AmazonTranscribeCallAnalyticsProcessorConfiguration != null && {
+      AmazonTranscribeCallAnalyticsProcessorConfiguration:
+        serializeAws_restJson1AmazonTranscribeCallAnalyticsProcessorConfiguration(
+          input.AmazonTranscribeCallAnalyticsProcessorConfiguration,
+          context
+        ),
+    }),
+    ...(input.AmazonTranscribeProcessorConfiguration != null && {
+      AmazonTranscribeProcessorConfiguration: serializeAws_restJson1AmazonTranscribeProcessorConfiguration(
+        input.AmazonTranscribeProcessorConfiguration,
+        context
+      ),
+    }),
+    ...(input.KinesisDataStreamSinkConfiguration != null && {
+      KinesisDataStreamSinkConfiguration: serializeAws_restJson1KinesisDataStreamSinkConfiguration(
+        input.KinesisDataStreamSinkConfiguration,
+        context
+      ),
+    }),
+    ...(input.LambdaFunctionSinkConfiguration != null && {
+      LambdaFunctionSinkConfiguration: serializeAws_restJson1LambdaFunctionSinkConfiguration(
+        input.LambdaFunctionSinkConfiguration,
+        context
+      ),
+    }),
+    ...(input.S3RecordingSinkConfiguration != null && {
+      S3RecordingSinkConfiguration: serializeAws_restJson1S3RecordingSinkConfiguration(
+        input.S3RecordingSinkConfiguration,
+        context
+      ),
+    }),
+    ...(input.SnsTopicSinkConfiguration != null && {
+      SnsTopicSinkConfiguration: serializeAws_restJson1SnsTopicSinkConfiguration(
+        input.SnsTopicSinkConfiguration,
+        context
+      ),
+    }),
+    ...(input.SqsQueueSinkConfiguration != null && {
+      SqsQueueSinkConfiguration: serializeAws_restJson1SqsQueueSinkConfiguration(
+        input.SqsQueueSinkConfiguration,
+        context
+      ),
+    }),
+    ...(input.Type != null && { Type: input.Type }),
+    ...(input.VoiceAnalyticsProcessorConfiguration != null && {
+      VoiceAnalyticsProcessorConfiguration: serializeAws_restJson1VoiceAnalyticsProcessorConfiguration(
+        input.VoiceAnalyticsProcessorConfiguration,
+        context
+      ),
+    }),
+  };
+};
+
+const serializeAws_restJson1MediaInsightsPipelineConfigurationElements = (
+  input: MediaInsightsPipelineConfigurationElement[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1MediaInsightsPipelineConfigurationElement(entry, context);
+    });
+};
+
+const serializeAws_restJson1MediaInsightsRuntimeMetadata = (
+  input: Record<string, string>,
+  context: __SerdeContext
+): any => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key] = value;
+    return acc;
+  }, {});
+};
+
 const serializeAws_restJson1MeetingEventsConcatenationConfiguration = (
   input: MeetingEventsConcatenationConfiguration,
   context: __SerdeContext
 ): any => {
   return {
     ...(input.State != null && { State: input.State }),
+  };
+};
+
+const serializeAws_restJson1PostCallAnalyticsSettings = (
+  input: PostCallAnalyticsSettings,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ContentRedactionOutput != null && { ContentRedactionOutput: input.ContentRedactionOutput }),
+    ...(input.DataAccessRoleArn != null && { DataAccessRoleArn: input.DataAccessRoleArn }),
+    ...(input.OutputEncryptionKMSKeyId != null && { OutputEncryptionKMSKeyId: input.OutputEncryptionKMSKeyId }),
+    ...(input.OutputLocation != null && { OutputLocation: input.OutputLocation }),
   };
 };
 
@@ -1638,12 +2633,90 @@ const serializeAws_restJson1PresenterOnlyConfiguration = (
   };
 };
 
+const serializeAws_restJson1RealTimeAlertConfiguration = (
+  input: RealTimeAlertConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Disabled != null && { Disabled: input.Disabled }),
+    ...(input.Rules != null && { Rules: serializeAws_restJson1RealTimeAlertRuleList(input.Rules, context) }),
+  };
+};
+
+const serializeAws_restJson1RealTimeAlertRule = (input: RealTimeAlertRule, context: __SerdeContext): any => {
+  return {
+    ...(input.IssueDetectionConfiguration != null && {
+      IssueDetectionConfiguration: serializeAws_restJson1IssueDetectionConfiguration(
+        input.IssueDetectionConfiguration,
+        context
+      ),
+    }),
+    ...(input.KeywordMatchConfiguration != null && {
+      KeywordMatchConfiguration: serializeAws_restJson1KeywordMatchConfiguration(
+        input.KeywordMatchConfiguration,
+        context
+      ),
+    }),
+    ...(input.SentimentConfiguration != null && {
+      SentimentConfiguration: serializeAws_restJson1SentimentConfiguration(input.SentimentConfiguration, context),
+    }),
+    ...(input.Type != null && { Type: input.Type }),
+  };
+};
+
+const serializeAws_restJson1RealTimeAlertRuleList = (input: RealTimeAlertRule[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1RealTimeAlertRule(entry, context);
+    });
+};
+
+const serializeAws_restJson1RecordingStreamConfiguration = (
+  input: RecordingStreamConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.StreamArn != null && { StreamArn: input.StreamArn }),
+  };
+};
+
+const serializeAws_restJson1RecordingStreamList = (
+  input: RecordingStreamConfiguration[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1RecordingStreamConfiguration(entry, context);
+    });
+};
+
 const serializeAws_restJson1S3BucketSinkConfiguration = (
   input: S3BucketSinkConfiguration,
   context: __SerdeContext
 ): any => {
   return {
     ...(input.Destination != null && { Destination: input.Destination }),
+  };
+};
+
+const serializeAws_restJson1S3RecordingSinkConfiguration = (
+  input: S3RecordingSinkConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Destination != null && { Destination: input.Destination }),
+  };
+};
+
+const serializeAws_restJson1S3RecordingSinkRuntimeConfiguration = (
+  input: S3RecordingSinkRuntimeConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Destination != null && { Destination: input.Destination }),
+    ...(input.RecordingFileFormat != null && { RecordingFileFormat: input.RecordingFileFormat }),
   };
 };
 
@@ -1656,12 +2729,68 @@ const serializeAws_restJson1SelectedVideoStreams = (input: SelectedVideoStreams,
   };
 };
 
+const serializeAws_restJson1SentimentConfiguration = (input: SentimentConfiguration, context: __SerdeContext): any => {
+  return {
+    ...(input.RuleName != null && { RuleName: input.RuleName }),
+    ...(input.SentimentType != null && { SentimentType: input.SentimentType }),
+    ...(input.TimePeriod != null && { TimePeriod: input.TimePeriod }),
+  };
+};
+
+const serializeAws_restJson1SnsTopicSinkConfiguration = (
+  input: SnsTopicSinkConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.InsightsTarget != null && { InsightsTarget: input.InsightsTarget }),
+  };
+};
+
 const serializeAws_restJson1SourceConfiguration = (input: SourceConfiguration, context: __SerdeContext): any => {
   return {
     ...(input.SelectedVideoStreams != null && {
       SelectedVideoStreams: serializeAws_restJson1SelectedVideoStreams(input.SelectedVideoStreams, context),
     }),
   };
+};
+
+const serializeAws_restJson1SqsQueueSinkConfiguration = (
+  input: SqsQueueSinkConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.InsightsTarget != null && { InsightsTarget: input.InsightsTarget }),
+  };
+};
+
+const serializeAws_restJson1StreamChannelDefinition = (
+  input: StreamChannelDefinition,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ChannelDefinitions != null && {
+      ChannelDefinitions: serializeAws_restJson1ChannelDefinitions(input.ChannelDefinitions, context),
+    }),
+    ...(input.NumberOfChannels != null && { NumberOfChannels: input.NumberOfChannels }),
+  };
+};
+
+const serializeAws_restJson1StreamConfiguration = (input: StreamConfiguration, context: __SerdeContext): any => {
+  return {
+    ...(input.FragmentNumber != null && { FragmentNumber: input.FragmentNumber }),
+    ...(input.StreamArn != null && { StreamArn: input.StreamArn }),
+    ...(input.StreamChannelDefinition != null && {
+      StreamChannelDefinition: serializeAws_restJson1StreamChannelDefinition(input.StreamChannelDefinition, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1Streams = (input: StreamConfiguration[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1StreamConfiguration(entry, context);
+    });
 };
 
 const serializeAws_restJson1Tag = (input: Tag, context: __SerdeContext): any => {
@@ -1685,6 +2814,13 @@ const serializeAws_restJson1TagList = (input: Tag[], context: __SerdeContext): a
     .map((entry) => {
       return serializeAws_restJson1Tag(entry, context);
     });
+};
+
+const serializeAws_restJson1TimestampRange = (input: TimestampRange, context: __SerdeContext): any => {
+  return {
+    ...(input.EndTimestamp != null && { EndTimestamp: Math.round(input.EndTimestamp.getTime() / 1000) }),
+    ...(input.StartTimestamp != null && { StartTimestamp: Math.round(input.StartTimestamp.getTime() / 1000) }),
+  };
 };
 
 const serializeAws_restJson1TranscriptionMessagesConcatenationConfiguration = (
@@ -1713,6 +2849,63 @@ const serializeAws_restJson1VideoConcatenationConfiguration = (
   return {
     ...(input.State != null && { State: input.State }),
   };
+};
+
+const serializeAws_restJson1VoiceAnalyticsProcessorConfiguration = (
+  input: VoiceAnalyticsProcessorConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.SpeakerSearchStatus != null && { SpeakerSearchStatus: input.SpeakerSearchStatus }),
+    ...(input.VoiceToneAnalysisStatus != null && { VoiceToneAnalysisStatus: input.VoiceToneAnalysisStatus }),
+  };
+};
+
+const deserializeAws_restJson1AmazonTranscribeCallAnalyticsProcessorConfiguration = (
+  output: any,
+  context: __SerdeContext
+): AmazonTranscribeCallAnalyticsProcessorConfiguration => {
+  return {
+    CallAnalyticsStreamCategories:
+      output.CallAnalyticsStreamCategories != null
+        ? deserializeAws_restJson1CategoryNameList(output.CallAnalyticsStreamCategories, context)
+        : undefined,
+    ContentIdentificationType: __expectString(output.ContentIdentificationType),
+    ContentRedactionType: __expectString(output.ContentRedactionType),
+    EnablePartialResultsStabilization: __expectBoolean(output.EnablePartialResultsStabilization),
+    FilterPartialResults: __expectBoolean(output.FilterPartialResults),
+    LanguageCode: __expectString(output.LanguageCode),
+    LanguageModelName: __expectString(output.LanguageModelName),
+    PartialResultsStability: __expectString(output.PartialResultsStability),
+    PiiEntityTypes: __expectString(output.PiiEntityTypes),
+    PostCallAnalyticsSettings:
+      output.PostCallAnalyticsSettings != null
+        ? deserializeAws_restJson1PostCallAnalyticsSettings(output.PostCallAnalyticsSettings, context)
+        : undefined,
+    VocabularyFilterMethod: __expectString(output.VocabularyFilterMethod),
+    VocabularyFilterName: __expectString(output.VocabularyFilterName),
+    VocabularyName: __expectString(output.VocabularyName),
+  } as any;
+};
+
+const deserializeAws_restJson1AmazonTranscribeProcessorConfiguration = (
+  output: any,
+  context: __SerdeContext
+): AmazonTranscribeProcessorConfiguration => {
+  return {
+    ContentIdentificationType: __expectString(output.ContentIdentificationType),
+    ContentRedactionType: __expectString(output.ContentRedactionType),
+    EnablePartialResultsStabilization: __expectBoolean(output.EnablePartialResultsStabilization),
+    FilterPartialResults: __expectBoolean(output.FilterPartialResults),
+    LanguageCode: __expectString(output.LanguageCode),
+    LanguageModelName: __expectString(output.LanguageModelName),
+    PartialResultsStability: __expectString(output.PartialResultsStability),
+    PiiEntityTypes: __expectString(output.PiiEntityTypes),
+    ShowSpeakerLabel: __expectBoolean(output.ShowSpeakerLabel),
+    VocabularyFilterMethod: __expectString(output.VocabularyFilterMethod),
+    VocabularyFilterName: __expectString(output.VocabularyFilterName),
+    VocabularyName: __expectString(output.VocabularyName),
+  } as any;
 };
 
 const deserializeAws_restJson1ArtifactsConcatenationConfiguration = (
@@ -1795,6 +2988,37 @@ const deserializeAws_restJson1AudioConcatenationConfiguration = (
   return {
     State: __expectString(output.State),
   } as any;
+};
+
+const deserializeAws_restJson1CategoryNameList = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1ChannelDefinition = (output: any, context: __SerdeContext): ChannelDefinition => {
+  return {
+    ChannelId: __expectInt32(output.ChannelId),
+    ParticipantRole: __expectString(output.ParticipantRole),
+  } as any;
+};
+
+const deserializeAws_restJson1ChannelDefinitions = (output: any, context: __SerdeContext): ChannelDefinition[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1ChannelDefinition(entry, context);
+    });
+  return retVal;
 };
 
 const deserializeAws_restJson1ChimeSdkMeetingConcatenationConfiguration = (
@@ -1956,6 +3180,16 @@ const deserializeAws_restJson1ExternalUserIdList = (output: any, context: __Serd
   return retVal;
 };
 
+const deserializeAws_restJson1FragmentSelector = (output: any, context: __SerdeContext): FragmentSelector => {
+  return {
+    FragmentSelectorType: __expectString(output.FragmentSelectorType),
+    TimestampRange:
+      output.TimestampRange != null
+        ? deserializeAws_restJson1TimestampRange(output.TimestampRange, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1GridViewConfiguration = (output: any, context: __SerdeContext): GridViewConfiguration => {
   return {
     ContentShareLayout: __expectString(output.ContentShareLayout),
@@ -1963,6 +3197,81 @@ const deserializeAws_restJson1GridViewConfiguration = (output: any, context: __S
       output.PresenterOnlyConfiguration != null
         ? deserializeAws_restJson1PresenterOnlyConfiguration(output.PresenterOnlyConfiguration, context)
         : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1IssueDetectionConfiguration = (
+  output: any,
+  context: __SerdeContext
+): IssueDetectionConfiguration => {
+  return {
+    RuleName: __expectString(output.RuleName),
+  } as any;
+};
+
+const deserializeAws_restJson1KeywordMatchConfiguration = (
+  output: any,
+  context: __SerdeContext
+): KeywordMatchConfiguration => {
+  return {
+    Keywords:
+      output.Keywords != null ? deserializeAws_restJson1KeywordMatchWordList(output.Keywords, context) : undefined,
+    Negate: __expectBoolean(output.Negate),
+    RuleName: __expectString(output.RuleName),
+  } as any;
+};
+
+const deserializeAws_restJson1KeywordMatchWordList = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1KinesisDataStreamSinkConfiguration = (
+  output: any,
+  context: __SerdeContext
+): KinesisDataStreamSinkConfiguration => {
+  return {
+    InsightsTarget: __expectString(output.InsightsTarget),
+  } as any;
+};
+
+const deserializeAws_restJson1KinesisVideoStreamRecordingSourceRuntimeConfiguration = (
+  output: any,
+  context: __SerdeContext
+): KinesisVideoStreamRecordingSourceRuntimeConfiguration => {
+  return {
+    FragmentSelector:
+      output.FragmentSelector != null
+        ? deserializeAws_restJson1FragmentSelector(output.FragmentSelector, context)
+        : undefined,
+    Streams: output.Streams != null ? deserializeAws_restJson1RecordingStreamList(output.Streams, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1KinesisVideoStreamSourceRuntimeConfiguration = (
+  output: any,
+  context: __SerdeContext
+): KinesisVideoStreamSourceRuntimeConfiguration => {
+  return {
+    MediaEncoding: __expectString(output.MediaEncoding),
+    MediaSampleRate: __expectInt32(output.MediaSampleRate),
+    Streams: output.Streams != null ? deserializeAws_restJson1Streams(output.Streams, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1LambdaFunctionSinkConfiguration = (
+  output: any,
+  context: __SerdeContext
+): LambdaFunctionSinkConfiguration => {
+  return {
+    InsightsTarget: __expectString(output.InsightsTarget),
   } as any;
 };
 
@@ -2123,6 +3432,176 @@ const deserializeAws_restJson1MediaConcatenationPipeline = (
   } as any;
 };
 
+const deserializeAws_restJson1MediaInsightsPipeline = (output: any, context: __SerdeContext): MediaInsightsPipeline => {
+  return {
+    CreatedTimestamp:
+      output.CreatedTimestamp != null
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.CreatedTimestamp))
+        : undefined,
+    KinesisVideoStreamRecordingSourceRuntimeConfiguration:
+      output.KinesisVideoStreamRecordingSourceRuntimeConfiguration != null
+        ? deserializeAws_restJson1KinesisVideoStreamRecordingSourceRuntimeConfiguration(
+            output.KinesisVideoStreamRecordingSourceRuntimeConfiguration,
+            context
+          )
+        : undefined,
+    KinesisVideoStreamSourceRuntimeConfiguration:
+      output.KinesisVideoStreamSourceRuntimeConfiguration != null
+        ? deserializeAws_restJson1KinesisVideoStreamSourceRuntimeConfiguration(
+            output.KinesisVideoStreamSourceRuntimeConfiguration,
+            context
+          )
+        : undefined,
+    MediaInsightsPipelineConfigurationArn: __expectString(output.MediaInsightsPipelineConfigurationArn),
+    MediaInsightsRuntimeMetadata:
+      output.MediaInsightsRuntimeMetadata != null
+        ? deserializeAws_restJson1MediaInsightsRuntimeMetadata(output.MediaInsightsRuntimeMetadata, context)
+        : undefined,
+    MediaPipelineArn: __expectString(output.MediaPipelineArn),
+    MediaPipelineId: __expectString(output.MediaPipelineId),
+    S3RecordingSinkRuntimeConfiguration:
+      output.S3RecordingSinkRuntimeConfiguration != null
+        ? deserializeAws_restJson1S3RecordingSinkRuntimeConfiguration(
+            output.S3RecordingSinkRuntimeConfiguration,
+            context
+          )
+        : undefined,
+    Status: __expectString(output.Status),
+  } as any;
+};
+
+const deserializeAws_restJson1MediaInsightsPipelineConfiguration = (
+  output: any,
+  context: __SerdeContext
+): MediaInsightsPipelineConfiguration => {
+  return {
+    CreatedTimestamp:
+      output.CreatedTimestamp != null
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.CreatedTimestamp))
+        : undefined,
+    Elements:
+      output.Elements != null
+        ? deserializeAws_restJson1MediaInsightsPipelineConfigurationElements(output.Elements, context)
+        : undefined,
+    MediaInsightsPipelineConfigurationArn: __expectString(output.MediaInsightsPipelineConfigurationArn),
+    MediaInsightsPipelineConfigurationId: __expectString(output.MediaInsightsPipelineConfigurationId),
+    MediaInsightsPipelineConfigurationName: __expectString(output.MediaInsightsPipelineConfigurationName),
+    RealTimeAlertConfiguration:
+      output.RealTimeAlertConfiguration != null
+        ? deserializeAws_restJson1RealTimeAlertConfiguration(output.RealTimeAlertConfiguration, context)
+        : undefined,
+    ResourceAccessRoleArn: __expectString(output.ResourceAccessRoleArn),
+    UpdatedTimestamp:
+      output.UpdatedTimestamp != null
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.UpdatedTimestamp))
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1MediaInsightsPipelineConfigurationElement = (
+  output: any,
+  context: __SerdeContext
+): MediaInsightsPipelineConfigurationElement => {
+  return {
+    AmazonTranscribeCallAnalyticsProcessorConfiguration:
+      output.AmazonTranscribeCallAnalyticsProcessorConfiguration != null
+        ? deserializeAws_restJson1AmazonTranscribeCallAnalyticsProcessorConfiguration(
+            output.AmazonTranscribeCallAnalyticsProcessorConfiguration,
+            context
+          )
+        : undefined,
+    AmazonTranscribeProcessorConfiguration:
+      output.AmazonTranscribeProcessorConfiguration != null
+        ? deserializeAws_restJson1AmazonTranscribeProcessorConfiguration(
+            output.AmazonTranscribeProcessorConfiguration,
+            context
+          )
+        : undefined,
+    KinesisDataStreamSinkConfiguration:
+      output.KinesisDataStreamSinkConfiguration != null
+        ? deserializeAws_restJson1KinesisDataStreamSinkConfiguration(output.KinesisDataStreamSinkConfiguration, context)
+        : undefined,
+    LambdaFunctionSinkConfiguration:
+      output.LambdaFunctionSinkConfiguration != null
+        ? deserializeAws_restJson1LambdaFunctionSinkConfiguration(output.LambdaFunctionSinkConfiguration, context)
+        : undefined,
+    S3RecordingSinkConfiguration:
+      output.S3RecordingSinkConfiguration != null
+        ? deserializeAws_restJson1S3RecordingSinkConfiguration(output.S3RecordingSinkConfiguration, context)
+        : undefined,
+    SnsTopicSinkConfiguration:
+      output.SnsTopicSinkConfiguration != null
+        ? deserializeAws_restJson1SnsTopicSinkConfiguration(output.SnsTopicSinkConfiguration, context)
+        : undefined,
+    SqsQueueSinkConfiguration:
+      output.SqsQueueSinkConfiguration != null
+        ? deserializeAws_restJson1SqsQueueSinkConfiguration(output.SqsQueueSinkConfiguration, context)
+        : undefined,
+    Type: __expectString(output.Type),
+    VoiceAnalyticsProcessorConfiguration:
+      output.VoiceAnalyticsProcessorConfiguration != null
+        ? deserializeAws_restJson1VoiceAnalyticsProcessorConfiguration(
+            output.VoiceAnalyticsProcessorConfiguration,
+            context
+          )
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1MediaInsightsPipelineConfigurationElements = (
+  output: any,
+  context: __SerdeContext
+): MediaInsightsPipelineConfigurationElement[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1MediaInsightsPipelineConfigurationElement(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1MediaInsightsPipelineConfigurationSummary = (
+  output: any,
+  context: __SerdeContext
+): MediaInsightsPipelineConfigurationSummary => {
+  return {
+    MediaInsightsPipelineConfigurationArn: __expectString(output.MediaInsightsPipelineConfigurationArn),
+    MediaInsightsPipelineConfigurationId: __expectString(output.MediaInsightsPipelineConfigurationId),
+    MediaInsightsPipelineConfigurationName: __expectString(output.MediaInsightsPipelineConfigurationName),
+  } as any;
+};
+
+const deserializeAws_restJson1MediaInsightsPipelineConfigurationSummaryList = (
+  output: any,
+  context: __SerdeContext
+): MediaInsightsPipelineConfigurationSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1MediaInsightsPipelineConfigurationSummary(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1MediaInsightsRuntimeMetadata = (
+  output: any,
+  context: __SerdeContext
+): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key] = __expectString(value) as any;
+    return acc;
+  }, {});
+};
+
 const deserializeAws_restJson1MediaLiveConnectorPipeline = (
   output: any,
   context: __SerdeContext
@@ -2154,6 +3633,10 @@ const deserializeAws_restJson1MediaPipeline = (output: any, context: __SerdeCont
     MediaConcatenationPipeline:
       output.MediaConcatenationPipeline != null
         ? deserializeAws_restJson1MediaConcatenationPipeline(output.MediaConcatenationPipeline, context)
+        : undefined,
+    MediaInsightsPipeline:
+      output.MediaInsightsPipeline != null
+        ? deserializeAws_restJson1MediaInsightsPipeline(output.MediaInsightsPipeline, context)
         : undefined,
     MediaLiveConnectorPipeline:
       output.MediaLiveConnectorPipeline != null
@@ -2190,6 +3673,18 @@ const deserializeAws_restJson1MeetingEventsConcatenationConfiguration = (
   } as any;
 };
 
+const deserializeAws_restJson1PostCallAnalyticsSettings = (
+  output: any,
+  context: __SerdeContext
+): PostCallAnalyticsSettings => {
+  return {
+    ContentRedactionOutput: __expectString(output.ContentRedactionOutput),
+    DataAccessRoleArn: __expectString(output.DataAccessRoleArn),
+    OutputEncryptionKMSKeyId: __expectString(output.OutputEncryptionKMSKeyId),
+    OutputLocation: __expectString(output.OutputLocation),
+  } as any;
+};
+
 const deserializeAws_restJson1PresenterOnlyConfiguration = (
   output: any,
   context: __SerdeContext
@@ -2199,12 +3694,95 @@ const deserializeAws_restJson1PresenterOnlyConfiguration = (
   } as any;
 };
 
+const deserializeAws_restJson1RealTimeAlertConfiguration = (
+  output: any,
+  context: __SerdeContext
+): RealTimeAlertConfiguration => {
+  return {
+    Disabled: __expectBoolean(output.Disabled),
+    Rules: output.Rules != null ? deserializeAws_restJson1RealTimeAlertRuleList(output.Rules, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1RealTimeAlertRule = (output: any, context: __SerdeContext): RealTimeAlertRule => {
+  return {
+    IssueDetectionConfiguration:
+      output.IssueDetectionConfiguration != null
+        ? deserializeAws_restJson1IssueDetectionConfiguration(output.IssueDetectionConfiguration, context)
+        : undefined,
+    KeywordMatchConfiguration:
+      output.KeywordMatchConfiguration != null
+        ? deserializeAws_restJson1KeywordMatchConfiguration(output.KeywordMatchConfiguration, context)
+        : undefined,
+    SentimentConfiguration:
+      output.SentimentConfiguration != null
+        ? deserializeAws_restJson1SentimentConfiguration(output.SentimentConfiguration, context)
+        : undefined,
+    Type: __expectString(output.Type),
+  } as any;
+};
+
+const deserializeAws_restJson1RealTimeAlertRuleList = (output: any, context: __SerdeContext): RealTimeAlertRule[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1RealTimeAlertRule(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1RecordingStreamConfiguration = (
+  output: any,
+  context: __SerdeContext
+): RecordingStreamConfiguration => {
+  return {
+    StreamArn: __expectString(output.StreamArn),
+  } as any;
+};
+
+const deserializeAws_restJson1RecordingStreamList = (
+  output: any,
+  context: __SerdeContext
+): RecordingStreamConfiguration[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1RecordingStreamConfiguration(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_restJson1S3BucketSinkConfiguration = (
   output: any,
   context: __SerdeContext
 ): S3BucketSinkConfiguration => {
   return {
     Destination: __expectString(output.Destination),
+  } as any;
+};
+
+const deserializeAws_restJson1S3RecordingSinkConfiguration = (
+  output: any,
+  context: __SerdeContext
+): S3RecordingSinkConfiguration => {
+  return {
+    Destination: __expectString(output.Destination),
+  } as any;
+};
+
+const deserializeAws_restJson1S3RecordingSinkRuntimeConfiguration = (
+  output: any,
+  context: __SerdeContext
+): S3RecordingSinkRuntimeConfiguration => {
+  return {
+    Destination: __expectString(output.Destination),
+    RecordingFileFormat: __expectString(output.RecordingFileFormat),
   } as any;
 };
 
@@ -2219,6 +3797,26 @@ const deserializeAws_restJson1SelectedVideoStreams = (output: any, context: __Se
   } as any;
 };
 
+const deserializeAws_restJson1SentimentConfiguration = (
+  output: any,
+  context: __SerdeContext
+): SentimentConfiguration => {
+  return {
+    RuleName: __expectString(output.RuleName),
+    SentimentType: __expectString(output.SentimentType),
+    TimePeriod: __expectInt32(output.TimePeriod),
+  } as any;
+};
+
+const deserializeAws_restJson1SnsTopicSinkConfiguration = (
+  output: any,
+  context: __SerdeContext
+): SnsTopicSinkConfiguration => {
+  return {
+    InsightsTarget: __expectString(output.InsightsTarget),
+  } as any;
+};
+
 const deserializeAws_restJson1SourceConfiguration = (output: any, context: __SerdeContext): SourceConfiguration => {
   return {
     SelectedVideoStreams:
@@ -2226,6 +3824,51 @@ const deserializeAws_restJson1SourceConfiguration = (output: any, context: __Ser
         ? deserializeAws_restJson1SelectedVideoStreams(output.SelectedVideoStreams, context)
         : undefined,
   } as any;
+};
+
+const deserializeAws_restJson1SqsQueueSinkConfiguration = (
+  output: any,
+  context: __SerdeContext
+): SqsQueueSinkConfiguration => {
+  return {
+    InsightsTarget: __expectString(output.InsightsTarget),
+  } as any;
+};
+
+const deserializeAws_restJson1StreamChannelDefinition = (
+  output: any,
+  context: __SerdeContext
+): StreamChannelDefinition => {
+  return {
+    ChannelDefinitions:
+      output.ChannelDefinitions != null
+        ? deserializeAws_restJson1ChannelDefinitions(output.ChannelDefinitions, context)
+        : undefined,
+    NumberOfChannels: __expectInt32(output.NumberOfChannels),
+  } as any;
+};
+
+const deserializeAws_restJson1StreamConfiguration = (output: any, context: __SerdeContext): StreamConfiguration => {
+  return {
+    FragmentNumber: __expectString(output.FragmentNumber),
+    StreamArn: __expectString(output.StreamArn),
+    StreamChannelDefinition:
+      output.StreamChannelDefinition != null
+        ? deserializeAws_restJson1StreamChannelDefinition(output.StreamChannelDefinition, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1Streams = (output: any, context: __SerdeContext): StreamConfiguration[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1StreamConfiguration(entry, context);
+    });
+  return retVal;
 };
 
 const deserializeAws_restJson1Tag = (output: any, context: __SerdeContext): Tag => {
@@ -2245,6 +3888,19 @@ const deserializeAws_restJson1TagList = (output: any, context: __SerdeContext): 
       return deserializeAws_restJson1Tag(entry, context);
     });
   return retVal;
+};
+
+const deserializeAws_restJson1TimestampRange = (output: any, context: __SerdeContext): TimestampRange => {
+  return {
+    EndTimestamp:
+      output.EndTimestamp != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTimestamp)))
+        : undefined,
+    StartTimestamp:
+      output.StartTimestamp != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTimestamp)))
+        : undefined,
+  } as any;
 };
 
 const deserializeAws_restJson1TranscriptionMessagesConcatenationConfiguration = (
@@ -2272,6 +3928,16 @@ const deserializeAws_restJson1VideoConcatenationConfiguration = (
 ): VideoConcatenationConfiguration => {
   return {
     State: __expectString(output.State),
+  } as any;
+};
+
+const deserializeAws_restJson1VoiceAnalyticsProcessorConfiguration = (
+  output: any,
+  context: __SerdeContext
+): VoiceAnalyticsProcessorConfiguration => {
+  return {
+    SpeakerSearchStatus: __expectString(output.SpeakerSearchStatus),
+    VoiceToneAnalysisStatus: __expectString(output.VoiceToneAnalysisStatus),
   } as any;
 };
 
