@@ -62,3 +62,6 @@ codegen/*/.settings/
 codegen/*/bin
 
 benchmark/size/raw
+
+etc/
+temp/

@@ -143,6 +143,8 @@ const copyToClients = async (sourceDir, destinationDir, solo) => {
         if (mergedManifest.private) {
           // don't generate documentation for private packages
           delete mergedManifest.scripts["build:docs"];
+        } else {
+          mergedManifest.scripts["extract:docs"] = "api-extractor run --local";
         }
 
         const serviceName = clientName.replace("client-", "");
