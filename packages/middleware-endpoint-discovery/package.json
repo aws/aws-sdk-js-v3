@@ -29,7 +29,6 @@
     "typescript": "~4.9.5"
   },
   "dependencies": {
-    "@aws-sdk/config-resolver": "*",
     "@aws-sdk/endpoint-cache": "*",
     "@aws-sdk/protocol-http": "*",
     "@aws-sdk/types": "*",

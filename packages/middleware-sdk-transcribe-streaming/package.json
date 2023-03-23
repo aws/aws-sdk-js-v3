@@ -21,7 +21,6 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@aws-sdk/eventstream-serde-browser": "*",
-    "@aws-sdk/middleware-signing": "*",
     "@aws-sdk/protocol-http": "*",
     "@aws-sdk/signature-v4": "*",
     "@aws-sdk/types": "*",
