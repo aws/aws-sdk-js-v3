@@ -43,6 +43,7 @@ import {
 } from "../commands/CreateAppImageConfigCommand";
 import { CreateArtifactCommandInput, CreateArtifactCommandOutput } from "../commands/CreateArtifactCommand";
 import { CreateAutoMLJobCommandInput, CreateAutoMLJobCommandOutput } from "../commands/CreateAutoMLJobCommand";
+import { CreateAutoMLJobV2CommandInput, CreateAutoMLJobV2CommandOutput } from "../commands/CreateAutoMLJobV2Command";
 import {
   CreateCodeRepositoryCommandInput,
   CreateCodeRepositoryCommandOutput,
@@ -271,6 +272,10 @@ import {
 } from "../commands/DescribeAppImageConfigCommand";
 import { DescribeArtifactCommandInput, DescribeArtifactCommandOutput } from "../commands/DescribeArtifactCommand";
 import { DescribeAutoMLJobCommandInput, DescribeAutoMLJobCommandOutput } from "../commands/DescribeAutoMLJobCommand";
+import {
+  DescribeAutoMLJobV2CommandInput,
+  DescribeAutoMLJobV2CommandOutput,
+} from "../commands/DescribeAutoMLJobV2Command";
 import {
   DescribeCodeRepositoryCommandInput,
   DescribeCodeRepositoryCommandOutput,
@@ -818,6 +823,7 @@ import {
   AutoMLDataSource,
   AutoMLDataSplitConfig,
   AutoMLJobArtifacts,
+  AutoMLJobChannel,
   AutoMLJobCompletionCriteria,
   AutoMLJobConfig,
   AutoMLJobObjective,
@@ -825,6 +831,8 @@ import {
   AutoMLJobSummary,
   AutoMLOutputDataConfig,
   AutoMLPartialFailureReason,
+  AutoMLProblemTypeConfig,
+  AutoMLProcessingUnit,
   AutoMLS3DataSource,
   AutoMLSecurityConfig,
   AutoRollbackConfig,
@@ -886,6 +894,8 @@ import {
   CreateArtifactResponse,
   CreateAutoMLJobRequest,
   CreateAutoMLJobResponse,
+  CreateAutoMLJobV2Request,
+  CreateAutoMLJobV2Response,
   CreateCodeRepositoryInput,
   CreateCodeRepositoryOutput,
   CreateCompilationJobRequest,
@@ -901,10 +911,7 @@ import {
   CreateEdgeDeploymentPlanResponse,
   CreateEdgeDeploymentStageRequest,
   CreateEdgePackagingJobRequest,
-  CreateEndpointInput,
-  CreateEndpointOutput,
   CustomImage,
-  DataCaptureConfig,
   DataQualityAppSpecification,
   DataQualityBaselineConfig,
   DataQualityJobInput,
@@ -918,7 +925,6 @@ import {
   EdgeDeploymentModelConfig,
   EdgeOutputConfig,
   EndpointInput,
-  ExplainerConfig,
   FileSystemConfig,
   FileSystemDataSource,
   FinalAutoMLJobObjectiveMetric,
@@ -926,6 +932,7 @@ import {
   HyperParameterSpecification,
   HyperParameterTuningJobObjective,
   IamIdentity,
+  ImageClassificationJobConfig,
   ImageConfig,
   InferenceSpecification,
   InputConfig,
@@ -961,9 +968,7 @@ import {
   OutputDataConfig,
   OutputParameter,
   ParameterRange,
-  ProductionVariantCoreDumpConfig,
   ProductionVariantInstanceType,
-  ProductionVariantServerlessConfig,
   RepositoryAuthConfig,
   ResourceConfig,
   ResourceInUse,
@@ -980,6 +985,7 @@ import {
   Tag,
   TargetPlatform,
   TensorBoardAppSettings,
+  TextClassificationJobConfig,
   TimeSeriesForecastingSettings,
   TrafficRoutingConfig,
   TrainingImageConfig,
@@ -1002,6 +1008,8 @@ import {
 import {
   CreateEndpointConfigInput,
   CreateEndpointConfigOutput,
+  CreateEndpointInput,
+  CreateEndpointOutput,
   CreateExperimentRequest,
   CreateExperimentResponse,
   CreateFeatureGroupRequest,
@@ -1074,6 +1082,7 @@ import {
   CreateWorkforceResponse,
   CreateWorkteamRequest,
   CreateWorkteamResponse,
+  DataCaptureConfig,
   DataCaptureConfigSummary,
   DataCatalogConfig,
   DataProcessing,
@@ -1133,13 +1142,6 @@ import {
   DeleteStudioLifecycleConfigRequest,
   DeleteTagsInput,
   DeleteTagsOutput,
-  DeleteTrialComponentRequest,
-  DeleteTrialComponentResponse,
-  DeleteTrialRequest,
-  DeleteTrialResponse,
-  DeleteUserProfileRequest,
-  DeleteWorkforceRequest,
-  DeleteWorkforceResponse,
   DriftCheckBaselines,
   DriftCheckBias,
   DriftCheckExplainability,
@@ -1150,6 +1152,7 @@ import {
   EnvironmentParameterRanges,
   ExperimentConfig,
   Explainability,
+  ExplainerConfig,
   FeatureDefinition,
   FileSource,
   FlowDefinitionOutputConfig,
@@ -1232,6 +1235,8 @@ import {
   ProcessingS3Output,
   ProcessingStoppingCondition,
   ProductionVariant,
+  ProductionVariantCoreDumpConfig,
+  ProductionVariantServerlessConfig,
   ProfilerConfig,
   ProfilerRuleConfiguration,
   ProvisioningParameter,
@@ -1270,6 +1275,13 @@ import {
   WorkforceVpcConfigRequest,
 } from "../models/models_1";
 import {
+  DeleteTrialComponentRequest,
+  DeleteTrialComponentResponse,
+  DeleteTrialRequest,
+  DeleteTrialResponse,
+  DeleteUserProfileRequest,
+  DeleteWorkforceRequest,
+  DeleteWorkforceResponse,
   DeleteWorkteamRequest,
   DeleteWorkteamResponse,
   DeployedImage,
@@ -1287,6 +1299,8 @@ import {
   DescribeArtifactResponse,
   DescribeAutoMLJobRequest,
   DescribeAutoMLJobResponse,
+  DescribeAutoMLJobV2Request,
+  DescribeAutoMLJobV2Response,
   DescribeCodeRepositoryInput,
   DescribeCodeRepositoryOutput,
   DescribeCompilationJobRequest,
@@ -1464,14 +1478,7 @@ import {
   LabelingJobForWorkteamSummary,
   LabelingJobOutput,
   LabelingJobSummary,
-  LambdaStepMetadata,
   LastUpdateStatus,
-  LineageGroupSummary,
-  LineageType,
-  ListActionsRequest,
-  ListActionsResponse,
-  ListAlgorithmsInput,
-  ListAlgorithmsOutput,
   MetricData,
   ModelArtifacts,
   ModelCardExportArtifacts,
@@ -1513,6 +1520,13 @@ import {
   Workteam,
 } from "../models/models_2";
 import {
+  LambdaStepMetadata,
+  LineageGroupSummary,
+  LineageType,
+  ListActionsRequest,
+  ListActionsResponse,
+  ListAlgorithmsInput,
+  ListAlgorithmsOutput,
   ListAliasesRequest,
   ListAliasesResponse,
   ListAppImageConfigsRequest,
@@ -1755,6 +1769,13 @@ import {
   UpdateActionRequest,
   UpdateActionResponse,
   UpdateAppImageConfigRequest,
+  UserProfileDetails,
+  Vertex,
+} from "../models/models_3";
+import {
+  SearchExpression,
+  SearchRequest,
+  ServiceCatalogProvisioningUpdateDetails,
   UpdateAppImageConfigResponse,
   UpdateArtifactRequest,
   UpdateArtifactResponse,
@@ -1764,13 +1785,6 @@ import {
   UpdateContextResponse,
   UpdateDeviceFleetRequest,
   UpdateDevicesRequest,
-  UserProfileDetails,
-  Vertex,
-} from "../models/models_3";
-import {
-  SearchExpression,
-  SearchRequest,
-  ServiceCatalogProvisioningUpdateDetails,
   UpdateDomainRequest,
   UpdateDomainResponse,
   UpdateEndpointInput,
@@ -1953,6 +1967,19 @@ export const serializeAws_json1_1CreateAutoMLJobCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateAutoMLJobRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1CreateAutoMLJobV2Command = async (
+  input: CreateAutoMLJobV2CommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SageMaker.CreateAutoMLJobV2",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1CreateAutoMLJobV2Request(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -3240,6 +3267,19 @@ export const serializeAws_json1_1DescribeAutoMLJobCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeAutoMLJobRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DescribeAutoMLJobV2Command = async (
+  input: DescribeAutoMLJobV2CommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SageMaker.DescribeAutoMLJobV2",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DescribeAutoMLJobV2Request(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -6107,6 +6147,50 @@ const deserializeAws_json1_1CreateAutoMLJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateAutoMLJobCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceInUse":
+    case "com.amazonaws.sagemaker#ResourceInUse":
+      throw await deserializeAws_json1_1ResourceInUseResponse(parsedOutput, context);
+    case "ResourceLimitExceeded":
+    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
+      throw await deserializeAws_json1_1ResourceLimitExceededResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1CreateAutoMLJobV2Command = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateAutoMLJobV2CommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1CreateAutoMLJobV2CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1CreateAutoMLJobV2Response(data, context);
+  const response: CreateAutoMLJobV2CommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1CreateAutoMLJobV2CommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateAutoMLJobV2CommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -10118,6 +10202,47 @@ const deserializeAws_json1_1DescribeAutoMLJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeAutoMLJobCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
+      throw await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1DescribeAutoMLJobV2Command = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeAutoMLJobV2CommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DescribeAutoMLJobV2CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeAutoMLJobV2Response(data, context);
+  const response: DescribeAutoMLJobV2CommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeAutoMLJobV2CommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeAutoMLJobV2CommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -17919,6 +18044,15 @@ const serializeAws_json1_1AutoMLInputDataConfig = (input: AutoMLChannel[], conte
     });
 };
 
+const serializeAws_json1_1AutoMLJobChannel = (input: AutoMLJobChannel, context: __SerdeContext): any => {
+  return {
+    ...(input.ChannelType != null && { ChannelType: input.ChannelType }),
+    ...(input.CompressionType != null && { CompressionType: input.CompressionType }),
+    ...(input.ContentType != null && { ContentType: input.ContentType }),
+    ...(input.DataSource != null && { DataSource: serializeAws_json1_1AutoMLDataSource(input.DataSource, context) }),
+  };
+};
+
 const serializeAws_json1_1AutoMLJobCompletionCriteria = (
   input: AutoMLJobCompletionCriteria,
   context: __SerdeContext
@@ -17955,6 +18089,14 @@ const serializeAws_json1_1AutoMLJobConfig = (input: AutoMLJobConfig, context: __
   };
 };
 
+const serializeAws_json1_1AutoMLJobInputDataConfig = (input: AutoMLJobChannel[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_json1_1AutoMLJobChannel(entry, context);
+    });
+};
+
 const serializeAws_json1_1AutoMLJobObjective = (input: AutoMLJobObjective, context: __SerdeContext): any => {
   return {
     ...(input.MetricName != null && { MetricName: input.MetricName }),
@@ -17966,6 +18108,18 @@ const serializeAws_json1_1AutoMLOutputDataConfig = (input: AutoMLOutputDataConfi
     ...(input.KmsKeyId != null && { KmsKeyId: input.KmsKeyId }),
     ...(input.S3OutputPath != null && { S3OutputPath: input.S3OutputPath }),
   };
+};
+
+const serializeAws_json1_1AutoMLProblemTypeConfig = (input: AutoMLProblemTypeConfig, context: __SerdeContext): any => {
+  return AutoMLProblemTypeConfig.visit(input, {
+    ImageClassificationJobConfig: (value) => ({
+      ImageClassificationJobConfig: serializeAws_json1_1ImageClassificationJobConfig(value, context),
+    }),
+    TextClassificationJobConfig: (value) => ({
+      TextClassificationJobConfig: serializeAws_json1_1TextClassificationJobConfig(value, context),
+    }),
+    _: (name, value) => ({ name: value } as any),
+  });
 };
 
 const serializeAws_json1_1AutoMLS3DataSource = (input: AutoMLS3DataSource, context: __SerdeContext): any => {
@@ -18583,6 +18737,38 @@ const serializeAws_json1_1CreateAutoMLJobRequest = (input: CreateAutoMLJobReques
     }),
     ...(input.ProblemType != null && { ProblemType: input.ProblemType }),
     ...(input.RoleArn != null && { RoleArn: input.RoleArn }),
+    ...(input.Tags != null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+  };
+};
+
+const serializeAws_json1_1CreateAutoMLJobV2Request = (
+  input: CreateAutoMLJobV2Request,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AutoMLJobInputDataConfig != null && {
+      AutoMLJobInputDataConfig: serializeAws_json1_1AutoMLJobInputDataConfig(input.AutoMLJobInputDataConfig, context),
+    }),
+    ...(input.AutoMLJobName != null && { AutoMLJobName: input.AutoMLJobName }),
+    ...(input.AutoMLJobObjective != null && {
+      AutoMLJobObjective: serializeAws_json1_1AutoMLJobObjective(input.AutoMLJobObjective, context),
+    }),
+    ...(input.AutoMLProblemTypeConfig != null && {
+      AutoMLProblemTypeConfig: serializeAws_json1_1AutoMLProblemTypeConfig(input.AutoMLProblemTypeConfig, context),
+    }),
+    ...(input.DataSplitConfig != null && {
+      DataSplitConfig: serializeAws_json1_1AutoMLDataSplitConfig(input.DataSplitConfig, context),
+    }),
+    ...(input.ModelDeployConfig != null && {
+      ModelDeployConfig: serializeAws_json1_1ModelDeployConfig(input.ModelDeployConfig, context),
+    }),
+    ...(input.OutputDataConfig != null && {
+      OutputDataConfig: serializeAws_json1_1AutoMLOutputDataConfig(input.OutputDataConfig, context),
+    }),
+    ...(input.RoleArn != null && { RoleArn: input.RoleArn }),
+    ...(input.SecurityConfig != null && {
+      SecurityConfig: serializeAws_json1_1AutoMLSecurityConfig(input.SecurityConfig, context),
+    }),
     ...(input.Tags != null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
   };
 };
@@ -20269,6 +20455,15 @@ const serializeAws_json1_1DescribeAutoMLJobRequest = (
   };
 };
 
+const serializeAws_json1_1DescribeAutoMLJobV2Request = (
+  input: DescribeAutoMLJobV2Request,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AutoMLJobName != null && { AutoMLJobName: input.AutoMLJobName }),
+  };
+};
+
 const serializeAws_json1_1DescribeCodeRepositoryInput = (
   input: DescribeCodeRepositoryInput,
   context: __SerdeContext
@@ -21564,6 +21759,17 @@ const serializeAws_json1_1HyperParameterTuningResourceConfig = (
     ...(input.InstanceType != null && { InstanceType: input.InstanceType }),
     ...(input.VolumeKmsKeyId != null && { VolumeKmsKeyId: input.VolumeKmsKeyId }),
     ...(input.VolumeSizeInGB != null && { VolumeSizeInGB: input.VolumeSizeInGB }),
+  };
+};
+
+const serializeAws_json1_1ImageClassificationJobConfig = (
+  input: ImageClassificationJobConfig,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.CompletionCriteria != null && {
+      CompletionCriteria: serializeAws_json1_1AutoMLJobCompletionCriteria(input.CompletionCriteria, context),
+    }),
   };
 };
 
@@ -25283,6 +25489,19 @@ const serializeAws_json1_1TensorBoardOutputConfig = (input: TensorBoardOutputCon
   };
 };
 
+const serializeAws_json1_1TextClassificationJobConfig = (
+  input: TextClassificationJobConfig,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.CompletionCriteria != null && {
+      CompletionCriteria: serializeAws_json1_1AutoMLJobCompletionCriteria(input.CompletionCriteria, context),
+    }),
+    ...(input.ContentColumn != null && { ContentColumn: input.ContentColumn }),
+    ...(input.TargetLabelColumn != null && { TargetLabelColumn: input.TargetLabelColumn }),
+  };
+};
+
 const serializeAws_json1_1TimeSeriesForecastingSettings = (
   input: TimeSeriesForecastingSettings,
   context: __SerdeContext
@@ -26788,6 +27007,10 @@ const deserializeAws_json1_1AutoMLCandidate = (output: any, context: __SerdeCont
       output.FinalAutoMLJobObjectiveMetric != null
         ? deserializeAws_json1_1FinalAutoMLJobObjectiveMetric(output.FinalAutoMLJobObjectiveMetric, context)
         : undefined,
+    InferenceContainerDefinitions:
+      output.InferenceContainerDefinitions != null
+        ? deserializeAws_json1_1AutoMLInferenceContainerDefinitions(output.InferenceContainerDefinitions, context)
+        : undefined,
     InferenceContainers:
       output.InferenceContainers != null
         ? deserializeAws_json1_1AutoMLContainerDefinitions(output.InferenceContainers, context)
@@ -26884,6 +27107,22 @@ const deserializeAws_json1_1AutoMLDataSplitConfig = (output: any, context: __Ser
   } as any;
 };
 
+const deserializeAws_json1_1AutoMLInferenceContainerDefinitions = (
+  output: any,
+  context: __SerdeContext
+): Record<string, AutoMLContainerDefinition[]> => {
+  return Object.entries(output).reduce(
+    (acc: Record<string, AutoMLContainerDefinition[]>, [key, value]: [AutoMLProcessingUnit | string, any]) => {
+      if (value === null) {
+        return acc;
+      }
+      acc[key] = deserializeAws_json1_1AutoMLContainerDefinitions(value, context);
+      return acc;
+    },
+    {}
+  );
+};
+
 const deserializeAws_json1_1AutoMLInputDataConfig = (output: any, context: __SerdeContext): AutoMLChannel[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
@@ -26900,6 +27139,16 @@ const deserializeAws_json1_1AutoMLJobArtifacts = (output: any, context: __SerdeC
   return {
     CandidateDefinitionNotebookLocation: __expectString(output.CandidateDefinitionNotebookLocation),
     DataExplorationNotebookLocation: __expectString(output.DataExplorationNotebookLocation),
+  } as any;
+};
+
+const deserializeAws_json1_1AutoMLJobChannel = (output: any, context: __SerdeContext): AutoMLJobChannel => {
+  return {
+    ChannelType: __expectString(output.ChannelType),
+    CompressionType: __expectString(output.CompressionType),
+    ContentType: __expectString(output.ContentType),
+    DataSource:
+      output.DataSource != null ? deserializeAws_json1_1AutoMLDataSource(output.DataSource, context) : undefined,
   } as any;
 };
 
@@ -26934,6 +27183,18 @@ const deserializeAws_json1_1AutoMLJobConfig = (output: any, context: __SerdeCont
         ? deserializeAws_json1_1AutoMLSecurityConfig(output.SecurityConfig, context)
         : undefined,
   } as any;
+};
+
+const deserializeAws_json1_1AutoMLJobInputDataConfig = (output: any, context: __SerdeContext): AutoMLJobChannel[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1AutoMLJobChannel(entry, context);
+    });
+  return retVal;
 };
 
 const deserializeAws_json1_1AutoMLJobObjective = (output: any, context: __SerdeContext): AutoMLJobObjective => {
@@ -27013,6 +27274,29 @@ const deserializeAws_json1_1AutoMLPartialFailureReasons = (
       return deserializeAws_json1_1AutoMLPartialFailureReason(entry, context);
     });
   return retVal;
+};
+
+const deserializeAws_json1_1AutoMLProblemTypeConfig = (
+  output: any,
+  context: __SerdeContext
+): AutoMLProblemTypeConfig => {
+  if (output.ImageClassificationJobConfig != null) {
+    return {
+      ImageClassificationJobConfig: deserializeAws_json1_1ImageClassificationJobConfig(
+        output.ImageClassificationJobConfig,
+        context
+      ),
+    };
+  }
+  if (output.TextClassificationJobConfig != null) {
+    return {
+      TextClassificationJobConfig: deserializeAws_json1_1TextClassificationJobConfig(
+        output.TextClassificationJobConfig,
+        context
+      ),
+    };
+  }
+  return { $unknown: Object.entries(output)[0] };
 };
 
 const deserializeAws_json1_1AutoMLS3DataSource = (output: any, context: __SerdeContext): AutoMLS3DataSource => {
@@ -27884,6 +28168,15 @@ const deserializeAws_json1_1CreateAutoMLJobResponse = (
   output: any,
   context: __SerdeContext
 ): CreateAutoMLJobResponse => {
+  return {
+    AutoMLJobArn: __expectString(output.AutoMLJobArn),
+  } as any;
+};
+
+const deserializeAws_json1_1CreateAutoMLJobV2Response = (
+  output: any,
+  context: __SerdeContext
+): CreateAutoMLJobV2Response => {
   return {
     AutoMLJobArn: __expectString(output.AutoMLJobArn),
   } as any;
@@ -28894,6 +29187,68 @@ const deserializeAws_json1_1DescribeAutoMLJobResponse = (
         ? deserializeAws_json1_1ResolvedAttributes(output.ResolvedAttributes, context)
         : undefined,
     RoleArn: __expectString(output.RoleArn),
+  } as any;
+};
+
+const deserializeAws_json1_1DescribeAutoMLJobV2Response = (
+  output: any,
+  context: __SerdeContext
+): DescribeAutoMLJobV2Response => {
+  return {
+    AutoMLJobArn: __expectString(output.AutoMLJobArn),
+    AutoMLJobInputDataConfig:
+      output.AutoMLJobInputDataConfig != null
+        ? deserializeAws_json1_1AutoMLJobInputDataConfig(output.AutoMLJobInputDataConfig, context)
+        : undefined,
+    AutoMLJobName: __expectString(output.AutoMLJobName),
+    AutoMLJobObjective:
+      output.AutoMLJobObjective != null
+        ? deserializeAws_json1_1AutoMLJobObjective(output.AutoMLJobObjective, context)
+        : undefined,
+    AutoMLJobSecondaryStatus: __expectString(output.AutoMLJobSecondaryStatus),
+    AutoMLJobStatus: __expectString(output.AutoMLJobStatus),
+    AutoMLProblemTypeConfig:
+      output.AutoMLProblemTypeConfig != null
+        ? deserializeAws_json1_1AutoMLProblemTypeConfig(__expectUnion(output.AutoMLProblemTypeConfig), context)
+        : undefined,
+    BestCandidate:
+      output.BestCandidate != null ? deserializeAws_json1_1AutoMLCandidate(output.BestCandidate, context) : undefined,
+    CreationTime:
+      output.CreationTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
+        : undefined,
+    DataSplitConfig:
+      output.DataSplitConfig != null
+        ? deserializeAws_json1_1AutoMLDataSplitConfig(output.DataSplitConfig, context)
+        : undefined,
+    EndTime:
+      output.EndTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime))) : undefined,
+    FailureReason: __expectString(output.FailureReason),
+    LastModifiedTime:
+      output.LastModifiedTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
+        : undefined,
+    ModelDeployConfig:
+      output.ModelDeployConfig != null
+        ? deserializeAws_json1_1ModelDeployConfig(output.ModelDeployConfig, context)
+        : undefined,
+    ModelDeployResult:
+      output.ModelDeployResult != null
+        ? deserializeAws_json1_1ModelDeployResult(output.ModelDeployResult, context)
+        : undefined,
+    OutputDataConfig:
+      output.OutputDataConfig != null
+        ? deserializeAws_json1_1AutoMLOutputDataConfig(output.OutputDataConfig, context)
+        : undefined,
+    PartialFailureReasons:
+      output.PartialFailureReasons != null
+        ? deserializeAws_json1_1AutoMLPartialFailureReasons(output.PartialFailureReasons, context)
+        : undefined,
+    RoleArn: __expectString(output.RoleArn),
+    SecurityConfig:
+      output.SecurityConfig != null
+        ? deserializeAws_json1_1AutoMLSecurityConfig(output.SecurityConfig, context)
+        : undefined,
   } as any;
 };
 
@@ -32507,6 +32862,18 @@ const deserializeAws_json1_1Image = (output: any, context: __SerdeContext): Imag
     LastModifiedTime:
       output.LastModifiedTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ImageClassificationJobConfig = (
+  output: any,
+  context: __SerdeContext
+): ImageClassificationJobConfig => {
+  return {
+    CompletionCriteria:
+      output.CompletionCriteria != null
+        ? deserializeAws_json1_1AutoMLJobCompletionCriteria(output.CompletionCriteria, context)
         : undefined,
   } as any;
 };
@@ -37764,6 +38131,20 @@ const deserializeAws_json1_1TensorBoardOutputConfig = (
   return {
     LocalPath: __expectString(output.LocalPath),
     S3OutputPath: __expectString(output.S3OutputPath),
+  } as any;
+};
+
+const deserializeAws_json1_1TextClassificationJobConfig = (
+  output: any,
+  context: __SerdeContext
+): TextClassificationJobConfig => {
+  return {
+    CompletionCriteria:
+      output.CompletionCriteria != null
+        ? deserializeAws_json1_1AutoMLJobCompletionCriteria(output.CompletionCriteria, context)
+        : undefined,
+    ContentColumn: __expectString(output.ContentColumn),
+    TargetLabelColumn: __expectString(output.TargetLabelColumn),
   } as any;
 };
 

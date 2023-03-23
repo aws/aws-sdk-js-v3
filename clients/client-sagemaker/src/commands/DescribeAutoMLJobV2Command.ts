@@ -13,43 +13,47 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ListActionsRequest, ListActionsResponse } from "../models/models_3";
+import { DescribeAutoMLJobV2Request, DescribeAutoMLJobV2Response } from "../models/models_2";
 import {
-  deserializeAws_json1_1ListActionsCommand,
-  serializeAws_json1_1ListActionsCommand,
+  deserializeAws_json1_1DescribeAutoMLJobV2Command,
+  serializeAws_json1_1DescribeAutoMLJobV2Command,
 } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
  * @public
  *
- * The input for {@link ListActionsCommand}.
+ * The input for {@link DescribeAutoMLJobV2Command}.
  */
-export interface ListActionsCommandInput extends ListActionsRequest {}
+export interface DescribeAutoMLJobV2CommandInput extends DescribeAutoMLJobV2Request {}
 /**
  * @public
  *
- * The output of {@link ListActionsCommand}.
+ * The output of {@link DescribeAutoMLJobV2Command}.
  */
-export interface ListActionsCommandOutput extends ListActionsResponse, __MetadataBearer {}
+export interface DescribeAutoMLJobV2CommandOutput extends DescribeAutoMLJobV2Response, __MetadataBearer {}
 
 /**
  * @public
- * <p>Lists the actions in your account and their properties.</p>
+ * <p>Returns information about an Amazon SageMaker AutoML V2 job.</p>
+ *          <note>
+ *             <p>This API action is callable through SageMaker Canvas only. Calling it directly from the CLI
+ *             or an SDK results in an error.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, ListActionsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, ListActionsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, DescribeAutoMLJobV2Command } from "@aws-sdk/client-sagemaker"; // ES Modules import
+ * // const { SageMakerClient, DescribeAutoMLJobV2Command } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
- * const command = new ListActionsCommand(input);
+ * const command = new DescribeAutoMLJobV2Command(input);
  * const response = await client.send(command);
  * ```
  *
- * @param ListActionsCommandInput - {@link ListActionsCommandInput}
- * @returns {@link ListActionsCommandOutput}
- * @see {@link ListActionsCommandInput} for command's `input` shape.
- * @see {@link ListActionsCommandOutput} for command's `response` shape.
+ * @param DescribeAutoMLJobV2CommandInput - {@link DescribeAutoMLJobV2CommandInput}
+ * @returns {@link DescribeAutoMLJobV2CommandOutput}
+ * @see {@link DescribeAutoMLJobV2CommandInput} for command's `input` shape.
+ * @see {@link DescribeAutoMLJobV2CommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  * @throws {@link ResourceNotFound} (client fault)
@@ -57,9 +61,9 @@ export interface ListActionsCommandOutput extends ListActionsResponse, __Metadat
  *
  *
  */
-export class ListActionsCommand extends $Command<
-  ListActionsCommandInput,
-  ListActionsCommandOutput,
+export class DescribeAutoMLJobV2Command extends $Command<
+  DescribeAutoMLJobV2CommandInput,
+  DescribeAutoMLJobV2CommandOutput,
   SageMakerClientResolvedConfig
 > {
   // Start section: command_properties
@@ -77,7 +81,7 @@ export class ListActionsCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: ListActionsCommandInput) {
+  constructor(readonly input: DescribeAutoMLJobV2CommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -90,15 +94,17 @@ export class ListActionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<ListActionsCommandInput, ListActionsCommandOutput> {
+  ): Handler<DescribeAutoMLJobV2CommandInput, DescribeAutoMLJobV2CommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, ListActionsCommand.getEndpointParameterInstructions()));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeAutoMLJobV2Command.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "SageMakerClient";
-    const commandName = "ListActionsCommand";
+    const commandName = "DescribeAutoMLJobV2Command";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -117,15 +123,15 @@ export class ListActionsCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: ListActionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListActionsCommand(input, context);
+  private serialize(input: DescribeAutoMLJobV2CommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_1DescribeAutoMLJobV2Command(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListActionsCommandOutput> {
-    return deserializeAws_json1_1ListActionsCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAutoMLJobV2CommandOutput> {
+    return deserializeAws_json1_1DescribeAutoMLJobV2Command(output, context);
   }
 
   // Start section: command_body_extra

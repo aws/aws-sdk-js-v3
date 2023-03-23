@@ -4,14 +4,11 @@ import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
 import {
   ActionSource,
   ActionStatus,
-  ActionSummary,
   AdditionalInferenceSpecificationDefinition,
   AgentVersion,
-  AlgorithmSortBy,
   AlgorithmSpecification,
   AlgorithmStatus,
   AlgorithmStatusDetails,
-  AlgorithmSummary,
   AlgorithmValidationSpecification,
   AppNetworkAccessType,
   AppSecurityGroupManagement,
@@ -24,7 +21,9 @@ import {
   AuthMode,
   AutoMLCandidate,
   AutoMLChannel,
+  AutoMLDataSplitConfig,
   AutoMLJobArtifacts,
+  AutoMLJobChannel,
   AutoMLJobCompletionCriteria,
   AutoMLJobConfig,
   AutoMLJobObjective,
@@ -32,6 +31,8 @@ import {
   AutoMLJobStatus,
   AutoMLOutputDataConfig,
   AutoMLPartialFailureReason,
+  AutoMLProblemTypeConfig,
+  AutoMLSecurityConfig,
   BatchDataCaptureConfig,
   BatchStrategy,
   Channel,
@@ -40,7 +41,6 @@ import {
   CompilationJobStatus,
   ContainerDefinition,
   ContextSource,
-  DataCaptureConfig,
   DataQualityAppSpecification,
   DataQualityBaselineConfig,
   DataQualityJobInput,
@@ -53,7 +53,6 @@ import {
   EdgeOutputConfig,
   EdgePresetDeploymentType,
   ExecutionRoleIdentityConfig,
-  ExplainerConfig,
   GitConfig,
   HyperParameterTuningJobObjectiveType,
   InferenceSpecification,
@@ -71,11 +70,8 @@ import {
   ObjectiveStatus,
   OutputConfig,
   OutputDataConfig,
-  OutputParameter,
   ProblemType,
-  ProductionVariantAcceleratorType,
   ProductionVariantInstanceType,
-  ProductionVariantServerlessConfig,
   ResourceConfig,
   ResourceSpec,
   StoppingCondition,
@@ -90,6 +86,7 @@ import {
 } from "./models_0";
 import {
   _InstanceType,
+  DataCaptureConfig,
   DataCaptureConfigSummary,
   DataProcessing,
   DebugHookConfig,
@@ -99,6 +96,7 @@ import {
   DriftCheckBaselines,
   EndpointInfo,
   ExperimentConfig,
+  ExplainerConfig,
   FeatureDefinition,
   FeatureType,
   FlowDefinitionOutputConfig,
@@ -154,6 +152,8 @@ import {
   ProcessingStoppingCondition,
   Processor,
   ProductionVariant,
+  ProductionVariantAcceleratorType,
+  ProductionVariantServerlessConfig,
   ProfilerConfig,
   ProfilerRuleConfiguration,
   RecommendationJobInputConfig,
@@ -175,6 +175,76 @@ import {
   TrialComponentStatus,
   VendorGuidance,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface DeleteTrialRequest {
+  /**
+   * <p>The name of the trial to delete.</p>
+   */
+  TrialName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteTrialResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the trial that is being deleted.</p>
+   */
+  TrialArn?: string;
+}
+
+/**
+ * @public
+ */
+export interface DeleteTrialComponentRequest {
+  /**
+   * <p>The name of the component to delete.</p>
+   */
+  TrialComponentName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteTrialComponentResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the component is being deleted.</p>
+   */
+  TrialComponentArn?: string;
+}
+
+/**
+ * @public
+ */
+export interface DeleteUserProfileRequest {
+  /**
+   * <p>The domain ID.</p>
+   */
+  DomainId: string | undefined;
+
+  /**
+   * <p>The user profile name.</p>
+   */
+  UserProfileName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteWorkforceRequest {
+  /**
+   * <p>The name of the workforce.</p>
+   */
+  WorkforceName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteWorkforceResponse {}
 
 /**
  * @public
@@ -708,7 +778,9 @@ export interface ModelDeployResult {
  */
 export interface ResolvedAttributes {
   /**
-   * <p>Specifies a metric to minimize or maximize as the objective of a job.</p>
+   * <p>Specifies a metric to minimize or maximize as the objective of a job. V2 API jobs (for
+   *          example jobs created by calling <code>CreateAutoMLJobV2</code>), support
+   *             <code>Accuracy</code> only.</p>
    */
   AutoMLJobObjective?: AutoMLJobObjective;
 
@@ -749,9 +821,8 @@ export interface DescribeAutoMLJobResponse {
   OutputDataConfig: AutoMLOutputDataConfig | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role that
-   *          has read permission to the input data location and write permission to the output data
-   *          location in Amazon S3.</p>
+   * <p>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role that has read permission to the input data
+   *          location and write permission to the output data location in Amazon S3.</p>
    */
   RoleArn: string | undefined;
 
@@ -841,6 +912,119 @@ export interface DescribeAutoMLJobResponse {
    * <p>Provides information about endpoint for the model deployment.</p>
    */
   ModelDeployResult?: ModelDeployResult;
+}
+
+/**
+ * @public
+ */
+export interface DescribeAutoMLJobV2Request {
+  /**
+   * <p>Requests information about an AutoML V2 job using its unique name.</p>
+   */
+  AutoMLJobName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeAutoMLJobV2Response {
+  /**
+   * <p>Returns the name of the AutoML V2 job.</p>
+   */
+  AutoMLJobName: string | undefined;
+
+  /**
+   * <p>Returns the Amazon Resource Name (ARN) of the AutoML V2 job.</p>
+   */
+  AutoMLJobArn: string | undefined;
+
+  /**
+   * <p>Returns an array of channel objects describing the input data and their location.</p>
+   */
+  AutoMLJobInputDataConfig: AutoMLJobChannel[] | undefined;
+
+  /**
+   * <p>Returns the job's output data config.</p>
+   */
+  OutputDataConfig: AutoMLOutputDataConfig | undefined;
+
+  /**
+   * <p>The ARN of the Identity and Access Management role that has read permission to the input data location and
+   *          write permission to the output data location in Amazon S3.</p>
+   */
+  RoleArn: string | undefined;
+
+  /**
+   * <p>Returns the job's objective.</p>
+   */
+  AutoMLJobObjective?: AutoMLJobObjective;
+
+  /**
+   * <p>Returns the configuration settings of the problem type set for the AutoML V2 job.</p>
+   */
+  AutoMLProblemTypeConfig?: AutoMLProblemTypeConfig;
+
+  /**
+   * <p>Returns the creation time of the AutoML V2 job.</p>
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>Returns the end time of the AutoML V2 job.</p>
+   */
+  EndTime?: Date;
+
+  /**
+   * <p>Returns the job's last modified time.</p>
+   */
+  LastModifiedTime: Date | undefined;
+
+  /**
+   * <p>Returns the reason for the failure of the AutoML V2 job, when applicable.</p>
+   */
+  FailureReason?: string;
+
+  /**
+   * <p>Returns a list of reasons for partial failures within an AutoML V2 job.</p>
+   */
+  PartialFailureReasons?: AutoMLPartialFailureReason[];
+
+  /**
+   * <p>Information about the candidate produced by an AutoML training job V2,
+   *       including its status, steps, and other properties.</p>
+   */
+  BestCandidate?: AutoMLCandidate;
+
+  /**
+   * <p>Returns the status of the AutoML V2 job.</p>
+   */
+  AutoMLJobStatus: AutoMLJobStatus | string | undefined;
+
+  /**
+   * <p>Returns the secondary status of the AutoML V2 job.</p>
+   */
+  AutoMLJobSecondaryStatus: AutoMLJobSecondaryStatus | string | undefined;
+
+  /**
+   * <p>Indicates whether the model was deployed automatically to an endpoint and the name of
+   *          that endpoint if deployed automatically.</p>
+   */
+  ModelDeployConfig?: ModelDeployConfig;
+
+  /**
+   * <p>Provides information about endpoint for the model deployment.</p>
+   */
+  ModelDeployResult?: ModelDeployResult;
+
+  /**
+   * <p>Returns the configuration settings of how the data are split into train and validation datasets.</p>
+   */
+  DataSplitConfig?: AutoMLDataSplitConfig;
+
+  /**
+   * <p>Returns the security configuration for traffic encryption or Amazon VPC settings.</p>
+   */
+  SecurityConfig?: AutoMLSecurityConfig;
 }
 
 /**
@@ -10161,204 +10345,6 @@ export interface LabelingJobSummary {
    * <p>Input configuration for the labeling job.</p>
    */
   InputConfig?: LabelingJobInputConfig;
-}
-
-/**
- * @public
- * <p>Metadata for a Lambda step.</p>
- */
-export interface LambdaStepMetadata {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Lambda function that was run by this step execution.</p>
-   */
-  Arn?: string;
-
-  /**
-   * <p>A list of the output parameters of the Lambda step.</p>
-   */
-  OutputParameters?: OutputParameter[];
-}
-
-/**
- * @public
- * <p>Lists a summary of the properties of a lineage group. A lineage group provides a group of shareable lineage entity
- *          resources.</p>
- */
-export interface LineageGroupSummary {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the lineage group resource.</p>
-   */
-  LineageGroupArn?: string;
-
-  /**
-   * <p>The name or Amazon Resource Name (ARN) of the lineage group.</p>
-   */
-  LineageGroupName?: string;
-
-  /**
-   * <p>The display name of the lineage group summary.</p>
-   */
-  DisplayName?: string;
-
-  /**
-   * <p>The creation time of the lineage group summary.</p>
-   */
-  CreationTime?: Date;
-
-  /**
-   * <p>The last modified time of the lineage group summary.</p>
-   */
-  LastModifiedTime?: Date;
-}
-
-/**
- * @public
- */
-export enum LineageType {
-  ACTION = "Action",
-  ARTIFACT = "Artifact",
-  CONTEXT = "Context",
-  TRIAL_COMPONENT = "TrialComponent",
-}
-
-/**
- * @public
- */
-export enum SortActionsBy {
-  CREATION_TIME = "CreationTime",
-  NAME = "Name",
-}
-
-/**
- * @public
- */
-export enum SortOrder {
-  ASCENDING = "Ascending",
-  DESCENDING = "Descending",
-}
-
-/**
- * @public
- */
-export interface ListActionsRequest {
-  /**
-   * <p>A filter that returns only actions with the specified source URI.</p>
-   */
-  SourceUri?: string;
-
-  /**
-   * <p>A filter that returns only actions of the specified type.</p>
-   */
-  ActionType?: string;
-
-  /**
-   * <p>A filter that returns only actions created on or after the specified time.</p>
-   */
-  CreatedAfter?: Date;
-
-  /**
-   * <p>A filter that returns only actions created on or before the specified time.</p>
-   */
-  CreatedBefore?: Date;
-
-  /**
-   * <p>The property used to sort results. The default value is <code>CreationTime</code>.</p>
-   */
-  SortBy?: SortActionsBy | string;
-
-  /**
-   * <p>The sort order. The default value is <code>Descending</code>.</p>
-   */
-  SortOrder?: SortOrder | string;
-
-  /**
-   * <p>If the previous call to <code>ListActions</code> didn't return the full set of actions,
-   *         the call returns a token for getting the next set of actions.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of actions to return in the response. The default value is 10.</p>
-   */
-  MaxResults?: number;
-}
-
-/**
- * @public
- */
-export interface ListActionsResponse {
-  /**
-   * <p>A list of actions and their properties.</p>
-   */
-  ActionSummaries?: ActionSummary[];
-
-  /**
-   * <p>A token for getting the next set of actions, if there are any.</p>
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- */
-export interface ListAlgorithmsInput {
-  /**
-   * <p>A filter that returns only algorithms created after the specified time
-   *             (timestamp).</p>
-   */
-  CreationTimeAfter?: Date;
-
-  /**
-   * <p>A filter that returns only algorithms created before the specified time
-   *             (timestamp).</p>
-   */
-  CreationTimeBefore?: Date;
-
-  /**
-   * <p>The maximum number of algorithms to return in the response.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>A string in the algorithm name. This filter returns only algorithms whose name
-   *             contains the specified string.</p>
-   */
-  NameContains?: string;
-
-  /**
-   * <p>If the response to a previous <code>ListAlgorithms</code> request was truncated, the
-   *             response includes a <code>NextToken</code>. To retrieve the next set of algorithms, use
-   *             the token in the next request.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The parameter by which to sort the results. The default is
-   *             <code>CreationTime</code>.</p>
-   */
-  SortBy?: AlgorithmSortBy | string;
-
-  /**
-   * <p>The sort order for the results. The default is <code>Ascending</code>.</p>
-   */
-  SortOrder?: SortOrder | string;
-}
-
-/**
- * @public
- */
-export interface ListAlgorithmsOutput {
-  /**
-   * <p>>An array of <code>AlgorithmSummary</code> objects, each of which lists an
-   *             algorithm.</p>
-   */
-  AlgorithmSummaryList: AlgorithmSummary[] | undefined;
-
-  /**
-   * <p>If the response is truncated, SageMaker returns this token. To retrieve the next set of
-   *             algorithms, use it in the subsequent request.</p>
-   */
-  NextToken?: string;
 }
 
 /**

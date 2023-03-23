@@ -7,6 +7,7 @@ import {
   BooleanOperator,
   DefaultSpaceSettings,
   DeploymentConfig,
+  EdgeOutputConfig,
   ModelApprovalStatus,
   Tag,
   UserSettings,
@@ -44,14 +45,177 @@ import {
 } from "./models_1";
 import {
   DesiredWeightAndCapacity,
+  Device,
   DomainSettingsForUpdate,
   FeatureParameter,
   Filter,
+  GitConfigForUpdate,
   ResourceType,
   Workforce,
   Workteam,
 } from "./models_2";
 import { NestedFilters, ProfilerConfigForUpdate, ResourceConfigForUpdate, SearchSortOrder } from "./models_3";
+
+/**
+ * @public
+ */
+export interface UpdateAppImageConfigResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) for the AppImageConfig.</p>
+   */
+  AppImageConfigArn?: string;
+}
+
+/**
+ * @public
+ */
+export interface UpdateArtifactRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the artifact to update.</p>
+   */
+  ArtifactArn: string | undefined;
+
+  /**
+   * <p>The new name for the artifact.</p>
+   */
+  ArtifactName?: string;
+
+  /**
+   * <p>The new list of properties. Overwrites the current property list.</p>
+   */
+  Properties?: Record<string, string>;
+
+  /**
+   * <p>A list of properties to remove.</p>
+   */
+  PropertiesToRemove?: string[];
+}
+
+/**
+ * @public
+ */
+export interface UpdateArtifactResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the artifact.</p>
+   */
+  ArtifactArn?: string;
+}
+
+/**
+ * @public
+ */
+export interface UpdateCodeRepositoryInput {
+  /**
+   * <p>The name of the Git repository to update.</p>
+   */
+  CodeRepositoryName: string | undefined;
+
+  /**
+   * <p>The configuration of the git repository, including the URL and the Amazon Resource
+   *             Name (ARN) of the Amazon Web Services Secrets Manager secret that contains the
+   *             credentials used to access the repository. The secret must have a staging label of
+   *                 <code>AWSCURRENT</code> and must be in the following format:</p>
+   *          <p>
+   *             <code>\{"username": <i>UserName</i>, "password":
+   *                     <i>Password</i>\}</code>
+   *          </p>
+   */
+  GitConfig?: GitConfigForUpdate;
+}
+
+/**
+ * @public
+ */
+export interface UpdateCodeRepositoryOutput {
+  /**
+   * <p>The ARN of the Git repository.</p>
+   */
+  CodeRepositoryArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateContextRequest {
+  /**
+   * <p>The name of the context to update.</p>
+   */
+  ContextName: string | undefined;
+
+  /**
+   * <p>The new description for the context.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The new list of properties. Overwrites the current property list.</p>
+   */
+  Properties?: Record<string, string>;
+
+  /**
+   * <p>A list of properties to remove.</p>
+   */
+  PropertiesToRemove?: string[];
+}
+
+/**
+ * @public
+ */
+export interface UpdateContextResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the context.</p>
+   */
+  ContextArn?: string;
+}
+
+/**
+ * @public
+ */
+export interface UpdateDeviceFleetRequest {
+  /**
+   * <p>The name of the fleet.</p>
+   */
+  DeviceFleetName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the device.</p>
+   */
+  RoleArn?: string;
+
+  /**
+   * <p>Description of the fleet.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Output configuration  for storing sample data collected by the fleet.</p>
+   */
+  OutputConfig: EdgeOutputConfig | undefined;
+
+  /**
+   * <p>Whether to create an Amazon Web Services IoT Role Alias during device fleet creation.
+   *       The name of the role alias generated will match this pattern:
+   *       "SageMakerEdge-\{DeviceFleetName\}".</p>
+   *          <p>For example, if your device fleet is called "demo-fleet", the name of
+   *       the role alias will be "SageMakerEdge-demo-fleet".</p>
+   */
+  EnableIotRoleAlias?: boolean;
+}
+
+/**
+ * @public
+ */
+export interface UpdateDevicesRequest {
+  /**
+   * <p>The name of the fleet the devices belong to.</p>
+   */
+  DeviceFleetName: string | undefined;
+
+  /**
+   * <p>List of devices to register with Edge Manager agent.</p>
+   */
+  Devices: Device[] | undefined;
+}
 
 /**
  * @public

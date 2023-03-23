@@ -13,7 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateDeviceFleetRequest } from "../models/models_3";
+import { UpdateDeviceFleetRequest } from "../models/models_4";
 import {
   deserializeAws_json1_1UpdateDeviceFleetCommand,
   serializeAws_json1_1UpdateDeviceFleetCommand,

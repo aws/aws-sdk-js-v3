@@ -13,53 +13,64 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ListActionsRequest, ListActionsResponse } from "../models/models_3";
+import { CreateAutoMLJobV2Request, CreateAutoMLJobV2Response } from "../models/models_0";
 import {
-  deserializeAws_json1_1ListActionsCommand,
-  serializeAws_json1_1ListActionsCommand,
+  deserializeAws_json1_1CreateAutoMLJobV2Command,
+  serializeAws_json1_1CreateAutoMLJobV2Command,
 } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
  * @public
  *
- * The input for {@link ListActionsCommand}.
+ * The input for {@link CreateAutoMLJobV2Command}.
  */
-export interface ListActionsCommandInput extends ListActionsRequest {}
+export interface CreateAutoMLJobV2CommandInput extends CreateAutoMLJobV2Request {}
 /**
  * @public
  *
- * The output of {@link ListActionsCommand}.
+ * The output of {@link CreateAutoMLJobV2Command}.
  */
-export interface ListActionsCommandOutput extends ListActionsResponse, __MetadataBearer {}
+export interface CreateAutoMLJobV2CommandOutput extends CreateAutoMLJobV2Response, __MetadataBearer {}
 
 /**
  * @public
- * <p>Lists the actions in your account and their properties.</p>
+ * <p>Creates an Amazon SageMaker AutoML job that uses non-tabular data such as images or text for
+ *          Computer Vision or Natural Language Processing problems.</p>
+ *          <p>Find the resulting model after you run an AutoML job V2 by calling .</p>
+ *          <p>To create an <code>AutoMLJob</code> using tabular data, see .</p>
+ *          <note>
+ *             <p>This API action is callable through SageMaker Canvas only. Calling it directly from the CLI
+ *             or an SDK results in an error.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, ListActionsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, ListActionsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, CreateAutoMLJobV2Command } from "@aws-sdk/client-sagemaker"; // ES Modules import
+ * // const { SageMakerClient, CreateAutoMLJobV2Command } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
- * const command = new ListActionsCommand(input);
+ * const command = new CreateAutoMLJobV2Command(input);
  * const response = await client.send(command);
  * ```
  *
- * @param ListActionsCommandInput - {@link ListActionsCommandInput}
- * @returns {@link ListActionsCommandOutput}
- * @see {@link ListActionsCommandInput} for command's `input` shape.
- * @see {@link ListActionsCommandOutput} for command's `response` shape.
+ * @param CreateAutoMLJobV2CommandInput - {@link CreateAutoMLJobV2CommandInput}
+ * @returns {@link CreateAutoMLJobV2CommandOutput}
+ * @see {@link CreateAutoMLJobV2CommandInput} for command's `input` shape.
+ * @see {@link CreateAutoMLJobV2CommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
- * @throws {@link ResourceNotFound} (client fault)
- *  <p>Resource being access is not found.</p>
+ * @throws {@link ResourceInUse} (client fault)
+ *  <p>Resource being accessed is in use.</p>
+ *
+ * @throws {@link ResourceLimitExceeded} (client fault)
+ *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
+ *             training jobs created. </p>
  *
  *
  */
-export class ListActionsCommand extends $Command<
-  ListActionsCommandInput,
-  ListActionsCommandOutput,
+export class CreateAutoMLJobV2Command extends $Command<
+  CreateAutoMLJobV2CommandInput,
+  CreateAutoMLJobV2CommandOutput,
   SageMakerClientResolvedConfig
 > {
   // Start section: command_properties
@@ -77,7 +88,7 @@ export class ListActionsCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: ListActionsCommandInput) {
+  constructor(readonly input: CreateAutoMLJobV2CommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -90,15 +101,17 @@ export class ListActionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<ListActionsCommandInput, ListActionsCommandOutput> {
+  ): Handler<CreateAutoMLJobV2CommandInput, CreateAutoMLJobV2CommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, ListActionsCommand.getEndpointParameterInstructions()));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateAutoMLJobV2Command.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "SageMakerClient";
-    const commandName = "ListActionsCommand";
+    const commandName = "CreateAutoMLJobV2Command";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -117,15 +130,15 @@ export class ListActionsCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: ListActionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListActionsCommand(input, context);
+  private serialize(input: CreateAutoMLJobV2CommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_1CreateAutoMLJobV2Command(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListActionsCommandOutput> {
-    return deserializeAws_json1_1ListActionsCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAutoMLJobV2CommandOutput> {
+    return deserializeAws_json1_1CreateAutoMLJobV2Command(output, context);
   }
 
   // Start section: command_body_extra

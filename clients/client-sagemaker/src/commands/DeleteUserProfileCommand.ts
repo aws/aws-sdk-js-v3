@@ -13,7 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteUserProfileRequest } from "../models/models_1";
+import { DeleteUserProfileRequest } from "../models/models_2";
 import {
   deserializeAws_json1_1DeleteUserProfileCommand,
   serializeAws_json1_1DeleteUserProfileCommand,

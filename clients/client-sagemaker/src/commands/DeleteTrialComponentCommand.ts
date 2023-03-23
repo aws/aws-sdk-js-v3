@@ -13,7 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteTrialComponentRequest, DeleteTrialComponentResponse } from "../models/models_1";
+import { DeleteTrialComponentRequest, DeleteTrialComponentResponse } from "../models/models_2";
 import {
   deserializeAws_json1_1DeleteTrialComponentCommand,
   serializeAws_json1_1DeleteTrialComponentCommand,

@@ -13,7 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateContextRequest, UpdateContextResponse } from "../models/models_3";
+import { UpdateContextRequest, UpdateContextResponse } from "../models/models_4";
 import {
   deserializeAws_json1_1UpdateContextCommand,
   serializeAws_json1_1UpdateContextCommand,

@@ -3644,6 +3644,7 @@ export enum AppInstanceType {
   ML_G5_4XLARGE = "ml.g5.4xlarge",
   ML_G5_8XLARGE = "ml.g5.8xlarge",
   ML_G5_XLARGE = "ml.g5.xlarge",
+  ML_GEOSPATIAL_INTERACTIVE = "ml.geospatial.interactive",
   ML_M5D_12XLARGE = "ml.m5d.12xlarge",
   ML_M5D_16XLARGE = "ml.m5d.16xlarge",
   ML_M5D_24XLARGE = "ml.m5d.24xlarge",
@@ -4103,19 +4104,19 @@ export enum AutoMLAlgorithm {
 
 /**
  * @public
- * <p>The collection of algorithms run on a dataset for training the model candidates of an Autopilot job.</p>
+ * <p>The collection of algorithms run on a dataset for training the model candidates of an
+ *          Autopilot job.</p>
  */
 export interface AutoMLAlgorithmConfig {
   /**
-   * <p>The selection of algorithms run on a dataset
-   *          to train the model candidates of an Autopilot job. </p>
+   * <p>The selection of algorithms run on a dataset to train the model candidates of an Autopilot
+   *          job. </p>
    *          <note>
    *             <p>Selected algorithms must belong to the list corresponding to the training mode set in
-   *          <code>
+   *                   <code>
    *                   <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AutoMLJobConfig.html#sagemaker-Type-AutoMLJobConfig-Mode">AutoMLJobConfig.Mode</a>
-   *                </code>
-   *          (<code>ENSEMBLING</code> or <code>HYPERPARAMETER_TUNING</code>). Choose a minimum of 1 algorithm.
-   *       </p>
+   *                </code> (<code>ENSEMBLING</code> or
+   *                <code>HYPERPARAMETER_TUNING</code>). Choose a minimum of 1 algorithm. </p>
    *          </note>
    *          <ul>
    *             <li>
@@ -4350,9 +4351,18 @@ export interface FinalAutoMLJobObjectiveMetric {
   Value: number | undefined;
 
   /**
-   * <p>The name of the standard metric. For a description of the standard metrics, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-metrics-validation.html#autopilot-metrics">Autopilot candidate metrics</a>.</p>
+   * <p>The name of the standard metric. For a description of the standard metrics, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-metrics-validation.html#autopilot-metrics">Autopilot
+   *             candidate metrics</a>.</p>
    */
   StandardMetricName?: AutoMLMetricEnum | string;
+}
+
+/**
+ * @public
+ */
+export enum AutoMLProcessingUnit {
+  CPU = "CPU",
+  GPU = "GPU",
 }
 
 /**
@@ -4419,7 +4429,7 @@ export interface AutoMLCandidate {
   CandidateStatus: CandidateStatus | string | undefined;
 
   /**
-   * <p>Information about the inference container definitions.</p>
+   * <p>Information about the recommended inference container definitions.</p>
    */
   InferenceContainers?: AutoMLContainerDefinition[];
 
@@ -4447,6 +4457,13 @@ export interface AutoMLCandidate {
    * <p>The properties of an AutoML candidate job.</p>
    */
   CandidateProperties?: CandidateProperties;
+
+  /**
+   * <p>The mapping of all supported processing unit (CPU, GPU, etc...) to inference container
+   *          definitions for the candidate. This field is populated for the V2 API only (for example,
+   *          for jobs created by calling <code>CreateAutoMLJobV2</code>).</p>
+   */
+  InferenceContainerDefinitions?: Record<string, AutoMLContainerDefinition[]>;
 }
 
 /**
@@ -4485,26 +4502,29 @@ export interface AutoMLCandidateGenerationConfig {
   FeatureSpecificationS3Uri?: string;
 
   /**
-   * <p>Stores the configuration information for the selection of algorithms
-   *          used to train the model candidates.</p>
+   * <p>Stores the configuration information for the selection of algorithms used to train the
+   *          model candidates.</p>
    *          <p>The list of available algorithms to choose from depends on the training mode set in
-   *          <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AutoMLJobConfig.html">
+   *             <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AutoMLJobConfig.html">
    *                <code>AutoMLJobConfig.Mode</code>
    *             </a>.</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>AlgorithmsConfig</code> should not be set in <code>AUTO</code> training mode.</p>
+   *                   <code>AlgorithmsConfig</code> should not be set in <code>AUTO</code> training
+   *                mode.</p>
    *             </li>
    *             <li>
-   *                <p>When <code>AlgorithmsConfig</code> is provided, one <code>AutoMLAlgorithms</code> attribute must be set and one
-   *             only.</p>
-   *                <p>If the list of algorithms provided as values for <code>AutoMLAlgorithms</code> is empty,
-   *                <code>AutoMLCandidateGenerationConfig</code> uses the full set of algorithms for the given training mode.</p>
+   *                <p>When <code>AlgorithmsConfig</code> is provided, one <code>AutoMLAlgorithms</code>
+   *                attribute must be set and one only.</p>
+   *                <p>If the list of algorithms provided as values for <code>AutoMLAlgorithms</code> is
+   *                empty, <code>AutoMLCandidateGenerationConfig</code> uses the full set of algorithms
+   *                for the given training mode.</p>
    *             </li>
    *             <li>
-   *                <p>When <code>AlgorithmsConfig</code> is not provided, <code>AutoMLCandidateGenerationConfig</code>
-   *                uses the full set of algorithms for the given training mode.</p>
+   *                <p>When <code>AlgorithmsConfig</code> is not provided,
+   *                   <code>AutoMLCandidateGenerationConfig</code> uses the full set of algorithms for
+   *                the given training mode.</p>
    *             </li>
    *          </ul>
    *          <p>For the list of all algorithms per training mode, see .</p>
@@ -4525,40 +4545,71 @@ export enum AutoMLChannelType {
  * @public
  */
 export enum AutoMLS3DataType {
+  AUGMENTED_MANIFEST_FILE = "AugmentedManifestFile",
   MANIFEST_FILE = "ManifestFile",
   S3_PREFIX = "S3Prefix",
 }
 
 /**
  * @public
- * <p>The Amazon S3 data source.</p>
+ * <p>Describes the Amazon S3 data source.</p>
  */
 export interface AutoMLS3DataSource {
   /**
-   * <p>The data type.</p>
-   *          <p>A ManifestFile should have the format shown below:</p>
-   *          <p>
-   *             <code>[ \{"prefix": "s3://DOC-EXAMPLE-BUCKET/DOC-EXAMPLE-FOLDER/DOC-EXAMPLE-PREFIX/"\},
-   *          </code>
-   *          </p>
-   *          <p>
-   *             <code>"DOC-EXAMPLE-RELATIVE-PATH/DOC-EXAMPLE-FOLDER/DATA-1",</code>
-   *          </p>
-   *          <p>
-   *             <code>"DOC-EXAMPLE-RELATIVE-PATH/DOC-EXAMPLE-FOLDER/DATA-2",</code>
-   *          </p>
-   *          <p>
-   *             <code>... "DOC-EXAMPLE-RELATIVE-PATH/DOC-EXAMPLE-FOLDER/DATA-N" ]</code>
-   *          </p>
-   *          <p>An S3Prefix should have the following format: </p>
-   *          <p>
-   *             <code>s3://DOC-EXAMPLE-BUCKET/DOC-EXAMPLE-FOLDER-OR-FILE</code>
-   *          </p>
+   * <p>The data type. </p>
+   *          <ul>
+   *             <li>
+   *                <p>If you choose <code>S3Prefix</code>, <code>S3Uri</code> identifies a key name
+   *                prefix. SageMaker uses all objects that match the specified key name prefix for model
+   *                training.</p>
+   *                <p>The <code>S3Prefix</code> should have the following format:</p>
+   *                <p>
+   *                   <code>s3://DOC-EXAMPLE-BUCKET/DOC-EXAMPLE-FOLDER-OR-FILE</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>If you choose <code>ManifestFile</code>, <code>S3Uri</code> identifies an object
+   *                that is a manifest file containing a list of object keys that you want SageMaker to use
+   *                for model training.</p>
+   *                <p>A <code>ManifestFile</code> should have the format shown below:</p>
+   *                <p>
+   *                   <code>[ \{"prefix":
+   *                   "s3://DOC-EXAMPLE-BUCKET/DOC-EXAMPLE-FOLDER/DOC-EXAMPLE-PREFIX/"\}, </code>
+   *                </p>
+   *                <p>
+   *                   <code>"DOC-EXAMPLE-RELATIVE-PATH/DOC-EXAMPLE-FOLDER/DATA-1",</code>
+   *                </p>
+   *                <p>
+   *                   <code>"DOC-EXAMPLE-RELATIVE-PATH/DOC-EXAMPLE-FOLDER/DATA-2",</code>
+   *                </p>
+   *                <p>
+   *                   <code>... "DOC-EXAMPLE-RELATIVE-PATH/DOC-EXAMPLE-FOLDER/DATA-N" ]</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>If you choose <code>AugmentedManifestFile</code>, <code>S3Uri</code> identifies an
+   *                object that is an augmented manifest file in JSON lines format. This file contains
+   *                the data you want to use for model training. <code>AugmentedManifestFile</code> is
+   *                available for V2 API jobs only (for example, for jobs created by calling
+   *                   <code>CreateAutoMLJobV2</code>).</p>
+   *                <p>Here is a minimal, single-record example of an
+   *                <code>AugmentedManifestFile</code>:</p>
+   *                <p>
+   *                   <code>\{"source-ref":
+   *                   "s3://DOC-EXAMPLE-BUCKET/DOC-EXAMPLE-FOLDER/cats/cat.jpg",</code>
+   *                </p>
+   *                <p>
+   *                   <code>"label-metadata": \{"class-name": "cat"</code> \}</p>
+   *                <p>For more information on <code>AugmentedManifestFile</code>, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/augmented-manifest.html">Provide
+   *                   Dataset Metadata to Training Jobs with an Augmented Manifest File</a>.</p>
+   *             </li>
+   *          </ul>
    */
   S3DataType: AutoMLS3DataType | string | undefined;
 
   /**
-   * <p>The URL to the Amazon S3 data source.</p>
+   * <p>The URL to the Amazon S3 data source. The Uri refers to the Amazon S3 prefix or ManifestFile
+   *          depending on the data type.</p>
    */
   S3Uri: string | undefined;
 }
@@ -4622,8 +4673,12 @@ export interface AutoMLChannel {
 
 /**
  * @public
- * <p>This structure specifies how to split the data into train and validation datasets. The
- *          validation and training datasets must contain the same headers. The validation dataset must
+ * <p>This structure specifies how to split the data into train and validation
+ *          datasets.</p>
+ *          <p>If you are using the V1 API (for example <code>CreateAutoMLJob</code>) or the V2 API for
+ *          Natural Language Processing problems (for example <code>CreateAutoMLJobV2</code> with a
+ *             <code>TextClassificationJobConfig</code> problem type), the validation and training
+ *          datasets must contain the same headers. Also, for V1 API jobs, the validation dataset must
  *          be less than 2 GB in size.</p>
  */
 export interface AutoMLDataSplitConfig {
@@ -4653,12 +4708,61 @@ export interface AutoMLJobArtifacts {
 
 /**
  * @public
+ * <p>A channel is a named input source that training algorithms can consume. This channel is
+ *          used for the non tabular training data of an AutoML job using the V2 API. For tabular
+ *          training data, see .
+ *          For more information, see .</p>
+ */
+export interface AutoMLJobChannel {
+  /**
+   * <p>The type of channel. Defines whether the data are used for training or validation. The
+   *          default value is <code>training</code>. Channels for <code>training</code> and
+   *             <code>validation</code> must share the same <code>ContentType</code>
+   *          </p>
+   */
+  ChannelType?: AutoMLChannelType | string;
+
+  /**
+   * <p>The content type of the data from the input source. The following are the allowed
+   *          content types for different problems:</p>
+   *          <ul>
+   *             <li>
+   *                <p>ImageClassification: <code>image/png</code>, <code>image/jpeg</code>,
+   *                   <code>image/*</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>TextClassification: <code>text/csv;header=present</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  ContentType?: string;
+
+  /**
+   * <p>The allowed compression types depend on the input format. We allow the compression type
+   *             <code>Gzip</code> for <code>S3Prefix</code> inputs only. For all other inputs, the
+   *          compression type should be <code>None</code>. If no compression type is provided, we
+   *          default to <code>None</code>.</p>
+   */
+  CompressionType?: CompressionType | string;
+
+  /**
+   * <p>The data source for an AutoML channel.</p>
+   */
+  DataSource?: AutoMLDataSource;
+}
+
+/**
+ * @public
  * <p>How long a job is allowed to run, or how many candidates a job is allowed to
  *          generate.</p>
  */
 export interface AutoMLJobCompletionCriteria {
   /**
    * <p>The maximum number of times a training job is allowed to run.</p>
+   *          <p>For V2 jobs (jobs created by calling <code>CreateAutoMLJobV2</code>), the supported
+   *          value is 1.</p>
    */
   MaxCandidates?: number;
 
@@ -4666,6 +4770,8 @@ export interface AutoMLJobCompletionCriteria {
    * <p>The maximum time, in seconds, that each training job executed inside hyperparameter
    *          tuning is allowed to run as part of a hyperparameter tuning job. For more information, see
    *          the  used by the  action.</p>
+   *          <p>For V2 jobs (jobs created by calling <code>CreateAutoMLJobV2</code>),
+   *          this field controls the runtime of the job candidate.</p>
    */
   MaxRuntimePerTrainingJobInSeconds?: number;
 
@@ -4674,7 +4780,7 @@ export interface AutoMLJobCompletionCriteria {
    *          <p>If an AutoML job exceeds the maximum runtime, the job is stopped automatically and its
    *          processing is ended gracefully. The AutoML job identifies the best model whose training was
    *          completed and marks it as the best-performing model. Any unfinished steps of the job, such
-   *          as automatic one-click Autopilot model deployment, are not completed. </p>
+   *          as automatic one-click Autopilot model deployment, are not completed.</p>
    */
   MaxAutoMLJobRuntimeInSeconds?: number;
 }
@@ -4781,7 +4887,9 @@ export interface AutoMLJobConfig {
 
 /**
  * @public
- * <p>Specifies a metric to minimize or maximize as the objective of a job.</p>
+ * <p>Specifies a metric to minimize or maximize as the objective of a job. V2 API jobs (for
+ *          example jobs created by calling <code>CreateAutoMLJobV2</code>), support
+ *             <code>Accuracy</code> only.</p>
  */
 export interface AutoMLJobObjective {
   /**
@@ -4975,6 +5083,7 @@ export enum AutoMLJobSecondaryStatus {
   STARTING = "Starting",
   STOPPED = "Stopped",
   STOPPING = "Stopping",
+  TRAINING_MODELS = "TrainingModels",
 }
 
 /**
@@ -5075,6 +5184,97 @@ export interface AutoMLOutputDataConfig {
    * <p>The Amazon S3 output path. Must be 128 characters or less.</p>
    */
   S3OutputPath: string | undefined;
+}
+
+/**
+ * @public
+ * <p>Stores the configuration information for the image classification problem of an AutoML
+ *          job using the V2 API.</p>
+ */
+export interface ImageClassificationJobConfig {
+  /**
+   * <p>How long a job is allowed to run, or how many candidates a job is allowed to generate.</p>
+   */
+  CompletionCriteria?: AutoMLJobCompletionCriteria;
+}
+
+/**
+ * @public
+ * <p>Stores the configuration information for the text classification problem of an AutoML job
+ *          using the V2 API.</p>
+ */
+export interface TextClassificationJobConfig {
+  /**
+   * <p>How long a job is allowed to run, or how many candidates a job is allowed to generate.</p>
+   */
+  CompletionCriteria?: AutoMLJobCompletionCriteria;
+
+  /**
+   * <p>The name of the column used to provide the sentences to be classified. It should not be
+   *          the same as the target column.</p>
+   */
+  ContentColumn?: string;
+
+  /**
+   * <p>The name of the column used to provide the class labels. It should not be same as the
+   *          content column.</p>
+   */
+  TargetLabelColumn?: string;
+}
+
+/**
+ * @public
+ * <p>A collection of settings specific to the problem type used to configure an AutoML job
+ *          using the V2 API. There must be one and only one config of the following type.</p>
+ */
+export type AutoMLProblemTypeConfig =
+  | AutoMLProblemTypeConfig.ImageClassificationJobConfigMember
+  | AutoMLProblemTypeConfig.TextClassificationJobConfigMember
+  | AutoMLProblemTypeConfig.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace AutoMLProblemTypeConfig {
+  /**
+   * <p>Settings used to configure an AutoML job using the V2 API for the image classification
+   *          problem type.</p>
+   */
+  export interface ImageClassificationJobConfigMember {
+    ImageClassificationJobConfig: ImageClassificationJobConfig;
+    TextClassificationJobConfig?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Settings used to configure an AutoML job using the V2 API for the text classification
+   *          problem type.</p>
+   */
+  export interface TextClassificationJobConfigMember {
+    ImageClassificationJobConfig?: never;
+    TextClassificationJobConfig: TextClassificationJobConfig;
+    $unknown?: never;
+  }
+
+  export interface $UnknownMember {
+    ImageClassificationJobConfig?: never;
+    TextClassificationJobConfig?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    ImageClassificationJobConfig: (value: ImageClassificationJobConfig) => T;
+    TextClassificationJobConfig: (value: TextClassificationJobConfig) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: AutoMLProblemTypeConfig, visitor: Visitor<T>): T => {
+    if (value.ImageClassificationJobConfig !== undefined)
+      return visitor.ImageClassificationJobConfig(value.ImageClassificationJobConfig);
+    if (value.TextClassificationJobConfig !== undefined)
+      return visitor.TextClassificationJobConfig(value.TextClassificationJobConfig);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
 }
 
 /**
@@ -7593,7 +7793,7 @@ export interface CreateAutoMLJobRequest {
   OutputDataConfig: AutoMLOutputDataConfig | undefined;
 
   /**
-   * <p>Defines the type of supervised learning available for the candidates. For more
+   * <p>Defines the type of supervised learning problem available for the candidates. For more
    *          information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-automate-model-development-problem-types.html">
    *             Amazon SageMaker Autopilot problem types and algorithm support</a>.</p>
    */
@@ -7602,7 +7802,8 @@ export interface CreateAutoMLJobRequest {
   /**
    * <p>Defines the objective metric used to measure the predictive quality of an AutoML job. You
    *          provide an <a>AutoMLJobObjective$MetricName</a> and Autopilot infers whether to
-   *          minimize or maximize it.</p>
+   *          minimize or maximize it. For , only
+   *             <code>Accuracy</code> is supported.</p>
    */
   AutoMLJobObjective?: AutoMLJobObjective;
 
@@ -7623,7 +7824,9 @@ export interface CreateAutoMLJobRequest {
   GenerateCandidateDefinitionsOnly?: boolean;
 
   /**
-   * <p>Each tag consists of a key and an optional value. Tag keys must be unique per
+   * <p>An array of key-value pairs. You can use tags to categorize your Amazon Web Services
+   *          resources in different ways, for example, by purpose, owner, or environment. For more
+   *          information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web ServicesResources</a>. Tag keys must be unique per
    *          resource.</p>
    */
   Tags?: Tag[];
@@ -7641,6 +7844,96 @@ export interface CreateAutoMLJobRequest {
 export interface CreateAutoMLJobResponse {
   /**
    * <p>The unique ARN assigned to the AutoML job when it is created.</p>
+   */
+  AutoMLJobArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateAutoMLJobV2Request {
+  /**
+   * <p>Identifies an Autopilot job. The name must be unique to your account and is case
+   *          insensitive.</p>
+   */
+  AutoMLJobName: string | undefined;
+
+  /**
+   * <p>An array of channel objects describing the input data and their location. Each channel
+   *          is a named input source. Similar to <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJob.html#sagemaker-CreateAutoMLJob-request-InputDataConfig">InputDataConfig</a> supported by <code>CreateAutoMLJob</code>. The supported
+   *          formats depend on the problem type:</p>
+   *          <ul>
+   *             <li>
+   *                <p>ImageClassification: S3Prefix, <code>ManifestFile</code>,
+   *                   <code>AugmentedManifestFile</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>TextClassification: S3Prefix</p>
+   *             </li>
+   *          </ul>
+   */
+  AutoMLJobInputDataConfig: AutoMLJobChannel[] | undefined;
+
+  /**
+   * <p>Provides information about encryption and the Amazon S3 output path needed to store artifacts
+   *          from an AutoML job.</p>
+   */
+  OutputDataConfig: AutoMLOutputDataConfig | undefined;
+
+  /**
+   * <p>Defines the configuration settings of one of the supported problem types.</p>
+   */
+  AutoMLProblemTypeConfig: AutoMLProblemTypeConfig | undefined;
+
+  /**
+   * <p>The ARN of the role that is used to access the data.</p>
+   */
+  RoleArn: string | undefined;
+
+  /**
+   * <p>An array of key-value pairs. You can use tags to categorize your Amazon Web Services
+   *          resources in different ways, such as by purpose, owner, or environment. For more
+   *          information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web ServicesResources</a>. Tag keys must be unique per
+   *          resource.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>The security configuration for traffic encryption or Amazon VPC settings.</p>
+   */
+  SecurityConfig?: AutoMLSecurityConfig;
+
+  /**
+   * <p>Specifies a metric to minimize or maximize as the objective of a job.
+   *        For , only <code>Accuracy</code> is supported.</p>
+   */
+  AutoMLJobObjective?: AutoMLJobObjective;
+
+  /**
+   * <p>Specifies how to generate the endpoint name for an automatic one-click Autopilot model
+   *          deployment.</p>
+   */
+  ModelDeployConfig?: ModelDeployConfig;
+
+  /**
+   * <p>This structure specifies how to split the data into train and validation
+   *          datasets.</p>
+   *          <p>If you are using the V1 API (for example <code>CreateAutoMLJob</code>) or the V2 API for
+   *          Natural Language Processing problems (for example <code>CreateAutoMLJobV2</code> with a
+   *             <code>TextClassificationJobConfig</code> problem type), the validation and training
+   *          datasets must contain the same headers. Also, for V1 API jobs, the validation dataset must
+   *          be less than 2 GB in size.</p>
+   */
+  DataSplitConfig?: AutoMLDataSplitConfig;
+}
+
+/**
+ * @public
+ */
+export interface CreateAutoMLJobV2Response {
+  /**
+   * <p>The unique ARN assigned to the AutoMLJob when it is created.</p>
    */
   AutoMLJobArn: string | undefined;
 }
@@ -9761,204 +10054,4 @@ export interface DeploymentConfig {
    *             recovery.</p>
    */
   AutoRollbackConfiguration?: AutoRollbackConfig;
-}
-
-/**
- * @public
- */
-export interface CreateEndpointInput {
-  /**
-   * <p>The name of the endpoint.The name must be unique within an Amazon Web Services
-   *             Region in your Amazon Web Services account. The name is case-insensitive in
-   *                 <code>CreateEndpoint</code>, but the case is preserved and must be matched in .</p>
-   */
-  EndpointName: string | undefined;
-
-  /**
-   * <p>The name of an endpoint configuration. For more information, see <a>CreateEndpointConfig</a>. </p>
-   */
-  EndpointConfigName: string | undefined;
-
-  /**
-   * <p>The deployment configuration for an endpoint, which contains the desired deployment
-   *             strategy and rollback configurations.</p>
-   */
-  DeploymentConfig?: DeploymentConfig;
-
-  /**
-   * <p>An array of key-value pairs. You can use tags to categorize your Amazon Web Services
-   *             resources in different ways, for example, by purpose, owner, or environment. For more
-   *             information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a>.</p>
-   */
-  Tags?: Tag[];
-}
-
-/**
- * @public
- */
-export interface CreateEndpointOutput {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the endpoint.</p>
-   */
-  EndpointArn: string | undefined;
-}
-
-/**
- * @public
- * <p>Configuration to control how SageMaker captures inference data.</p>
- */
-export interface DataCaptureConfig {
-  /**
-   * <p>Whether data capture should be enabled or disabled (defaults to enabled).</p>
-   */
-  EnableCapture?: boolean;
-
-  /**
-   * <p>The percentage of requests SageMaker will capture. A lower value is recommended for
-   *          Endpoints with high traffic.</p>
-   */
-  InitialSamplingPercentage: number | undefined;
-
-  /**
-   * <p>The Amazon S3 location used to capture the data.</p>
-   */
-  DestinationS3Uri: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of a Amazon Web Services Key Management Service key that SageMaker uses to encrypt the
-   *           captured data at rest using Amazon S3 server-side encryption.</p>
-   *          <p>The KmsKeyId can be any of the following formats: </p>
-   *          <ul>
-   *             <li>
-   *                <p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>Key ARN:
-   *                <code>arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>Alias name: <code>alias/ExampleAlias</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>Alias name ARN:
-   *                <code>arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   */
-  KmsKeyId?: string;
-
-  /**
-   * <p>Specifies data Model Monitor will capture. You can configure whether to
-   *          collect only input, only output, or both</p>
-   */
-  CaptureOptions: CaptureOption[] | undefined;
-
-  /**
-   * <p>Configuration specifying how to treat different headers. If no headers are specified SageMaker will
-   *          by default base64 encode when capturing the data.</p>
-   */
-  CaptureContentTypeHeader?: CaptureContentTypeHeader;
-}
-
-/**
- * @public
- * <p>A parameter to activate explainers.</p>
- */
-export interface ExplainerConfig {
-  /**
-   * <p>A member of <code>ExplainerConfig</code> that contains configuration parameters for
-   *             the SageMaker Clarify explainer.</p>
-   */
-  ClarifyExplainerConfig?: ClarifyExplainerConfig;
-}
-
-/**
- * @public
- */
-export enum ProductionVariantAcceleratorType {
-  ML_EIA1_LARGE = "ml.eia1.large",
-  ML_EIA1_MEDIUM = "ml.eia1.medium",
-  ML_EIA1_XLARGE = "ml.eia1.xlarge",
-  ML_EIA2_LARGE = "ml.eia2.large",
-  ML_EIA2_MEDIUM = "ml.eia2.medium",
-  ML_EIA2_XLARGE = "ml.eia2.xlarge",
-}
-
-/**
- * @public
- * <p>Specifies configuration for a core dump from the model container when the process
- *             crashes.</p>
- */
-export interface ProductionVariantCoreDumpConfig {
-  /**
-   * <p>The Amazon S3 bucket to send the core dump to.</p>
-   */
-  DestinationS3Uri: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that SageMaker
-   *             uses to encrypt the core dump data at rest using Amazon S3 server-side encryption. The
-   *                 <code>KmsKeyId</code> can be any of the following formats: </p>
-   *          <ul>
-   *             <li>
-   *                <p>// KMS Key ID</p>
-   *                <p>
-   *                   <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>// Amazon Resource Name (ARN) of a KMS Key</p>
-   *                <p>
-   *                   <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>// KMS Key Alias</p>
-   *                <p>
-   *                   <code>"alias/ExampleAlias"</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>// Amazon Resource Name (ARN) of a KMS Key Alias</p>
-   *                <p>
-   *                   <code>"arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias"</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   *          <p>If you use a KMS key ID or an alias of your KMS key, the SageMaker execution role must
-   *             include permissions to call <code>kms:Encrypt</code>. If you don't provide a KMS key ID,
-   *             SageMaker uses the default KMS key for Amazon S3 for your role's account. SageMaker uses server-side
-   *             encryption with KMS-managed keys for <code>OutputDataConfig</code>. If you use a bucket
-   *             policy with an <code>s3:PutObject</code> permission that only allows objects with
-   *             server-side encryption, set the condition key of
-   *                 <code>s3:x-amz-server-side-encryption</code> to <code>"aws:kms"</code>. For more
-   *             information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html">KMS-Managed Encryption
-   *                 Keys</a> in the <i>Amazon Simple Storage Service Developer Guide.</i>
-   *          </p>
-   *          <p>The KMS key policy must grant permission to the IAM role that you specify in your
-   *                 <code>CreateEndpoint</code> and <code>UpdateEndpoint</code> requests. For more
-   *             information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html">Using Key Policies in Amazon Web Services KMS</a> in the <i>Amazon Web Services Key Management
-   *                 Service Developer Guide</i>.</p>
-   */
-  KmsKeyId?: string;
-}
-
-/**
- * @public
- * <p>Specifies the serverless configuration for an endpoint variant.</p>
- */
-export interface ProductionVariantServerlessConfig {
-  /**
-   * <p>The memory size of your serverless endpoint. Valid values are in 1 GB increments: 1024 MB, 2048 MB, 3072 MB, 4096 MB, 5120 MB, or 6144 MB.</p>
-   */
-  MemorySizeInMB: number | undefined;
-
-  /**
-   * <p>The maximum number of concurrent invocations your serverless endpoint can process.</p>
-   */
-  MaxConcurrency: number | undefined;
 }

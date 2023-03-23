@@ -44,6 +44,11 @@ import {
   CreateAutoMLJobCommandOutput,
 } from "./commands/CreateAutoMLJobCommand";
 import {
+  CreateAutoMLJobV2Command,
+  CreateAutoMLJobV2CommandInput,
+  CreateAutoMLJobV2CommandOutput,
+} from "./commands/CreateAutoMLJobV2Command";
+import {
   CreateCodeRepositoryCommand,
   CreateCodeRepositoryCommandInput,
   CreateCodeRepositoryCommandOutput,
@@ -486,6 +491,11 @@ import {
   DescribeAutoMLJobCommandInput,
   DescribeAutoMLJobCommandOutput,
 } from "./commands/DescribeAutoMLJobCommand";
+import {
+  DescribeAutoMLJobV2Command,
+  DescribeAutoMLJobV2CommandInput,
+  DescribeAutoMLJobV2CommandOutput,
+} from "./commands/DescribeAutoMLJobV2Command";
 import {
   DescribeCodeRepositoryCommand,
   DescribeCodeRepositoryCommandInput,
@@ -1744,6 +1754,46 @@ export class SageMaker extends SageMakerClient {
     cb?: (err: any, data?: CreateAutoMLJobCommandOutput) => void
   ): Promise<CreateAutoMLJobCommandOutput> | void {
     const command = new CreateAutoMLJobCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
+   * <p>Creates an Amazon SageMaker AutoML job that uses non-tabular data such as images or text for
+   *          Computer Vision or Natural Language Processing problems.</p>
+   *          <p>Find the resulting model after you run an AutoML job V2 by calling .</p>
+   *          <p>To create an <code>AutoMLJob</code> using tabular data, see .</p>
+   *          <note>
+   *             <p>This API action is callable through SageMaker Canvas only. Calling it directly from the CLI
+   *             or an SDK results in an error.</p>
+   *          </note>
+   */
+  public createAutoMLJobV2(
+    args: CreateAutoMLJobV2CommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateAutoMLJobV2CommandOutput>;
+  public createAutoMLJobV2(
+    args: CreateAutoMLJobV2CommandInput,
+    cb: (err: any, data?: CreateAutoMLJobV2CommandOutput) => void
+  ): void;
+  public createAutoMLJobV2(
+    args: CreateAutoMLJobV2CommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateAutoMLJobV2CommandOutput) => void
+  ): void;
+  public createAutoMLJobV2(
+    args: CreateAutoMLJobV2CommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateAutoMLJobV2CommandOutput) => void),
+    cb?: (err: any, data?: CreateAutoMLJobV2CommandOutput) => void
+  ): Promise<CreateAutoMLJobV2CommandOutput> | void {
+    const command = new CreateAutoMLJobV2Command(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -5595,6 +5645,43 @@ export class SageMaker extends SageMakerClient {
     cb?: (err: any, data?: DescribeAutoMLJobCommandOutput) => void
   ): Promise<DescribeAutoMLJobCommandOutput> | void {
     const command = new DescribeAutoMLJobCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
+   * <p>Returns information about an Amazon SageMaker AutoML V2 job.</p>
+   *          <note>
+   *             <p>This API action is callable through SageMaker Canvas only. Calling it directly from the CLI
+   *             or an SDK results in an error.</p>
+   *          </note>
+   */
+  public describeAutoMLJobV2(
+    args: DescribeAutoMLJobV2CommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeAutoMLJobV2CommandOutput>;
+  public describeAutoMLJobV2(
+    args: DescribeAutoMLJobV2CommandInput,
+    cb: (err: any, data?: DescribeAutoMLJobV2CommandOutput) => void
+  ): void;
+  public describeAutoMLJobV2(
+    args: DescribeAutoMLJobV2CommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeAutoMLJobV2CommandOutput) => void
+  ): void;
+  public describeAutoMLJobV2(
+    args: DescribeAutoMLJobV2CommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAutoMLJobV2CommandOutput) => void),
+    cb?: (err: any, data?: DescribeAutoMLJobV2CommandOutput) => void
+  ): Promise<DescribeAutoMLJobV2CommandOutput> | void {
+    const command = new DescribeAutoMLJobV2Command(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

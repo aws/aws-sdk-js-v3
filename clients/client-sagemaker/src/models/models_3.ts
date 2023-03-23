@@ -3,8 +3,11 @@ import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
 
 import {
   ActionStatus,
+  ActionSummary,
   AdditionalInferenceSpecificationDefinition,
+  AlgorithmSortBy,
   AlgorithmSpecification,
+  AlgorithmSummary,
   AppDetails,
   AppImageConfigDetails,
   AppImageConfigSortKey,
@@ -35,7 +38,6 @@ import {
   ConditionStepMetadata,
   ContainerDefinition,
   ContextSummary,
-  EdgeOutputConfig,
   InferenceSpecification,
   KernelGatewayImageConfig,
   MetadataProperties,
@@ -117,7 +119,6 @@ import {
   FeatureMetadata,
   Filter,
   FlowDefinitionSummary,
-  GitConfigForUpdate,
   HubContentInfo,
   HubContentSortBy,
   HubInfo,
@@ -142,9 +143,6 @@ import {
   LabelingJobForWorkteamSummary,
   LabelingJobStatus,
   LabelingJobSummary,
-  LambdaStepMetadata,
-  LineageGroupSummary,
-  LineageType,
   MetricData,
   ModelArtifacts,
   ModelCardExportJobStatus,
@@ -164,7 +162,6 @@ import {
   SecondaryStatus,
   SecondaryStatusTransition,
   ServiceCatalogProvisionedProductDetails,
-  SortOrder,
   SpaceStatus,
   SubscribedWorkteam,
   TrainingJobStatus,
@@ -178,6 +175,204 @@ import {
   Workforce,
   Workteam,
 } from "./models_2";
+
+/**
+ * @public
+ * <p>Metadata for a Lambda step.</p>
+ */
+export interface LambdaStepMetadata {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Lambda function that was run by this step execution.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>A list of the output parameters of the Lambda step.</p>
+   */
+  OutputParameters?: OutputParameter[];
+}
+
+/**
+ * @public
+ * <p>Lists a summary of the properties of a lineage group. A lineage group provides a group of shareable lineage entity
+ *          resources.</p>
+ */
+export interface LineageGroupSummary {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the lineage group resource.</p>
+   */
+  LineageGroupArn?: string;
+
+  /**
+   * <p>The name or Amazon Resource Name (ARN) of the lineage group.</p>
+   */
+  LineageGroupName?: string;
+
+  /**
+   * <p>The display name of the lineage group summary.</p>
+   */
+  DisplayName?: string;
+
+  /**
+   * <p>The creation time of the lineage group summary.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>The last modified time of the lineage group summary.</p>
+   */
+  LastModifiedTime?: Date;
+}
+
+/**
+ * @public
+ */
+export enum LineageType {
+  ACTION = "Action",
+  ARTIFACT = "Artifact",
+  CONTEXT = "Context",
+  TRIAL_COMPONENT = "TrialComponent",
+}
+
+/**
+ * @public
+ */
+export enum SortActionsBy {
+  CREATION_TIME = "CreationTime",
+  NAME = "Name",
+}
+
+/**
+ * @public
+ */
+export enum SortOrder {
+  ASCENDING = "Ascending",
+  DESCENDING = "Descending",
+}
+
+/**
+ * @public
+ */
+export interface ListActionsRequest {
+  /**
+   * <p>A filter that returns only actions with the specified source URI.</p>
+   */
+  SourceUri?: string;
+
+  /**
+   * <p>A filter that returns only actions of the specified type.</p>
+   */
+  ActionType?: string;
+
+  /**
+   * <p>A filter that returns only actions created on or after the specified time.</p>
+   */
+  CreatedAfter?: Date;
+
+  /**
+   * <p>A filter that returns only actions created on or before the specified time.</p>
+   */
+  CreatedBefore?: Date;
+
+  /**
+   * <p>The property used to sort results. The default value is <code>CreationTime</code>.</p>
+   */
+  SortBy?: SortActionsBy | string;
+
+  /**
+   * <p>The sort order. The default value is <code>Descending</code>.</p>
+   */
+  SortOrder?: SortOrder | string;
+
+  /**
+   * <p>If the previous call to <code>ListActions</code> didn't return the full set of actions,
+   *         the call returns a token for getting the next set of actions.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of actions to return in the response. The default value is 10.</p>
+   */
+  MaxResults?: number;
+}
+
+/**
+ * @public
+ */
+export interface ListActionsResponse {
+  /**
+   * <p>A list of actions and their properties.</p>
+   */
+  ActionSummaries?: ActionSummary[];
+
+  /**
+   * <p>A token for getting the next set of actions, if there are any.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListAlgorithmsInput {
+  /**
+   * <p>A filter that returns only algorithms created after the specified time
+   *             (timestamp).</p>
+   */
+  CreationTimeAfter?: Date;
+
+  /**
+   * <p>A filter that returns only algorithms created before the specified time
+   *             (timestamp).</p>
+   */
+  CreationTimeBefore?: Date;
+
+  /**
+   * <p>The maximum number of algorithms to return in the response.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>A string in the algorithm name. This filter returns only algorithms whose name
+   *             contains the specified string.</p>
+   */
+  NameContains?: string;
+
+  /**
+   * <p>If the response to a previous <code>ListAlgorithms</code> request was truncated, the
+   *             response includes a <code>NextToken</code>. To retrieve the next set of algorithms, use
+   *             the token in the next request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The parameter by which to sort the results. The default is
+   *             <code>CreationTime</code>.</p>
+   */
+  SortBy?: AlgorithmSortBy | string;
+
+  /**
+   * <p>The sort order for the results. The default is <code>Ascending</code>.</p>
+   */
+  SortOrder?: SortOrder | string;
+}
+
+/**
+ * @public
+ */
+export interface ListAlgorithmsOutput {
+  /**
+   * <p>>An array of <code>AlgorithmSummary</code> objects, each of which lists an
+   *             algorithm.</p>
+   */
+  AlgorithmSummaryList: AlgorithmSummary[] | undefined;
+
+  /**
+   * <p>If the response is truncated, SageMaker returns this token. To retrieve the next set of
+   *             algorithms, use it in the subsequent request.</p>
+   */
+  NextToken?: string;
+}
 
 /**
  * @public
@@ -9099,167 +9294,6 @@ export interface UpdateAppImageConfigRequest {
    * <p>The new KernelGateway app to run on the image.</p>
    */
   KernelGatewayImageConfig?: KernelGatewayImageConfig;
-}
-
-/**
- * @public
- */
-export interface UpdateAppImageConfigResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) for the AppImageConfig.</p>
-   */
-  AppImageConfigArn?: string;
-}
-
-/**
- * @public
- */
-export interface UpdateArtifactRequest {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the artifact to update.</p>
-   */
-  ArtifactArn: string | undefined;
-
-  /**
-   * <p>The new name for the artifact.</p>
-   */
-  ArtifactName?: string;
-
-  /**
-   * <p>The new list of properties. Overwrites the current property list.</p>
-   */
-  Properties?: Record<string, string>;
-
-  /**
-   * <p>A list of properties to remove.</p>
-   */
-  PropertiesToRemove?: string[];
-}
-
-/**
- * @public
- */
-export interface UpdateArtifactResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the artifact.</p>
-   */
-  ArtifactArn?: string;
-}
-
-/**
- * @public
- */
-export interface UpdateCodeRepositoryInput {
-  /**
-   * <p>The name of the Git repository to update.</p>
-   */
-  CodeRepositoryName: string | undefined;
-
-  /**
-   * <p>The configuration of the git repository, including the URL and the Amazon Resource
-   *             Name (ARN) of the Amazon Web Services Secrets Manager secret that contains the
-   *             credentials used to access the repository. The secret must have a staging label of
-   *                 <code>AWSCURRENT</code> and must be in the following format:</p>
-   *          <p>
-   *             <code>\{"username": <i>UserName</i>, "password":
-   *                     <i>Password</i>\}</code>
-   *          </p>
-   */
-  GitConfig?: GitConfigForUpdate;
-}
-
-/**
- * @public
- */
-export interface UpdateCodeRepositoryOutput {
-  /**
-   * <p>The ARN of the Git repository.</p>
-   */
-  CodeRepositoryArn: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateContextRequest {
-  /**
-   * <p>The name of the context to update.</p>
-   */
-  ContextName: string | undefined;
-
-  /**
-   * <p>The new description for the context.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The new list of properties. Overwrites the current property list.</p>
-   */
-  Properties?: Record<string, string>;
-
-  /**
-   * <p>A list of properties to remove.</p>
-   */
-  PropertiesToRemove?: string[];
-}
-
-/**
- * @public
- */
-export interface UpdateContextResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the context.</p>
-   */
-  ContextArn?: string;
-}
-
-/**
- * @public
- */
-export interface UpdateDeviceFleetRequest {
-  /**
-   * <p>The name of the fleet.</p>
-   */
-  DeviceFleetName: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the device.</p>
-   */
-  RoleArn?: string;
-
-  /**
-   * <p>Description of the fleet.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>Output configuration  for storing sample data collected by the fleet.</p>
-   */
-  OutputConfig: EdgeOutputConfig | undefined;
-
-  /**
-   * <p>Whether to create an Amazon Web Services IoT Role Alias during device fleet creation.
-   *       The name of the role alias generated will match this pattern:
-   *       "SageMakerEdge-\{DeviceFleetName\}".</p>
-   *          <p>For example, if your device fleet is called "demo-fleet", the name of
-   *       the role alias will be "SageMakerEdge-demo-fleet".</p>
-   */
-  EnableIotRoleAlias?: boolean;
-}
-
-/**
- * @public
- */
-export interface UpdateDevicesRequest {
-  /**
-   * <p>The name of the fleet the devices belong to.</p>
-   */
-  DeviceFleetName: string | undefined;
-
-  /**
-   * <p>List of devices to register with Edge Manager agent.</p>
-   */
-  Devices: Device[] | undefined;
 }
 
 /**

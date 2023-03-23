@@ -68,6 +68,7 @@ import {
 } from "./commands/CreateAppImageConfigCommand";
 import { CreateArtifactCommandInput, CreateArtifactCommandOutput } from "./commands/CreateArtifactCommand";
 import { CreateAutoMLJobCommandInput, CreateAutoMLJobCommandOutput } from "./commands/CreateAutoMLJobCommand";
+import { CreateAutoMLJobV2CommandInput, CreateAutoMLJobV2CommandOutput } from "./commands/CreateAutoMLJobV2Command";
 import {
   CreateCodeRepositoryCommandInput,
   CreateCodeRepositoryCommandOutput,
@@ -296,6 +297,10 @@ import {
 } from "./commands/DescribeAppImageConfigCommand";
 import { DescribeArtifactCommandInput, DescribeArtifactCommandOutput } from "./commands/DescribeArtifactCommand";
 import { DescribeAutoMLJobCommandInput, DescribeAutoMLJobCommandOutput } from "./commands/DescribeAutoMLJobCommand";
+import {
+  DescribeAutoMLJobV2CommandInput,
+  DescribeAutoMLJobV2CommandOutput,
+} from "./commands/DescribeAutoMLJobV2Command";
 import {
   DescribeCodeRepositoryCommandInput,
   DescribeCodeRepositoryCommandOutput,
@@ -824,6 +829,7 @@ export type ServiceInputTypes =
   | CreateAppImageConfigCommandInput
   | CreateArtifactCommandInput
   | CreateAutoMLJobCommandInput
+  | CreateAutoMLJobV2CommandInput
   | CreateCodeRepositoryCommandInput
   | CreateCompilationJobCommandInput
   | CreateContextCommandInput
@@ -923,6 +929,7 @@ export type ServiceInputTypes =
   | DescribeAppImageConfigCommandInput
   | DescribeArtifactCommandInput
   | DescribeAutoMLJobCommandInput
+  | DescribeAutoMLJobV2CommandInput
   | DescribeCodeRepositoryCommandInput
   | DescribeCompilationJobCommandInput
   | DescribeContextCommandInput
@@ -1129,6 +1136,7 @@ export type ServiceOutputTypes =
   | CreateAppImageConfigCommandOutput
   | CreateArtifactCommandOutput
   | CreateAutoMLJobCommandOutput
+  | CreateAutoMLJobV2CommandOutput
   | CreateCodeRepositoryCommandOutput
   | CreateCompilationJobCommandOutput
   | CreateContextCommandOutput
@@ -1228,6 +1236,7 @@ export type ServiceOutputTypes =
   | DescribeAppImageConfigCommandOutput
   | DescribeArtifactCommandOutput
   | DescribeAutoMLJobCommandOutput
+  | DescribeAutoMLJobV2CommandOutput
   | DescribeCodeRepositoryCommandOutput
   | DescribeCompilationJobCommandOutput
   | DescribeContextCommandOutput

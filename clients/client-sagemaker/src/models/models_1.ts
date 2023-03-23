@@ -17,11 +17,13 @@ import {
   BestObjectiveNotImproving,
   Bias,
   CaptureContentTypeHeader,
+  CaptureOption,
   CaptureStatus,
   CategoricalParameter,
   CategoricalParameterRange,
   Channel,
   CheckpointConfig,
+  ClarifyExplainerConfig,
   CognitoConfig,
   CognitoMemberDefinition,
   CollectionConfiguration,
@@ -29,9 +31,8 @@ import {
   ContentClassifier,
   ContinuousParameterRange,
   ConvergenceDetected,
-  DataCaptureConfig,
+  DeploymentConfig,
   EndpointInput,
-  ExplainerConfig,
   HyperParameterScalingType,
   HyperParameterTuningJobObjective,
   InferenceSpecification,
@@ -52,10 +53,7 @@ import {
   ProcessingS3DataDistributionType,
   ProcessingS3InputMode,
   ProcessingS3UploadMode,
-  ProductionVariantAcceleratorType,
-  ProductionVariantCoreDumpConfig,
   ProductionVariantInstanceType,
-  ProductionVariantServerlessConfig,
   ResourceConfig,
   StoppingCondition,
   Tag,
@@ -68,6 +66,206 @@ import {
   UserSettings,
   VpcConfig,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface CreateEndpointInput {
+  /**
+   * <p>The name of the endpoint.The name must be unique within an Amazon Web Services
+   *             Region in your Amazon Web Services account. The name is case-insensitive in
+   *                 <code>CreateEndpoint</code>, but the case is preserved and must be matched in .</p>
+   */
+  EndpointName: string | undefined;
+
+  /**
+   * <p>The name of an endpoint configuration. For more information, see <a>CreateEndpointConfig</a>. </p>
+   */
+  EndpointConfigName: string | undefined;
+
+  /**
+   * <p>The deployment configuration for an endpoint, which contains the desired deployment
+   *             strategy and rollback configurations.</p>
+   */
+  DeploymentConfig?: DeploymentConfig;
+
+  /**
+   * <p>An array of key-value pairs. You can use tags to categorize your Amazon Web Services
+   *             resources in different ways, for example, by purpose, owner, or environment. For more
+   *             information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a>.</p>
+   */
+  Tags?: Tag[];
+}
+
+/**
+ * @public
+ */
+export interface CreateEndpointOutput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the endpoint.</p>
+   */
+  EndpointArn: string | undefined;
+}
+
+/**
+ * @public
+ * <p>Configuration to control how SageMaker captures inference data.</p>
+ */
+export interface DataCaptureConfig {
+  /**
+   * <p>Whether data capture should be enabled or disabled (defaults to enabled).</p>
+   */
+  EnableCapture?: boolean;
+
+  /**
+   * <p>The percentage of requests SageMaker will capture. A lower value is recommended for
+   *          Endpoints with high traffic.</p>
+   */
+  InitialSamplingPercentage: number | undefined;
+
+  /**
+   * <p>The Amazon S3 location used to capture the data.</p>
+   */
+  DestinationS3Uri: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of a Amazon Web Services Key Management Service key that SageMaker uses to encrypt the
+   *           captured data at rest using Amazon S3 server-side encryption.</p>
+   *          <p>The KmsKeyId can be any of the following formats: </p>
+   *          <ul>
+   *             <li>
+   *                <p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Key ARN:
+   *                <code>arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Alias name: <code>alias/ExampleAlias</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Alias name ARN:
+   *                <code>arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  KmsKeyId?: string;
+
+  /**
+   * <p>Specifies data Model Monitor will capture. You can configure whether to
+   *          collect only input, only output, or both</p>
+   */
+  CaptureOptions: CaptureOption[] | undefined;
+
+  /**
+   * <p>Configuration specifying how to treat different headers. If no headers are specified SageMaker will
+   *          by default base64 encode when capturing the data.</p>
+   */
+  CaptureContentTypeHeader?: CaptureContentTypeHeader;
+}
+
+/**
+ * @public
+ * <p>A parameter to activate explainers.</p>
+ */
+export interface ExplainerConfig {
+  /**
+   * <p>A member of <code>ExplainerConfig</code> that contains configuration parameters for
+   *             the SageMaker Clarify explainer.</p>
+   */
+  ClarifyExplainerConfig?: ClarifyExplainerConfig;
+}
+
+/**
+ * @public
+ */
+export enum ProductionVariantAcceleratorType {
+  ML_EIA1_LARGE = "ml.eia1.large",
+  ML_EIA1_MEDIUM = "ml.eia1.medium",
+  ML_EIA1_XLARGE = "ml.eia1.xlarge",
+  ML_EIA2_LARGE = "ml.eia2.large",
+  ML_EIA2_MEDIUM = "ml.eia2.medium",
+  ML_EIA2_XLARGE = "ml.eia2.xlarge",
+}
+
+/**
+ * @public
+ * <p>Specifies configuration for a core dump from the model container when the process
+ *             crashes.</p>
+ */
+export interface ProductionVariantCoreDumpConfig {
+  /**
+   * <p>The Amazon S3 bucket to send the core dump to.</p>
+   */
+  DestinationS3Uri: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that SageMaker
+   *             uses to encrypt the core dump data at rest using Amazon S3 server-side encryption. The
+   *                 <code>KmsKeyId</code> can be any of the following formats: </p>
+   *          <ul>
+   *             <li>
+   *                <p>// KMS Key ID</p>
+   *                <p>
+   *                   <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>// Amazon Resource Name (ARN) of a KMS Key</p>
+   *                <p>
+   *                   <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>// KMS Key Alias</p>
+   *                <p>
+   *                   <code>"alias/ExampleAlias"</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>// Amazon Resource Name (ARN) of a KMS Key Alias</p>
+   *                <p>
+   *                   <code>"arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias"</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p>If you use a KMS key ID or an alias of your KMS key, the SageMaker execution role must
+   *             include permissions to call <code>kms:Encrypt</code>. If you don't provide a KMS key ID,
+   *             SageMaker uses the default KMS key for Amazon S3 for your role's account. SageMaker uses server-side
+   *             encryption with KMS-managed keys for <code>OutputDataConfig</code>. If you use a bucket
+   *             policy with an <code>s3:PutObject</code> permission that only allows objects with
+   *             server-side encryption, set the condition key of
+   *                 <code>s3:x-amz-server-side-encryption</code> to <code>"aws:kms"</code>. For more
+   *             information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html">KMS-Managed Encryption
+   *                 Keys</a> in the <i>Amazon Simple Storage Service Developer Guide.</i>
+   *          </p>
+   *          <p>The KMS key policy must grant permission to the IAM role that you specify in your
+   *                 <code>CreateEndpoint</code> and <code>UpdateEndpoint</code> requests. For more
+   *             information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html">Using Key Policies in Amazon Web Services KMS</a> in the <i>Amazon Web Services Key Management
+   *                 Service Developer Guide</i>.</p>
+   */
+  KmsKeyId?: string;
+}
+
+/**
+ * @public
+ * <p>Specifies the serverless configuration for an endpoint variant.</p>
+ */
+export interface ProductionVariantServerlessConfig {
+  /**
+   * <p>The memory size of your serverless endpoint. Valid values are in 1 GB increments: 1024 MB, 2048 MB, 3072 MB, 4096 MB, 5120 MB, or 6144 MB.</p>
+   */
+  MemorySizeInMB: number | undefined;
+
+  /**
+   * <p>The maximum number of concurrent invocations your serverless endpoint can process.</p>
+   */
+  MaxConcurrency: number | undefined;
+}
 
 /**
  * @public
@@ -153,7 +351,7 @@ export interface ProductionVariant {
    * <p>
    *             You can use this parameter to turn on native Amazon Web Services Systems Manager (SSM)
    *             access for a production variant behind an endpoint. By default, SSM access is disabled
-   *             for all production variants behind an endpoints. You can turn on or turn off SSM access
+   *             for all production variants behind an endpoint. You can turn on or turn off SSM access
    *             for a production variant behind an existing endpoint by creating a new endpoint
    *             configuration and calling <code>UpdateEndpoint</code>.
    *         </p>
@@ -437,7 +635,7 @@ export interface OnlineStoreSecurityConfig {
   /**
    * <p>The Amazon Web Services Key Management Service (KMS) key ARN that SageMaker Feature Store uses
    *          to encrypt the Amazon S3 objects at rest using Amazon S3 server-side encryption.</p>
-   *          <p>The caller (either IAM user or IAM role) of <code>CreateFeatureGroup</code> must have
+   *          <p>The caller (either user or IAM role) of <code>CreateFeatureGroup</code> must have
    *          below permissions to the <code>OnlineStore</code>
    *             <code>KmsKeyId</code>:</p>
    *          <ul>
@@ -9932,76 +10130,6 @@ export interface DeleteTagsInput {
  * @public
  */
 export interface DeleteTagsOutput {}
-
-/**
- * @public
- */
-export interface DeleteTrialRequest {
-  /**
-   * <p>The name of the trial to delete.</p>
-   */
-  TrialName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteTrialResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the trial that is being deleted.</p>
-   */
-  TrialArn?: string;
-}
-
-/**
- * @public
- */
-export interface DeleteTrialComponentRequest {
-  /**
-   * <p>The name of the component to delete.</p>
-   */
-  TrialComponentName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteTrialComponentResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the component is being deleted.</p>
-   */
-  TrialComponentArn?: string;
-}
-
-/**
- * @public
- */
-export interface DeleteUserProfileRequest {
-  /**
-   * <p>The domain ID.</p>
-   */
-  DomainId: string | undefined;
-
-  /**
-   * <p>The user profile name.</p>
-   */
-  UserProfileName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteWorkforceRequest {
-  /**
-   * <p>The name of the workforce.</p>
-   */
-  WorkforceName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteWorkforceResponse {}
 
 /**
  * @internal

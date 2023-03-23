@@ -13,7 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CreateEndpointInput, CreateEndpointOutput } from "../models/models_0";
+import { CreateEndpointInput, CreateEndpointOutput } from "../models/models_1";
 import {
   deserializeAws_json1_1CreateEndpointCommand,
   serializeAws_json1_1CreateEndpointCommand,
