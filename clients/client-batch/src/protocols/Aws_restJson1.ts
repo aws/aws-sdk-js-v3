@@ -117,6 +117,7 @@ import {
   EksContainerVolumeMount,
   EksEmptyDir,
   EksHostPath,
+  EksMetadata,
   EksPodProperties,
   EksPodPropertiesDetail,
   EksPodPropertiesOverride,
@@ -125,6 +126,7 @@ import {
   EksPropertiesOverride,
   EksSecret,
   EksVolume,
+  EphemeralStorage,
   EvaluateOnExit,
   FairsharePolicy,
   FargatePlatformConfiguration,
@@ -2075,6 +2077,9 @@ const serializeAws_restJson1ContainerProperties = (input: ContainerProperties, c
     ...(input.environment != null && {
       environment: serializeAws_restJson1EnvironmentVariables(input.environment, context),
     }),
+    ...(input.ephemeralStorage != null && {
+      ephemeralStorage: serializeAws_restJson1EphemeralStorage(input.ephemeralStorage, context),
+    }),
     ...(input.executionRoleArn != null && { executionRoleArn: input.executionRoleArn }),
     ...(input.fargatePlatformConfiguration != null && {
       fargatePlatformConfiguration: serializeAws_restJson1FargatePlatformConfiguration(
@@ -2310,6 +2315,16 @@ const serializeAws_restJson1EksHostPath = (input: EksHostPath, context: __SerdeC
   };
 };
 
+const serializeAws_restJson1EksLabelsMap = (input: Record<string, string>, context: __SerdeContext): any => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key] = value;
+    return acc;
+  }, {});
+};
+
 const serializeAws_restJson1EksLimits = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
@@ -2320,11 +2335,18 @@ const serializeAws_restJson1EksLimits = (input: Record<string, string>, context:
   }, {});
 };
 
+const serializeAws_restJson1EksMetadata = (input: EksMetadata, context: __SerdeContext): any => {
+  return {
+    ...(input.labels != null && { labels: serializeAws_restJson1EksLabelsMap(input.labels, context) }),
+  };
+};
+
 const serializeAws_restJson1EksPodProperties = (input: EksPodProperties, context: __SerdeContext): any => {
   return {
     ...(input.containers != null && { containers: serializeAws_restJson1EksContainers(input.containers, context) }),
     ...(input.dnsPolicy != null && { dnsPolicy: input.dnsPolicy }),
     ...(input.hostNetwork != null && { hostNetwork: input.hostNetwork }),
+    ...(input.metadata != null && { metadata: serializeAws_restJson1EksMetadata(input.metadata, context) }),
     ...(input.serviceAccountName != null && { serviceAccountName: input.serviceAccountName }),
     ...(input.volumes != null && { volumes: serializeAws_restJson1EksVolumes(input.volumes, context) }),
   };
@@ -2338,6 +2360,7 @@ const serializeAws_restJson1EksPodPropertiesOverride = (
     ...(input.containers != null && {
       containers: serializeAws_restJson1EksContainerOverrideList(input.containers, context),
     }),
+    ...(input.metadata != null && { metadata: serializeAws_restJson1EksMetadata(input.metadata, context) }),
   };
 };
 
@@ -2397,6 +2420,12 @@ const serializeAws_restJson1EnvironmentVariables = (input: KeyValuePair[], conte
     .map((entry) => {
       return serializeAws_restJson1KeyValuePair(entry, context);
     });
+};
+
+const serializeAws_restJson1EphemeralStorage = (input: EphemeralStorage, context: __SerdeContext): any => {
+  return {
+    ...(input.sizeInGiB != null && { sizeInGiB: input.sizeInGiB }),
+  };
 };
 
 const serializeAws_restJson1EvaluateOnExit = (input: EvaluateOnExit, context: __SerdeContext): any => {
@@ -2945,6 +2974,10 @@ const deserializeAws_restJson1ContainerDetail = (output: any, context: __SerdeCo
       output.environment != null
         ? deserializeAws_restJson1EnvironmentVariables(output.environment, context)
         : undefined,
+    ephemeralStorage:
+      output.ephemeralStorage != null
+        ? deserializeAws_restJson1EphemeralStorage(output.ephemeralStorage, context)
+        : undefined,
     executionRoleArn: __expectString(output.executionRoleArn),
     exitCode: __expectInt32(output.exitCode),
     fargatePlatformConfiguration:
@@ -2996,6 +3029,10 @@ const deserializeAws_restJson1ContainerProperties = (output: any, context: __Ser
     environment:
       output.environment != null
         ? deserializeAws_restJson1EnvironmentVariables(output.environment, context)
+        : undefined,
+    ephemeralStorage:
+      output.ephemeralStorage != null
+        ? deserializeAws_restJson1EphemeralStorage(output.ephemeralStorage, context)
         : undefined,
     executionRoleArn: __expectString(output.executionRoleArn),
     fargatePlatformConfiguration:
@@ -3342,6 +3379,16 @@ const deserializeAws_restJson1EksHostPath = (output: any, context: __SerdeContex
   } as any;
 };
 
+const deserializeAws_restJson1EksLabelsMap = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key] = __expectString(value) as any;
+    return acc;
+  }, {});
+};
+
 const deserializeAws_restJson1EksLimits = (output: any, context: __SerdeContext): Record<string, string> => {
   return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
@@ -3352,12 +3399,19 @@ const deserializeAws_restJson1EksLimits = (output: any, context: __SerdeContext)
   }, {});
 };
 
+const deserializeAws_restJson1EksMetadata = (output: any, context: __SerdeContext): EksMetadata => {
+  return {
+    labels: output.labels != null ? deserializeAws_restJson1EksLabelsMap(output.labels, context) : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1EksPodProperties = (output: any, context: __SerdeContext): EksPodProperties => {
   return {
     containers:
       output.containers != null ? deserializeAws_restJson1EksContainers(output.containers, context) : undefined,
     dnsPolicy: __expectString(output.dnsPolicy),
     hostNetwork: __expectBoolean(output.hostNetwork),
+    metadata: output.metadata != null ? deserializeAws_restJson1EksMetadata(output.metadata, context) : undefined,
     serviceAccountName: __expectString(output.serviceAccountName),
     volumes: output.volumes != null ? deserializeAws_restJson1EksVolumes(output.volumes, context) : undefined,
   } as any;
@@ -3445,6 +3499,12 @@ const deserializeAws_restJson1EnvironmentVariables = (output: any, context: __Se
       return deserializeAws_restJson1KeyValuePair(entry, context);
     });
   return retVal;
+};
+
+const deserializeAws_restJson1EphemeralStorage = (output: any, context: __SerdeContext): EphemeralStorage => {
+  return {
+    sizeInGiB: __expectInt32(output.sizeInGiB),
+  } as any;
 };
 
 const deserializeAws_restJson1EvaluateOnExit = (output: any, context: __SerdeContext): EvaluateOnExit => {
