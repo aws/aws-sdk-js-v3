@@ -21,12 +21,10 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@aws-sdk/middleware-endpoint": "*",
-    "@aws-sdk/middleware-sdk-s3": "*",
     "@aws-sdk/protocol-http": "*",
     "@aws-sdk/signature-v4-multi-region": "*",
     "@aws-sdk/smithy-client": "*",
     "@aws-sdk/types": "*",
-    "@aws-sdk/util-create-request": "*",
     "@aws-sdk/util-format-url": "*",
     "tslib": "^2.5.0"
   },

@@ -21,11 +21,8 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@aws-sdk/middleware-serde": "*",
-    "@aws-sdk/protocol-http": "*",
-    "@aws-sdk/signature-v4": "*",
     "@aws-sdk/types": "*",
     "@aws-sdk/url-parser": "*",
-    "@aws-sdk/util-config-provider": "*",
     "@aws-sdk/util-middleware": "*",
     "tslib": "^2.5.0"
   },

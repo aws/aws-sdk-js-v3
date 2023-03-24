@@ -39,7 +39,6 @@
     "@aws-sdk/credential-provider-sso": "*",
     "@aws-sdk/credential-provider-web-identity": "*",
     "@aws-sdk/property-provider": "*",
-    "@aws-sdk/shared-ini-file-loader": "*",
     "@aws-sdk/types": "*",
     "tslib": "^2.5.0"
   },
