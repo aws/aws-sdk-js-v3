@@ -120,13 +120,16 @@ export interface AnomalyDetectorConfiguration {
 export interface Dimension {
   /**
    * <p>The name of the dimension. Dimension names must contain only ASCII characters, must include
-   * 			at least one non-whitespace character, and cannot start with a colon (<code>:</code>).</p>
+   * 			at least one non-whitespace character, and cannot start with a colon (<code>:</code>).
+   * 			ASCII
+   * 			control characters are not supported as part of dimension names.</p>
    */
   Name: string | undefined;
 
   /**
    * <p>The value of the dimension. Dimension values must contain only ASCII characters and must include
-   * 			at least one non-whitespace character.</p>
+   * 			at least one non-whitespace character. ASCII
+   * 			control characters are not supported as part of dimension values.</p>
    */
   Value: string | undefined;
 }
@@ -836,7 +839,7 @@ export interface Datapoint {
  */
 export interface DeleteAlarmsInput {
   /**
-   * <p>The alarms to be deleted.</p>
+   * <p>The alarms to be deleted. Do not enclose the alarm names in quote marks.</p>
    */
   AlarmNames: string[] | undefined;
 }
@@ -2394,6 +2397,8 @@ export interface GetMetricStreamInput {
  * @public
  * <p>This structure contains the name of one of the metric namespaces that is listed in
  * 		a filter of a metric stream.</p>
+ *          <p>The namespace can contain only ASCII printable characters (ASCII range 32 through 126). It must
+ * 			contain at least one non-whitespace character.</p>
  */
 export interface MetricStreamFilter {
   /**
@@ -3470,6 +3475,8 @@ export interface PutManagedInsightRulesOutput {
 export interface PutMetricAlarmInput {
   /**
    * <p>The name for the alarm. This name must be unique within the Region.</p>
+   *          <p>The name must contain only UTF-8
+   * 			characters, and can't contain ASCII control characters</p>
    */
   AlarmName: string | undefined;
 
@@ -3486,67 +3493,271 @@ export interface PutMetricAlarmInput {
 
   /**
    * <p>The actions to execute when this alarm transitions to an <code>OK</code> state
-   * 			from any other state. Each action is specified as an Amazon Resource Name (ARN).</p>
-   *          <p>Valid Values: <code>arn:aws:automate:<i>region</i>:ec2:stop</code> |
-   * 			<code>arn:aws:automate:<i>region</i>:ec2:terminate</code> |
-   * 			<code>arn:aws:automate:<i>region</i>:ec2:recover</code> |
-   * 			<code>arn:aws:automate:<i>region</i>:ec2:reboot</code> |
-   * 			<code>arn:aws:sns:<i>region</i>:<i>account-id</i>:<i>sns-topic-name</i>
-   *             </code> |
-   * 			<code>arn:aws:autoscaling:<i>region</i>:<i>account-id</i>:scalingPolicy:<i>policy-id</i>:autoScalingGroupName/<i>group-friendly-name</i>:policyName/<i>policy-friendly-name</i>
-   *             </code>
+   * 			from any other state. Each action is specified as an Amazon Resource Name (ARN). Valid values:</p>
+   *          <p>
+   *             <b>EC2 actions:</b>
    *          </p>
-   *          <p>Valid Values (for use with IAM roles):
-   * 			<code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Stop/1.0</code> |
-   * 				<code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Terminate/1.0</code> |
-   * 				<code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Reboot/1.0</code> |
-   * 			    <code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Recover/1.0</code>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:automate:<i>region</i>:ec2:stop</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:automate:<i>region</i>:ec2:terminate</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:automate:<i>region</i>:ec2:reboot</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:automate:<i>region</i>:ec2:recover</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Stop/1.0</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Terminate/1.0</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Reboot/1.0</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Recover/1.0</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p>
+   *             <b>Autoscaling action:</b>
    *          </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:autoscaling:<i>region</i>:<i>account-id</i>:scalingPolicy:<i>policy-id</i>:autoScalingGroupName/<i>group-friendly-name</i>:policyName/<i>policy-friendly-name</i>
+   *                   </code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p>
+   *             <b>SSN notification action:</b>
+   *          </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:sns:<i>region</i>:<i>account-id</i>:<i>sns-topic-name</i>:autoScalingGroupName/<i>group-friendly-name</i>:policyName/<i>policy-friendly-name</i>
+   *                   </code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p>
+   *             <b>SSM integration actions:</b>
+   *          </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:ssm:<i>region</i>:<i>account-id</i>:opsitem:<i>severity</i>#CATEGORY=<i>category-name</i>
+   *                   </code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:ssm-incidents::<i>account-id</i>:responseplan/<i>response-plan-name</i>
+   *                   </code>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   OKActions?: string[];
 
   /**
    * <p>The actions to execute when this alarm transitions to the <code>ALARM</code> state from any other state.
-   * 			Each action is specified as an Amazon Resource Name (ARN).</p>
-   *          <p>Valid Values: <code>arn:aws:automate:<i>region</i>:ec2:stop</code> |
-   * 			<code>arn:aws:automate:<i>region</i>:ec2:terminate</code> |
-   * 			<code>arn:aws:automate:<i>region</i>:ec2:recover</code> |
-   * 			<code>arn:aws:automate:<i>region</i>:ec2:reboot</code> |
-   * 			<code>arn:aws:sns:<i>region</i>:<i>account-id</i>:<i>sns-topic-name</i>
-   *             </code> |
-   * 			<code>arn:aws:autoscaling:<i>region</i>:<i>account-id</i>:scalingPolicy:<i>policy-id</i>:autoScalingGroupName/<i>group-friendly-name</i>:policyName/<i>policy-friendly-name</i>
-   *             </code>
-   * 			| <code>arn:aws:ssm:<i>region</i>:<i>account-id</i>:opsitem:<i>severity</i>
-   *             </code>
-   * 			| <code>arn:aws:ssm-incidents::<i>account-id</i>:response-plan:<i>response-plan-name</i>
-   *             </code>
+   * 			Each action is specified as an Amazon Resource Name (ARN). Valid values:</p>
+   *          <p>
+   *             <b>EC2 actions:</b>
    *          </p>
-   *          <p>Valid Values (for use with IAM roles):
-   * 			<code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Stop/1.0</code> |
-   * 				<code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Terminate/1.0</code> |
-   * 				<code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Reboot/1.0</code> |
-   * 			<code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Recover/1.0</code>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:automate:<i>region</i>:ec2:stop</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:automate:<i>region</i>:ec2:terminate</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:automate:<i>region</i>:ec2:reboot</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:automate:<i>region</i>:ec2:recover</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Stop/1.0</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Terminate/1.0</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Reboot/1.0</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Recover/1.0</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p>
+   *             <b>Autoscaling action:</b>
    *          </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:autoscaling:<i>region</i>:<i>account-id</i>:scalingPolicy:<i>policy-id</i>:autoScalingGroupName/<i>group-friendly-name</i>:policyName/<i>policy-friendly-name</i>
+   *                   </code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p>
+   *             <b>SSN notification action:</b>
+   *          </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:sns:<i>region</i>:<i>account-id</i>:<i>sns-topic-name</i>:autoScalingGroupName/<i>group-friendly-name</i>:policyName/<i>policy-friendly-name</i>
+   *                   </code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p>
+   *             <b>SSM integration actions:</b>
+   *          </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:ssm:<i>region</i>:<i>account-id</i>:opsitem:<i>severity</i>#CATEGORY=<i>category-name</i>
+   *                   </code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:ssm-incidents::<i>account-id</i>:responseplan/<i>response-plan-name</i>
+   *                   </code>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   AlarmActions?: string[];
 
   /**
    * <p>The actions to execute when this alarm transitions to the <code>INSUFFICIENT_DATA</code> state from any other state.
-   * 			Each action is specified as an Amazon Resource Name (ARN).</p>
-   *          <p>Valid Values: <code>arn:aws:automate:<i>region</i>:ec2:stop</code> |
-   * 			<code>arn:aws:automate:<i>region</i>:ec2:terminate</code> |
-   * 			<code>arn:aws:automate:<i>region</i>:ec2:recover</code> |
-   * 			<code>arn:aws:automate:<i>region</i>:ec2:reboot</code> |
-   * 			<code>arn:aws:sns:<i>region</i>:<i>account-id</i>:<i>sns-topic-name</i>
-   *             </code> |
-   * 			<code>arn:aws:autoscaling:<i>region</i>:<i>account-id</i>:scalingPolicy:<i>policy-id</i>:autoScalingGroupName/<i>group-friendly-name</i>:policyName/<i>policy-friendly-name</i>
-   *             </code>
+   * 			Each action is specified as an Amazon Resource Name (ARN). Valid values:</p>
+   *          <p>
+   *             <b>EC2 actions:</b>
    *          </p>
-   *          <p>Valid Values (for use with IAM roles):
-   * 			<code>>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Stop/1.0</code> |
-   * 				<code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Terminate/1.0</code> |
-   * 				<code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Reboot/1.0</code>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:automate:<i>region</i>:ec2:stop</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:automate:<i>region</i>:ec2:terminate</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:automate:<i>region</i>:ec2:reboot</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:automate:<i>region</i>:ec2:recover</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Stop/1.0</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Terminate/1.0</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Reboot/1.0</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Recover/1.0</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p>
+   *             <b>Autoscaling action:</b>
    *          </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:autoscaling:<i>region</i>:<i>account-id</i>:scalingPolicy:<i>policy-id</i>:autoScalingGroupName/<i>group-friendly-name</i>:policyName/<i>policy-friendly-name</i>
+   *                   </code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p>
+   *             <b>SSN notification action:</b>
+   *          </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:sns:<i>region</i>:<i>account-id</i>:<i>sns-topic-name</i>:autoScalingGroupName/<i>group-friendly-name</i>:policyName/<i>policy-friendly-name</i>
+   *                   </code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p>
+   *             <b>SSM integration actions:</b>
+   *          </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:ssm:<i>region</i>:<i>account-id</i>:opsitem:<i>severity</i>#CATEGORY=<i>category-name</i>
+   *                   </code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:ssm-incidents::<i>account-id</i>:responseplan/<i>response-plan-name</i>
+   *                   </code>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   InsufficientDataActions?: string[];
 
@@ -3757,7 +3968,7 @@ export interface MetricDatum {
   MetricName: string | undefined;
 
   /**
-   * <p>The dimensions associated with the metric.</p>
+   * <p>The dimensions associated with the metric. </p>
    */
   Dimensions?: Dimension[];
 
@@ -3823,7 +4034,8 @@ export interface MetricDatum {
  */
 export interface PutMetricDataInput {
   /**
-   * <p>The namespace for the metric data.</p>
+   * <p>The namespace for the metric data. You can use ASCII characters for the namespace, except for
+   * 		control characters which are not supported.</p>
    *          <p>To avoid conflicts
    * 			with Amazon Web Services service namespaces, you should not specify a namespace that begins with <code>AWS/</code>
    *          </p>

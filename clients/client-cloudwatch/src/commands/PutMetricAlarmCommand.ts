@@ -48,11 +48,11 @@ export interface PutMetricAlarmCommandOutput extends __MetadataBearer {}
  * 			Amazon EC2 permissions for some alarm operations:</p>
  *          <ul>
  *             <li>
- *                <p>The <code>iam:CreateServiceLinkedRole</code> for all alarms with EC2 actions</p>
+ *                <p>The <code>iam:CreateServiceLinkedRole</code> permission for all alarms with EC2 actions</p>
  *             </li>
  *             <li>
- *                <p>The <code>iam:CreateServiceLinkedRole</code> to create an alarm
- * 					with Systems Manager OpsItem actions.</p>
+ *                <p>The <code>iam:CreateServiceLinkedRole</code> permissions to create an alarm
+ * 					with Systems Manager OpsItem or response plan actions.</p>
  *             </li>
  *          </ul>
  *          <p>The first time you create an alarm in the
