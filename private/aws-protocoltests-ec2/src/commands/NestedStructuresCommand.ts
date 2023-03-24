@@ -41,6 +41,21 @@ export interface NestedStructuresCommandOutput extends __MetadataBearer {}
  * import { EC2ProtocolClient, NestedStructuresCommand } from "@aws-sdk/aws-protocoltests-ec2"; // ES Modules import
  * // const { EC2ProtocolClient, NestedStructuresCommand } = require("@aws-sdk/aws-protocoltests-ec2"); // CommonJS import
  * const client = new EC2ProtocolClient(config);
+ * const input = {
+ *   Nested: {
+ *     StringArg: "STRING_VALUE",
+ *     OtherArg: true || false,
+ *     RecursiveArg: {
+ *       StringArg: "STRING_VALUE",
+ *       OtherArg: true || false,
+ *       RecursiveArg: {
+ *         StringArg: "<StructArg>",
+ *         OtherArg: "<StructArg>",
+ *         RecursiveArg: "<StructArg>",
+ *       },
+ *     },
+ *   },
+ * };
  * const command = new NestedStructuresCommand(input);
  * const response = await client.send(command);
  * ```

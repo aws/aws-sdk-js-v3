@@ -47,6 +47,43 @@ export interface JsonListsCommandOutput extends JsonListsInputOutput, __Metadata
  * import { RestJsonProtocolClient, JsonListsCommand } from "@aws-sdk/aws-protocoltests-restjson"; // ES Modules import
  * // const { RestJsonProtocolClient, JsonListsCommand } = require("@aws-sdk/aws-protocoltests-restjson"); // CommonJS import
  * const client = new RestJsonProtocolClient(config);
+ * const input = {
+ *   stringList: [
+ *     "STRING_VALUE",
+ *   ],
+ *   sparseStringList: [
+ *     "STRING_VALUE",
+ *   ],
+ *   stringSet: [
+ *     "STRING_VALUE",
+ *   ],
+ *   integerList: [
+ *     Number("int"),
+ *   ],
+ *   booleanList: [
+ *     true || false,
+ *   ],
+ *   timestampList: [
+ *     new Date("TIMESTAMP"),
+ *   ],
+ *   enumList: [
+ *     "Foo" || "Baz" || "Bar" || "1" || "0",
+ *   ],
+ *   intEnumList: [
+ *     1 || 2 || 3,
+ *   ],
+ *   nestedStringList: [
+ *     [
+ *       "STRING_VALUE",
+ *     ],
+ *   ],
+ *   structureList: [
+ *     {
+ *       a: "STRING_VALUE",
+ *       b: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new JsonListsCommand(input);
  * const response = await client.send(command);
  * ```

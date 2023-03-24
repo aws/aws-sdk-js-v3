@@ -41,6 +41,20 @@ export interface XmlIntEnumsCommandOutput extends XmlIntEnumsInputOutput, __Meta
  * import { RestXmlProtocolClient, XmlIntEnumsCommand } from "@aws-sdk/aws-protocoltests-restxml"; // ES Modules import
  * // const { RestXmlProtocolClient, XmlIntEnumsCommand } = require("@aws-sdk/aws-protocoltests-restxml"); // CommonJS import
  * const client = new RestXmlProtocolClient(config);
+ * const input = {
+ *   intEnum1: 1 || 2 || 3,
+ *   intEnum2: 1 || 2 || 3,
+ *   intEnum3: 1 || 2 || 3,
+ *   intEnumList: [
+ *     1 || 2 || 3,
+ *   ],
+ *   intEnumSet: [
+ *     1 || 2 || 3,
+ *   ],
+ *   intEnumMap: {
+ *     "<keys>": 1 || 2 || 3,
+ *   },
+ * };
  * const command = new XmlIntEnumsCommand(input);
  * const response = await client.send(command);
  * ```

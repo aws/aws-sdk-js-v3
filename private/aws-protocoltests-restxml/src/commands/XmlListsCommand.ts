@@ -49,6 +49,61 @@ export interface XmlListsCommandOutput extends XmlListsInputOutput, __MetadataBe
  * import { RestXmlProtocolClient, XmlListsCommand } from "@aws-sdk/aws-protocoltests-restxml"; // ES Modules import
  * // const { RestXmlProtocolClient, XmlListsCommand } = require("@aws-sdk/aws-protocoltests-restxml"); // CommonJS import
  * const client = new RestXmlProtocolClient(config);
+ * const input = {
+ *   stringList: [
+ *     "STRING_VALUE",
+ *   ],
+ *   stringSet: [
+ *     "STRING_VALUE",
+ *   ],
+ *   integerList: [
+ *     Number("int"),
+ *   ],
+ *   booleanList: [
+ *     true || false,
+ *   ],
+ *   timestampList: [
+ *     new Date("TIMESTAMP"),
+ *   ],
+ *   enumList: [
+ *     "Foo" || "Baz" || "Bar" || "1" || "0",
+ *   ],
+ *   intEnumList: [
+ *     1 || 2 || 3,
+ *   ],
+ *   nestedStringList: [
+ *     [
+ *       "STRING_VALUE",
+ *     ],
+ *   ],
+ *   renamedListMembers: [
+ *     "STRING_VALUE",
+ *   ],
+ *   flattenedList: [
+ *     "STRING_VALUE",
+ *   ],
+ *   flattenedList2: [
+ *     "STRING_VALUE",
+ *   ],
+ *   flattenedListWithMemberNamespace: [
+ *     "STRING_VALUE",
+ *   ],
+ *   flattenedListWithNamespace: [
+ *     "STRING_VALUE",
+ *   ],
+ *   structureList: [
+ *     {
+ *       a: "STRING_VALUE",
+ *       b: "STRING_VALUE",
+ *     },
+ *   ],
+ *   flattenedStructureList: [
+ *     {
+ *       a: "STRING_VALUE",
+ *       b: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new XmlListsCommand(input);
  * const response = await client.send(command);
  * ```

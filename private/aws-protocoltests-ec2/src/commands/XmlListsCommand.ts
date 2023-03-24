@@ -48,6 +48,7 @@ export interface XmlListsCommandOutput extends XmlListsOutput, __MetadataBearer 
  * import { EC2ProtocolClient, XmlListsCommand } from "@aws-sdk/aws-protocoltests-ec2"; // ES Modules import
  * // const { EC2ProtocolClient, XmlListsCommand } = require("@aws-sdk/aws-protocoltests-ec2"); // CommonJS import
  * const client = new EC2ProtocolClient(config);
+ * const input = {};
  * const command = new XmlListsCommand(input);
  * const response = await client.send(command);
  * ```

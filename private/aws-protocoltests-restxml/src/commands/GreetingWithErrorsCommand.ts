@@ -49,6 +49,7 @@ export interface GreetingWithErrorsCommandOutput extends GreetingWithErrorsOutpu
  * import { RestXmlProtocolClient, GreetingWithErrorsCommand } from "@aws-sdk/aws-protocoltests-restxml"; // ES Modules import
  * // const { RestXmlProtocolClient, GreetingWithErrorsCommand } = require("@aws-sdk/aws-protocoltests-restxml"); // CommonJS import
  * const client = new RestXmlProtocolClient(config);
+ * const input = {};
  * const command = new GreetingWithErrorsCommand(input);
  * const response = await client.send(command);
  * ```

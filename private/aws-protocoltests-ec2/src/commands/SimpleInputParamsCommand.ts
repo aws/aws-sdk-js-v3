@@ -41,6 +41,19 @@ export interface SimpleInputParamsCommandOutput extends __MetadataBearer {}
  * import { EC2ProtocolClient, SimpleInputParamsCommand } from "@aws-sdk/aws-protocoltests-ec2"; // ES Modules import
  * // const { EC2ProtocolClient, SimpleInputParamsCommand } = require("@aws-sdk/aws-protocoltests-ec2"); // CommonJS import
  * const client = new EC2ProtocolClient(config);
+ * const input = {
+ *   Foo: "STRING_VALUE",
+ *   Bar: "STRING_VALUE",
+ *   Baz: true || false,
+ *   Bam: Number("int"),
+ *   FloatValue: Number("float"),
+ *   Boo: Number("double"),
+ *   Qux: "BLOB_VALUE",
+ *   FooEnum: "Foo" || "Baz" || "Bar" || "1" || "0",
+ *   HasQueryName: "STRING_VALUE",
+ *   HasQueryAndXmlName: "STRING_VALUE",
+ *   UsesXmlName: "STRING_VALUE",
+ * };
  * const command = new SimpleInputParamsCommand(input);
  * const response = await client.send(command);
  * ```

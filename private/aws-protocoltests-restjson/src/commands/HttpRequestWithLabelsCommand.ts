@@ -42,6 +42,16 @@ export interface HttpRequestWithLabelsCommandOutput extends __MetadataBearer {}
  * import { RestJsonProtocolClient, HttpRequestWithLabelsCommand } from "@aws-sdk/aws-protocoltests-restjson"; // ES Modules import
  * // const { RestJsonProtocolClient, HttpRequestWithLabelsCommand } = require("@aws-sdk/aws-protocoltests-restjson"); // CommonJS import
  * const client = new RestJsonProtocolClient(config);
+ * const input = {
+ *   string: "STRING_VALUE", // required
+ *   short: Number("short"), // required
+ *   integer: Number("int"), // required
+ *   long: Number("long"), // required
+ *   float: Number("float"), // required
+ *   double: Number("double"), // required
+ *   boolean: true || false, // required
+ *   timestamp: new Date("TIMESTAMP"), // required
+ * };
  * const command = new HttpRequestWithLabelsCommand(input);
  * const response = await client.send(command);
  * ```

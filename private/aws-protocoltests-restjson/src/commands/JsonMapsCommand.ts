@@ -41,6 +41,46 @@ export interface JsonMapsCommandOutput extends JsonMapsInputOutput, __MetadataBe
  * import { RestJsonProtocolClient, JsonMapsCommand } from "@aws-sdk/aws-protocoltests-restjson"; // ES Modules import
  * // const { RestJsonProtocolClient, JsonMapsCommand } = require("@aws-sdk/aws-protocoltests-restjson"); // CommonJS import
  * const client = new RestJsonProtocolClient(config);
+ * const input = {
+ *   denseStructMap: {
+ *     "<keys>": {
+ *       hi: "STRING_VALUE",
+ *     },
+ *   },
+ *   sparseStructMap: {
+ *     "<keys>": {
+ *       hi: "STRING_VALUE",
+ *     },
+ *   },
+ *   denseNumberMap: {
+ *     "<keys>": Number("int"),
+ *   },
+ *   denseBooleanMap: {
+ *     "<keys>": true || false,
+ *   },
+ *   denseStringMap: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   sparseNumberMap: {
+ *     "<keys>": Number("int"),
+ *   },
+ *   sparseBooleanMap: {
+ *     "<keys>": true || false,
+ *   },
+ *   sparseStringMap: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   denseSetMap: {
+ *     "<keys>": [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   sparseSetMap: {
+ *     "<keys>": [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ * };
  * const command = new JsonMapsCommand(input);
  * const response = await client.send(command);
  * ```

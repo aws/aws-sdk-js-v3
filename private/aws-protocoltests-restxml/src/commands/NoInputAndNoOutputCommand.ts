@@ -42,6 +42,7 @@ export interface NoInputAndNoOutputCommandOutput extends __MetadataBearer {}
  * import { RestXmlProtocolClient, NoInputAndNoOutputCommand } from "@aws-sdk/aws-protocoltests-restxml"; // ES Modules import
  * // const { RestXmlProtocolClient, NoInputAndNoOutputCommand } = require("@aws-sdk/aws-protocoltests-restxml"); // CommonJS import
  * const client = new RestXmlProtocolClient(config);
+ * const input = {};
  * const command = new NoInputAndNoOutputCommand(input);
  * const response = await client.send(command);
  * ```

@@ -43,6 +43,15 @@ export interface HttpRequestWithLabelsAndTimestampFormatCommandOutput extends __
  * import { RestXmlProtocolClient, HttpRequestWithLabelsAndTimestampFormatCommand } from "@aws-sdk/aws-protocoltests-restxml"; // ES Modules import
  * // const { RestXmlProtocolClient, HttpRequestWithLabelsAndTimestampFormatCommand } = require("@aws-sdk/aws-protocoltests-restxml"); // CommonJS import
  * const client = new RestXmlProtocolClient(config);
+ * const input = {
+ *   memberEpochSeconds: new Date("TIMESTAMP"), // required
+ *   memberHttpDate: new Date("TIMESTAMP"), // required
+ *   memberDateTime: new Date("TIMESTAMP"), // required
+ *   defaultFormat: new Date("TIMESTAMP"), // required
+ *   targetEpochSeconds: new Date("TIMESTAMP"), // required
+ *   targetHttpDate: new Date("TIMESTAMP"), // required
+ *   targetDateTime: new Date("TIMESTAMP"), // required
+ * };
  * const command = new HttpRequestWithLabelsAndTimestampFormatCommand(input);
  * const response = await client.send(command);
  * ```

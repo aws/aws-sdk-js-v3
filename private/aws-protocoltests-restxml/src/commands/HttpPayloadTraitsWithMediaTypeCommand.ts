@@ -44,6 +44,10 @@ export interface HttpPayloadTraitsWithMediaTypeCommandOutput
  * import { RestXmlProtocolClient, HttpPayloadTraitsWithMediaTypeCommand } from "@aws-sdk/aws-protocoltests-restxml"; // ES Modules import
  * // const { RestXmlProtocolClient, HttpPayloadTraitsWithMediaTypeCommand } = require("@aws-sdk/aws-protocoltests-restxml"); // CommonJS import
  * const client = new RestXmlProtocolClient(config);
+ * const input = {
+ *   foo: "STRING_VALUE",
+ *   blob: "BLOB_VALUE",
+ * };
  * const command = new HttpPayloadTraitsWithMediaTypeCommand(input);
  * const response = await client.send(command);
  * ```

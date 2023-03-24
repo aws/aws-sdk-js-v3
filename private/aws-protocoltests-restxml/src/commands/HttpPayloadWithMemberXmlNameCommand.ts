@@ -44,6 +44,11 @@ export interface HttpPayloadWithMemberXmlNameCommandOutput
  * import { RestXmlProtocolClient, HttpPayloadWithMemberXmlNameCommand } from "@aws-sdk/aws-protocoltests-restxml"; // ES Modules import
  * // const { RestXmlProtocolClient, HttpPayloadWithMemberXmlNameCommand } = require("@aws-sdk/aws-protocoltests-restxml"); // CommonJS import
  * const client = new RestXmlProtocolClient(config);
+ * const input = {
+ *   nested: {
+ *     name: "STRING_VALUE",
+ *   },
+ * };
  * const command = new HttpPayloadWithMemberXmlNameCommand(input);
  * const response = await client.send(command);
  * ```

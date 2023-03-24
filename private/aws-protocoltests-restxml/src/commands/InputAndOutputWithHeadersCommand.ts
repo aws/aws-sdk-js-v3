@@ -42,6 +42,36 @@ export interface InputAndOutputWithHeadersCommandOutput extends InputAndOutputWi
  * import { RestXmlProtocolClient, InputAndOutputWithHeadersCommand } from "@aws-sdk/aws-protocoltests-restxml"; // ES Modules import
  * // const { RestXmlProtocolClient, InputAndOutputWithHeadersCommand } = require("@aws-sdk/aws-protocoltests-restxml"); // CommonJS import
  * const client = new RestXmlProtocolClient(config);
+ * const input = {
+ *   headerString: "STRING_VALUE",
+ *   headerByte: "BYTE_VALUE",
+ *   headerShort: Number("short"),
+ *   headerInteger: Number("int"),
+ *   headerLong: Number("long"),
+ *   headerFloat: Number("float"),
+ *   headerDouble: Number("double"),
+ *   headerTrueBool: true || false,
+ *   headerFalseBool: true || false,
+ *   headerStringList: [
+ *     "STRING_VALUE",
+ *   ],
+ *   headerStringSet: [
+ *     "STRING_VALUE",
+ *   ],
+ *   headerIntegerList: [
+ *     Number("int"),
+ *   ],
+ *   headerBooleanList: [
+ *     true || false,
+ *   ],
+ *   headerTimestampList: [
+ *     new Date("TIMESTAMP"),
+ *   ],
+ *   headerEnum: "Foo" || "Baz" || "Bar" || "1" || "0",
+ *   headerEnumList: [
+ *     "Foo" || "Baz" || "Bar" || "1" || "0",
+ *   ],
+ * };
  * const command = new InputAndOutputWithHeadersCommand(input);
  * const response = await client.send(command);
  * ```

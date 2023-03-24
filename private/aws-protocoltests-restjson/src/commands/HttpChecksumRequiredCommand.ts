@@ -42,6 +42,9 @@ export interface HttpChecksumRequiredCommandOutput extends HttpChecksumRequiredI
  * import { RestJsonProtocolClient, HttpChecksumRequiredCommand } from "@aws-sdk/aws-protocoltests-restjson"; // ES Modules import
  * // const { RestJsonProtocolClient, HttpChecksumRequiredCommand } = require("@aws-sdk/aws-protocoltests-restjson"); // CommonJS import
  * const client = new RestJsonProtocolClient(config);
+ * const input = {
+ *   foo: "STRING_VALUE",
+ * };
  * const command = new HttpChecksumRequiredCommand(input);
  * const response = await client.send(command);
  * ```

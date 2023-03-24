@@ -41,6 +41,7 @@ export interface RecursiveXmlShapesCommandOutput extends RecursiveXmlShapesOutpu
  * import { QueryProtocolClient, RecursiveXmlShapesCommand } from "@aws-sdk/aws-protocoltests-query"; // ES Modules import
  * // const { QueryProtocolClient, RecursiveXmlShapesCommand } = require("@aws-sdk/aws-protocoltests-query"); // CommonJS import
  * const client = new QueryProtocolClient(config);
+ * const input = {};
  * const command = new RecursiveXmlShapesCommand(input);
  * const response = await client.send(command);
  * ```

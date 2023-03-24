@@ -40,6 +40,7 @@ export interface UnitInputAndOutputCommandOutput extends __MetadataBearer {}
  * import { RestJsonProtocolClient, UnitInputAndOutputCommand } from "@aws-sdk/aws-protocoltests-restjson"; // ES Modules import
  * // const { RestJsonProtocolClient, UnitInputAndOutputCommand } = require("@aws-sdk/aws-protocoltests-restjson"); // CommonJS import
  * const client = new RestJsonProtocolClient(config);
+ * const input = {};
  * const command = new UnitInputAndOutputCommand(input);
  * const response = await client.send(command);
  * ```

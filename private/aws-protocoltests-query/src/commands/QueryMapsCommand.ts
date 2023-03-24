@@ -38,6 +38,38 @@ export interface QueryMapsCommandOutput extends __MetadataBearer {}
  * import { QueryProtocolClient, QueryMapsCommand } from "@aws-sdk/aws-protocoltests-query"; // ES Modules import
  * // const { QueryProtocolClient, QueryMapsCommand } = require("@aws-sdk/aws-protocoltests-query"); // CommonJS import
  * const client = new QueryProtocolClient(config);
+ * const input = {
+ *   MapArg: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   RenamedMapArg: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   ComplexMapArg: {
+ *     "<keys>": {
+ *       hi: "STRING_VALUE",
+ *     },
+ *   },
+ *   MapWithXmlMemberName: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   FlattenedMap: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   FlattenedMapWithXmlName: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   MapOfLists: {
+ *     "<keys>": [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   NestedStructWithMap: {
+ *     MapArg: {
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *   },
+ * };
  * const command = new QueryMapsCommand(input);
  * const response = await client.send(command);
  * ```

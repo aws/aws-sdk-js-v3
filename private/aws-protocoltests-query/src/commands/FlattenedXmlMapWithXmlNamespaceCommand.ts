@@ -43,6 +43,7 @@ export interface FlattenedXmlMapWithXmlNamespaceCommandOutput
  * import { QueryProtocolClient, FlattenedXmlMapWithXmlNamespaceCommand } from "@aws-sdk/aws-protocoltests-query"; // ES Modules import
  * // const { QueryProtocolClient, FlattenedXmlMapWithXmlNamespaceCommand } = require("@aws-sdk/aws-protocoltests-query"); // CommonJS import
  * const client = new QueryProtocolClient(config);
+ * const input = {};
  * const command = new FlattenedXmlMapWithXmlNamespaceCommand(input);
  * const response = await client.send(command);
  * ```

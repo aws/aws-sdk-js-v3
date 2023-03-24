@@ -41,6 +41,9 @@ export interface PutAndGetInlineDocumentsCommandOutput extends PutAndGetInlineDo
  * import { JsonProtocolClient, PutAndGetInlineDocumentsCommand } from "@aws-sdk/aws-protocoltests-json"; // ES Modules import
  * // const { JsonProtocolClient, PutAndGetInlineDocumentsCommand } = require("@aws-sdk/aws-protocoltests-json"); // CommonJS import
  * const client = new JsonProtocolClient(config);
+ * const input = {
+ *   inlineDocument: "DOCUMENT_VALUE",
+ * };
  * const command = new PutAndGetInlineDocumentsCommand(input);
  * const response = await client.send(command);
  * ```
