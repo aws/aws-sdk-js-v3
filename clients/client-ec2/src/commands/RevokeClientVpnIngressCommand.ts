@@ -42,6 +42,13 @@ export interface RevokeClientVpnIngressCommandOutput extends RevokeClientVpnIngr
  * import { EC2Client, RevokeClientVpnIngressCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, RevokeClientVpnIngressCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   ClientVpnEndpointId: "STRING_VALUE", // required
+ *   TargetNetworkCidr: "STRING_VALUE", // required
+ *   AccessGroupId: "STRING_VALUE",
+ *   RevokeAllGroups: true || false,
+ *   DryRun: true || false,
+ * };
  * const command = new RevokeClientVpnIngressCommand(input);
  * const response = await client.send(command);
  * ```

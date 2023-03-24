@@ -52,6 +52,9 @@ export interface DescribeTypeRegistrationCommandOutput extends DescribeTypeRegis
  * import { CloudFormationClient, DescribeTypeRegistrationCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, DescribeTypeRegistrationCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
  * const client = new CloudFormationClient(config);
+ * const input = {
+ *   RegistrationToken: "STRING_VALUE", // required
+ * };
  * const command = new DescribeTypeRegistrationCommand(input);
  * const response = await client.send(command);
  * ```

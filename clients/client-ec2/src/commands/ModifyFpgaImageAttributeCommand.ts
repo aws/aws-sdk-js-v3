@@ -42,6 +42,37 @@ export interface ModifyFpgaImageAttributeCommandOutput extends ModifyFpgaImageAt
  * import { EC2Client, ModifyFpgaImageAttributeCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ModifyFpgaImageAttributeCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   DryRun: true || false,
+ *   FpgaImageId: "STRING_VALUE", // required
+ *   Attribute: "description" || "name" || "loadPermission" || "productCodes",
+ *   OperationType: "add" || "remove",
+ *   UserIds: [
+ *     "STRING_VALUE",
+ *   ],
+ *   UserGroups: [
+ *     "STRING_VALUE",
+ *   ],
+ *   ProductCodes: [
+ *     "STRING_VALUE",
+ *   ],
+ *   LoadPermission: {
+ *     Add: [
+ *       {
+ *         Group: "all",
+ *         UserId: "STRING_VALUE",
+ *       },
+ *     ],
+ *     Remove: [
+ *       {
+ *         Group: "all",
+ *         UserId: "STRING_VALUE",
+ *       },
+ *     ],
+ *   },
+ *   Description: "STRING_VALUE",
+ *   Name: "STRING_VALUE",
+ * };
  * const command = new ModifyFpgaImageAttributeCommand(input);
  * const response = await client.send(command);
  * ```

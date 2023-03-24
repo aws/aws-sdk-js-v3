@@ -43,6 +43,11 @@ export interface GetTaskTemplateCommandOutput extends GetTaskTemplateResponse, _
  * import { ConnectClient, GetTaskTemplateCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, GetTaskTemplateCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = {
+ *   InstanceId: "STRING_VALUE", // required
+ *   TaskTemplateId: "STRING_VALUE", // required
+ *   SnapshotVersion: "STRING_VALUE",
+ * };
  * const command = new GetTaskTemplateCommand(input);
  * const response = await client.send(command);
  * ```

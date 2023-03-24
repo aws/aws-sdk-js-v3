@@ -42,6 +42,11 @@ export interface ListThesauriCommandOutput extends ListThesauriResponse, __Metad
  * import { KendraClient, ListThesauriCommand } from "@aws-sdk/client-kendra"; // ES Modules import
  * // const { KendraClient, ListThesauriCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
  * const client = new KendraClient(config);
+ * const input = {
+ *   IndexId: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListThesauriCommand(input);
  * const response = await client.send(command);
  * ```

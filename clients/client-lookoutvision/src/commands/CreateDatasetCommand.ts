@@ -51,6 +51,20 @@ export interface CreateDatasetCommandOutput extends CreateDatasetResponse, __Met
  * import { LookoutVisionClient, CreateDatasetCommand } from "@aws-sdk/client-lookoutvision"; // ES Modules import
  * // const { LookoutVisionClient, CreateDatasetCommand } = require("@aws-sdk/client-lookoutvision"); // CommonJS import
  * const client = new LookoutVisionClient(config);
+ * const input = {
+ *   ProjectName: "STRING_VALUE", // required
+ *   DatasetType: "STRING_VALUE", // required
+ *   DatasetSource: {
+ *     GroundTruthManifest: {
+ *       S3Object: {
+ *         Bucket: "STRING_VALUE", // required
+ *         Key: "STRING_VALUE", // required
+ *         VersionId: "STRING_VALUE",
+ *       },
+ *     },
+ *   },
+ *   ClientToken: "STRING_VALUE",
+ * };
  * const command = new CreateDatasetCommand(input);
  * const response = await client.send(command);
  * ```

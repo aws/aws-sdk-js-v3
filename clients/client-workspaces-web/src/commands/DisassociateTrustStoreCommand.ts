@@ -42,6 +42,9 @@ export interface DisassociateTrustStoreCommandOutput extends DisassociateTrustSt
  * import { WorkSpacesWebClient, DisassociateTrustStoreCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
  * // const { WorkSpacesWebClient, DisassociateTrustStoreCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
  * const client = new WorkSpacesWebClient(config);
+ * const input = {
+ *   portalArn: "STRING_VALUE", // required
+ * };
  * const command = new DisassociateTrustStoreCommand(input);
  * const response = await client.send(command);
  * ```

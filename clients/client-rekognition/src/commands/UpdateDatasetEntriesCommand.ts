@@ -63,6 +63,12 @@ export interface UpdateDatasetEntriesCommandOutput extends UpdateDatasetEntriesR
  * import { RekognitionClient, UpdateDatasetEntriesCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, UpdateDatasetEntriesCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
+ * const input = {
+ *   DatasetArn: "STRING_VALUE", // required
+ *   Changes: {
+ *     GroundTruth: "BLOB_VALUE", // required
+ *   },
+ * };
  * const command = new UpdateDatasetEntriesCommand(input);
  * const response = await client.send(command);
  * ```

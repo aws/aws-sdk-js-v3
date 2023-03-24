@@ -55,6 +55,49 @@ export interface AddApplicationInputCommandOutput extends AddApplicationInputRes
  * import { KinesisAnalyticsV2Client, AddApplicationInputCommand } from "@aws-sdk/client-kinesis-analytics-v2"; // ES Modules import
  * // const { KinesisAnalyticsV2Client, AddApplicationInputCommand } = require("@aws-sdk/client-kinesis-analytics-v2"); // CommonJS import
  * const client = new KinesisAnalyticsV2Client(config);
+ * const input = {
+ *   ApplicationName: "STRING_VALUE", // required
+ *   CurrentApplicationVersionId: Number("long"), // required
+ *   Input: {
+ *     NamePrefix: "STRING_VALUE", // required
+ *     InputProcessingConfiguration: {
+ *       InputLambdaProcessor: {
+ *         ResourceARN: "STRING_VALUE", // required
+ *       },
+ *     },
+ *     KinesisStreamsInput: {
+ *       ResourceARN: "STRING_VALUE", // required
+ *     },
+ *     KinesisFirehoseInput: {
+ *       ResourceARN: "STRING_VALUE", // required
+ *     },
+ *     InputParallelism: {
+ *       Count: Number("int"),
+ *     },
+ *     InputSchema: {
+ *       RecordFormat: {
+ *         RecordFormatType: "JSON" || "CSV", // required
+ *         MappingParameters: {
+ *           JSONMappingParameters: {
+ *             RecordRowPath: "STRING_VALUE", // required
+ *           },
+ *           CSVMappingParameters: {
+ *             RecordRowDelimiter: "STRING_VALUE", // required
+ *             RecordColumnDelimiter: "STRING_VALUE", // required
+ *           },
+ *         },
+ *       },
+ *       RecordEncoding: "STRING_VALUE",
+ *       RecordColumns: [ // required
+ *         {
+ *           Name: "STRING_VALUE", // required
+ *           Mapping: "STRING_VALUE",
+ *           SqlType: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *     },
+ *   },
+ * };
  * const command = new AddApplicationInputCommand(input);
  * const response = await client.send(command);
  * ```

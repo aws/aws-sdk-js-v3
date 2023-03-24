@@ -60,6 +60,30 @@ export interface PutPrincipalMappingCommandOutput extends __MetadataBearer {}
  * import { KendraClient, PutPrincipalMappingCommand } from "@aws-sdk/client-kendra"; // ES Modules import
  * // const { KendraClient, PutPrincipalMappingCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
  * const client = new KendraClient(config);
+ * const input = {
+ *   IndexId: "STRING_VALUE", // required
+ *   DataSourceId: "STRING_VALUE",
+ *   GroupId: "STRING_VALUE", // required
+ *   GroupMembers: {
+ *     MemberGroups: [
+ *       {
+ *         GroupId: "STRING_VALUE", // required
+ *         DataSourceId: "STRING_VALUE",
+ *       },
+ *     ],
+ *     MemberUsers: [
+ *       {
+ *         UserId: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *     S3PathforGroupMembers: {
+ *       Bucket: "STRING_VALUE", // required
+ *       Key: "STRING_VALUE", // required
+ *     },
+ *   },
+ *   OrderingId: Number("long"),
+ *   RoleArn: "STRING_VALUE",
+ * };
  * const command = new PutPrincipalMappingCommand(input);
  * const response = await client.send(command);
  * ```

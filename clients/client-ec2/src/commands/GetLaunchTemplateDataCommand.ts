@@ -53,6 +53,10 @@ export interface GetLaunchTemplateDataCommandOutput extends GetLaunchTemplateDat
  * import { EC2Client, GetLaunchTemplateDataCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, GetLaunchTemplateDataCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   DryRun: true || false,
+ *   InstanceId: "STRING_VALUE", // required
+ * };
  * const command = new GetLaunchTemplateDataCommand(input);
  * const response = await client.send(command);
  * ```

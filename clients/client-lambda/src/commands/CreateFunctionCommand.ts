@@ -84,6 +84,75 @@ export interface CreateFunctionCommandOutput extends FunctionConfiguration, __Me
  * import { LambdaClient, CreateFunctionCommand } from "@aws-sdk/client-lambda"; // ES Modules import
  * // const { LambdaClient, CreateFunctionCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
  * const client = new LambdaClient(config);
+ * const input = {
+ *   FunctionName: "STRING_VALUE", // required
+ *   Runtime: "nodejs" || "nodejs4.3" || "nodejs6.10" || "nodejs8.10" || "nodejs10.x" || "nodejs12.x" || "nodejs14.x" || "nodejs16.x" || "java8" || "java8.al2" || "java11" || "python2.7" || "python3.6" || "python3.7" || "python3.8" || "python3.9" || "dotnetcore1.0" || "dotnetcore2.0" || "dotnetcore2.1" || "dotnetcore3.1" || "dotnet6" || "nodejs4.3-edge" || "go1.x" || "ruby2.5" || "ruby2.7" || "provided" || "provided.al2" || "nodejs18.x",
+ *   Role: "STRING_VALUE", // required
+ *   Handler: "STRING_VALUE",
+ *   Code: {
+ *     ZipFile: "BLOB_VALUE",
+ *     S3Bucket: "STRING_VALUE",
+ *     S3Key: "STRING_VALUE",
+ *     S3ObjectVersion: "STRING_VALUE",
+ *     ImageUri: "STRING_VALUE",
+ *   },
+ *   Description: "STRING_VALUE",
+ *   Timeout: Number("int"),
+ *   MemorySize: Number("int"),
+ *   Publish: true || false,
+ *   VpcConfig: {
+ *     SubnetIds: [
+ *       "STRING_VALUE",
+ *     ],
+ *     SecurityGroupIds: [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   PackageType: "Zip" || "Image",
+ *   DeadLetterConfig: {
+ *     TargetArn: "STRING_VALUE",
+ *   },
+ *   Environment: {
+ *     Variables: {
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *   },
+ *   KMSKeyArn: "STRING_VALUE",
+ *   TracingConfig: {
+ *     Mode: "Active" || "PassThrough",
+ *   },
+ *   Tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   Layers: [
+ *     "STRING_VALUE",
+ *   ],
+ *   FileSystemConfigs: [
+ *     {
+ *       Arn: "STRING_VALUE", // required
+ *       LocalMountPath: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   ImageConfig: {
+ *     EntryPoint: [
+ *       "STRING_VALUE",
+ *     ],
+ *     Command: [
+ *       "STRING_VALUE",
+ *     ],
+ *     WorkingDirectory: "STRING_VALUE",
+ *   },
+ *   CodeSigningConfigArn: "STRING_VALUE",
+ *   Architectures: [
+ *     "x86_64" || "arm64",
+ *   ],
+ *   EphemeralStorage: {
+ *     Size: Number("int"), // required
+ *   },
+ *   SnapStart: {
+ *     ApplyOn: "PublishedVersions" || "None",
+ *   },
+ * };
  * const command = new CreateFunctionCommand(input);
  * const response = await client.send(command);
  * ```

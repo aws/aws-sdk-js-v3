@@ -43,6 +43,10 @@ export interface ListServersCommandOutput extends ListServersResponse, __Metadat
  * import { TransferClient, ListServersCommand } from "@aws-sdk/client-transfer"; // ES Modules import
  * // const { TransferClient, ListServersCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
  * const client = new TransferClient(config);
+ * const input = {
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListServersCommand(input);
  * const response = await client.send(command);
  * ```

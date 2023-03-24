@@ -42,6 +42,10 @@ export interface ListProvisioningArtifactsCommandOutput extends ListProvisioning
  * import { ServiceCatalogClient, ListProvisioningArtifactsCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, ListProvisioningArtifactsCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
+ * const input = {
+ *   AcceptLanguage: "STRING_VALUE",
+ *   ProductId: "STRING_VALUE", // required
+ * };
  * const command = new ListProvisioningArtifactsCommand(input);
  * const response = await client.send(command);
  * ```

@@ -43,6 +43,9 @@ export interface DeleteGameSessionQueueCommandOutput extends DeleteGameSessionQu
  * import { GameLiftClient, DeleteGameSessionQueueCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, DeleteGameSessionQueueCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = {
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new DeleteGameSessionQueueCommand(input);
  * const response = await client.send(command);
  * ```

@@ -50,6 +50,26 @@ export interface UpdateTaskExecutionCommandOutput extends UpdateTaskExecutionRes
  * import { DataSyncClient, UpdateTaskExecutionCommand } from "@aws-sdk/client-datasync"; // ES Modules import
  * // const { DataSyncClient, UpdateTaskExecutionCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
  * const client = new DataSyncClient(config);
+ * const input = {
+ *   TaskExecutionArn: "STRING_VALUE", // required
+ *   Options: {
+ *     VerifyMode: "POINT_IN_TIME_CONSISTENT" || "ONLY_FILES_TRANSFERRED" || "NONE",
+ *     OverwriteMode: "ALWAYS" || "NEVER",
+ *     Atime: "NONE" || "BEST_EFFORT",
+ *     Mtime: "NONE" || "PRESERVE",
+ *     Uid: "NONE" || "INT_VALUE" || "NAME" || "BOTH",
+ *     Gid: "NONE" || "INT_VALUE" || "NAME" || "BOTH",
+ *     PreserveDeletedFiles: "PRESERVE" || "REMOVE",
+ *     PreserveDevices: "NONE" || "PRESERVE",
+ *     PosixPermissions: "NONE" || "PRESERVE",
+ *     BytesPerSecond: Number("long"),
+ *     TaskQueueing: "ENABLED" || "DISABLED",
+ *     LogLevel: "OFF" || "BASIC" || "TRANSFER",
+ *     TransferMode: "CHANGED" || "ALL",
+ *     SecurityDescriptorCopyFlags: "NONE" || "OWNER_DACL" || "OWNER_DACL_SACL",
+ *     ObjectTags: "PRESERVE" || "NONE",
+ *   },
+ * };
  * const command = new UpdateTaskExecutionCommand(input);
  * const response = await client.send(command);
  * ```

@@ -53,6 +53,9 @@ export interface DescribeContinuousBackupsCommandOutput extends DescribeContinuo
  * import { DynamoDBClient, DescribeContinuousBackupsCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
  * // const { DynamoDBClient, DescribeContinuousBackupsCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
  * const client = new DynamoDBClient(config);
+ * const input = {
+ *   TableName: "STRING_VALUE", // required
+ * };
  * const command = new DescribeContinuousBackupsCommand(input);
  * const response = await client.send(command);
  * ```

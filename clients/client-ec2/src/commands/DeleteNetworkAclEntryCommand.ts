@@ -42,6 +42,12 @@ export interface DeleteNetworkAclEntryCommandOutput extends __MetadataBearer {}
  * import { EC2Client, DeleteNetworkAclEntryCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DeleteNetworkAclEntryCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   DryRun: true || false,
+ *   Egress: true || false, // required
+ *   NetworkAclId: "STRING_VALUE", // required
+ *   RuleNumber: Number("int"), // required
+ * };
  * const command = new DeleteNetworkAclEntryCommand(input);
  * const response = await client.send(command);
  * ```

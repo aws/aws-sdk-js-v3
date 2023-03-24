@@ -42,6 +42,11 @@ export interface UpdateDiscovererCommandOutput extends UpdateDiscovererResponse,
  * import { SchemasClient, UpdateDiscovererCommand } from "@aws-sdk/client-schemas"; // ES Modules import
  * // const { SchemasClient, UpdateDiscovererCommand } = require("@aws-sdk/client-schemas"); // CommonJS import
  * const client = new SchemasClient(config);
+ * const input = {
+ *   Description: "STRING_VALUE",
+ *   DiscovererId: "STRING_VALUE", // required
+ *   CrossAccount: true || false,
+ * };
  * const command = new UpdateDiscovererCommand(input);
  * const response = await client.send(command);
  * ```

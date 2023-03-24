@@ -47,6 +47,17 @@ export interface PurchaseReservedDBInstancesOfferingCommandOutput
  * import { RDSClient, PurchaseReservedDBInstancesOfferingCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, PurchaseReservedDBInstancesOfferingCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = {
+ *   ReservedDBInstancesOfferingId: "STRING_VALUE", // required
+ *   ReservedDBInstanceId: "STRING_VALUE",
+ *   DBInstanceCount: Number("int"),
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new PurchaseReservedDBInstancesOfferingCommand(input);
  * const response = await client.send(command);
  * ```

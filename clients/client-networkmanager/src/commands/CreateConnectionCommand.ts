@@ -42,6 +42,20 @@ export interface CreateConnectionCommandOutput extends CreateConnectionResponse,
  * import { NetworkManagerClient, CreateConnectionCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, CreateConnectionCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
+ * const input = {
+ *   GlobalNetworkId: "STRING_VALUE", // required
+ *   DeviceId: "STRING_VALUE", // required
+ *   ConnectedDeviceId: "STRING_VALUE", // required
+ *   LinkId: "STRING_VALUE",
+ *   ConnectedLinkId: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateConnectionCommand(input);
  * const response = await client.send(command);
  * ```

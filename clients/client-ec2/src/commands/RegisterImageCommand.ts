@@ -87,6 +87,44 @@ export interface RegisterImageCommandOutput extends RegisterImageResult, __Metad
  * import { EC2Client, RegisterImageCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, RegisterImageCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   ImageLocation: "STRING_VALUE",
+ *   Architecture: "i386" || "x86_64" || "arm64" || "x86_64_mac" || "arm64_mac",
+ *   BlockDeviceMappings: [
+ *     {
+ *       DeviceName: "STRING_VALUE",
+ *       VirtualName: "STRING_VALUE",
+ *       Ebs: {
+ *         DeleteOnTermination: true || false,
+ *         Iops: Number("int"),
+ *         SnapshotId: "STRING_VALUE",
+ *         VolumeSize: Number("int"),
+ *         VolumeType: "standard" || "io1" || "io2" || "gp2" || "sc1" || "st1" || "gp3",
+ *         KmsKeyId: "STRING_VALUE",
+ *         Throughput: Number("int"),
+ *         OutpostArn: "STRING_VALUE",
+ *         Encrypted: true || false,
+ *       },
+ *       NoDevice: "STRING_VALUE",
+ *     },
+ *   ],
+ *   Description: "STRING_VALUE",
+ *   DryRun: true || false,
+ *   EnaSupport: true || false,
+ *   KernelId: "STRING_VALUE",
+ *   Name: "STRING_VALUE", // required
+ *   BillingProducts: [
+ *     "STRING_VALUE",
+ *   ],
+ *   RamdiskId: "STRING_VALUE",
+ *   RootDeviceName: "STRING_VALUE",
+ *   SriovNetSupport: "STRING_VALUE",
+ *   VirtualizationType: "STRING_VALUE",
+ *   BootMode: "legacy-bios" || "uefi" || "uefi-preferred",
+ *   TpmSupport: "v2.0",
+ *   UefiData: "STRING_VALUE",
+ *   ImdsSupport: "v2.0",
+ * };
  * const command = new RegisterImageCommand(input);
  * const response = await client.send(command);
  * ```

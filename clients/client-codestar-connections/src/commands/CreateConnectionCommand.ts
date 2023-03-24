@@ -48,6 +48,17 @@ export interface CreateConnectionCommandOutput extends CreateConnectionOutput, _
  * import { CodeStarConnectionsClient, CreateConnectionCommand } from "@aws-sdk/client-codestar-connections"; // ES Modules import
  * // const { CodeStarConnectionsClient, CreateConnectionCommand } = require("@aws-sdk/client-codestar-connections"); // CommonJS import
  * const client = new CodeStarConnectionsClient(config);
+ * const input = {
+ *   ProviderType: "STRING_VALUE",
+ *   ConnectionName: "STRING_VALUE", // required
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   HostArn: "STRING_VALUE",
+ * };
  * const command = new CreateConnectionCommand(input);
  * const response = await client.send(command);
  * ```

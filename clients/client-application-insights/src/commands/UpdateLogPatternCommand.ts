@@ -46,6 +46,13 @@ export interface UpdateLogPatternCommandOutput extends UpdateLogPatternResponse,
  * import { ApplicationInsightsClient, UpdateLogPatternCommand } from "@aws-sdk/client-application-insights"; // ES Modules import
  * // const { ApplicationInsightsClient, UpdateLogPatternCommand } = require("@aws-sdk/client-application-insights"); // CommonJS import
  * const client = new ApplicationInsightsClient(config);
+ * const input = {
+ *   ResourceGroupName: "STRING_VALUE", // required
+ *   PatternSetName: "STRING_VALUE", // required
+ *   PatternName: "STRING_VALUE", // required
+ *   Pattern: "STRING_VALUE",
+ *   Rank: Number("int"),
+ * };
  * const command = new UpdateLogPatternCommand(input);
  * const response = await client.send(command);
  * ```

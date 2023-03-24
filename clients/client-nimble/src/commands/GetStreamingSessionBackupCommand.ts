@@ -44,6 +44,10 @@ export interface GetStreamingSessionBackupCommandOutput extends GetStreamingSess
  * import { NimbleClient, GetStreamingSessionBackupCommand } from "@aws-sdk/client-nimble"; // ES Modules import
  * // const { NimbleClient, GetStreamingSessionBackupCommand } = require("@aws-sdk/client-nimble"); // CommonJS import
  * const client = new NimbleClient(config);
+ * const input = {
+ *   backupId: "STRING_VALUE", // required
+ *   studioId: "STRING_VALUE", // required
+ * };
  * const command = new GetStreamingSessionBackupCommand(input);
  * const response = await client.send(command);
  * ```

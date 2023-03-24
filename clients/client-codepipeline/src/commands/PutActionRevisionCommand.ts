@@ -42,6 +42,16 @@ export interface PutActionRevisionCommandOutput extends PutActionRevisionOutput,
  * import { CodePipelineClient, PutActionRevisionCommand } from "@aws-sdk/client-codepipeline"; // ES Modules import
  * // const { CodePipelineClient, PutActionRevisionCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import
  * const client = new CodePipelineClient(config);
+ * const input = {
+ *   pipelineName: "STRING_VALUE", // required
+ *   stageName: "STRING_VALUE", // required
+ *   actionName: "STRING_VALUE", // required
+ *   actionRevision: {
+ *     revisionId: "STRING_VALUE", // required
+ *     revisionChangeId: "STRING_VALUE", // required
+ *     created: new Date("TIMESTAMP"), // required
+ *   },
+ * };
  * const command = new PutActionRevisionCommand(input);
  * const response = await client.send(command);
  * ```

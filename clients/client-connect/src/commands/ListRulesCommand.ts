@@ -42,6 +42,13 @@ export interface ListRulesCommandOutput extends ListRulesResponse, __MetadataBea
  * import { ConnectClient, ListRulesCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, ListRulesCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = {
+ *   InstanceId: "STRING_VALUE", // required
+ *   PublishStatus: "DRAFT" || "PUBLISHED",
+ *   EventSourceName: "OnPostCallAnalysisAvailable" || "OnRealTimeCallAnalysisAvailable" || "OnPostChatAnalysisAvailable" || "OnZendeskTicketCreate" || "OnZendeskTicketStatusUpdate" || "OnSalesforceCaseCreate",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListRulesCommand(input);
  * const response = await client.send(command);
  * ```

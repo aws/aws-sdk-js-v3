@@ -44,6 +44,30 @@ export interface UpdateFeatureCommandOutput extends UpdateFeatureResponse, __Met
  * import { EvidentlyClient, UpdateFeatureCommand } from "@aws-sdk/client-evidently"; // ES Modules import
  * // const { EvidentlyClient, UpdateFeatureCommand } = require("@aws-sdk/client-evidently"); // CommonJS import
  * const client = new EvidentlyClient(config);
+ * const input = {
+ *   project: "STRING_VALUE", // required
+ *   feature: "STRING_VALUE", // required
+ *   evaluationStrategy: "STRING_VALUE",
+ *   description: "STRING_VALUE",
+ *   addOrUpdateVariations: [
+ *     {
+ *       name: "STRING_VALUE", // required
+ *       value: { // Union: only one key present
+ *         boolValue: true || false,
+ *         stringValue: "STRING_VALUE",
+ *         longValue: Number("long"),
+ *         doubleValue: Number("double"),
+ *       },
+ *     },
+ *   ],
+ *   removeVariations: [
+ *     "STRING_VALUE",
+ *   ],
+ *   defaultVariation: "STRING_VALUE",
+ *   entityOverrides: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new UpdateFeatureCommand(input);
  * const response = await client.send(command);
  * ```

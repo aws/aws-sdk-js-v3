@@ -43,6 +43,10 @@ export interface DeleteVolumeCommandOutput extends __MetadataBearer {}
  * import { EC2Client, DeleteVolumeCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DeleteVolumeCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   VolumeId: "STRING_VALUE", // required
+ *   DryRun: true || false,
+ * };
  * const command = new DeleteVolumeCommand(input);
  * const response = await client.send(command);
  * ```

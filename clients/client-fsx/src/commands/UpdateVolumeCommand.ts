@@ -42,6 +42,49 @@ export interface UpdateVolumeCommandOutput extends UpdateVolumeResponse, __Metad
  * import { FSxClient, UpdateVolumeCommand } from "@aws-sdk/client-fsx"; // ES Modules import
  * // const { FSxClient, UpdateVolumeCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
  * const client = new FSxClient(config);
+ * const input = {
+ *   ClientRequestToken: "STRING_VALUE",
+ *   VolumeId: "STRING_VALUE", // required
+ *   OntapConfiguration: {
+ *     JunctionPath: "STRING_VALUE",
+ *     SecurityStyle: "UNIX" || "NTFS" || "MIXED",
+ *     SizeInMegabytes: Number("int"),
+ *     StorageEfficiencyEnabled: true || false,
+ *     TieringPolicy: {
+ *       CoolingPeriod: Number("int"),
+ *       Name: "SNAPSHOT_ONLY" || "AUTO" || "ALL" || "NONE",
+ *     },
+ *     SnapshotPolicy: "STRING_VALUE",
+ *     CopyTagsToBackups: true || false,
+ *   },
+ *   Name: "STRING_VALUE",
+ *   OpenZFSConfiguration: {
+ *     StorageCapacityReservationGiB: Number("int"),
+ *     StorageCapacityQuotaGiB: Number("int"),
+ *     RecordSizeKiB: Number("int"),
+ *     DataCompressionType: "NONE" || "ZSTD" || "LZ4",
+ *     NfsExports: [
+ *       {
+ *         ClientConfigurations: [ // required
+ *           {
+ *             Clients: "STRING_VALUE", // required
+ *             Options: [ // required
+ *               "STRING_VALUE",
+ *             ],
+ *           },
+ *         ],
+ *       },
+ *     ],
+ *     UserAndGroupQuotas: [
+ *       {
+ *         Type: "USER" || "GROUP", // required
+ *         Id: Number("int"), // required
+ *         StorageCapacityQuotaGiB: Number("int"), // required
+ *       },
+ *     ],
+ *     ReadOnly: true || false,
+ *   },
+ * };
  * const command = new UpdateVolumeCommand(input);
  * const response = await client.send(command);
  * ```

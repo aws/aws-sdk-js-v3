@@ -47,6 +47,43 @@ export interface SendBounceCommandOutput extends SendBounceResponse, __MetadataB
  * import { SESClient, SendBounceCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, SendBounceCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
+ * const input = {
+ *   OriginalMessageId: "STRING_VALUE", // required
+ *   BounceSender: "STRING_VALUE", // required
+ *   Explanation: "STRING_VALUE",
+ *   MessageDsn: {
+ *     ReportingMta: "STRING_VALUE", // required
+ *     ArrivalDate: new Date("TIMESTAMP"),
+ *     ExtensionFields: [
+ *       {
+ *         Name: "STRING_VALUE", // required
+ *         Value: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *   },
+ *   BouncedRecipientInfoList: [ // required
+ *     {
+ *       Recipient: "STRING_VALUE", // required
+ *       RecipientArn: "STRING_VALUE",
+ *       BounceType: "STRING_VALUE",
+ *       RecipientDsnFields: {
+ *         FinalRecipient: "STRING_VALUE",
+ *         Action: "STRING_VALUE", // required
+ *         RemoteMta: "STRING_VALUE",
+ *         Status: "STRING_VALUE", // required
+ *         DiagnosticCode: "STRING_VALUE",
+ *         LastAttemptDate: new Date("TIMESTAMP"),
+ *         ExtensionFields: [
+ *           {
+ *             Name: "STRING_VALUE", // required
+ *             Value: "STRING_VALUE", // required
+ *           },
+ *         ],
+ *       },
+ *     },
+ *   ],
+ *   BounceSenderArn: "STRING_VALUE",
+ * };
  * const command = new SendBounceCommand(input);
  * const response = await client.send(command);
  * ```

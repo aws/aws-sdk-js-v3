@@ -46,6 +46,9 @@ export interface GetMediaCapturePipelineCommandOutput extends GetMediaCapturePip
  * import { ChimeClient, GetMediaCapturePipelineCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, GetMediaCapturePipelineCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = {
+ *   MediaPipelineId: "STRING_VALUE", // required
+ * };
  * const command = new GetMediaCapturePipelineCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,18 @@ export interface UpdateDeviceFleetCommandOutput extends __MetadataBearer {}
  * import { SageMakerClient, UpdateDeviceFleetCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, UpdateDeviceFleetCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = {
+ *   DeviceFleetName: "STRING_VALUE", // required
+ *   RoleArn: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   OutputConfig: {
+ *     S3OutputLocation: "STRING_VALUE", // required
+ *     KmsKeyId: "STRING_VALUE",
+ *     PresetDeploymentType: "GreengrassV2Component",
+ *     PresetDeploymentConfig: "STRING_VALUE",
+ *   },
+ *   EnableIotRoleAlias: true || false,
+ * };
  * const command = new UpdateDeviceFleetCommand(input);
  * const response = await client.send(command);
  * ```

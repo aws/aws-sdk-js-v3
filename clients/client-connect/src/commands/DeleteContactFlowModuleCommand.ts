@@ -42,6 +42,10 @@ export interface DeleteContactFlowModuleCommandOutput extends DeleteContactFlowM
  * import { ConnectClient, DeleteContactFlowModuleCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, DeleteContactFlowModuleCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = {
+ *   InstanceId: "STRING_VALUE", // required
+ *   ContactFlowModuleId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteContactFlowModuleCommand(input);
  * const response = await client.send(command);
  * ```

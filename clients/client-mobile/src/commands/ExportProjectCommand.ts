@@ -46,6 +46,9 @@ export interface ExportProjectCommandOutput extends ExportProjectResult, __Metad
  * import { MobileClient, ExportProjectCommand } from "@aws-sdk/client-mobile"; // ES Modules import
  * // const { MobileClient, ExportProjectCommand } = require("@aws-sdk/client-mobile"); // CommonJS import
  * const client = new MobileClient(config);
+ * const input = {
+ *   projectId: "STRING_VALUE", // required
+ * };
  * const command = new ExportProjectCommand(input);
  * const response = await client.send(command);
  * ```

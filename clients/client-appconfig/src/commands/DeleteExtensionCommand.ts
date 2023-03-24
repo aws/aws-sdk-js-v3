@@ -43,6 +43,10 @@ export interface DeleteExtensionCommandOutput extends __MetadataBearer {}
  * import { AppConfigClient, DeleteExtensionCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
  * // const { AppConfigClient, DeleteExtensionCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
  * const client = new AppConfigClient(config);
+ * const input = {
+ *   ExtensionIdentifier: "STRING_VALUE", // required
+ *   VersionNumber: Number("int"),
+ * };
  * const command = new DeleteExtensionCommand(input);
  * const response = await client.send(command);
  * ```

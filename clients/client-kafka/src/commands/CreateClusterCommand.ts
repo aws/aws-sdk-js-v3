@@ -42,6 +42,99 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  * import { KafkaClient, CreateClusterCommand } from "@aws-sdk/client-kafka"; // ES Modules import
  * // const { KafkaClient, CreateClusterCommand } = require("@aws-sdk/client-kafka"); // CommonJS import
  * const client = new KafkaClient(config);
+ * const input = {
+ *   BrokerNodeGroupInfo: {
+ *     BrokerAZDistribution: "DEFAULT",
+ *     ClientSubnets: [ // required
+ *       "STRING_VALUE",
+ *     ],
+ *     InstanceType: "STRING_VALUE", // required
+ *     SecurityGroups: [
+ *       "STRING_VALUE",
+ *     ],
+ *     StorageInfo: {
+ *       EbsStorageInfo: {
+ *         ProvisionedThroughput: {
+ *           Enabled: true || false,
+ *           VolumeThroughput: Number("int"),
+ *         },
+ *         VolumeSize: Number("int"),
+ *       },
+ *     },
+ *     ConnectivityInfo: {
+ *       PublicAccess: {
+ *         Type: "STRING_VALUE",
+ *       },
+ *     },
+ *   },
+ *   ClientAuthentication: {
+ *     Sasl: {
+ *       Scram: {
+ *         Enabled: true || false,
+ *       },
+ *       Iam: {
+ *         Enabled: true || false,
+ *       },
+ *     },
+ *     Tls: {
+ *       CertificateAuthorityArnList: [
+ *         "STRING_VALUE",
+ *       ],
+ *       Enabled: true || false,
+ *     },
+ *     Unauthenticated: {
+ *       Enabled: true || false,
+ *     },
+ *   },
+ *   ClusterName: "STRING_VALUE", // required
+ *   ConfigurationInfo: {
+ *     Arn: "STRING_VALUE", // required
+ *     Revision: Number("long"), // required
+ *   },
+ *   EncryptionInfo: {
+ *     EncryptionAtRest: {
+ *       DataVolumeKMSKeyId: "STRING_VALUE", // required
+ *     },
+ *     EncryptionInTransit: {
+ *       ClientBroker: "TLS" || "TLS_PLAINTEXT" || "PLAINTEXT",
+ *       InCluster: true || false,
+ *     },
+ *   },
+ *   EnhancedMonitoring: "DEFAULT" || "PER_BROKER" || "PER_TOPIC_PER_BROKER" || "PER_TOPIC_PER_PARTITION",
+ *   OpenMonitoring: {
+ *     Prometheus: {
+ *       JmxExporter: {
+ *         EnabledInBroker: true || false, // required
+ *       },
+ *       NodeExporter: {
+ *         EnabledInBroker: true || false, // required
+ *       },
+ *     },
+ *   },
+ *   KafkaVersion: "STRING_VALUE", // required
+ *   LoggingInfo: {
+ *     BrokerLogs: {
+ *       CloudWatchLogs: {
+ *         Enabled: true || false, // required
+ *         LogGroup: "STRING_VALUE",
+ *       },
+ *       Firehose: {
+ *         DeliveryStream: "STRING_VALUE",
+ *         Enabled: true || false, // required
+ *       },
+ *       S3: {
+ *         Bucket: "STRING_VALUE",
+ *         Enabled: true || false, // required
+ *         Prefix: "STRING_VALUE",
+ *       },
+ *     },
+ *   },
+ *   NumberOfBrokerNodes: Number("int"), // required
+ *   Tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   StorageMode: "LOCAL" || "TIERED",
+ * };
  * const command = new CreateClusterCommand(input);
  * const response = await client.send(command);
  * ```

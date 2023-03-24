@@ -42,6 +42,22 @@ export interface UpdateFlowCommandOutput extends UpdateFlowResponse, __MetadataB
  * import { MediaConnectClient, UpdateFlowCommand } from "@aws-sdk/client-mediaconnect"; // ES Modules import
  * // const { MediaConnectClient, UpdateFlowCommand } = require("@aws-sdk/client-mediaconnect"); // CommonJS import
  * const client = new MediaConnectClient(config);
+ * const input = {
+ *   FlowArn: "STRING_VALUE", // required
+ *   SourceFailoverConfig: {
+ *     FailoverMode: "MERGE" || "FAILOVER",
+ *     RecoveryWindow: Number("int"),
+ *     SourcePriority: {
+ *       PrimarySource: "STRING_VALUE",
+ *     },
+ *     State: "ENABLED" || "DISABLED",
+ *   },
+ *   Maintenance: {
+ *     MaintenanceDay: "Monday" || "Tuesday" || "Wednesday" || "Thursday" || "Friday" || "Saturday" || "Sunday",
+ *     MaintenanceScheduledDate: "STRING_VALUE",
+ *     MaintenanceStartHour: "STRING_VALUE",
+ *   },
+ * };
  * const command = new UpdateFlowCommand(input);
  * const response = await client.send(command);
  * ```

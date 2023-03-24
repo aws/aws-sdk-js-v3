@@ -55,6 +55,24 @@ export interface CreateModelCommandOutput extends CreateModelResponse, __Metadat
  * import { LookoutVisionClient, CreateModelCommand } from "@aws-sdk/client-lookoutvision"; // ES Modules import
  * // const { LookoutVisionClient, CreateModelCommand } = require("@aws-sdk/client-lookoutvision"); // CommonJS import
  * const client = new LookoutVisionClient(config);
+ * const input = {
+ *   ProjectName: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   ClientToken: "STRING_VALUE",
+ *   OutputConfig: {
+ *     S3Location: {
+ *       Bucket: "STRING_VALUE", // required
+ *       Prefix: "STRING_VALUE",
+ *     },
+ *   },
+ *   KmsKeyId: "STRING_VALUE",
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateModelCommand(input);
  * const response = await client.send(command);
  * ```

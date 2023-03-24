@@ -45,6 +45,9 @@ export interface DeleteFlywheelCommandOutput extends DeleteFlywheelResponse, __M
  * import { ComprehendClient, DeleteFlywheelCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, DeleteFlywheelCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
+ * const input = {
+ *   FlywheelArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteFlywheelCommand(input);
  * const response = await client.send(command);
  * ```

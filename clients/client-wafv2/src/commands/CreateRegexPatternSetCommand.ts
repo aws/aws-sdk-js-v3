@@ -43,6 +43,22 @@ export interface CreateRegexPatternSetCommandOutput extends CreateRegexPatternSe
  * import { WAFV2Client, CreateRegexPatternSetCommand } from "@aws-sdk/client-wafv2"; // ES Modules import
  * // const { WAFV2Client, CreateRegexPatternSetCommand } = require("@aws-sdk/client-wafv2"); // CommonJS import
  * const client = new WAFV2Client(config);
+ * const input = {
+ *   Name: "STRING_VALUE", // required
+ *   Scope: "CLOUDFRONT" || "REGIONAL", // required
+ *   Description: "STRING_VALUE",
+ *   RegularExpressionList: [ // required
+ *     {
+ *       RegexString: "STRING_VALUE",
+ *     },
+ *   ],
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateRegexPatternSetCommand(input);
  * const response = await client.send(command);
  * ```

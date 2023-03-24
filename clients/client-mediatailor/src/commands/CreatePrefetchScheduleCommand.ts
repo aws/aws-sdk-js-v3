@@ -42,6 +42,28 @@ export interface CreatePrefetchScheduleCommandOutput extends CreatePrefetchSched
  * import { MediaTailorClient, CreatePrefetchScheduleCommand } from "@aws-sdk/client-mediatailor"; // ES Modules import
  * // const { MediaTailorClient, CreatePrefetchScheduleCommand } = require("@aws-sdk/client-mediatailor"); // CommonJS import
  * const client = new MediaTailorClient(config);
+ * const input = {
+ *   Consumption: {
+ *     AvailMatchingCriteria: [
+ *       {
+ *         DynamicVariable: "STRING_VALUE", // required
+ *         Operator: "EQUALS", // required
+ *       },
+ *     ],
+ *     EndTime: new Date("TIMESTAMP"), // required
+ *     StartTime: new Date("TIMESTAMP"),
+ *   },
+ *   Name: "STRING_VALUE", // required
+ *   PlaybackConfigurationName: "STRING_VALUE", // required
+ *   Retrieval: {
+ *     DynamicVariables: {
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *     EndTime: new Date("TIMESTAMP"), // required
+ *     StartTime: new Date("TIMESTAMP"),
+ *   },
+ *   StreamId: "STRING_VALUE",
+ * };
  * const command = new CreatePrefetchScheduleCommand(input);
  * const response = await client.send(command);
  * ```

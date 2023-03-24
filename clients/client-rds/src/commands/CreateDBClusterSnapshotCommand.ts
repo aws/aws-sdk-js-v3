@@ -47,6 +47,16 @@ export interface CreateDBClusterSnapshotCommandOutput extends CreateDBClusterSna
  * import { RDSClient, CreateDBClusterSnapshotCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, CreateDBClusterSnapshotCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = {
+ *   DBClusterSnapshotIdentifier: "STRING_VALUE", // required
+ *   DBClusterIdentifier: "STRING_VALUE", // required
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateDBClusterSnapshotCommand(input);
  * const response = await client.send(command);
  * ```

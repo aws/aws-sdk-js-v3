@@ -42,6 +42,9 @@ export interface CancelJobCommandOutput extends CancelJobResult, __MetadataBeare
  * import { SnowballClient, CancelJobCommand } from "@aws-sdk/client-snowball"; // ES Modules import
  * // const { SnowballClient, CancelJobCommand } = require("@aws-sdk/client-snowball"); // CommonJS import
  * const client = new SnowballClient(config);
+ * const input = {
+ *   JobId: "STRING_VALUE", // required
+ * };
  * const command = new CancelJobCommand(input);
  * const response = await client.send(command);
  * ```

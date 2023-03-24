@@ -42,6 +42,9 @@ export interface DeleteApiDestinationCommandOutput extends DeleteApiDestinationR
  * import { EventBridgeClient, DeleteApiDestinationCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
  * // const { EventBridgeClient, DeleteApiDestinationCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
  * const client = new EventBridgeClient(config);
+ * const input = {
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new DeleteApiDestinationCommand(input);
  * const response = await client.send(command);
  * ```

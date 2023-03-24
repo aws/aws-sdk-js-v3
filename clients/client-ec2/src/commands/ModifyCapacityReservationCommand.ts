@@ -46,6 +46,15 @@ export interface ModifyCapacityReservationCommandOutput extends ModifyCapacityRe
  * import { EC2Client, ModifyCapacityReservationCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ModifyCapacityReservationCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   CapacityReservationId: "STRING_VALUE", // required
+ *   InstanceCount: Number("int"),
+ *   EndDate: new Date("TIMESTAMP"),
+ *   EndDateType: "unlimited" || "limited",
+ *   Accept: true || false,
+ *   DryRun: true || false,
+ *   AdditionalInfo: "STRING_VALUE",
+ * };
  * const command = new ModifyCapacityReservationCommand(input);
  * const response = await client.send(command);
  * ```

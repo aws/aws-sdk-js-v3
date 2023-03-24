@@ -42,6 +42,9 @@ export interface GetSecurityConfigurationCommandOutput extends GetSecurityConfig
  * import { GlueClient, GetSecurityConfigurationCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, GetSecurityConfigurationCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = {
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new GetSecurityConfigurationCommand(input);
  * const response = await client.send(command);
  * ```

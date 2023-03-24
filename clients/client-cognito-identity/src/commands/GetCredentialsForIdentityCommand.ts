@@ -46,6 +46,13 @@ export interface GetCredentialsForIdentityCommandOutput extends GetCredentialsFo
  * import { CognitoIdentityClient, GetCredentialsForIdentityCommand } from "@aws-sdk/client-cognito-identity"; // ES Modules import
  * // const { CognitoIdentityClient, GetCredentialsForIdentityCommand } = require("@aws-sdk/client-cognito-identity"); // CommonJS import
  * const client = new CognitoIdentityClient(config);
+ * const input = {
+ *   IdentityId: "STRING_VALUE", // required
+ *   Logins: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   CustomRoleArn: "STRING_VALUE",
+ * };
  * const command = new GetCredentialsForIdentityCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,16 @@ export interface CreateServiceActionCommandOutput extends CreateServiceActionOut
  * import { ServiceCatalogClient, CreateServiceActionCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, CreateServiceActionCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
+ * const input = {
+ *   Name: "STRING_VALUE", // required
+ *   DefinitionType: "SSM_AUTOMATION", // required
+ *   Definition: { // required
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   Description: "STRING_VALUE",
+ *   AcceptLanguage: "STRING_VALUE",
+ *   IdempotencyToken: "STRING_VALUE", // required
+ * };
  * const command = new CreateServiceActionCommand(input);
  * const response = await client.send(command);
  * ```

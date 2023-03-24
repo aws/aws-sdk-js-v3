@@ -54,6 +54,11 @@ export interface GetConsoleOutputCommandOutput extends GetConsoleOutputResult, _
  * import { EC2Client, GetConsoleOutputCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, GetConsoleOutputCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   InstanceId: "STRING_VALUE", // required
+ *   DryRun: true || false,
+ *   Latest: true || false,
+ * };
  * const command = new GetConsoleOutputCommand(input);
  * const response = await client.send(command);
  * ```

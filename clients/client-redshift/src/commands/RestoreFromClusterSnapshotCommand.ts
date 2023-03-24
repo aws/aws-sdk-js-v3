@@ -53,6 +53,47 @@ export interface RestoreFromClusterSnapshotCommandOutput extends RestoreFromClus
  * import { RedshiftClient, RestoreFromClusterSnapshotCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, RestoreFromClusterSnapshotCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = {
+ *   ClusterIdentifier: "STRING_VALUE", // required
+ *   SnapshotIdentifier: "STRING_VALUE",
+ *   SnapshotArn: "STRING_VALUE",
+ *   SnapshotClusterIdentifier: "STRING_VALUE",
+ *   Port: Number("int"),
+ *   AvailabilityZone: "STRING_VALUE",
+ *   AllowVersionUpgrade: true || false,
+ *   ClusterSubnetGroupName: "STRING_VALUE",
+ *   PubliclyAccessible: true || false,
+ *   OwnerAccount: "STRING_VALUE",
+ *   HsmClientCertificateIdentifier: "STRING_VALUE",
+ *   HsmConfigurationIdentifier: "STRING_VALUE",
+ *   ElasticIp: "STRING_VALUE",
+ *   ClusterParameterGroupName: "STRING_VALUE",
+ *   ClusterSecurityGroups: [
+ *     "STRING_VALUE",
+ *   ],
+ *   VpcSecurityGroupIds: [
+ *     "STRING_VALUE",
+ *   ],
+ *   PreferredMaintenanceWindow: "STRING_VALUE",
+ *   AutomatedSnapshotRetentionPeriod: Number("int"),
+ *   ManualSnapshotRetentionPeriod: Number("int"),
+ *   KmsKeyId: "STRING_VALUE",
+ *   NodeType: "STRING_VALUE",
+ *   EnhancedVpcRouting: true || false,
+ *   AdditionalInfo: "STRING_VALUE",
+ *   IamRoles: [
+ *     "STRING_VALUE",
+ *   ],
+ *   MaintenanceTrackName: "STRING_VALUE",
+ *   SnapshotScheduleIdentifier: "STRING_VALUE",
+ *   NumberOfNodes: Number("int"),
+ *   AvailabilityZoneRelocation: true || false,
+ *   AquaConfigurationStatus: "enabled" || "disabled" || "auto",
+ *   DefaultIamRoleArn: "STRING_VALUE",
+ *   ReservedNodeId: "STRING_VALUE",
+ *   TargetReservedNodeOfferingId: "STRING_VALUE",
+ *   Encrypted: true || false,
+ * };
  * const command = new RestoreFromClusterSnapshotCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,11 @@ export interface DescribeFpgaImageAttributeCommandOutput extends DescribeFpgaIma
  * import { EC2Client, DescribeFpgaImageAttributeCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeFpgaImageAttributeCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   DryRun: true || false,
+ *   FpgaImageId: "STRING_VALUE", // required
+ *   Attribute: "description" || "name" || "loadPermission" || "productCodes", // required
+ * };
  * const command = new DescribeFpgaImageAttributeCommand(input);
  * const response = await client.send(command);
  * ```

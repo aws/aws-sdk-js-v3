@@ -42,6 +42,10 @@ export interface GetEndpointCommandOutput extends GetEndpointResponse, __Metadat
  * import { PinpointClient, GetEndpointCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, GetEndpointCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
+ * const input = {
+ *   ApplicationId: "STRING_VALUE", // required
+ *   EndpointId: "STRING_VALUE", // required
+ * };
  * const command = new GetEndpointCommand(input);
  * const response = await client.send(command);
  * ```

@@ -48,6 +48,12 @@ export interface DisassociateSigninDelegateGroupsFromAccountCommandOutput
  * import { ChimeClient, DisassociateSigninDelegateGroupsFromAccountCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, DisassociateSigninDelegateGroupsFromAccountCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = {
+ *   AccountId: "STRING_VALUE", // required
+ *   GroupNames: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DisassociateSigninDelegateGroupsFromAccountCommand(input);
  * const response = await client.send(command);
  * ```

@@ -75,6 +75,12 @@ export interface InitiateMultipartUploadCommandOutput extends InitiateMultipartU
  * import { GlacierClient, InitiateMultipartUploadCommand } from "@aws-sdk/client-glacier"; // ES Modules import
  * // const { GlacierClient, InitiateMultipartUploadCommand } = require("@aws-sdk/client-glacier"); // CommonJS import
  * const client = new GlacierClient(config);
+ * const input = {
+ *   accountId: "STRING_VALUE", // required
+ *   vaultName: "STRING_VALUE", // required
+ *   archiveDescription: "STRING_VALUE",
+ *   partSize: "STRING_VALUE",
+ * };
  * const command = new InitiateMultipartUploadCommand(input);
  * const response = await client.send(command);
  * ```

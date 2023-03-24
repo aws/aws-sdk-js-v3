@@ -50,6 +50,28 @@ export interface ImportStacksToStackSetCommandOutput extends ImportStacksToStack
  * import { CloudFormationClient, ImportStacksToStackSetCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, ImportStacksToStackSetCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
  * const client = new CloudFormationClient(config);
+ * const input = {
+ *   StackSetName: "STRING_VALUE", // required
+ *   StackIds: [
+ *     "STRING_VALUE",
+ *   ],
+ *   StackIdsUrl: "STRING_VALUE",
+ *   OrganizationalUnitIds: [
+ *     "STRING_VALUE",
+ *   ],
+ *   OperationPreferences: {
+ *     RegionConcurrencyType: "SEQUENTIAL" || "PARALLEL",
+ *     RegionOrder: [
+ *       "STRING_VALUE",
+ *     ],
+ *     FailureToleranceCount: Number("int"),
+ *     FailureTolerancePercentage: Number("int"),
+ *     MaxConcurrentCount: Number("int"),
+ *     MaxConcurrentPercentage: Number("int"),
+ *   },
+ *   OperationId: "STRING_VALUE",
+ *   CallAs: "SELF" || "DELEGATED_ADMIN",
+ * };
  * const command = new ImportStacksToStackSetCommand(input);
  * const response = await client.send(command);
  * ```

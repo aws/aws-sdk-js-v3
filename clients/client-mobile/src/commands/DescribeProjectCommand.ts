@@ -44,6 +44,10 @@ export interface DescribeProjectCommandOutput extends DescribeProjectResult, __M
  * import { MobileClient, DescribeProjectCommand } from "@aws-sdk/client-mobile"; // ES Modules import
  * // const { MobileClient, DescribeProjectCommand } = require("@aws-sdk/client-mobile"); // CommonJS import
  * const client = new MobileClient(config);
+ * const input = {
+ *   projectId: "STRING_VALUE", // required
+ *   syncFromResources: true || false,
+ * };
  * const command = new DescribeProjectCommand(input);
  * const response = await client.send(command);
  * ```

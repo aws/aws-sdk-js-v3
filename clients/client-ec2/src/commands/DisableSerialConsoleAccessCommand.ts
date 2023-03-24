@@ -45,6 +45,9 @@ export interface DisableSerialConsoleAccessCommandOutput extends DisableSerialCo
  * import { EC2Client, DisableSerialConsoleAccessCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DisableSerialConsoleAccessCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   DryRun: true || false,
+ * };
  * const command = new DisableSerialConsoleAccessCommand(input);
  * const response = await client.send(command);
  * ```

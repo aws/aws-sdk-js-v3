@@ -43,6 +43,19 @@ export interface CreateTestGridProjectCommandOutput extends CreateTestGridProjec
  * import { DeviceFarmClient, CreateTestGridProjectCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, CreateTestGridProjectCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
+ * const input = {
+ *   name: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   vpcConfig: {
+ *     securityGroupIds: [ // required
+ *       "STRING_VALUE",
+ *     ],
+ *     subnetIds: [ // required
+ *       "STRING_VALUE",
+ *     ],
+ *     vpcId: "STRING_VALUE", // required
+ *   },
+ * };
  * const command = new CreateTestGridProjectCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,10 @@ export interface ListAppMonitorsCommandOutput extends ListAppMonitorsResponse, _
  * import { RUMClient, ListAppMonitorsCommand } from "@aws-sdk/client-rum"; // ES Modules import
  * // const { RUMClient, ListAppMonitorsCommand } = require("@aws-sdk/client-rum"); // CommonJS import
  * const client = new RUMClient(config);
+ * const input = {
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListAppMonitorsCommand(input);
  * const response = await client.send(command);
  * ```

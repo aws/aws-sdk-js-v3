@@ -42,6 +42,9 @@ export interface DescribeJobTemplateCommandOutput extends DescribeJobTemplateRes
  * import { IoTClient, DescribeJobTemplateCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, DescribeJobTemplateCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = {
+ *   jobTemplateId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeJobTemplateCommand(input);
  * const response = await client.send(command);
  * ```

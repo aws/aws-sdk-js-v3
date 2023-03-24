@@ -42,6 +42,9 @@ export interface DeleteImageRecipeCommandOutput extends DeleteImageRecipeRespons
  * import { ImagebuilderClient, DeleteImageRecipeCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
  * // const { ImagebuilderClient, DeleteImageRecipeCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
  * const client = new ImagebuilderClient(config);
+ * const input = {
+ *   imageRecipeArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteImageRecipeCommand(input);
  * const response = await client.send(command);
  * ```

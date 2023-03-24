@@ -47,6 +47,10 @@ export interface RegisterPatchBaselineForPatchGroupCommandOutput
  * import { SSMClient, RegisterPatchBaselineForPatchGroupCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, RegisterPatchBaselineForPatchGroupCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = {
+ *   BaselineId: "STRING_VALUE", // required
+ *   PatchGroup: "STRING_VALUE", // required
+ * };
  * const command = new RegisterPatchBaselineForPatchGroupCommand(input);
  * const response = await client.send(command);
  * ```

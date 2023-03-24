@@ -45,6 +45,9 @@ export interface RebootRelationalDatabaseCommandOutput extends RebootRelationalD
  * import { LightsailClient, RebootRelationalDatabaseCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, RebootRelationalDatabaseCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = {
+ *   relationalDatabaseName: "STRING_VALUE", // required
+ * };
  * const command = new RebootRelationalDatabaseCommand(input);
  * const response = await client.send(command);
  * ```

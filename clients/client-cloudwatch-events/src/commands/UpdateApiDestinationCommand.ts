@@ -42,6 +42,14 @@ export interface UpdateApiDestinationCommandOutput extends UpdateApiDestinationR
  * import { CloudWatchEventsClient, UpdateApiDestinationCommand } from "@aws-sdk/client-cloudwatch-events"; // ES Modules import
  * // const { CloudWatchEventsClient, UpdateApiDestinationCommand } = require("@aws-sdk/client-cloudwatch-events"); // CommonJS import
  * const client = new CloudWatchEventsClient(config);
+ * const input = {
+ *   Name: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   ConnectionArn: "STRING_VALUE",
+ *   InvocationEndpoint: "STRING_VALUE",
+ *   HttpMethod: "STRING_VALUE",
+ *   InvocationRateLimitPerSecond: Number("int"),
+ * };
  * const command = new UpdateApiDestinationCommand(input);
  * const response = await client.send(command);
  * ```

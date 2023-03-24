@@ -42,6 +42,11 @@ export interface BatchDescribeModelPackageCommandOutput extends BatchDescribeMod
  * import { SageMakerClient, BatchDescribeModelPackageCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, BatchDescribeModelPackageCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = {
+ *   ModelPackageArnList: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new BatchDescribeModelPackageCommand(input);
  * const response = await client.send(command);
  * ```

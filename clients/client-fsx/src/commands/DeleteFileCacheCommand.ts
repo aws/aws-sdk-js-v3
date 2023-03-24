@@ -53,6 +53,10 @@ export interface DeleteFileCacheCommandOutput extends DeleteFileCacheResponse, _
  * import { FSxClient, DeleteFileCacheCommand } from "@aws-sdk/client-fsx"; // ES Modules import
  * // const { FSxClient, DeleteFileCacheCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
  * const client = new FSxClient(config);
+ * const input = {
+ *   FileCacheId: "STRING_VALUE", // required
+ *   ClientRequestToken: "STRING_VALUE",
+ * };
  * const command = new DeleteFileCacheCommand(input);
  * const response = await client.send(command);
  * ```

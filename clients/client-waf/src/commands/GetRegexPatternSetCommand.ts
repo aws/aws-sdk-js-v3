@@ -50,6 +50,9 @@ export interface GetRegexPatternSetCommandOutput extends GetRegexPatternSetRespo
  * import { WAFClient, GetRegexPatternSetCommand } from "@aws-sdk/client-waf"; // ES Modules import
  * // const { WAFClient, GetRegexPatternSetCommand } = require("@aws-sdk/client-waf"); // CommonJS import
  * const client = new WAFClient(config);
+ * const input = {
+ *   RegexPatternSetId: "STRING_VALUE", // required
+ * };
  * const command = new GetRegexPatternSetCommand(input);
  * const response = await client.send(command);
  * ```

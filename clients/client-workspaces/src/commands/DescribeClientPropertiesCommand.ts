@@ -42,6 +42,11 @@ export interface DescribeClientPropertiesCommandOutput extends DescribeClientPro
  * import { WorkSpacesClient, DescribeClientPropertiesCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, DescribeClientPropertiesCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
  * const client = new WorkSpacesClient(config);
+ * const input = {
+ *   ResourceIds: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DescribeClientPropertiesCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,16 @@ export interface ListTemplateActionsCommandOutput extends ListTemplateActionsRes
  * import { MgnClient, ListTemplateActionsCommand } from "@aws-sdk/client-mgn"; // ES Modules import
  * // const { MgnClient, ListTemplateActionsCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
  * const client = new MgnClient(config);
+ * const input = {
+ *   launchConfigurationTemplateID: "STRING_VALUE", // required
+ *   filters: {
+ *     actionIDs: [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListTemplateActionsCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,10 @@ export interface ListStreamingDistributionsCommandOutput extends ListStreamingDi
  * import { CloudFrontClient, ListStreamingDistributionsCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, ListStreamingDistributionsCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
+ * const input = {
+ *   Marker: "STRING_VALUE",
+ *   MaxItems: Number("int"),
+ * };
  * const command = new ListStreamingDistributionsCommand(input);
  * const response = await client.send(command);
  * ```

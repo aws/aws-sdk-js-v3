@@ -43,6 +43,9 @@ export interface GetResolverConfigCommandOutput extends GetResolverConfigRespons
  * import { Route53ResolverClient, GetResolverConfigCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
  * // const { Route53ResolverClient, GetResolverConfigCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
  * const client = new Route53ResolverClient(config);
+ * const input = {
+ *   ResourceId: "STRING_VALUE", // required
+ * };
  * const command = new GetResolverConfigCommand(input);
  * const response = await client.send(command);
  * ```

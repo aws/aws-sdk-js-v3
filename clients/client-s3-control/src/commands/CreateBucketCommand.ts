@@ -97,6 +97,20 @@ export interface CreateBucketCommandOutput extends CreateBucketResult, __Metadat
  * import { S3ControlClient, CreateBucketCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
  * // const { S3ControlClient, CreateBucketCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
  * const client = new S3ControlClient(config);
+ * const input = {
+ *   ACL: "private" || "public-read" || "public-read-write" || "authenticated-read",
+ *   Bucket: "STRING_VALUE", // required
+ *   CreateBucketConfiguration: {
+ *     LocationConstraint: "EU" || "eu-west-1" || "us-west-1" || "us-west-2" || "ap-south-1" || "ap-southeast-1" || "ap-southeast-2" || "ap-northeast-1" || "sa-east-1" || "cn-north-1" || "eu-central-1",
+ *   },
+ *   GrantFullControl: "STRING_VALUE",
+ *   GrantRead: "STRING_VALUE",
+ *   GrantReadACP: "STRING_VALUE",
+ *   GrantWrite: "STRING_VALUE",
+ *   GrantWriteACP: "STRING_VALUE",
+ *   ObjectLockEnabledForBucket: true || false,
+ *   OutpostId: "STRING_VALUE",
+ * };
  * const command = new CreateBucketCommand(input);
  * const response = await client.send(command);
  * ```

@@ -52,6 +52,16 @@ export interface DescribeFolderContentsCommandOutput extends DescribeFolderConte
  * import { WorkDocsClient, DescribeFolderContentsCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
  * // const { WorkDocsClient, DescribeFolderContentsCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
  * const client = new WorkDocsClient(config);
+ * const input = {
+ *   AuthenticationToken: "STRING_VALUE",
+ *   FolderId: "STRING_VALUE", // required
+ *   Sort: "DATE" || "NAME",
+ *   Order: "ASCENDING" || "DESCENDING",
+ *   Limit: Number("int"),
+ *   Marker: "STRING_VALUE",
+ *   Type: "ALL" || "DOCUMENT" || "FOLDER",
+ *   Include: "STRING_VALUE",
+ * };
  * const command = new DescribeFolderContentsCommand(input);
  * const response = await client.send(command);
  * ```

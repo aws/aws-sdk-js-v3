@@ -46,6 +46,12 @@ export interface ListWorkflowStepsCommandOutput extends ListWorkflowStepsRespons
  * import { MigrationHubOrchestratorClient, ListWorkflowStepsCommand } from "@aws-sdk/client-migrationhuborchestrator"; // ES Modules import
  * // const { MigrationHubOrchestratorClient, ListWorkflowStepsCommand } = require("@aws-sdk/client-migrationhuborchestrator"); // CommonJS import
  * const client = new MigrationHubOrchestratorClient(config);
+ * const input = {
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   workflowId: "STRING_VALUE", // required
+ *   stepGroupId: "STRING_VALUE", // required
+ * };
  * const command = new ListWorkflowStepsCommand(input);
  * const response = await client.send(command);
  * ```

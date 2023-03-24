@@ -49,6 +49,9 @@ export interface DeleteLayerCommandOutput extends __MetadataBearer {}
  * import { OpsWorksClient, DeleteLayerCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, DeleteLayerCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
+ * const input = {
+ *   LayerId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteLayerCommand(input);
  * const response = await client.send(command);
  * ```

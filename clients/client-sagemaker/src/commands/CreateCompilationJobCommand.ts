@@ -73,6 +73,46 @@ export interface CreateCompilationJobCommandOutput extends CreateCompilationJobR
  * import { SageMakerClient, CreateCompilationJobCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, CreateCompilationJobCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = {
+ *   CompilationJobName: "STRING_VALUE", // required
+ *   RoleArn: "STRING_VALUE", // required
+ *   ModelPackageVersionArn: "STRING_VALUE",
+ *   InputConfig: {
+ *     S3Uri: "STRING_VALUE", // required
+ *     DataInputConfig: "STRING_VALUE", // required
+ *     Framework: "TENSORFLOW" || "KERAS" || "MXNET" || "ONNX" || "PYTORCH" || "XGBOOST" || "TFLITE" || "DARKNET" || "SKLEARN", // required
+ *     FrameworkVersion: "STRING_VALUE",
+ *   },
+ *   OutputConfig: {
+ *     S3OutputLocation: "STRING_VALUE", // required
+ *     TargetDevice: "lambda" || "ml_m4" || "ml_m5" || "ml_c4" || "ml_c5" || "ml_p2" || "ml_p3" || "ml_g4dn" || "ml_inf1" || "ml_eia2" || "jetson_tx1" || "jetson_tx2" || "jetson_nano" || "jetson_xavier" || "rasp3b" || "imx8qm" || "deeplens" || "rk3399" || "rk3288" || "aisage" || "sbe_c" || "qcs605" || "qcs603" || "sitara_am57x" || "amba_cv2" || "amba_cv22" || "amba_cv25" || "x86_win32" || "x86_win64" || "coreml" || "jacinto_tda4vm" || "imx8mplus",
+ *     TargetPlatform: {
+ *       Os: "ANDROID" || "LINUX", // required
+ *       Arch: "X86_64" || "X86" || "ARM64" || "ARM_EABI" || "ARM_EABIHF", // required
+ *       Accelerator: "INTEL_GRAPHICS" || "MALI" || "NVIDIA" || "NNA",
+ *     },
+ *     CompilerOptions: "STRING_VALUE",
+ *     KmsKeyId: "STRING_VALUE",
+ *   },
+ *   VpcConfig: {
+ *     SecurityGroupIds: [ // required
+ *       "STRING_VALUE",
+ *     ],
+ *     Subnets: [ // required
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   StoppingCondition: {
+ *     MaxRuntimeInSeconds: Number("int"),
+ *     MaxWaitTimeInSeconds: Number("int"),
+ *   },
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateCompilationJobCommand(input);
  * const response = await client.send(command);
  * ```

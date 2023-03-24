@@ -65,6 +65,17 @@ export interface RegisterTypeCommandOutput extends RegisterTypeOutput, __Metadat
  * import { CloudFormationClient, RegisterTypeCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, RegisterTypeCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
  * const client = new CloudFormationClient(config);
+ * const input = {
+ *   Type: "RESOURCE" || "MODULE" || "HOOK",
+ *   TypeName: "STRING_VALUE", // required
+ *   SchemaHandlerPackage: "STRING_VALUE", // required
+ *   LoggingConfig: {
+ *     LogRoleArn: "STRING_VALUE", // required
+ *     LogGroupName: "STRING_VALUE", // required
+ *   },
+ *   ExecutionRoleArn: "STRING_VALUE",
+ *   ClientRequestToken: "STRING_VALUE",
+ * };
  * const command = new RegisterTypeCommand(input);
  * const response = await client.send(command);
  * ```

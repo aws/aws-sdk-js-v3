@@ -46,6 +46,9 @@ export interface DeleteCallAnalyticsCategoryCommandOutput
  * import { TranscribeClient, DeleteCallAnalyticsCategoryCommand } from "@aws-sdk/client-transcribe"; // ES Modules import
  * // const { TranscribeClient, DeleteCallAnalyticsCategoryCommand } = require("@aws-sdk/client-transcribe"); // CommonJS import
  * const client = new TranscribeClient(config);
+ * const input = {
+ *   CategoryName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteCallAnalyticsCategoryCommand(input);
  * const response = await client.send(command);
  * ```

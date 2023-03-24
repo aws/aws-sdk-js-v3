@@ -42,6 +42,28 @@ export interface GetIpamResourceCidrsCommandOutput extends GetIpamResourceCidrsR
  * import { EC2Client, GetIpamResourceCidrsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, GetIpamResourceCidrsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   DryRun: true || false,
+ *   Filters: [
+ *     {
+ *       Name: "STRING_VALUE",
+ *       Values: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   IpamScopeId: "STRING_VALUE", // required
+ *   IpamPoolId: "STRING_VALUE",
+ *   ResourceId: "STRING_VALUE",
+ *   ResourceType: "vpc" || "subnet" || "eip" || "public-ipv4-pool" || "ipv6-pool",
+ *   ResourceTag: {
+ *     Key: "STRING_VALUE",
+ *     Value: "STRING_VALUE",
+ *   },
+ *   ResourceOwner: "STRING_VALUE",
+ * };
  * const command = new GetIpamResourceCidrsCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,12 @@ export interface DeregisterDevicesCommandOutput extends __MetadataBearer {}
  * import { SageMakerClient, DeregisterDevicesCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DeregisterDevicesCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = {
+ *   DeviceFleetName: "STRING_VALUE", // required
+ *   DeviceNames: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DeregisterDevicesCommand(input);
  * const response = await client.send(command);
  * ```

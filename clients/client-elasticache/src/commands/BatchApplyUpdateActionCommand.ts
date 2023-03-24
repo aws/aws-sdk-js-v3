@@ -42,6 +42,15 @@ export interface BatchApplyUpdateActionCommandOutput extends UpdateActionResults
  * import { ElastiCacheClient, BatchApplyUpdateActionCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, BatchApplyUpdateActionCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
  * const client = new ElastiCacheClient(config);
+ * const input = {
+ *   ReplicationGroupIds: [
+ *     "STRING_VALUE",
+ *   ],
+ *   CacheClusterIds: [
+ *     "STRING_VALUE",
+ *   ],
+ *   ServiceUpdateName: "STRING_VALUE", // required
+ * };
  * const command = new BatchApplyUpdateActionCommand(input);
  * const response = await client.send(command);
  * ```

@@ -43,6 +43,12 @@ export interface MoveByoipCidrToIpamCommandOutput extends MoveByoipCidrToIpamRes
  * import { EC2Client, MoveByoipCidrToIpamCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, MoveByoipCidrToIpamCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   DryRun: true || false,
+ *   Cidr: "STRING_VALUE", // required
+ *   IpamPoolId: "STRING_VALUE", // required
+ *   IpamPoolOwner: "STRING_VALUE", // required
+ * };
  * const command = new MoveByoipCidrToIpamCommand(input);
  * const response = await client.send(command);
  * ```

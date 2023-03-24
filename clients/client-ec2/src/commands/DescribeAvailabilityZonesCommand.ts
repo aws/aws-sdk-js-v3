@@ -47,6 +47,24 @@ export interface DescribeAvailabilityZonesCommandOutput extends DescribeAvailabi
  * import { EC2Client, DescribeAvailabilityZonesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeAvailabilityZonesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   Filters: [
+ *     {
+ *       Name: "STRING_VALUE",
+ *       Values: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   ZoneNames: [
+ *     "STRING_VALUE",
+ *   ],
+ *   ZoneIds: [
+ *     "STRING_VALUE",
+ *   ],
+ *   AllAvailabilityZones: true || false,
+ *   DryRun: true || false,
+ * };
  * const command = new DescribeAvailabilityZonesCommand(input);
  * const response = await client.send(command);
  * ```

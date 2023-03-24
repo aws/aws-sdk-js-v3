@@ -43,6 +43,28 @@ export interface CreateFleetMetricCommandOutput extends CreateFleetMetricRespons
  * import { IoTClient, CreateFleetMetricCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, CreateFleetMetricCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = {
+ *   metricName: "STRING_VALUE", // required
+ *   queryString: "STRING_VALUE", // required
+ *   aggregationType: {
+ *     name: "Statistics" || "Percentiles" || "Cardinality", // required
+ *     values: [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   period: Number("int"), // required
+ *   aggregationField: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   queryVersion: "STRING_VALUE",
+ *   indexName: "STRING_VALUE",
+ *   unit: "Seconds" || "Microseconds" || "Milliseconds" || "Bytes" || "Kilobytes" || "Megabytes" || "Gigabytes" || "Terabytes" || "Bits" || "Kilobits" || "Megabits" || "Gigabits" || "Terabits" || "Percent" || "Count" || "Bytes/Second" || "Kilobytes/Second" || "Megabytes/Second" || "Gigabytes/Second" || "Terabytes/Second" || "Bits/Second" || "Kilobits/Second" || "Megabits/Second" || "Gigabits/Second" || "Terabits/Second" || "Count/Second" || "None",
+ *   tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateFleetMetricCommand(input);
  * const response = await client.send(command);
  * ```

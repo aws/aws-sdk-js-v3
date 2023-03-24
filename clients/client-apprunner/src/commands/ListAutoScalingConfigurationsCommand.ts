@@ -48,6 +48,12 @@ export interface ListAutoScalingConfigurationsCommandOutput
  * import { AppRunnerClient, ListAutoScalingConfigurationsCommand } from "@aws-sdk/client-apprunner"; // ES Modules import
  * // const { AppRunnerClient, ListAutoScalingConfigurationsCommand } = require("@aws-sdk/client-apprunner"); // CommonJS import
  * const client = new AppRunnerClient(config);
+ * const input = {
+ *   AutoScalingConfigurationName: "STRING_VALUE",
+ *   LatestOnly: true || false,
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListAutoScalingConfigurationsCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,10 @@ export interface GetFunctionCommandOutput extends GetFunctionResponse, __Metadat
  * import { AppSyncClient, GetFunctionCommand } from "@aws-sdk/client-appsync"; // ES Modules import
  * // const { AppSyncClient, GetFunctionCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
  * const client = new AppSyncClient(config);
+ * const input = {
+ *   apiId: "STRING_VALUE", // required
+ *   functionId: "STRING_VALUE", // required
+ * };
  * const command = new GetFunctionCommand(input);
  * const response = await client.send(command);
  * ```

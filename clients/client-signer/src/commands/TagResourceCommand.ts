@@ -45,6 +45,12 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * import { SignerClient, TagResourceCommand } from "@aws-sdk/client-signer"; // ES Modules import
  * // const { SignerClient, TagResourceCommand } = require("@aws-sdk/client-signer"); // CommonJS import
  * const client = new SignerClient(config);
+ * const input = {
+ *   resourceArn: "STRING_VALUE", // required
+ *   tags: { // required
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
  * ```

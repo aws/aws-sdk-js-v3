@@ -43,6 +43,9 @@ export interface GetAccountCommandOutput extends GetAccountResponse, __MetadataB
  * import { ChimeClient, GetAccountCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, GetAccountCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = {
+ *   AccountId: "STRING_VALUE", // required
+ * };
  * const command = new GetAccountCommand(input);
  * const response = await client.send(command);
  * ```

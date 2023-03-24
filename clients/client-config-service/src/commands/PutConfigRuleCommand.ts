@@ -84,6 +84,53 @@ export interface PutConfigRuleCommandOutput extends __MetadataBearer {}
  * import { ConfigServiceClient, PutConfigRuleCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, PutConfigRuleCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
+ * const input = {
+ *   ConfigRule: {
+ *     ConfigRuleName: "STRING_VALUE",
+ *     ConfigRuleArn: "STRING_VALUE",
+ *     ConfigRuleId: "STRING_VALUE",
+ *     Description: "STRING_VALUE",
+ *     Scope: {
+ *       ComplianceResourceTypes: [
+ *         "STRING_VALUE",
+ *       ],
+ *       TagKey: "STRING_VALUE",
+ *       TagValue: "STRING_VALUE",
+ *       ComplianceResourceId: "STRING_VALUE",
+ *     },
+ *     Source: {
+ *       Owner: "CUSTOM_LAMBDA" || "AWS" || "CUSTOM_POLICY", // required
+ *       SourceIdentifier: "STRING_VALUE",
+ *       SourceDetails: [
+ *         {
+ *           EventSource: "aws.config",
+ *           MessageType: "ConfigurationItemChangeNotification" || "ConfigurationSnapshotDeliveryCompleted" || "ScheduledNotification" || "OversizedConfigurationItemChangeNotification",
+ *           MaximumExecutionFrequency: "One_Hour" || "Three_Hours" || "Six_Hours" || "Twelve_Hours" || "TwentyFour_Hours",
+ *         },
+ *       ],
+ *       CustomPolicyDetails: {
+ *         PolicyRuntime: "STRING_VALUE", // required
+ *         PolicyText: "STRING_VALUE", // required
+ *         EnableDebugLogDelivery: true || false,
+ *       },
+ *     },
+ *     InputParameters: "STRING_VALUE",
+ *     MaximumExecutionFrequency: "One_Hour" || "Three_Hours" || "Six_Hours" || "Twelve_Hours" || "TwentyFour_Hours",
+ *     ConfigRuleState: "ACTIVE" || "DELETING" || "DELETING_RESULTS" || "EVALUATING",
+ *     CreatedBy: "STRING_VALUE",
+ *     EvaluationModes: [
+ *       {
+ *         Mode: "DETECTIVE" || "PROACTIVE",
+ *       },
+ *     ],
+ *   },
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new PutConfigRuleCommand(input);
  * const response = await client.send(command);
  * ```

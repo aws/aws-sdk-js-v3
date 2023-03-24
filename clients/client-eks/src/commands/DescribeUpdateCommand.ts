@@ -46,6 +46,12 @@ export interface DescribeUpdateCommandOutput extends DescribeUpdateResponse, __M
  * import { EKSClient, DescribeUpdateCommand } from "@aws-sdk/client-eks"; // ES Modules import
  * // const { EKSClient, DescribeUpdateCommand } = require("@aws-sdk/client-eks"); // CommonJS import
  * const client = new EKSClient(config);
+ * const input = {
+ *   name: "STRING_VALUE", // required
+ *   updateId: "STRING_VALUE", // required
+ *   nodegroupName: "STRING_VALUE",
+ *   addonName: "STRING_VALUE",
+ * };
  * const command = new DescribeUpdateCommand(input);
  * const response = await client.send(command);
  * ```

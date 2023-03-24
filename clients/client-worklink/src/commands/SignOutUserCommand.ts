@@ -45,6 +45,10 @@ export interface SignOutUserCommandOutput extends SignOutUserResponse, __Metadat
  * import { WorkLinkClient, SignOutUserCommand } from "@aws-sdk/client-worklink"; // ES Modules import
  * // const { WorkLinkClient, SignOutUserCommand } = require("@aws-sdk/client-worklink"); // CommonJS import
  * const client = new WorkLinkClient(config);
+ * const input = {
+ *   FleetArn: "STRING_VALUE", // required
+ *   Username: "STRING_VALUE", // required
+ * };
  * const command = new SignOutUserCommand(input);
  * const response = await client.send(command);
  * ```

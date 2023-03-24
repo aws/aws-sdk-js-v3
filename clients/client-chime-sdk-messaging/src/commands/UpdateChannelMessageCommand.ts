@@ -55,6 +55,15 @@ export interface UpdateChannelMessageCommandOutput extends UpdateChannelMessageR
  * import { ChimeSDKMessagingClient, UpdateChannelMessageCommand } from "@aws-sdk/client-chime-sdk-messaging"; // ES Modules import
  * // const { ChimeSDKMessagingClient, UpdateChannelMessageCommand } = require("@aws-sdk/client-chime-sdk-messaging"); // CommonJS import
  * const client = new ChimeSDKMessagingClient(config);
+ * const input = {
+ *   ChannelArn: "STRING_VALUE", // required
+ *   MessageId: "STRING_VALUE", // required
+ *   Content: "STRING_VALUE", // required
+ *   Metadata: "STRING_VALUE",
+ *   ChimeBearer: "STRING_VALUE", // required
+ *   SubChannelId: "STRING_VALUE",
+ *   ContentType: "STRING_VALUE",
+ * };
  * const command = new UpdateChannelMessageCommand(input);
  * const response = await client.send(command);
  * ```

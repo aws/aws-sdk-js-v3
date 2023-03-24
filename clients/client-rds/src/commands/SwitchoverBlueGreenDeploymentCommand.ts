@@ -51,6 +51,10 @@ export interface SwitchoverBlueGreenDeploymentCommandOutput
  * import { RDSClient, SwitchoverBlueGreenDeploymentCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, SwitchoverBlueGreenDeploymentCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = {
+ *   BlueGreenDeploymentIdentifier: "STRING_VALUE", // required
+ *   SwitchoverTimeout: Number("int"),
+ * };
  * const command = new SwitchoverBlueGreenDeploymentCommand(input);
  * const response = await client.send(command);
  * ```

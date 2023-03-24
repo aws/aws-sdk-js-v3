@@ -42,6 +42,16 @@ export interface RegisterDBProxyTargetsCommandOutput extends RegisterDBProxyTarg
  * import { RDSClient, RegisterDBProxyTargetsCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, RegisterDBProxyTargetsCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = {
+ *   DBProxyName: "STRING_VALUE", // required
+ *   TargetGroupName: "STRING_VALUE",
+ *   DBInstanceIdentifiers: [
+ *     "STRING_VALUE",
+ *   ],
+ *   DBClusterIdentifiers: [
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new RegisterDBProxyTargetsCommand(input);
  * const response = await client.send(command);
  * ```

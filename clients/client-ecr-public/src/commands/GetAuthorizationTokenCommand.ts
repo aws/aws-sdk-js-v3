@@ -46,6 +46,7 @@ export interface GetAuthorizationTokenCommandOutput extends GetAuthorizationToke
  * import { ECRPUBLICClient, GetAuthorizationTokenCommand } from "@aws-sdk/client-ecr-public"; // ES Modules import
  * // const { ECRPUBLICClient, GetAuthorizationTokenCommand } = require("@aws-sdk/client-ecr-public"); // CommonJS import
  * const client = new ECRPUBLICClient(config);
+ * const input = {};
  * const command = new GetAuthorizationTokenCommand(input);
  * const response = await client.send(command);
  * ```

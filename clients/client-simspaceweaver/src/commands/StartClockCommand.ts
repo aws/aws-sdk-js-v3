@@ -42,6 +42,9 @@ export interface StartClockCommandOutput extends StartClockOutput, __MetadataBea
  * import { SimSpaceWeaverClient, StartClockCommand } from "@aws-sdk/client-simspaceweaver"; // ES Modules import
  * // const { SimSpaceWeaverClient, StartClockCommand } = require("@aws-sdk/client-simspaceweaver"); // CommonJS import
  * const client = new SimSpaceWeaverClient(config);
+ * const input = {
+ *   Simulation: "STRING_VALUE", // required
+ * };
  * const command = new StartClockCommand(input);
  * const response = await client.send(command);
  * ```

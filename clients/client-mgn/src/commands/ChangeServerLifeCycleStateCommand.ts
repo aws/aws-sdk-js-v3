@@ -42,6 +42,12 @@ export interface ChangeServerLifeCycleStateCommandOutput extends SourceServer, _
  * import { MgnClient, ChangeServerLifeCycleStateCommand } from "@aws-sdk/client-mgn"; // ES Modules import
  * // const { MgnClient, ChangeServerLifeCycleStateCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
  * const client = new MgnClient(config);
+ * const input = {
+ *   sourceServerID: "STRING_VALUE", // required
+ *   lifeCycle: {
+ *     state: "STRING_VALUE", // required
+ *   },
+ * };
  * const command = new ChangeServerLifeCycleStateCommand(input);
  * const response = await client.send(command);
  * ```

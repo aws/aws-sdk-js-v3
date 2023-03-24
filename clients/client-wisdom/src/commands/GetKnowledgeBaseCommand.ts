@@ -42,6 +42,9 @@ export interface GetKnowledgeBaseCommandOutput extends GetKnowledgeBaseResponse,
  * import { WisdomClient, GetKnowledgeBaseCommand } from "@aws-sdk/client-wisdom"; // ES Modules import
  * // const { WisdomClient, GetKnowledgeBaseCommand } = require("@aws-sdk/client-wisdom"); // CommonJS import
  * const client = new WisdomClient(config);
+ * const input = {
+ *   knowledgeBaseId: "STRING_VALUE", // required
+ * };
  * const command = new GetKnowledgeBaseCommand(input);
  * const response = await client.send(command);
  * ```

@@ -60,6 +60,24 @@ export interface CreateDatasetExportJobCommandOutput extends CreateDatasetExport
  * import { PersonalizeClient, CreateDatasetExportJobCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, CreateDatasetExportJobCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
  * const client = new PersonalizeClient(config);
+ * const input = {
+ *   jobName: "STRING_VALUE", // required
+ *   datasetArn: "STRING_VALUE", // required
+ *   ingestionMode: "BULK" || "PUT" || "ALL",
+ *   roleArn: "STRING_VALUE", // required
+ *   jobOutput: {
+ *     s3DataDestination: {
+ *       path: "STRING_VALUE", // required
+ *       kmsKeyArn: "STRING_VALUE",
+ *     },
+ *   },
+ *   tags: [
+ *     {
+ *       tagKey: "STRING_VALUE", // required
+ *       tagValue: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateDatasetExportJobCommand(input);
  * const response = await client.send(command);
  * ```

@@ -49,6 +49,13 @@ export interface BatchDisassociateAssessmentReportEvidenceCommandOutput
  * import { AuditManagerClient, BatchDisassociateAssessmentReportEvidenceCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
  * // const { AuditManagerClient, BatchDisassociateAssessmentReportEvidenceCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
  * const client = new AuditManagerClient(config);
+ * const input = {
+ *   assessmentId: "STRING_VALUE", // required
+ *   evidenceFolderId: "STRING_VALUE", // required
+ *   evidenceIds: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new BatchDisassociateAssessmentReportEvidenceCommand(input);
  * const response = await client.send(command);
  * ```

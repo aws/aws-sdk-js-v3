@@ -45,6 +45,56 @@ export interface CreateDistributionCommandOutput extends CreateDistributionResul
  * import { LightsailClient, CreateDistributionCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, CreateDistributionCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = {
+ *   distributionName: "STRING_VALUE", // required
+ *   origin: {
+ *     name: "STRING_VALUE",
+ *     regionName: "us-east-1" || "us-east-2" || "us-west-1" || "us-west-2" || "eu-west-1" || "eu-west-2" || "eu-west-3" || "eu-central-1" || "ca-central-1" || "ap-south-1" || "ap-southeast-1" || "ap-southeast-2" || "ap-northeast-1" || "ap-northeast-2" || "eu-north-1",
+ *     protocolPolicy: "http-only" || "https-only",
+ *   },
+ *   defaultCacheBehavior: {
+ *     behavior: "dont-cache" || "cache",
+ *   },
+ *   cacheBehaviorSettings: {
+ *     defaultTTL: Number("long"),
+ *     minimumTTL: Number("long"),
+ *     maximumTTL: Number("long"),
+ *     allowedHTTPMethods: "STRING_VALUE",
+ *     cachedHTTPMethods: "STRING_VALUE",
+ *     forwardedCookies: {
+ *       option: "none" || "allow-list" || "all",
+ *       cookiesAllowList: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *     forwardedHeaders: {
+ *       option: "none" || "allow-list" || "all",
+ *       headersAllowList: [
+ *         "Accept" || "Accept-Charset" || "Accept-Datetime" || "Accept-Encoding" || "Accept-Language" || "Authorization" || "CloudFront-Forwarded-Proto" || "CloudFront-Is-Desktop-Viewer" || "CloudFront-Is-Mobile-Viewer" || "CloudFront-Is-SmartTV-Viewer" || "CloudFront-Is-Tablet-Viewer" || "CloudFront-Viewer-Country" || "Host" || "Origin" || "Referer",
+ *       ],
+ *     },
+ *     forwardedQueryStrings: {
+ *       option: true || false,
+ *       queryStringsAllowList: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   },
+ *   cacheBehaviors: [
+ *     {
+ *       path: "STRING_VALUE",
+ *       behavior: "dont-cache" || "cache",
+ *     },
+ *   ],
+ *   bundleId: "STRING_VALUE", // required
+ *   ipAddressType: "dualstack" || "ipv4",
+ *   tags: [
+ *     {
+ *       key: "STRING_VALUE",
+ *       value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateDistributionCommand(input);
  * const response = await client.send(command);
  * ```

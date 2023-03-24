@@ -49,6 +49,11 @@ export interface ListVPCAssociationAuthorizationsCommandOutput
  * import { Route53Client, ListVPCAssociationAuthorizationsCommand } from "@aws-sdk/client-route-53"; // ES Modules import
  * // const { Route53Client, ListVPCAssociationAuthorizationsCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
  * const client = new Route53Client(config);
+ * const input = {
+ *   HostedZoneId: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListVPCAssociationAuthorizationsCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,9 @@ export interface DisassociateMemberCommandOutput extends DisassociateMemberRespo
  * import { Inspector2Client, DisassociateMemberCommand } from "@aws-sdk/client-inspector2"; // ES Modules import
  * // const { Inspector2Client, DisassociateMemberCommand } = require("@aws-sdk/client-inspector2"); // CommonJS import
  * const client = new Inspector2Client(config);
+ * const input = {
+ *   accountId: "STRING_VALUE", // required
+ * };
  * const command = new DisassociateMemberCommand(input);
  * const response = await client.send(command);
  * ```

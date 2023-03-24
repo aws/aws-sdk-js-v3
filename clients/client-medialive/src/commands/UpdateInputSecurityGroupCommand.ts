@@ -42,6 +42,17 @@ export interface UpdateInputSecurityGroupCommandOutput extends UpdateInputSecuri
  * import { MediaLiveClient, UpdateInputSecurityGroupCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, UpdateInputSecurityGroupCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
  * const client = new MediaLiveClient(config);
+ * const input = {
+ *   InputSecurityGroupId: "STRING_VALUE", // required
+ *   Tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   WhitelistRules: [
+ *     {
+ *       Cidr: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new UpdateInputSecurityGroupCommand(input);
  * const response = await client.send(command);
  * ```

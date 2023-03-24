@@ -54,6 +54,9 @@ export interface NotifyWhenUploadedCommandOutput extends NotifyWhenUploadedOutpu
  * import { StorageGatewayClient, NotifyWhenUploadedCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, NotifyWhenUploadedCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
+ * const input = {
+ *   FileShareARN: "STRING_VALUE", // required
+ * };
  * const command = new NotifyWhenUploadedCommand(input);
  * const response = await client.send(command);
  * ```

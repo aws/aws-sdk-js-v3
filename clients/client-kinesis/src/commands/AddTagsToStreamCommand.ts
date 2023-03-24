@@ -52,6 +52,13 @@ export interface AddTagsToStreamCommandOutput extends __MetadataBearer {}
  * import { KinesisClient, AddTagsToStreamCommand } from "@aws-sdk/client-kinesis"; // ES Modules import
  * // const { KinesisClient, AddTagsToStreamCommand } = require("@aws-sdk/client-kinesis"); // CommonJS import
  * const client = new KinesisClient(config);
+ * const input = {
+ *   StreamName: "STRING_VALUE",
+ *   Tags: { // required
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   StreamARN: "STRING_VALUE",
+ * };
  * const command = new AddTagsToStreamCommand(input);
  * const response = await client.send(command);
  * ```

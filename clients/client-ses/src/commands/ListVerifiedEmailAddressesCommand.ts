@@ -43,6 +43,7 @@ export interface ListVerifiedEmailAddressesCommandOutput extends ListVerifiedEma
  * import { SESClient, ListVerifiedEmailAddressesCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, ListVerifiedEmailAddressesCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
+ * const input = {};
  * const command = new ListVerifiedEmailAddressesCommand(input);
  * const response = await client.send(command);
  * ```

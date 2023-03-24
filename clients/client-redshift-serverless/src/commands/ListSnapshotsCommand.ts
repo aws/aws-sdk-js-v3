@@ -46,6 +46,15 @@ export interface ListSnapshotsCommandOutput extends ListSnapshotsResponse, __Met
  * import { RedshiftServerlessClient, ListSnapshotsCommand } from "@aws-sdk/client-redshift-serverless"; // ES Modules import
  * // const { RedshiftServerlessClient, ListSnapshotsCommand } = require("@aws-sdk/client-redshift-serverless"); // CommonJS import
  * const client = new RedshiftServerlessClient(config);
+ * const input = {
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   namespaceName: "STRING_VALUE",
+ *   namespaceArn: "STRING_VALUE",
+ *   ownerAccount: "STRING_VALUE",
+ *   startTime: new Date("TIMESTAMP"),
+ *   endTime: new Date("TIMESTAMP"),
+ * };
  * const command = new ListSnapshotsCommand(input);
  * const response = await client.send(command);
  * ```

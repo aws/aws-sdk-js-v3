@@ -42,6 +42,13 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  * import { MediaPackageClient, CreateChannelCommand } from "@aws-sdk/client-mediapackage"; // ES Modules import
  * // const { MediaPackageClient, CreateChannelCommand } = require("@aws-sdk/client-mediapackage"); // CommonJS import
  * const client = new MediaPackageClient(config);
+ * const input = {
+ *   Description: "STRING_VALUE",
+ *   Id: "STRING_VALUE", // required
+ *   Tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateChannelCommand(input);
  * const response = await client.send(command);
  * ```

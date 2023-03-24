@@ -50,6 +50,18 @@ export interface ImportVmImageCommandOutput extends ImportVmImageResponse, __Met
  * import { ImagebuilderClient, ImportVmImageCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
  * // const { ImagebuilderClient, ImportVmImageCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
  * const client = new ImagebuilderClient(config);
+ * const input = {
+ *   name: "STRING_VALUE", // required
+ *   semanticVersion: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   platform: "Windows" || "Linux", // required
+ *   osVersion: "STRING_VALUE",
+ *   vmImportTaskId: "STRING_VALUE", // required
+ *   tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   clientToken: "STRING_VALUE", // required
+ * };
  * const command = new ImportVmImageCommand(input);
  * const response = await client.send(command);
  * ```

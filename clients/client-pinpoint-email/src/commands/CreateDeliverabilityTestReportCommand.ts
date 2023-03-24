@@ -50,6 +50,41 @@ export interface CreateDeliverabilityTestReportCommandOutput
  * import { PinpointEmailClient, CreateDeliverabilityTestReportCommand } from "@aws-sdk/client-pinpoint-email"; // ES Modules import
  * // const { PinpointEmailClient, CreateDeliverabilityTestReportCommand } = require("@aws-sdk/client-pinpoint-email"); // CommonJS import
  * const client = new PinpointEmailClient(config);
+ * const input = {
+ *   ReportName: "STRING_VALUE",
+ *   FromEmailAddress: "STRING_VALUE", // required
+ *   Content: {
+ *     Simple: {
+ *       Subject: {
+ *         Data: "STRING_VALUE", // required
+ *         Charset: "STRING_VALUE",
+ *       },
+ *       Body: {
+ *         Text: {
+ *           Data: "STRING_VALUE", // required
+ *           Charset: "STRING_VALUE",
+ *         },
+ *         Html: {
+ *           Data: "STRING_VALUE", // required
+ *           Charset: "STRING_VALUE",
+ *         },
+ *       },
+ *     },
+ *     Raw: {
+ *       Data: "BLOB_VALUE", // required
+ *     },
+ *     Template: {
+ *       TemplateArn: "STRING_VALUE",
+ *       TemplateData: "STRING_VALUE",
+ *     },
+ *   },
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateDeliverabilityTestReportCommand(input);
  * const response = await client.send(command);
  * ```

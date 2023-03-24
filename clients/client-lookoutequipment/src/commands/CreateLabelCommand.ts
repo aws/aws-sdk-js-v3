@@ -44,6 +44,16 @@ export interface CreateLabelCommandOutput extends CreateLabelResponse, __Metadat
  * import { LookoutEquipmentClient, CreateLabelCommand } from "@aws-sdk/client-lookoutequipment"; // ES Modules import
  * // const { LookoutEquipmentClient, CreateLabelCommand } = require("@aws-sdk/client-lookoutequipment"); // CommonJS import
  * const client = new LookoutEquipmentClient(config);
+ * const input = {
+ *   LabelGroupName: "STRING_VALUE", // required
+ *   StartTime: new Date("TIMESTAMP"), // required
+ *   EndTime: new Date("TIMESTAMP"), // required
+ *   Rating: "ANOMALY" || "NO_ANOMALY" || "NEUTRAL", // required
+ *   FaultCode: "STRING_VALUE",
+ *   Notes: "STRING_VALUE",
+ *   Equipment: "STRING_VALUE",
+ *   ClientToken: "STRING_VALUE", // required
+ * };
  * const command = new CreateLabelCommand(input);
  * const response = await client.send(command);
  * ```

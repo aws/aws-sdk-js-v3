@@ -42,6 +42,15 @@ export interface GetFeedbackCommandOutput extends GetFeedbackResponse, __Metadat
  * import { LookoutMetricsClient, GetFeedbackCommand } from "@aws-sdk/client-lookoutmetrics"; // ES Modules import
  * // const { LookoutMetricsClient, GetFeedbackCommand } = require("@aws-sdk/client-lookoutmetrics"); // CommonJS import
  * const client = new LookoutMetricsClient(config);
+ * const input = {
+ *   AnomalyDetectorArn: "STRING_VALUE", // required
+ *   AnomalyGroupTimeSeriesFeedback: {
+ *     AnomalyGroupId: "STRING_VALUE", // required
+ *     TimeSeriesId: "STRING_VALUE",
+ *   },
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new GetFeedbackCommand(input);
  * const response = await client.send(command);
  * ```

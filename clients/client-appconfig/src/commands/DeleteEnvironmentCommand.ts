@@ -43,6 +43,10 @@ export interface DeleteEnvironmentCommandOutput extends __MetadataBearer {}
  * import { AppConfigClient, DeleteEnvironmentCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
  * // const { AppConfigClient, DeleteEnvironmentCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
  * const client = new AppConfigClient(config);
+ * const input = {
+ *   ApplicationId: "STRING_VALUE", // required
+ *   EnvironmentId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteEnvironmentCommand(input);
  * const response = await client.send(command);
  * ```

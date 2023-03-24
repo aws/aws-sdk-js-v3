@@ -44,6 +44,11 @@ export interface ListFacesCommandOutput extends ListFacesResponse, __MetadataBea
  * import { RekognitionClient, ListFacesCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, ListFacesCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
+ * const input = {
+ *   CollectionId: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListFacesCommand(input);
  * const response = await client.send(command);
  * ```

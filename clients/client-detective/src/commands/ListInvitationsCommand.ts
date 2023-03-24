@@ -47,6 +47,10 @@ export interface ListInvitationsCommandOutput extends ListInvitationsResponse, _
  * import { DetectiveClient, ListInvitationsCommand } from "@aws-sdk/client-detective"; // ES Modules import
  * // const { DetectiveClient, ListInvitationsCommand } = require("@aws-sdk/client-detective"); // CommonJS import
  * const client = new DetectiveClient(config);
+ * const input = {
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListInvitationsCommand(input);
  * const response = await client.send(command);
  * ```

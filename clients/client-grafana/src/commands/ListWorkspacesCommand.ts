@@ -47,6 +47,10 @@ export interface ListWorkspacesCommandOutput extends ListWorkspacesResponse, __M
  * import { GrafanaClient, ListWorkspacesCommand } from "@aws-sdk/client-grafana"; // ES Modules import
  * // const { GrafanaClient, ListWorkspacesCommand } = require("@aws-sdk/client-grafana"); // CommonJS import
  * const client = new GrafanaClient(config);
+ * const input = {
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListWorkspacesCommand(input);
  * const response = await client.send(command);
  * ```

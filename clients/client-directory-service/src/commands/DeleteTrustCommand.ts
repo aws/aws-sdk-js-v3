@@ -43,6 +43,10 @@ export interface DeleteTrustCommandOutput extends DeleteTrustResult, __MetadataB
  * import { DirectoryServiceClient, DeleteTrustCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, DeleteTrustCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
  * const client = new DirectoryServiceClient(config);
+ * const input = {
+ *   TrustId: "STRING_VALUE", // required
+ *   DeleteAssociatedConditionalForwarder: true || false,
+ * };
  * const command = new DeleteTrustCommand(input);
  * const response = await client.send(command);
  * ```

@@ -43,6 +43,9 @@ export interface GetOperationDetailCommandOutput extends GetOperationDetailRespo
  * import { Route53DomainsClient, GetOperationDetailCommand } from "@aws-sdk/client-route-53-domains"; // ES Modules import
  * // const { Route53DomainsClient, GetOperationDetailCommand } = require("@aws-sdk/client-route-53-domains"); // CommonJS import
  * const client = new Route53DomainsClient(config);
+ * const input = {
+ *   OperationId: "STRING_VALUE", // required
+ * };
  * const command = new GetOperationDetailCommand(input);
  * const response = await client.send(command);
  * ```

@@ -44,6 +44,11 @@ export interface DeleteAddonCommandOutput extends DeleteAddonResponse, __Metadat
  * import { EKSClient, DeleteAddonCommand } from "@aws-sdk/client-eks"; // ES Modules import
  * // const { EKSClient, DeleteAddonCommand } = require("@aws-sdk/client-eks"); // CommonJS import
  * const client = new EKSClient(config);
+ * const input = {
+ *   clusterName: "STRING_VALUE", // required
+ *   addonName: "STRING_VALUE", // required
+ *   preserve: true || false,
+ * };
  * const command = new DeleteAddonCommand(input);
  * const response = await client.send(command);
  * ```

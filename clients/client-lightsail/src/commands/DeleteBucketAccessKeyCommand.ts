@@ -45,6 +45,10 @@ export interface DeleteBucketAccessKeyCommandOutput extends DeleteBucketAccessKe
  * import { LightsailClient, DeleteBucketAccessKeyCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, DeleteBucketAccessKeyCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = {
+ *   bucketName: "STRING_VALUE", // required
+ *   accessKeyId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteBucketAccessKeyCommand(input);
  * const response = await client.send(command);
  * ```

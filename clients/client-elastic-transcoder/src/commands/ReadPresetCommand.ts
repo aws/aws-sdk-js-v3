@@ -46,6 +46,9 @@ export interface ReadPresetCommandOutput extends ReadPresetResponse, __MetadataB
  * import { ElasticTranscoderClient, ReadPresetCommand } from "@aws-sdk/client-elastic-transcoder"; // ES Modules import
  * // const { ElasticTranscoderClient, ReadPresetCommand } = require("@aws-sdk/client-elastic-transcoder"); // CommonJS import
  * const client = new ElasticTranscoderClient(config);
+ * const input = {
+ *   Id: "STRING_VALUE", // required
+ * };
  * const command = new ReadPresetCommand(input);
  * const response = await client.send(command);
  * ```

@@ -48,6 +48,7 @@ export interface DescribeActiveReceiptRuleSetCommandOutput
  * import { SESClient, DescribeActiveReceiptRuleSetCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, DescribeActiveReceiptRuleSetCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
+ * const input = {};
  * const command = new DescribeActiveReceiptRuleSetCommand(input);
  * const response = await client.send(command);
  * ```

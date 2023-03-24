@@ -63,6 +63,11 @@ export interface DisassociateClientVpnTargetNetworkCommandOutput
  * import { EC2Client, DisassociateClientVpnTargetNetworkCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DisassociateClientVpnTargetNetworkCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   ClientVpnEndpointId: "STRING_VALUE", // required
+ *   AssociationId: "STRING_VALUE", // required
+ *   DryRun: true || false,
+ * };
  * const command = new DisassociateClientVpnTargetNetworkCommand(input);
  * const response = await client.send(command);
  * ```

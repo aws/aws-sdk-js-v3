@@ -44,6 +44,10 @@ export interface RestoreDomainAccessCommandOutput extends RestoreDomainAccessRes
  * import { WorkLinkClient, RestoreDomainAccessCommand } from "@aws-sdk/client-worklink"; // ES Modules import
  * // const { WorkLinkClient, RestoreDomainAccessCommand } = require("@aws-sdk/client-worklink"); // CommonJS import
  * const client = new WorkLinkClient(config);
+ * const input = {
+ *   FleetArn: "STRING_VALUE", // required
+ *   DomainName: "STRING_VALUE", // required
+ * };
  * const command = new RestoreDomainAccessCommand(input);
  * const response = await client.send(command);
  * ```

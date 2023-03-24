@@ -50,6 +50,14 @@ export interface CreateGlobalClusterCommandOutput extends CreateGlobalClusterRes
  * import { NeptuneClient, CreateGlobalClusterCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, CreateGlobalClusterCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
  * const client = new NeptuneClient(config);
+ * const input = {
+ *   GlobalClusterIdentifier: "STRING_VALUE", // required
+ *   SourceDBClusterIdentifier: "STRING_VALUE",
+ *   Engine: "STRING_VALUE",
+ *   EngineVersion: "STRING_VALUE",
+ *   DeletionProtection: true || false,
+ *   StorageEncrypted: true || false,
+ * };
  * const command = new CreateGlobalClusterCommand(input);
  * const response = await client.send(command);
  * ```

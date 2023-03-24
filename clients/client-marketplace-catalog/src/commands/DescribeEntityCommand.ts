@@ -46,6 +46,10 @@ export interface DescribeEntityCommandOutput extends DescribeEntityResponse, __M
  * import { MarketplaceCatalogClient, DescribeEntityCommand } from "@aws-sdk/client-marketplace-catalog"; // ES Modules import
  * // const { MarketplaceCatalogClient, DescribeEntityCommand } = require("@aws-sdk/client-marketplace-catalog"); // CommonJS import
  * const client = new MarketplaceCatalogClient(config);
+ * const input = {
+ *   Catalog: "STRING_VALUE", // required
+ *   EntityId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeEntityCommand(input);
  * const response = await client.send(command);
  * ```

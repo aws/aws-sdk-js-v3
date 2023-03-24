@@ -43,6 +43,15 @@ export interface AddTagsCommandOutput extends AddTagsOutput, __MetadataBearer {}
  * import { EMRClient, AddTagsCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, AddTagsCommand } = require("@aws-sdk/client-emr"); // CommonJS import
  * const client = new EMRClient(config);
+ * const input = {
+ *   ResourceId: "STRING_VALUE", // required
+ *   Tags: [ // required
+ *     {
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new AddTagsCommand(input);
  * const response = await client.send(command);
  * ```

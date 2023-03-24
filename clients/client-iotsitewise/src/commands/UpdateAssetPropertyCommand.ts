@@ -47,6 +47,14 @@ export interface UpdateAssetPropertyCommandOutput extends __MetadataBearer {}
  * import { IoTSiteWiseClient, UpdateAssetPropertyCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, UpdateAssetPropertyCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
+ * const input = {
+ *   assetId: "STRING_VALUE", // required
+ *   propertyId: "STRING_VALUE", // required
+ *   propertyAlias: "STRING_VALUE",
+ *   propertyNotificationState: "ENABLED" || "DISABLED",
+ *   clientToken: "STRING_VALUE",
+ *   propertyUnit: "STRING_VALUE",
+ * };
  * const command = new UpdateAssetPropertyCommand(input);
  * const response = await client.send(command);
  * ```

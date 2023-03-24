@@ -41,6 +41,28 @@ export interface ModifyIpamPoolCommandOutput extends ModifyIpamPoolResult, __Met
  * import { EC2Client, ModifyIpamPoolCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ModifyIpamPoolCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   DryRun: true || false,
+ *   IpamPoolId: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   AutoImport: true || false,
+ *   AllocationMinNetmaskLength: Number("int"),
+ *   AllocationMaxNetmaskLength: Number("int"),
+ *   AllocationDefaultNetmaskLength: Number("int"),
+ *   ClearAllocationDefaultNetmaskLength: true || false,
+ *   AddAllocationResourceTags: [
+ *     {
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   RemoveAllocationResourceTags: [
+ *     {
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new ModifyIpamPoolCommand(input);
  * const response = await client.send(command);
  * ```

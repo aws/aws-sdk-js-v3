@@ -52,6 +52,16 @@ export interface SearchAvailablePhoneNumbersCommandOutput
  * import { ChimeClient, SearchAvailablePhoneNumbersCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, SearchAvailablePhoneNumbersCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = {
+ *   AreaCode: "STRING_VALUE",
+ *   City: "STRING_VALUE",
+ *   Country: "STRING_VALUE",
+ *   State: "STRING_VALUE",
+ *   TollFreePrefix: "STRING_VALUE",
+ *   PhoneNumberType: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new SearchAvailablePhoneNumbersCommand(input);
  * const response = await client.send(command);
  * ```

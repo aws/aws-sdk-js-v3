@@ -45,6 +45,7 @@ export interface GetOrganizationAdminAccountCommandOutput
  * import { AuditManagerClient, GetOrganizationAdminAccountCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
  * // const { AuditManagerClient, GetOrganizationAdminAccountCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
  * const client = new AuditManagerClient(config);
+ * const input = {};
  * const command = new GetOrganizationAdminAccountCommand(input);
  * const response = await client.send(command);
  * ```

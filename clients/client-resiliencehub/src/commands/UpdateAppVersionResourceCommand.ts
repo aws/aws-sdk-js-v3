@@ -56,6 +56,30 @@ export interface UpdateAppVersionResourceCommandOutput extends UpdateAppVersionR
  * import { ResiliencehubClient, UpdateAppVersionResourceCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
  * // const { ResiliencehubClient, UpdateAppVersionResourceCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
  * const client = new ResiliencehubClient(config);
+ * const input = {
+ *   appArn: "STRING_VALUE", // required
+ *   resourceName: "STRING_VALUE",
+ *   logicalResourceId: {
+ *     identifier: "STRING_VALUE", // required
+ *     logicalStackName: "STRING_VALUE",
+ *     resourceGroupName: "STRING_VALUE",
+ *     terraformSourceName: "STRING_VALUE",
+ *     eksSourceName: "STRING_VALUE",
+ *   },
+ *   physicalResourceId: "STRING_VALUE",
+ *   awsRegion: "STRING_VALUE",
+ *   awsAccountId: "STRING_VALUE",
+ *   resourceType: "STRING_VALUE",
+ *   appComponents: [
+ *     "STRING_VALUE",
+ *   ],
+ *   additionalInfo: {
+ *     "<keys>": [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   excluded: true || false,
+ * };
  * const command = new UpdateAppVersionResourceCommand(input);
  * const response = await client.send(command);
  * ```

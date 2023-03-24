@@ -52,6 +52,9 @@ export interface StartElasticsearchServiceSoftwareUpdateCommandOutput
  * import { ElasticsearchServiceClient, StartElasticsearchServiceSoftwareUpdateCommand } from "@aws-sdk/client-elasticsearch-service"; // ES Modules import
  * // const { ElasticsearchServiceClient, StartElasticsearchServiceSoftwareUpdateCommand } = require("@aws-sdk/client-elasticsearch-service"); // CommonJS import
  * const client = new ElasticsearchServiceClient(config);
+ * const input = {
+ *   DomainName: "STRING_VALUE", // required
+ * };
  * const command = new StartElasticsearchServiceSoftwareUpdateCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,11 @@ export interface DescribeEntityAggregatesCommandOutput extends DescribeEntityAgg
  * import { HealthClient, DescribeEntityAggregatesCommand } from "@aws-sdk/client-health"; // ES Modules import
  * // const { HealthClient, DescribeEntityAggregatesCommand } = require("@aws-sdk/client-health"); // CommonJS import
  * const client = new HealthClient(config);
+ * const input = {
+ *   eventArns: [
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DescribeEntityAggregatesCommand(input);
  * const response = await client.send(command);
  * ```

@@ -43,6 +43,9 @@ export interface DeregisterResourceCommandOutput extends DeregisterResourceRespo
  * import { LakeFormationClient, DeregisterResourceCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
  * // const { LakeFormationClient, DeregisterResourceCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
  * const client = new LakeFormationClient(config);
+ * const input = {
+ *   ResourceArn: "STRING_VALUE", // required
+ * };
  * const command = new DeregisterResourceCommand(input);
  * const response = await client.send(command);
  * ```

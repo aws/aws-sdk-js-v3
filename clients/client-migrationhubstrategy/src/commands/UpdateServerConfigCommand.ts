@@ -46,6 +46,15 @@ export interface UpdateServerConfigCommandOutput extends UpdateServerConfigRespo
  * import { MigrationHubStrategyClient, UpdateServerConfigCommand } from "@aws-sdk/client-migrationhubstrategy"; // ES Modules import
  * // const { MigrationHubStrategyClient, UpdateServerConfigCommand } = require("@aws-sdk/client-migrationhubstrategy"); // CommonJS import
  * const client = new MigrationHubStrategyClient(config);
+ * const input = {
+ *   serverId: "STRING_VALUE", // required
+ *   strategyOption: {
+ *     strategy: "STRING_VALUE",
+ *     toolName: "STRING_VALUE",
+ *     targetDestination: "STRING_VALUE",
+ *     isPreferred: true || false,
+ *   },
+ * };
  * const command = new UpdateServerConfigCommand(input);
  * const response = await client.send(command);
  * ```

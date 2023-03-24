@@ -43,6 +43,12 @@ export interface SetTypeDefaultVersionCommandOutput extends SetTypeDefaultVersio
  * import { CloudFormationClient, SetTypeDefaultVersionCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, SetTypeDefaultVersionCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
  * const client = new CloudFormationClient(config);
+ * const input = {
+ *   Arn: "STRING_VALUE",
+ *   Type: "RESOURCE" || "MODULE" || "HOOK",
+ *   TypeName: "STRING_VALUE",
+ *   VersionId: "STRING_VALUE",
+ * };
  * const command = new SetTypeDefaultVersionCommand(input);
  * const response = await client.send(command);
  * ```

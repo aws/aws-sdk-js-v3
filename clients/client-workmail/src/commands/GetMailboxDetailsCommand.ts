@@ -42,6 +42,10 @@ export interface GetMailboxDetailsCommandOutput extends GetMailboxDetailsRespons
  * import { WorkMailClient, GetMailboxDetailsCommand } from "@aws-sdk/client-workmail"; // ES Modules import
  * // const { WorkMailClient, GetMailboxDetailsCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
  * const client = new WorkMailClient(config);
+ * const input = {
+ *   OrganizationId: "STRING_VALUE", // required
+ *   UserId: "STRING_VALUE", // required
+ * };
  * const command = new GetMailboxDetailsCommand(input);
  * const response = await client.send(command);
  * ```

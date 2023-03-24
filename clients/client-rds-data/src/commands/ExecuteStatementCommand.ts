@@ -48,6 +48,74 @@ export interface ExecuteStatementCommandOutput extends ExecuteStatementResponse,
  * import { RDSDataClient, ExecuteStatementCommand } from "@aws-sdk/client-rds-data"; // ES Modules import
  * // const { RDSDataClient, ExecuteStatementCommand } = require("@aws-sdk/client-rds-data"); // CommonJS import
  * const client = new RDSDataClient(config);
+ * const input = {
+ *   resourceArn: "STRING_VALUE", // required
+ *   secretArn: "STRING_VALUE", // required
+ *   sql: "STRING_VALUE", // required
+ *   database: "STRING_VALUE",
+ *   schema: "STRING_VALUE",
+ *   parameters: [
+ *     {
+ *       name: "STRING_VALUE",
+ *       value: { // Union: only one key present
+ *         isNull: true || false,
+ *         booleanValue: true || false,
+ *         longValue: Number("long"),
+ *         doubleValue: Number("double"),
+ *         stringValue: "STRING_VALUE",
+ *         blobValue: "BLOB_VALUE",
+ *         arrayValue: { // Union: only one key present
+ *           booleanValues: [
+ *             true || false,
+ *           ],
+ *           longValues: [
+ *             Number("long"),
+ *           ],
+ *           doubleValues: [
+ *             Number("double"),
+ *           ],
+ *           stringValues: [
+ *             "STRING_VALUE",
+ *           ],
+ *           arrayValues: [
+ *             { // Union: only one key present
+ *               booleanValues: [
+ *                 true || false,
+ *               ],
+ *               longValues: [
+ *                 Number("long"),
+ *               ],
+ *               doubleValues: [
+ *                 Number("double"),
+ *               ],
+ *               stringValues: [
+ *                 "STRING_VALUE",
+ *               ],
+ *               arrayValues: [
+ *                 { // Union: only one key present
+ *                   booleanValues: "<ArrayValue>",
+ *                   longValues: "<ArrayValue>",
+ *                   doubleValues: "<ArrayValue>",
+ *                   stringValues: "<ArrayValue>",
+ *                   arrayValues: "<ArrayValue>",
+ *                 },
+ *               ],
+ *             },
+ *           ],
+ *         },
+ *       },
+ *       typeHint: "STRING_VALUE",
+ *     },
+ *   ],
+ *   transactionId: "STRING_VALUE",
+ *   includeResultMetadata: true || false,
+ *   continueAfterTimeout: true || false,
+ *   resultSetOptions: {
+ *     decimalReturnType: "STRING_VALUE",
+ *     longReturnType: "STRING_VALUE",
+ *   },
+ *   formatRecordsAs: "STRING_VALUE",
+ * };
  * const command = new ExecuteStatementCommand(input);
  * const response = await client.send(command);
  * ```

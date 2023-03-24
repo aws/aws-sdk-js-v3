@@ -47,6 +47,9 @@ export interface GetDataQualityRuleRecommendationRunCommandOutput
  * import { GlueClient, GetDataQualityRuleRecommendationRunCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, GetDataQualityRuleRecommendationRunCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = {
+ *   RunId: "STRING_VALUE", // required
+ * };
  * const command = new GetDataQualityRuleRecommendationRunCommand(input);
  * const response = await client.send(command);
  * ```

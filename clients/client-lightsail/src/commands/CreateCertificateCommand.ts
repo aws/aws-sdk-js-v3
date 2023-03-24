@@ -54,6 +54,19 @@ export interface CreateCertificateCommandOutput extends CreateCertificateResult,
  * import { LightsailClient, CreateCertificateCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, CreateCertificateCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = {
+ *   certificateName: "STRING_VALUE", // required
+ *   domainName: "STRING_VALUE", // required
+ *   subjectAlternativeNames: [
+ *     "STRING_VALUE",
+ *   ],
+ *   tags: [
+ *     {
+ *       key: "STRING_VALUE",
+ *       value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateCertificateCommand(input);
  * const response = await client.send(command);
  * ```

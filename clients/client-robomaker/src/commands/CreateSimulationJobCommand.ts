@@ -46,6 +46,140 @@ export interface CreateSimulationJobCommandOutput extends CreateSimulationJobRes
  * import { RoboMakerClient, CreateSimulationJobCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
  * // const { RoboMakerClient, CreateSimulationJobCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
  * const client = new RoboMakerClient(config);
+ * const input = {
+ *   clientRequestToken: "STRING_VALUE",
+ *   outputLocation: {
+ *     s3Bucket: "STRING_VALUE",
+ *     s3Prefix: "STRING_VALUE",
+ *   },
+ *   loggingConfig: {
+ *     recordAllRosTopics: true || false,
+ *   },
+ *   maxJobDurationInSeconds: Number("long"), // required
+ *   iamRole: "STRING_VALUE", // required
+ *   failureBehavior: "STRING_VALUE",
+ *   robotApplications: [
+ *     {
+ *       application: "STRING_VALUE", // required
+ *       applicationVersion: "STRING_VALUE",
+ *       launchConfig: {
+ *         packageName: "STRING_VALUE",
+ *         launchFile: "STRING_VALUE",
+ *         environmentVariables: {
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *         portForwardingConfig: {
+ *           portMappings: [
+ *             {
+ *               jobPort: Number("int"), // required
+ *               applicationPort: Number("int"), // required
+ *               enableOnPublicIp: true || false,
+ *             },
+ *           ],
+ *         },
+ *         streamUI: true || false,
+ *         command: [
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *       uploadConfigurations: [
+ *         {
+ *           name: "STRING_VALUE", // required
+ *           path: "STRING_VALUE", // required
+ *           uploadBehavior: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *       useDefaultUploadConfigurations: true || false,
+ *       tools: [
+ *         {
+ *           streamUI: true || false,
+ *           name: "STRING_VALUE", // required
+ *           command: "STRING_VALUE", // required
+ *           streamOutputToCloudWatch: true || false,
+ *           exitBehavior: "STRING_VALUE",
+ *         },
+ *       ],
+ *       useDefaultTools: true || false,
+ *     },
+ *   ],
+ *   simulationApplications: [
+ *     {
+ *       application: "STRING_VALUE", // required
+ *       applicationVersion: "STRING_VALUE",
+ *       launchConfig: {
+ *         packageName: "STRING_VALUE",
+ *         launchFile: "STRING_VALUE",
+ *         environmentVariables: {
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *         portForwardingConfig: {
+ *           portMappings: [
+ *             {
+ *               jobPort: Number("int"), // required
+ *               applicationPort: Number("int"), // required
+ *               enableOnPublicIp: true || false,
+ *             },
+ *           ],
+ *         },
+ *         streamUI: true || false,
+ *         command: [
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *       uploadConfigurations: [
+ *         {
+ *           name: "STRING_VALUE", // required
+ *           path: "STRING_VALUE", // required
+ *           uploadBehavior: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *       worldConfigs: [
+ *         {
+ *           world: "STRING_VALUE",
+ *         },
+ *       ],
+ *       useDefaultUploadConfigurations: true || false,
+ *       tools: [
+ *         {
+ *           streamUI: true || false,
+ *           name: "STRING_VALUE", // required
+ *           command: "STRING_VALUE", // required
+ *           streamOutputToCloudWatch: true || false,
+ *           exitBehavior: "STRING_VALUE",
+ *         },
+ *       ],
+ *       useDefaultTools: true || false,
+ *     },
+ *   ],
+ *   dataSources: [
+ *     {
+ *       name: "STRING_VALUE", // required
+ *       s3Bucket: "STRING_VALUE", // required
+ *       s3Keys: [ // required
+ *         "STRING_VALUE",
+ *       ],
+ *       type: "STRING_VALUE",
+ *       destination: "STRING_VALUE",
+ *     },
+ *   ],
+ *   tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   vpcConfig: {
+ *     subnets: [ // required
+ *       "STRING_VALUE",
+ *     ],
+ *     securityGroups: [
+ *       "STRING_VALUE",
+ *     ],
+ *     assignPublicIp: true || false,
+ *   },
+ *   compute: {
+ *     simulationUnitLimit: Number("int"),
+ *     computeType: "STRING_VALUE",
+ *     gpuUnitLimit: Number("int"),
+ *   },
+ * };
  * const command = new CreateSimulationJobCommand(input);
  * const response = await client.send(command);
  * ```

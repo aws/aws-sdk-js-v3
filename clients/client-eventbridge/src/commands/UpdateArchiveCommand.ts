@@ -42,6 +42,12 @@ export interface UpdateArchiveCommandOutput extends UpdateArchiveResponse, __Met
  * import { EventBridgeClient, UpdateArchiveCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
  * // const { EventBridgeClient, UpdateArchiveCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
  * const client = new EventBridgeClient(config);
+ * const input = {
+ *   ArchiveName: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   EventPattern: "STRING_VALUE",
+ *   RetentionDays: Number("int"),
+ * };
  * const command = new UpdateArchiveCommand(input);
  * const response = await client.send(command);
  * ```

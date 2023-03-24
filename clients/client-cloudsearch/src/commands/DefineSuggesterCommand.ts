@@ -42,6 +42,17 @@ export interface DefineSuggesterCommandOutput extends DefineSuggesterResponse, _
  * import { CloudSearchClient, DefineSuggesterCommand } from "@aws-sdk/client-cloudsearch"; // ES Modules import
  * // const { CloudSearchClient, DefineSuggesterCommand } = require("@aws-sdk/client-cloudsearch"); // CommonJS import
  * const client = new CloudSearchClient(config);
+ * const input = {
+ *   DomainName: "STRING_VALUE", // required
+ *   Suggester: {
+ *     SuggesterName: "STRING_VALUE", // required
+ *     DocumentSuggesterOptions: {
+ *       SourceField: "STRING_VALUE", // required
+ *       FuzzyMatching: "STRING_VALUE",
+ *       SortExpression: "STRING_VALUE",
+ *     },
+ *   },
+ * };
  * const command = new DefineSuggesterCommand(input);
  * const response = await client.send(command);
  * ```

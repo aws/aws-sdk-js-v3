@@ -44,6 +44,11 @@ export interface ListBackupPlansCommandOutput extends ListBackupPlansOutput, __M
  * import { BackupClient, ListBackupPlansCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, ListBackupPlansCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
+ * const input = {
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   IncludeDeleted: true || false,
+ * };
  * const command = new ListBackupPlansCommand(input);
  * const response = await client.send(command);
  * ```

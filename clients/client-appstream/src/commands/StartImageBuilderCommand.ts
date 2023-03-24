@@ -42,6 +42,10 @@ export interface StartImageBuilderCommandOutput extends StartImageBuilderResult,
  * import { AppStreamClient, StartImageBuilderCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, StartImageBuilderCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
  * const client = new AppStreamClient(config);
+ * const input = {
+ *   Name: "STRING_VALUE", // required
+ *   AppstreamAgentVersion: "STRING_VALUE",
+ * };
  * const command = new StartImageBuilderCommand(input);
  * const response = await client.send(command);
  * ```

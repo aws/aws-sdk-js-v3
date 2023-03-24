@@ -46,6 +46,10 @@ export interface ListUserProfilesCommandOutput extends ListUserProfilesResult, _
  * import { CodeStarClient, ListUserProfilesCommand } from "@aws-sdk/client-codestar"; // ES Modules import
  * // const { CodeStarClient, ListUserProfilesCommand } = require("@aws-sdk/client-codestar"); // CommonJS import
  * const client = new CodeStarClient(config);
+ * const input = {
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListUserProfilesCommand(input);
  * const response = await client.send(command);
  * ```

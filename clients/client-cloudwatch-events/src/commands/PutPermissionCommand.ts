@@ -61,6 +61,18 @@ export interface PutPermissionCommandOutput extends __MetadataBearer {}
  * import { CloudWatchEventsClient, PutPermissionCommand } from "@aws-sdk/client-cloudwatch-events"; // ES Modules import
  * // const { CloudWatchEventsClient, PutPermissionCommand } = require("@aws-sdk/client-cloudwatch-events"); // CommonJS import
  * const client = new CloudWatchEventsClient(config);
+ * const input = {
+ *   EventBusName: "STRING_VALUE",
+ *   Action: "STRING_VALUE",
+ *   Principal: "STRING_VALUE",
+ *   StatementId: "STRING_VALUE",
+ *   Condition: {
+ *     Type: "STRING_VALUE", // required
+ *     Key: "STRING_VALUE", // required
+ *     Value: "STRING_VALUE", // required
+ *   },
+ *   Policy: "STRING_VALUE",
+ * };
  * const command = new PutPermissionCommand(input);
  * const response = await client.send(command);
  * ```

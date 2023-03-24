@@ -44,6 +44,9 @@ export interface GetIdentityPoolRolesCommandOutput extends GetIdentityPoolRolesR
  * import { CognitoIdentityClient, GetIdentityPoolRolesCommand } from "@aws-sdk/client-cognito-identity"; // ES Modules import
  * // const { CognitoIdentityClient, GetIdentityPoolRolesCommand } = require("@aws-sdk/client-cognito-identity"); // CommonJS import
  * const client = new CognitoIdentityClient(config);
+ * const input = {
+ *   IdentityPoolId: "STRING_VALUE", // required
+ * };
  * const command = new GetIdentityPoolRolesCommand(input);
  * const response = await client.send(command);
  * ```

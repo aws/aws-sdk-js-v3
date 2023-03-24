@@ -51,6 +51,7 @@ export interface GetResourcesSummaryCommandOutput extends GetResourcesSummaryOut
  * import { ProtonClient, GetResourcesSummaryCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, GetResourcesSummaryCommand } = require("@aws-sdk/client-proton"); // CommonJS import
  * const client = new ProtonClient(config);
+ * const input = {};
  * const command = new GetResourcesSummaryCommand(input);
  * const response = await client.send(command);
  * ```

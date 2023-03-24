@@ -45,6 +45,29 @@ export interface CreateDiskCommandOutput extends CreateDiskResult, __MetadataBea
  * import { LightsailClient, CreateDiskCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, CreateDiskCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = {
+ *   diskName: "STRING_VALUE", // required
+ *   availabilityZone: "STRING_VALUE", // required
+ *   sizeInGb: Number("int"), // required
+ *   tags: [
+ *     {
+ *       key: "STRING_VALUE",
+ *       value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   addOns: [
+ *     {
+ *       addOnType: "AutoSnapshot" || "StopInstanceOnIdle", // required
+ *       autoSnapshotAddOnRequest: {
+ *         snapshotTimeOfDay: "STRING_VALUE",
+ *       },
+ *       stopInstanceOnIdleRequest: {
+ *         threshold: "STRING_VALUE",
+ *         duration: "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ * };
  * const command = new CreateDiskCommand(input);
  * const response = await client.send(command);
  * ```

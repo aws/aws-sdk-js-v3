@@ -42,6 +42,10 @@ export interface DescribeInsightCommandOutput extends DescribeInsightResponse, _
  * import { DevOpsGuruClient, DescribeInsightCommand } from "@aws-sdk/client-devops-guru"; // ES Modules import
  * // const { DevOpsGuruClient, DescribeInsightCommand } = require("@aws-sdk/client-devops-guru"); // CommonJS import
  * const client = new DevOpsGuruClient(config);
+ * const input = {
+ *   Id: "STRING_VALUE", // required
+ *   AccountId: "STRING_VALUE",
+ * };
  * const command = new DescribeInsightCommand(input);
  * const response = await client.send(command);
  * ```

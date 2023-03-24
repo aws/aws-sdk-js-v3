@@ -42,6 +42,9 @@ export interface DescribeDeviceCommandOutput extends DescribeDeviceResponse, __M
  * import { PanoramaClient, DescribeDeviceCommand } from "@aws-sdk/client-panorama"; // ES Modules import
  * // const { PanoramaClient, DescribeDeviceCommand } = require("@aws-sdk/client-panorama"); // CommonJS import
  * const client = new PanoramaClient(config);
+ * const input = {
+ *   DeviceId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeDeviceCommand(input);
  * const response = await client.send(command);
  * ```

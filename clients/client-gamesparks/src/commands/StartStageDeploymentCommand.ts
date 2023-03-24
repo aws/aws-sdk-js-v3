@@ -51,6 +51,12 @@ export interface StartStageDeploymentCommandOutput extends StartStageDeploymentR
  * import { GameSparksClient, StartStageDeploymentCommand } from "@aws-sdk/client-gamesparks"; // ES Modules import
  * // const { GameSparksClient, StartStageDeploymentCommand } = require("@aws-sdk/client-gamesparks"); // CommonJS import
  * const client = new GameSparksClient(config);
+ * const input = {
+ *   GameName: "STRING_VALUE", // required
+ *   StageName: "STRING_VALUE", // required
+ *   SnapshotId: "STRING_VALUE", // required
+ *   ClientToken: "STRING_VALUE",
+ * };
  * const command = new StartStageDeploymentCommand(input);
  * const response = await client.send(command);
  * ```

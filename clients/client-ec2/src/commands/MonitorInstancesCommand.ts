@@ -45,6 +45,12 @@ export interface MonitorInstancesCommandOutput extends MonitorInstancesResult, _
  * import { EC2Client, MonitorInstancesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, MonitorInstancesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   InstanceIds: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ *   DryRun: true || false,
+ * };
  * const command = new MonitorInstancesCommand(input);
  * const response = await client.send(command);
  * ```

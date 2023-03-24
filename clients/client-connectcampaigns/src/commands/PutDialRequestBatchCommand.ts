@@ -46,6 +46,19 @@ export interface PutDialRequestBatchCommandOutput extends PutDialRequestBatchRes
  * import { ConnectCampaignsClient, PutDialRequestBatchCommand } from "@aws-sdk/client-connectcampaigns"; // ES Modules import
  * // const { ConnectCampaignsClient, PutDialRequestBatchCommand } = require("@aws-sdk/client-connectcampaigns"); // CommonJS import
  * const client = new ConnectCampaignsClient(config);
+ * const input = {
+ *   id: "STRING_VALUE", // required
+ *   dialRequests: [ // required
+ *     {
+ *       clientToken: "STRING_VALUE", // required
+ *       phoneNumber: "STRING_VALUE", // required
+ *       expirationTime: new Date("TIMESTAMP"), // required
+ *       attributes: { // required
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ * };
  * const command = new PutDialRequestBatchCommand(input);
  * const response = await client.send(command);
  * ```

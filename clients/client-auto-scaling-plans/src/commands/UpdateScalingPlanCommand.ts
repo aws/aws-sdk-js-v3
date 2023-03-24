@@ -44,6 +44,77 @@ export interface UpdateScalingPlanCommandOutput extends UpdateScalingPlanRespons
  * import { AutoScalingPlansClient, UpdateScalingPlanCommand } from "@aws-sdk/client-auto-scaling-plans"; // ES Modules import
  * // const { AutoScalingPlansClient, UpdateScalingPlanCommand } = require("@aws-sdk/client-auto-scaling-plans"); // CommonJS import
  * const client = new AutoScalingPlansClient(config);
+ * const input = {
+ *   ScalingPlanName: "STRING_VALUE", // required
+ *   ScalingPlanVersion: Number("long"), // required
+ *   ApplicationSource: {
+ *     CloudFormationStackARN: "STRING_VALUE",
+ *     TagFilters: [
+ *       {
+ *         Key: "STRING_VALUE",
+ *         Values: [
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *     ],
+ *   },
+ *   ScalingInstructions: [
+ *     {
+ *       ServiceNamespace: "STRING_VALUE", // required
+ *       ResourceId: "STRING_VALUE", // required
+ *       ScalableDimension: "STRING_VALUE", // required
+ *       MinCapacity: Number("int"), // required
+ *       MaxCapacity: Number("int"), // required
+ *       TargetTrackingConfigurations: [ // required
+ *         {
+ *           PredefinedScalingMetricSpecification: {
+ *             PredefinedScalingMetricType: "STRING_VALUE", // required
+ *             ResourceLabel: "STRING_VALUE",
+ *           },
+ *           CustomizedScalingMetricSpecification: {
+ *             MetricName: "STRING_VALUE", // required
+ *             Namespace: "STRING_VALUE", // required
+ *             Dimensions: [
+ *               {
+ *                 Name: "STRING_VALUE", // required
+ *                 Value: "STRING_VALUE", // required
+ *               },
+ *             ],
+ *             Statistic: "STRING_VALUE", // required
+ *             Unit: "STRING_VALUE",
+ *           },
+ *           TargetValue: Number("double"), // required
+ *           DisableScaleIn: true || false,
+ *           ScaleOutCooldown: Number("int"),
+ *           ScaleInCooldown: Number("int"),
+ *           EstimatedInstanceWarmup: Number("int"),
+ *         },
+ *       ],
+ *       PredefinedLoadMetricSpecification: {
+ *         PredefinedLoadMetricType: "STRING_VALUE", // required
+ *         ResourceLabel: "STRING_VALUE",
+ *       },
+ *       CustomizedLoadMetricSpecification: {
+ *         MetricName: "STRING_VALUE", // required
+ *         Namespace: "STRING_VALUE", // required
+ *         Dimensions: [
+ *           {
+ *             Name: "STRING_VALUE", // required
+ *             Value: "STRING_VALUE", // required
+ *           },
+ *         ],
+ *         Statistic: "STRING_VALUE", // required
+ *         Unit: "STRING_VALUE",
+ *       },
+ *       ScheduledActionBufferTime: Number("int"),
+ *       PredictiveScalingMaxCapacityBehavior: "STRING_VALUE",
+ *       PredictiveScalingMaxCapacityBuffer: Number("int"),
+ *       PredictiveScalingMode: "STRING_VALUE",
+ *       ScalingPolicyUpdateBehavior: "STRING_VALUE",
+ *       DisableDynamicScaling: true || false,
+ *     },
+ *   ],
+ * };
  * const command = new UpdateScalingPlanCommand(input);
  * const response = await client.send(command);
  * ```

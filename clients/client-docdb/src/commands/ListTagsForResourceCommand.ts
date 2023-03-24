@@ -42,6 +42,17 @@ export interface ListTagsForResourceCommandOutput extends TagListMessage, __Meta
  * import { DocDBClient, ListTagsForResourceCommand } from "@aws-sdk/client-docdb"; // ES Modules import
  * // const { DocDBClient, ListTagsForResourceCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
  * const client = new DocDBClient(config);
+ * const input = {
+ *   ResourceName: "STRING_VALUE", // required
+ *   Filters: [
+ *     {
+ *       Name: "STRING_VALUE", // required
+ *       Values: [ // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ * };
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
  * ```

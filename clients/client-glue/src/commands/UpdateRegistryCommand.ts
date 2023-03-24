@@ -42,6 +42,13 @@ export interface UpdateRegistryCommandOutput extends UpdateRegistryResponse, __M
  * import { GlueClient, UpdateRegistryCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, UpdateRegistryCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = {
+ *   RegistryId: {
+ *     RegistryName: "STRING_VALUE",
+ *     RegistryArn: "STRING_VALUE",
+ *   },
+ *   Description: "STRING_VALUE", // required
+ * };
  * const command = new UpdateRegistryCommand(input);
  * const response = await client.send(command);
  * ```

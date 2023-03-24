@@ -42,6 +42,10 @@ export interface ListAssistantsCommandOutput extends ListAssistantsResponse, __M
  * import { WisdomClient, ListAssistantsCommand } from "@aws-sdk/client-wisdom"; // ES Modules import
  * // const { WisdomClient, ListAssistantsCommand } = require("@aws-sdk/client-wisdom"); // CommonJS import
  * const client = new WisdomClient(config);
+ * const input = {
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListAssistantsCommand(input);
  * const response = await client.send(command);
  * ```

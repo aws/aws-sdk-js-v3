@@ -43,6 +43,53 @@ export interface CreateBackupSelectionCommandOutput extends CreateBackupSelectio
  * import { BackupClient, CreateBackupSelectionCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, CreateBackupSelectionCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
+ * const input = {
+ *   BackupPlanId: "STRING_VALUE", // required
+ *   BackupSelection: {
+ *     SelectionName: "STRING_VALUE", // required
+ *     IamRoleArn: "STRING_VALUE", // required
+ *     Resources: [
+ *       "STRING_VALUE",
+ *     ],
+ *     ListOfTags: [
+ *       {
+ *         ConditionType: "STRINGEQUALS", // required
+ *         ConditionKey: "STRING_VALUE", // required
+ *         ConditionValue: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *     NotResources: [
+ *       "STRING_VALUE",
+ *     ],
+ *     Conditions: {
+ *       StringEquals: [
+ *         {
+ *           ConditionKey: "STRING_VALUE",
+ *           ConditionValue: "STRING_VALUE",
+ *         },
+ *       ],
+ *       StringNotEquals: [
+ *         {
+ *           ConditionKey: "STRING_VALUE",
+ *           ConditionValue: "STRING_VALUE",
+ *         },
+ *       ],
+ *       StringLike: [
+ *         {
+ *           ConditionKey: "STRING_VALUE",
+ *           ConditionValue: "STRING_VALUE",
+ *         },
+ *       ],
+ *       StringNotLike: [
+ *         {
+ *           ConditionKey: "STRING_VALUE",
+ *           ConditionValue: "STRING_VALUE",
+ *         },
+ *       ],
+ *     },
+ *   },
+ *   CreatorRequestId: "STRING_VALUE",
+ * };
  * const command = new CreateBackupSelectionCommand(input);
  * const response = await client.send(command);
  * ```

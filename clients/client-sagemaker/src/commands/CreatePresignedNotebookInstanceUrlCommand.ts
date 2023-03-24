@@ -61,6 +61,10 @@ export interface CreatePresignedNotebookInstanceUrlCommandOutput
  * import { SageMakerClient, CreatePresignedNotebookInstanceUrlCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, CreatePresignedNotebookInstanceUrlCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = {
+ *   NotebookInstanceName: "STRING_VALUE", // required
+ *   SessionExpirationDurationInSeconds: Number("int"),
+ * };
  * const command = new CreatePresignedNotebookInstanceUrlCommand(input);
  * const response = await client.send(command);
  * ```

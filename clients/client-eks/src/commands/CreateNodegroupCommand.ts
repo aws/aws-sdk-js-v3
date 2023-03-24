@@ -55,6 +55,56 @@ export interface CreateNodegroupCommandOutput extends CreateNodegroupResponse, _
  * import { EKSClient, CreateNodegroupCommand } from "@aws-sdk/client-eks"; // ES Modules import
  * // const { EKSClient, CreateNodegroupCommand } = require("@aws-sdk/client-eks"); // CommonJS import
  * const client = new EKSClient(config);
+ * const input = {
+ *   clusterName: "STRING_VALUE", // required
+ *   nodegroupName: "STRING_VALUE", // required
+ *   scalingConfig: {
+ *     minSize: Number("int"),
+ *     maxSize: Number("int"),
+ *     desiredSize: Number("int"),
+ *   },
+ *   diskSize: Number("int"),
+ *   subnets: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ *   instanceTypes: [
+ *     "STRING_VALUE",
+ *   ],
+ *   amiType: "AL2_x86_64" || "AL2_x86_64_GPU" || "AL2_ARM_64" || "CUSTOM" || "BOTTLEROCKET_ARM_64" || "BOTTLEROCKET_x86_64" || "BOTTLEROCKET_ARM_64_NVIDIA" || "BOTTLEROCKET_x86_64_NVIDIA" || "WINDOWS_CORE_2019_x86_64" || "WINDOWS_FULL_2019_x86_64" || "WINDOWS_CORE_2022_x86_64" || "WINDOWS_FULL_2022_x86_64",
+ *   remoteAccess: {
+ *     ec2SshKey: "STRING_VALUE",
+ *     sourceSecurityGroups: [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   nodeRole: "STRING_VALUE", // required
+ *   labels: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   taints: [
+ *     {
+ *       key: "STRING_VALUE",
+ *       value: "STRING_VALUE",
+ *       effect: "NO_SCHEDULE" || "NO_EXECUTE" || "PREFER_NO_SCHEDULE",
+ *     },
+ *   ],
+ *   tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   clientRequestToken: "STRING_VALUE",
+ *   launchTemplate: {
+ *     name: "STRING_VALUE",
+ *     version: "STRING_VALUE",
+ *     id: "STRING_VALUE",
+ *   },
+ *   updateConfig: {
+ *     maxUnavailable: Number("int"),
+ *     maxUnavailablePercentage: Number("int"),
+ *   },
+ *   capacityType: "ON_DEMAND" || "SPOT",
+ *   version: "STRING_VALUE",
+ *   releaseVersion: "STRING_VALUE",
+ * };
  * const command = new CreateNodegroupCommand(input);
  * const response = await client.send(command);
  * ```

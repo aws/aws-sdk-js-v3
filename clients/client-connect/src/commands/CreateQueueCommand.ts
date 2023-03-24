@@ -54,6 +54,24 @@ export interface CreateQueueCommandOutput extends CreateQueueResponse, __Metadat
  * import { ConnectClient, CreateQueueCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, CreateQueueCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = {
+ *   InstanceId: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   OutboundCallerConfig: {
+ *     OutboundCallerIdName: "STRING_VALUE",
+ *     OutboundCallerIdNumberId: "STRING_VALUE",
+ *     OutboundFlowId: "STRING_VALUE",
+ *   },
+ *   HoursOfOperationId: "STRING_VALUE", // required
+ *   MaxContacts: Number("int"),
+ *   QuickConnectIds: [
+ *     "STRING_VALUE",
+ *   ],
+ *   Tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateQueueCommand(input);
  * const response = await client.send(command);
  * ```

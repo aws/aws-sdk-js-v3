@@ -52,6 +52,32 @@ export interface SetLoadBasedAutoScalingCommandOutput extends __MetadataBearer {
  * import { OpsWorksClient, SetLoadBasedAutoScalingCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, SetLoadBasedAutoScalingCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
+ * const input = {
+ *   LayerId: "STRING_VALUE", // required
+ *   Enable: true || false,
+ *   UpScaling: {
+ *     InstanceCount: Number("int"),
+ *     ThresholdsWaitTime: Number("int"),
+ *     IgnoreMetricsTime: Number("int"),
+ *     CpuThreshold: Number("double"),
+ *     MemoryThreshold: Number("double"),
+ *     LoadThreshold: Number("double"),
+ *     Alarms: [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   DownScaling: {
+ *     InstanceCount: Number("int"),
+ *     ThresholdsWaitTime: Number("int"),
+ *     IgnoreMetricsTime: Number("int"),
+ *     CpuThreshold: Number("double"),
+ *     MemoryThreshold: Number("double"),
+ *     LoadThreshold: Number("double"),
+ *     Alarms: [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ * };
  * const command = new SetLoadBasedAutoScalingCommand(input);
  * const response = await client.send(command);
  * ```

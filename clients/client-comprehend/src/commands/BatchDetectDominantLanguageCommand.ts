@@ -51,6 +51,11 @@ export interface BatchDetectDominantLanguageCommandOutput
  * import { ComprehendClient, BatchDetectDominantLanguageCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, BatchDetectDominantLanguageCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
+ * const input = {
+ *   TextList: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new BatchDetectDominantLanguageCommand(input);
  * const response = await client.send(command);
  * ```

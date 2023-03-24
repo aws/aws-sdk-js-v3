@@ -43,6 +43,12 @@ export interface ListTopicRulesCommandOutput extends ListTopicRulesResponse, __M
  * import { IoTClient, ListTopicRulesCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, ListTopicRulesCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = {
+ *   topic: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ *   ruleDisabled: true || false,
+ * };
  * const command = new ListTopicRulesCommand(input);
  * const response = await client.send(command);
  * ```

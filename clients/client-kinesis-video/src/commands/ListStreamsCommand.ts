@@ -44,6 +44,14 @@ export interface ListStreamsCommandOutput extends ListStreamsOutput, __MetadataB
  * import { KinesisVideoClient, ListStreamsCommand } from "@aws-sdk/client-kinesis-video"; // ES Modules import
  * // const { KinesisVideoClient, ListStreamsCommand } = require("@aws-sdk/client-kinesis-video"); // CommonJS import
  * const client = new KinesisVideoClient(config);
+ * const input = {
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   StreamNameCondition: {
+ *     ComparisonOperator: "BEGINS_WITH",
+ *     ComparisonValue: "STRING_VALUE",
+ *   },
+ * };
  * const command = new ListStreamsCommand(input);
  * const response = await client.send(command);
  * ```

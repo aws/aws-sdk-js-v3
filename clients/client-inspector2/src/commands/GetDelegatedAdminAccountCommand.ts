@@ -43,6 +43,7 @@ export interface GetDelegatedAdminAccountCommandOutput extends GetDelegatedAdmin
  * import { Inspector2Client, GetDelegatedAdminAccountCommand } from "@aws-sdk/client-inspector2"; // ES Modules import
  * // const { Inspector2Client, GetDelegatedAdminAccountCommand } = require("@aws-sdk/client-inspector2"); // CommonJS import
  * const client = new Inspector2Client(config);
+ * const input = {};
  * const command = new GetDelegatedAdminAccountCommand(input);
  * const response = await client.send(command);
  * ```

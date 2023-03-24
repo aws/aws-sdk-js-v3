@@ -50,6 +50,18 @@ export interface CreateTrustStoreCommandOutput extends CreateTrustStoreResponse,
  * import { WorkSpacesWebClient, CreateTrustStoreCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
  * // const { WorkSpacesWebClient, CreateTrustStoreCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
  * const client = new WorkSpacesWebClient(config);
+ * const input = {
+ *   certificateList: [ // required
+ *     "BLOB_VALUE",
+ *   ],
+ *   tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new CreateTrustStoreCommand(input);
  * const response = await client.send(command);
  * ```

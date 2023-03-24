@@ -42,6 +42,13 @@ export interface ListDatasetContentsCommandOutput extends ListDatasetContentsRes
  * import { IoTAnalyticsClient, ListDatasetContentsCommand } from "@aws-sdk/client-iotanalytics"; // ES Modules import
  * // const { IoTAnalyticsClient, ListDatasetContentsCommand } = require("@aws-sdk/client-iotanalytics"); // CommonJS import
  * const client = new IoTAnalyticsClient(config);
+ * const input = {
+ *   datasetName: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   scheduledOnOrAfter: new Date("TIMESTAMP"),
+ *   scheduledBefore: new Date("TIMESTAMP"),
+ * };
  * const command = new ListDatasetContentsCommand(input);
  * const response = await client.send(command);
  * ```

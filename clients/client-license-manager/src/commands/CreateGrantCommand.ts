@@ -42,6 +42,18 @@ export interface CreateGrantCommandOutput extends CreateGrantResponse, __Metadat
  * import { LicenseManagerClient, CreateGrantCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
  * // const { LicenseManagerClient, CreateGrantCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
  * const client = new LicenseManagerClient(config);
+ * const input = {
+ *   ClientToken: "STRING_VALUE", // required
+ *   GrantName: "STRING_VALUE", // required
+ *   LicenseArn: "STRING_VALUE", // required
+ *   Principals: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ *   HomeRegion: "STRING_VALUE", // required
+ *   AllowedOperations: [ // required
+ *     "CreateGrant" || "CheckoutLicense" || "CheckoutBorrowLicense" || "CheckInLicense" || "ExtendConsumptionLicense" || "ListPurchasedLicenses" || "CreateToken",
+ *   ],
+ * };
  * const command = new CreateGrantCommand(input);
  * const response = await client.send(command);
  * ```

@@ -52,6 +52,16 @@ export interface CreateAttendeeCommandOutput extends CreateAttendeeResponse, __M
  * import { ChimeClient, CreateAttendeeCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, CreateAttendeeCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = {
+ *   MeetingId: "STRING_VALUE", // required
+ *   ExternalUserId: "STRING_VALUE", // required
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateAttendeeCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,9 @@ export interface DeleteSipRuleCommandOutput extends __MetadataBearer {}
  * import { ChimeClient, DeleteSipRuleCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, DeleteSipRuleCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = {
+ *   SipRuleId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteSipRuleCommand(input);
  * const response = await client.send(command);
  * ```

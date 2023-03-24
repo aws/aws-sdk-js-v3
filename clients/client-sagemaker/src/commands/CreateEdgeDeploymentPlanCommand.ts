@@ -42,6 +42,38 @@ export interface CreateEdgeDeploymentPlanCommandOutput extends CreateEdgeDeploym
  * import { SageMakerClient, CreateEdgeDeploymentPlanCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, CreateEdgeDeploymentPlanCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = {
+ *   EdgeDeploymentPlanName: "STRING_VALUE", // required
+ *   ModelConfigs: [ // required
+ *     {
+ *       ModelHandle: "STRING_VALUE", // required
+ *       EdgePackagingJobName: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   DeviceFleetName: "STRING_VALUE", // required
+ *   Stages: [
+ *     {
+ *       StageName: "STRING_VALUE", // required
+ *       DeviceSelectionConfig: {
+ *         DeviceSubsetType: "PERCENTAGE" || "SELECTION" || "NAMECONTAINS", // required
+ *         Percentage: Number("int"),
+ *         DeviceNames: [
+ *           "STRING_VALUE",
+ *         ],
+ *         DeviceNameContains: "STRING_VALUE",
+ *       },
+ *       DeploymentConfig: {
+ *         FailureHandlingPolicy: "ROLLBACK_ON_FAILURE" || "DO_NOTHING", // required
+ *       },
+ *     },
+ *   ],
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateEdgeDeploymentPlanCommand(input);
  * const response = await client.send(command);
  * ```

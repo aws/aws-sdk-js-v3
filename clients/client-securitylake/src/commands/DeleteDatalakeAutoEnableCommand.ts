@@ -47,6 +47,16 @@ export interface DeleteDatalakeAutoEnableCommandOutput extends DeleteDatalakeAut
  * import { SecurityLakeClient, DeleteDatalakeAutoEnableCommand } from "@aws-sdk/client-securitylake"; // ES Modules import
  * // const { SecurityLakeClient, DeleteDatalakeAutoEnableCommand } = require("@aws-sdk/client-securitylake"); // CommonJS import
  * const client = new SecurityLakeClient(config);
+ * const input = {
+ *   removeFromConfigurationForNewAccounts: [ // required
+ *     {
+ *       region: "STRING_VALUE", // required
+ *       sources: [ // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ * };
  * const command = new DeleteDatalakeAutoEnableCommand(input);
  * const response = await client.send(command);
  * ```

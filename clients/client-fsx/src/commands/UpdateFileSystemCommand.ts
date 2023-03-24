@@ -198,6 +198,75 @@ export interface UpdateFileSystemCommandOutput extends UpdateFileSystemResponse,
  * import { FSxClient, UpdateFileSystemCommand } from "@aws-sdk/client-fsx"; // ES Modules import
  * // const { FSxClient, UpdateFileSystemCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
  * const client = new FSxClient(config);
+ * const input = {
+ *   FileSystemId: "STRING_VALUE", // required
+ *   ClientRequestToken: "STRING_VALUE",
+ *   StorageCapacity: Number("int"),
+ *   WindowsConfiguration: {
+ *     WeeklyMaintenanceStartTime: "STRING_VALUE",
+ *     DailyAutomaticBackupStartTime: "STRING_VALUE",
+ *     AutomaticBackupRetentionDays: Number("int"),
+ *     ThroughputCapacity: Number("int"),
+ *     SelfManagedActiveDirectoryConfiguration: {
+ *       UserName: "STRING_VALUE",
+ *       Password: "STRING_VALUE",
+ *       DnsIps: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *     AuditLogConfiguration: {
+ *       FileAccessAuditLogLevel: "DISABLED" || "SUCCESS_ONLY" || "FAILURE_ONLY" || "SUCCESS_AND_FAILURE", // required
+ *       FileShareAccessAuditLogLevel: "DISABLED" || "SUCCESS_ONLY" || "FAILURE_ONLY" || "SUCCESS_AND_FAILURE", // required
+ *       AuditLogDestination: "STRING_VALUE",
+ *     },
+ *   },
+ *   LustreConfiguration: {
+ *     WeeklyMaintenanceStartTime: "STRING_VALUE",
+ *     DailyAutomaticBackupStartTime: "STRING_VALUE",
+ *     AutomaticBackupRetentionDays: Number("int"),
+ *     AutoImportPolicy: "NONE" || "NEW" || "NEW_CHANGED" || "NEW_CHANGED_DELETED",
+ *     DataCompressionType: "NONE" || "LZ4",
+ *     LogConfiguration: {
+ *       Level: "DISABLED" || "WARN_ONLY" || "ERROR_ONLY" || "WARN_ERROR", // required
+ *       Destination: "STRING_VALUE",
+ *     },
+ *     RootSquashConfiguration: {
+ *       RootSquash: "STRING_VALUE",
+ *       NoSquashNids: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   },
+ *   OntapConfiguration: {
+ *     AutomaticBackupRetentionDays: Number("int"),
+ *     DailyAutomaticBackupStartTime: "STRING_VALUE",
+ *     FsxAdminPassword: "STRING_VALUE",
+ *     WeeklyMaintenanceStartTime: "STRING_VALUE",
+ *     DiskIopsConfiguration: {
+ *       Mode: "AUTOMATIC" || "USER_PROVISIONED",
+ *       Iops: Number("long"),
+ *     },
+ *     ThroughputCapacity: Number("int"),
+ *     AddRouteTableIds: [
+ *       "STRING_VALUE",
+ *     ],
+ *     RemoveRouteTableIds: [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   OpenZFSConfiguration: {
+ *     AutomaticBackupRetentionDays: Number("int"),
+ *     CopyTagsToBackups: true || false,
+ *     CopyTagsToVolumes: true || false,
+ *     DailyAutomaticBackupStartTime: "STRING_VALUE",
+ *     ThroughputCapacity: Number("int"),
+ *     WeeklyMaintenanceStartTime: "STRING_VALUE",
+ *     DiskIopsConfiguration: {
+ *       Mode: "AUTOMATIC" || "USER_PROVISIONED",
+ *       Iops: Number("long"),
+ *     },
+ *   },
+ * };
  * const command = new UpdateFileSystemCommand(input);
  * const response = await client.send(command);
  * ```

@@ -48,6 +48,12 @@ export interface CreateIngestionCommandOutput extends CreateIngestionResponse, _
  * import { QuickSightClient, CreateIngestionCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, CreateIngestionCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
+ * const input = {
+ *   DataSetId: "STRING_VALUE", // required
+ *   IngestionId: "STRING_VALUE", // required
+ *   AwsAccountId: "STRING_VALUE", // required
+ *   IngestionType: "INCREMENTAL_REFRESH" || "FULL_REFRESH",
+ * };
  * const command = new CreateIngestionCommand(input);
  * const response = await client.send(command);
  * ```

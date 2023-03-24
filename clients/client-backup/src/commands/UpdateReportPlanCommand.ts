@@ -43,6 +43,34 @@ export interface UpdateReportPlanCommandOutput extends UpdateReportPlanOutput, _
  * import { BackupClient, UpdateReportPlanCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, UpdateReportPlanCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
+ * const input = {
+ *   ReportPlanName: "STRING_VALUE", // required
+ *   ReportPlanDescription: "STRING_VALUE",
+ *   ReportDeliveryChannel: {
+ *     S3BucketName: "STRING_VALUE", // required
+ *     S3KeyPrefix: "STRING_VALUE",
+ *     Formats: [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   ReportSetting: {
+ *     ReportTemplate: "STRING_VALUE", // required
+ *     FrameworkArns: [
+ *       "STRING_VALUE",
+ *     ],
+ *     NumberOfFrameworks: Number("int"),
+ *     Accounts: [
+ *       "STRING_VALUE",
+ *     ],
+ *     OrganizationUnits: [
+ *       "STRING_VALUE",
+ *     ],
+ *     Regions: [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   IdempotencyToken: "STRING_VALUE",
+ * };
  * const command = new UpdateReportPlanCommand(input);
  * const response = await client.send(command);
  * ```

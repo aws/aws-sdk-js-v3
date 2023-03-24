@@ -50,6 +50,20 @@ export interface CreateCustomRoutingEndpointGroupCommandOutput
  * import { GlobalAcceleratorClient, CreateCustomRoutingEndpointGroupCommand } from "@aws-sdk/client-global-accelerator"; // ES Modules import
  * // const { GlobalAcceleratorClient, CreateCustomRoutingEndpointGroupCommand } = require("@aws-sdk/client-global-accelerator"); // CommonJS import
  * const client = new GlobalAcceleratorClient(config);
+ * const input = {
+ *   ListenerArn: "STRING_VALUE", // required
+ *   EndpointGroupRegion: "STRING_VALUE", // required
+ *   DestinationConfigurations: [ // required
+ *     {
+ *       FromPort: Number("int"), // required
+ *       ToPort: Number("int"), // required
+ *       Protocols: [ // required
+ *         "TCP" || "UDP",
+ *       ],
+ *     },
+ *   ],
+ *   IdempotencyToken: "STRING_VALUE", // required
+ * };
  * const command = new CreateCustomRoutingEndpointGroupCommand(input);
  * const response = await client.send(command);
  * ```

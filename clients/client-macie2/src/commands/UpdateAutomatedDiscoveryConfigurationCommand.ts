@@ -48,6 +48,9 @@ export interface UpdateAutomatedDiscoveryConfigurationCommandOutput
  * import { Macie2Client, UpdateAutomatedDiscoveryConfigurationCommand } from "@aws-sdk/client-macie2"; // ES Modules import
  * // const { Macie2Client, UpdateAutomatedDiscoveryConfigurationCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
  * const client = new Macie2Client(config);
+ * const input = {
+ *   status: "ENABLED" || "DISABLED", // required
+ * };
  * const command = new UpdateAutomatedDiscoveryConfigurationCommand(input);
  * const response = await client.send(command);
  * ```

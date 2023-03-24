@@ -43,6 +43,12 @@ export interface UpdateAssetCommandOutput extends UpdateAssetResponse, __Metadat
  * import { IoTSiteWiseClient, UpdateAssetCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, UpdateAssetCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
+ * const input = {
+ *   assetId: "STRING_VALUE", // required
+ *   assetName: "STRING_VALUE", // required
+ *   clientToken: "STRING_VALUE",
+ *   assetDescription: "STRING_VALUE",
+ * };
  * const command = new UpdateAssetCommand(input);
  * const response = await client.send(command);
  * ```

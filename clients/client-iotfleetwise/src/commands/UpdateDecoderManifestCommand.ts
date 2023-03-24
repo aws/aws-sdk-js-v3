@@ -44,6 +44,113 @@ export interface UpdateDecoderManifestCommandOutput extends UpdateDecoderManifes
  * import { IoTFleetWiseClient, UpdateDecoderManifestCommand } from "@aws-sdk/client-iotfleetwise"; // ES Modules import
  * // const { IoTFleetWiseClient, UpdateDecoderManifestCommand } = require("@aws-sdk/client-iotfleetwise"); // CommonJS import
  * const client = new IoTFleetWiseClient(config);
+ * const input = {
+ *   name: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   signalDecodersToAdd: [
+ *     {
+ *       fullyQualifiedName: "STRING_VALUE", // required
+ *       type: "STRING_VALUE", // required
+ *       interfaceId: "STRING_VALUE", // required
+ *       canSignal: {
+ *         messageId: Number("int"), // required
+ *         isBigEndian: true || false, // required
+ *         isSigned: true || false, // required
+ *         startBit: Number("int"), // required
+ *         offset: Number("double"), // required
+ *         factor: Number("double"), // required
+ *         length: Number("int"), // required
+ *         name: "STRING_VALUE",
+ *       },
+ *       obdSignal: {
+ *         pidResponseLength: Number("int"), // required
+ *         serviceMode: Number("int"), // required
+ *         pid: Number("int"), // required
+ *         scaling: Number("double"), // required
+ *         offset: Number("double"), // required
+ *         startByte: Number("int"), // required
+ *         byteLength: Number("int"), // required
+ *         bitRightShift: Number("int"),
+ *         bitMaskLength: Number("int"),
+ *       },
+ *     },
+ *   ],
+ *   signalDecodersToUpdate: [
+ *     {
+ *       fullyQualifiedName: "STRING_VALUE", // required
+ *       type: "STRING_VALUE", // required
+ *       interfaceId: "STRING_VALUE", // required
+ *       canSignal: {
+ *         messageId: Number("int"), // required
+ *         isBigEndian: true || false, // required
+ *         isSigned: true || false, // required
+ *         startBit: Number("int"), // required
+ *         offset: Number("double"), // required
+ *         factor: Number("double"), // required
+ *         length: Number("int"), // required
+ *         name: "STRING_VALUE",
+ *       },
+ *       obdSignal: {
+ *         pidResponseLength: Number("int"), // required
+ *         serviceMode: Number("int"), // required
+ *         pid: Number("int"), // required
+ *         scaling: Number("double"), // required
+ *         offset: Number("double"), // required
+ *         startByte: Number("int"), // required
+ *         byteLength: Number("int"), // required
+ *         bitRightShift: Number("int"),
+ *         bitMaskLength: Number("int"),
+ *       },
+ *     },
+ *   ],
+ *   signalDecodersToRemove: [
+ *     "STRING_VALUE",
+ *   ],
+ *   networkInterfacesToAdd: [
+ *     {
+ *       interfaceId: "STRING_VALUE", // required
+ *       type: "STRING_VALUE", // required
+ *       canInterface: {
+ *         name: "STRING_VALUE", // required
+ *         protocolName: "STRING_VALUE",
+ *         protocolVersion: "STRING_VALUE",
+ *       },
+ *       obdInterface: {
+ *         name: "STRING_VALUE", // required
+ *         requestMessageId: Number("int"), // required
+ *         obdStandard: "STRING_VALUE",
+ *         pidRequestIntervalSeconds: Number("int"),
+ *         dtcRequestIntervalSeconds: Number("int"),
+ *         useExtendedIds: true || false,
+ *         hasTransmissionEcu: true || false,
+ *       },
+ *     },
+ *   ],
+ *   networkInterfacesToUpdate: [
+ *     {
+ *       interfaceId: "STRING_VALUE", // required
+ *       type: "STRING_VALUE", // required
+ *       canInterface: {
+ *         name: "STRING_VALUE", // required
+ *         protocolName: "STRING_VALUE",
+ *         protocolVersion: "STRING_VALUE",
+ *       },
+ *       obdInterface: {
+ *         name: "STRING_VALUE", // required
+ *         requestMessageId: Number("int"), // required
+ *         obdStandard: "STRING_VALUE",
+ *         pidRequestIntervalSeconds: Number("int"),
+ *         dtcRequestIntervalSeconds: Number("int"),
+ *         useExtendedIds: true || false,
+ *         hasTransmissionEcu: true || false,
+ *       },
+ *     },
+ *   ],
+ *   networkInterfacesToRemove: [
+ *     "STRING_VALUE",
+ *   ],
+ *   status: "STRING_VALUE",
+ * };
  * const command = new UpdateDecoderManifestCommand(input);
  * const response = await client.send(command);
  * ```

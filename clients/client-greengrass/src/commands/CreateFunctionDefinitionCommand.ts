@@ -42,6 +42,58 @@ export interface CreateFunctionDefinitionCommandOutput extends CreateFunctionDef
  * import { GreengrassClient, CreateFunctionDefinitionCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, CreateFunctionDefinitionCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
+ * const input = {
+ *   AmznClientToken: "STRING_VALUE",
+ *   InitialVersion: {
+ *     DefaultConfig: {
+ *       Execution: {
+ *         IsolationMode: "GreengrassContainer" || "NoContainer",
+ *         RunAs: {
+ *           Gid: Number("int"),
+ *           Uid: Number("int"),
+ *         },
+ *       },
+ *     },
+ *     Functions: [
+ *       {
+ *         FunctionArn: "STRING_VALUE",
+ *         FunctionConfiguration: {
+ *           EncodingType: "binary" || "json",
+ *           Environment: {
+ *             AccessSysfs: true || false,
+ *             Execution: {
+ *               IsolationMode: "GreengrassContainer" || "NoContainer",
+ *               RunAs: {
+ *                 Gid: Number("int"),
+ *                 Uid: Number("int"),
+ *               },
+ *             },
+ *             ResourceAccessPolicies: [
+ *               {
+ *                 Permission: "ro" || "rw",
+ *                 ResourceId: "STRING_VALUE", // required
+ *               },
+ *             ],
+ *             Variables: {
+ *               "<keys>": "STRING_VALUE",
+ *             },
+ *           },
+ *           ExecArgs: "STRING_VALUE",
+ *           Executable: "STRING_VALUE",
+ *           MemorySize: Number("int"),
+ *           Pinned: true || false,
+ *           Timeout: Number("int"),
+ *           FunctionRuntimeOverride: "STRING_VALUE",
+ *         },
+ *         Id: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *   },
+ *   Name: "STRING_VALUE",
+ *   tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateFunctionDefinitionCommand(input);
  * const response = await client.send(command);
  * ```

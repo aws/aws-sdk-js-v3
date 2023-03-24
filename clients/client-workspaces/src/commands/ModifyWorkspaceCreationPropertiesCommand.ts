@@ -44,6 +44,17 @@ export interface ModifyWorkspaceCreationPropertiesCommandOutput
  * import { WorkSpacesClient, ModifyWorkspaceCreationPropertiesCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, ModifyWorkspaceCreationPropertiesCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
  * const client = new WorkSpacesClient(config);
+ * const input = {
+ *   ResourceId: "STRING_VALUE", // required
+ *   WorkspaceCreationProperties: {
+ *     EnableWorkDocs: true || false,
+ *     EnableInternetAccess: true || false,
+ *     DefaultOu: "STRING_VALUE",
+ *     CustomSecurityGroupId: "STRING_VALUE",
+ *     UserEnabledAsLocalAdministrator: true || false,
+ *     EnableMaintenanceMode: true || false,
+ *   },
+ * };
  * const command = new ModifyWorkspaceCreationPropertiesCommand(input);
  * const response = await client.send(command);
  * ```

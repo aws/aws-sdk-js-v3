@@ -46,6 +46,10 @@ export interface PostToConnectionCommandOutput extends __MetadataBearer {}
  * import { ApiGatewayManagementApiClient, PostToConnectionCommand } from "@aws-sdk/client-apigatewaymanagementapi"; // ES Modules import
  * // const { ApiGatewayManagementApiClient, PostToConnectionCommand } = require("@aws-sdk/client-apigatewaymanagementapi"); // CommonJS import
  * const client = new ApiGatewayManagementApiClient(config);
+ * const input = {
+ *   Data: "BLOB_VALUE", // required
+ *   ConnectionId: "STRING_VALUE", // required
+ * };
  * const command = new PostToConnectionCommand(input);
  * const response = await client.send(command);
  * ```

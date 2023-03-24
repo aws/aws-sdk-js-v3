@@ -88,6 +88,24 @@ export interface UpdateByteMatchSetCommandOutput extends UpdateByteMatchSetRespo
  * import { WAFRegionalClient, UpdateByteMatchSetCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
  * // const { WAFRegionalClient, UpdateByteMatchSetCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
  * const client = new WAFRegionalClient(config);
+ * const input = {
+ *   ByteMatchSetId: "STRING_VALUE", // required
+ *   ChangeToken: "STRING_VALUE", // required
+ *   Updates: [ // required
+ *     {
+ *       Action: "STRING_VALUE", // required
+ *       ByteMatchTuple: {
+ *         FieldToMatch: {
+ *           Type: "STRING_VALUE", // required
+ *           Data: "STRING_VALUE",
+ *         },
+ *         TargetString: "BLOB_VALUE", // required
+ *         TextTransformation: "STRING_VALUE", // required
+ *         PositionalConstraint: "STRING_VALUE", // required
+ *       },
+ *     },
+ *   ],
+ * };
  * const command = new UpdateByteMatchSetCommand(input);
  * const response = await client.send(command);
  * ```

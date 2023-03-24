@@ -46,6 +46,50 @@ export interface CreateTaskCommandOutput extends CreateTaskResponse, __MetadataB
  * import { DataSyncClient, CreateTaskCommand } from "@aws-sdk/client-datasync"; // ES Modules import
  * // const { DataSyncClient, CreateTaskCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
  * const client = new DataSyncClient(config);
+ * const input = {
+ *   SourceLocationArn: "STRING_VALUE", // required
+ *   DestinationLocationArn: "STRING_VALUE", // required
+ *   CloudWatchLogGroupArn: "STRING_VALUE",
+ *   Name: "STRING_VALUE",
+ *   Options: {
+ *     VerifyMode: "POINT_IN_TIME_CONSISTENT" || "ONLY_FILES_TRANSFERRED" || "NONE",
+ *     OverwriteMode: "ALWAYS" || "NEVER",
+ *     Atime: "NONE" || "BEST_EFFORT",
+ *     Mtime: "NONE" || "PRESERVE",
+ *     Uid: "NONE" || "INT_VALUE" || "NAME" || "BOTH",
+ *     Gid: "NONE" || "INT_VALUE" || "NAME" || "BOTH",
+ *     PreserveDeletedFiles: "PRESERVE" || "REMOVE",
+ *     PreserveDevices: "NONE" || "PRESERVE",
+ *     PosixPermissions: "NONE" || "PRESERVE",
+ *     BytesPerSecond: Number("long"),
+ *     TaskQueueing: "ENABLED" || "DISABLED",
+ *     LogLevel: "OFF" || "BASIC" || "TRANSFER",
+ *     TransferMode: "CHANGED" || "ALL",
+ *     SecurityDescriptorCopyFlags: "NONE" || "OWNER_DACL" || "OWNER_DACL_SACL",
+ *     ObjectTags: "PRESERVE" || "NONE",
+ *   },
+ *   Excludes: [
+ *     {
+ *       FilterType: "SIMPLE_PATTERN",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   Schedule: {
+ *     ScheduleExpression: "STRING_VALUE", // required
+ *   },
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   Includes: [
+ *     {
+ *       FilterType: "SIMPLE_PATTERN",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateTaskCommand(input);
  * const response = await client.send(command);
  * ```

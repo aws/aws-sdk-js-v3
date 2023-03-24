@@ -42,6 +42,10 @@ export interface GetSigningProfileCommandOutput extends GetSigningProfileRespons
  * import { SignerClient, GetSigningProfileCommand } from "@aws-sdk/client-signer"; // ES Modules import
  * // const { SignerClient, GetSigningProfileCommand } = require("@aws-sdk/client-signer"); // CommonJS import
  * const client = new SignerClient(config);
+ * const input = {
+ *   profileName: "STRING_VALUE", // required
+ *   profileOwner: "STRING_VALUE",
+ * };
  * const command = new GetSigningProfileCommand(input);
  * const response = await client.send(command);
  * ```

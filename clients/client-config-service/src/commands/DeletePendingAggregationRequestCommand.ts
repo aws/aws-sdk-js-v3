@@ -43,6 +43,10 @@ export interface DeletePendingAggregationRequestCommandOutput extends __Metadata
  * import { ConfigServiceClient, DeletePendingAggregationRequestCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, DeletePendingAggregationRequestCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
+ * const input = {
+ *   RequesterAccountId: "STRING_VALUE", // required
+ *   RequesterAwsRegion: "STRING_VALUE", // required
+ * };
  * const command = new DeletePendingAggregationRequestCommand(input);
  * const response = await client.send(command);
  * ```

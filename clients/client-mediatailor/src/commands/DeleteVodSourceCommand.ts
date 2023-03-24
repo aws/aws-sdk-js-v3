@@ -42,6 +42,10 @@ export interface DeleteVodSourceCommandOutput extends DeleteVodSourceResponse, _
  * import { MediaTailorClient, DeleteVodSourceCommand } from "@aws-sdk/client-mediatailor"; // ES Modules import
  * // const { MediaTailorClient, DeleteVodSourceCommand } = require("@aws-sdk/client-mediatailor"); // CommonJS import
  * const client = new MediaTailorClient(config);
+ * const input = {
+ *   SourceLocationName: "STRING_VALUE", // required
+ *   VodSourceName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteVodSourceCommand(input);
  * const response = await client.send(command);
  * ```

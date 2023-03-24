@@ -42,6 +42,32 @@ export interface AddFacetToObjectCommandOutput extends AddFacetToObjectResponse,
  * import { CloudDirectoryClient, AddFacetToObjectCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, AddFacetToObjectCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
  * const client = new CloudDirectoryClient(config);
+ * const input = {
+ *   DirectoryArn: "STRING_VALUE", // required
+ *   SchemaFacet: {
+ *     SchemaArn: "STRING_VALUE",
+ *     FacetName: "STRING_VALUE",
+ *   },
+ *   ObjectAttributeList: [
+ *     {
+ *       Key: {
+ *         SchemaArn: "STRING_VALUE", // required
+ *         FacetName: "STRING_VALUE", // required
+ *         Name: "STRING_VALUE", // required
+ *       },
+ *       Value: { // Union: only one key present
+ *         StringValue: "STRING_VALUE",
+ *         BinaryValue: "BLOB_VALUE",
+ *         BooleanValue: true || false,
+ *         NumberValue: "STRING_VALUE",
+ *         DatetimeValue: new Date("TIMESTAMP"),
+ *       },
+ *     },
+ *   ],
+ *   ObjectReference: {
+ *     Selector: "STRING_VALUE",
+ *   },
+ * };
  * const command = new AddFacetToObjectCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,18 @@ export interface CreateSmsTemplateCommandOutput extends CreateSmsTemplateRespons
  * import { PinpointClient, CreateSmsTemplateCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, CreateSmsTemplateCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
+ * const input = {
+ *   SMSTemplateRequest: {
+ *     Body: "STRING_VALUE",
+ *     DefaultSubstitutions: "STRING_VALUE",
+ *     RecommenderId: "STRING_VALUE",
+ *     tags: {
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *     TemplateDescription: "STRING_VALUE",
+ *   },
+ *   TemplateName: "STRING_VALUE", // required
+ * };
  * const command = new CreateSmsTemplateCommand(input);
  * const response = await client.send(command);
  * ```

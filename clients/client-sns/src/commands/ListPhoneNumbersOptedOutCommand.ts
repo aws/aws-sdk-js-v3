@@ -49,6 +49,9 @@ export interface ListPhoneNumbersOptedOutCommandOutput extends ListPhoneNumbersO
  * import { SNSClient, ListPhoneNumbersOptedOutCommand } from "@aws-sdk/client-sns"; // ES Modules import
  * // const { SNSClient, ListPhoneNumbersOptedOutCommand } = require("@aws-sdk/client-sns"); // CommonJS import
  * const client = new SNSClient(config);
+ * const input = {
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListPhoneNumbersOptedOutCommand(input);
  * const response = await client.send(command);
  * ```

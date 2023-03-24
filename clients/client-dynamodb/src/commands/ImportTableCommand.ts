@@ -42,6 +42,70 @@ export interface ImportTableCommandOutput extends ImportTableOutput, __MetadataB
  * import { DynamoDBClient, ImportTableCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
  * // const { DynamoDBClient, ImportTableCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
  * const client = new DynamoDBClient(config);
+ * const input = {
+ *   ClientToken: "STRING_VALUE",
+ *   S3BucketSource: {
+ *     S3BucketOwner: "STRING_VALUE",
+ *     S3Bucket: "STRING_VALUE", // required
+ *     S3KeyPrefix: "STRING_VALUE",
+ *   },
+ *   InputFormat: "DYNAMODB_JSON" || "ION" || "CSV", // required
+ *   InputFormatOptions: {
+ *     Csv: {
+ *       Delimiter: "STRING_VALUE",
+ *       HeaderList: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   },
+ *   InputCompressionType: "GZIP" || "ZSTD" || "NONE",
+ *   TableCreationParameters: {
+ *     TableName: "STRING_VALUE", // required
+ *     AttributeDefinitions: [ // required
+ *       {
+ *         AttributeName: "STRING_VALUE", // required
+ *         AttributeType: "S" || "N" || "B", // required
+ *       },
+ *     ],
+ *     KeySchema: [ // required
+ *       {
+ *         AttributeName: "STRING_VALUE", // required
+ *         KeyType: "HASH" || "RANGE", // required
+ *       },
+ *     ],
+ *     BillingMode: "PROVISIONED" || "PAY_PER_REQUEST",
+ *     ProvisionedThroughput: {
+ *       ReadCapacityUnits: Number("long"), // required
+ *       WriteCapacityUnits: Number("long"), // required
+ *     },
+ *     SSESpecification: {
+ *       Enabled: true || false,
+ *       SSEType: "AES256" || "KMS",
+ *       KMSMasterKeyId: "STRING_VALUE",
+ *     },
+ *     GlobalSecondaryIndexes: [
+ *       {
+ *         IndexName: "STRING_VALUE", // required
+ *         KeySchema: [ // required
+ *           {
+ *             AttributeName: "STRING_VALUE", // required
+ *             KeyType: "HASH" || "RANGE", // required
+ *           },
+ *         ],
+ *         Projection: {
+ *           ProjectionType: "ALL" || "KEYS_ONLY" || "INCLUDE",
+ *           NonKeyAttributes: [
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *         ProvisionedThroughput: {
+ *           ReadCapacityUnits: Number("long"), // required
+ *           WriteCapacityUnits: Number("long"), // required
+ *         },
+ *       },
+ *     ],
+ *   },
+ * };
  * const command = new ImportTableCommand(input);
  * const response = await client.send(command);
  * ```

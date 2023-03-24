@@ -45,6 +45,14 @@ export interface CreateEmailTemplateCommandOutput extends CreateEmailTemplateRes
  * import { SESv2Client, CreateEmailTemplateCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, CreateEmailTemplateCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
  * const client = new SESv2Client(config);
+ * const input = {
+ *   TemplateName: "STRING_VALUE", // required
+ *   TemplateContent: {
+ *     Subject: "STRING_VALUE",
+ *     Text: "STRING_VALUE",
+ *     Html: "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateEmailTemplateCommand(input);
  * const response = await client.send(command);
  * ```

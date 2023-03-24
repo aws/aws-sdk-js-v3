@@ -44,6 +44,75 @@ export interface UpdateConfigCommandOutput extends ConfigIdResponse, __MetadataB
  * import { GroundStationClient, UpdateConfigCommand } from "@aws-sdk/client-groundstation"; // ES Modules import
  * // const { GroundStationClient, UpdateConfigCommand } = require("@aws-sdk/client-groundstation"); // CommonJS import
  * const client = new GroundStationClient(config);
+ * const input = {
+ *   configId: "STRING_VALUE", // required
+ *   name: "STRING_VALUE", // required
+ *   configType: "STRING_VALUE", // required
+ *   configData: { // Union: only one key present
+ *     antennaDownlinkConfig: {
+ *       spectrumConfig: {
+ *         centerFrequency: {
+ *           value: Number("double"), // required
+ *           units: "STRING_VALUE", // required
+ *         },
+ *         bandwidth: {
+ *           value: Number("double"), // required
+ *           units: "STRING_VALUE", // required
+ *         },
+ *         polarization: "STRING_VALUE",
+ *       },
+ *     },
+ *     trackingConfig: {
+ *       autotrack: "STRING_VALUE", // required
+ *     },
+ *     dataflowEndpointConfig: {
+ *       dataflowEndpointName: "STRING_VALUE", // required
+ *       dataflowEndpointRegion: "STRING_VALUE",
+ *     },
+ *     antennaDownlinkDemodDecodeConfig: {
+ *       spectrumConfig: {
+ *         centerFrequency: {
+ *           value: Number("double"), // required
+ *           units: "STRING_VALUE", // required
+ *         },
+ *         bandwidth: {
+ *           value: Number("double"), // required
+ *           units: "STRING_VALUE", // required
+ *         },
+ *         polarization: "STRING_VALUE",
+ *       },
+ *       demodulationConfig: {
+ *         unvalidatedJSON: "STRING_VALUE", // required
+ *       },
+ *       decodeConfig: {
+ *         unvalidatedJSON: "STRING_VALUE", // required
+ *       },
+ *     },
+ *     antennaUplinkConfig: {
+ *       transmitDisabled: true || false,
+ *       spectrumConfig: {
+ *         centerFrequency: {
+ *           value: Number("double"), // required
+ *           units: "STRING_VALUE", // required
+ *         },
+ *         polarization: "STRING_VALUE",
+ *       },
+ *       targetEirp: {
+ *         value: Number("double"), // required
+ *         units: "STRING_VALUE", // required
+ *       },
+ *     },
+ *     uplinkEchoConfig: {
+ *       enabled: true || false, // required
+ *       antennaUplinkConfigArn: "STRING_VALUE", // required
+ *     },
+ *     s3RecordingConfig: {
+ *       bucketArn: "STRING_VALUE", // required
+ *       roleArn: "STRING_VALUE", // required
+ *       prefix: "STRING_VALUE",
+ *     },
+ *   },
+ * };
  * const command = new UpdateConfigCommand(input);
  * const response = await client.send(command);
  * ```

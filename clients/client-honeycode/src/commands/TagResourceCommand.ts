@@ -45,6 +45,12 @@ export interface TagResourceCommandOutput extends TagResourceResult, __MetadataB
  * import { HoneycodeClient, TagResourceCommand } from "@aws-sdk/client-honeycode"; // ES Modules import
  * // const { HoneycodeClient, TagResourceCommand } = require("@aws-sdk/client-honeycode"); // CommonJS import
  * const client = new HoneycodeClient(config);
+ * const input = {
+ *   resourceArn: "STRING_VALUE", // required
+ *   tags: { // required
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
  * ```

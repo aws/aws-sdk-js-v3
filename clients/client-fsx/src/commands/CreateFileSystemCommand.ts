@@ -91,6 +91,133 @@ export interface CreateFileSystemCommandOutput extends CreateFileSystemResponse,
  * import { FSxClient, CreateFileSystemCommand } from "@aws-sdk/client-fsx"; // ES Modules import
  * // const { FSxClient, CreateFileSystemCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
  * const client = new FSxClient(config);
+ * const input = {
+ *   ClientRequestToken: "STRING_VALUE",
+ *   FileSystemType: "WINDOWS" || "LUSTRE" || "ONTAP" || "OPENZFS", // required
+ *   StorageCapacity: Number("int"), // required
+ *   StorageType: "SSD" || "HDD",
+ *   SubnetIds: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ *   SecurityGroupIds: [
+ *     "STRING_VALUE",
+ *   ],
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   KmsKeyId: "STRING_VALUE",
+ *   WindowsConfiguration: {
+ *     ActiveDirectoryId: "STRING_VALUE",
+ *     SelfManagedActiveDirectoryConfiguration: {
+ *       DomainName: "STRING_VALUE", // required
+ *       OrganizationalUnitDistinguishedName: "STRING_VALUE",
+ *       FileSystemAdministratorsGroup: "STRING_VALUE",
+ *       UserName: "STRING_VALUE", // required
+ *       Password: "STRING_VALUE", // required
+ *       DnsIps: [ // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *     DeploymentType: "MULTI_AZ_1" || "SINGLE_AZ_1" || "SINGLE_AZ_2",
+ *     PreferredSubnetId: "STRING_VALUE",
+ *     ThroughputCapacity: Number("int"), // required
+ *     WeeklyMaintenanceStartTime: "STRING_VALUE",
+ *     DailyAutomaticBackupStartTime: "STRING_VALUE",
+ *     AutomaticBackupRetentionDays: Number("int"),
+ *     CopyTagsToBackups: true || false,
+ *     Aliases: [
+ *       "STRING_VALUE",
+ *     ],
+ *     AuditLogConfiguration: {
+ *       FileAccessAuditLogLevel: "DISABLED" || "SUCCESS_ONLY" || "FAILURE_ONLY" || "SUCCESS_AND_FAILURE", // required
+ *       FileShareAccessAuditLogLevel: "DISABLED" || "SUCCESS_ONLY" || "FAILURE_ONLY" || "SUCCESS_AND_FAILURE", // required
+ *       AuditLogDestination: "STRING_VALUE",
+ *     },
+ *   },
+ *   LustreConfiguration: {
+ *     WeeklyMaintenanceStartTime: "STRING_VALUE",
+ *     ImportPath: "STRING_VALUE",
+ *     ExportPath: "STRING_VALUE",
+ *     ImportedFileChunkSize: Number("int"),
+ *     DeploymentType: "SCRATCH_1" || "SCRATCH_2" || "PERSISTENT_1" || "PERSISTENT_2",
+ *     AutoImportPolicy: "NONE" || "NEW" || "NEW_CHANGED" || "NEW_CHANGED_DELETED",
+ *     PerUnitStorageThroughput: Number("int"),
+ *     DailyAutomaticBackupStartTime: "STRING_VALUE",
+ *     AutomaticBackupRetentionDays: Number("int"),
+ *     CopyTagsToBackups: true || false,
+ *     DriveCacheType: "NONE" || "READ",
+ *     DataCompressionType: "NONE" || "LZ4",
+ *     LogConfiguration: {
+ *       Level: "DISABLED" || "WARN_ONLY" || "ERROR_ONLY" || "WARN_ERROR", // required
+ *       Destination: "STRING_VALUE",
+ *     },
+ *     RootSquashConfiguration: {
+ *       RootSquash: "STRING_VALUE",
+ *       NoSquashNids: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   },
+ *   OntapConfiguration: {
+ *     AutomaticBackupRetentionDays: Number("int"),
+ *     DailyAutomaticBackupStartTime: "STRING_VALUE",
+ *     DeploymentType: "MULTI_AZ_1" || "SINGLE_AZ_1", // required
+ *     EndpointIpAddressRange: "STRING_VALUE",
+ *     FsxAdminPassword: "STRING_VALUE",
+ *     DiskIopsConfiguration: {
+ *       Mode: "AUTOMATIC" || "USER_PROVISIONED",
+ *       Iops: Number("long"),
+ *     },
+ *     PreferredSubnetId: "STRING_VALUE",
+ *     RouteTableIds: [
+ *       "STRING_VALUE",
+ *     ],
+ *     ThroughputCapacity: Number("int"), // required
+ *     WeeklyMaintenanceStartTime: "STRING_VALUE",
+ *   },
+ *   FileSystemTypeVersion: "STRING_VALUE",
+ *   OpenZFSConfiguration: {
+ *     AutomaticBackupRetentionDays: Number("int"),
+ *     CopyTagsToBackups: true || false,
+ *     CopyTagsToVolumes: true || false,
+ *     DailyAutomaticBackupStartTime: "STRING_VALUE",
+ *     DeploymentType: "SINGLE_AZ_1" || "SINGLE_AZ_2", // required
+ *     ThroughputCapacity: Number("int"), // required
+ *     WeeklyMaintenanceStartTime: "STRING_VALUE",
+ *     DiskIopsConfiguration: {
+ *       Mode: "AUTOMATIC" || "USER_PROVISIONED",
+ *       Iops: Number("long"),
+ *     },
+ *     RootVolumeConfiguration: {
+ *       RecordSizeKiB: Number("int"),
+ *       DataCompressionType: "NONE" || "ZSTD" || "LZ4",
+ *       NfsExports: [
+ *         {
+ *           ClientConfigurations: [ // required
+ *             {
+ *               Clients: "STRING_VALUE", // required
+ *               Options: [ // required
+ *                 "STRING_VALUE",
+ *               ],
+ *             },
+ *           ],
+ *         },
+ *       ],
+ *       UserAndGroupQuotas: [
+ *         {
+ *           Type: "USER" || "GROUP", // required
+ *           Id: Number("int"), // required
+ *           StorageCapacityQuotaGiB: Number("int"), // required
+ *         },
+ *       ],
+ *       CopyTagsToSnapshots: true || false,
+ *       ReadOnly: true || false,
+ *     },
+ *   },
+ * };
  * const command = new CreateFileSystemCommand(input);
  * const response = await client.send(command);
  * ```

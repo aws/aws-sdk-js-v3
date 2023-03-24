@@ -46,6 +46,12 @@ export interface BatchGetDevicePositionCommandOutput extends BatchGetDevicePosit
  * import { LocationClient, BatchGetDevicePositionCommand } from "@aws-sdk/client-location"; // ES Modules import
  * // const { LocationClient, BatchGetDevicePositionCommand } = require("@aws-sdk/client-location"); // CommonJS import
  * const client = new LocationClient(config);
+ * const input = {
+ *   TrackerName: "STRING_VALUE", // required
+ *   DeviceIds: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new BatchGetDevicePositionCommand(input);
  * const response = await client.send(command);
  * ```

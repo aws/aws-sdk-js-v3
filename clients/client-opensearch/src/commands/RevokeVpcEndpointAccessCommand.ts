@@ -43,6 +43,10 @@ export interface RevokeVpcEndpointAccessCommandOutput extends RevokeVpcEndpointA
  * import { OpenSearchClient, RevokeVpcEndpointAccessCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
  * // const { OpenSearchClient, RevokeVpcEndpointAccessCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
  * const client = new OpenSearchClient(config);
+ * const input = {
+ *   DomainName: "STRING_VALUE", // required
+ *   Account: "STRING_VALUE", // required
+ * };
  * const command = new RevokeVpcEndpointAccessCommand(input);
  * const response = await client.send(command);
  * ```

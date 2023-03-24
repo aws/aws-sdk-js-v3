@@ -46,6 +46,9 @@ export interface DeleteResourceSetCommandOutput extends __MetadataBearer {}
  * import { Route53RecoveryReadinessClient, DeleteResourceSetCommand } from "@aws-sdk/client-route53-recovery-readiness"; // ES Modules import
  * // const { Route53RecoveryReadinessClient, DeleteResourceSetCommand } = require("@aws-sdk/client-route53-recovery-readiness"); // CommonJS import
  * const client = new Route53RecoveryReadinessClient(config);
+ * const input = {
+ *   ResourceSetName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteResourceSetCommand(input);
  * const response = await client.send(command);
  * ```

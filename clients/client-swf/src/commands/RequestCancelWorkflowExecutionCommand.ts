@@ -80,6 +80,11 @@ export interface RequestCancelWorkflowExecutionCommandOutput extends __MetadataB
  * import { SWFClient, RequestCancelWorkflowExecutionCommand } from "@aws-sdk/client-swf"; // ES Modules import
  * // const { SWFClient, RequestCancelWorkflowExecutionCommand } = require("@aws-sdk/client-swf"); // CommonJS import
  * const client = new SWFClient(config);
+ * const input = {
+ *   domain: "STRING_VALUE", // required
+ *   workflowId: "STRING_VALUE", // required
+ *   runId: "STRING_VALUE",
+ * };
  * const command = new RequestCancelWorkflowExecutionCommand(input);
  * const response = await client.send(command);
  * ```

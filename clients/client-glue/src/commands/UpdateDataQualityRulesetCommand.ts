@@ -42,6 +42,12 @@ export interface UpdateDataQualityRulesetCommandOutput extends UpdateDataQuality
  * import { GlueClient, UpdateDataQualityRulesetCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, UpdateDataQualityRulesetCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = {
+ *   Name: "STRING_VALUE", // required
+ *   UpdatedName: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   Ruleset: "STRING_VALUE",
+ * };
  * const command = new UpdateDataQualityRulesetCommand(input);
  * const response = await client.send(command);
  * ```

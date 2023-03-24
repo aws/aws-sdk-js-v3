@@ -51,6 +51,12 @@ export interface ListAppsCommandOutput extends ListAppsResponse, __MetadataBeare
  * import { ResiliencehubClient, ListAppsCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
  * // const { ResiliencehubClient, ListAppsCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
  * const client = new ResiliencehubClient(config);
+ * const input = {
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   name: "STRING_VALUE",
+ *   appArn: "STRING_VALUE",
+ * };
  * const command = new ListAppsCommand(input);
  * const response = await client.send(command);
  * ```

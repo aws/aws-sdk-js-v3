@@ -43,6 +43,12 @@ export interface GetCardinalityCommandOutput extends GetCardinalityResponse, __M
  * import { IoTClient, GetCardinalityCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, GetCardinalityCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = {
+ *   indexName: "STRING_VALUE",
+ *   queryString: "STRING_VALUE", // required
+ *   aggregationField: "STRING_VALUE",
+ *   queryVersion: "STRING_VALUE",
+ * };
  * const command = new GetCardinalityCommand(input);
  * const response = await client.send(command);
  * ```

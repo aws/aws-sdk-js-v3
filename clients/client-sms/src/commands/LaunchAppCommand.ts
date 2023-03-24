@@ -39,6 +39,9 @@ export interface LaunchAppCommandOutput extends LaunchAppResponse, __MetadataBea
  * import { SMSClient, LaunchAppCommand } from "@aws-sdk/client-sms"; // ES Modules import
  * // const { SMSClient, LaunchAppCommand } = require("@aws-sdk/client-sms"); // CommonJS import
  * const client = new SMSClient(config);
+ * const input = {
+ *   appId: "STRING_VALUE",
+ * };
  * const command = new LaunchAppCommand(input);
  * const response = await client.send(command);
  * ```

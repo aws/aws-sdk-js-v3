@@ -42,6 +42,15 @@ export interface DescribeConfigRulesCommandOutput extends DescribeConfigRulesRes
  * import { ConfigServiceClient, DescribeConfigRulesCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, DescribeConfigRulesCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
+ * const input = {
+ *   ConfigRuleNames: [
+ *     "STRING_VALUE",
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ *   Filters: {
+ *     EvaluationMode: "DETECTIVE" || "PROACTIVE",
+ *   },
+ * };
  * const command = new DescribeConfigRulesCommand(input);
  * const response = await client.send(command);
  * ```

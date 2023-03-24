@@ -46,6 +46,46 @@ export interface CreateInstancesFromSnapshotCommandOutput extends CreateInstance
  * import { LightsailClient, CreateInstancesFromSnapshotCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, CreateInstancesFromSnapshotCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = {
+ *   instanceNames: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ *   attachedDiskMapping: {
+ *     "<keys>": [
+ *       {
+ *         originalDiskPath: "STRING_VALUE",
+ *         newDiskName: "STRING_VALUE",
+ *       },
+ *     ],
+ *   },
+ *   availabilityZone: "STRING_VALUE", // required
+ *   instanceSnapshotName: "STRING_VALUE",
+ *   bundleId: "STRING_VALUE", // required
+ *   userData: "STRING_VALUE",
+ *   keyPairName: "STRING_VALUE",
+ *   tags: [
+ *     {
+ *       key: "STRING_VALUE",
+ *       value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   addOns: [
+ *     {
+ *       addOnType: "AutoSnapshot" || "StopInstanceOnIdle", // required
+ *       autoSnapshotAddOnRequest: {
+ *         snapshotTimeOfDay: "STRING_VALUE",
+ *       },
+ *       stopInstanceOnIdleRequest: {
+ *         threshold: "STRING_VALUE",
+ *         duration: "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ *   ipAddressType: "dualstack" || "ipv4",
+ *   sourceInstanceName: "STRING_VALUE",
+ *   restoreDate: "STRING_VALUE",
+ *   useLatestRestorableAutoSnapshot: true || false,
+ * };
  * const command = new CreateInstancesFromSnapshotCommand(input);
  * const response = await client.send(command);
  * ```

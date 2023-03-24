@@ -62,6 +62,34 @@ export interface SignUpCommandOutput extends SignUpResponse, __MetadataBearer {}
  * import { CognitoIdentityProviderClient, SignUpCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, SignUpCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
+ * const input = {
+ *   ClientId: "STRING_VALUE", // required
+ *   SecretHash: "STRING_VALUE",
+ *   Username: "STRING_VALUE", // required
+ *   Password: "STRING_VALUE", // required
+ *   UserAttributes: [
+ *     {
+ *       Name: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   ValidationData: [
+ *     {
+ *       Name: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   AnalyticsMetadata: {
+ *     AnalyticsEndpointId: "STRING_VALUE",
+ *   },
+ *   UserContextData: {
+ *     IpAddress: "STRING_VALUE",
+ *     EncodedData: "STRING_VALUE",
+ *   },
+ *   ClientMetadata: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new SignUpCommand(input);
  * const response = await client.send(command);
  * ```

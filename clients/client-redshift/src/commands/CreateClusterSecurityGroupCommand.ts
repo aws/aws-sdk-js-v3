@@ -47,6 +47,16 @@ export interface CreateClusterSecurityGroupCommandOutput extends CreateClusterSe
  * import { RedshiftClient, CreateClusterSecurityGroupCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, CreateClusterSecurityGroupCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = {
+ *   ClusterSecurityGroupName: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE", // required
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateClusterSecurityGroupCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,9 @@ export interface GetDestinationCommandOutput extends GetDestinationResponse, __M
  * import { IoTWirelessClient, GetDestinationCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, GetDestinationCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
+ * const input = {
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new GetDestinationCommand(input);
  * const response = await client.send(command);
  * ```

@@ -50,6 +50,10 @@ export interface UpdateLedgerPermissionsModeCommandOutput
  * import { QLDBClient, UpdateLedgerPermissionsModeCommand } from "@aws-sdk/client-qldb"; // ES Modules import
  * // const { QLDBClient, UpdateLedgerPermissionsModeCommand } = require("@aws-sdk/client-qldb"); // CommonJS import
  * const client = new QLDBClient(config);
+ * const input = {
+ *   Name: "STRING_VALUE", // required
+ *   PermissionsMode: "STRING_VALUE", // required
+ * };
  * const command = new UpdateLedgerPermissionsModeCommand(input);
  * const response = await client.send(command);
  * ```

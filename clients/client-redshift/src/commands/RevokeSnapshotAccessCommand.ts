@@ -48,6 +48,12 @@ export interface RevokeSnapshotAccessCommandOutput extends RevokeSnapshotAccessR
  * import { RedshiftClient, RevokeSnapshotAccessCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, RevokeSnapshotAccessCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = {
+ *   SnapshotIdentifier: "STRING_VALUE",
+ *   SnapshotArn: "STRING_VALUE",
+ *   SnapshotClusterIdentifier: "STRING_VALUE",
+ *   AccountWithRestoreAccess: "STRING_VALUE", // required
+ * };
  * const command = new RevokeSnapshotAccessCommand(input);
  * const response = await client.send(command);
  * ```

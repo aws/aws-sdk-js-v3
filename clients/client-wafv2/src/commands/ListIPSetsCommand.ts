@@ -43,6 +43,11 @@ export interface ListIPSetsCommandOutput extends ListIPSetsResponse, __MetadataB
  * import { WAFV2Client, ListIPSetsCommand } from "@aws-sdk/client-wafv2"; // ES Modules import
  * // const { WAFV2Client, ListIPSetsCommand } = require("@aws-sdk/client-wafv2"); // CommonJS import
  * const client = new WAFV2Client(config);
+ * const input = {
+ *   Scope: "CLOUDFRONT" || "REGIONAL", // required
+ *   NextMarker: "STRING_VALUE",
+ *   Limit: Number("int"),
+ * };
  * const command = new ListIPSetsCommand(input);
  * const response = await client.send(command);
  * ```

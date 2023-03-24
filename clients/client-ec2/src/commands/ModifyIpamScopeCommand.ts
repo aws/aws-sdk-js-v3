@@ -39,6 +39,11 @@ export interface ModifyIpamScopeCommandOutput extends ModifyIpamScopeResult, __M
  * import { EC2Client, ModifyIpamScopeCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ModifyIpamScopeCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   DryRun: true || false,
+ *   IpamScopeId: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ * };
  * const command = new ModifyIpamScopeCommand(input);
  * const response = await client.send(command);
  * ```

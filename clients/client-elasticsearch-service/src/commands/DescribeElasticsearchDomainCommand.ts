@@ -48,6 +48,9 @@ export interface DescribeElasticsearchDomainCommandOutput
  * import { ElasticsearchServiceClient, DescribeElasticsearchDomainCommand } from "@aws-sdk/client-elasticsearch-service"; // ES Modules import
  * // const { ElasticsearchServiceClient, DescribeElasticsearchDomainCommand } = require("@aws-sdk/client-elasticsearch-service"); // CommonJS import
  * const client = new ElasticsearchServiceClient(config);
+ * const input = {
+ *   DomainName: "STRING_VALUE", // required
+ * };
  * const command = new DescribeElasticsearchDomainCommand(input);
  * const response = await client.send(command);
  * ```

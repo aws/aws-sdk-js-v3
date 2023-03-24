@@ -117,6 +117,23 @@ export interface CreateRecommenderCommandOutput extends CreateRecommenderRespons
  * import { PersonalizeClient, CreateRecommenderCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, CreateRecommenderCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
  * const client = new PersonalizeClient(config);
+ * const input = {
+ *   name: "STRING_VALUE", // required
+ *   datasetGroupArn: "STRING_VALUE", // required
+ *   recipeArn: "STRING_VALUE", // required
+ *   recommenderConfig: {
+ *     itemExplorationConfig: {
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *     minRecommendationRequestsPerSecond: Number("int"),
+ *   },
+ *   tags: [
+ *     {
+ *       tagKey: "STRING_VALUE", // required
+ *       tagValue: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateRecommenderCommand(input);
  * const response = await client.send(command);
  * ```

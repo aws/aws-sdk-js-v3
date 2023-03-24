@@ -42,6 +42,10 @@ export interface GetReferenceImportJobCommandOutput extends GetReferenceImportJo
  * import { OmicsClient, GetReferenceImportJobCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, GetReferenceImportJobCommand } = require("@aws-sdk/client-omics"); // CommonJS import
  * const client = new OmicsClient(config);
+ * const input = {
+ *   id: "STRING_VALUE", // required
+ *   referenceStoreId: "STRING_VALUE", // required
+ * };
  * const command = new GetReferenceImportJobCommand(input);
  * const response = await client.send(command);
  * ```

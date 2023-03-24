@@ -46,6 +46,18 @@ export interface DescribeRecoveryInstancesCommandOutput extends DescribeRecovery
  * import { DrsClient, DescribeRecoveryInstancesCommand } from "@aws-sdk/client-drs"; // ES Modules import
  * // const { DrsClient, DescribeRecoveryInstancesCommand } = require("@aws-sdk/client-drs"); // CommonJS import
  * const client = new DrsClient(config);
+ * const input = {
+ *   filters: {
+ *     recoveryInstanceIDs: [
+ *       "STRING_VALUE",
+ *     ],
+ *     sourceServerIDs: [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeRecoveryInstancesCommand(input);
  * const response = await client.send(command);
  * ```

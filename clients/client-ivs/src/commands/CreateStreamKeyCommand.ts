@@ -49,6 +49,12 @@ export interface CreateStreamKeyCommandOutput extends CreateStreamKeyResponse, _
  * import { IvsClient, CreateStreamKeyCommand } from "@aws-sdk/client-ivs"; // ES Modules import
  * // const { IvsClient, CreateStreamKeyCommand } = require("@aws-sdk/client-ivs"); // CommonJS import
  * const client = new IvsClient(config);
+ * const input = {
+ *   channelArn: "STRING_VALUE", // required
+ *   tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateStreamKeyCommand(input);
  * const response = await client.send(command);
  * ```

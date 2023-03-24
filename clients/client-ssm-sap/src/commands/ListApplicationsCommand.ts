@@ -42,6 +42,10 @@ export interface ListApplicationsCommandOutput extends ListApplicationsOutput, _
  * import { SsmSapClient, ListApplicationsCommand } from "@aws-sdk/client-ssm-sap"; // ES Modules import
  * // const { SsmSapClient, ListApplicationsCommand } = require("@aws-sdk/client-ssm-sap"); // CommonJS import
  * const client = new SsmSapClient(config);
+ * const input = {
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListApplicationsCommand(input);
  * const response = await client.send(command);
  * ```

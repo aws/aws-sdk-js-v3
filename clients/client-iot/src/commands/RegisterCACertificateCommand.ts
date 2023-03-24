@@ -45,6 +45,24 @@ export interface RegisterCACertificateCommandOutput extends RegisterCACertificat
  * import { IoTClient, RegisterCACertificateCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, RegisterCACertificateCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = {
+ *   caCertificate: "STRING_VALUE", // required
+ *   verificationCertificate: "STRING_VALUE",
+ *   setAsActive: true || false,
+ *   allowAutoRegistration: true || false,
+ *   registrationConfig: {
+ *     templateBody: "STRING_VALUE",
+ *     roleArn: "STRING_VALUE",
+ *     templateName: "STRING_VALUE",
+ *   },
+ *   tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   certificateMode: "DEFAULT" || "SNI_ONLY",
+ * };
  * const command = new RegisterCACertificateCommand(input);
  * const response = await client.send(command);
  * ```

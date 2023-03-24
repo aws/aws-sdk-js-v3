@@ -44,6 +44,13 @@ export interface BatchAssociateProjectAssetsCommandOutput
  * import { IoTSiteWiseClient, BatchAssociateProjectAssetsCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, BatchAssociateProjectAssetsCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
+ * const input = {
+ *   projectId: "STRING_VALUE", // required
+ *   assetIds: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new BatchAssociateProjectAssetsCommand(input);
  * const response = await client.send(command);
  * ```

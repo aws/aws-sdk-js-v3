@@ -45,6 +45,10 @@ export interface GetChunkCommandOutput extends __WithSdkStreamMixin<GetChunkOutp
  * import { BackupStorageClient, GetChunkCommand } from "@aws-sdk/client-backupstorage"; // ES Modules import
  * // const { BackupStorageClient, GetChunkCommand } = require("@aws-sdk/client-backupstorage"); // CommonJS import
  * const client = new BackupStorageClient(config);
+ * const input = {
+ *   StorageJobId: "STRING_VALUE", // required
+ *   ChunkToken: "STRING_VALUE", // required
+ * };
  * const command = new GetChunkCommand(input);
  * const response = await client.send(command);
  * ```

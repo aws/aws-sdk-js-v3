@@ -52,6 +52,47 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  * import { ECSClient, CreateClusterCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, CreateClusterCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
  * const client = new ECSClient(config);
+ * const input = {
+ *   clusterName: "STRING_VALUE",
+ *   tags: [
+ *     {
+ *       key: "STRING_VALUE",
+ *       value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   settings: [
+ *     {
+ *       name: "containerInsights",
+ *       value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   configuration: {
+ *     executeCommandConfiguration: {
+ *       kmsKeyId: "STRING_VALUE",
+ *       logging: "NONE" || "DEFAULT" || "OVERRIDE",
+ *       logConfiguration: {
+ *         cloudWatchLogGroupName: "STRING_VALUE",
+ *         cloudWatchEncryptionEnabled: true || false,
+ *         s3BucketName: "STRING_VALUE",
+ *         s3EncryptionEnabled: true || false,
+ *         s3KeyPrefix: "STRING_VALUE",
+ *       },
+ *     },
+ *   },
+ *   capacityProviders: [
+ *     "STRING_VALUE",
+ *   ],
+ *   defaultCapacityProviderStrategy: [
+ *     {
+ *       capacityProvider: "STRING_VALUE", // required
+ *       weight: Number("int"),
+ *       base: Number("int"),
+ *     },
+ *   ],
+ *   serviceConnectDefaults: {
+ *     namespace: "STRING_VALUE", // required
+ *   },
+ * };
  * const command = new CreateClusterCommand(input);
  * const response = await client.send(command);
  * ```

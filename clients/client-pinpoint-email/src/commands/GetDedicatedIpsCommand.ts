@@ -43,6 +43,11 @@ export interface GetDedicatedIpsCommandOutput extends GetDedicatedIpsResponse, _
  * import { PinpointEmailClient, GetDedicatedIpsCommand } from "@aws-sdk/client-pinpoint-email"; // ES Modules import
  * // const { PinpointEmailClient, GetDedicatedIpsCommand } = require("@aws-sdk/client-pinpoint-email"); // CommonJS import
  * const client = new PinpointEmailClient(config);
+ * const input = {
+ *   PoolName: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   PageSize: Number("int"),
+ * };
  * const command = new GetDedicatedIpsCommand(input);
  * const response = await client.send(command);
  * ```

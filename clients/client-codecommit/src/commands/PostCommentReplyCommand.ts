@@ -42,6 +42,11 @@ export interface PostCommentReplyCommandOutput extends PostCommentReplyOutput, _
  * import { CodeCommitClient, PostCommentReplyCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, PostCommentReplyCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
  * const client = new CodeCommitClient(config);
+ * const input = {
+ *   inReplyTo: "STRING_VALUE", // required
+ *   clientRequestToken: "STRING_VALUE",
+ *   content: "STRING_VALUE", // required
+ * };
  * const command = new PostCommentReplyCommand(input);
  * const response = await client.send(command);
  * ```

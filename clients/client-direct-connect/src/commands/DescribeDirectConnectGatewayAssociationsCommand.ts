@@ -70,6 +70,14 @@ export interface DescribeDirectConnectGatewayAssociationsCommandOutput
  * import { DirectConnectClient, DescribeDirectConnectGatewayAssociationsCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, DescribeDirectConnectGatewayAssociationsCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
  * const client = new DirectConnectClient(config);
+ * const input = {
+ *   associationId: "STRING_VALUE",
+ *   associatedGatewayId: "STRING_VALUE",
+ *   directConnectGatewayId: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ *   virtualGatewayId: "STRING_VALUE",
+ * };
  * const command = new DescribeDirectConnectGatewayAssociationsCommand(input);
  * const response = await client.send(command);
  * ```

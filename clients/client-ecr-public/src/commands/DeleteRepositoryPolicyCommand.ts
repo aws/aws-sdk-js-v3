@@ -42,6 +42,10 @@ export interface DeleteRepositoryPolicyCommandOutput extends DeleteRepositoryPol
  * import { ECRPUBLICClient, DeleteRepositoryPolicyCommand } from "@aws-sdk/client-ecr-public"; // ES Modules import
  * // const { ECRPUBLICClient, DeleteRepositoryPolicyCommand } = require("@aws-sdk/client-ecr-public"); // CommonJS import
  * const client = new ECRPUBLICClient(config);
+ * const input = {
+ *   registryId: "STRING_VALUE",
+ *   repositoryName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteRepositoryPolicyCommand(input);
  * const response = await client.send(command);
  * ```

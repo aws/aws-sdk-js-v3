@@ -48,6 +48,10 @@ export interface PutConfigurationSetReputationOptionsCommandOutput
  * import { SESv2Client, PutConfigurationSetReputationOptionsCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, PutConfigurationSetReputationOptionsCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
  * const client = new SESv2Client(config);
+ * const input = {
+ *   ConfigurationSetName: "STRING_VALUE", // required
+ *   ReputationMetricsEnabled: true || false,
+ * };
  * const command = new PutConfigurationSetReputationOptionsCommand(input);
  * const response = await client.send(command);
  * ```

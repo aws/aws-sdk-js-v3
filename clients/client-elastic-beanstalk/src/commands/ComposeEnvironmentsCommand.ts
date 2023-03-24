@@ -47,6 +47,13 @@ export interface ComposeEnvironmentsCommandOutput extends EnvironmentDescription
  * import { ElasticBeanstalkClient, ComposeEnvironmentsCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
  * // const { ElasticBeanstalkClient, ComposeEnvironmentsCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
  * const client = new ElasticBeanstalkClient(config);
+ * const input = {
+ *   ApplicationName: "STRING_VALUE",
+ *   GroupName: "STRING_VALUE",
+ *   VersionLabels: [
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new ComposeEnvironmentsCommand(input);
  * const response = await client.send(command);
  * ```

@@ -46,6 +46,29 @@ export interface CreateConfigurationSetCommandOutput extends CreateConfiguration
  * import { PinpointEmailClient, CreateConfigurationSetCommand } from "@aws-sdk/client-pinpoint-email"; // ES Modules import
  * // const { PinpointEmailClient, CreateConfigurationSetCommand } = require("@aws-sdk/client-pinpoint-email"); // CommonJS import
  * const client = new PinpointEmailClient(config);
+ * const input = {
+ *   ConfigurationSetName: "STRING_VALUE", // required
+ *   TrackingOptions: {
+ *     CustomRedirectDomain: "STRING_VALUE", // required
+ *   },
+ *   DeliveryOptions: {
+ *     TlsPolicy: "STRING_VALUE",
+ *     SendingPoolName: "STRING_VALUE",
+ *   },
+ *   ReputationOptions: {
+ *     ReputationMetricsEnabled: true || false,
+ *     LastFreshStart: new Date("TIMESTAMP"),
+ *   },
+ *   SendingOptions: {
+ *     SendingEnabled: true || false,
+ *   },
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateConfigurationSetCommand(input);
  * const response = await client.send(command);
  * ```

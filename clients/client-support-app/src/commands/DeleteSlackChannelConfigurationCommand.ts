@@ -45,6 +45,10 @@ export interface DeleteSlackChannelConfigurationCommandOutput
  * import { SupportAppClient, DeleteSlackChannelConfigurationCommand } from "@aws-sdk/client-support-app"; // ES Modules import
  * // const { SupportAppClient, DeleteSlackChannelConfigurationCommand } = require("@aws-sdk/client-support-app"); // CommonJS import
  * const client = new SupportAppClient(config);
+ * const input = {
+ *   teamId: "STRING_VALUE", // required
+ *   channelId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteSlackChannelConfigurationCommand(input);
  * const response = await client.send(command);
  * ```

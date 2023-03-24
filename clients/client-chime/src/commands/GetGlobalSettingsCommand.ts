@@ -43,6 +43,7 @@ export interface GetGlobalSettingsCommandOutput extends GetGlobalSettingsRespons
  * import { ChimeClient, GetGlobalSettingsCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, GetGlobalSettingsCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = {};
  * const command = new GetGlobalSettingsCommand(input);
  * const response = await client.send(command);
  * ```

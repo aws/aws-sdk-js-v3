@@ -42,6 +42,25 @@ export interface GetResourceSharesCommandOutput extends GetResourceSharesRespons
  * import { RAMClient, GetResourceSharesCommand } from "@aws-sdk/client-ram"; // ES Modules import
  * // const { RAMClient, GetResourceSharesCommand } = require("@aws-sdk/client-ram"); // CommonJS import
  * const client = new RAMClient(config);
+ * const input = {
+ *   resourceShareArns: [
+ *     "STRING_VALUE",
+ *   ],
+ *   resourceShareStatus: "PENDING" || "ACTIVE" || "FAILED" || "DELETING" || "DELETED",
+ *   resourceOwner: "SELF" || "OTHER-ACCOUNTS", // required
+ *   name: "STRING_VALUE",
+ *   tagFilters: [
+ *     {
+ *       tagKey: "STRING_VALUE",
+ *       tagValues: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   permissionArn: "STRING_VALUE",
+ * };
  * const command = new GetResourceSharesCommand(input);
  * const response = await client.send(command);
  * ```

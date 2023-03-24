@@ -48,6 +48,10 @@ export interface GetRecoveryPointRestoreMetadataCommandOutput
  * import { BackupClient, GetRecoveryPointRestoreMetadataCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, GetRecoveryPointRestoreMetadataCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
+ * const input = {
+ *   BackupVaultName: "STRING_VALUE", // required
+ *   RecoveryPointArn: "STRING_VALUE", // required
+ * };
  * const command = new GetRecoveryPointRestoreMetadataCommand(input);
  * const response = await client.send(command);
  * ```

@@ -51,6 +51,24 @@ export interface CreatePublicDnsNamespaceCommandOutput extends CreatePublicDnsNa
  * import { ServiceDiscoveryClient, CreatePublicDnsNamespaceCommand } from "@aws-sdk/client-servicediscovery"; // ES Modules import
  * // const { ServiceDiscoveryClient, CreatePublicDnsNamespaceCommand } = require("@aws-sdk/client-servicediscovery"); // CommonJS import
  * const client = new ServiceDiscoveryClient(config);
+ * const input = {
+ *   Name: "STRING_VALUE", // required
+ *   CreatorRequestId: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   Properties: {
+ *     DnsProperties: {
+ *       SOA: {
+ *         TTL: Number("long"), // required
+ *       },
+ *     },
+ *   },
+ * };
  * const command = new CreatePublicDnsNamespaceCommand(input);
  * const response = await client.send(command);
  * ```

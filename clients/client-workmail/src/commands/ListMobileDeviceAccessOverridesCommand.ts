@@ -44,6 +44,13 @@ export interface ListMobileDeviceAccessOverridesCommandOutput
  * import { WorkMailClient, ListMobileDeviceAccessOverridesCommand } from "@aws-sdk/client-workmail"; // ES Modules import
  * // const { WorkMailClient, ListMobileDeviceAccessOverridesCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
  * const client = new WorkMailClient(config);
+ * const input = {
+ *   OrganizationId: "STRING_VALUE", // required
+ *   UserId: "STRING_VALUE",
+ *   DeviceId: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListMobileDeviceAccessOverridesCommand(input);
  * const response = await client.send(command);
  * ```

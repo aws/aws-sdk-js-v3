@@ -82,6 +82,14 @@ export interface UntagResourcesCommandOutput extends UntagResourcesOutput, __Met
  * import { ResourceGroupsTaggingAPIClient, UntagResourcesCommand } from "@aws-sdk/client-resource-groups-tagging-api"; // ES Modules import
  * // const { ResourceGroupsTaggingAPIClient, UntagResourcesCommand } = require("@aws-sdk/client-resource-groups-tagging-api"); // CommonJS import
  * const client = new ResourceGroupsTaggingAPIClient(config);
+ * const input = {
+ *   ResourceARNList: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ *   TagKeys: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new UntagResourcesCommand(input);
  * const response = await client.send(command);
  * ```

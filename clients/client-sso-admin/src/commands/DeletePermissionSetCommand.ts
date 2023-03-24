@@ -42,6 +42,10 @@ export interface DeletePermissionSetCommandOutput extends DeletePermissionSetRes
  * import { SSOAdminClient, DeletePermissionSetCommand } from "@aws-sdk/client-sso-admin"; // ES Modules import
  * // const { SSOAdminClient, DeletePermissionSetCommand } = require("@aws-sdk/client-sso-admin"); // CommonJS import
  * const client = new SSOAdminClient(config);
+ * const input = {
+ *   InstanceArn: "STRING_VALUE", // required
+ *   PermissionSetArn: "STRING_VALUE", // required
+ * };
  * const command = new DeletePermissionSetCommand(input);
  * const response = await client.send(command);
  * ```

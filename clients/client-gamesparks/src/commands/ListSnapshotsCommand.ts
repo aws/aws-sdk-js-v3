@@ -42,6 +42,11 @@ export interface ListSnapshotsCommandOutput extends ListSnapshotsResult, __Metad
  * import { GameSparksClient, ListSnapshotsCommand } from "@aws-sdk/client-gamesparks"; // ES Modules import
  * // const { GameSparksClient, ListSnapshotsCommand } = require("@aws-sdk/client-gamesparks"); // CommonJS import
  * const client = new GameSparksClient(config);
+ * const input = {
+ *   GameName: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListSnapshotsCommand(input);
  * const response = await client.send(command);
  * ```

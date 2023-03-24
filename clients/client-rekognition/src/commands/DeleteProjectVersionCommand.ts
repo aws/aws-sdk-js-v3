@@ -49,6 +49,9 @@ export interface DeleteProjectVersionCommandOutput extends DeleteProjectVersionR
  * import { RekognitionClient, DeleteProjectVersionCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, DeleteProjectVersionCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
+ * const input = {
+ *   ProjectVersionArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteProjectVersionCommand(input);
  * const response = await client.send(command);
  * ```

@@ -46,6 +46,12 @@ export interface DeleteLoadBalancerListenersCommandOutput extends DeleteLoadBala
  * import { ElasticLoadBalancingClient, DeleteLoadBalancerListenersCommand } from "@aws-sdk/client-elastic-load-balancing"; // ES Modules import
  * // const { ElasticLoadBalancingClient, DeleteLoadBalancerListenersCommand } = require("@aws-sdk/client-elastic-load-balancing"); // CommonJS import
  * const client = new ElasticLoadBalancingClient(config);
+ * const input = {
+ *   LoadBalancerName: "STRING_VALUE", // required
+ *   LoadBalancerPorts: [ // required
+ *     Number("int"),
+ *   ],
+ * };
  * const command = new DeleteLoadBalancerListenersCommand(input);
  * const response = await client.send(command);
  * ```

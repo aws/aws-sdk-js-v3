@@ -90,6 +90,22 @@ export interface CreateFileSystemCommandOutput extends FileSystemDescription, __
  * import { EFSClient, CreateFileSystemCommand } from "@aws-sdk/client-efs"; // ES Modules import
  * // const { EFSClient, CreateFileSystemCommand } = require("@aws-sdk/client-efs"); // CommonJS import
  * const client = new EFSClient(config);
+ * const input = {
+ *   CreationToken: "STRING_VALUE", // required
+ *   PerformanceMode: "generalPurpose" || "maxIO",
+ *   Encrypted: true || false,
+ *   KmsKeyId: "STRING_VALUE",
+ *   ThroughputMode: "bursting" || "provisioned" || "elastic",
+ *   ProvisionedThroughputInMibps: Number("double"),
+ *   AvailabilityZoneName: "STRING_VALUE",
+ *   Backup: true || false,
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateFileSystemCommand(input);
  * const response = await client.send(command);
  * ```

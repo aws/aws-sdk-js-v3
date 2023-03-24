@@ -43,6 +43,13 @@ export interface SetV2LoggingLevelCommandOutput extends __MetadataBearer {}
  * import { IoTClient, SetV2LoggingLevelCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, SetV2LoggingLevelCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = {
+ *   logTarget: {
+ *     targetType: "DEFAULT" || "THING_GROUP" || "CLIENT_ID" || "SOURCE_IP" || "PRINCIPAL_ID", // required
+ *     targetName: "STRING_VALUE",
+ *   },
+ *   logLevel: "DEBUG" || "INFO" || "ERROR" || "WARN" || "DISABLED", // required
+ * };
  * const command = new SetV2LoggingLevelCommand(input);
  * const response = await client.send(command);
  * ```

@@ -72,6 +72,9 @@ export interface DeleteResourceTreeCommandOutput extends __MetadataBearer {}
  * import { ForecastClient, DeleteResourceTreeCommand } from "@aws-sdk/client-forecast"; // ES Modules import
  * // const { ForecastClient, DeleteResourceTreeCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
  * const client = new ForecastClient(config);
+ * const input = {
+ *   ResourceArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteResourceTreeCommand(input);
  * const response = await client.send(command);
  * ```

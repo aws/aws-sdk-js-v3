@@ -207,6 +207,132 @@ export interface PutTargetsCommandOutput extends PutTargetsResponse, __MetadataB
  * import { CloudWatchEventsClient, PutTargetsCommand } from "@aws-sdk/client-cloudwatch-events"; // ES Modules import
  * // const { CloudWatchEventsClient, PutTargetsCommand } = require("@aws-sdk/client-cloudwatch-events"); // CommonJS import
  * const client = new CloudWatchEventsClient(config);
+ * const input = {
+ *   Rule: "STRING_VALUE", // required
+ *   EventBusName: "STRING_VALUE",
+ *   Targets: [ // required
+ *     {
+ *       Id: "STRING_VALUE", // required
+ *       Arn: "STRING_VALUE", // required
+ *       RoleArn: "STRING_VALUE",
+ *       Input: "STRING_VALUE",
+ *       InputPath: "STRING_VALUE",
+ *       InputTransformer: {
+ *         InputPathsMap: {
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *         InputTemplate: "STRING_VALUE", // required
+ *       },
+ *       KinesisParameters: {
+ *         PartitionKeyPath: "STRING_VALUE", // required
+ *       },
+ *       RunCommandParameters: {
+ *         RunCommandTargets: [ // required
+ *           {
+ *             Key: "STRING_VALUE", // required
+ *             Values: [ // required
+ *               "STRING_VALUE",
+ *             ],
+ *           },
+ *         ],
+ *       },
+ *       EcsParameters: {
+ *         TaskDefinitionArn: "STRING_VALUE", // required
+ *         TaskCount: Number("int"),
+ *         LaunchType: "STRING_VALUE",
+ *         NetworkConfiguration: {
+ *           awsvpcConfiguration: {
+ *             Subnets: [ // required
+ *               "STRING_VALUE",
+ *             ],
+ *             SecurityGroups: [
+ *               "STRING_VALUE",
+ *             ],
+ *             AssignPublicIp: "STRING_VALUE",
+ *           },
+ *         },
+ *         PlatformVersion: "STRING_VALUE",
+ *         Group: "STRING_VALUE",
+ *         CapacityProviderStrategy: [
+ *           {
+ *             capacityProvider: "STRING_VALUE", // required
+ *             weight: Number("int"),
+ *             base: Number("int"),
+ *           },
+ *         ],
+ *         EnableECSManagedTags: true || false,
+ *         EnableExecuteCommand: true || false,
+ *         PlacementConstraints: [
+ *           {
+ *             type: "STRING_VALUE",
+ *             expression: "STRING_VALUE",
+ *           },
+ *         ],
+ *         PlacementStrategy: [
+ *           {
+ *             type: "STRING_VALUE",
+ *             field: "STRING_VALUE",
+ *           },
+ *         ],
+ *         PropagateTags: "STRING_VALUE",
+ *         ReferenceId: "STRING_VALUE",
+ *         Tags: [
+ *           {
+ *             Key: "STRING_VALUE", // required
+ *             Value: "STRING_VALUE", // required
+ *           },
+ *         ],
+ *       },
+ *       BatchParameters: {
+ *         JobDefinition: "STRING_VALUE", // required
+ *         JobName: "STRING_VALUE", // required
+ *         ArrayProperties: {
+ *           Size: Number("int"),
+ *         },
+ *         RetryStrategy: {
+ *           Attempts: Number("int"),
+ *         },
+ *       },
+ *       SqsParameters: {
+ *         MessageGroupId: "STRING_VALUE",
+ *       },
+ *       HttpParameters: {
+ *         PathParameterValues: [
+ *           "STRING_VALUE",
+ *         ],
+ *         HeaderParameters: {
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *         QueryStringParameters: {
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *       },
+ *       RedshiftDataParameters: {
+ *         SecretManagerArn: "STRING_VALUE",
+ *         Database: "STRING_VALUE", // required
+ *         DbUser: "STRING_VALUE",
+ *         Sql: "STRING_VALUE", // required
+ *         StatementName: "STRING_VALUE",
+ *         WithEvent: true || false,
+ *       },
+ *       SageMakerPipelineParameters: {
+ *         PipelineParameterList: [
+ *           {
+ *             Name: "STRING_VALUE", // required
+ *             Value: "STRING_VALUE", // required
+ *           },
+ *         ],
+ *       },
+ *       DeadLetterConfig: {
+ *         Arn: "STRING_VALUE",
+ *       },
+ *       RetryPolicy: {
+ *         MaximumRetryAttempts: Number("int"),
+ *         MaximumEventAgeInSeconds: Number("int"),
+ *       },
+ *     },
+ *   ],
+ * };
  * const command = new PutTargetsCommand(input);
  * const response = await client.send(command);
  * ```

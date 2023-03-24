@@ -46,6 +46,11 @@ export interface GetBucketsCommandOutput extends GetBucketsResult, __MetadataBea
  * import { LightsailClient, GetBucketsCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, GetBucketsCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = {
+ *   bucketName: "STRING_VALUE",
+ *   pageToken: "STRING_VALUE",
+ *   includeConnectedResources: true || false,
+ * };
  * const command = new GetBucketsCommand(input);
  * const response = await client.send(command);
  * ```

@@ -47,6 +47,11 @@ export interface DeleteApplicationsCommandOutput extends DeleteApplicationsRespo
  * import { ApplicationDiscoveryServiceClient, DeleteApplicationsCommand } from "@aws-sdk/client-application-discovery-service"; // ES Modules import
  * // const { ApplicationDiscoveryServiceClient, DeleteApplicationsCommand } = require("@aws-sdk/client-application-discovery-service"); // CommonJS import
  * const client = new ApplicationDiscoveryServiceClient(config);
+ * const input = {
+ *   configurationIds: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DeleteApplicationsCommand(input);
  * const response = await client.send(command);
  * ```

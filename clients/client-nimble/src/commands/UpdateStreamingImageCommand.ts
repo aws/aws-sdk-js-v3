@@ -47,6 +47,13 @@ export interface UpdateStreamingImageCommandOutput extends UpdateStreamingImageR
  * import { NimbleClient, UpdateStreamingImageCommand } from "@aws-sdk/client-nimble"; // ES Modules import
  * // const { NimbleClient, UpdateStreamingImageCommand } = require("@aws-sdk/client-nimble"); // CommonJS import
  * const client = new NimbleClient(config);
+ * const input = {
+ *   clientToken: "STRING_VALUE",
+ *   description: "STRING_VALUE",
+ *   name: "STRING_VALUE",
+ *   streamingImageId: "STRING_VALUE", // required
+ *   studioId: "STRING_VALUE", // required
+ * };
  * const command = new UpdateStreamingImageCommand(input);
  * const response = await client.send(command);
  * ```

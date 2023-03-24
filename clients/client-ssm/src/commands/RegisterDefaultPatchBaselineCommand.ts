@@ -48,6 +48,9 @@ export interface RegisterDefaultPatchBaselineCommandOutput
  * import { SSMClient, RegisterDefaultPatchBaselineCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, RegisterDefaultPatchBaselineCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = {
+ *   BaselineId: "STRING_VALUE", // required
+ * };
  * const command = new RegisterDefaultPatchBaselineCommand(input);
  * const response = await client.send(command);
  * ```

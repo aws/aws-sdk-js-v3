@@ -42,6 +42,14 @@ export interface AcceptPageCommandOutput extends AcceptPageResult, __MetadataBea
  * import { SSMContactsClient, AcceptPageCommand } from "@aws-sdk/client-ssm-contacts"; // ES Modules import
  * // const { SSMContactsClient, AcceptPageCommand } = require("@aws-sdk/client-ssm-contacts"); // CommonJS import
  * const client = new SSMContactsClient(config);
+ * const input = {
+ *   PageId: "STRING_VALUE", // required
+ *   ContactChannelId: "STRING_VALUE",
+ *   AcceptType: "STRING_VALUE", // required
+ *   Note: "STRING_VALUE",
+ *   AcceptCode: "STRING_VALUE", // required
+ *   AcceptCodeValidation: "STRING_VALUE",
+ * };
  * const command = new AcceptPageCommand(input);
  * const response = await client.send(command);
  * ```

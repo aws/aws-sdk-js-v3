@@ -42,6 +42,12 @@ export interface AssociateTimeSeriesToAssetPropertyCommandOutput extends __Metad
  * import { IoTSiteWiseClient, AssociateTimeSeriesToAssetPropertyCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, AssociateTimeSeriesToAssetPropertyCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
+ * const input = {
+ *   alias: "STRING_VALUE", // required
+ *   assetId: "STRING_VALUE", // required
+ *   propertyId: "STRING_VALUE", // required
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new AssociateTimeSeriesToAssetPropertyCommand(input);
  * const response = await client.send(command);
  * ```

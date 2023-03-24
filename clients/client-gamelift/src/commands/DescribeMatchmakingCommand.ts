@@ -63,6 +63,11 @@ export interface DescribeMatchmakingCommandOutput extends DescribeMatchmakingOut
  * import { GameLiftClient, DescribeMatchmakingCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, DescribeMatchmakingCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = {
+ *   TicketIds: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DescribeMatchmakingCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,22 @@ export interface DescribeIpamPoolsCommandOutput extends DescribeIpamPoolsResult,
  * import { EC2Client, DescribeIpamPoolsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeIpamPoolsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   DryRun: true || false,
+ *   Filters: [
+ *     {
+ *       Name: "STRING_VALUE",
+ *       Values: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   IpamPoolIds: [
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DescribeIpamPoolsCommand(input);
  * const response = await client.send(command);
  * ```

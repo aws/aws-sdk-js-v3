@@ -46,6 +46,13 @@ export interface GetServiceGraphCommandOutput extends GetServiceGraphResult, __M
  * import { XRayClient, GetServiceGraphCommand } from "@aws-sdk/client-xray"; // ES Modules import
  * // const { XRayClient, GetServiceGraphCommand } = require("@aws-sdk/client-xray"); // CommonJS import
  * const client = new XRayClient(config);
+ * const input = {
+ *   StartTime: new Date("TIMESTAMP"), // required
+ *   EndTime: new Date("TIMESTAMP"), // required
+ *   GroupName: "STRING_VALUE",
+ *   GroupARN: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new GetServiceGraphCommand(input);
  * const response = await client.send(command);
  * ```

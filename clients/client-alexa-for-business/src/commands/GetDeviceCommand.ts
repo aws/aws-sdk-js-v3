@@ -39,6 +39,9 @@ export interface GetDeviceCommandOutput extends GetDeviceResponse, __MetadataBea
  * import { AlexaForBusinessClient, GetDeviceCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, GetDeviceCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
+ * const input = {
+ *   DeviceArn: "STRING_VALUE",
+ * };
  * const command = new GetDeviceCommand(input);
  * const response = await client.send(command);
  * ```

@@ -45,6 +45,9 @@ export interface ListTagsForDomainCommandOutput extends ListTagsForDomainRespons
  * import { Route53DomainsClient, ListTagsForDomainCommand } from "@aws-sdk/client-route-53-domains"; // ES Modules import
  * // const { Route53DomainsClient, ListTagsForDomainCommand } = require("@aws-sdk/client-route-53-domains"); // CommonJS import
  * const client = new Route53DomainsClient(config);
+ * const input = {
+ *   DomainName: "STRING_VALUE", // required
+ * };
  * const command = new ListTagsForDomainCommand(input);
  * const response = await client.send(command);
  * ```

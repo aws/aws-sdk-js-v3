@@ -50,6 +50,13 @@ export interface RestoreFromSnapshotCommandOutput extends RestoreFromSnapshotRes
  * import { RedshiftServerlessClient, RestoreFromSnapshotCommand } from "@aws-sdk/client-redshift-serverless"; // ES Modules import
  * // const { RedshiftServerlessClient, RestoreFromSnapshotCommand } = require("@aws-sdk/client-redshift-serverless"); // CommonJS import
  * const client = new RedshiftServerlessClient(config);
+ * const input = {
+ *   namespaceName: "STRING_VALUE", // required
+ *   workgroupName: "STRING_VALUE", // required
+ *   snapshotName: "STRING_VALUE",
+ *   snapshotArn: "STRING_VALUE",
+ *   ownerAccount: "STRING_VALUE",
+ * };
  * const command = new RestoreFromSnapshotCommand(input);
  * const response = await client.send(command);
  * ```

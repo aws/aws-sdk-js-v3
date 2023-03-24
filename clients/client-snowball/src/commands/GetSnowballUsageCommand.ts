@@ -45,6 +45,7 @@ export interface GetSnowballUsageCommandOutput extends GetSnowballUsageResult, _
  * import { SnowballClient, GetSnowballUsageCommand } from "@aws-sdk/client-snowball"; // ES Modules import
  * // const { SnowballClient, GetSnowballUsageCommand } = require("@aws-sdk/client-snowball"); // CommonJS import
  * const client = new SnowballClient(config);
+ * const input = {};
  * const command = new GetSnowballUsageCommand(input);
  * const response = await client.send(command);
  * ```

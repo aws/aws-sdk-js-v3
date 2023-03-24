@@ -42,6 +42,9 @@ export interface DeleteClusterSubnetGroupCommandOutput extends __MetadataBearer 
  * import { RedshiftClient, DeleteClusterSubnetGroupCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DeleteClusterSubnetGroupCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = {
+ *   ClusterSubnetGroupName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteClusterSubnetGroupCommand(input);
  * const response = await client.send(command);
  * ```

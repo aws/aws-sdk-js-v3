@@ -42,6 +42,22 @@ export interface DescribeMovingAddressesCommandOutput extends DescribeMovingAddr
  * import { EC2Client, DescribeMovingAddressesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeMovingAddressesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   Filters: [
+ *     {
+ *       Name: "STRING_VALUE",
+ *       Values: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   DryRun: true || false,
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   PublicIps: [
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DescribeMovingAddressesCommand(input);
  * const response = await client.send(command);
  * ```

@@ -48,6 +48,31 @@ export interface CreateSamplingRuleCommandOutput extends CreateSamplingRuleResul
  * import { XRayClient, CreateSamplingRuleCommand } from "@aws-sdk/client-xray"; // ES Modules import
  * // const { XRayClient, CreateSamplingRuleCommand } = require("@aws-sdk/client-xray"); // CommonJS import
  * const client = new XRayClient(config);
+ * const input = {
+ *   SamplingRule: {
+ *     RuleName: "STRING_VALUE",
+ *     RuleARN: "STRING_VALUE",
+ *     ResourceARN: "STRING_VALUE", // required
+ *     Priority: Number("int"), // required
+ *     FixedRate: Number("double"), // required
+ *     ReservoirSize: Number("int"), // required
+ *     ServiceName: "STRING_VALUE", // required
+ *     ServiceType: "STRING_VALUE", // required
+ *     Host: "STRING_VALUE", // required
+ *     HTTPMethod: "STRING_VALUE", // required
+ *     URLPath: "STRING_VALUE", // required
+ *     Version: Number("int"), // required
+ *     Attributes: {
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *   },
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateSamplingRuleCommand(input);
  * const response = await client.send(command);
  * ```

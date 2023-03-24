@@ -42,6 +42,10 @@ export interface UpdateLoggerDefinitionCommandOutput extends UpdateLoggerDefinit
  * import { GreengrassClient, UpdateLoggerDefinitionCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, UpdateLoggerDefinitionCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
+ * const input = {
+ *   LoggerDefinitionId: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE",
+ * };
  * const command = new UpdateLoggerDefinitionCommand(input);
  * const response = await client.send(command);
  * ```

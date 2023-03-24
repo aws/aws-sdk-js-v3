@@ -54,6 +54,9 @@ export interface StartGatewayCommandOutput extends StartGatewayOutput, __Metadat
  * import { StorageGatewayClient, StartGatewayCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, StartGatewayCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
+ * const input = {
+ *   GatewayARN: "STRING_VALUE", // required
+ * };
  * const command = new StartGatewayCommand(input);
  * const response = await client.send(command);
  * ```

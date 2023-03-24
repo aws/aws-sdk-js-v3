@@ -42,6 +42,12 @@ export interface UpdateCertificateCommandOutput extends UpdateCertificateRespons
  * import { TransferClient, UpdateCertificateCommand } from "@aws-sdk/client-transfer"; // ES Modules import
  * // const { TransferClient, UpdateCertificateCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
  * const client = new TransferClient(config);
+ * const input = {
+ *   CertificateId: "STRING_VALUE", // required
+ *   ActiveDate: new Date("TIMESTAMP"),
+ *   InactiveDate: new Date("TIMESTAMP"),
+ *   Description: "STRING_VALUE",
+ * };
  * const command = new UpdateCertificateCommand(input);
  * const response = await client.send(command);
  * ```

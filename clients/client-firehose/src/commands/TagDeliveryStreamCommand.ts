@@ -51,6 +51,15 @@ export interface TagDeliveryStreamCommandOutput extends TagDeliveryStreamOutput,
  * import { FirehoseClient, TagDeliveryStreamCommand } from "@aws-sdk/client-firehose"; // ES Modules import
  * // const { FirehoseClient, TagDeliveryStreamCommand } = require("@aws-sdk/client-firehose"); // CommonJS import
  * const client = new FirehoseClient(config);
+ * const input = {
+ *   DeliveryStreamName: "STRING_VALUE", // required
+ *   Tags: [ // required
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new TagDeliveryStreamCommand(input);
  * const response = await client.send(command);
  * ```

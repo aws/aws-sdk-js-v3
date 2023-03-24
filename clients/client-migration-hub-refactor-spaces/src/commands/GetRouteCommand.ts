@@ -46,6 +46,11 @@ export interface GetRouteCommandOutput extends GetRouteResponse, __MetadataBeare
  * import { MigrationHubRefactorSpacesClient, GetRouteCommand } from "@aws-sdk/client-migration-hub-refactor-spaces"; // ES Modules import
  * // const { MigrationHubRefactorSpacesClient, GetRouteCommand } = require("@aws-sdk/client-migration-hub-refactor-spaces"); // CommonJS import
  * const client = new MigrationHubRefactorSpacesClient(config);
+ * const input = {
+ *   EnvironmentIdentifier: "STRING_VALUE", // required
+ *   ApplicationIdentifier: "STRING_VALUE", // required
+ *   RouteIdentifier: "STRING_VALUE", // required
+ * };
  * const command = new GetRouteCommand(input);
  * const response = await client.send(command);
  * ```

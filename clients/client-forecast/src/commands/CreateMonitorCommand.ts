@@ -48,6 +48,16 @@ export interface CreateMonitorCommandOutput extends CreateMonitorResponse, __Met
  * import { ForecastClient, CreateMonitorCommand } from "@aws-sdk/client-forecast"; // ES Modules import
  * // const { ForecastClient, CreateMonitorCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
  * const client = new ForecastClient(config);
+ * const input = {
+ *   MonitorName: "STRING_VALUE", // required
+ *   ResourceArn: "STRING_VALUE", // required
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateMonitorCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,222 @@ export interface BatchReadCommandOutput extends BatchReadResponse, __MetadataBea
  * import { CloudDirectoryClient, BatchReadCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, BatchReadCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
  * const client = new CloudDirectoryClient(config);
+ * const input = {
+ *   DirectoryArn: "STRING_VALUE", // required
+ *   Operations: [ // required
+ *     {
+ *       ListObjectAttributes: {
+ *         ObjectReference: {
+ *           Selector: "STRING_VALUE",
+ *         },
+ *         NextToken: "STRING_VALUE",
+ *         MaxResults: Number("int"),
+ *         FacetFilter: {
+ *           SchemaArn: "STRING_VALUE",
+ *           FacetName: "STRING_VALUE",
+ *         },
+ *       },
+ *       ListObjectChildren: {
+ *         ObjectReference: {
+ *           Selector: "STRING_VALUE",
+ *         },
+ *         NextToken: "STRING_VALUE",
+ *         MaxResults: Number("int"),
+ *       },
+ *       ListAttachedIndices: {
+ *         TargetReference: {
+ *           Selector: "STRING_VALUE",
+ *         },
+ *         NextToken: "STRING_VALUE",
+ *         MaxResults: Number("int"),
+ *       },
+ *       ListObjectParentPaths: {
+ *         ObjectReference: {
+ *           Selector: "STRING_VALUE",
+ *         },
+ *         NextToken: "STRING_VALUE",
+ *         MaxResults: Number("int"),
+ *       },
+ *       GetObjectInformation: {
+ *         ObjectReference: {
+ *           Selector: "STRING_VALUE",
+ *         },
+ *       },
+ *       GetObjectAttributes: {
+ *         ObjectReference: {
+ *           Selector: "STRING_VALUE",
+ *         },
+ *         SchemaFacet: {
+ *           SchemaArn: "STRING_VALUE",
+ *           FacetName: "STRING_VALUE",
+ *         },
+ *         AttributeNames: [ // required
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *       ListObjectParents: {
+ *         ObjectReference: {
+ *           Selector: "STRING_VALUE",
+ *         },
+ *         NextToken: "STRING_VALUE",
+ *         MaxResults: Number("int"),
+ *       },
+ *       ListObjectPolicies: {
+ *         ObjectReference: {
+ *           Selector: "STRING_VALUE",
+ *         },
+ *         NextToken: "STRING_VALUE",
+ *         MaxResults: Number("int"),
+ *       },
+ *       ListPolicyAttachments: {
+ *         PolicyReference: {
+ *           Selector: "STRING_VALUE",
+ *         },
+ *         NextToken: "STRING_VALUE",
+ *         MaxResults: Number("int"),
+ *       },
+ *       LookupPolicy: {
+ *         ObjectReference: {
+ *           Selector: "STRING_VALUE",
+ *         },
+ *         NextToken: "STRING_VALUE",
+ *         MaxResults: Number("int"),
+ *       },
+ *       ListIndex: {
+ *         RangesOnIndexedValues: [
+ *           {
+ *             AttributeKey: {
+ *               SchemaArn: "STRING_VALUE", // required
+ *               FacetName: "STRING_VALUE", // required
+ *               Name: "STRING_VALUE", // required
+ *             },
+ *             Range: {
+ *               StartMode: "FIRST" || "LAST" || "LAST_BEFORE_MISSING_VALUES" || "INCLUSIVE" || "EXCLUSIVE", // required
+ *               StartValue: { // Union: only one key present
+ *                 StringValue: "STRING_VALUE",
+ *                 BinaryValue: "BLOB_VALUE",
+ *                 BooleanValue: true || false,
+ *                 NumberValue: "STRING_VALUE",
+ *                 DatetimeValue: new Date("TIMESTAMP"),
+ *               },
+ *               EndMode: "FIRST" || "LAST" || "LAST_BEFORE_MISSING_VALUES" || "INCLUSIVE" || "EXCLUSIVE", // required
+ *               EndValue: { // Union: only one key present
+ *                 StringValue: "STRING_VALUE",
+ *                 BinaryValue: "BLOB_VALUE",
+ *                 BooleanValue: true || false,
+ *                 NumberValue: "STRING_VALUE",
+ *                 DatetimeValue: new Date("TIMESTAMP"),
+ *               },
+ *             },
+ *           },
+ *         ],
+ *         IndexReference: {
+ *           Selector: "STRING_VALUE",
+ *         },
+ *         MaxResults: Number("int"),
+ *         NextToken: "STRING_VALUE",
+ *       },
+ *       ListOutgoingTypedLinks: {
+ *         ObjectReference: {
+ *           Selector: "STRING_VALUE",
+ *         },
+ *         FilterAttributeRanges: [
+ *           {
+ *             AttributeName: "STRING_VALUE",
+ *             Range: {
+ *               StartMode: "FIRST" || "LAST" || "LAST_BEFORE_MISSING_VALUES" || "INCLUSIVE" || "EXCLUSIVE", // required
+ *               StartValue: { // Union: only one key present
+ *                 StringValue: "STRING_VALUE",
+ *                 BinaryValue: "BLOB_VALUE",
+ *                 BooleanValue: true || false,
+ *                 NumberValue: "STRING_VALUE",
+ *                 DatetimeValue: new Date("TIMESTAMP"),
+ *               },
+ *               EndMode: "FIRST" || "LAST" || "LAST_BEFORE_MISSING_VALUES" || "INCLUSIVE" || "EXCLUSIVE", // required
+ *               EndValue: { // Union: only one key present
+ *                 StringValue: "STRING_VALUE",
+ *                 BinaryValue: "BLOB_VALUE",
+ *                 BooleanValue: true || false,
+ *                 NumberValue: "STRING_VALUE",
+ *                 DatetimeValue: new Date("TIMESTAMP"),
+ *               },
+ *             },
+ *           },
+ *         ],
+ *         FilterTypedLink: {
+ *           SchemaArn: "STRING_VALUE", // required
+ *           TypedLinkName: "STRING_VALUE", // required
+ *         },
+ *         NextToken: "STRING_VALUE",
+ *         MaxResults: Number("int"),
+ *       },
+ *       ListIncomingTypedLinks: {
+ *         ObjectReference: {
+ *           Selector: "STRING_VALUE",
+ *         },
+ *         FilterAttributeRanges: [
+ *           {
+ *             AttributeName: "STRING_VALUE",
+ *             Range: {
+ *               StartMode: "FIRST" || "LAST" || "LAST_BEFORE_MISSING_VALUES" || "INCLUSIVE" || "EXCLUSIVE", // required
+ *               StartValue: { // Union: only one key present
+ *                 StringValue: "STRING_VALUE",
+ *                 BinaryValue: "BLOB_VALUE",
+ *                 BooleanValue: true || false,
+ *                 NumberValue: "STRING_VALUE",
+ *                 DatetimeValue: new Date("TIMESTAMP"),
+ *               },
+ *               EndMode: "FIRST" || "LAST" || "LAST_BEFORE_MISSING_VALUES" || "INCLUSIVE" || "EXCLUSIVE", // required
+ *               EndValue: { // Union: only one key present
+ *                 StringValue: "STRING_VALUE",
+ *                 BinaryValue: "BLOB_VALUE",
+ *                 BooleanValue: true || false,
+ *                 NumberValue: "STRING_VALUE",
+ *                 DatetimeValue: new Date("TIMESTAMP"),
+ *               },
+ *             },
+ *           },
+ *         ],
+ *         FilterTypedLink: {
+ *           SchemaArn: "STRING_VALUE", // required
+ *           TypedLinkName: "STRING_VALUE", // required
+ *         },
+ *         NextToken: "STRING_VALUE",
+ *         MaxResults: Number("int"),
+ *       },
+ *       GetLinkAttributes: {
+ *         TypedLinkSpecifier: {
+ *           TypedLinkFacet: {
+ *             SchemaArn: "STRING_VALUE", // required
+ *             TypedLinkName: "STRING_VALUE", // required
+ *           },
+ *           SourceObjectReference: {
+ *             Selector: "STRING_VALUE",
+ *           },
+ *           TargetObjectReference: {
+ *             Selector: "STRING_VALUE",
+ *           },
+ *           IdentityAttributeValues: [ // required
+ *             {
+ *               AttributeName: "STRING_VALUE", // required
+ *               Value: { // Union: only one key present
+ *                 StringValue: "STRING_VALUE",
+ *                 BinaryValue: "BLOB_VALUE",
+ *                 BooleanValue: true || false,
+ *                 NumberValue: "STRING_VALUE",
+ *                 DatetimeValue: new Date("TIMESTAMP"),
+ *               },
+ *             },
+ *           ],
+ *         },
+ *         AttributeNames: [ // required
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *     },
+ *   ],
+ *   ConsistencyLevel: "SERIALIZABLE" || "EVENTUAL",
+ * };
  * const command = new BatchReadCommand(input);
  * const response = await client.send(command);
  * ```

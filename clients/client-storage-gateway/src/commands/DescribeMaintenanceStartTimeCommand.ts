@@ -45,6 +45,9 @@ export interface DescribeMaintenanceStartTimeCommandOutput
  * import { StorageGatewayClient, DescribeMaintenanceStartTimeCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, DescribeMaintenanceStartTimeCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
+ * const input = {
+ *   GatewayARN: "STRING_VALUE", // required
+ * };
  * const command = new DescribeMaintenanceStartTimeCommand(input);
  * const response = await client.send(command);
  * ```

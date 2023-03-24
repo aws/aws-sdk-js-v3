@@ -42,6 +42,11 @@ export interface DeleteGrantCommandOutput extends DeleteGrantResponse, __Metadat
  * import { LicenseManagerClient, DeleteGrantCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
  * // const { LicenseManagerClient, DeleteGrantCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
  * const client = new LicenseManagerClient(config);
+ * const input = {
+ *   GrantArn: "STRING_VALUE", // required
+ *   StatusReason: "STRING_VALUE",
+ *   Version: "STRING_VALUE", // required
+ * };
  * const command = new DeleteGrantCommand(input);
  * const response = await client.send(command);
  * ```

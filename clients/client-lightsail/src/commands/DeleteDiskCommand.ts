@@ -49,6 +49,10 @@ export interface DeleteDiskCommandOutput extends DeleteDiskResult, __MetadataBea
  * import { LightsailClient, DeleteDiskCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, DeleteDiskCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = {
+ *   diskName: "STRING_VALUE", // required
+ *   forceDeleteAddOns: true || false,
+ * };
  * const command = new DeleteDiskCommand(input);
  * const response = await client.send(command);
  * ```

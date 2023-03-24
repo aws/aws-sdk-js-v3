@@ -42,6 +42,9 @@ export interface GetWebhookCommandOutput extends GetWebhookResult, __MetadataBea
  * import { AmplifyClient, GetWebhookCommand } from "@aws-sdk/client-amplify"; // ES Modules import
  * // const { AmplifyClient, GetWebhookCommand } = require("@aws-sdk/client-amplify"); // CommonJS import
  * const client = new AmplifyClient(config);
+ * const input = {
+ *   webhookId: "STRING_VALUE", // required
+ * };
  * const command = new GetWebhookCommand(input);
  * const response = await client.send(command);
  * ```

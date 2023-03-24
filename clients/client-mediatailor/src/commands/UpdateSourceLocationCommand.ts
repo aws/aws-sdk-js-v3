@@ -42,6 +42,29 @@ export interface UpdateSourceLocationCommandOutput extends UpdateSourceLocationR
  * import { MediaTailorClient, UpdateSourceLocationCommand } from "@aws-sdk/client-mediatailor"; // ES Modules import
  * // const { MediaTailorClient, UpdateSourceLocationCommand } = require("@aws-sdk/client-mediatailor"); // CommonJS import
  * const client = new MediaTailorClient(config);
+ * const input = {
+ *   AccessConfiguration: {
+ *     AccessType: "S3_SIGV4" || "SECRETS_MANAGER_ACCESS_TOKEN",
+ *     SecretsManagerAccessTokenConfiguration: {
+ *       HeaderName: "STRING_VALUE",
+ *       SecretArn: "STRING_VALUE",
+ *       SecretStringKey: "STRING_VALUE",
+ *     },
+ *   },
+ *   DefaultSegmentDeliveryConfiguration: {
+ *     BaseUrl: "STRING_VALUE",
+ *   },
+ *   HttpConfiguration: {
+ *     BaseUrl: "STRING_VALUE", // required
+ *   },
+ *   SegmentDeliveryConfigurations: [
+ *     {
+ *       BaseUrl: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *     },
+ *   ],
+ *   SourceLocationName: "STRING_VALUE", // required
+ * };
  * const command = new UpdateSourceLocationCommand(input);
  * const response = await client.send(command);
  * ```

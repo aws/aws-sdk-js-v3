@@ -59,6 +59,24 @@ export interface CreateRouteCommandOutput extends CreateRouteResult, __MetadataB
  * import { EC2Client, CreateRouteCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, CreateRouteCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   DestinationCidrBlock: "STRING_VALUE",
+ *   DestinationIpv6CidrBlock: "STRING_VALUE",
+ *   DestinationPrefixListId: "STRING_VALUE",
+ *   DryRun: true || false,
+ *   VpcEndpointId: "STRING_VALUE",
+ *   EgressOnlyInternetGatewayId: "STRING_VALUE",
+ *   GatewayId: "STRING_VALUE",
+ *   InstanceId: "STRING_VALUE",
+ *   NatGatewayId: "STRING_VALUE",
+ *   TransitGatewayId: "STRING_VALUE",
+ *   LocalGatewayId: "STRING_VALUE",
+ *   CarrierGatewayId: "STRING_VALUE",
+ *   NetworkInterfaceId: "STRING_VALUE",
+ *   RouteTableId: "STRING_VALUE", // required
+ *   VpcPeeringConnectionId: "STRING_VALUE",
+ *   CoreNetworkArn: "STRING_VALUE",
+ * };
  * const command = new CreateRouteCommand(input);
  * const response = await client.send(command);
  * ```

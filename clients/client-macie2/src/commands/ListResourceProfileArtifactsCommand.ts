@@ -44,6 +44,10 @@ export interface ListResourceProfileArtifactsCommandOutput
  * import { Macie2Client, ListResourceProfileArtifactsCommand } from "@aws-sdk/client-macie2"; // ES Modules import
  * // const { Macie2Client, ListResourceProfileArtifactsCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
  * const client = new Macie2Client(config);
+ * const input = {
+ *   nextToken: "STRING_VALUE",
+ *   resourceArn: "STRING_VALUE", // required
+ * };
  * const command = new ListResourceProfileArtifactsCommand(input);
  * const response = await client.send(command);
  * ```

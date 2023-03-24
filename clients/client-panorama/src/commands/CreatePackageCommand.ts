@@ -42,6 +42,12 @@ export interface CreatePackageCommandOutput extends CreatePackageResponse, __Met
  * import { PanoramaClient, CreatePackageCommand } from "@aws-sdk/client-panorama"; // ES Modules import
  * // const { PanoramaClient, CreatePackageCommand } = require("@aws-sdk/client-panorama"); // CommonJS import
  * const client = new PanoramaClient(config);
+ * const input = {
+ *   PackageName: "STRING_VALUE", // required
+ *   Tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreatePackageCommand(input);
  * const response = await client.send(command);
  * ```

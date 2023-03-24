@@ -43,6 +43,11 @@ export interface ListSopRecommendationsCommandOutput extends ListSopRecommendati
  * import { ResiliencehubClient, ListSopRecommendationsCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
  * // const { ResiliencehubClient, ListSopRecommendationsCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
  * const client = new ResiliencehubClient(config);
+ * const input = {
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   assessmentArn: "STRING_VALUE", // required
+ * };
  * const command = new ListSopRecommendationsCommand(input);
  * const response = await client.send(command);
  * ```

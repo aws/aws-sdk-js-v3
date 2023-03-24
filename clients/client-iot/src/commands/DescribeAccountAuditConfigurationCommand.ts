@@ -50,6 +50,7 @@ export interface DescribeAccountAuditConfigurationCommandOutput
  * import { IoTClient, DescribeAccountAuditConfigurationCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, DescribeAccountAuditConfigurationCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = {};
  * const command = new DescribeAccountAuditConfigurationCommand(input);
  * const response = await client.send(command);
  * ```

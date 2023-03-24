@@ -42,6 +42,11 @@ export interface ListImportsCommandOutput extends ListImportsOutput, __MetadataB
  * import { DynamoDBClient, ListImportsCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
  * // const { DynamoDBClient, ListImportsCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
  * const client = new DynamoDBClient(config);
+ * const input = {
+ *   TableArn: "STRING_VALUE",
+ *   PageSize: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListImportsCommand(input);
  * const response = await client.send(command);
  * ```

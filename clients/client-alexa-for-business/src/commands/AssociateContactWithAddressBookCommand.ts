@@ -44,6 +44,10 @@ export interface AssociateContactWithAddressBookCommandOutput
  * import { AlexaForBusinessClient, AssociateContactWithAddressBookCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, AssociateContactWithAddressBookCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
+ * const input = {
+ *   ContactArn: "STRING_VALUE", // required
+ *   AddressBookArn: "STRING_VALUE", // required
+ * };
  * const command = new AssociateContactWithAddressBookCommand(input);
  * const response = await client.send(command);
  * ```

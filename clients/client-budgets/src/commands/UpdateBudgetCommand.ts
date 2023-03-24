@@ -45,6 +45,65 @@ export interface UpdateBudgetCommandOutput extends UpdateBudgetResponse, __Metad
  * import { BudgetsClient, UpdateBudgetCommand } from "@aws-sdk/client-budgets"; // ES Modules import
  * // const { BudgetsClient, UpdateBudgetCommand } = require("@aws-sdk/client-budgets"); // CommonJS import
  * const client = new BudgetsClient(config);
+ * const input = {
+ *   AccountId: "STRING_VALUE", // required
+ *   NewBudget: {
+ *     BudgetName: "STRING_VALUE", // required
+ *     BudgetLimit: {
+ *       Amount: "STRING_VALUE", // required
+ *       Unit: "STRING_VALUE", // required
+ *     },
+ *     PlannedBudgetLimits: {
+ *       "<keys>": {
+ *         Amount: "STRING_VALUE", // required
+ *         Unit: "STRING_VALUE", // required
+ *       },
+ *     },
+ *     CostFilters: {
+ *       "<keys>": [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *     CostTypes: {
+ *       IncludeTax: true || false,
+ *       IncludeSubscription: true || false,
+ *       UseBlended: true || false,
+ *       IncludeRefund: true || false,
+ *       IncludeCredit: true || false,
+ *       IncludeUpfront: true || false,
+ *       IncludeRecurring: true || false,
+ *       IncludeOtherSubscription: true || false,
+ *       IncludeSupport: true || false,
+ *       IncludeDiscount: true || false,
+ *       UseAmortized: true || false,
+ *     },
+ *     TimeUnit: "STRING_VALUE", // required
+ *     TimePeriod: {
+ *       Start: new Date("TIMESTAMP"),
+ *       End: new Date("TIMESTAMP"),
+ *     },
+ *     CalculatedSpend: {
+ *       ActualSpend: {
+ *         Amount: "STRING_VALUE", // required
+ *         Unit: "STRING_VALUE", // required
+ *       },
+ *       ForecastedSpend: {
+ *         Amount: "STRING_VALUE", // required
+ *         Unit: "STRING_VALUE", // required
+ *       },
+ *     },
+ *     BudgetType: "STRING_VALUE", // required
+ *     LastUpdatedTime: new Date("TIMESTAMP"),
+ *     AutoAdjustData: {
+ *       AutoAdjustType: "STRING_VALUE", // required
+ *       HistoricalOptions: {
+ *         BudgetAdjustmentPeriod: Number("int"), // required
+ *         LookBackAvailablePeriods: Number("int"),
+ *       },
+ *       LastAutoAdjustTime: new Date("TIMESTAMP"),
+ *     },
+ *   },
+ * };
  * const command = new UpdateBudgetCommand(input);
  * const response = await client.send(command);
  * ```

@@ -44,6 +44,10 @@ export interface AssociateLambdaFunctionCommandOutput extends __MetadataBearer {
  * import { ConnectClient, AssociateLambdaFunctionCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, AssociateLambdaFunctionCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = {
+ *   InstanceId: "STRING_VALUE", // required
+ *   FunctionArn: "STRING_VALUE", // required
+ * };
  * const command = new AssociateLambdaFunctionCommand(input);
  * const response = await client.send(command);
  * ```

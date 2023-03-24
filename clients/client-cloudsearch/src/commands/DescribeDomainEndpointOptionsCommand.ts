@@ -44,6 +44,10 @@ export interface DescribeDomainEndpointOptionsCommandOutput
  * import { CloudSearchClient, DescribeDomainEndpointOptionsCommand } from "@aws-sdk/client-cloudsearch"; // ES Modules import
  * // const { CloudSearchClient, DescribeDomainEndpointOptionsCommand } = require("@aws-sdk/client-cloudsearch"); // CommonJS import
  * const client = new CloudSearchClient(config);
+ * const input = {
+ *   DomainName: "STRING_VALUE", // required
+ *   Deployed: true || false,
+ * };
  * const command = new DescribeDomainEndpointOptionsCommand(input);
  * const response = await client.send(command);
  * ```

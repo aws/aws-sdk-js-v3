@@ -45,6 +45,10 @@ export interface RemoveAllResourcePermissionsCommandOutput extends __MetadataBea
  * import { WorkDocsClient, RemoveAllResourcePermissionsCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
  * // const { WorkDocsClient, RemoveAllResourcePermissionsCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
  * const client = new WorkDocsClient(config);
+ * const input = {
+ *   AuthenticationToken: "STRING_VALUE",
+ *   ResourceId: "STRING_VALUE", // required
+ * };
  * const command = new RemoveAllResourcePermissionsCommand(input);
  * const response = await client.send(command);
  * ```

@@ -48,6 +48,15 @@ export interface GetLaunchProfileInitializationCommandOutput
  * import { NimbleClient, GetLaunchProfileInitializationCommand } from "@aws-sdk/client-nimble"; // ES Modules import
  * // const { NimbleClient, GetLaunchProfileInitializationCommand } = require("@aws-sdk/client-nimble"); // CommonJS import
  * const client = new NimbleClient(config);
+ * const input = {
+ *   launchProfileId: "STRING_VALUE", // required
+ *   launchProfileProtocolVersions: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ *   launchPurpose: "STRING_VALUE", // required
+ *   platform: "STRING_VALUE", // required
+ *   studioId: "STRING_VALUE", // required
+ * };
  * const command = new GetLaunchProfileInitializationCommand(input);
  * const response = await client.send(command);
  * ```

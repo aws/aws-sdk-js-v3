@@ -48,6 +48,11 @@ export interface DeleteApplicationOutputCommandOutput extends DeleteApplicationO
  * import { KinesisAnalyticsV2Client, DeleteApplicationOutputCommand } from "@aws-sdk/client-kinesis-analytics-v2"; // ES Modules import
  * // const { KinesisAnalyticsV2Client, DeleteApplicationOutputCommand } = require("@aws-sdk/client-kinesis-analytics-v2"); // CommonJS import
  * const client = new KinesisAnalyticsV2Client(config);
+ * const input = {
+ *   ApplicationName: "STRING_VALUE", // required
+ *   CurrentApplicationVersionId: Number("long"), // required
+ *   OutputId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteApplicationOutputCommand(input);
  * const response = await client.send(command);
  * ```

@@ -94,6 +94,9 @@ export interface GetKeyRotationStatusCommandOutput extends GetKeyRotationStatusR
  * import { KMSClient, GetKeyRotationStatusCommand } from "@aws-sdk/client-kms"; // ES Modules import
  * // const { KMSClient, GetKeyRotationStatusCommand } = require("@aws-sdk/client-kms"); // CommonJS import
  * const client = new KMSClient(config);
+ * const input = {
+ *   KeyId: "STRING_VALUE", // required
+ * };
  * const command = new GetKeyRotationStatusCommand(input);
  * const response = await client.send(command);
  * ```

@@ -49,6 +49,21 @@ export interface AddResourcePermissionsCommandOutput extends AddResourcePermissi
  * import { WorkDocsClient, AddResourcePermissionsCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
  * // const { WorkDocsClient, AddResourcePermissionsCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
  * const client = new WorkDocsClient(config);
+ * const input = {
+ *   AuthenticationToken: "STRING_VALUE",
+ *   ResourceId: "STRING_VALUE", // required
+ *   Principals: [ // required
+ *     {
+ *       Id: "STRING_VALUE", // required
+ *       Type: "USER" || "GROUP" || "INVITE" || "ANONYMOUS" || "ORGANIZATION", // required
+ *       Role: "VIEWER" || "CONTRIBUTOR" || "OWNER" || "COOWNER", // required
+ *     },
+ *   ],
+ *   NotificationOptions: {
+ *     SendEmail: true || false,
+ *     EmailMessage: "STRING_VALUE",
+ *   },
+ * };
  * const command = new AddResourcePermissionsCommand(input);
  * const response = await client.send(command);
  * ```

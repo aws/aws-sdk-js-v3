@@ -42,6 +42,10 @@ export interface GetDatasetContentCommandOutput extends GetDatasetContentRespons
  * import { IoTAnalyticsClient, GetDatasetContentCommand } from "@aws-sdk/client-iotanalytics"; // ES Modules import
  * // const { IoTAnalyticsClient, GetDatasetContentCommand } = require("@aws-sdk/client-iotanalytics"); // CommonJS import
  * const client = new IoTAnalyticsClient(config);
+ * const input = {
+ *   datasetName: "STRING_VALUE", // required
+ *   versionId: "STRING_VALUE",
+ * };
  * const command = new GetDatasetContentCommand(input);
  * const response = await client.send(command);
  * ```

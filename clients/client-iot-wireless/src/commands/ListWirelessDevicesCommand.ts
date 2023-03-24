@@ -42,6 +42,16 @@ export interface ListWirelessDevicesCommandOutput extends ListWirelessDevicesRes
  * import { IoTWirelessClient, ListWirelessDevicesCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, ListWirelessDevicesCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
+ * const input = {
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   DestinationName: "STRING_VALUE",
+ *   DeviceProfileId: "STRING_VALUE",
+ *   ServiceProfileId: "STRING_VALUE",
+ *   WirelessDeviceType: "Sidewalk" || "LoRaWAN",
+ *   FuotaTaskId: "STRING_VALUE",
+ *   MulticastGroupId: "STRING_VALUE",
+ * };
  * const command = new ListWirelessDevicesCommand(input);
  * const response = await client.send(command);
  * ```

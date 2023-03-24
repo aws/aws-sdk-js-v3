@@ -44,6 +44,11 @@ export interface AssociateUserToPermissionGroupCommandOutput
  * import { FinspaceDataClient, AssociateUserToPermissionGroupCommand } from "@aws-sdk/client-finspace-data"; // ES Modules import
  * // const { FinspaceDataClient, AssociateUserToPermissionGroupCommand } = require("@aws-sdk/client-finspace-data"); // CommonJS import
  * const client = new FinspaceDataClient(config);
+ * const input = {
+ *   permissionGroupId: "STRING_VALUE", // required
+ *   userId: "STRING_VALUE", // required
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new AssociateUserToPermissionGroupCommand(input);
  * const response = await client.send(command);
  * ```

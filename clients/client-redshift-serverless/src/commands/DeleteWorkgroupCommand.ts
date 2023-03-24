@@ -46,6 +46,9 @@ export interface DeleteWorkgroupCommandOutput extends DeleteWorkgroupResponse, _
  * import { RedshiftServerlessClient, DeleteWorkgroupCommand } from "@aws-sdk/client-redshift-serverless"; // ES Modules import
  * // const { RedshiftServerlessClient, DeleteWorkgroupCommand } = require("@aws-sdk/client-redshift-serverless"); // CommonJS import
  * const client = new RedshiftServerlessClient(config);
+ * const input = {
+ *   workgroupName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteWorkgroupCommand(input);
  * const response = await client.send(command);
  * ```

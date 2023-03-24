@@ -76,6 +76,9 @@ export interface AcceptHandshakeCommandOutput extends AcceptHandshakeResponse, _
  * import { OrganizationsClient, AcceptHandshakeCommand } from "@aws-sdk/client-organizations"; // ES Modules import
  * // const { OrganizationsClient, AcceptHandshakeCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
  * const client = new OrganizationsClient(config);
+ * const input = {
+ *   HandshakeId: "STRING_VALUE", // required
+ * };
  * const command = new AcceptHandshakeCommand(input);
  * const response = await client.send(command);
  * ```

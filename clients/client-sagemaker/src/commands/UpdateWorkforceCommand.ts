@@ -71,6 +71,33 @@ export interface UpdateWorkforceCommandOutput extends UpdateWorkforceResponse, _
  * import { SageMakerClient, UpdateWorkforceCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, UpdateWorkforceCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = {
+ *   WorkforceName: "STRING_VALUE", // required
+ *   SourceIpConfig: {
+ *     Cidrs: [ // required
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   OidcConfig: {
+ *     ClientId: "STRING_VALUE", // required
+ *     ClientSecret: "STRING_VALUE", // required
+ *     Issuer: "STRING_VALUE", // required
+ *     AuthorizationEndpoint: "STRING_VALUE", // required
+ *     TokenEndpoint: "STRING_VALUE", // required
+ *     UserInfoEndpoint: "STRING_VALUE", // required
+ *     LogoutEndpoint: "STRING_VALUE", // required
+ *     JwksUri: "STRING_VALUE", // required
+ *   },
+ *   WorkforceVpcConfig: {
+ *     VpcId: "STRING_VALUE",
+ *     SecurityGroupIds: [
+ *       "STRING_VALUE",
+ *     ],
+ *     Subnets: [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ * };
  * const command = new UpdateWorkforceCommand(input);
  * const response = await client.send(command);
  * ```

@@ -44,6 +44,36 @@ export interface CreateStreamingDistributionCommandOutput extends CreateStreamin
  * import { CloudFrontClient, CreateStreamingDistributionCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, CreateStreamingDistributionCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
+ * const input = {
+ *   StreamingDistributionConfig: {
+ *     CallerReference: "STRING_VALUE", // required
+ *     S3Origin: {
+ *       DomainName: "STRING_VALUE", // required
+ *       OriginAccessIdentity: "STRING_VALUE", // required
+ *     },
+ *     Aliases: {
+ *       Quantity: Number("int"), // required
+ *       Items: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *     Comment: "STRING_VALUE", // required
+ *     Logging: {
+ *       Enabled: true || false, // required
+ *       Bucket: "STRING_VALUE", // required
+ *       Prefix: "STRING_VALUE", // required
+ *     },
+ *     TrustedSigners: {
+ *       Enabled: true || false, // required
+ *       Quantity: Number("int"), // required
+ *       Items: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *     PriceClass: "PriceClass_100" || "PriceClass_200" || "PriceClass_All",
+ *     Enabled: true || false, // required
+ *   },
+ * };
  * const command = new CreateStreamingDistributionCommand(input);
  * const response = await client.send(command);
  * ```

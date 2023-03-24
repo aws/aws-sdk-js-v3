@@ -55,6 +55,13 @@ export interface SelectAggregateResourceConfigCommandOutput
  * import { ConfigServiceClient, SelectAggregateResourceConfigCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, SelectAggregateResourceConfigCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
+ * const input = {
+ *   Expression: "STRING_VALUE", // required
+ *   ConfigurationAggregatorName: "STRING_VALUE", // required
+ *   Limit: Number("int"),
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new SelectAggregateResourceConfigCommand(input);
  * const response = await client.send(command);
  * ```

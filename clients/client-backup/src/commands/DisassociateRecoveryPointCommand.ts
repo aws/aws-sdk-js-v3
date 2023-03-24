@@ -45,6 +45,10 @@ export interface DisassociateRecoveryPointCommandOutput extends __MetadataBearer
  * import { BackupClient, DisassociateRecoveryPointCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, DisassociateRecoveryPointCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
+ * const input = {
+ *   BackupVaultName: "STRING_VALUE", // required
+ *   RecoveryPointArn: "STRING_VALUE", // required
+ * };
  * const command = new DisassociateRecoveryPointCommand(input);
  * const response = await client.send(command);
  * ```

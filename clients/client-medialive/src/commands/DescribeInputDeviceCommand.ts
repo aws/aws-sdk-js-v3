@@ -42,6 +42,9 @@ export interface DescribeInputDeviceCommandOutput extends DescribeInputDeviceRes
  * import { MediaLiveClient, DescribeInputDeviceCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, DescribeInputDeviceCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
  * const client = new MediaLiveClient(config);
+ * const input = {
+ *   InputDeviceId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeInputDeviceCommand(input);
  * const response = await client.send(command);
  * ```

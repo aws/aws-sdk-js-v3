@@ -47,6 +47,10 @@ export interface GetVaultAccessPolicyCommandOutput extends GetVaultAccessPolicyO
  * import { GlacierClient, GetVaultAccessPolicyCommand } from "@aws-sdk/client-glacier"; // ES Modules import
  * // const { GlacierClient, GetVaultAccessPolicyCommand } = require("@aws-sdk/client-glacier"); // CommonJS import
  * const client = new GlacierClient(config);
+ * const input = {
+ *   accountId: "STRING_VALUE", // required
+ *   vaultName: "STRING_VALUE", // required
+ * };
  * const command = new GetVaultAccessPolicyCommand(input);
  * const response = await client.send(command);
  * ```

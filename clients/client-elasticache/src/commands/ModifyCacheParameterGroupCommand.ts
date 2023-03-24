@@ -44,6 +44,15 @@ export interface ModifyCacheParameterGroupCommandOutput extends CacheParameterGr
  * import { ElastiCacheClient, ModifyCacheParameterGroupCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, ModifyCacheParameterGroupCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
  * const client = new ElastiCacheClient(config);
+ * const input = {
+ *   CacheParameterGroupName: "STRING_VALUE", // required
+ *   ParameterNameValues: [ // required
+ *     {
+ *       ParameterName: "STRING_VALUE",
+ *       ParameterValue: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new ModifyCacheParameterGroupCommand(input);
  * const response = await client.send(command);
  * ```

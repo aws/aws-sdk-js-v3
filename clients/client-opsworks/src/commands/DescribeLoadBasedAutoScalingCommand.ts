@@ -52,6 +52,11 @@ export interface DescribeLoadBasedAutoScalingCommandOutput
  * import { OpsWorksClient, DescribeLoadBasedAutoScalingCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, DescribeLoadBasedAutoScalingCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
+ * const input = {
+ *   LayerIds: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DescribeLoadBasedAutoScalingCommand(input);
  * const response = await client.send(command);
  * ```

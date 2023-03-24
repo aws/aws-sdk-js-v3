@@ -43,6 +43,9 @@ export interface SwitchoverReadReplicaCommandOutput extends SwitchoverReadReplic
  * import { RDSClient, SwitchoverReadReplicaCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, SwitchoverReadReplicaCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = {
+ *   DBInstanceIdentifier: "STRING_VALUE", // required
+ * };
  * const command = new SwitchoverReadReplicaCommand(input);
  * const response = await client.send(command);
  * ```

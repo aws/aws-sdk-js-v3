@@ -50,6 +50,37 @@ export interface UpdateEnvironmentCommandOutput extends EnvironmentDescription, 
  * import { ElasticBeanstalkClient, UpdateEnvironmentCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
  * // const { ElasticBeanstalkClient, UpdateEnvironmentCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
  * const client = new ElasticBeanstalkClient(config);
+ * const input = {
+ *   ApplicationName: "STRING_VALUE",
+ *   EnvironmentId: "STRING_VALUE",
+ *   EnvironmentName: "STRING_VALUE",
+ *   GroupName: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   Tier: {
+ *     Name: "STRING_VALUE",
+ *     Type: "STRING_VALUE",
+ *     Version: "STRING_VALUE",
+ *   },
+ *   VersionLabel: "STRING_VALUE",
+ *   TemplateName: "STRING_VALUE",
+ *   SolutionStackName: "STRING_VALUE",
+ *   PlatformArn: "STRING_VALUE",
+ *   OptionSettings: [
+ *     {
+ *       ResourceName: "STRING_VALUE",
+ *       Namespace: "STRING_VALUE",
+ *       OptionName: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   OptionsToRemove: [
+ *     {
+ *       ResourceName: "STRING_VALUE",
+ *       Namespace: "STRING_VALUE",
+ *       OptionName: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new UpdateEnvironmentCommand(input);
  * const response = await client.send(command);
  * ```

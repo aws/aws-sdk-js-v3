@@ -123,6 +123,90 @@ export interface BatchWriteItemCommandOutput extends BatchWriteItemOutput, __Met
  * import { DynamoDBClient, BatchWriteItemCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
  * // const { DynamoDBClient, BatchWriteItemCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
  * const client = new DynamoDBClient(config);
+ * const input = {
+ *   RequestItems: { // required
+ *     "<keys>": [
+ *       {
+ *         PutRequest: {
+ *           Item: { // required
+ *             "<keys>": { // Union: only one key present
+ *               S: "STRING_VALUE",
+ *               N: "STRING_VALUE",
+ *               B: "BLOB_VALUE",
+ *               SS: [
+ *                 "STRING_VALUE",
+ *               ],
+ *               NS: [
+ *                 "STRING_VALUE",
+ *               ],
+ *               BS: [
+ *                 "BLOB_VALUE",
+ *               ],
+ *               M: {
+ *                 "<keys>": { // Union: only one key present
+ *                   S: "STRING_VALUE",
+ *                   N: "STRING_VALUE",
+ *                   B: "BLOB_VALUE",
+ *                   SS: [
+ *                     "STRING_VALUE",
+ *                   ],
+ *                   NS: [
+ *                     "STRING_VALUE",
+ *                   ],
+ *                   BS: [
+ *                     "BLOB_VALUE",
+ *                   ],
+ *                   M: {
+ *                     "<keys>": "<AttributeValue>",
+ *                   },
+ *                   L: [
+ *                     { // Union: only one key present
+ *                       S: "<AttributeValue>",
+ *                       N: "<AttributeValue>",
+ *                       B: "<AttributeValue>",
+ *                       SS: "<AttributeValue>",
+ *                       NS: "<AttributeValue>",
+ *                       BS: "<AttributeValue>",
+ *                       M: "<AttributeValue>",
+ *                       L: [
+ *                         { // Union: only one key present
+ *                           S: "<AttributeValue>",
+ *                           N: "<AttributeValue>",
+ *                           B: "<AttributeValue>",
+ *                           SS: "<AttributeValue>",
+ *                           NS: "<AttributeValue>",
+ *                           BS: "<AttributeValue>",
+ *                           M: "<AttributeValue>",
+ *                           L: "<AttributeValue>",
+ *                           NULL: true || false,
+ *                           BOOL: true || false,
+ *                         },
+ *                       ],
+ *                       NULL: true || false,
+ *                       BOOL: true || false,
+ *                     },
+ *                   ],
+ *                   NULL: "<AttributeValue>",
+ *                   BOOL: "<AttributeValue>",
+ *                 },
+ *               },
+ *               L: "<AttributeValue>",
+ *               NULL: "<AttributeValue>",
+ *               BOOL: "<AttributeValue>",
+ *             },
+ *           },
+ *         },
+ *         DeleteRequest: {
+ *           Key: { // required
+ *             "<keys>": "<AttributeValue>",
+ *           },
+ *         },
+ *       },
+ *     ],
+ *   },
+ *   ReturnConsumedCapacity: "INDEXES" || "TOTAL" || "NONE",
+ *   ReturnItemCollectionMetrics: "SIZE" || "NONE",
+ * };
  * const command = new BatchWriteItemCommand(input);
  * const response = await client.send(command);
  * ```

@@ -96,6 +96,12 @@ export interface CreateIndexCommandOutput extends CreateIndexOutput, __MetadataB
  * import { ResourceExplorer2Client, CreateIndexCommand } from "@aws-sdk/client-resource-explorer-2"; // ES Modules import
  * // const { ResourceExplorer2Client, CreateIndexCommand } = require("@aws-sdk/client-resource-explorer-2"); // CommonJS import
  * const client = new ResourceExplorer2Client(config);
+ * const input = {
+ *   ClientToken: "STRING_VALUE",
+ *   Tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateIndexCommand(input);
  * const response = await client.send(command);
  * ```

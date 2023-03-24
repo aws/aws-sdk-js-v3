@@ -43,6 +43,21 @@ export interface GetLifecyclePoliciesCommandOutput extends GetLifecyclePoliciesR
  * import { DLMClient, GetLifecyclePoliciesCommand } from "@aws-sdk/client-dlm"; // ES Modules import
  * // const { DLMClient, GetLifecyclePoliciesCommand } = require("@aws-sdk/client-dlm"); // CommonJS import
  * const client = new DLMClient(config);
+ * const input = {
+ *   PolicyIds: [
+ *     "STRING_VALUE",
+ *   ],
+ *   State: "ENABLED" || "DISABLED" || "ERROR",
+ *   ResourceTypes: [
+ *     "VOLUME" || "INSTANCE",
+ *   ],
+ *   TargetTags: [
+ *     "STRING_VALUE",
+ *   ],
+ *   TagsToAdd: [
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new GetLifecyclePoliciesCommand(input);
  * const response = await client.send(command);
  * ```

@@ -46,6 +46,9 @@ export interface DeleteDeploymentCommandOutput extends __MetadataBearer {}
  * import { GreengrassV2Client, DeleteDeploymentCommand } from "@aws-sdk/client-greengrassv2"; // ES Modules import
  * // const { GreengrassV2Client, DeleteDeploymentCommand } = require("@aws-sdk/client-greengrassv2"); // CommonJS import
  * const client = new GreengrassV2Client(config);
+ * const input = {
+ *   deploymentId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteDeploymentCommand(input);
  * const response = await client.send(command);
  * ```

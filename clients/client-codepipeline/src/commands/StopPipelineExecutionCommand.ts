@@ -47,6 +47,12 @@ export interface StopPipelineExecutionCommandOutput extends StopPipelineExecutio
  * import { CodePipelineClient, StopPipelineExecutionCommand } from "@aws-sdk/client-codepipeline"; // ES Modules import
  * // const { CodePipelineClient, StopPipelineExecutionCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import
  * const client = new CodePipelineClient(config);
+ * const input = {
+ *   pipelineName: "STRING_VALUE", // required
+ *   pipelineExecutionId: "STRING_VALUE", // required
+ *   abandon: true || false,
+ *   reason: "STRING_VALUE",
+ * };
  * const command = new StopPipelineExecutionCommand(input);
  * const response = await client.send(command);
  * ```

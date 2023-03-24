@@ -44,6 +44,10 @@ export interface UpdateSecurityHubConfigurationCommandOutput
  * import { SecurityHubClient, UpdateSecurityHubConfigurationCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, UpdateSecurityHubConfigurationCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
  * const client = new SecurityHubClient(config);
+ * const input = {
+ *   AutoEnableControls: true || false,
+ *   ControlFindingGenerator: "STANDARD_CONTROL" || "SECURITY_CONTROL",
+ * };
  * const command = new UpdateSecurityHubConfigurationCommand(input);
  * const response = await client.send(command);
  * ```

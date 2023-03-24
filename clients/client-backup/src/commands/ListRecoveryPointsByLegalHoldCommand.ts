@@ -45,6 +45,11 @@ export interface ListRecoveryPointsByLegalHoldCommandOutput
  * import { BackupClient, ListRecoveryPointsByLegalHoldCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, ListRecoveryPointsByLegalHoldCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
+ * const input = {
+ *   LegalHoldId: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListRecoveryPointsByLegalHoldCommand(input);
  * const response = await client.send(command);
  * ```

@@ -56,6 +56,26 @@ export interface CreateAwsLogSourceCommandOutput extends CreateAwsLogSourceRespo
  * import { SecurityLakeClient, CreateAwsLogSourceCommand } from "@aws-sdk/client-securitylake"; // ES Modules import
  * // const { SecurityLakeClient, CreateAwsLogSourceCommand } = require("@aws-sdk/client-securitylake"); // CommonJS import
  * const client = new SecurityLakeClient(config);
+ * const input = {
+ *   inputOrder: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ *   enableAllDimensions: {
+ *     "<keys>": {
+ *       "<keys>": [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   },
+ *   enableTwoDimensions: {
+ *     "<keys>": [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   enableSingleDimension: [
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new CreateAwsLogSourceCommand(input);
  * const response = await client.send(command);
  * ```

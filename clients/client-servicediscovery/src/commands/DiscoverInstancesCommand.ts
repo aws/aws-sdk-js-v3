@@ -44,6 +44,18 @@ export interface DiscoverInstancesCommandOutput extends DiscoverInstancesRespons
  * import { ServiceDiscoveryClient, DiscoverInstancesCommand } from "@aws-sdk/client-servicediscovery"; // ES Modules import
  * // const { ServiceDiscoveryClient, DiscoverInstancesCommand } = require("@aws-sdk/client-servicediscovery"); // CommonJS import
  * const client = new ServiceDiscoveryClient(config);
+ * const input = {
+ *   NamespaceName: "STRING_VALUE", // required
+ *   ServiceName: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   QueryParameters: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   OptionalParameters: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   HealthStatus: "HEALTHY" || "UNHEALTHY" || "ALL" || "HEALTHY_OR_ELSE_ALL",
+ * };
  * const command = new DiscoverInstancesCommand(input);
  * const response = await client.send(command);
  * ```

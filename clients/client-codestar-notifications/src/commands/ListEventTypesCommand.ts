@@ -46,6 +46,16 @@ export interface ListEventTypesCommandOutput extends ListEventTypesResult, __Met
  * import { CodestarNotificationsClient, ListEventTypesCommand } from "@aws-sdk/client-codestar-notifications"; // ES Modules import
  * // const { CodestarNotificationsClient, ListEventTypesCommand } = require("@aws-sdk/client-codestar-notifications"); // CommonJS import
  * const client = new CodestarNotificationsClient(config);
+ * const input = {
+ *   Filters: [
+ *     {
+ *       Name: "RESOURCE_TYPE" || "SERVICE_NAME", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListEventTypesCommand(input);
  * const response = await client.send(command);
  * ```

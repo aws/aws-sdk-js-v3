@@ -46,6 +46,9 @@ export interface CancelServiceSoftwareUpdateCommandOutput
  * import { OpenSearchClient, CancelServiceSoftwareUpdateCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
  * // const { OpenSearchClient, CancelServiceSoftwareUpdateCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
  * const client = new OpenSearchClient(config);
+ * const input = {
+ *   DomainName: "STRING_VALUE", // required
+ * };
  * const command = new CancelServiceSoftwareUpdateCommand(input);
  * const response = await client.send(command);
  * ```

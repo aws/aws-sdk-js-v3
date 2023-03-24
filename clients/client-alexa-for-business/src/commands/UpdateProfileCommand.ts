@@ -42,6 +42,39 @@ export interface UpdateProfileCommandOutput extends UpdateProfileResponse, __Met
  * import { AlexaForBusinessClient, UpdateProfileCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, UpdateProfileCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
+ * const input = {
+ *   ProfileArn: "STRING_VALUE",
+ *   ProfileName: "STRING_VALUE",
+ *   IsDefault: true || false,
+ *   Timezone: "STRING_VALUE",
+ *   Address: "STRING_VALUE",
+ *   DistanceUnit: "STRING_VALUE",
+ *   TemperatureUnit: "STRING_VALUE",
+ *   WakeWord: "STRING_VALUE",
+ *   Locale: "STRING_VALUE",
+ *   SetupModeDisabled: true || false,
+ *   MaxVolumeLimit: Number("int"),
+ *   PSTNEnabled: true || false,
+ *   DataRetentionOptIn: true || false,
+ *   MeetingRoomConfiguration: {
+ *     RoomUtilizationMetricsEnabled: true || false,
+ *     EndOfMeetingReminder: {
+ *       ReminderAtMinutes: [
+ *         Number("int"),
+ *       ],
+ *       ReminderType: "STRING_VALUE",
+ *       Enabled: true || false,
+ *     },
+ *     InstantBooking: {
+ *       DurationInMinutes: Number("int"),
+ *       Enabled: true || false,
+ *     },
+ *     RequireCheckIn: {
+ *       ReleaseAfterMinutes: Number("int"),
+ *       Enabled: true || false,
+ *     },
+ *   },
+ * };
  * const command = new UpdateProfileCommand(input);
  * const response = await client.send(command);
  * ```

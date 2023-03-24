@@ -61,6 +61,17 @@ export interface CreateMLModelCommandOutput extends CreateMLModelOutput, __Metad
  * import { MachineLearningClient, CreateMLModelCommand } from "@aws-sdk/client-machine-learning"; // ES Modules import
  * // const { MachineLearningClient, CreateMLModelCommand } = require("@aws-sdk/client-machine-learning"); // CommonJS import
  * const client = new MachineLearningClient(config);
+ * const input = {
+ *   MLModelId: "STRING_VALUE", // required
+ *   MLModelName: "STRING_VALUE",
+ *   MLModelType: "STRING_VALUE", // required
+ *   Parameters: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   TrainingDataSourceId: "STRING_VALUE", // required
+ *   Recipe: "STRING_VALUE",
+ *   RecipeUri: "STRING_VALUE",
+ * };
  * const command = new CreateMLModelCommand(input);
  * const response = await client.send(command);
  * ```

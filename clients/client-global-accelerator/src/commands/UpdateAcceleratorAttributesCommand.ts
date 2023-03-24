@@ -48,6 +48,12 @@ export interface UpdateAcceleratorAttributesCommandOutput
  * import { GlobalAcceleratorClient, UpdateAcceleratorAttributesCommand } from "@aws-sdk/client-global-accelerator"; // ES Modules import
  * // const { GlobalAcceleratorClient, UpdateAcceleratorAttributesCommand } = require("@aws-sdk/client-global-accelerator"); // CommonJS import
  * const client = new GlobalAcceleratorClient(config);
+ * const input = {
+ *   AcceleratorArn: "STRING_VALUE", // required
+ *   FlowLogsEnabled: true || false,
+ *   FlowLogsS3Bucket: "STRING_VALUE",
+ *   FlowLogsS3Prefix: "STRING_VALUE",
+ * };
  * const command = new UpdateAcceleratorAttributesCommand(input);
  * const response = await client.send(command);
  * ```

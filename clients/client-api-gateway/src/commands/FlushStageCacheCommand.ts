@@ -42,6 +42,10 @@ export interface FlushStageCacheCommandOutput extends __MetadataBearer {}
  * import { APIGatewayClient, FlushStageCacheCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, FlushStageCacheCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
+ * const input = {
+ *   restApiId: "STRING_VALUE", // required
+ *   stageName: "STRING_VALUE", // required
+ * };
  * const command = new FlushStageCacheCommand(input);
  * const response = await client.send(command);
  * ```

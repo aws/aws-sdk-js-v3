@@ -43,6 +43,38 @@ export interface ListAssessmentRunsCommandOutput extends ListAssessmentRunsRespo
  * import { InspectorClient, ListAssessmentRunsCommand } from "@aws-sdk/client-inspector"; // ES Modules import
  * // const { InspectorClient, ListAssessmentRunsCommand } = require("@aws-sdk/client-inspector"); // CommonJS import
  * const client = new InspectorClient(config);
+ * const input = {
+ *   assessmentTemplateArns: [
+ *     "STRING_VALUE",
+ *   ],
+ *   filter: {
+ *     namePattern: "STRING_VALUE",
+ *     states: [
+ *       "STRING_VALUE",
+ *     ],
+ *     durationRange: {
+ *       minSeconds: Number("int"),
+ *       maxSeconds: Number("int"),
+ *     },
+ *     rulesPackageArns: [
+ *       "STRING_VALUE",
+ *     ],
+ *     startTimeRange: {
+ *       beginDate: new Date("TIMESTAMP"),
+ *       endDate: new Date("TIMESTAMP"),
+ *     },
+ *     completionTimeRange: {
+ *       beginDate: new Date("TIMESTAMP"),
+ *       endDate: new Date("TIMESTAMP"),
+ *     },
+ *     stateChangeTimeRange: {
+ *       beginDate: new Date("TIMESTAMP"),
+ *       endDate: new Date("TIMESTAMP"),
+ *     },
+ *   },
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListAssessmentRunsCommand(input);
  * const response = await client.send(command);
  * ```

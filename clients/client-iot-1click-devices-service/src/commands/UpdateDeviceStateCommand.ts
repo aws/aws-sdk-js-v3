@@ -47,6 +47,10 @@ export interface UpdateDeviceStateCommandOutput extends UpdateDeviceStateRespons
  * import { IoT1ClickDevicesServiceClient, UpdateDeviceStateCommand } from "@aws-sdk/client-iot-1click-devices-service"; // ES Modules import
  * // const { IoT1ClickDevicesServiceClient, UpdateDeviceStateCommand } = require("@aws-sdk/client-iot-1click-devices-service"); // CommonJS import
  * const client = new IoT1ClickDevicesServiceClient(config);
+ * const input = {
+ *   DeviceId: "STRING_VALUE", // required
+ *   Enabled: true || false,
+ * };
  * const command = new UpdateDeviceStateCommand(input);
  * const response = await client.send(command);
  * ```

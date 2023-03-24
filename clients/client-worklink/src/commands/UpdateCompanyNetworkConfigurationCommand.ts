@@ -49,6 +49,16 @@ export interface UpdateCompanyNetworkConfigurationCommandOutput
  * import { WorkLinkClient, UpdateCompanyNetworkConfigurationCommand } from "@aws-sdk/client-worklink"; // ES Modules import
  * // const { WorkLinkClient, UpdateCompanyNetworkConfigurationCommand } = require("@aws-sdk/client-worklink"); // CommonJS import
  * const client = new WorkLinkClient(config);
+ * const input = {
+ *   FleetArn: "STRING_VALUE", // required
+ *   VpcId: "STRING_VALUE", // required
+ *   SubnetIds: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ *   SecurityGroupIds: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new UpdateCompanyNetworkConfigurationCommand(input);
  * const response = await client.send(command);
  * ```

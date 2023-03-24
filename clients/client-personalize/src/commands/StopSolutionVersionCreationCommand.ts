@@ -55,6 +55,9 @@ export interface StopSolutionVersionCreationCommandOutput extends __MetadataBear
  * import { PersonalizeClient, StopSolutionVersionCreationCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, StopSolutionVersionCreationCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
  * const client = new PersonalizeClient(config);
+ * const input = {
+ *   solutionVersionArn: "STRING_VALUE", // required
+ * };
  * const command = new StopSolutionVersionCreationCommand(input);
  * const response = await client.send(command);
  * ```

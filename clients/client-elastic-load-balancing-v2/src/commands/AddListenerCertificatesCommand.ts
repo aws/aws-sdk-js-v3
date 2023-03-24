@@ -52,6 +52,15 @@ export interface AddListenerCertificatesCommandOutput extends AddListenerCertifi
  * import { ElasticLoadBalancingV2Client, AddListenerCertificatesCommand } from "@aws-sdk/client-elastic-load-balancing-v2"; // ES Modules import
  * // const { ElasticLoadBalancingV2Client, AddListenerCertificatesCommand } = require("@aws-sdk/client-elastic-load-balancing-v2"); // CommonJS import
  * const client = new ElasticLoadBalancingV2Client(config);
+ * const input = {
+ *   ListenerArn: "STRING_VALUE", // required
+ *   Certificates: [ // required
+ *     {
+ *       CertificateArn: "STRING_VALUE",
+ *       IsDefault: true || false,
+ *     },
+ *   ],
+ * };
  * const command = new AddListenerCertificatesCommand(input);
  * const response = await client.send(command);
  * ```

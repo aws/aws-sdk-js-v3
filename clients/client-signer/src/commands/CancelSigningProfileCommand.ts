@@ -45,6 +45,9 @@ export interface CancelSigningProfileCommandOutput extends __MetadataBearer {}
  * import { SignerClient, CancelSigningProfileCommand } from "@aws-sdk/client-signer"; // ES Modules import
  * // const { SignerClient, CancelSigningProfileCommand } = require("@aws-sdk/client-signer"); // CommonJS import
  * const client = new SignerClient(config);
+ * const input = {
+ *   profileName: "STRING_VALUE", // required
+ * };
  * const command = new CancelSigningProfileCommand(input);
  * const response = await client.send(command);
  * ```

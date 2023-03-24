@@ -42,6 +42,10 @@ export interface PutChannelPolicyCommandOutput extends PutChannelPolicyResponse,
  * import { MediaTailorClient, PutChannelPolicyCommand } from "@aws-sdk/client-mediatailor"; // ES Modules import
  * // const { MediaTailorClient, PutChannelPolicyCommand } = require("@aws-sdk/client-mediatailor"); // CommonJS import
  * const client = new MediaTailorClient(config);
+ * const input = {
+ *   ChannelName: "STRING_VALUE", // required
+ *   Policy: "STRING_VALUE", // required
+ * };
  * const command = new PutChannelPolicyCommand(input);
  * const response = await client.send(command);
  * ```

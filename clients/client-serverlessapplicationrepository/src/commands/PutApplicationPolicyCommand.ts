@@ -49,6 +49,23 @@ export interface PutApplicationPolicyCommandOutput extends PutApplicationPolicyR
  * import { ServerlessApplicationRepositoryClient, PutApplicationPolicyCommand } from "@aws-sdk/client-serverlessapplicationrepository"; // ES Modules import
  * // const { ServerlessApplicationRepositoryClient, PutApplicationPolicyCommand } = require("@aws-sdk/client-serverlessapplicationrepository"); // CommonJS import
  * const client = new ServerlessApplicationRepositoryClient(config);
+ * const input = {
+ *   ApplicationId: "STRING_VALUE", // required
+ *   Statements: [ // required
+ *     {
+ *       Actions: [ // required
+ *         "STRING_VALUE",
+ *       ],
+ *       PrincipalOrgIDs: [
+ *         "STRING_VALUE",
+ *       ],
+ *       Principals: [ // required
+ *         "STRING_VALUE",
+ *       ],
+ *       StatementId: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new PutApplicationPolicyCommand(input);
  * const response = await client.send(command);
  * ```

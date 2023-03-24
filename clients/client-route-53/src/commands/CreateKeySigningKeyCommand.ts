@@ -44,6 +44,13 @@ export interface CreateKeySigningKeyCommandOutput extends CreateKeySigningKeyRes
  * import { Route53Client, CreateKeySigningKeyCommand } from "@aws-sdk/client-route-53"; // ES Modules import
  * // const { Route53Client, CreateKeySigningKeyCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
  * const client = new Route53Client(config);
+ * const input = {
+ *   CallerReference: "STRING_VALUE", // required
+ *   HostedZoneId: "STRING_VALUE", // required
+ *   KeyManagementServiceArn: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE", // required
+ *   Status: "STRING_VALUE", // required
+ * };
  * const command = new CreateKeySigningKeyCommand(input);
  * const response = await client.send(command);
  * ```

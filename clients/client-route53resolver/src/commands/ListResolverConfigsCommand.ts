@@ -43,6 +43,10 @@ export interface ListResolverConfigsCommandOutput extends ListResolverConfigsRes
  * import { Route53ResolverClient, ListResolverConfigsCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
  * // const { Route53ResolverClient, ListResolverConfigsCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
  * const client = new Route53ResolverClient(config);
+ * const input = {
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListResolverConfigsCommand(input);
  * const response = await client.send(command);
  * ```

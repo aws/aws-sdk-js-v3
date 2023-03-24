@@ -45,6 +45,17 @@ export interface CreateTokenCommandOutput extends CreateTokenResponse, __Metadat
  * import { LicenseManagerClient, CreateTokenCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
  * // const { LicenseManagerClient, CreateTokenCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
  * const client = new LicenseManagerClient(config);
+ * const input = {
+ *   LicenseArn: "STRING_VALUE", // required
+ *   RoleArns: [
+ *     "STRING_VALUE",
+ *   ],
+ *   ExpirationInDays: Number("int"),
+ *   TokenProperties: [
+ *     "STRING_VALUE",
+ *   ],
+ *   ClientToken: "STRING_VALUE", // required
+ * };
  * const command = new CreateTokenCommand(input);
  * const response = await client.send(command);
  * ```

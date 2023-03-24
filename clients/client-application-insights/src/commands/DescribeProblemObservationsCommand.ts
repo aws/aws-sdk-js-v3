@@ -48,6 +48,9 @@ export interface DescribeProblemObservationsCommandOutput
  * import { ApplicationInsightsClient, DescribeProblemObservationsCommand } from "@aws-sdk/client-application-insights"; // ES Modules import
  * // const { ApplicationInsightsClient, DescribeProblemObservationsCommand } = require("@aws-sdk/client-application-insights"); // CommonJS import
  * const client = new ApplicationInsightsClient(config);
+ * const input = {
+ *   ProblemId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeProblemObservationsCommand(input);
  * const response = await client.send(command);
  * ```

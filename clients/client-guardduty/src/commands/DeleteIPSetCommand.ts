@@ -43,6 +43,10 @@ export interface DeleteIPSetCommandOutput extends DeleteIPSetResponse, __Metadat
  * import { GuardDutyClient, DeleteIPSetCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
  * // const { GuardDutyClient, DeleteIPSetCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
  * const client = new GuardDutyClient(config);
+ * const input = {
+ *   DetectorId: "STRING_VALUE", // required
+ *   IpSetId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteIPSetCommand(input);
  * const response = await client.send(command);
  * ```

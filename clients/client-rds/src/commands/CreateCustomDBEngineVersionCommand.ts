@@ -42,6 +42,22 @@ export interface CreateCustomDBEngineVersionCommandOutput extends DBEngineVersio
  * import { RDSClient, CreateCustomDBEngineVersionCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, CreateCustomDBEngineVersionCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = {
+ *   Engine: "STRING_VALUE", // required
+ *   EngineVersion: "STRING_VALUE", // required
+ *   DatabaseInstallationFilesS3BucketName: "STRING_VALUE",
+ *   DatabaseInstallationFilesS3Prefix: "STRING_VALUE",
+ *   ImageId: "STRING_VALUE",
+ *   KMSKeyId: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   Manifest: "STRING_VALUE",
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateCustomDBEngineVersionCommand(input);
  * const response = await client.send(command);
  * ```

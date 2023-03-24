@@ -42,6 +42,17 @@ export interface UpdateNetworkSettingsCommandOutput extends UpdateNetworkSetting
  * import { WorkSpacesWebClient, UpdateNetworkSettingsCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
  * // const { WorkSpacesWebClient, UpdateNetworkSettingsCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
  * const client = new WorkSpacesWebClient(config);
+ * const input = {
+ *   networkSettingsArn: "STRING_VALUE", // required
+ *   vpcId: "STRING_VALUE",
+ *   subnetIds: [
+ *     "STRING_VALUE",
+ *   ],
+ *   securityGroupIds: [
+ *     "STRING_VALUE",
+ *   ],
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new UpdateNetworkSettingsCommand(input);
  * const response = await client.send(command);
  * ```

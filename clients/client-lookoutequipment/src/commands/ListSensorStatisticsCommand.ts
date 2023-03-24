@@ -44,6 +44,12 @@ export interface ListSensorStatisticsCommandOutput extends ListSensorStatisticsR
  * import { LookoutEquipmentClient, ListSensorStatisticsCommand } from "@aws-sdk/client-lookoutequipment"; // ES Modules import
  * // const { LookoutEquipmentClient, ListSensorStatisticsCommand } = require("@aws-sdk/client-lookoutequipment"); // CommonJS import
  * const client = new LookoutEquipmentClient(config);
+ * const input = {
+ *   DatasetName: "STRING_VALUE", // required
+ *   IngestionJobId: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListSensorStatisticsCommand(input);
  * const response = await client.send(command);
  * ```

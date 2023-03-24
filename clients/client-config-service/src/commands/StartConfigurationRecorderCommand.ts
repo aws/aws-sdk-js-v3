@@ -45,6 +45,9 @@ export interface StartConfigurationRecorderCommandOutput extends __MetadataBeare
  * import { ConfigServiceClient, StartConfigurationRecorderCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, StartConfigurationRecorderCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
+ * const input = {
+ *   ConfigurationRecorderName: "STRING_VALUE", // required
+ * };
  * const command = new StartConfigurationRecorderCommand(input);
  * const response = await client.send(command);
  * ```

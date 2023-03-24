@@ -52,6 +52,14 @@ export interface UnassignPrivateNatGatewayAddressCommandOutput
  * import { EC2Client, UnassignPrivateNatGatewayAddressCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, UnassignPrivateNatGatewayAddressCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   NatGatewayId: "STRING_VALUE", // required
+ *   PrivateIpAddresses: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ *   MaxDrainDurationSeconds: Number("int"),
+ *   DryRun: true || false,
+ * };
  * const command = new UnassignPrivateNatGatewayAddressCommand(input);
  * const response = await client.send(command);
  * ```

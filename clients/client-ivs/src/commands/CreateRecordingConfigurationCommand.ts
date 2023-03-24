@@ -55,6 +55,22 @@ export interface CreateRecordingConfigurationCommandOutput
  * import { IvsClient, CreateRecordingConfigurationCommand } from "@aws-sdk/client-ivs"; // ES Modules import
  * // const { IvsClient, CreateRecordingConfigurationCommand } = require("@aws-sdk/client-ivs"); // CommonJS import
  * const client = new IvsClient(config);
+ * const input = {
+ *   name: "STRING_VALUE",
+ *   destinationConfiguration: {
+ *     s3: {
+ *       bucketName: "STRING_VALUE", // required
+ *     },
+ *   },
+ *   tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   thumbnailConfiguration: {
+ *     recordingMode: "STRING_VALUE",
+ *     targetIntervalSeconds: Number("long"),
+ *   },
+ *   recordingReconnectWindowSeconds: Number("int"),
+ * };
  * const command = new CreateRecordingConfigurationCommand(input);
  * const response = await client.send(command);
  * ```

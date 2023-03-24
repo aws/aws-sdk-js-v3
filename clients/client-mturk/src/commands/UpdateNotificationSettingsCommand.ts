@@ -53,6 +53,18 @@ export interface UpdateNotificationSettingsCommandOutput extends UpdateNotificat
  * import { MTurkClient, UpdateNotificationSettingsCommand } from "@aws-sdk/client-mturk"; // ES Modules import
  * // const { MTurkClient, UpdateNotificationSettingsCommand } = require("@aws-sdk/client-mturk"); // CommonJS import
  * const client = new MTurkClient(config);
+ * const input = {
+ *   HITTypeId: "STRING_VALUE", // required
+ *   Notification: {
+ *     Destination: "STRING_VALUE", // required
+ *     Transport: "STRING_VALUE", // required
+ *     Version: "STRING_VALUE", // required
+ *     EventTypes: [ // required
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   Active: true || false,
+ * };
  * const command = new UpdateNotificationSettingsCommand(input);
  * const response = await client.send(command);
  * ```

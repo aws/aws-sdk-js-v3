@@ -42,6 +42,75 @@ export interface UpdateConnectionCommandOutput extends UpdateConnectionResponse,
  * import { EventBridgeClient, UpdateConnectionCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
  * // const { EventBridgeClient, UpdateConnectionCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
  * const client = new EventBridgeClient(config);
+ * const input = {
+ *   Name: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   AuthorizationType: "BASIC" || "OAUTH_CLIENT_CREDENTIALS" || "API_KEY",
+ *   AuthParameters: {
+ *     BasicAuthParameters: {
+ *       Username: "STRING_VALUE",
+ *       Password: "STRING_VALUE",
+ *     },
+ *     OAuthParameters: {
+ *       ClientParameters: {
+ *         ClientID: "STRING_VALUE",
+ *         ClientSecret: "STRING_VALUE",
+ *       },
+ *       AuthorizationEndpoint: "STRING_VALUE",
+ *       HttpMethod: "GET" || "POST" || "PUT",
+ *       OAuthHttpParameters: {
+ *         HeaderParameters: [
+ *           {
+ *             Key: "STRING_VALUE",
+ *             Value: "STRING_VALUE",
+ *             IsValueSecret: true || false,
+ *           },
+ *         ],
+ *         QueryStringParameters: [
+ *           {
+ *             Key: "STRING_VALUE",
+ *             Value: "STRING_VALUE",
+ *             IsValueSecret: true || false,
+ *           },
+ *         ],
+ *         BodyParameters: [
+ *           {
+ *             Key: "STRING_VALUE",
+ *             Value: "STRING_VALUE",
+ *             IsValueSecret: true || false,
+ *           },
+ *         ],
+ *       },
+ *     },
+ *     ApiKeyAuthParameters: {
+ *       ApiKeyName: "STRING_VALUE",
+ *       ApiKeyValue: "STRING_VALUE",
+ *     },
+ *     InvocationHttpParameters: {
+ *       HeaderParameters: [
+ *         {
+ *           Key: "STRING_VALUE",
+ *           Value: "STRING_VALUE",
+ *           IsValueSecret: true || false,
+ *         },
+ *       ],
+ *       QueryStringParameters: [
+ *         {
+ *           Key: "STRING_VALUE",
+ *           Value: "STRING_VALUE",
+ *           IsValueSecret: true || false,
+ *         },
+ *       ],
+ *       BodyParameters: [
+ *         {
+ *           Key: "STRING_VALUE",
+ *           Value: "STRING_VALUE",
+ *           IsValueSecret: true || false,
+ *         },
+ *       ],
+ *     },
+ *   },
+ * };
  * const command = new UpdateConnectionCommand(input);
  * const response = await client.send(command);
  * ```

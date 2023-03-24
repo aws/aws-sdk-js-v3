@@ -44,6 +44,9 @@ export interface DescribeSigningJobCommandOutput extends DescribeSigningJobRespo
  * import { SignerClient, DescribeSigningJobCommand } from "@aws-sdk/client-signer"; // ES Modules import
  * // const { SignerClient, DescribeSigningJobCommand } = require("@aws-sdk/client-signer"); // CommonJS import
  * const client = new SignerClient(config);
+ * const input = {
+ *   jobId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeSigningJobCommand(input);
  * const response = await client.send(command);
  * ```

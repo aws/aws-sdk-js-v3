@@ -58,6 +58,14 @@ export interface ListTrafficPolicyInstancesByPolicyCommandOutput
  * import { Route53Client, ListTrafficPolicyInstancesByPolicyCommand } from "@aws-sdk/client-route-53"; // ES Modules import
  * // const { Route53Client, ListTrafficPolicyInstancesByPolicyCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
  * const client = new Route53Client(config);
+ * const input = {
+ *   TrafficPolicyId: "STRING_VALUE", // required
+ *   TrafficPolicyVersion: Number("int"), // required
+ *   HostedZoneIdMarker: "STRING_VALUE",
+ *   TrafficPolicyInstanceNameMarker: "STRING_VALUE",
+ *   TrafficPolicyInstanceTypeMarker: "SOA" || "A" || "TXT" || "NS" || "CNAME" || "MX" || "NAPTR" || "PTR" || "SRV" || "SPF" || "AAAA" || "CAA" || "DS",
+ *   MaxItems: Number("int"),
+ * };
  * const command = new ListTrafficPolicyInstancesByPolicyCommand(input);
  * const response = await client.send(command);
  * ```

@@ -45,6 +45,10 @@ export interface UpdateSMBFileShareVisibilityCommandOutput
  * import { StorageGatewayClient, UpdateSMBFileShareVisibilityCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, UpdateSMBFileShareVisibilityCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
+ * const input = {
+ *   GatewayARN: "STRING_VALUE", // required
+ *   FileSharesVisible: true || false, // required
+ * };
  * const command = new UpdateSMBFileShareVisibilityCommand(input);
  * const response = await client.send(command);
  * ```

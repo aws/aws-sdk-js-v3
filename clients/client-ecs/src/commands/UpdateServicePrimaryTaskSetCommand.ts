@@ -48,6 +48,11 @@ export interface UpdateServicePrimaryTaskSetCommandOutput
  * import { ECSClient, UpdateServicePrimaryTaskSetCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, UpdateServicePrimaryTaskSetCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
  * const client = new ECSClient(config);
+ * const input = {
+ *   cluster: "STRING_VALUE", // required
+ *   service: "STRING_VALUE", // required
+ *   primaryTaskSet: "STRING_VALUE", // required
+ * };
  * const command = new UpdateServicePrimaryTaskSetCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,18 @@ export interface ListStudioLifecycleConfigsCommandOutput extends ListStudioLifec
  * import { SageMakerClient, ListStudioLifecycleConfigsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListStudioLifecycleConfigsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = {
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   NameContains: "STRING_VALUE",
+ *   AppTypeEquals: "JupyterServer" || "KernelGateway",
+ *   CreationTimeBefore: new Date("TIMESTAMP"),
+ *   CreationTimeAfter: new Date("TIMESTAMP"),
+ *   ModifiedTimeBefore: new Date("TIMESTAMP"),
+ *   ModifiedTimeAfter: new Date("TIMESTAMP"),
+ *   SortBy: "CreationTime" || "LastModifiedTime" || "Name",
+ *   SortOrder: "Ascending" || "Descending",
+ * };
  * const command = new ListStudioLifecycleConfigsCommand(input);
  * const response = await client.send(command);
  * ```

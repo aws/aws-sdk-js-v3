@@ -46,6 +46,13 @@ export interface CancelStepsCommandOutput extends CancelStepsOutput, __MetadataB
  * import { EMRClient, CancelStepsCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, CancelStepsCommand } = require("@aws-sdk/client-emr"); // CommonJS import
  * const client = new EMRClient(config);
+ * const input = {
+ *   ClusterId: "STRING_VALUE", // required
+ *   StepIds: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ *   StepCancellationOption: "SEND_INTERRUPT" || "TERMINATE_PROCESS",
+ * };
  * const command = new CancelStepsCommand(input);
  * const response = await client.send(command);
  * ```

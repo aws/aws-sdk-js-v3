@@ -51,6 +51,54 @@ export interface CreateMediaCapturePipelineCommandOutput extends CreateMediaCapt
  * import { ChimeSDKMediaPipelinesClient, CreateMediaCapturePipelineCommand } from "@aws-sdk/client-chime-sdk-media-pipelines"; // ES Modules import
  * // const { ChimeSDKMediaPipelinesClient, CreateMediaCapturePipelineCommand } = require("@aws-sdk/client-chime-sdk-media-pipelines"); // CommonJS import
  * const client = new ChimeSDKMediaPipelinesClient(config);
+ * const input = {
+ *   SourceType: "ChimeSdkMeeting", // required
+ *   SourceArn: "STRING_VALUE", // required
+ *   SinkType: "S3Bucket", // required
+ *   SinkArn: "STRING_VALUE", // required
+ *   ClientRequestToken: "STRING_VALUE",
+ *   ChimeSdkMeetingConfiguration: {
+ *     SourceConfiguration: {
+ *       SelectedVideoStreams: {
+ *         AttendeeIds: [
+ *           "STRING_VALUE",
+ *         ],
+ *         ExternalUserIds: [
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *     },
+ *     ArtifactsConfiguration: {
+ *       Audio: {
+ *         MuxType: "AudioOnly" || "AudioWithActiveSpeakerVideo" || "AudioWithCompositedVideo", // required
+ *       },
+ *       Video: {
+ *         State: "Enabled" || "Disabled", // required
+ *         MuxType: "VideoOnly",
+ *       },
+ *       Content: {
+ *         State: "Enabled" || "Disabled", // required
+ *         MuxType: "ContentOnly",
+ *       },
+ *       CompositedVideo: {
+ *         Layout: "GridView",
+ *         Resolution: "HD" || "FHD",
+ *         GridViewConfiguration: {
+ *           ContentShareLayout: "PresenterOnly" || "Horizontal" || "Vertical", // required
+ *           PresenterOnlyConfiguration: {
+ *             PresenterPosition: "TopLeft" || "TopRight" || "BottomLeft" || "BottomRight",
+ *           },
+ *         },
+ *       },
+ *     },
+ *   },
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateMediaCapturePipelineCommand(input);
  * const response = await client.send(command);
  * ```

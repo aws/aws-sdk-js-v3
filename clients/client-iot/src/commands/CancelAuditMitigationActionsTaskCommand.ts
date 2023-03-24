@@ -47,6 +47,9 @@ export interface CancelAuditMitigationActionsTaskCommandOutput
  * import { IoTClient, CancelAuditMitigationActionsTaskCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, CancelAuditMitigationActionsTaskCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = {
+ *   taskId: "STRING_VALUE", // required
+ * };
  * const command = new CancelAuditMitigationActionsTaskCommand(input);
  * const response = await client.send(command);
  * ```

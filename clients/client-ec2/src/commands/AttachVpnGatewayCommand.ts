@@ -45,6 +45,11 @@ export interface AttachVpnGatewayCommandOutput extends AttachVpnGatewayResult, _
  * import { EC2Client, AttachVpnGatewayCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, AttachVpnGatewayCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   VpcId: "STRING_VALUE", // required
+ *   VpnGatewayId: "STRING_VALUE", // required
+ *   DryRun: true || false,
+ * };
  * const command = new AttachVpnGatewayCommand(input);
  * const response = await client.send(command);
  * ```

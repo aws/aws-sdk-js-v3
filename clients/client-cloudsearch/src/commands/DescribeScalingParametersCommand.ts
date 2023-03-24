@@ -42,6 +42,9 @@ export interface DescribeScalingParametersCommandOutput extends DescribeScalingP
  * import { CloudSearchClient, DescribeScalingParametersCommand } from "@aws-sdk/client-cloudsearch"; // ES Modules import
  * // const { CloudSearchClient, DescribeScalingParametersCommand } = require("@aws-sdk/client-cloudsearch"); // CommonJS import
  * const client = new CloudSearchClient(config);
+ * const input = {
+ *   DomainName: "STRING_VALUE", // required
+ * };
  * const command = new DescribeScalingParametersCommand(input);
  * const response = await client.send(command);
  * ```

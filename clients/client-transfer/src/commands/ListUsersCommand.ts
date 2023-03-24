@@ -40,6 +40,11 @@ export interface ListUsersCommandOutput extends ListUsersResponse, __MetadataBea
  * import { TransferClient, ListUsersCommand } from "@aws-sdk/client-transfer"; // ES Modules import
  * // const { TransferClient, ListUsersCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
  * const client = new TransferClient(config);
+ * const input = {
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   ServerId: "STRING_VALUE", // required
+ * };
  * const command = new ListUsersCommand(input);
  * const response = await client.send(command);
  * ```

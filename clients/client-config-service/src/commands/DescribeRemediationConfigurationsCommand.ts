@@ -47,6 +47,11 @@ export interface DescribeRemediationConfigurationsCommandOutput
  * import { ConfigServiceClient, DescribeRemediationConfigurationsCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, DescribeRemediationConfigurationsCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
+ * const input = {
+ *   ConfigRuleNames: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DescribeRemediationConfigurationsCommand(input);
  * const response = await client.send(command);
  * ```

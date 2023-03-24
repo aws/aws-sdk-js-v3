@@ -50,6 +50,12 @@ export interface DeleteUserAttributesCommandOutput extends DeleteUserAttributesR
  * import { CognitoIdentityProviderClient, DeleteUserAttributesCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, DeleteUserAttributesCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
+ * const input = {
+ *   UserAttributeNames: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ *   AccessToken: "STRING_VALUE", // required
+ * };
  * const command = new DeleteUserAttributesCommand(input);
  * const response = await client.send(command);
  * ```

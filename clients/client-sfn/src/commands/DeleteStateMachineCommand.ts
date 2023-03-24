@@ -53,6 +53,9 @@ export interface DeleteStateMachineCommandOutput extends DeleteStateMachineOutpu
  * import { SFNClient, DeleteStateMachineCommand } from "@aws-sdk/client-sfn"; // ES Modules import
  * // const { SFNClient, DeleteStateMachineCommand } = require("@aws-sdk/client-sfn"); // CommonJS import
  * const client = new SFNClient(config);
+ * const input = {
+ *   stateMachineArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteStateMachineCommand(input);
  * const response = await client.send(command);
  * ```

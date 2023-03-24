@@ -54,6 +54,9 @@ export interface LogoutCommandOutput extends __MetadataBearer {}
  * import { SSOClient, LogoutCommand } from "@aws-sdk/client-sso"; // ES Modules import
  * // const { SSOClient, LogoutCommand } = require("@aws-sdk/client-sso"); // CommonJS import
  * const client = new SSOClient(config);
+ * const input = {
+ *   accessToken: "STRING_VALUE", // required
+ * };
  * const command = new LogoutCommand(input);
  * const response = await client.send(command);
  * ```

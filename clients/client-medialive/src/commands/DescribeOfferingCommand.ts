@@ -42,6 +42,9 @@ export interface DescribeOfferingCommandOutput extends DescribeOfferingResponse,
  * import { MediaLiveClient, DescribeOfferingCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, DescribeOfferingCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
  * const client = new MediaLiveClient(config);
+ * const input = {
+ *   OfferingId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeOfferingCommand(input);
  * const response = await client.send(command);
  * ```

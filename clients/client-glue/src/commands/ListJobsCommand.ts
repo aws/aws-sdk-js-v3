@@ -42,6 +42,13 @@ export interface ListJobsCommandOutput extends ListJobsResponse, __MetadataBeare
  * import { GlueClient, ListJobsCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, ListJobsCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = {
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   Tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new ListJobsCommand(input);
  * const response = await client.send(command);
  * ```

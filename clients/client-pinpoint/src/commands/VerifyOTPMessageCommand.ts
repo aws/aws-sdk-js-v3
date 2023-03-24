@@ -42,6 +42,14 @@ export interface VerifyOTPMessageCommandOutput extends VerifyOTPMessageResponse,
  * import { PinpointClient, VerifyOTPMessageCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, VerifyOTPMessageCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
+ * const input = {
+ *   ApplicationId: "STRING_VALUE", // required
+ *   VerifyOTPMessageRequestParameters: {
+ *     DestinationIdentity: "STRING_VALUE", // required
+ *     Otp: "STRING_VALUE", // required
+ *     ReferenceId: "STRING_VALUE", // required
+ *   },
+ * };
  * const command = new VerifyOTPMessageCommand(input);
  * const response = await client.send(command);
  * ```

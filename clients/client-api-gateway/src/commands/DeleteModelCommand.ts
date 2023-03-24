@@ -42,6 +42,10 @@ export interface DeleteModelCommandOutput extends __MetadataBearer {}
  * import { APIGatewayClient, DeleteModelCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, DeleteModelCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
+ * const input = {
+ *   restApiId: "STRING_VALUE", // required
+ *   modelName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteModelCommand(input);
  * const response = await client.send(command);
  * ```

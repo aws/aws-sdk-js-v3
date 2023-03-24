@@ -55,6 +55,11 @@ export interface ListMigrationTasksCommandOutput extends ListMigrationTasksResul
  * import { MigrationHubClient, ListMigrationTasksCommand } from "@aws-sdk/client-migration-hub"; // ES Modules import
  * // const { MigrationHubClient, ListMigrationTasksCommand } = require("@aws-sdk/client-migration-hub"); // CommonJS import
  * const client = new MigrationHubClient(config);
+ * const input = {
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   ResourceName: "STRING_VALUE",
+ * };
  * const command = new ListMigrationTasksCommand(input);
  * const response = await client.send(command);
  * ```

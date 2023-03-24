@@ -49,6 +49,9 @@ export interface DescribeAcceleratorAttributesCommandOutput
  * import { GlobalAcceleratorClient, DescribeAcceleratorAttributesCommand } from "@aws-sdk/client-global-accelerator"; // ES Modules import
  * // const { GlobalAcceleratorClient, DescribeAcceleratorAttributesCommand } = require("@aws-sdk/client-global-accelerator"); // CommonJS import
  * const client = new GlobalAcceleratorClient(config);
+ * const input = {
+ *   AcceleratorArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeAcceleratorAttributesCommand(input);
  * const response = await client.send(command);
  * ```

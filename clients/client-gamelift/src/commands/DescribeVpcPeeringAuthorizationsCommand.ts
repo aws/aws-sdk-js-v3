@@ -52,6 +52,7 @@ export interface DescribeVpcPeeringAuthorizationsCommandOutput
  * import { GameLiftClient, DescribeVpcPeeringAuthorizationsCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, DescribeVpcPeeringAuthorizationsCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = {};
  * const command = new DescribeVpcPeeringAuthorizationsCommand(input);
  * const response = await client.send(command);
  * ```

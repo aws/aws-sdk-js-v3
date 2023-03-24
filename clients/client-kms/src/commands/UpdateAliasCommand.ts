@@ -104,6 +104,10 @@ export interface UpdateAliasCommandOutput extends __MetadataBearer {}
  * import { KMSClient, UpdateAliasCommand } from "@aws-sdk/client-kms"; // ES Modules import
  * // const { KMSClient, UpdateAliasCommand } = require("@aws-sdk/client-kms"); // CommonJS import
  * const client = new KMSClient(config);
+ * const input = {
+ *   AliasName: "STRING_VALUE", // required
+ *   TargetKeyId: "STRING_VALUE", // required
+ * };
  * const command = new UpdateAliasCommand(input);
  * const response = await client.send(command);
  * ```

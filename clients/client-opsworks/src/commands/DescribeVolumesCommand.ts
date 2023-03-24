@@ -50,6 +50,14 @@ export interface DescribeVolumesCommandOutput extends DescribeVolumesResult, __M
  * import { OpsWorksClient, DescribeVolumesCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, DescribeVolumesCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
+ * const input = {
+ *   InstanceId: "STRING_VALUE",
+ *   StackId: "STRING_VALUE",
+ *   RaidArrayId: "STRING_VALUE",
+ *   VolumeIds: [
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DescribeVolumesCommand(input);
  * const response = await client.send(command);
  * ```

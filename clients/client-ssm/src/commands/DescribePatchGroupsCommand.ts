@@ -42,6 +42,18 @@ export interface DescribePatchGroupsCommandOutput extends DescribePatchGroupsRes
  * import { SSMClient, DescribePatchGroupsCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, DescribePatchGroupsCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = {
+ *   MaxResults: Number("int"),
+ *   Filters: [
+ *     {
+ *       Key: "STRING_VALUE",
+ *       Values: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribePatchGroupsCommand(input);
  * const response = await client.send(command);
  * ```

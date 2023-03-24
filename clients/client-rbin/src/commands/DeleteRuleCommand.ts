@@ -43,6 +43,9 @@ export interface DeleteRuleCommandOutput extends DeleteRuleResponse, __MetadataB
  * import { RbinClient, DeleteRuleCommand } from "@aws-sdk/client-rbin"; // ES Modules import
  * // const { RbinClient, DeleteRuleCommand } = require("@aws-sdk/client-rbin"); // CommonJS import
  * const client = new RbinClient(config);
+ * const input = {
+ *   Identifier: "STRING_VALUE", // required
+ * };
  * const command = new DeleteRuleCommand(input);
  * const response = await client.send(command);
  * ```

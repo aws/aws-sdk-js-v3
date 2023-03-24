@@ -42,6 +42,41 @@ export interface GetMappingCommandOutput extends GetMappingResponse, __MetadataB
  * import { GlueClient, GetMappingCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, GetMappingCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = {
+ *   Source: {
+ *     DatabaseName: "STRING_VALUE", // required
+ *     TableName: "STRING_VALUE", // required
+ *   },
+ *   Sinks: [
+ *     {
+ *       DatabaseName: "STRING_VALUE", // required
+ *       TableName: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   Location: {
+ *     Jdbc: [
+ *       {
+ *         Name: "STRING_VALUE", // required
+ *         Value: "STRING_VALUE", // required
+ *         Param: true || false,
+ *       },
+ *     ],
+ *     S3: [
+ *       {
+ *         Name: "STRING_VALUE", // required
+ *         Value: "STRING_VALUE", // required
+ *         Param: true || false,
+ *       },
+ *     ],
+ *     DynamoDB: [
+ *       {
+ *         Name: "STRING_VALUE", // required
+ *         Value: "STRING_VALUE", // required
+ *         Param: true || false,
+ *       },
+ *     ],
+ *   },
+ * };
  * const command = new GetMappingCommand(input);
  * const response = await client.send(command);
  * ```

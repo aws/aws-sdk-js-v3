@@ -49,6 +49,26 @@ export interface CreateLegalHoldCommandOutput extends CreateLegalHoldOutput, __M
  * import { BackupClient, CreateLegalHoldCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, CreateLegalHoldCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
+ * const input = {
+ *   Title: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE", // required
+ *   IdempotencyToken: "STRING_VALUE",
+ *   RecoveryPointSelection: {
+ *     VaultNames: [
+ *       "STRING_VALUE",
+ *     ],
+ *     ResourceIdentifiers: [
+ *       "STRING_VALUE",
+ *     ],
+ *     DateRange: {
+ *       FromDate: new Date("TIMESTAMP"), // required
+ *       ToDate: new Date("TIMESTAMP"), // required
+ *     },
+ *   },
+ *   Tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateLegalHoldCommand(input);
  * const response = await client.send(command);
  * ```

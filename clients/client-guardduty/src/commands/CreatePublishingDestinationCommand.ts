@@ -45,6 +45,15 @@ export interface CreatePublishingDestinationCommandOutput
  * import { GuardDutyClient, CreatePublishingDestinationCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
  * // const { GuardDutyClient, CreatePublishingDestinationCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
  * const client = new GuardDutyClient(config);
+ * const input = {
+ *   DetectorId: "STRING_VALUE", // required
+ *   DestinationType: "S3", // required
+ *   DestinationProperties: {
+ *     DestinationArn: "STRING_VALUE",
+ *     KmsKeyArn: "STRING_VALUE",
+ *   },
+ *   ClientToken: "STRING_VALUE",
+ * };
  * const command = new CreatePublishingDestinationCommand(input);
  * const response = await client.send(command);
  * ```

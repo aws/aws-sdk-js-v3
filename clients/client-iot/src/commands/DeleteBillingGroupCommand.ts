@@ -43,6 +43,10 @@ export interface DeleteBillingGroupCommandOutput extends DeleteBillingGroupRespo
  * import { IoTClient, DeleteBillingGroupCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, DeleteBillingGroupCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = {
+ *   billingGroupName: "STRING_VALUE", // required
+ *   expectedVersion: Number("long"),
+ * };
  * const command = new DeleteBillingGroupCommand(input);
  * const response = await client.send(command);
  * ```

@@ -43,6 +43,11 @@ export interface DeleteTemplateAliasCommandOutput extends DeleteTemplateAliasRes
  * import { QuickSightClient, DeleteTemplateAliasCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, DeleteTemplateAliasCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
+ * const input = {
+ *   AwsAccountId: "STRING_VALUE", // required
+ *   TemplateId: "STRING_VALUE", // required
+ *   AliasName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteTemplateAliasCommand(input);
  * const response = await client.send(command);
  * ```

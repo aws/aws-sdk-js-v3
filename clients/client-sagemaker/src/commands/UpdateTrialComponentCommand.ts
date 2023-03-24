@@ -42,6 +42,43 @@ export interface UpdateTrialComponentCommandOutput extends UpdateTrialComponentR
  * import { SageMakerClient, UpdateTrialComponentCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, UpdateTrialComponentCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = {
+ *   TrialComponentName: "STRING_VALUE", // required
+ *   DisplayName: "STRING_VALUE",
+ *   Status: {
+ *     PrimaryStatus: "InProgress" || "Completed" || "Failed" || "Stopping" || "Stopped",
+ *     Message: "STRING_VALUE",
+ *   },
+ *   StartTime: new Date("TIMESTAMP"),
+ *   EndTime: new Date("TIMESTAMP"),
+ *   Parameters: {
+ *     "<keys>": { // Union: only one key present
+ *       StringValue: "STRING_VALUE",
+ *       NumberValue: Number("double"),
+ *     },
+ *   },
+ *   ParametersToRemove: [
+ *     "STRING_VALUE",
+ *   ],
+ *   InputArtifacts: {
+ *     "<keys>": {
+ *       MediaType: "STRING_VALUE",
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   },
+ *   InputArtifactsToRemove: [
+ *     "STRING_VALUE",
+ *   ],
+ *   OutputArtifacts: {
+ *     "<keys>": {
+ *       MediaType: "STRING_VALUE",
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   },
+ *   OutputArtifactsToRemove: [
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new UpdateTrialComponentCommand(input);
  * const response = await client.send(command);
  * ```

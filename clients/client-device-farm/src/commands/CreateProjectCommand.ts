@@ -42,6 +42,19 @@ export interface CreateProjectCommandOutput extends CreateProjectResult, __Metad
  * import { DeviceFarmClient, CreateProjectCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, CreateProjectCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
+ * const input = {
+ *   name: "STRING_VALUE", // required
+ *   defaultJobTimeoutMinutes: Number("int"),
+ *   vpcConfig: {
+ *     securityGroupIds: [ // required
+ *       "STRING_VALUE",
+ *     ],
+ *     subnetIds: [ // required
+ *       "STRING_VALUE",
+ *     ],
+ *     vpcId: "STRING_VALUE", // required
+ *   },
+ * };
  * const command = new CreateProjectCommand(input);
  * const response = await client.send(command);
  * ```

@@ -44,6 +44,9 @@ export interface DescribeModelCommandOutput extends DescribeModelResponse, __Met
  * import { LookoutEquipmentClient, DescribeModelCommand } from "@aws-sdk/client-lookoutequipment"; // ES Modules import
  * // const { LookoutEquipmentClient, DescribeModelCommand } = require("@aws-sdk/client-lookoutequipment"); // CommonJS import
  * const client = new LookoutEquipmentClient(config);
+ * const input = {
+ *   ModelName: "STRING_VALUE", // required
+ * };
  * const command = new DescribeModelCommand(input);
  * const response = await client.send(command);
  * ```

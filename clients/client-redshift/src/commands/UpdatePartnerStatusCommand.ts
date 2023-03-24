@@ -43,6 +43,14 @@ export interface UpdatePartnerStatusCommandOutput extends PartnerIntegrationOutp
  * import { RedshiftClient, UpdatePartnerStatusCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, UpdatePartnerStatusCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = {
+ *   AccountId: "STRING_VALUE", // required
+ *   ClusterIdentifier: "STRING_VALUE", // required
+ *   DatabaseName: "STRING_VALUE", // required
+ *   PartnerName: "STRING_VALUE", // required
+ *   Status: "Active" || "Inactive" || "RuntimeFailure" || "ConnectionFailure", // required
+ *   StatusMessage: "STRING_VALUE",
+ * };
  * const command = new UpdatePartnerStatusCommand(input);
  * const response = await client.send(command);
  * ```

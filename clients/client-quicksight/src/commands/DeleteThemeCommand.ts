@@ -42,6 +42,11 @@ export interface DeleteThemeCommandOutput extends DeleteThemeResponse, __Metadat
  * import { QuickSightClient, DeleteThemeCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, DeleteThemeCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
+ * const input = {
+ *   AwsAccountId: "STRING_VALUE", // required
+ *   ThemeId: "STRING_VALUE", // required
+ *   VersionNumber: Number("long"),
+ * };
  * const command = new DeleteThemeCommand(input);
  * const response = await client.send(command);
  * ```

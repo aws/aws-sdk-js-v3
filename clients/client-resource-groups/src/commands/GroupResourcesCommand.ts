@@ -71,6 +71,12 @@ export interface GroupResourcesCommandOutput extends GroupResourcesOutput, __Met
  * import { ResourceGroupsClient, GroupResourcesCommand } from "@aws-sdk/client-resource-groups"; // ES Modules import
  * // const { ResourceGroupsClient, GroupResourcesCommand } = require("@aws-sdk/client-resource-groups"); // CommonJS import
  * const client = new ResourceGroupsClient(config);
+ * const input = {
+ *   Group: "STRING_VALUE", // required
+ *   ResourceArns: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new GroupResourcesCommand(input);
  * const response = await client.send(command);
  * ```

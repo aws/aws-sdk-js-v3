@@ -44,6 +44,23 @@ export interface CreateSubscriptionDefinitionCommandOutput
  * import { GreengrassClient, CreateSubscriptionDefinitionCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, CreateSubscriptionDefinitionCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
+ * const input = {
+ *   AmznClientToken: "STRING_VALUE",
+ *   InitialVersion: {
+ *     Subscriptions: [
+ *       {
+ *         Id: "STRING_VALUE", // required
+ *         Source: "STRING_VALUE", // required
+ *         Subject: "STRING_VALUE", // required
+ *         Target: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *   },
+ *   Name: "STRING_VALUE",
+ *   tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateSubscriptionDefinitionCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,10 @@ export interface CreateCidrCollectionCommandOutput extends CreateCidrCollectionR
  * import { Route53Client, CreateCidrCollectionCommand } from "@aws-sdk/client-route-53"; // ES Modules import
  * // const { Route53Client, CreateCidrCollectionCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
  * const client = new Route53Client(config);
+ * const input = {
+ *   Name: "STRING_VALUE", // required
+ *   CallerReference: "STRING_VALUE", // required
+ * };
  * const command = new CreateCidrCollectionCommand(input);
  * const response = await client.send(command);
  * ```

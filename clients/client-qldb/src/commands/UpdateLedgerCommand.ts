@@ -42,6 +42,11 @@ export interface UpdateLedgerCommandOutput extends UpdateLedgerResponse, __Metad
  * import { QLDBClient, UpdateLedgerCommand } from "@aws-sdk/client-qldb"; // ES Modules import
  * // const { QLDBClient, UpdateLedgerCommand } = require("@aws-sdk/client-qldb"); // CommonJS import
  * const client = new QLDBClient(config);
+ * const input = {
+ *   Name: "STRING_VALUE", // required
+ *   DeletionProtection: true || false,
+ *   KmsKey: "STRING_VALUE",
+ * };
  * const command = new UpdateLedgerCommand(input);
  * const response = await client.send(command);
  * ```

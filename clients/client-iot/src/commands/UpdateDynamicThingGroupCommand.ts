@@ -43,6 +43,22 @@ export interface UpdateDynamicThingGroupCommandOutput extends UpdateDynamicThing
  * import { IoTClient, UpdateDynamicThingGroupCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, UpdateDynamicThingGroupCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = {
+ *   thingGroupName: "STRING_VALUE", // required
+ *   thingGroupProperties: {
+ *     thingGroupDescription: "STRING_VALUE",
+ *     attributePayload: {
+ *       attributes: {
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *       merge: true || false,
+ *     },
+ *   },
+ *   expectedVersion: Number("long"),
+ *   indexName: "STRING_VALUE",
+ *   queryString: "STRING_VALUE",
+ *   queryVersion: "STRING_VALUE",
+ * };
  * const command = new UpdateDynamicThingGroupCommand(input);
  * const response = await client.send(command);
  * ```

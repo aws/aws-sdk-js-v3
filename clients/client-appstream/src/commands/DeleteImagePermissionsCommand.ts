@@ -42,6 +42,10 @@ export interface DeleteImagePermissionsCommandOutput extends DeleteImagePermissi
  * import { AppStreamClient, DeleteImagePermissionsCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, DeleteImagePermissionsCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
  * const client = new AppStreamClient(config);
+ * const input = {
+ *   Name: "STRING_VALUE", // required
+ *   SharedAccountId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteImagePermissionsCommand(input);
  * const response = await client.send(command);
  * ```

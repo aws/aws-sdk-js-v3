@@ -42,6 +42,12 @@ export interface ListUseCasesCommandOutput extends ListUseCasesResponse, __Metad
  * import { ConnectClient, ListUseCasesCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, ListUseCasesCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = {
+ *   InstanceId: "STRING_VALUE", // required
+ *   IntegrationAssociationId: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListUseCasesCommand(input);
  * const response = await client.send(command);
  * ```

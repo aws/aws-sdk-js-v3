@@ -43,6 +43,11 @@ export interface DeleteImageVersionCommandOutput extends DeleteImageVersionRespo
  * import { SageMakerClient, DeleteImageVersionCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DeleteImageVersionCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = {
+ *   ImageName: "STRING_VALUE", // required
+ *   Version: Number("int"),
+ *   Alias: "STRING_VALUE",
+ * };
  * const command = new DeleteImageVersionCommand(input);
  * const response = await client.send(command);
  * ```

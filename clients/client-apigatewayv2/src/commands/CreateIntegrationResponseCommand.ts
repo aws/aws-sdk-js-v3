@@ -42,6 +42,19 @@ export interface CreateIntegrationResponseCommandOutput extends CreateIntegratio
  * import { ApiGatewayV2Client, CreateIntegrationResponseCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
  * // const { ApiGatewayV2Client, CreateIntegrationResponseCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import
  * const client = new ApiGatewayV2Client(config);
+ * const input = {
+ *   ApiId: "STRING_VALUE", // required
+ *   ContentHandlingStrategy: "STRING_VALUE",
+ *   IntegrationId: "STRING_VALUE", // required
+ *   IntegrationResponseKey: "STRING_VALUE", // required
+ *   ResponseParameters: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   ResponseTemplates: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   TemplateSelectionExpression: "STRING_VALUE",
+ * };
  * const command = new CreateIntegrationResponseCommand(input);
  * const response = await client.send(command);
  * ```

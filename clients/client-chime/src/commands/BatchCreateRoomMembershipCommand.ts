@@ -42,6 +42,16 @@ export interface BatchCreateRoomMembershipCommandOutput extends BatchCreateRoomM
  * import { ChimeClient, BatchCreateRoomMembershipCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, BatchCreateRoomMembershipCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = {
+ *   AccountId: "STRING_VALUE", // required
+ *   RoomId: "STRING_VALUE", // required
+ *   MembershipItemList: [ // required
+ *     {
+ *       MemberId: "STRING_VALUE",
+ *       Role: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new BatchCreateRoomMembershipCommand(input);
  * const response = await client.send(command);
  * ```

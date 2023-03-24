@@ -42,6 +42,49 @@ export interface UpdateProgramCommandOutput extends UpdateProgramResponse, __Met
  * import { MediaTailorClient, UpdateProgramCommand } from "@aws-sdk/client-mediatailor"; // ES Modules import
  * // const { MediaTailorClient, UpdateProgramCommand } = require("@aws-sdk/client-mediatailor"); // CommonJS import
  * const client = new MediaTailorClient(config);
+ * const input = {
+ *   AdBreaks: [
+ *     {
+ *       MessageType: "SPLICE_INSERT" || "TIME_SIGNAL",
+ *       OffsetMillis: Number("long"),
+ *       Slate: {
+ *         SourceLocationName: "STRING_VALUE",
+ *         VodSourceName: "STRING_VALUE",
+ *       },
+ *       SpliceInsertMessage: {
+ *         AvailNum: Number("int"),
+ *         AvailsExpected: Number("int"),
+ *         SpliceEventId: Number("int"),
+ *         UniqueProgramId: Number("int"),
+ *       },
+ *       TimeSignalMessage: {
+ *         SegmentationDescriptors: [
+ *           {
+ *             SegmentationEventId: Number("int"),
+ *             SegmentationUpidType: Number("int"),
+ *             SegmentationUpid: "STRING_VALUE",
+ *             SegmentationTypeId: Number("int"),
+ *             SegmentNum: Number("int"),
+ *             SegmentsExpected: Number("int"),
+ *             SubSegmentNum: Number("int"),
+ *             SubSegmentsExpected: Number("int"),
+ *           },
+ *         ],
+ *       },
+ *     },
+ *   ],
+ *   ChannelName: "STRING_VALUE", // required
+ *   ProgramName: "STRING_VALUE", // required
+ *   ScheduleConfiguration: {
+ *     Transition: {
+ *       ScheduledStartTimeMillis: Number("long"),
+ *       DurationMillis: Number("long"),
+ *     },
+ *     ClipRange: {
+ *       EndOffsetMillis: Number("long"), // required
+ *     },
+ *   },
+ * };
  * const command = new UpdateProgramCommand(input);
  * const response = await client.send(command);
  * ```

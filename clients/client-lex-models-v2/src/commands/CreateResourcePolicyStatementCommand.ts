@@ -48,6 +48,26 @@ export interface CreateResourcePolicyStatementCommandOutput
  * import { LexModelsV2Client, CreateResourcePolicyStatementCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
  * // const { LexModelsV2Client, CreateResourcePolicyStatementCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
  * const client = new LexModelsV2Client(config);
+ * const input = {
+ *   resourceArn: "STRING_VALUE", // required
+ *   statementId: "STRING_VALUE", // required
+ *   effect: "Allow" || "Deny", // required
+ *   principal: [ // required
+ *     {
+ *       service: "STRING_VALUE",
+ *       arn: "STRING_VALUE",
+ *     },
+ *   ],
+ *   action: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ *   condition: {
+ *     "<keys>": {
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *   },
+ *   expectedRevisionId: "STRING_VALUE",
+ * };
  * const command = new CreateResourcePolicyStatementCommand(input);
  * const response = await client.send(command);
  * ```

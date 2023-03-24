@@ -49,6 +49,7 @@ export interface DescribeOrganizationCommandOutput extends DescribeOrganizationR
  * import { OrganizationsClient, DescribeOrganizationCommand } from "@aws-sdk/client-organizations"; // ES Modules import
  * // const { OrganizationsClient, DescribeOrganizationCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
  * const client = new OrganizationsClient(config);
+ * const input = {};
  * const command = new DescribeOrganizationCommand(input);
  * const response = await client.send(command);
  * ```

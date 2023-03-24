@@ -76,6 +76,14 @@ export interface CreateMembersCommandOutput extends CreateMembersResponse, __Met
  * import { SecurityHubClient, CreateMembersCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, CreateMembersCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
  * const client = new SecurityHubClient(config);
+ * const input = {
+ *   AccountDetails: [ // required
+ *     {
+ *       AccountId: "STRING_VALUE", // required
+ *       Email: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateMembersCommand(input);
  * const response = await client.send(command);
  * ```

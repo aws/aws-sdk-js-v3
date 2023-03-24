@@ -46,6 +46,12 @@ export interface DeleteVpcEndpointsCommandOutput extends DeleteVpcEndpointsResul
  * import { EC2Client, DeleteVpcEndpointsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DeleteVpcEndpointsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   DryRun: true || false,
+ *   VpcEndpointIds: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DeleteVpcEndpointsCommand(input);
  * const response = await client.send(command);
  * ```

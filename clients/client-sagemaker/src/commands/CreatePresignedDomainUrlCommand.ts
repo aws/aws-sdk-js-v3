@@ -58,6 +58,13 @@ export interface CreatePresignedDomainUrlCommandOutput extends CreatePresignedDo
  * import { SageMakerClient, CreatePresignedDomainUrlCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, CreatePresignedDomainUrlCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = {
+ *   DomainId: "STRING_VALUE", // required
+ *   UserProfileName: "STRING_VALUE", // required
+ *   SessionExpirationDurationInSeconds: Number("int"),
+ *   ExpiresInSeconds: Number("int"),
+ *   SpaceName: "STRING_VALUE",
+ * };
  * const command = new CreatePresignedDomainUrlCommand(input);
  * const response = await client.send(command);
  * ```

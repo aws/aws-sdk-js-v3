@@ -44,6 +44,12 @@ export interface SetEndpointAttributesCommandOutput extends __MetadataBearer {}
  * import { SNSClient, SetEndpointAttributesCommand } from "@aws-sdk/client-sns"; // ES Modules import
  * // const { SNSClient, SetEndpointAttributesCommand } = require("@aws-sdk/client-sns"); // CommonJS import
  * const client = new SNSClient(config);
+ * const input = {
+ *   EndpointArn: "STRING_VALUE", // required
+ *   Attributes: { // required
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new SetEndpointAttributesCommand(input);
  * const response = await client.send(command);
  * ```

@@ -65,6 +65,10 @@ export interface DeleteRuleCommandOutput extends DeleteRuleResponse, __MetadataB
  * import { WAFClient, DeleteRuleCommand } from "@aws-sdk/client-waf"; // ES Modules import
  * // const { WAFClient, DeleteRuleCommand } = require("@aws-sdk/client-waf"); // CommonJS import
  * const client = new WAFClient(config);
+ * const input = {
+ *   RuleId: "STRING_VALUE", // required
+ *   ChangeToken: "STRING_VALUE", // required
+ * };
  * const command = new DeleteRuleCommand(input);
  * const response = await client.send(command);
  * ```

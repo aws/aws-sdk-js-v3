@@ -40,6 +40,13 @@ export interface GetRulesCommandOutput extends GetRulesResult, __MetadataBearer 
  * import { FraudDetectorClient, GetRulesCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, GetRulesCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
  * const client = new FraudDetectorClient(config);
+ * const input = {
+ *   ruleId: "STRING_VALUE",
+ *   detectorId: "STRING_VALUE", // required
+ *   ruleVersion: "STRING_VALUE",
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new GetRulesCommand(input);
  * const response = await client.send(command);
  * ```

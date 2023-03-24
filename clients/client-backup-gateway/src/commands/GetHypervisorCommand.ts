@@ -44,6 +44,9 @@ export interface GetHypervisorCommandOutput extends GetHypervisorOutput, __Metad
  * import { BackupGatewayClient, GetHypervisorCommand } from "@aws-sdk/client-backup-gateway"; // ES Modules import
  * // const { BackupGatewayClient, GetHypervisorCommand } = require("@aws-sdk/client-backup-gateway"); // CommonJS import
  * const client = new BackupGatewayClient(config);
+ * const input = {
+ *   HypervisorArn: "STRING_VALUE", // required
+ * };
  * const command = new GetHypervisorCommand(input);
  * const response = await client.send(command);
  * ```

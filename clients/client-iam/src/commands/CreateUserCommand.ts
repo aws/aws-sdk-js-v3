@@ -41,6 +41,17 @@ export interface CreateUserCommandOutput extends CreateUserResponse, __MetadataB
  * import { IAMClient, CreateUserCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, CreateUserCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = {
+ *   Path: "STRING_VALUE",
+ *   UserName: "STRING_VALUE", // required
+ *   PermissionsBoundary: "STRING_VALUE",
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateUserCommand(input);
  * const response = await client.send(command);
  * ```

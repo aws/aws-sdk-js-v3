@@ -47,6 +47,11 @@ export interface ListAppInstanceAdminsCommandOutput extends ListAppInstanceAdmin
  * import { ChimeSDKIdentityClient, ListAppInstanceAdminsCommand } from "@aws-sdk/client-chime-sdk-identity"; // ES Modules import
  * // const { ChimeSDKIdentityClient, ListAppInstanceAdminsCommand } = require("@aws-sdk/client-chime-sdk-identity"); // CommonJS import
  * const client = new ChimeSDKIdentityClient(config);
+ * const input = {
+ *   AppInstanceArn: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListAppInstanceAdminsCommand(input);
  * const response = await client.send(command);
  * ```

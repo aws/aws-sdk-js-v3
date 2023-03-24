@@ -51,6 +51,154 @@ export interface PutScalingPolicyCommandOutput extends PolicyARNType, __Metadata
  * import { AutoScalingClient, PutScalingPolicyCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, PutScalingPolicyCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
  * const client = new AutoScalingClient(config);
+ * const input = {
+ *   AutoScalingGroupName: "STRING_VALUE", // required
+ *   PolicyName: "STRING_VALUE", // required
+ *   PolicyType: "STRING_VALUE",
+ *   AdjustmentType: "STRING_VALUE",
+ *   MinAdjustmentStep: Number("int"),
+ *   MinAdjustmentMagnitude: Number("int"),
+ *   ScalingAdjustment: Number("int"),
+ *   Cooldown: Number("int"),
+ *   MetricAggregationType: "STRING_VALUE",
+ *   StepAdjustments: [
+ *     {
+ *       MetricIntervalLowerBound: Number("double"),
+ *       MetricIntervalUpperBound: Number("double"),
+ *       ScalingAdjustment: Number("int"), // required
+ *     },
+ *   ],
+ *   EstimatedInstanceWarmup: Number("int"),
+ *   TargetTrackingConfiguration: {
+ *     PredefinedMetricSpecification: {
+ *       PredefinedMetricType: "ASGAverageCPUUtilization" || "ASGAverageNetworkIn" || "ASGAverageNetworkOut" || "ALBRequestCountPerTarget", // required
+ *       ResourceLabel: "STRING_VALUE",
+ *     },
+ *     CustomizedMetricSpecification: {
+ *       MetricName: "STRING_VALUE",
+ *       Namespace: "STRING_VALUE",
+ *       Dimensions: [
+ *         {
+ *           Name: "STRING_VALUE", // required
+ *           Value: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *       Statistic: "Average" || "Minimum" || "Maximum" || "SampleCount" || "Sum",
+ *       Unit: "STRING_VALUE",
+ *       Metrics: [
+ *         {
+ *           Id: "STRING_VALUE", // required
+ *           Expression: "STRING_VALUE",
+ *           MetricStat: {
+ *             Metric: {
+ *               Namespace: "STRING_VALUE", // required
+ *               MetricName: "STRING_VALUE", // required
+ *               Dimensions: [
+ *                 {
+ *                   Name: "STRING_VALUE", // required
+ *                   Value: "STRING_VALUE", // required
+ *                 },
+ *               ],
+ *             },
+ *             Stat: "STRING_VALUE", // required
+ *             Unit: "STRING_VALUE",
+ *           },
+ *           Label: "STRING_VALUE",
+ *           ReturnData: true || false,
+ *         },
+ *       ],
+ *     },
+ *     TargetValue: Number("double"), // required
+ *     DisableScaleIn: true || false,
+ *   },
+ *   Enabled: true || false,
+ *   PredictiveScalingConfiguration: {
+ *     MetricSpecifications: [ // required
+ *       {
+ *         TargetValue: Number("double"), // required
+ *         PredefinedMetricPairSpecification: {
+ *           PredefinedMetricType: "ASGCPUUtilization" || "ASGNetworkIn" || "ASGNetworkOut" || "ALBRequestCount", // required
+ *           ResourceLabel: "STRING_VALUE",
+ *         },
+ *         PredefinedScalingMetricSpecification: {
+ *           PredefinedMetricType: "ASGAverageCPUUtilization" || "ASGAverageNetworkIn" || "ASGAverageNetworkOut" || "ALBRequestCountPerTarget", // required
+ *           ResourceLabel: "STRING_VALUE",
+ *         },
+ *         PredefinedLoadMetricSpecification: {
+ *           PredefinedMetricType: "ASGTotalCPUUtilization" || "ASGTotalNetworkIn" || "ASGTotalNetworkOut" || "ALBTargetGroupRequestCount", // required
+ *           ResourceLabel: "STRING_VALUE",
+ *         },
+ *         CustomizedScalingMetricSpecification: {
+ *           MetricDataQueries: [ // required
+ *             {
+ *               Id: "STRING_VALUE", // required
+ *               Expression: "STRING_VALUE",
+ *               MetricStat: {
+ *                 Metric: {
+ *                   Namespace: "STRING_VALUE", // required
+ *                   MetricName: "STRING_VALUE", // required
+ *                   Dimensions: [
+ *                     "<MetricDimensions>",
+ *                   ],
+ *                 },
+ *                 Stat: "STRING_VALUE", // required
+ *                 Unit: "STRING_VALUE",
+ *               },
+ *               Label: "STRING_VALUE",
+ *               ReturnData: true || false,
+ *             },
+ *           ],
+ *         },
+ *         CustomizedLoadMetricSpecification: {
+ *           MetricDataQueries: [ // required
+ *             {
+ *               Id: "STRING_VALUE", // required
+ *               Expression: "STRING_VALUE",
+ *               MetricStat: {
+ *                 Metric: {
+ *                   Namespace: "STRING_VALUE", // required
+ *                   MetricName: "STRING_VALUE", // required
+ *                   Dimensions: [
+ *                     "<MetricDimensions>",
+ *                   ],
+ *                 },
+ *                 Stat: "STRING_VALUE", // required
+ *                 Unit: "STRING_VALUE",
+ *               },
+ *               Label: "STRING_VALUE",
+ *               ReturnData: true || false,
+ *             },
+ *           ],
+ *         },
+ *         CustomizedCapacityMetricSpecification: {
+ *           MetricDataQueries: [ // required
+ *             {
+ *               Id: "STRING_VALUE", // required
+ *               Expression: "STRING_VALUE",
+ *               MetricStat: {
+ *                 Metric: {
+ *                   Namespace: "STRING_VALUE", // required
+ *                   MetricName: "STRING_VALUE", // required
+ *                   Dimensions: [
+ *                     "<MetricDimensions>",
+ *                   ],
+ *                 },
+ *                 Stat: "STRING_VALUE", // required
+ *                 Unit: "STRING_VALUE",
+ *               },
+ *               Label: "STRING_VALUE",
+ *               ReturnData: true || false,
+ *             },
+ *           ],
+ *         },
+ *       },
+ *     ],
+ *     Mode: "ForecastAndScale" || "ForecastOnly",
+ *     SchedulingBufferTime: Number("int"),
+ *     MaxCapacityBreachBehavior: "HonorMaxCapacity" || "IncreaseMaxCapacity",
+ *     MaxCapacityBuffer: Number("int"),
+ *   },
+ * };
  * const command = new PutScalingPolicyCommand(input);
  * const response = await client.send(command);
  * ```

@@ -54,6 +54,12 @@ export interface ListAssetsCommandOutput extends ListAssetsResponse, __MetadataB
  * import { IoTSiteWiseClient, ListAssetsCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, ListAssetsCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
+ * const input = {
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   assetModelId: "STRING_VALUE",
+ *   filter: "ALL" || "TOP_LEVEL",
+ * };
  * const command = new ListAssetsCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,9 @@ export interface DeleteContainerPolicyCommandOutput extends DeleteContainerPolic
  * import { MediaStoreClient, DeleteContainerPolicyCommand } from "@aws-sdk/client-mediastore"; // ES Modules import
  * // const { MediaStoreClient, DeleteContainerPolicyCommand } = require("@aws-sdk/client-mediastore"); // CommonJS import
  * const client = new MediaStoreClient(config);
+ * const input = {
+ *   ContainerName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteContainerPolicyCommand(input);
  * const response = await client.send(command);
  * ```

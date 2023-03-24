@@ -59,6 +59,9 @@ export interface DescribePublisherCommandOutput extends DescribePublisherOutput,
  * import { CloudFormationClient, DescribePublisherCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, DescribePublisherCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
  * const client = new CloudFormationClient(config);
+ * const input = {
+ *   PublisherId: "STRING_VALUE",
+ * };
  * const command = new DescribePublisherCommand(input);
  * const response = await client.send(command);
  * ```

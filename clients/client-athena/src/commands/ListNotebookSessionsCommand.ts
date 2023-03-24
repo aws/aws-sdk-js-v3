@@ -45,6 +45,11 @@ export interface ListNotebookSessionsCommandOutput extends ListNotebookSessionsR
  * import { AthenaClient, ListNotebookSessionsCommand } from "@aws-sdk/client-athena"; // ES Modules import
  * // const { AthenaClient, ListNotebookSessionsCommand } = require("@aws-sdk/client-athena"); // CommonJS import
  * const client = new AthenaClient(config);
+ * const input = {
+ *   NotebookId: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListNotebookSessionsCommand(input);
  * const response = await client.send(command);
  * ```

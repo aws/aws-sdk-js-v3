@@ -42,6 +42,142 @@ export interface CreateClassificationJobCommandOutput extends CreateClassificati
  * import { Macie2Client, CreateClassificationJobCommand } from "@aws-sdk/client-macie2"; // ES Modules import
  * // const { Macie2Client, CreateClassificationJobCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
  * const client = new Macie2Client(config);
+ * const input = {
+ *   allowListIds: [
+ *     "STRING_VALUE",
+ *   ],
+ *   clientToken: "STRING_VALUE", // required
+ *   customDataIdentifierIds: [
+ *     "STRING_VALUE",
+ *   ],
+ *   description: "STRING_VALUE",
+ *   initialRun: true || false,
+ *   jobType: "ONE_TIME" || "SCHEDULED", // required
+ *   managedDataIdentifierIds: [
+ *     "STRING_VALUE",
+ *   ],
+ *   managedDataIdentifierSelector: "ALL" || "EXCLUDE" || "INCLUDE" || "NONE",
+ *   name: "STRING_VALUE", // required
+ *   s3JobDefinition: {
+ *     bucketCriteria: {
+ *       excludes: {
+ *         and: [
+ *           {
+ *             simpleCriterion: {
+ *               comparator: "EQ" || "GT" || "GTE" || "LT" || "LTE" || "NE" || "CONTAINS" || "STARTS_WITH",
+ *               key: "ACCOUNT_ID" || "S3_BUCKET_NAME" || "S3_BUCKET_EFFECTIVE_PERMISSION" || "S3_BUCKET_SHARED_ACCESS",
+ *               values: [
+ *                 "STRING_VALUE",
+ *               ],
+ *             },
+ *             tagCriterion: {
+ *               comparator: "EQ" || "GT" || "GTE" || "LT" || "LTE" || "NE" || "CONTAINS" || "STARTS_WITH",
+ *               tagValues: [
+ *                 {
+ *                   key: "STRING_VALUE",
+ *                   value: "STRING_VALUE",
+ *                 },
+ *               ],
+ *             },
+ *           },
+ *         ],
+ *       },
+ *       includes: {
+ *         and: [
+ *           {
+ *             simpleCriterion: {
+ *               comparator: "EQ" || "GT" || "GTE" || "LT" || "LTE" || "NE" || "CONTAINS" || "STARTS_WITH",
+ *               key: "ACCOUNT_ID" || "S3_BUCKET_NAME" || "S3_BUCKET_EFFECTIVE_PERMISSION" || "S3_BUCKET_SHARED_ACCESS",
+ *               values: [
+ *                 "STRING_VALUE",
+ *               ],
+ *             },
+ *             tagCriterion: {
+ *               comparator: "EQ" || "GT" || "GTE" || "LT" || "LTE" || "NE" || "CONTAINS" || "STARTS_WITH",
+ *               tagValues: [
+ *                 {
+ *                   key: "STRING_VALUE",
+ *                   value: "STRING_VALUE",
+ *                 },
+ *               ],
+ *             },
+ *           },
+ *         ],
+ *       },
+ *     },
+ *     bucketDefinitions: [
+ *       {
+ *         accountId: "STRING_VALUE", // required
+ *         buckets: [ // required
+ *           "<__listOf__string>",
+ *         ],
+ *       },
+ *     ],
+ *     scoping: {
+ *       excludes: {
+ *         and: [
+ *           {
+ *             simpleScopeTerm: {
+ *               comparator: "EQ" || "GT" || "GTE" || "LT" || "LTE" || "NE" || "CONTAINS" || "STARTS_WITH",
+ *               key: "OBJECT_EXTENSION" || "OBJECT_LAST_MODIFIED_DATE" || "OBJECT_SIZE" || "OBJECT_KEY",
+ *               values: [
+ *                 "<__listOf__string>",
+ *               ],
+ *             },
+ *             tagScopeTerm: {
+ *               comparator: "EQ" || "GT" || "GTE" || "LT" || "LTE" || "NE" || "CONTAINS" || "STARTS_WITH",
+ *               key: "STRING_VALUE",
+ *               tagValues: [
+ *                 {
+ *                   key: "STRING_VALUE",
+ *                   value: "STRING_VALUE",
+ *                 },
+ *               ],
+ *               target: "S3_OBJECT",
+ *             },
+ *           },
+ *         ],
+ *       },
+ *       includes: {
+ *         and: [
+ *           {
+ *             simpleScopeTerm: {
+ *               comparator: "EQ" || "GT" || "GTE" || "LT" || "LTE" || "NE" || "CONTAINS" || "STARTS_WITH",
+ *               key: "OBJECT_EXTENSION" || "OBJECT_LAST_MODIFIED_DATE" || "OBJECT_SIZE" || "OBJECT_KEY",
+ *               values: [
+ *                 "<__listOf__string>",
+ *               ],
+ *             },
+ *             tagScopeTerm: {
+ *               comparator: "EQ" || "GT" || "GTE" || "LT" || "LTE" || "NE" || "CONTAINS" || "STARTS_WITH",
+ *               key: "STRING_VALUE",
+ *               tagValues: [
+ *                 {
+ *                   key: "STRING_VALUE",
+ *                   value: "STRING_VALUE",
+ *                 },
+ *               ],
+ *               target: "S3_OBJECT",
+ *             },
+ *           },
+ *         ],
+ *       },
+ *     },
+ *   },
+ *   samplingPercentage: Number("int"),
+ *   scheduleFrequency: {
+ *     dailySchedule: {},
+ *     monthlySchedule: {
+ *       dayOfMonth: Number("int"),
+ *     },
+ *     weeklySchedule: {
+ *       dayOfWeek: "SUNDAY" || "MONDAY" || "TUESDAY" || "WEDNESDAY" || "THURSDAY" || "FRIDAY" || "SATURDAY",
+ *     },
+ *   },
+ *   tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateClassificationJobCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,9 @@ export interface GetOrderCommandOutput extends GetOrderOutput, __MetadataBearer 
  * import { OutpostsClient, GetOrderCommand } from "@aws-sdk/client-outposts"; // ES Modules import
  * // const { OutpostsClient, GetOrderCommand } = require("@aws-sdk/client-outposts"); // CommonJS import
  * const client = new OutpostsClient(config);
+ * const input = {
+ *   OrderId: "STRING_VALUE", // required
+ * };
  * const command = new GetOrderCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,10 @@ export interface GetTokenCommandOutput extends GetTokenResponse, __MetadataBeare
  * import { AmplifyBackendClient, GetTokenCommand } from "@aws-sdk/client-amplifybackend"; // ES Modules import
  * // const { AmplifyBackendClient, GetTokenCommand } = require("@aws-sdk/client-amplifybackend"); // CommonJS import
  * const client = new AmplifyBackendClient(config);
+ * const input = {
+ *   AppId: "STRING_VALUE", // required
+ *   SessionId: "STRING_VALUE", // required
+ * };
  * const command = new GetTokenCommand(input);
  * const response = await client.send(command);
  * ```

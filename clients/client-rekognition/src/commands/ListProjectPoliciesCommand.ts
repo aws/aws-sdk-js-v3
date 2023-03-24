@@ -43,6 +43,11 @@ export interface ListProjectPoliciesCommandOutput extends ListProjectPoliciesRes
  * import { RekognitionClient, ListProjectPoliciesCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, ListProjectPoliciesCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
+ * const input = {
+ *   ProjectArn: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListProjectPoliciesCommand(input);
  * const response = await client.send(command);
  * ```

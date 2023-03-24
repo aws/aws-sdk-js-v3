@@ -43,6 +43,10 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * import { IoTClient, ListTagsForResourceCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, ListTagsForResourceCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = {
+ *   resourceArn: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
  * ```

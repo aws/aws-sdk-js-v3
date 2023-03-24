@@ -77,6 +77,27 @@ export interface CreateSecretCommandOutput extends CreateSecretResponse, __Metad
  * import { SecretsManagerClient, CreateSecretCommand } from "@aws-sdk/client-secrets-manager"; // ES Modules import
  * // const { SecretsManagerClient, CreateSecretCommand } = require("@aws-sdk/client-secrets-manager"); // CommonJS import
  * const client = new SecretsManagerClient(config);
+ * const input = {
+ *   Name: "STRING_VALUE", // required
+ *   ClientRequestToken: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   KmsKeyId: "STRING_VALUE",
+ *   SecretBinary: "BLOB_VALUE",
+ *   SecretString: "STRING_VALUE",
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   AddReplicaRegions: [
+ *     {
+ *       Region: "STRING_VALUE",
+ *       KmsKeyId: "STRING_VALUE",
+ *     },
+ *   ],
+ *   ForceOverwriteReplicaSecret: true || false,
+ * };
  * const command = new CreateSecretCommand(input);
  * const response = await client.send(command);
  * ```

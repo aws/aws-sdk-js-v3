@@ -60,6 +60,11 @@ export interface ListVaultsCommandOutput extends ListVaultsOutput, __MetadataBea
  * import { GlacierClient, ListVaultsCommand } from "@aws-sdk/client-glacier"; // ES Modules import
  * // const { GlacierClient, ListVaultsCommand } = require("@aws-sdk/client-glacier"); // CommonJS import
  * const client = new GlacierClient(config);
+ * const input = {
+ *   accountId: "STRING_VALUE", // required
+ *   marker: "STRING_VALUE",
+ *   limit: Number("int"),
+ * };
  * const command = new ListVaultsCommand(input);
  * const response = await client.send(command);
  * ```

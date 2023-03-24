@@ -51,6 +51,10 @@ export interface RebootDBInstanceCommandOutput extends RebootDBInstanceResult, _
  * import { RDSClient, RebootDBInstanceCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, RebootDBInstanceCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = {
+ *   DBInstanceIdentifier: "STRING_VALUE", // required
+ *   ForceFailover: true || false,
+ * };
  * const command = new RebootDBInstanceCommand(input);
  * const response = await client.send(command);
  * ```

@@ -60,6 +60,14 @@ export interface AddCommunicationToCaseCommandOutput extends AddCommunicationToC
  * import { SupportClient, AddCommunicationToCaseCommand } from "@aws-sdk/client-support"; // ES Modules import
  * // const { SupportClient, AddCommunicationToCaseCommand } = require("@aws-sdk/client-support"); // CommonJS import
  * const client = new SupportClient(config);
+ * const input = {
+ *   caseId: "STRING_VALUE",
+ *   communicationBody: "STRING_VALUE", // required
+ *   ccEmailAddresses: [
+ *     "STRING_VALUE",
+ *   ],
+ *   attachmentSetId: "STRING_VALUE",
+ * };
  * const command = new AddCommunicationToCaseCommand(input);
  * const response = await client.send(command);
  * ```

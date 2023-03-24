@@ -42,6 +42,9 @@ export interface DescribeHarvestJobCommandOutput extends DescribeHarvestJobRespo
  * import { MediaPackageClient, DescribeHarvestJobCommand } from "@aws-sdk/client-mediapackage"; // ES Modules import
  * // const { MediaPackageClient, DescribeHarvestJobCommand } = require("@aws-sdk/client-mediapackage"); // CommonJS import
  * const client = new MediaPackageClient(config);
+ * const input = {
+ *   Id: "STRING_VALUE", // required
+ * };
  * const command = new DescribeHarvestJobCommand(input);
  * const response = await client.send(command);
  * ```

@@ -45,6 +45,9 @@ export interface DeleteVariableCommandOutput extends DeleteVariableResult, __Met
  * import { FraudDetectorClient, DeleteVariableCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, DeleteVariableCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
  * const client = new FraudDetectorClient(config);
+ * const input = {
+ *   name: "STRING_VALUE", // required
+ * };
  * const command = new DeleteVariableCommand(input);
  * const response = await client.send(command);
  * ```

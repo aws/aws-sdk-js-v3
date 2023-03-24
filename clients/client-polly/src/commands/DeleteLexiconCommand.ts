@@ -45,6 +45,9 @@ export interface DeleteLexiconCommandOutput extends DeleteLexiconOutput, __Metad
  * import { PollyClient, DeleteLexiconCommand } from "@aws-sdk/client-polly"; // ES Modules import
  * // const { PollyClient, DeleteLexiconCommand } = require("@aws-sdk/client-polly"); // CommonJS import
  * const client = new PollyClient(config);
+ * const input = {
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new DeleteLexiconCommand(input);
  * const response = await client.send(command);
  * ```

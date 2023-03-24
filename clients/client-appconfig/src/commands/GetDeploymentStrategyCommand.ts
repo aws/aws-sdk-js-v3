@@ -46,6 +46,9 @@ export interface GetDeploymentStrategyCommandOutput extends DeploymentStrategy, 
  * import { AppConfigClient, GetDeploymentStrategyCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
  * // const { AppConfigClient, GetDeploymentStrategyCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
  * const client = new AppConfigClient(config);
+ * const input = {
+ *   DeploymentStrategyId: "STRING_VALUE", // required
+ * };
  * const command = new GetDeploymentStrategyCommand(input);
  * const response = await client.send(command);
  * ```

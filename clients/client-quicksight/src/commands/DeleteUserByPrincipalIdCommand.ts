@@ -42,6 +42,11 @@ export interface DeleteUserByPrincipalIdCommandOutput extends DeleteUserByPrinci
  * import { QuickSightClient, DeleteUserByPrincipalIdCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, DeleteUserByPrincipalIdCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
+ * const input = {
+ *   PrincipalId: "STRING_VALUE", // required
+ *   AwsAccountId: "STRING_VALUE", // required
+ *   Namespace: "STRING_VALUE", // required
+ * };
  * const command = new DeleteUserByPrincipalIdCommand(input);
  * const response = await client.send(command);
  * ```

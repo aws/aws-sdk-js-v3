@@ -43,6 +43,11 @@ export interface DeleteBotVersionCommandOutput extends DeleteBotVersionResponse,
  * import { LexModelsV2Client, DeleteBotVersionCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
  * // const { LexModelsV2Client, DeleteBotVersionCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
  * const client = new LexModelsV2Client(config);
+ * const input = {
+ *   botId: "STRING_VALUE", // required
+ *   botVersion: "STRING_VALUE", // required
+ *   skipResourceInUseCheck: true || false,
+ * };
  * const command = new DeleteBotVersionCommand(input);
  * const response = await client.send(command);
  * ```

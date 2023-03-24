@@ -47,6 +47,16 @@ export interface CreateRelationalDatabaseSnapshotCommandOutput
  * import { LightsailClient, CreateRelationalDatabaseSnapshotCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, CreateRelationalDatabaseSnapshotCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = {
+ *   relationalDatabaseName: "STRING_VALUE", // required
+ *   relationalDatabaseSnapshotName: "STRING_VALUE", // required
+ *   tags: [
+ *     {
+ *       key: "STRING_VALUE",
+ *       value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateRelationalDatabaseSnapshotCommand(input);
  * const response = await client.send(command);
  * ```

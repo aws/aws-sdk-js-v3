@@ -44,6 +44,11 @@ export interface ListVocabularyFiltersCommandOutput extends ListVocabularyFilter
  * import { TranscribeClient, ListVocabularyFiltersCommand } from "@aws-sdk/client-transcribe"; // ES Modules import
  * // const { TranscribeClient, ListVocabularyFiltersCommand } = require("@aws-sdk/client-transcribe"); // CommonJS import
  * const client = new TranscribeClient(config);
+ * const input = {
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   NameContains: "STRING_VALUE",
+ * };
  * const command = new ListVocabularyFiltersCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,9 @@ export interface DescribeImportCommandOutput extends DescribeImportResponse, __M
  * import { LexModelsV2Client, DescribeImportCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
  * // const { LexModelsV2Client, DescribeImportCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
  * const client = new LexModelsV2Client(config);
+ * const input = {
+ *   importId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeImportCommand(input);
  * const response = await client.send(command);
  * ```

@@ -49,6 +49,10 @@ export interface StartContentUploadCommandOutput extends StartContentUploadRespo
  * import { WisdomClient, StartContentUploadCommand } from "@aws-sdk/client-wisdom"; // ES Modules import
  * // const { WisdomClient, StartContentUploadCommand } = require("@aws-sdk/client-wisdom"); // CommonJS import
  * const client = new WisdomClient(config);
+ * const input = {
+ *   knowledgeBaseId: "STRING_VALUE", // required
+ *   contentType: "STRING_VALUE", // required
+ * };
  * const command = new StartContentUploadCommand(input);
  * const response = await client.send(command);
  * ```

@@ -46,6 +46,9 @@ export interface GetPlatformApplicationAttributesCommandOutput
  * import { SNSClient, GetPlatformApplicationAttributesCommand } from "@aws-sdk/client-sns"; // ES Modules import
  * // const { SNSClient, GetPlatformApplicationAttributesCommand } = require("@aws-sdk/client-sns"); // CommonJS import
  * const client = new SNSClient(config);
+ * const input = {
+ *   PlatformApplicationArn: "STRING_VALUE", // required
+ * };
  * const command = new GetPlatformApplicationAttributesCommand(input);
  * const response = await client.send(command);
  * ```

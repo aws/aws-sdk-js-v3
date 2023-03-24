@@ -42,6 +42,13 @@ export interface ListStreamingSessionsCommandOutput extends ListStreamingSession
  * import { NimbleClient, ListStreamingSessionsCommand } from "@aws-sdk/client-nimble"; // ES Modules import
  * // const { NimbleClient, ListStreamingSessionsCommand } = require("@aws-sdk/client-nimble"); // CommonJS import
  * const client = new NimbleClient(config);
+ * const input = {
+ *   createdBy: "STRING_VALUE",
+ *   nextToken: "STRING_VALUE",
+ *   ownedBy: "STRING_VALUE",
+ *   sessionIds: "STRING_VALUE",
+ *   studioId: "STRING_VALUE", // required
+ * };
  * const command = new ListStreamingSessionsCommand(input);
  * const response = await client.send(command);
  * ```

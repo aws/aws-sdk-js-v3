@@ -88,6 +88,15 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  * import { KMSClient, TagResourceCommand } from "@aws-sdk/client-kms"; // ES Modules import
  * // const { KMSClient, TagResourceCommand } = require("@aws-sdk/client-kms"); // CommonJS import
  * const client = new KMSClient(config);
+ * const input = {
+ *   KeyId: "STRING_VALUE", // required
+ *   Tags: [ // required
+ *     {
+ *       TagKey: "STRING_VALUE", // required
+ *       TagValue: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,12 @@ export interface UpdatePricingPlanCommandOutput extends UpdatePricingPlanRespons
  * import { IoTTwinMakerClient, UpdatePricingPlanCommand } from "@aws-sdk/client-iottwinmaker"; // ES Modules import
  * // const { IoTTwinMakerClient, UpdatePricingPlanCommand } = require("@aws-sdk/client-iottwinmaker"); // CommonJS import
  * const client = new IoTTwinMakerClient(config);
+ * const input = {
+ *   pricingMode: "STRING_VALUE", // required
+ *   bundleNames: [
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new UpdatePricingPlanCommand(input);
  * const response = await client.send(command);
  * ```

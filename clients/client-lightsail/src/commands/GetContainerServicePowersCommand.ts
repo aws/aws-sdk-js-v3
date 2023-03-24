@@ -45,6 +45,7 @@ export interface GetContainerServicePowersCommandOutput extends GetContainerServ
  * import { LightsailClient, GetContainerServicePowersCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, GetContainerServicePowersCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = {};
  * const command = new GetContainerServicePowersCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,21 @@ export interface CreateMulticastGroupCommandOutput extends CreateMulticastGroupR
  * import { IoTWirelessClient, CreateMulticastGroupCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, CreateMulticastGroupCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
+ * const input = {
+ *   Name: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   ClientRequestToken: "STRING_VALUE",
+ *   LoRaWAN: {
+ *     RfRegion: "EU868" || "US915" || "AU915" || "AS923-1",
+ *     DlClass: "ClassB" || "ClassC",
+ *   },
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateMulticastGroupCommand(input);
  * const response = await client.send(command);
  * ```

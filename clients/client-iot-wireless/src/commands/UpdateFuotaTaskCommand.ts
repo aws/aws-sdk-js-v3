@@ -42,6 +42,19 @@ export interface UpdateFuotaTaskCommandOutput extends UpdateFuotaTaskResponse, _
  * import { IoTWirelessClient, UpdateFuotaTaskCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, UpdateFuotaTaskCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
+ * const input = {
+ *   Id: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   LoRaWAN: {
+ *     RfRegion: "EU868" || "US915" || "AU915" || "AS923-1",
+ *   },
+ *   FirmwareUpdateImage: "STRING_VALUE",
+ *   FirmwareUpdateRole: "STRING_VALUE",
+ *   RedundancyPercent: Number("int"),
+ *   FragmentSizeBytes: Number("int"),
+ *   FragmentIntervalMS: Number("int"),
+ * };
  * const command = new UpdateFuotaTaskCommand(input);
  * const response = await client.send(command);
  * ```

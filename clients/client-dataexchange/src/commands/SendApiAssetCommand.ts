@@ -42,6 +42,20 @@ export interface SendApiAssetCommandOutput extends SendApiAssetResponse, __Metad
  * import { DataExchangeClient, SendApiAssetCommand } from "@aws-sdk/client-dataexchange"; // ES Modules import
  * // const { DataExchangeClient, SendApiAssetCommand } = require("@aws-sdk/client-dataexchange"); // CommonJS import
  * const client = new DataExchangeClient(config);
+ * const input = {
+ *   Body: "STRING_VALUE",
+ *   QueryStringParameters: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   AssetId: "STRING_VALUE", // required
+ *   DataSetId: "STRING_VALUE", // required
+ *   RequestHeaders: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   Method: "STRING_VALUE",
+ *   Path: "STRING_VALUE",
+ *   RevisionId: "STRING_VALUE", // required
+ * };
  * const command = new SendApiAssetCommand(input);
  * const response = await client.send(command);
  * ```

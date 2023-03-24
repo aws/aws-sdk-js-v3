@@ -43,6 +43,18 @@ export interface ListAppAssessmentsCommandOutput extends ListAppAssessmentsRespo
  * import { ResiliencehubClient, ListAppAssessmentsCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
  * // const { ResiliencehubClient, ListAppAssessmentsCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
  * const client = new ResiliencehubClient(config);
+ * const input = {
+ *   appArn: "STRING_VALUE",
+ *   assessmentName: "STRING_VALUE",
+ *   assessmentStatus: [
+ *     "STRING_VALUE",
+ *   ],
+ *   complianceStatus: "STRING_VALUE",
+ *   invoker: "STRING_VALUE",
+ *   reverseOrder: true || false,
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListAppAssessmentsCommand(input);
  * const response = await client.send(command);
  * ```

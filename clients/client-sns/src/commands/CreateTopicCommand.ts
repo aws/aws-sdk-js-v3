@@ -43,6 +43,19 @@ export interface CreateTopicCommandOutput extends CreateTopicResponse, __Metadat
  * import { SNSClient, CreateTopicCommand } from "@aws-sdk/client-sns"; // ES Modules import
  * // const { SNSClient, CreateTopicCommand } = require("@aws-sdk/client-sns"); // CommonJS import
  * const client = new SNSClient(config);
+ * const input = {
+ *   Name: "STRING_VALUE", // required
+ *   Attributes: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   DataProtectionPolicy: "STRING_VALUE",
+ * };
  * const command = new CreateTopicCommand(input);
  * const response = await client.send(command);
  * ```

@@ -44,6 +44,13 @@ export interface DescribeAgentVersionsCommandOutput extends DescribeAgentVersion
  * import { OpsWorksClient, DescribeAgentVersionsCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, DescribeAgentVersionsCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
+ * const input = {
+ *   StackId: "STRING_VALUE",
+ *   ConfigurationManager: {
+ *     Name: "STRING_VALUE",
+ *     Version: "STRING_VALUE",
+ *   },
+ * };
  * const command = new DescribeAgentVersionsCommand(input);
  * const response = await client.send(command);
  * ```

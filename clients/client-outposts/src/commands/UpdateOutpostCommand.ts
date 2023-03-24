@@ -42,6 +42,12 @@ export interface UpdateOutpostCommandOutput extends UpdateOutpostOutput, __Metad
  * import { OutpostsClient, UpdateOutpostCommand } from "@aws-sdk/client-outposts"; // ES Modules import
  * // const { OutpostsClient, UpdateOutpostCommand } = require("@aws-sdk/client-outposts"); // CommonJS import
  * const client = new OutpostsClient(config);
+ * const input = {
+ *   OutpostId: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   SupportedHardwareType: "RACK" || "SERVER",
+ * };
  * const command = new UpdateOutpostCommand(input);
  * const response = await client.send(command);
  * ```

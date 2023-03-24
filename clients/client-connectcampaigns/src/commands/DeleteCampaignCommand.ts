@@ -42,6 +42,9 @@ export interface DeleteCampaignCommandOutput extends __MetadataBearer {}
  * import { ConnectCampaignsClient, DeleteCampaignCommand } from "@aws-sdk/client-connectcampaigns"; // ES Modules import
  * // const { ConnectCampaignsClient, DeleteCampaignCommand } = require("@aws-sdk/client-connectcampaigns"); // CommonJS import
  * const client = new ConnectCampaignsClient(config);
+ * const input = {
+ *   id: "STRING_VALUE", // required
+ * };
  * const command = new DeleteCampaignCommand(input);
  * const response = await client.send(command);
  * ```

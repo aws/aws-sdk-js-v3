@@ -42,6 +42,9 @@ export interface DeleteMonitorCommandOutput extends DeleteMonitorOutput, __Metad
  * import { InternetMonitorClient, DeleteMonitorCommand } from "@aws-sdk/client-internetmonitor"; // ES Modules import
  * // const { InternetMonitorClient, DeleteMonitorCommand } = require("@aws-sdk/client-internetmonitor"); // CommonJS import
  * const client = new InternetMonitorClient(config);
+ * const input = {
+ *   MonitorName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteMonitorCommand(input);
  * const response = await client.send(command);
  * ```

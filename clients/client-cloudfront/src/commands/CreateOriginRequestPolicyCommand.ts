@@ -68,6 +68,39 @@ export interface CreateOriginRequestPolicyCommandOutput extends CreateOriginRequ
  * import { CloudFrontClient, CreateOriginRequestPolicyCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, CreateOriginRequestPolicyCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
+ * const input = {
+ *   OriginRequestPolicyConfig: {
+ *     Comment: "STRING_VALUE",
+ *     Name: "STRING_VALUE", // required
+ *     HeadersConfig: {
+ *       HeaderBehavior: "none" || "whitelist" || "allViewer" || "allViewerAndWhitelistCloudFront" || "allExcept", // required
+ *       Headers: {
+ *         Quantity: Number("int"), // required
+ *         Items: [
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *     },
+ *     CookiesConfig: {
+ *       CookieBehavior: "none" || "whitelist" || "all" || "allExcept", // required
+ *       Cookies: {
+ *         Quantity: Number("int"), // required
+ *         Items: [
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *     },
+ *     QueryStringsConfig: {
+ *       QueryStringBehavior: "none" || "whitelist" || "all" || "allExcept", // required
+ *       QueryStrings: {
+ *         Quantity: Number("int"), // required
+ *         Items: [
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *     },
+ *   },
+ * };
  * const command = new CreateOriginRequestPolicyCommand(input);
  * const response = await client.send(command);
  * ```

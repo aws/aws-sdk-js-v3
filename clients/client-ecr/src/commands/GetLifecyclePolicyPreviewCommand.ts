@@ -43,6 +43,21 @@ export interface GetLifecyclePolicyPreviewCommandOutput extends GetLifecyclePoli
  * import { ECRClient, GetLifecyclePolicyPreviewCommand } from "@aws-sdk/client-ecr"; // ES Modules import
  * // const { ECRClient, GetLifecyclePolicyPreviewCommand } = require("@aws-sdk/client-ecr"); // CommonJS import
  * const client = new ECRClient(config);
+ * const input = {
+ *   registryId: "STRING_VALUE",
+ *   repositoryName: "STRING_VALUE", // required
+ *   imageIds: [
+ *     {
+ *       imageDigest: "STRING_VALUE",
+ *       imageTag: "STRING_VALUE",
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   filter: {
+ *     tagStatus: "STRING_VALUE",
+ *   },
+ * };
  * const command = new GetLifecyclePolicyPreviewCommand(input);
  * const response = await client.send(command);
  * ```

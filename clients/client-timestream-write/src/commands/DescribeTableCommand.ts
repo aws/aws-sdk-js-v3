@@ -46,6 +46,10 @@ export interface DescribeTableCommandOutput extends DescribeTableResponse, __Met
  * import { TimestreamWriteClient, DescribeTableCommand } from "@aws-sdk/client-timestream-write"; // ES Modules import
  * // const { TimestreamWriteClient, DescribeTableCommand } = require("@aws-sdk/client-timestream-write"); // CommonJS import
  * const client = new TimestreamWriteClient(config);
+ * const input = {
+ *   DatabaseName: "STRING_VALUE", // required
+ *   TableName: "STRING_VALUE", // required
+ * };
  * const command = new DescribeTableCommand(input);
  * const response = await client.send(command);
  * ```

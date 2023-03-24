@@ -42,6 +42,40 @@ export interface UpdateDatastoreCommandOutput extends __MetadataBearer {}
  * import { IoTAnalyticsClient, UpdateDatastoreCommand } from "@aws-sdk/client-iotanalytics"; // ES Modules import
  * // const { IoTAnalyticsClient, UpdateDatastoreCommand } = require("@aws-sdk/client-iotanalytics"); // CommonJS import
  * const client = new IoTAnalyticsClient(config);
+ * const input = {
+ *   datastoreName: "STRING_VALUE", // required
+ *   retentionPeriod: {
+ *     unlimited: true || false,
+ *     numberOfDays: Number("int"),
+ *   },
+ *   datastoreStorage: { // Union: only one key present
+ *     serviceManagedS3: {},
+ *     customerManagedS3: {
+ *       bucket: "STRING_VALUE", // required
+ *       keyPrefix: "STRING_VALUE",
+ *       roleArn: "STRING_VALUE", // required
+ *     },
+ *     iotSiteWiseMultiLayerStorage: {
+ *       customerManagedS3Storage: {
+ *         bucket: "STRING_VALUE", // required
+ *         keyPrefix: "STRING_VALUE",
+ *       },
+ *     },
+ *   },
+ *   fileFormatConfiguration: {
+ *     jsonConfiguration: {},
+ *     parquetConfiguration: {
+ *       schemaDefinition: {
+ *         columns: [
+ *           {
+ *             name: "STRING_VALUE", // required
+ *             type: "STRING_VALUE", // required
+ *           },
+ *         ],
+ *       },
+ *     },
+ *   },
+ * };
  * const command = new UpdateDatastoreCommand(input);
  * const response = await client.send(command);
  * ```

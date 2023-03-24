@@ -43,6 +43,11 @@ export interface DeleteHostedConfigurationVersionCommandOutput extends __Metadat
  * import { AppConfigClient, DeleteHostedConfigurationVersionCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
  * // const { AppConfigClient, DeleteHostedConfigurationVersionCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
  * const client = new AppConfigClient(config);
+ * const input = {
+ *   ApplicationId: "STRING_VALUE", // required
+ *   ConfigurationProfileId: "STRING_VALUE", // required
+ *   VersionNumber: Number("int"), // required
+ * };
  * const command = new DeleteHostedConfigurationVersionCommand(input);
  * const response = await client.send(command);
  * ```

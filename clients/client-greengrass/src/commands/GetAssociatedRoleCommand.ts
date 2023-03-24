@@ -42,6 +42,9 @@ export interface GetAssociatedRoleCommandOutput extends GetAssociatedRoleRespons
  * import { GreengrassClient, GetAssociatedRoleCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, GetAssociatedRoleCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
+ * const input = {
+ *   GroupId: "STRING_VALUE", // required
+ * };
  * const command = new GetAssociatedRoleCommand(input);
  * const response = await client.send(command);
  * ```

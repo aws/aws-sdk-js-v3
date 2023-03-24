@@ -47,6 +47,11 @@ export interface ModifyDBSnapshotCommandOutput extends ModifyDBSnapshotResult, _
  * import { RDSClient, ModifyDBSnapshotCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, ModifyDBSnapshotCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = {
+ *   DBSnapshotIdentifier: "STRING_VALUE", // required
+ *   EngineVersion: "STRING_VALUE",
+ *   OptionGroupName: "STRING_VALUE",
+ * };
  * const command = new ModifyDBSnapshotCommand(input);
  * const response = await client.send(command);
  * ```

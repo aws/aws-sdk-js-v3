@@ -42,6 +42,14 @@ export interface StartInstanceOnboardingJobCommandOutput extends StartInstanceOn
  * import { ConnectCampaignsClient, StartInstanceOnboardingJobCommand } from "@aws-sdk/client-connectcampaigns"; // ES Modules import
  * // const { ConnectCampaignsClient, StartInstanceOnboardingJobCommand } = require("@aws-sdk/client-connectcampaigns"); // CommonJS import
  * const client = new ConnectCampaignsClient(config);
+ * const input = {
+ *   connectInstanceId: "STRING_VALUE", // required
+ *   encryptionConfig: {
+ *     enabled: true || false, // required
+ *     encryptionType: "STRING_VALUE",
+ *     keyArn: "STRING_VALUE",
+ *   },
+ * };
  * const command = new StartInstanceOnboardingJobCommand(input);
  * const response = await client.send(command);
  * ```

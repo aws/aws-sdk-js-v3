@@ -47,6 +47,11 @@ export interface UpdateRdsDbInstanceCommandOutput extends __MetadataBearer {}
  * import { OpsWorksClient, UpdateRdsDbInstanceCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, UpdateRdsDbInstanceCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
+ * const input = {
+ *   RdsDbInstanceArn: "STRING_VALUE", // required
+ *   DbUser: "STRING_VALUE",
+ *   DbPassword: "STRING_VALUE",
+ * };
  * const command = new UpdateRdsDbInstanceCommand(input);
  * const response = await client.send(command);
  * ```

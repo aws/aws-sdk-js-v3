@@ -48,6 +48,13 @@ export interface GetResourcesCommandOutput extends GetResourcesResponse, __Metad
  * import { WorkDocsClient, GetResourcesCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
  * // const { WorkDocsClient, GetResourcesCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
  * const client = new WorkDocsClient(config);
+ * const input = {
+ *   AuthenticationToken: "STRING_VALUE",
+ *   UserId: "STRING_VALUE",
+ *   CollectionType: "SHARED_WITH_ME",
+ *   Limit: Number("int"),
+ *   Marker: "STRING_VALUE",
+ * };
  * const command = new GetResourcesCommand(input);
  * const response = await client.send(command);
  * ```

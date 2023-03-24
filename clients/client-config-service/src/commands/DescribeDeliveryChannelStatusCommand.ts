@@ -51,6 +51,11 @@ export interface DescribeDeliveryChannelStatusCommandOutput
  * import { ConfigServiceClient, DescribeDeliveryChannelStatusCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, DescribeDeliveryChannelStatusCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
+ * const input = {
+ *   DeliveryChannelNames: [
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DescribeDeliveryChannelStatusCommand(input);
  * const response = await client.send(command);
  * ```

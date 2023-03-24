@@ -43,6 +43,12 @@ export interface ListContactFlowModulesCommandOutput extends ListContactFlowModu
  * import { ConnectClient, ListContactFlowModulesCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, ListContactFlowModulesCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = {
+ *   InstanceId: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   ContactFlowModuleState: "ACTIVE" || "ARCHIVED",
+ * };
  * const command = new ListContactFlowModulesCommand(input);
  * const response = await client.send(command);
  * ```

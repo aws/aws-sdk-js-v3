@@ -147,6 +147,25 @@ export interface SendRawEmailCommandOutput extends SendRawEmailResponse, __Metad
  * import { SESClient, SendRawEmailCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, SendRawEmailCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
+ * const input = {
+ *   Source: "STRING_VALUE",
+ *   Destinations: [
+ *     "STRING_VALUE",
+ *   ],
+ *   RawMessage: {
+ *     Data: "BLOB_VALUE", // required
+ *   },
+ *   FromArn: "STRING_VALUE",
+ *   SourceArn: "STRING_VALUE",
+ *   ReturnPathArn: "STRING_VALUE",
+ *   Tags: [
+ *     {
+ *       Name: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   ConfigurationSetName: "STRING_VALUE",
+ * };
  * const command = new SendRawEmailCommand(input);
  * const response = await client.send(command);
  * ```

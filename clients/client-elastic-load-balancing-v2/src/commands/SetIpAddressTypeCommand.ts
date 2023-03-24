@@ -46,6 +46,10 @@ export interface SetIpAddressTypeCommandOutput extends SetIpAddressTypeOutput, _
  * import { ElasticLoadBalancingV2Client, SetIpAddressTypeCommand } from "@aws-sdk/client-elastic-load-balancing-v2"; // ES Modules import
  * // const { ElasticLoadBalancingV2Client, SetIpAddressTypeCommand } = require("@aws-sdk/client-elastic-load-balancing-v2"); // CommonJS import
  * const client = new ElasticLoadBalancingV2Client(config);
+ * const input = {
+ *   LoadBalancerArn: "STRING_VALUE", // required
+ *   IpAddressType: "ipv4" || "dualstack", // required
+ * };
  * const command = new SetIpAddressTypeCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,79 @@ export interface CreateInAppTemplateCommandOutput extends CreateInAppTemplateRes
  * import { PinpointClient, CreateInAppTemplateCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, CreateInAppTemplateCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
+ * const input = {
+ *   InAppTemplateRequest: {
+ *     Content: [
+ *       {
+ *         BackgroundColor: "STRING_VALUE",
+ *         BodyConfig: {
+ *           Alignment: "STRING_VALUE", // required
+ *           Body: "STRING_VALUE", // required
+ *           TextColor: "STRING_VALUE", // required
+ *         },
+ *         HeaderConfig: {
+ *           Alignment: "STRING_VALUE", // required
+ *           Header: "STRING_VALUE", // required
+ *           TextColor: "STRING_VALUE", // required
+ *         },
+ *         ImageUrl: "STRING_VALUE",
+ *         PrimaryBtn: {
+ *           Android: {
+ *             ButtonAction: "STRING_VALUE", // required
+ *             Link: "STRING_VALUE",
+ *           },
+ *           DefaultConfig: {
+ *             BackgroundColor: "STRING_VALUE",
+ *             BorderRadius: Number("int"),
+ *             ButtonAction: "STRING_VALUE", // required
+ *             Link: "STRING_VALUE",
+ *             Text: "STRING_VALUE", // required
+ *             TextColor: "STRING_VALUE",
+ *           },
+ *           IOS: {
+ *             ButtonAction: "STRING_VALUE", // required
+ *             Link: "STRING_VALUE",
+ *           },
+ *           Web: {
+ *             ButtonAction: "STRING_VALUE", // required
+ *             Link: "STRING_VALUE",
+ *           },
+ *         },
+ *         SecondaryBtn: {
+ *           Android: {
+ *             ButtonAction: "STRING_VALUE", // required
+ *             Link: "STRING_VALUE",
+ *           },
+ *           DefaultConfig: {
+ *             BackgroundColor: "STRING_VALUE",
+ *             BorderRadius: Number("int"),
+ *             ButtonAction: "STRING_VALUE", // required
+ *             Link: "STRING_VALUE",
+ *             Text: "STRING_VALUE", // required
+ *             TextColor: "STRING_VALUE",
+ *           },
+ *           IOS: {
+ *             ButtonAction: "STRING_VALUE", // required
+ *             Link: "STRING_VALUE",
+ *           },
+ *           Web: {
+ *             ButtonAction: "STRING_VALUE", // required
+ *             Link: "STRING_VALUE",
+ *           },
+ *         },
+ *       },
+ *     ],
+ *     CustomConfig: {
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *     Layout: "STRING_VALUE",
+ *     tags: {
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *     TemplateDescription: "STRING_VALUE",
+ *   },
+ *   TemplateName: "STRING_VALUE", // required
+ * };
  * const command = new CreateInAppTemplateCommand(input);
  * const response = await client.send(command);
  * ```

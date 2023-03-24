@@ -53,6 +53,7 @@ export interface GetDeliverabilityDashboardOptionsCommandOutput
  * import { SESv2Client, GetDeliverabilityDashboardOptionsCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, GetDeliverabilityDashboardOptionsCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
  * const client = new SESv2Client(config);
+ * const input = {};
  * const command = new GetDeliverabilityDashboardOptionsCommand(input);
  * const response = await client.send(command);
  * ```

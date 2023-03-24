@@ -65,6 +65,29 @@ export interface CreateKnowledgeBaseCommandOutput extends CreateKnowledgeBaseRes
  * import { WisdomClient, CreateKnowledgeBaseCommand } from "@aws-sdk/client-wisdom"; // ES Modules import
  * // const { WisdomClient, CreateKnowledgeBaseCommand } = require("@aws-sdk/client-wisdom"); // CommonJS import
  * const client = new WisdomClient(config);
+ * const input = {
+ *   clientToken: "STRING_VALUE",
+ *   name: "STRING_VALUE", // required
+ *   knowledgeBaseType: "STRING_VALUE", // required
+ *   sourceConfiguration: { // Union: only one key present
+ *     appIntegrations: {
+ *       appIntegrationArn: "STRING_VALUE", // required
+ *       objectFields: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   },
+ *   renderingConfiguration: {
+ *     templateUri: "STRING_VALUE",
+ *   },
+ *   serverSideEncryptionConfiguration: {
+ *     kmsKeyId: "STRING_VALUE",
+ *   },
+ *   description: "STRING_VALUE",
+ *   tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateKnowledgeBaseCommand(input);
  * const response = await client.send(command);
  * ```

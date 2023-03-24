@@ -46,6 +46,13 @@ export interface UntagStreamCommandOutput extends UntagStreamOutput, __MetadataB
  * import { KinesisVideoClient, UntagStreamCommand } from "@aws-sdk/client-kinesis-video"; // ES Modules import
  * // const { KinesisVideoClient, UntagStreamCommand } = require("@aws-sdk/client-kinesis-video"); // CommonJS import
  * const client = new KinesisVideoClient(config);
+ * const input = {
+ *   StreamARN: "STRING_VALUE",
+ *   StreamName: "STRING_VALUE",
+ *   TagKeyList: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new UntagStreamCommand(input);
  * const response = await client.send(command);
  * ```

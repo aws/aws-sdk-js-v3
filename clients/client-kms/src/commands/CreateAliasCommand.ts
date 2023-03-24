@@ -98,6 +98,10 @@ export interface CreateAliasCommandOutput extends __MetadataBearer {}
  * import { KMSClient, CreateAliasCommand } from "@aws-sdk/client-kms"; // ES Modules import
  * // const { KMSClient, CreateAliasCommand } = require("@aws-sdk/client-kms"); // CommonJS import
  * const client = new KMSClient(config);
+ * const input = {
+ *   AliasName: "STRING_VALUE", // required
+ *   TargetKeyId: "STRING_VALUE", // required
+ * };
  * const command = new CreateAliasCommand(input);
  * const response = await client.send(command);
  * ```

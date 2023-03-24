@@ -46,6 +46,10 @@ export interface DeactivateDeviceIdentifierCommandOutput extends DeactivateDevic
  * import { PrivateNetworksClient, DeactivateDeviceIdentifierCommand } from "@aws-sdk/client-privatenetworks"; // ES Modules import
  * // const { PrivateNetworksClient, DeactivateDeviceIdentifierCommand } = require("@aws-sdk/client-privatenetworks"); // CommonJS import
  * const client = new PrivateNetworksClient(config);
+ * const input = {
+ *   deviceIdentifierArn: "STRING_VALUE", // required
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new DeactivateDeviceIdentifierCommand(input);
  * const response = await client.send(command);
  * ```

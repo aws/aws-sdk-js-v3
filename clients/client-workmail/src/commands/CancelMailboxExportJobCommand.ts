@@ -46,6 +46,11 @@ export interface CancelMailboxExportJobCommandOutput extends CancelMailboxExport
  * import { WorkMailClient, CancelMailboxExportJobCommand } from "@aws-sdk/client-workmail"; // ES Modules import
  * // const { WorkMailClient, CancelMailboxExportJobCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
  * const client = new WorkMailClient(config);
+ * const input = {
+ *   ClientToken: "STRING_VALUE", // required
+ *   JobId: "STRING_VALUE", // required
+ *   OrganizationId: "STRING_VALUE", // required
+ * };
  * const command = new CancelMailboxExportJobCommand(input);
  * const response = await client.send(command);
  * ```

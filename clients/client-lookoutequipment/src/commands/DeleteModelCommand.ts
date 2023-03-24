@@ -44,6 +44,9 @@ export interface DeleteModelCommandOutput extends __MetadataBearer {}
  * import { LookoutEquipmentClient, DeleteModelCommand } from "@aws-sdk/client-lookoutequipment"; // ES Modules import
  * // const { LookoutEquipmentClient, DeleteModelCommand } = require("@aws-sdk/client-lookoutequipment"); // CommonJS import
  * const client = new LookoutEquipmentClient(config);
+ * const input = {
+ *   ModelName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteModelCommand(input);
  * const response = await client.send(command);
  * ```

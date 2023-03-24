@@ -43,6 +43,9 @@ export interface GetContactPolicyCommandOutput extends GetContactPolicyResult, _
  * import { SSMContactsClient, GetContactPolicyCommand } from "@aws-sdk/client-ssm-contacts"; // ES Modules import
  * // const { SSMContactsClient, GetContactPolicyCommand } = require("@aws-sdk/client-ssm-contacts"); // CommonJS import
  * const client = new SSMContactsClient(config);
+ * const input = {
+ *   ContactArn: "STRING_VALUE", // required
+ * };
  * const command = new GetContactPolicyCommand(input);
  * const response = await client.send(command);
  * ```

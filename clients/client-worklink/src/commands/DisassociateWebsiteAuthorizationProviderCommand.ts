@@ -52,6 +52,10 @@ export interface DisassociateWebsiteAuthorizationProviderCommandOutput
  * import { WorkLinkClient, DisassociateWebsiteAuthorizationProviderCommand } from "@aws-sdk/client-worklink"; // ES Modules import
  * // const { WorkLinkClient, DisassociateWebsiteAuthorizationProviderCommand } = require("@aws-sdk/client-worklink"); // CommonJS import
  * const client = new WorkLinkClient(config);
+ * const input = {
+ *   FleetArn: "STRING_VALUE", // required
+ *   AuthorizationProviderId: "STRING_VALUE", // required
+ * };
  * const command = new DisassociateWebsiteAuthorizationProviderCommand(input);
  * const response = await client.send(command);
  * ```

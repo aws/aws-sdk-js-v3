@@ -48,6 +48,11 @@ export interface ListJobsByPipelineCommandOutput extends ListJobsByPipelineRespo
  * import { ElasticTranscoderClient, ListJobsByPipelineCommand } from "@aws-sdk/client-elastic-transcoder"; // ES Modules import
  * // const { ElasticTranscoderClient, ListJobsByPipelineCommand } = require("@aws-sdk/client-elastic-transcoder"); // CommonJS import
  * const client = new ElasticTranscoderClient(config);
+ * const input = {
+ *   PipelineId: "STRING_VALUE", // required
+ *   Ascending: "STRING_VALUE",
+ *   PageToken: "STRING_VALUE",
+ * };
  * const command = new ListJobsByPipelineCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,12 @@ export interface ListTemplateVersionsCommandOutput extends ListTemplateVersionsR
  * import { PinpointClient, ListTemplateVersionsCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, ListTemplateVersionsCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
+ * const input = {
+ *   NextToken: "STRING_VALUE",
+ *   PageSize: "STRING_VALUE",
+ *   TemplateName: "STRING_VALUE", // required
+ *   TemplateType: "STRING_VALUE", // required
+ * };
  * const command = new ListTemplateVersionsCommand(input);
  * const response = await client.send(command);
  * ```

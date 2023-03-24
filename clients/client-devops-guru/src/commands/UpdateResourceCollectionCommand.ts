@@ -46,6 +46,24 @@ export interface UpdateResourceCollectionCommandOutput extends UpdateResourceCol
  * import { DevOpsGuruClient, UpdateResourceCollectionCommand } from "@aws-sdk/client-devops-guru"; // ES Modules import
  * // const { DevOpsGuruClient, UpdateResourceCollectionCommand } = require("@aws-sdk/client-devops-guru"); // CommonJS import
  * const client = new DevOpsGuruClient(config);
+ * const input = {
+ *   Action: "ADD" || "REMOVE", // required
+ *   ResourceCollection: {
+ *     CloudFormation: {
+ *       StackNames: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *     Tags: [
+ *       {
+ *         AppBoundaryKey: "STRING_VALUE", // required
+ *         TagValues: [ // required
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *     ],
+ *   },
+ * };
  * const command = new UpdateResourceCollectionCommand(input);
  * const response = await client.send(command);
  * ```

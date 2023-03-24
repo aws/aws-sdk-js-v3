@@ -42,6 +42,9 @@ export interface StopJobCommandOutput extends StopJobResult, __MetadataBearer {}
  * import { DeviceFarmClient, StopJobCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, StopJobCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
+ * const input = {
+ *   arn: "STRING_VALUE", // required
+ * };
  * const command = new StopJobCommand(input);
  * const response = await client.send(command);
  * ```

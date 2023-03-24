@@ -51,6 +51,13 @@ export interface PutRepositoryPermissionsPolicyCommandOutput
  * import { CodeartifactClient, PutRepositoryPermissionsPolicyCommand } from "@aws-sdk/client-codeartifact"; // ES Modules import
  * // const { CodeartifactClient, PutRepositoryPermissionsPolicyCommand } = require("@aws-sdk/client-codeartifact"); // CommonJS import
  * const client = new CodeartifactClient(config);
+ * const input = {
+ *   domain: "STRING_VALUE", // required
+ *   domainOwner: "STRING_VALUE",
+ *   repository: "STRING_VALUE", // required
+ *   policyRevision: "STRING_VALUE",
+ *   policyDocument: "STRING_VALUE", // required
+ * };
  * const command = new PutRepositoryPermissionsPolicyCommand(input);
  * const response = await client.send(command);
  * ```

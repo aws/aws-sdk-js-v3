@@ -47,6 +47,52 @@ export interface ModifyImageAttributeCommandOutput extends __MetadataBearer {}
  * import { EC2Client, ModifyImageAttributeCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ModifyImageAttributeCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   Attribute: "STRING_VALUE",
+ *   Description: {
+ *     Value: "STRING_VALUE",
+ *   },
+ *   ImageId: "STRING_VALUE", // required
+ *   LaunchPermission: {
+ *     Add: [
+ *       {
+ *         Group: "all",
+ *         UserId: "STRING_VALUE",
+ *         OrganizationArn: "STRING_VALUE",
+ *         OrganizationalUnitArn: "STRING_VALUE",
+ *       },
+ *     ],
+ *     Remove: [
+ *       {
+ *         Group: "all",
+ *         UserId: "STRING_VALUE",
+ *         OrganizationArn: "STRING_VALUE",
+ *         OrganizationalUnitArn: "STRING_VALUE",
+ *       },
+ *     ],
+ *   },
+ *   OperationType: "add" || "remove",
+ *   ProductCodes: [
+ *     "STRING_VALUE",
+ *   ],
+ *   UserGroups: [
+ *     "STRING_VALUE",
+ *   ],
+ *   UserIds: [
+ *     "STRING_VALUE",
+ *   ],
+ *   Value: "STRING_VALUE",
+ *   DryRun: true || false,
+ *   OrganizationArns: [
+ *     "STRING_VALUE",
+ *   ],
+ *   OrganizationalUnitArns: [
+ *     "STRING_VALUE",
+ *   ],
+ *   ImdsSupport: {
+ *     Value: "STRING_VALUE",
+ *   },
+ * };
  * const command = new ModifyImageAttributeCommand(input);
  * const response = await client.send(command);
  * ```

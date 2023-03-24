@@ -53,6 +53,11 @@ export interface ListTargetsForPolicyCommandOutput extends ListTargetsForPolicyR
  * import { OrganizationsClient, ListTargetsForPolicyCommand } from "@aws-sdk/client-organizations"; // ES Modules import
  * // const { OrganizationsClient, ListTargetsForPolicyCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
  * const client = new OrganizationsClient(config);
+ * const input = {
+ *   PolicyId: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListTargetsForPolicyCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,9 @@ export interface DeleteCoreNetworkCommandOutput extends DeleteCoreNetworkRespons
  * import { NetworkManagerClient, DeleteCoreNetworkCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, DeleteCoreNetworkCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
+ * const input = {
+ *   CoreNetworkId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteCoreNetworkCommand(input);
  * const response = await client.send(command);
  * ```

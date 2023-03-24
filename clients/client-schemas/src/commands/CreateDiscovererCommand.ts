@@ -42,6 +42,14 @@ export interface CreateDiscovererCommandOutput extends CreateDiscovererResponse,
  * import { SchemasClient, CreateDiscovererCommand } from "@aws-sdk/client-schemas"; // ES Modules import
  * // const { SchemasClient, CreateDiscovererCommand } = require("@aws-sdk/client-schemas"); // CommonJS import
  * const client = new SchemasClient(config);
+ * const input = {
+ *   Description: "STRING_VALUE",
+ *   SourceArn: "STRING_VALUE", // required
+ *   CrossAccount: true || false,
+ *   Tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateDiscovererCommand(input);
  * const response = await client.send(command);
  * ```

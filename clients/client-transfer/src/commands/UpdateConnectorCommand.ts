@@ -44,6 +44,22 @@ export interface UpdateConnectorCommandOutput extends UpdateConnectorResponse, _
  * import { TransferClient, UpdateConnectorCommand } from "@aws-sdk/client-transfer"; // ES Modules import
  * // const { TransferClient, UpdateConnectorCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
  * const client = new TransferClient(config);
+ * const input = {
+ *   ConnectorId: "STRING_VALUE", // required
+ *   Url: "STRING_VALUE",
+ *   As2Config: {
+ *     LocalProfileId: "STRING_VALUE",
+ *     PartnerProfileId: "STRING_VALUE",
+ *     MessageSubject: "STRING_VALUE",
+ *     Compression: "ZLIB" || "DISABLED",
+ *     EncryptionAlgorithm: "AES128_CBC" || "AES192_CBC" || "AES256_CBC" || "NONE",
+ *     SigningAlgorithm: "SHA256" || "SHA384" || "SHA512" || "SHA1" || "NONE",
+ *     MdnSigningAlgorithm: "SHA256" || "SHA384" || "SHA512" || "SHA1" || "NONE" || "DEFAULT",
+ *     MdnResponse: "SYNC" || "NONE",
+ *   },
+ *   AccessRole: "STRING_VALUE",
+ *   LoggingRole: "STRING_VALUE",
+ * };
  * const command = new UpdateConnectorCommand(input);
  * const response = await client.send(command);
  * ```

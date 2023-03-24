@@ -42,6 +42,13 @@ export interface ListAliasesCommandOutput extends ListAliasesResponse, __Metadat
  * import { SageMakerClient, ListAliasesCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListAliasesCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = {
+ *   ImageName: "STRING_VALUE", // required
+ *   Alias: "STRING_VALUE",
+ *   Version: Number("int"),
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListAliasesCommand(input);
  * const response = await client.send(command);
  * ```

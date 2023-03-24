@@ -42,6 +42,9 @@ export interface GetGroupCommandOutput extends GetGroupResponse, __MetadataBeare
  * import { GreengrassClient, GetGroupCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, GetGroupCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
+ * const input = {
+ *   GroupId: "STRING_VALUE", // required
+ * };
  * const command = new GetGroupCommand(input);
  * const response = await client.send(command);
  * ```

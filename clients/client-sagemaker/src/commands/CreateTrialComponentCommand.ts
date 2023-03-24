@@ -51,6 +51,46 @@ export interface CreateTrialComponentCommandOutput extends CreateTrialComponentR
  * import { SageMakerClient, CreateTrialComponentCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, CreateTrialComponentCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = {
+ *   TrialComponentName: "STRING_VALUE", // required
+ *   DisplayName: "STRING_VALUE",
+ *   Status: {
+ *     PrimaryStatus: "InProgress" || "Completed" || "Failed" || "Stopping" || "Stopped",
+ *     Message: "STRING_VALUE",
+ *   },
+ *   StartTime: new Date("TIMESTAMP"),
+ *   EndTime: new Date("TIMESTAMP"),
+ *   Parameters: {
+ *     "<keys>": { // Union: only one key present
+ *       StringValue: "STRING_VALUE",
+ *       NumberValue: Number("double"),
+ *     },
+ *   },
+ *   InputArtifacts: {
+ *     "<keys>": {
+ *       MediaType: "STRING_VALUE",
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   },
+ *   OutputArtifacts: {
+ *     "<keys>": {
+ *       MediaType: "STRING_VALUE",
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   },
+ *   MetadataProperties: {
+ *     CommitId: "STRING_VALUE",
+ *     Repository: "STRING_VALUE",
+ *     GeneratedBy: "STRING_VALUE",
+ *     ProjectId: "STRING_VALUE",
+ *   },
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateTrialComponentCommand(input);
  * const response = await client.send(command);
  * ```

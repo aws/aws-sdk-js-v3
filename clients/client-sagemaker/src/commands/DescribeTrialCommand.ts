@@ -42,6 +42,9 @@ export interface DescribeTrialCommandOutput extends DescribeTrialResponse, __Met
  * import { SageMakerClient, DescribeTrialCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DescribeTrialCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = {
+ *   TrialName: "STRING_VALUE", // required
+ * };
  * const command = new DescribeTrialCommand(input);
  * const response = await client.send(command);
  * ```

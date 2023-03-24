@@ -43,6 +43,11 @@ export interface DescribeGlobalClustersCommandOutput extends GlobalClustersMessa
  * import { NeptuneClient, DescribeGlobalClustersCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, DescribeGlobalClustersCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
  * const client = new NeptuneClient(config);
+ * const input = {
+ *   GlobalClusterIdentifier: "STRING_VALUE",
+ *   MaxRecords: Number("int"),
+ *   Marker: "STRING_VALUE",
+ * };
  * const command = new DescribeGlobalClustersCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,19 @@ export interface UpdateVpcAttachmentCommandOutput extends UpdateVpcAttachmentRes
  * import { NetworkManagerClient, UpdateVpcAttachmentCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, UpdateVpcAttachmentCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
+ * const input = {
+ *   AttachmentId: "STRING_VALUE", // required
+ *   AddSubnetArns: [
+ *     "STRING_VALUE",
+ *   ],
+ *   RemoveSubnetArns: [
+ *     "STRING_VALUE",
+ *   ],
+ *   Options: {
+ *     Ipv6Support: true || false,
+ *     ApplianceModeSupport: true || false,
+ *   },
+ * };
  * const command = new UpdateVpcAttachmentCommand(input);
  * const response = await client.send(command);
  * ```

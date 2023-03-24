@@ -42,6 +42,27 @@ export interface StartTaskContactCommandOutput extends StartTaskContactResponse,
  * import { ConnectClient, StartTaskContactCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, StartTaskContactCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = {
+ *   InstanceId: "STRING_VALUE", // required
+ *   PreviousContactId: "STRING_VALUE",
+ *   ContactFlowId: "STRING_VALUE",
+ *   Attributes: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   Name: "STRING_VALUE", // required
+ *   References: {
+ *     "<keys>": {
+ *       Value: "STRING_VALUE", // required
+ *       Type: "URL" || "ATTACHMENT" || "NUMBER" || "STRING" || "DATE" || "EMAIL", // required
+ *     },
+ *   },
+ *   Description: "STRING_VALUE",
+ *   ClientToken: "STRING_VALUE",
+ *   ScheduledTime: new Date("TIMESTAMP"),
+ *   TaskTemplateId: "STRING_VALUE",
+ *   QuickConnectId: "STRING_VALUE",
+ *   RelatedContactId: "STRING_VALUE",
+ * };
  * const command = new StartTaskContactCommand(input);
  * const response = await client.send(command);
  * ```

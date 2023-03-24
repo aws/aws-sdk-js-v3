@@ -42,6 +42,11 @@ export interface ListProjectsCommandOutput extends ListProjectsResponse, __Metad
  * import { IoTSiteWiseClient, ListProjectsCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, ListProjectsCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
+ * const input = {
+ *   portalId: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListProjectsCommand(input);
  * const response = await client.send(command);
  * ```

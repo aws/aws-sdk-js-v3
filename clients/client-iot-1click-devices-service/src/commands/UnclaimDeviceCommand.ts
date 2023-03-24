@@ -46,6 +46,9 @@ export interface UnclaimDeviceCommandOutput extends UnclaimDeviceResponse, __Met
  * import { IoT1ClickDevicesServiceClient, UnclaimDeviceCommand } from "@aws-sdk/client-iot-1click-devices-service"; // ES Modules import
  * // const { IoT1ClickDevicesServiceClient, UnclaimDeviceCommand } = require("@aws-sdk/client-iot-1click-devices-service"); // CommonJS import
  * const client = new IoT1ClickDevicesServiceClient(config);
+ * const input = {
+ *   DeviceId: "STRING_VALUE", // required
+ * };
  * const command = new UnclaimDeviceCommand(input);
  * const response = await client.send(command);
  * ```

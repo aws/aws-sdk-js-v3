@@ -66,6 +66,41 @@ export interface StartLabelDetectionCommandOutput extends StartLabelDetectionRes
  * import { RekognitionClient, StartLabelDetectionCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, StartLabelDetectionCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
+ * const input = {
+ *   Video: {
+ *     S3Object: {
+ *       Bucket: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *       Version: "STRING_VALUE",
+ *     },
+ *   },
+ *   ClientRequestToken: "STRING_VALUE",
+ *   MinConfidence: Number("float"),
+ *   NotificationChannel: {
+ *     SNSTopicArn: "STRING_VALUE", // required
+ *     RoleArn: "STRING_VALUE", // required
+ *   },
+ *   JobTag: "STRING_VALUE",
+ *   Features: [
+ *     "GENERAL_LABELS",
+ *   ],
+ *   Settings: {
+ *     GeneralLabels: {
+ *       LabelInclusionFilters: [
+ *         "STRING_VALUE",
+ *       ],
+ *       LabelExclusionFilters: [
+ *         "STRING_VALUE",
+ *       ],
+ *       LabelCategoryInclusionFilters: [
+ *         "STRING_VALUE",
+ *       ],
+ *       LabelCategoryExclusionFilters: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   },
+ * };
  * const command = new StartLabelDetectionCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,14 @@ export interface UpdateModelCommandOutput extends UpdateModelResponse, __Metadat
  * import { ApiGatewayV2Client, UpdateModelCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
  * // const { ApiGatewayV2Client, UpdateModelCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import
  * const client = new ApiGatewayV2Client(config);
+ * const input = {
+ *   ApiId: "STRING_VALUE", // required
+ *   ContentType: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   ModelId: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE",
+ *   Schema: "STRING_VALUE",
+ * };
  * const command = new UpdateModelCommand(input);
  * const response = await client.send(command);
  * ```

@@ -45,6 +45,11 @@ export interface SetIpAddressTypeCommandOutput extends SetIpAddressTypeResult, _
  * import { LightsailClient, SetIpAddressTypeCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, SetIpAddressTypeCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = {
+ *   resourceType: "ContainerService" || "Instance" || "StaticIp" || "KeyPair" || "InstanceSnapshot" || "Domain" || "PeeredVpc" || "LoadBalancer" || "LoadBalancerTlsCertificate" || "Disk" || "DiskSnapshot" || "RelationalDatabase" || "RelationalDatabaseSnapshot" || "ExportSnapshotRecord" || "CloudFormationStackRecord" || "Alarm" || "ContactMethod" || "Distribution" || "Certificate" || "Bucket", // required
+ *   resourceName: "STRING_VALUE", // required
+ *   ipAddressType: "dualstack" || "ipv4", // required
+ * };
  * const command = new SetIpAddressTypeCommand(input);
  * const response = await client.send(command);
  * ```

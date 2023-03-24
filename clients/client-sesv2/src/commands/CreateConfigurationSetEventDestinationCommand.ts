@@ -54,6 +54,35 @@ export interface CreateConfigurationSetEventDestinationCommandOutput
  * import { SESv2Client, CreateConfigurationSetEventDestinationCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, CreateConfigurationSetEventDestinationCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
  * const client = new SESv2Client(config);
+ * const input = {
+ *   ConfigurationSetName: "STRING_VALUE", // required
+ *   EventDestinationName: "STRING_VALUE", // required
+ *   EventDestination: {
+ *     Enabled: true || false,
+ *     MatchingEventTypes: [
+ *       "SEND" || "REJECT" || "BOUNCE" || "COMPLAINT" || "DELIVERY" || "OPEN" || "CLICK" || "RENDERING_FAILURE" || "DELIVERY_DELAY" || "SUBSCRIPTION",
+ *     ],
+ *     KinesisFirehoseDestination: {
+ *       IamRoleArn: "STRING_VALUE", // required
+ *       DeliveryStreamArn: "STRING_VALUE", // required
+ *     },
+ *     CloudWatchDestination: {
+ *       DimensionConfigurations: [ // required
+ *         {
+ *           DimensionName: "STRING_VALUE", // required
+ *           DimensionValueSource: "MESSAGE_TAG" || "EMAIL_HEADER" || "LINK_TAG", // required
+ *           DefaultDimensionValue: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *     },
+ *     SnsDestination: {
+ *       TopicArn: "STRING_VALUE", // required
+ *     },
+ *     PinpointDestination: {
+ *       ApplicationArn: "STRING_VALUE",
+ *     },
+ *   },
+ * };
  * const command = new CreateConfigurationSetEventDestinationCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,10 @@ export interface GetDeploymentsCommandOutput extends GetDeploymentsResult, __Met
  * import { SagemakerEdgeClient, GetDeploymentsCommand } from "@aws-sdk/client-sagemaker-edge"; // ES Modules import
  * // const { SagemakerEdgeClient, GetDeploymentsCommand } = require("@aws-sdk/client-sagemaker-edge"); // CommonJS import
  * const client = new SagemakerEdgeClient(config);
+ * const input = {
+ *   DeviceName: "STRING_VALUE", // required
+ *   DeviceFleetName: "STRING_VALUE", // required
+ * };
  * const command = new GetDeploymentsCommand(input);
  * const response = await client.send(command);
  * ```

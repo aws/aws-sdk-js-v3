@@ -59,6 +59,15 @@ export interface AssociateCreatedArtifactCommandOutput extends AssociateCreatedA
  * import { MigrationHubClient, AssociateCreatedArtifactCommand } from "@aws-sdk/client-migration-hub"; // ES Modules import
  * // const { MigrationHubClient, AssociateCreatedArtifactCommand } = require("@aws-sdk/client-migration-hub"); // CommonJS import
  * const client = new MigrationHubClient(config);
+ * const input = {
+ *   ProgressUpdateStream: "STRING_VALUE", // required
+ *   MigrationTaskName: "STRING_VALUE", // required
+ *   CreatedArtifact: {
+ *     Name: "STRING_VALUE", // required
+ *     Description: "STRING_VALUE",
+ *   },
+ *   DryRun: true || false,
+ * };
  * const command = new AssociateCreatedArtifactCommand(input);
  * const response = await client.send(command);
  * ```

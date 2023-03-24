@@ -42,6 +42,20 @@ export interface GetObjectAttributesCommandOutput extends GetObjectAttributesRes
  * import { CloudDirectoryClient, GetObjectAttributesCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, GetObjectAttributesCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
  * const client = new CloudDirectoryClient(config);
+ * const input = {
+ *   DirectoryArn: "STRING_VALUE", // required
+ *   ObjectReference: {
+ *     Selector: "STRING_VALUE",
+ *   },
+ *   ConsistencyLevel: "SERIALIZABLE" || "EVENTUAL",
+ *   SchemaFacet: {
+ *     SchemaArn: "STRING_VALUE",
+ *     FacetName: "STRING_VALUE",
+ *   },
+ *   AttributeNames: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new GetObjectAttributesCommand(input);
  * const response = await client.send(command);
  * ```

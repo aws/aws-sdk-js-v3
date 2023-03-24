@@ -43,6 +43,20 @@ export interface ListBackupJobsCommandOutput extends ListBackupJobsOutput, __Met
  * import { BackupClient, ListBackupJobsCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, ListBackupJobsCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
+ * const input = {
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   ByResourceArn: "STRING_VALUE",
+ *   ByState: "CREATED" || "PENDING" || "RUNNING" || "ABORTING" || "ABORTED" || "COMPLETED" || "FAILED" || "EXPIRED" || "PARTIAL",
+ *   ByBackupVaultName: "STRING_VALUE",
+ *   ByCreatedBefore: new Date("TIMESTAMP"),
+ *   ByCreatedAfter: new Date("TIMESTAMP"),
+ *   ByResourceType: "STRING_VALUE",
+ *   ByAccountId: "STRING_VALUE",
+ *   ByCompleteAfter: new Date("TIMESTAMP"),
+ *   ByCompleteBefore: new Date("TIMESTAMP"),
+ *   ByParentJobId: "STRING_VALUE",
+ * };
  * const command = new ListBackupJobsCommand(input);
  * const response = await client.send(command);
  * ```

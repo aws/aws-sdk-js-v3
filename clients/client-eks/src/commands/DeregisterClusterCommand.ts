@@ -43,6 +43,9 @@ export interface DeregisterClusterCommandOutput extends DeregisterClusterRespons
  * import { EKSClient, DeregisterClusterCommand } from "@aws-sdk/client-eks"; // ES Modules import
  * // const { EKSClient, DeregisterClusterCommand } = require("@aws-sdk/client-eks"); // CommonJS import
  * const client = new EKSClient(config);
+ * const input = {
+ *   name: "STRING_VALUE", // required
+ * };
  * const command = new DeregisterClusterCommand(input);
  * const response = await client.send(command);
  * ```

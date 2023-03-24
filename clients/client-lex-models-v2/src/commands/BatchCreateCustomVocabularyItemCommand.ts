@@ -45,6 +45,18 @@ export interface BatchCreateCustomVocabularyItemCommandOutput
  * import { LexModelsV2Client, BatchCreateCustomVocabularyItemCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
  * // const { LexModelsV2Client, BatchCreateCustomVocabularyItemCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
  * const client = new LexModelsV2Client(config);
+ * const input = {
+ *   botId: "STRING_VALUE", // required
+ *   botVersion: "STRING_VALUE", // required
+ *   localeId: "STRING_VALUE", // required
+ *   customVocabularyItemList: [ // required
+ *     {
+ *       phrase: "STRING_VALUE", // required
+ *       weight: Number("int"),
+ *       displayAs: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new BatchCreateCustomVocabularyItemCommand(input);
  * const response = await client.send(command);
  * ```

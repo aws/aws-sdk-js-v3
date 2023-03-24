@@ -42,6 +42,18 @@ export interface ListLabelingJobsCommandOutput extends ListLabelingJobsResponse,
  * import { SageMakerClient, ListLabelingJobsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListLabelingJobsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = {
+ *   CreationTimeAfter: new Date("TIMESTAMP"),
+ *   CreationTimeBefore: new Date("TIMESTAMP"),
+ *   LastModifiedTimeAfter: new Date("TIMESTAMP"),
+ *   LastModifiedTimeBefore: new Date("TIMESTAMP"),
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   NameContains: "STRING_VALUE",
+ *   SortBy: "Name" || "CreationTime" || "Status",
+ *   SortOrder: "Ascending" || "Descending",
+ *   StatusEquals: "Initializing" || "InProgress" || "Completed" || "Failed" || "Stopping" || "Stopped",
+ * };
  * const command = new ListLabelingJobsCommand(input);
  * const response = await client.send(command);
  * ```

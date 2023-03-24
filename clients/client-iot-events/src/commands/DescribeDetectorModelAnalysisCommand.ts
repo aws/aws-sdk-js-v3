@@ -47,6 +47,9 @@ export interface DescribeDetectorModelAnalysisCommandOutput
  * import { IoTEventsClient, DescribeDetectorModelAnalysisCommand } from "@aws-sdk/client-iot-events"; // ES Modules import
  * // const { IoTEventsClient, DescribeDetectorModelAnalysisCommand } = require("@aws-sdk/client-iot-events"); // CommonJS import
  * const client = new IoTEventsClient(config);
+ * const input = {
+ *   analysisId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeDetectorModelAnalysisCommand(input);
  * const response = await client.send(command);
  * ```

@@ -43,6 +43,9 @@ export interface DescribeCACertificateCommandOutput extends DescribeCACertificat
  * import { IoTClient, DescribeCACertificateCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, DescribeCACertificateCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = {
+ *   certificateId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeCACertificateCommand(input);
  * const response = await client.send(command);
  * ```

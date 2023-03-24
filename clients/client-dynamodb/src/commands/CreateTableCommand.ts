@@ -54,6 +54,81 @@ export interface CreateTableCommandOutput extends CreateTableOutput, __MetadataB
  * import { DynamoDBClient, CreateTableCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
  * // const { DynamoDBClient, CreateTableCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
  * const client = new DynamoDBClient(config);
+ * const input = {
+ *   AttributeDefinitions: [ // required
+ *     {
+ *       AttributeName: "STRING_VALUE", // required
+ *       AttributeType: "S" || "N" || "B", // required
+ *     },
+ *   ],
+ *   TableName: "STRING_VALUE", // required
+ *   KeySchema: [ // required
+ *     {
+ *       AttributeName: "STRING_VALUE", // required
+ *       KeyType: "HASH" || "RANGE", // required
+ *     },
+ *   ],
+ *   LocalSecondaryIndexes: [
+ *     {
+ *       IndexName: "STRING_VALUE", // required
+ *       KeySchema: [ // required
+ *         {
+ *           AttributeName: "STRING_VALUE", // required
+ *           KeyType: "HASH" || "RANGE", // required
+ *         },
+ *       ],
+ *       Projection: {
+ *         ProjectionType: "ALL" || "KEYS_ONLY" || "INCLUDE",
+ *         NonKeyAttributes: [
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *     },
+ *   ],
+ *   GlobalSecondaryIndexes: [
+ *     {
+ *       IndexName: "STRING_VALUE", // required
+ *       KeySchema: [ // required
+ *         {
+ *           AttributeName: "STRING_VALUE", // required
+ *           KeyType: "HASH" || "RANGE", // required
+ *         },
+ *       ],
+ *       Projection: {
+ *         ProjectionType: "ALL" || "KEYS_ONLY" || "INCLUDE",
+ *         NonKeyAttributes: [
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *       ProvisionedThroughput: {
+ *         ReadCapacityUnits: Number("long"), // required
+ *         WriteCapacityUnits: Number("long"), // required
+ *       },
+ *     },
+ *   ],
+ *   BillingMode: "PROVISIONED" || "PAY_PER_REQUEST",
+ *   ProvisionedThroughput: {
+ *     ReadCapacityUnits: Number("long"), // required
+ *     WriteCapacityUnits: Number("long"), // required
+ *   },
+ *   StreamSpecification: {
+ *     StreamEnabled: true || false, // required
+ *     StreamViewType: "NEW_IMAGE" || "OLD_IMAGE" || "NEW_AND_OLD_IMAGES" || "KEYS_ONLY",
+ *   },
+ *   SSESpecification: {
+ *     Enabled: true || false,
+ *     SSEType: "AES256" || "KMS",
+ *     KMSMasterKeyId: "STRING_VALUE",
+ *   },
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   TableClass: "STANDARD" || "STANDARD_INFREQUENT_ACCESS",
+ *   DeletionProtectionEnabled: true || false,
+ * };
  * const command = new CreateTableCommand(input);
  * const response = await client.send(command);
  * ```

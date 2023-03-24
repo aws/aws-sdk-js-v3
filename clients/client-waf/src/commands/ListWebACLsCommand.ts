@@ -50,6 +50,10 @@ export interface ListWebACLsCommandOutput extends ListWebACLsResponse, __Metadat
  * import { WAFClient, ListWebACLsCommand } from "@aws-sdk/client-waf"; // ES Modules import
  * // const { WAFClient, ListWebACLsCommand } = require("@aws-sdk/client-waf"); // CommonJS import
  * const client = new WAFClient(config);
+ * const input = {
+ *   NextMarker: "STRING_VALUE",
+ *   Limit: Number("int"),
+ * };
  * const command = new ListWebACLsCommand(input);
  * const response = await client.send(command);
  * ```

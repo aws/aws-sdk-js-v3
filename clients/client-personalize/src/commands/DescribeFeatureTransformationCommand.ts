@@ -44,6 +44,9 @@ export interface DescribeFeatureTransformationCommandOutput
  * import { PersonalizeClient, DescribeFeatureTransformationCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, DescribeFeatureTransformationCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
  * const client = new PersonalizeClient(config);
+ * const input = {
+ *   featureTransformationArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeFeatureTransformationCommand(input);
  * const response = await client.send(command);
  * ```

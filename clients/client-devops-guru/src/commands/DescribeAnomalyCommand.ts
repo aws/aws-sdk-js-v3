@@ -42,6 +42,10 @@ export interface DescribeAnomalyCommandOutput extends DescribeAnomalyResponse, _
  * import { DevOpsGuruClient, DescribeAnomalyCommand } from "@aws-sdk/client-devops-guru"; // ES Modules import
  * // const { DevOpsGuruClient, DescribeAnomalyCommand } = require("@aws-sdk/client-devops-guru"); // CommonJS import
  * const client = new DevOpsGuruClient(config);
+ * const input = {
+ *   Id: "STRING_VALUE", // required
+ *   AccountId: "STRING_VALUE",
+ * };
  * const command = new DescribeAnomalyCommand(input);
  * const response = await client.send(command);
  * ```

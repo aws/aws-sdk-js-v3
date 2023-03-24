@@ -52,6 +52,16 @@ export interface AttachObjectCommandOutput extends AttachObjectResponse, __Metad
  * import { CloudDirectoryClient, AttachObjectCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, AttachObjectCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
  * const client = new CloudDirectoryClient(config);
+ * const input = {
+ *   DirectoryArn: "STRING_VALUE", // required
+ *   ParentReference: {
+ *     Selector: "STRING_VALUE",
+ *   },
+ *   ChildReference: {
+ *     Selector: "STRING_VALUE",
+ *   },
+ *   LinkName: "STRING_VALUE", // required
+ * };
  * const command = new AttachObjectCommand(input);
  * const response = await client.send(command);
  * ```

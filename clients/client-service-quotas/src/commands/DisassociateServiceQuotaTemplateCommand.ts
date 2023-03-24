@@ -46,6 +46,7 @@ export interface DisassociateServiceQuotaTemplateCommandOutput
  * import { ServiceQuotasClient, DisassociateServiceQuotaTemplateCommand } from "@aws-sdk/client-service-quotas"; // ES Modules import
  * // const { ServiceQuotasClient, DisassociateServiceQuotaTemplateCommand } = require("@aws-sdk/client-service-quotas"); // CommonJS import
  * const client = new ServiceQuotasClient(config);
+ * const input = {};
  * const command = new DisassociateServiceQuotaTemplateCommand(input);
  * const response = await client.send(command);
  * ```

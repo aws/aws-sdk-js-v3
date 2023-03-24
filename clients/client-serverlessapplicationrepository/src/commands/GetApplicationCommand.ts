@@ -46,6 +46,10 @@ export interface GetApplicationCommandOutput extends GetApplicationResponse, __M
  * import { ServerlessApplicationRepositoryClient, GetApplicationCommand } from "@aws-sdk/client-serverlessapplicationrepository"; // ES Modules import
  * // const { ServerlessApplicationRepositoryClient, GetApplicationCommand } = require("@aws-sdk/client-serverlessapplicationrepository"); // CommonJS import
  * const client = new ServerlessApplicationRepositoryClient(config);
+ * const input = {
+ *   ApplicationId: "STRING_VALUE", // required
+ *   SemanticVersion: "STRING_VALUE",
+ * };
  * const command = new GetApplicationCommand(input);
  * const response = await client.send(command);
  * ```

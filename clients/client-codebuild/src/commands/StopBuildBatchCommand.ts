@@ -42,6 +42,9 @@ export interface StopBuildBatchCommandOutput extends StopBuildBatchOutput, __Met
  * import { CodeBuildClient, StopBuildBatchCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
  * // const { CodeBuildClient, StopBuildBatchCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
  * const client = new CodeBuildClient(config);
+ * const input = {
+ *   id: "STRING_VALUE", // required
+ * };
  * const command = new StopBuildBatchCommand(input);
  * const response = await client.send(command);
  * ```

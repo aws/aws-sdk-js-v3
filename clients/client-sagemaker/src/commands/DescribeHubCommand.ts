@@ -45,6 +45,9 @@ export interface DescribeHubCommandOutput extends DescribeHubResponse, __Metadat
  * import { SageMakerClient, DescribeHubCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DescribeHubCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = {
+ *   HubName: "STRING_VALUE", // required
+ * };
  * const command = new DescribeHubCommand(input);
  * const response = await client.send(command);
  * ```

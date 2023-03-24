@@ -48,6 +48,18 @@ export interface PublishCommandOutput extends __MetadataBearer {}
  * import { IoTDataPlaneClient, PublishCommand } from "@aws-sdk/client-iot-data-plane"; // ES Modules import
  * // const { IoTDataPlaneClient, PublishCommand } = require("@aws-sdk/client-iot-data-plane"); // CommonJS import
  * const client = new IoTDataPlaneClient(config);
+ * const input = {
+ *   topic: "STRING_VALUE", // required
+ *   qos: Number("int"),
+ *   retain: true || false,
+ *   payload: "BLOB_VALUE",
+ *   userProperties: "STRING_VALUE",
+ *   payloadFormatIndicator: "UNSPECIFIED_BYTES" || "UTF8_DATA",
+ *   contentType: "STRING_VALUE",
+ *   responseTopic: "STRING_VALUE",
+ *   correlationData: "STRING_VALUE",
+ *   messageExpiry: Number("long"),
+ * };
  * const command = new PublishCommand(input);
  * const response = await client.send(command);
  * ```

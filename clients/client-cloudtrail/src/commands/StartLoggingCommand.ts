@@ -45,6 +45,9 @@ export interface StartLoggingCommandOutput extends StartLoggingResponse, __Metad
  * import { CloudTrailClient, StartLoggingCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
  * // const { CloudTrailClient, StartLoggingCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
  * const client = new CloudTrailClient(config);
+ * const input = {
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new StartLoggingCommand(input);
  * const response = await client.send(command);
  * ```

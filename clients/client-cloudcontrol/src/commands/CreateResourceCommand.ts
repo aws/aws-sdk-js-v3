@@ -51,6 +51,13 @@ export interface CreateResourceCommandOutput extends CreateResourceOutput, __Met
  * import { CloudControlClient, CreateResourceCommand } from "@aws-sdk/client-cloudcontrol"; // ES Modules import
  * // const { CloudControlClient, CreateResourceCommand } = require("@aws-sdk/client-cloudcontrol"); // CommonJS import
  * const client = new CloudControlClient(config);
+ * const input = {
+ *   TypeName: "STRING_VALUE", // required
+ *   TypeVersionId: "STRING_VALUE",
+ *   RoleArn: "STRING_VALUE",
+ *   ClientToken: "STRING_VALUE",
+ *   DesiredState: "STRING_VALUE", // required
+ * };
  * const command = new CreateResourceCommand(input);
  * const response = await client.send(command);
  * ```

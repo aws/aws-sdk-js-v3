@@ -43,6 +43,10 @@ export interface DescribeQueueCommandOutput extends DescribeQueueResponse, __Met
  * import { ConnectClient, DescribeQueueCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, DescribeQueueCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = {
+ *   InstanceId: "STRING_VALUE", // required
+ *   QueueId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeQueueCommand(input);
  * const response = await client.send(command);
  * ```

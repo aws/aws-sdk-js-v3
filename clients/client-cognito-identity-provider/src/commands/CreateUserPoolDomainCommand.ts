@@ -47,6 +47,13 @@ export interface CreateUserPoolDomainCommandOutput extends CreateUserPoolDomainR
  * import { CognitoIdentityProviderClient, CreateUserPoolDomainCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, CreateUserPoolDomainCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
+ * const input = {
+ *   Domain: "STRING_VALUE", // required
+ *   UserPoolId: "STRING_VALUE", // required
+ *   CustomDomainConfig: {
+ *     CertificateArn: "STRING_VALUE", // required
+ *   },
+ * };
  * const command = new CreateUserPoolDomainCommand(input);
  * const response = await client.send(command);
  * ```

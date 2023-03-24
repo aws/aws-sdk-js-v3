@@ -42,6 +42,59 @@ export interface CreateDatastoreCommandOutput extends CreateDatastoreResponse, _
  * import { IoTAnalyticsClient, CreateDatastoreCommand } from "@aws-sdk/client-iotanalytics"; // ES Modules import
  * // const { IoTAnalyticsClient, CreateDatastoreCommand } = require("@aws-sdk/client-iotanalytics"); // CommonJS import
  * const client = new IoTAnalyticsClient(config);
+ * const input = {
+ *   datastoreName: "STRING_VALUE", // required
+ *   datastoreStorage: { // Union: only one key present
+ *     serviceManagedS3: {},
+ *     customerManagedS3: {
+ *       bucket: "STRING_VALUE", // required
+ *       keyPrefix: "STRING_VALUE",
+ *       roleArn: "STRING_VALUE", // required
+ *     },
+ *     iotSiteWiseMultiLayerStorage: {
+ *       customerManagedS3Storage: {
+ *         bucket: "STRING_VALUE", // required
+ *         keyPrefix: "STRING_VALUE",
+ *       },
+ *     },
+ *   },
+ *   retentionPeriod: {
+ *     unlimited: true || false,
+ *     numberOfDays: Number("int"),
+ *   },
+ *   tags: [
+ *     {
+ *       key: "STRING_VALUE", // required
+ *       value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   fileFormatConfiguration: {
+ *     jsonConfiguration: {},
+ *     parquetConfiguration: {
+ *       schemaDefinition: {
+ *         columns: [
+ *           {
+ *             name: "STRING_VALUE", // required
+ *             type: "STRING_VALUE", // required
+ *           },
+ *         ],
+ *       },
+ *     },
+ *   },
+ *   datastorePartitions: {
+ *     partitions: [
+ *       {
+ *         attributePartition: {
+ *           attributeName: "STRING_VALUE", // required
+ *         },
+ *         timestampPartition: {
+ *           attributeName: "STRING_VALUE", // required
+ *           timestampFormat: "STRING_VALUE",
+ *         },
+ *       },
+ *     ],
+ *   },
+ * };
  * const command = new CreateDatastoreCommand(input);
  * const response = await client.send(command);
  * ```

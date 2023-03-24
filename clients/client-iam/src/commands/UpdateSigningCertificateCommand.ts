@@ -49,6 +49,11 @@ export interface UpdateSigningCertificateCommandOutput extends __MetadataBearer 
  * import { IAMClient, UpdateSigningCertificateCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, UpdateSigningCertificateCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = {
+ *   UserName: "STRING_VALUE",
+ *   CertificateId: "STRING_VALUE", // required
+ *   Status: "Active" || "Inactive", // required
+ * };
  * const command = new UpdateSigningCertificateCommand(input);
  * const response = await client.send(command);
  * ```

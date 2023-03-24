@@ -42,6 +42,18 @@ export interface ListEntitiesCommandOutput extends ListEntitiesResponse, __Metad
  * import { IoTTwinMakerClient, ListEntitiesCommand } from "@aws-sdk/client-iottwinmaker"; // ES Modules import
  * // const { IoTTwinMakerClient, ListEntitiesCommand } = require("@aws-sdk/client-iottwinmaker"); // CommonJS import
  * const client = new IoTTwinMakerClient(config);
+ * const input = {
+ *   workspaceId: "STRING_VALUE", // required
+ *   filters: [
+ *     { // Union: only one key present
+ *       parentEntityId: "STRING_VALUE",
+ *       componentTypeId: "STRING_VALUE",
+ *       externalId: "STRING_VALUE",
+ *     },
+ *   ],
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListEntitiesCommand(input);
  * const response = await client.send(command);
  * ```

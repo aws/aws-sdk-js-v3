@@ -43,6 +43,11 @@ export interface DeleteCustomVocabularyCommandOutput extends DeleteCustomVocabul
  * import { LexModelsV2Client, DeleteCustomVocabularyCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
  * // const { LexModelsV2Client, DeleteCustomVocabularyCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
  * const client = new LexModelsV2Client(config);
+ * const input = {
+ *   botId: "STRING_VALUE", // required
+ *   botVersion: "STRING_VALUE", // required
+ *   localeId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteCustomVocabularyCommand(input);
  * const response = await client.send(command);
  * ```

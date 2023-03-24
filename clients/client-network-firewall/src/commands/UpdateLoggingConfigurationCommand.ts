@@ -67,6 +67,21 @@ export interface UpdateLoggingConfigurationCommandOutput extends UpdateLoggingCo
  * import { NetworkFirewallClient, UpdateLoggingConfigurationCommand } from "@aws-sdk/client-network-firewall"; // ES Modules import
  * // const { NetworkFirewallClient, UpdateLoggingConfigurationCommand } = require("@aws-sdk/client-network-firewall"); // CommonJS import
  * const client = new NetworkFirewallClient(config);
+ * const input = {
+ *   FirewallArn: "STRING_VALUE",
+ *   FirewallName: "STRING_VALUE",
+ *   LoggingConfiguration: {
+ *     LogDestinationConfigs: [ // required
+ *       {
+ *         LogType: "ALERT" || "FLOW", // required
+ *         LogDestinationType: "S3" || "CloudWatchLogs" || "KinesisDataFirehose", // required
+ *         LogDestination: { // required
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *       },
+ *     ],
+ *   },
+ * };
  * const command = new UpdateLoggingConfigurationCommand(input);
  * const response = await client.send(command);
  * ```

@@ -45,6 +45,9 @@ export interface DescribeIdentityCommandOutput extends IdentityDescription, __Me
  * import { CognitoIdentityClient, DescribeIdentityCommand } from "@aws-sdk/client-cognito-identity"; // ES Modules import
  * // const { CognitoIdentityClient, DescribeIdentityCommand } = require("@aws-sdk/client-cognito-identity"); // CommonJS import
  * const client = new CognitoIdentityClient(config);
+ * const input = {
+ *   IdentityId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeIdentityCommand(input);
  * const response = await client.send(command);
  * ```

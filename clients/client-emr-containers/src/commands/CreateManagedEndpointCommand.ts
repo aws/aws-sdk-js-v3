@@ -48,6 +48,49 @@ export interface CreateManagedEndpointCommandOutput extends CreateManagedEndpoin
  * import { EMRContainersClient, CreateManagedEndpointCommand } from "@aws-sdk/client-emr-containers"; // ES Modules import
  * // const { EMRContainersClient, CreateManagedEndpointCommand } = require("@aws-sdk/client-emr-containers"); // CommonJS import
  * const client = new EMRContainersClient(config);
+ * const input = {
+ *   name: "STRING_VALUE", // required
+ *   virtualClusterId: "STRING_VALUE", // required
+ *   type: "STRING_VALUE", // required
+ *   releaseLabel: "STRING_VALUE", // required
+ *   executionRoleArn: "STRING_VALUE", // required
+ *   certificateArn: "STRING_VALUE",
+ *   configurationOverrides: {
+ *     applicationConfiguration: [
+ *       {
+ *         classification: "STRING_VALUE", // required
+ *         properties: {
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *         configurations: [
+ *           {
+ *             classification: "STRING_VALUE", // required
+ *             properties: {
+ *               "<keys>": "STRING_VALUE",
+ *             },
+ *             configurations: [
+ *               "<ConfigurationList>",
+ *             ],
+ *           },
+ *         ],
+ *       },
+ *     ],
+ *     monitoringConfiguration: {
+ *       persistentAppUI: "ENABLED" || "DISABLED",
+ *       cloudWatchMonitoringConfiguration: {
+ *         logGroupName: "STRING_VALUE", // required
+ *         logStreamNamePrefix: "STRING_VALUE",
+ *       },
+ *       s3MonitoringConfiguration: {
+ *         logUri: "STRING_VALUE", // required
+ *       },
+ *     },
+ *   },
+ *   clientToken: "STRING_VALUE", // required
+ *   tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateManagedEndpointCommand(input);
  * const response = await client.send(command);
  * ```

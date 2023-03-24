@@ -50,6 +50,20 @@ export interface CreateRelatedItemCommandOutput extends CreateRelatedItemRespons
  * import { ConnectCasesClient, CreateRelatedItemCommand } from "@aws-sdk/client-connectcases"; // ES Modules import
  * // const { ConnectCasesClient, CreateRelatedItemCommand } = require("@aws-sdk/client-connectcases"); // CommonJS import
  * const client = new ConnectCasesClient(config);
+ * const input = {
+ *   domainId: "STRING_VALUE", // required
+ *   caseId: "STRING_VALUE", // required
+ *   type: "STRING_VALUE", // required
+ *   content: { // Union: only one key present
+ *     contact: {
+ *       contactArn: "STRING_VALUE", // required
+ *     },
+ *     comment: {
+ *       body: "STRING_VALUE", // required
+ *       contentType: "STRING_VALUE", // required
+ *     },
+ *   },
+ * };
  * const command = new CreateRelatedItemCommand(input);
  * const response = await client.send(command);
  * ```

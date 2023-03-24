@@ -42,6 +42,15 @@ export interface QueryWhatIfForecastCommandOutput extends QueryWhatIfForecastRes
  * import { ForecastqueryClient, QueryWhatIfForecastCommand } from "@aws-sdk/client-forecastquery"; // ES Modules import
  * // const { ForecastqueryClient, QueryWhatIfForecastCommand } = require("@aws-sdk/client-forecastquery"); // CommonJS import
  * const client = new ForecastqueryClient(config);
+ * const input = {
+ *   WhatIfForecastArn: "STRING_VALUE", // required
+ *   StartDate: "STRING_VALUE",
+ *   EndDate: "STRING_VALUE",
+ *   Filters: { // required
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new QueryWhatIfForecastCommand(input);
  * const response = await client.send(command);
  * ```

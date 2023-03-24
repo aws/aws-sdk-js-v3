@@ -47,6 +47,9 @@ export interface DeleteOrganizationConfigRuleCommandOutput extends __MetadataBea
  * import { ConfigServiceClient, DeleteOrganizationConfigRuleCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, DeleteOrganizationConfigRuleCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
+ * const input = {
+ *   OrganizationConfigRuleName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteOrganizationConfigRuleCommand(input);
  * const response = await client.send(command);
  * ```

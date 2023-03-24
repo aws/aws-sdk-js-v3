@@ -67,6 +67,11 @@ export interface UpdateJobPriorityCommandOutput extends UpdateJobPriorityResult,
  * import { S3ControlClient, UpdateJobPriorityCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
  * // const { S3ControlClient, UpdateJobPriorityCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
  * const client = new S3ControlClient(config);
+ * const input = {
+ *   AccountId: "STRING_VALUE",
+ *   JobId: "STRING_VALUE", // required
+ *   Priority: Number("int"), // required
+ * };
  * const command = new UpdateJobPriorityCommand(input);
  * const response = await client.send(command);
  * ```

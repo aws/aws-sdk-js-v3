@@ -57,6 +57,11 @@ export interface ImportFirewallDomainsCommandOutput extends ImportFirewallDomain
  * import { Route53ResolverClient, ImportFirewallDomainsCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
  * // const { Route53ResolverClient, ImportFirewallDomainsCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
  * const client = new Route53ResolverClient(config);
+ * const input = {
+ *   FirewallDomainListId: "STRING_VALUE", // required
+ *   Operation: "REPLACE", // required
+ *   DomainFileUrl: "STRING_VALUE", // required
+ * };
  * const command = new ImportFirewallDomainsCommand(input);
  * const response = await client.send(command);
  * ```

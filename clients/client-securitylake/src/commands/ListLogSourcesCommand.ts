@@ -42,6 +42,28 @@ export interface ListLogSourcesCommandOutput extends ListLogSourcesResponse, __M
  * import { SecurityLakeClient, ListLogSourcesCommand } from "@aws-sdk/client-securitylake"; // ES Modules import
  * // const { SecurityLakeClient, ListLogSourcesCommand } = require("@aws-sdk/client-securitylake"); // CommonJS import
  * const client = new SecurityLakeClient(config);
+ * const input = {
+ *   inputOrder: [
+ *     "STRING_VALUE",
+ *   ],
+ *   listAllDimensions: {
+ *     "<keys>": {
+ *       "<keys>": [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   },
+ *   listTwoDimensions: {
+ *     "<keys>": [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   listSingleDimension: [
+ *     "STRING_VALUE",
+ *   ],
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListLogSourcesCommand(input);
  * const response = await client.send(command);
  * ```

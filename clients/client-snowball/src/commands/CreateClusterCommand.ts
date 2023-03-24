@@ -43,6 +43,76 @@ export interface CreateClusterCommandOutput extends CreateClusterResult, __Metad
  * import { SnowballClient, CreateClusterCommand } from "@aws-sdk/client-snowball"; // ES Modules import
  * // const { SnowballClient, CreateClusterCommand } = require("@aws-sdk/client-snowball"); // CommonJS import
  * const client = new SnowballClient(config);
+ * const input = {
+ *   JobType: "IMPORT" || "EXPORT" || "LOCAL_USE", // required
+ *   Resources: {
+ *     S3Resources: [
+ *       {
+ *         BucketArn: "STRING_VALUE",
+ *         KeyRange: {
+ *           BeginMarker: "STRING_VALUE",
+ *           EndMarker: "STRING_VALUE",
+ *         },
+ *         TargetOnDeviceServices: [
+ *           {
+ *             ServiceName: "NFS_ON_DEVICE_SERVICE" || "S3_ON_DEVICE_SERVICE",
+ *             TransferOption: "IMPORT" || "EXPORT" || "LOCAL_USE",
+ *           },
+ *         ],
+ *       },
+ *     ],
+ *     LambdaResources: [
+ *       {
+ *         LambdaArn: "STRING_VALUE",
+ *         EventTriggers: [
+ *           {
+ *             EventResourceARN: "STRING_VALUE",
+ *           },
+ *         ],
+ *       },
+ *     ],
+ *     Ec2AmiResources: [
+ *       {
+ *         AmiId: "STRING_VALUE", // required
+ *         SnowballAmiId: "STRING_VALUE",
+ *       },
+ *     ],
+ *   },
+ *   OnDeviceServiceConfiguration: {
+ *     NFSOnDeviceService: {
+ *       StorageLimit: Number("int"),
+ *       StorageUnit: "TB",
+ *     },
+ *     TGWOnDeviceService: {
+ *       StorageLimit: Number("int"),
+ *       StorageUnit: "TB",
+ *     },
+ *     EKSOnDeviceService: {
+ *       KubernetesVersion: "STRING_VALUE",
+ *       EKSAnywhereVersion: "STRING_VALUE",
+ *     },
+ *   },
+ *   Description: "STRING_VALUE",
+ *   AddressId: "STRING_VALUE", // required
+ *   KmsKeyARN: "STRING_VALUE",
+ *   RoleARN: "STRING_VALUE", // required
+ *   SnowballType: "STANDARD" || "EDGE" || "EDGE_C" || "EDGE_CG" || "EDGE_S" || "SNC1_HDD" || "SNC1_SSD" || "V3_5C", // required
+ *   ShippingOption: "SECOND_DAY" || "NEXT_DAY" || "EXPRESS" || "STANDARD", // required
+ *   Notification: {
+ *     SnsTopicARN: "STRING_VALUE",
+ *     JobStatesToNotify: [
+ *       "New" || "PreparingAppliance" || "PreparingShipment" || "InTransitToCustomer" || "WithCustomer" || "InTransitToAWS" || "WithAWSSortingFacility" || "WithAWS" || "InProgress" || "Complete" || "Cancelled" || "Listing" || "Pending",
+ *     ],
+ *     NotifyAll: true || false,
+ *   },
+ *   ForwardingAddressId: "STRING_VALUE",
+ *   TaxDocuments: {
+ *     IND: {
+ *       GSTIN: "STRING_VALUE",
+ *     },
+ *   },
+ *   RemoteManagement: "INSTALLED_ONLY" || "INSTALLED_AUTOSTART",
+ * };
  * const command = new CreateClusterCommand(input);
  * const response = await client.send(command);
  * ```

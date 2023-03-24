@@ -48,6 +48,13 @@ export interface UpdateApplicationLayerAutomaticResponseCommandOutput
  * import { ShieldClient, UpdateApplicationLayerAutomaticResponseCommand } from "@aws-sdk/client-shield"; // ES Modules import
  * // const { ShieldClient, UpdateApplicationLayerAutomaticResponseCommand } = require("@aws-sdk/client-shield"); // CommonJS import
  * const client = new ShieldClient(config);
+ * const input = {
+ *   ResourceArn: "STRING_VALUE", // required
+ *   Action: {
+ *     Block: {},
+ *     Count: {},
+ *   },
+ * };
  * const command = new UpdateApplicationLayerAutomaticResponseCommand(input);
  * const response = await client.send(command);
  * ```

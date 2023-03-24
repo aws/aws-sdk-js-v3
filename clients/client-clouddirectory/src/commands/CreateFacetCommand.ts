@@ -43,6 +43,41 @@ export interface CreateFacetCommandOutput extends CreateFacetResponse, __Metadat
  * import { CloudDirectoryClient, CreateFacetCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, CreateFacetCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
  * const client = new CloudDirectoryClient(config);
+ * const input = {
+ *   SchemaArn: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE", // required
+ *   Attributes: [
+ *     {
+ *       Name: "STRING_VALUE", // required
+ *       AttributeDefinition: {
+ *         Type: "STRING" || "BINARY" || "BOOLEAN" || "NUMBER" || "DATETIME" || "VARIANT", // required
+ *         DefaultValue: { // Union: only one key present
+ *           StringValue: "STRING_VALUE",
+ *           BinaryValue: "BLOB_VALUE",
+ *           BooleanValue: true || false,
+ *           NumberValue: "STRING_VALUE",
+ *           DatetimeValue: new Date("TIMESTAMP"),
+ *         },
+ *         IsImmutable: true || false,
+ *         Rules: {
+ *           "<keys>": {
+ *             Type: "BINARY_LENGTH" || "NUMBER_COMPARISON" || "STRING_FROM_SET" || "STRING_LENGTH",
+ *             Parameters: {
+ *               "<keys>": "STRING_VALUE",
+ *             },
+ *           },
+ *         },
+ *       },
+ *       AttributeReference: {
+ *         TargetFacetName: "STRING_VALUE", // required
+ *         TargetAttributeName: "STRING_VALUE", // required
+ *       },
+ *       RequiredBehavior: "REQUIRED_ALWAYS" || "NOT_REQUIRED",
+ *     },
+ *   ],
+ *   ObjectType: "NODE" || "LEAF_NODE" || "POLICY" || "INDEX",
+ *   FacetStyle: "STATIC" || "DYNAMIC",
+ * };
  * const command = new CreateFacetCommand(input);
  * const response = await client.send(command);
  * ```

@@ -43,6 +43,23 @@ export interface DescribeScheduledActionsCommandOutput extends ScheduledActionsM
  * import { RedshiftClient, DescribeScheduledActionsCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DescribeScheduledActionsCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = {
+ *   ScheduledActionName: "STRING_VALUE",
+ *   TargetActionType: "ResizeCluster" || "PauseCluster" || "ResumeCluster",
+ *   StartTime: new Date("TIMESTAMP"),
+ *   EndTime: new Date("TIMESTAMP"),
+ *   Active: true || false,
+ *   Filters: [
+ *     {
+ *       Name: "cluster-identifier" || "iam-role", // required
+ *       Values: [ // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   Marker: "STRING_VALUE",
+ *   MaxRecords: Number("int"),
+ * };
  * const command = new DescribeScheduledActionsCommand(input);
  * const response = await client.send(command);
  * ```

@@ -47,6 +47,68 @@ export interface UpdateStackSetCommandOutput extends UpdateStackSetOutput, __Met
  * import { CloudFormationClient, UpdateStackSetCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, UpdateStackSetCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
  * const client = new CloudFormationClient(config);
+ * const input = {
+ *   StackSetName: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   TemplateBody: "STRING_VALUE",
+ *   TemplateURL: "STRING_VALUE",
+ *   UsePreviousTemplate: true || false,
+ *   Parameters: [
+ *     {
+ *       ParameterKey: "STRING_VALUE",
+ *       ParameterValue: "STRING_VALUE",
+ *       UsePreviousValue: true || false,
+ *       ResolvedValue: "STRING_VALUE",
+ *     },
+ *   ],
+ *   Capabilities: [
+ *     "CAPABILITY_IAM" || "CAPABILITY_NAMED_IAM" || "CAPABILITY_AUTO_EXPAND",
+ *   ],
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   OperationPreferences: {
+ *     RegionConcurrencyType: "SEQUENTIAL" || "PARALLEL",
+ *     RegionOrder: [
+ *       "STRING_VALUE",
+ *     ],
+ *     FailureToleranceCount: Number("int"),
+ *     FailureTolerancePercentage: Number("int"),
+ *     MaxConcurrentCount: Number("int"),
+ *     MaxConcurrentPercentage: Number("int"),
+ *   },
+ *   AdministrationRoleARN: "STRING_VALUE",
+ *   ExecutionRoleName: "STRING_VALUE",
+ *   DeploymentTargets: {
+ *     Accounts: [
+ *       "STRING_VALUE",
+ *     ],
+ *     AccountsUrl: "STRING_VALUE",
+ *     OrganizationalUnitIds: [
+ *       "STRING_VALUE",
+ *     ],
+ *     AccountFilterType: "NONE" || "INTERSECTION" || "DIFFERENCE" || "UNION",
+ *   },
+ *   PermissionModel: "SERVICE_MANAGED" || "SELF_MANAGED",
+ *   AutoDeployment: {
+ *     Enabled: true || false,
+ *     RetainStacksOnAccountRemoval: true || false,
+ *   },
+ *   OperationId: "STRING_VALUE",
+ *   Accounts: [
+ *     "STRING_VALUE",
+ *   ],
+ *   Regions: [
+ *     "STRING_VALUE",
+ *   ],
+ *   CallAs: "SELF" || "DELEGATED_ADMIN",
+ *   ManagedExecution: {
+ *     Active: true || false,
+ *   },
+ * };
  * const command = new UpdateStackSetCommand(input);
  * const response = await client.send(command);
  * ```

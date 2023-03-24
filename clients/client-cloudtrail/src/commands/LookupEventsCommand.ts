@@ -89,6 +89,19 @@ export interface LookupEventsCommandOutput extends LookupEventsResponse, __Metad
  * import { CloudTrailClient, LookupEventsCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
  * // const { CloudTrailClient, LookupEventsCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
  * const client = new CloudTrailClient(config);
+ * const input = {
+ *   LookupAttributes: [
+ *     {
+ *       AttributeKey: "EventId" || "EventName" || "ReadOnly" || "Username" || "ResourceType" || "ResourceName" || "EventSource" || "AccessKeyId", // required
+ *       AttributeValue: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   StartTime: new Date("TIMESTAMP"),
+ *   EndTime: new Date("TIMESTAMP"),
+ *   EventCategory: "insight",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new LookupEventsCommand(input);
  * const response = await client.send(command);
  * ```

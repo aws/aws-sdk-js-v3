@@ -42,6 +42,52 @@ export interface UpdateLinkAttributesCommandOutput extends UpdateLinkAttributesR
  * import { CloudDirectoryClient, UpdateLinkAttributesCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, UpdateLinkAttributesCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
  * const client = new CloudDirectoryClient(config);
+ * const input = {
+ *   DirectoryArn: "STRING_VALUE", // required
+ *   TypedLinkSpecifier: {
+ *     TypedLinkFacet: {
+ *       SchemaArn: "STRING_VALUE", // required
+ *       TypedLinkName: "STRING_VALUE", // required
+ *     },
+ *     SourceObjectReference: {
+ *       Selector: "STRING_VALUE",
+ *     },
+ *     TargetObjectReference: {
+ *       Selector: "STRING_VALUE",
+ *     },
+ *     IdentityAttributeValues: [ // required
+ *       {
+ *         AttributeName: "STRING_VALUE", // required
+ *         Value: { // Union: only one key present
+ *           StringValue: "STRING_VALUE",
+ *           BinaryValue: "BLOB_VALUE",
+ *           BooleanValue: true || false,
+ *           NumberValue: "STRING_VALUE",
+ *           DatetimeValue: new Date("TIMESTAMP"),
+ *         },
+ *       },
+ *     ],
+ *   },
+ *   AttributeUpdates: [ // required
+ *     {
+ *       AttributeKey: {
+ *         SchemaArn: "STRING_VALUE", // required
+ *         FacetName: "STRING_VALUE", // required
+ *         Name: "STRING_VALUE", // required
+ *       },
+ *       AttributeAction: {
+ *         AttributeActionType: "CREATE_OR_UPDATE" || "DELETE",
+ *         AttributeUpdateValue: { // Union: only one key present
+ *           StringValue: "STRING_VALUE",
+ *           BinaryValue: "BLOB_VALUE",
+ *           BooleanValue: true || false,
+ *           NumberValue: "STRING_VALUE",
+ *           DatetimeValue: new Date("TIMESTAMP"),
+ *         },
+ *       },
+ *     },
+ *   ],
+ * };
  * const command = new UpdateLinkAttributesCommand(input);
  * const response = await client.send(command);
  * ```

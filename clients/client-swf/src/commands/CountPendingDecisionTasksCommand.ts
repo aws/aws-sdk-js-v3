@@ -69,6 +69,12 @@ export interface CountPendingDecisionTasksCommandOutput extends PendingTaskCount
  * import { SWFClient, CountPendingDecisionTasksCommand } from "@aws-sdk/client-swf"; // ES Modules import
  * // const { SWFClient, CountPendingDecisionTasksCommand } = require("@aws-sdk/client-swf"); // CommonJS import
  * const client = new SWFClient(config);
+ * const input = {
+ *   domain: "STRING_VALUE", // required
+ *   taskList: {
+ *     name: "STRING_VALUE", // required
+ *   },
+ * };
  * const command = new CountPendingDecisionTasksCommand(input);
  * const response = await client.send(command);
  * ```

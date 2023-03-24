@@ -48,6 +48,15 @@ export interface PutItemsCommandOutput extends __MetadataBearer {}
  * import { PersonalizeEventsClient, PutItemsCommand } from "@aws-sdk/client-personalize-events"; // ES Modules import
  * // const { PersonalizeEventsClient, PutItemsCommand } = require("@aws-sdk/client-personalize-events"); // CommonJS import
  * const client = new PersonalizeEventsClient(config);
+ * const input = {
+ *   datasetArn: "STRING_VALUE", // required
+ *   items: [ // required
+ *     {
+ *       itemId: "STRING_VALUE", // required
+ *       properties: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new PutItemsCommand(input);
  * const response = await client.send(command);
  * ```

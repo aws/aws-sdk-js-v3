@@ -39,6 +39,11 @@ export interface DeleteKeyPairCommandOutput extends __MetadataBearer {}
  * import { EC2Client, DeleteKeyPairCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DeleteKeyPairCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   KeyName: "STRING_VALUE",
+ *   KeyPairId: "STRING_VALUE",
+ *   DryRun: true || false,
+ * };
  * const command = new DeleteKeyPairCommand(input);
  * const response = await client.send(command);
  * ```

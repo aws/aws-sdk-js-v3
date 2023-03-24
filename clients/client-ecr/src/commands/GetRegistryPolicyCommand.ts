@@ -42,6 +42,7 @@ export interface GetRegistryPolicyCommandOutput extends GetRegistryPolicyRespons
  * import { ECRClient, GetRegistryPolicyCommand } from "@aws-sdk/client-ecr"; // ES Modules import
  * // const { ECRClient, GetRegistryPolicyCommand } = require("@aws-sdk/client-ecr"); // CommonJS import
  * const client = new ECRClient(config);
+ * const input = {};
  * const command = new GetRegistryPolicyCommand(input);
  * const response = await client.send(command);
  * ```

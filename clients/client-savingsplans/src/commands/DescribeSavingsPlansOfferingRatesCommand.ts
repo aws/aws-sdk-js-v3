@@ -47,6 +47,39 @@ export interface DescribeSavingsPlansOfferingRatesCommandOutput
  * import { SavingsplansClient, DescribeSavingsPlansOfferingRatesCommand } from "@aws-sdk/client-savingsplans"; // ES Modules import
  * // const { SavingsplansClient, DescribeSavingsPlansOfferingRatesCommand } = require("@aws-sdk/client-savingsplans"); // CommonJS import
  * const client = new SavingsplansClient(config);
+ * const input = {
+ *   savingsPlanOfferingIds: [
+ *     "STRING_VALUE",
+ *   ],
+ *   savingsPlanPaymentOptions: [
+ *     "STRING_VALUE",
+ *   ],
+ *   savingsPlanTypes: [
+ *     "STRING_VALUE",
+ *   ],
+ *   products: [
+ *     "STRING_VALUE",
+ *   ],
+ *   serviceCodes: [
+ *     "STRING_VALUE",
+ *   ],
+ *   usageTypes: [
+ *     "STRING_VALUE",
+ *   ],
+ *   operations: [
+ *     "STRING_VALUE",
+ *   ],
+ *   filters: [
+ *     {
+ *       name: "STRING_VALUE",
+ *       values: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new DescribeSavingsPlansOfferingRatesCommand(input);
  * const response = await client.send(command);
  * ```

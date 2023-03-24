@@ -47,6 +47,14 @@ export interface ListPermissionsCommandOutput extends ListPermissionsResponse, _
  * import { GrafanaClient, ListPermissionsCommand } from "@aws-sdk/client-grafana"; // ES Modules import
  * // const { GrafanaClient, ListPermissionsCommand } = require("@aws-sdk/client-grafana"); // CommonJS import
  * const client = new GrafanaClient(config);
+ * const input = {
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ *   userType: "STRING_VALUE",
+ *   userId: "STRING_VALUE",
+ *   groupId: "STRING_VALUE",
+ *   workspaceId: "STRING_VALUE", // required
+ * };
  * const command = new ListPermissionsCommand(input);
  * const response = await client.send(command);
  * ```

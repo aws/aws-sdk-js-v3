@@ -64,6 +64,9 @@ export interface DeleteTableCommandOutput extends DeleteTableOutput, __MetadataB
  * import { DynamoDBClient, DeleteTableCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
  * // const { DynamoDBClient, DeleteTableCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
  * const client = new DynamoDBClient(config);
+ * const input = {
+ *   TableName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteTableCommand(input);
  * const response = await client.send(command);
  * ```

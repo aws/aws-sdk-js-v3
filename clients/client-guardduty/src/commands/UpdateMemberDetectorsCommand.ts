@@ -45,6 +45,33 @@ export interface UpdateMemberDetectorsCommandOutput extends UpdateMemberDetector
  * import { GuardDutyClient, UpdateMemberDetectorsCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
  * // const { GuardDutyClient, UpdateMemberDetectorsCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
  * const client = new GuardDutyClient(config);
+ * const input = {
+ *   DetectorId: "STRING_VALUE", // required
+ *   AccountIds: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ *   DataSources: {
+ *     S3Logs: {
+ *       Enable: true || false, // required
+ *     },
+ *     Kubernetes: {
+ *       AuditLogs: {
+ *         Enable: true || false, // required
+ *       },
+ *     },
+ *     MalwareProtection: {
+ *       ScanEc2InstanceWithFindings: {
+ *         EbsVolumes: true || false,
+ *       },
+ *     },
+ *   },
+ *   Features: [
+ *     {
+ *       Name: "S3_DATA_EVENTS" || "EKS_AUDIT_LOGS" || "EBS_MALWARE_PROTECTION" || "RDS_LOGIN_EVENTS",
+ *       Status: "ENABLED" || "DISABLED",
+ *     },
+ *   ],
+ * };
  * const command = new UpdateMemberDetectorsCommand(input);
  * const response = await client.send(command);
  * ```

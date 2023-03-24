@@ -49,6 +49,9 @@ export interface DeleteDataIntegrationCommandOutput extends DeleteDataIntegratio
  * import { AppIntegrationsClient, DeleteDataIntegrationCommand } from "@aws-sdk/client-appintegrations"; // ES Modules import
  * // const { AppIntegrationsClient, DeleteDataIntegrationCommand } = require("@aws-sdk/client-appintegrations"); // CommonJS import
  * const client = new AppIntegrationsClient(config);
+ * const input = {
+ *   DataIntegrationIdentifier: "STRING_VALUE", // required
+ * };
  * const command = new DeleteDataIntegrationCommand(input);
  * const response = await client.send(command);
  * ```

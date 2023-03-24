@@ -53,6 +53,15 @@ export interface SetUserSettingsCommandOutput extends SetUserSettingsResponse, _
  * import { CognitoIdentityProviderClient, SetUserSettingsCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, SetUserSettingsCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
+ * const input = {
+ *   AccessToken: "STRING_VALUE", // required
+ *   MFAOptions: [ // required
+ *     {
+ *       DeliveryMedium: "SMS" || "EMAIL",
+ *       AttributeName: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new SetUserSettingsCommand(input);
  * const response = await client.send(command);
  * ```

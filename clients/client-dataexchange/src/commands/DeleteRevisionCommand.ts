@@ -42,6 +42,10 @@ export interface DeleteRevisionCommandOutput extends __MetadataBearer {}
  * import { DataExchangeClient, DeleteRevisionCommand } from "@aws-sdk/client-dataexchange"; // ES Modules import
  * // const { DataExchangeClient, DeleteRevisionCommand } = require("@aws-sdk/client-dataexchange"); // CommonJS import
  * const client = new DataExchangeClient(config);
+ * const input = {
+ *   DataSetId: "STRING_VALUE", // required
+ *   RevisionId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteRevisionCommand(input);
  * const response = await client.send(command);
  * ```

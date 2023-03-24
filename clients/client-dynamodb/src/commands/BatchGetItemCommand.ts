@@ -88,6 +88,90 @@ export interface BatchGetItemCommandOutput extends BatchGetItemOutput, __Metadat
  * import { DynamoDBClient, BatchGetItemCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
  * // const { DynamoDBClient, BatchGetItemCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
  * const client = new DynamoDBClient(config);
+ * const input = {
+ *   RequestItems: { // required
+ *     "<keys>": {
+ *       Keys: [ // required
+ *         {
+ *           "<keys>": { // Union: only one key present
+ *             S: "STRING_VALUE",
+ *             N: "STRING_VALUE",
+ *             B: "BLOB_VALUE",
+ *             SS: [
+ *               "STRING_VALUE",
+ *             ],
+ *             NS: [
+ *               "STRING_VALUE",
+ *             ],
+ *             BS: [
+ *               "BLOB_VALUE",
+ *             ],
+ *             M: {
+ *               "<keys>": { // Union: only one key present
+ *                 S: "STRING_VALUE",
+ *                 N: "STRING_VALUE",
+ *                 B: "BLOB_VALUE",
+ *                 SS: [
+ *                   "STRING_VALUE",
+ *                 ],
+ *                 NS: [
+ *                   "STRING_VALUE",
+ *                 ],
+ *                 BS: [
+ *                   "BLOB_VALUE",
+ *                 ],
+ *                 M: {
+ *                   "<keys>": "<AttributeValue>",
+ *                 },
+ *                 L: [
+ *                   { // Union: only one key present
+ *                     S: "<AttributeValue>",
+ *                     N: "<AttributeValue>",
+ *                     B: "<AttributeValue>",
+ *                     SS: "<AttributeValue>",
+ *                     NS: "<AttributeValue>",
+ *                     BS: "<AttributeValue>",
+ *                     M: "<AttributeValue>",
+ *                     L: [
+ *                       { // Union: only one key present
+ *                         S: "<AttributeValue>",
+ *                         N: "<AttributeValue>",
+ *                         B: "<AttributeValue>",
+ *                         SS: "<AttributeValue>",
+ *                         NS: "<AttributeValue>",
+ *                         BS: "<AttributeValue>",
+ *                         M: "<AttributeValue>",
+ *                         L: "<AttributeValue>",
+ *                         NULL: true || false,
+ *                         BOOL: true || false,
+ *                       },
+ *                     ],
+ *                     NULL: true || false,
+ *                     BOOL: true || false,
+ *                   },
+ *                 ],
+ *                 NULL: "<AttributeValue>",
+ *                 BOOL: "<AttributeValue>",
+ *               },
+ *             },
+ *             L: "<AttributeValue>",
+ *             NULL: "<AttributeValue>",
+ *             BOOL: "<AttributeValue>",
+ *           },
+ *         },
+ *       ],
+ *       AttributesToGet: [
+ *         "STRING_VALUE",
+ *       ],
+ *       ConsistentRead: true || false,
+ *       ProjectionExpression: "STRING_VALUE",
+ *       ExpressionAttributeNames: {
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *     },
+ *   },
+ *   ReturnConsumedCapacity: "INDEXES" || "TOTAL" || "NONE",
+ * };
  * const command = new BatchGetItemCommand(input);
  * const response = await client.send(command);
  * ```

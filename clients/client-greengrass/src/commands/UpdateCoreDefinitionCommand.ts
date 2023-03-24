@@ -42,6 +42,10 @@ export interface UpdateCoreDefinitionCommandOutput extends UpdateCoreDefinitionR
  * import { GreengrassClient, UpdateCoreDefinitionCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, UpdateCoreDefinitionCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
+ * const input = {
+ *   CoreDefinitionId: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE",
+ * };
  * const command = new UpdateCoreDefinitionCommand(input);
  * const response = await client.send(command);
  * ```

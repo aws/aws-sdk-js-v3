@@ -46,6 +46,12 @@ export interface AttachVerifiedAccessTrustProviderCommandOutput
  * import { EC2Client, AttachVerifiedAccessTrustProviderCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, AttachVerifiedAccessTrustProviderCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   VerifiedAccessInstanceId: "STRING_VALUE", // required
+ *   VerifiedAccessTrustProviderId: "STRING_VALUE", // required
+ *   ClientToken: "STRING_VALUE",
+ *   DryRun: true || false,
+ * };
  * const command = new AttachVerifiedAccessTrustProviderCommand(input);
  * const response = await client.send(command);
  * ```

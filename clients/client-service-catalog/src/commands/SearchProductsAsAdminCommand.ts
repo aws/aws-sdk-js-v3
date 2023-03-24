@@ -42,6 +42,20 @@ export interface SearchProductsAsAdminCommandOutput extends SearchProductsAsAdmi
  * import { ServiceCatalogClient, SearchProductsAsAdminCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, SearchProductsAsAdminCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
+ * const input = {
+ *   AcceptLanguage: "STRING_VALUE",
+ *   PortfolioId: "STRING_VALUE",
+ *   Filters: {
+ *     "<keys>": [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   SortBy: "Title" || "VersionCount" || "CreationDate",
+ *   SortOrder: "ASCENDING" || "DESCENDING",
+ *   PageToken: "STRING_VALUE",
+ *   PageSize: Number("int"),
+ *   ProductSource: "ACCOUNT",
+ * };
  * const command = new SearchProductsAsAdminCommand(input);
  * const response = await client.send(command);
  * ```

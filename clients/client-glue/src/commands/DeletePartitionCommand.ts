@@ -42,6 +42,14 @@ export interface DeletePartitionCommandOutput extends DeletePartitionResponse, _
  * import { GlueClient, DeletePartitionCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, DeletePartitionCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = {
+ *   CatalogId: "STRING_VALUE",
+ *   DatabaseName: "STRING_VALUE", // required
+ *   TableName: "STRING_VALUE", // required
+ *   PartitionValues: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DeletePartitionCommand(input);
  * const response = await client.send(command);
  * ```

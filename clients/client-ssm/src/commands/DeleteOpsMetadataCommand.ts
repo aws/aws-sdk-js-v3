@@ -42,6 +42,9 @@ export interface DeleteOpsMetadataCommandOutput extends DeleteOpsMetadataResult,
  * import { SSMClient, DeleteOpsMetadataCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, DeleteOpsMetadataCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = {
+ *   OpsMetadataArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteOpsMetadataCommand(input);
  * const response = await client.send(command);
  * ```

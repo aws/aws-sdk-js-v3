@@ -50,6 +50,10 @@ export interface ReleasePhoneNumberCommandOutput extends __MetadataBearer {}
  * import { ConnectClient, ReleasePhoneNumberCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, ReleasePhoneNumberCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = {
+ *   PhoneNumberId: "STRING_VALUE", // required
+ *   ClientToken: "STRING_VALUE",
+ * };
  * const command = new ReleasePhoneNumberCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,9 @@ export interface ForgetSmartHomeAppliancesCommandOutput extends ForgetSmartHomeA
  * import { AlexaForBusinessClient, ForgetSmartHomeAppliancesCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, ForgetSmartHomeAppliancesCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
+ * const input = {
+ *   RoomArn: "STRING_VALUE", // required
+ * };
  * const command = new ForgetSmartHomeAppliancesCommand(input);
  * const response = await client.send(command);
  * ```

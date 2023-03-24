@@ -42,6 +42,20 @@ export interface CreateGroupCommandOutput extends CreateGroupResult, __MetadataB
  * import { XRayClient, CreateGroupCommand } from "@aws-sdk/client-xray"; // ES Modules import
  * // const { XRayClient, CreateGroupCommand } = require("@aws-sdk/client-xray"); // CommonJS import
  * const client = new XRayClient(config);
+ * const input = {
+ *   GroupName: "STRING_VALUE", // required
+ *   FilterExpression: "STRING_VALUE",
+ *   InsightsConfiguration: {
+ *     InsightsEnabled: true || false,
+ *     NotificationsEnabled: true || false,
+ *   },
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateGroupCommand(input);
  * const response = await client.send(command);
  * ```

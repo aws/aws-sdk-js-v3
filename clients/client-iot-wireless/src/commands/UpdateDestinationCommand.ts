@@ -42,6 +42,13 @@ export interface UpdateDestinationCommandOutput extends UpdateDestinationRespons
  * import { IoTWirelessClient, UpdateDestinationCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, UpdateDestinationCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
+ * const input = {
+ *   Name: "STRING_VALUE", // required
+ *   ExpressionType: "RuleName" || "MqttTopic",
+ *   Expression: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   RoleArn: "STRING_VALUE",
+ * };
  * const command = new UpdateDestinationCommand(input);
  * const response = await client.send(command);
  * ```

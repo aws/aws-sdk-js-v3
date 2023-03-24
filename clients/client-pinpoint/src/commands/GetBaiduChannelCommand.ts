@@ -42,6 +42,9 @@ export interface GetBaiduChannelCommandOutput extends GetBaiduChannelResponse, _
  * import { PinpointClient, GetBaiduChannelCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, GetBaiduChannelCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
+ * const input = {
+ *   ApplicationId: "STRING_VALUE", // required
+ * };
  * const command = new GetBaiduChannelCommand(input);
  * const response = await client.send(command);
  * ```

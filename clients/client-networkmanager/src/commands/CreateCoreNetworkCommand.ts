@@ -42,6 +42,18 @@ export interface CreateCoreNetworkCommandOutput extends CreateCoreNetworkRespons
  * import { NetworkManagerClient, CreateCoreNetworkCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, CreateCoreNetworkCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
+ * const input = {
+ *   GlobalNetworkId: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   PolicyDocument: "STRING_VALUE",
+ *   ClientToken: "STRING_VALUE",
+ * };
  * const command = new CreateCoreNetworkCommand(input);
  * const response = await client.send(command);
  * ```

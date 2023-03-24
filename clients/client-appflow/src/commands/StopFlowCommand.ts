@@ -44,6 +44,9 @@ export interface StopFlowCommandOutput extends StopFlowResponse, __MetadataBeare
  * import { AppflowClient, StopFlowCommand } from "@aws-sdk/client-appflow"; // ES Modules import
  * // const { AppflowClient, StopFlowCommand } = require("@aws-sdk/client-appflow"); // CommonJS import
  * const client = new AppflowClient(config);
+ * const input = {
+ *   flowName: "STRING_VALUE", // required
+ * };
  * const command = new StopFlowCommand(input);
  * const response = await client.send(command);
  * ```

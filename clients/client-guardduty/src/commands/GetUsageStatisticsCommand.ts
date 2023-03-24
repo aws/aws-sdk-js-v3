@@ -45,6 +45,27 @@ export interface GetUsageStatisticsCommandOutput extends GetUsageStatisticsRespo
  * import { GuardDutyClient, GetUsageStatisticsCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
  * // const { GuardDutyClient, GetUsageStatisticsCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
  * const client = new GuardDutyClient(config);
+ * const input = {
+ *   DetectorId: "STRING_VALUE", // required
+ *   UsageStatisticType: "SUM_BY_ACCOUNT" || "SUM_BY_DATA_SOURCE" || "SUM_BY_RESOURCE" || "TOP_RESOURCES" || "SUM_BY_FEATURES", // required
+ *   UsageCriteria: {
+ *     AccountIds: [
+ *       "STRING_VALUE",
+ *     ],
+ *     DataSources: [
+ *       "FLOW_LOGS" || "CLOUD_TRAIL" || "DNS_LOGS" || "S3_LOGS" || "KUBERNETES_AUDIT_LOGS" || "EC2_MALWARE_SCAN",
+ *     ],
+ *     Resources: [
+ *       "STRING_VALUE",
+ *     ],
+ *     Features: [
+ *       "FLOW_LOGS" || "CLOUD_TRAIL" || "DNS_LOGS" || "S3_DATA_EVENTS" || "EKS_AUDIT_LOGS" || "EBS_MALWARE_PROTECTION" || "RDS_LOGIN_EVENTS" || "LAMBDA_NETWORK_LOGS" || "EKS_RUNTIME_MONITORING",
+ *     ],
+ *   },
+ *   Unit: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new GetUsageStatisticsCommand(input);
  * const response = await client.send(command);
  * ```

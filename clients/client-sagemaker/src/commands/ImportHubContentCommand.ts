@@ -45,6 +45,26 @@ export interface ImportHubContentCommandOutput extends ImportHubContentResponse,
  * import { SageMakerClient, ImportHubContentCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ImportHubContentCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = {
+ *   HubContentName: "STRING_VALUE", // required
+ *   HubContentVersion: "STRING_VALUE",
+ *   HubContentType: "Model" || "Notebook", // required
+ *   DocumentSchemaVersion: "STRING_VALUE", // required
+ *   HubName: "STRING_VALUE", // required
+ *   HubContentDisplayName: "STRING_VALUE",
+ *   HubContentDescription: "STRING_VALUE",
+ *   HubContentMarkdown: "STRING_VALUE",
+ *   HubContentDocument: "STRING_VALUE", // required
+ *   HubContentSearchKeywords: [
+ *     "STRING_VALUE",
+ *   ],
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new ImportHubContentCommand(input);
  * const response = await client.send(command);
  * ```

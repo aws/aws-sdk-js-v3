@@ -42,6 +42,10 @@ export interface ListSegmentsCommandOutput extends ListSegmentsResponse, __Metad
  * import { EvidentlyClient, ListSegmentsCommand } from "@aws-sdk/client-evidently"; // ES Modules import
  * // const { EvidentlyClient, ListSegmentsCommand } = require("@aws-sdk/client-evidently"); // CommonJS import
  * const client = new EvidentlyClient(config);
+ * const input = {
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListSegmentsCommand(input);
  * const response = await client.send(command);
  * ```

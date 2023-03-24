@@ -42,6 +42,10 @@ export interface DeleteDhcpOptionsCommandOutput extends __MetadataBearer {}
  * import { EC2Client, DeleteDhcpOptionsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DeleteDhcpOptionsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   DhcpOptionsId: "STRING_VALUE", // required
+ *   DryRun: true || false,
+ * };
  * const command = new DeleteDhcpOptionsCommand(input);
  * const response = await client.send(command);
  * ```

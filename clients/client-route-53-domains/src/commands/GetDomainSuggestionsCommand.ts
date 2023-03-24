@@ -42,6 +42,11 @@ export interface GetDomainSuggestionsCommandOutput extends GetDomainSuggestionsR
  * import { Route53DomainsClient, GetDomainSuggestionsCommand } from "@aws-sdk/client-route-53-domains"; // ES Modules import
  * // const { Route53DomainsClient, GetDomainSuggestionsCommand } = require("@aws-sdk/client-route-53-domains"); // CommonJS import
  * const client = new Route53DomainsClient(config);
+ * const input = {
+ *   DomainName: "STRING_VALUE", // required
+ *   SuggestionCount: Number("int"), // required
+ *   OnlyAvailable: true || false, // required
+ * };
  * const command = new GetDomainSuggestionsCommand(input);
  * const response = await client.send(command);
  * ```

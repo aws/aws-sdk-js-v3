@@ -42,6 +42,9 @@ export interface GetInsightsByAssessmentCommandOutput extends GetInsightsByAsses
  * import { AuditManagerClient, GetInsightsByAssessmentCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
  * // const { AuditManagerClient, GetInsightsByAssessmentCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
  * const client = new AuditManagerClient(config);
+ * const input = {
+ *   assessmentId: "STRING_VALUE", // required
+ * };
  * const command = new GetInsightsByAssessmentCommand(input);
  * const response = await client.send(command);
  * ```

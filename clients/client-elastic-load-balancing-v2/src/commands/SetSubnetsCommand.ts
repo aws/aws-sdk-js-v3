@@ -48,6 +48,21 @@ export interface SetSubnetsCommandOutput extends SetSubnetsOutput, __MetadataBea
  * import { ElasticLoadBalancingV2Client, SetSubnetsCommand } from "@aws-sdk/client-elastic-load-balancing-v2"; // ES Modules import
  * // const { ElasticLoadBalancingV2Client, SetSubnetsCommand } = require("@aws-sdk/client-elastic-load-balancing-v2"); // CommonJS import
  * const client = new ElasticLoadBalancingV2Client(config);
+ * const input = {
+ *   LoadBalancerArn: "STRING_VALUE", // required
+ *   Subnets: [
+ *     "STRING_VALUE",
+ *   ],
+ *   SubnetMappings: [
+ *     {
+ *       SubnetId: "STRING_VALUE",
+ *       AllocationId: "STRING_VALUE",
+ *       PrivateIPv4Address: "STRING_VALUE",
+ *       IPv6Address: "STRING_VALUE",
+ *     },
+ *   ],
+ *   IpAddressType: "ipv4" || "dualstack",
+ * };
  * const command = new SetSubnetsCommand(input);
  * const response = await client.send(command);
  * ```

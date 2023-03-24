@@ -43,6 +43,9 @@ export interface GetTopicRuleCommandOutput extends GetTopicRuleResponse, __Metad
  * import { IoTClient, GetTopicRuleCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, GetTopicRuleCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = {
+ *   ruleName: "STRING_VALUE", // required
+ * };
  * const command = new GetTopicRuleCommand(input);
  * const response = await client.send(command);
  * ```

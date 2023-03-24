@@ -69,6 +69,31 @@ export interface CreateIdentityPoolCommandOutput extends IdentityPool, __Metadat
  * import { CognitoIdentityClient, CreateIdentityPoolCommand } from "@aws-sdk/client-cognito-identity"; // ES Modules import
  * // const { CognitoIdentityClient, CreateIdentityPoolCommand } = require("@aws-sdk/client-cognito-identity"); // CommonJS import
  * const client = new CognitoIdentityClient(config);
+ * const input = {
+ *   IdentityPoolName: "STRING_VALUE", // required
+ *   AllowUnauthenticatedIdentities: true || false, // required
+ *   AllowClassicFlow: true || false,
+ *   SupportedLoginProviders: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   DeveloperProviderName: "STRING_VALUE",
+ *   OpenIdConnectProviderARNs: [
+ *     "STRING_VALUE",
+ *   ],
+ *   CognitoIdentityProviders: [
+ *     {
+ *       ProviderName: "STRING_VALUE",
+ *       ClientId: "STRING_VALUE",
+ *       ServerSideTokenCheck: true || false,
+ *     },
+ *   ],
+ *   SamlProviderARNs: [
+ *     "STRING_VALUE",
+ *   ],
+ *   IdentityPoolTags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateIdentityPoolCommand(input);
  * const response = await client.send(command);
  * ```

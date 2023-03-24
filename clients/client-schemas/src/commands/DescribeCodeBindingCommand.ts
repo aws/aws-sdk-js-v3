@@ -42,6 +42,12 @@ export interface DescribeCodeBindingCommandOutput extends DescribeCodeBindingRes
  * import { SchemasClient, DescribeCodeBindingCommand } from "@aws-sdk/client-schemas"; // ES Modules import
  * // const { SchemasClient, DescribeCodeBindingCommand } = require("@aws-sdk/client-schemas"); // CommonJS import
  * const client = new SchemasClient(config);
+ * const input = {
+ *   Language: "STRING_VALUE", // required
+ *   RegistryName: "STRING_VALUE", // required
+ *   SchemaName: "STRING_VALUE", // required
+ *   SchemaVersion: "STRING_VALUE",
+ * };
  * const command = new DescribeCodeBindingCommand(input);
  * const response = await client.send(command);
  * ```

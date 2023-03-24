@@ -42,6 +42,10 @@ export interface GetJobRunCommandOutput extends GetJobRunResponse, __MetadataBea
  * import { EMRServerlessClient, GetJobRunCommand } from "@aws-sdk/client-emr-serverless"; // ES Modules import
  * // const { EMRServerlessClient, GetJobRunCommand } = require("@aws-sdk/client-emr-serverless"); // CommonJS import
  * const client = new EMRServerlessClient(config);
+ * const input = {
+ *   applicationId: "STRING_VALUE", // required
+ *   jobRunId: "STRING_VALUE", // required
+ * };
  * const command = new GetJobRunCommand(input);
  * const response = await client.send(command);
  * ```

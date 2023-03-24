@@ -42,6 +42,9 @@ export interface RemoveManagedScalingPolicyCommandOutput extends RemoveManagedSc
  * import { EMRClient, RemoveManagedScalingPolicyCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, RemoveManagedScalingPolicyCommand } = require("@aws-sdk/client-emr"); // CommonJS import
  * const client = new EMRClient(config);
+ * const input = {
+ *   ClusterId: "STRING_VALUE", // required
+ * };
  * const command = new RemoveManagedScalingPolicyCommand(input);
  * const response = await client.send(command);
  * ```

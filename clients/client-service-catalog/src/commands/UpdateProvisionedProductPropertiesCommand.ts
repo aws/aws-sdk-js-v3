@@ -44,6 +44,14 @@ export interface UpdateProvisionedProductPropertiesCommandOutput
  * import { ServiceCatalogClient, UpdateProvisionedProductPropertiesCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, UpdateProvisionedProductPropertiesCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
+ * const input = {
+ *   AcceptLanguage: "STRING_VALUE",
+ *   ProvisionedProductId: "STRING_VALUE", // required
+ *   ProvisionedProductProperties: { // required
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   IdempotencyToken: "STRING_VALUE", // required
+ * };
  * const command = new UpdateProvisionedProductPropertiesCommand(input);
  * const response = await client.send(command);
  * ```

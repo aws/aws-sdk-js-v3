@@ -42,6 +42,26 @@ export interface StartPolicyGenerationCommandOutput extends StartPolicyGeneratio
  * import { AccessAnalyzerClient, StartPolicyGenerationCommand } from "@aws-sdk/client-accessanalyzer"; // ES Modules import
  * // const { AccessAnalyzerClient, StartPolicyGenerationCommand } = require("@aws-sdk/client-accessanalyzer"); // CommonJS import
  * const client = new AccessAnalyzerClient(config);
+ * const input = {
+ *   policyGenerationDetails: {
+ *     principalArn: "STRING_VALUE", // required
+ *   },
+ *   cloudTrailDetails: {
+ *     trails: [ // required
+ *       {
+ *         cloudTrailArn: "STRING_VALUE", // required
+ *         regions: [
+ *           "STRING_VALUE",
+ *         ],
+ *         allRegions: true || false,
+ *       },
+ *     ],
+ *     accessRole: "STRING_VALUE", // required
+ *     startTime: new Date("TIMESTAMP"), // required
+ *     endTime: new Date("TIMESTAMP"),
+ *   },
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new StartPolicyGenerationCommand(input);
  * const response = await client.send(command);
  * ```

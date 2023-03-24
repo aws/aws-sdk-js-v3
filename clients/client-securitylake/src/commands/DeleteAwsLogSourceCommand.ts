@@ -56,6 +56,26 @@ export interface DeleteAwsLogSourceCommandOutput extends DeleteAwsLogSourceRespo
  * import { SecurityLakeClient, DeleteAwsLogSourceCommand } from "@aws-sdk/client-securitylake"; // ES Modules import
  * // const { SecurityLakeClient, DeleteAwsLogSourceCommand } = require("@aws-sdk/client-securitylake"); // CommonJS import
  * const client = new SecurityLakeClient(config);
+ * const input = {
+ *   inputOrder: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ *   disableAllDimensions: {
+ *     "<keys>": {
+ *       "<keys>": [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   },
+ *   disableTwoDimensions: {
+ *     "<keys>": [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   disableSingleDimension: [
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DeleteAwsLogSourceCommand(input);
  * const response = await client.send(command);
  * ```

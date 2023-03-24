@@ -42,6 +42,18 @@ export interface ListModelPackagesCommandOutput extends ListModelPackagesOutput,
  * import { SageMakerClient, ListModelPackagesCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListModelPackagesCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = {
+ *   CreationTimeAfter: new Date("TIMESTAMP"),
+ *   CreationTimeBefore: new Date("TIMESTAMP"),
+ *   MaxResults: Number("int"),
+ *   NameContains: "STRING_VALUE",
+ *   ModelApprovalStatus: "Approved" || "Rejected" || "PendingManualApproval",
+ *   ModelPackageGroupName: "STRING_VALUE",
+ *   ModelPackageType: "Versioned" || "Unversioned" || "Both",
+ *   NextToken: "STRING_VALUE",
+ *   SortBy: "Name" || "CreationTime",
+ *   SortOrder: "Ascending" || "Descending",
+ * };
  * const command = new ListModelPackagesCommand(input);
  * const response = await client.send(command);
  * ```

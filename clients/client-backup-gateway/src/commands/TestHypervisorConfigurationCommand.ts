@@ -47,6 +47,12 @@ export interface TestHypervisorConfigurationCommandOutput extends TestHypervisor
  * import { BackupGatewayClient, TestHypervisorConfigurationCommand } from "@aws-sdk/client-backup-gateway"; // ES Modules import
  * // const { BackupGatewayClient, TestHypervisorConfigurationCommand } = require("@aws-sdk/client-backup-gateway"); // CommonJS import
  * const client = new BackupGatewayClient(config);
+ * const input = {
+ *   GatewayArn: "STRING_VALUE", // required
+ *   Host: "STRING_VALUE", // required
+ *   Username: "STRING_VALUE",
+ *   Password: "STRING_VALUE",
+ * };
  * const command = new TestHypervisorConfigurationCommand(input);
  * const response = await client.send(command);
  * ```

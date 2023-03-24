@@ -82,6 +82,11 @@ export interface ListAliasesCommandOutput extends ListAliasesResponse, __Metadat
  * import { KMSClient, ListAliasesCommand } from "@aws-sdk/client-kms"; // ES Modules import
  * // const { KMSClient, ListAliasesCommand } = require("@aws-sdk/client-kms"); // CommonJS import
  * const client = new KMSClient(config);
+ * const input = {
+ *   KeyId: "STRING_VALUE",
+ *   Limit: Number("int"),
+ *   Marker: "STRING_VALUE",
+ * };
  * const command = new ListAliasesCommand(input);
  * const response = await client.send(command);
  * ```

@@ -46,6 +46,12 @@ export interface SendWorkflowStepStateCommandOutput extends SendWorkflowStepStat
  * import { TransferClient, SendWorkflowStepStateCommand } from "@aws-sdk/client-transfer"; // ES Modules import
  * // const { TransferClient, SendWorkflowStepStateCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
  * const client = new TransferClient(config);
+ * const input = {
+ *   WorkflowId: "STRING_VALUE", // required
+ *   ExecutionId: "STRING_VALUE", // required
+ *   Token: "STRING_VALUE", // required
+ *   Status: "SUCCESS" || "FAILURE", // required
+ * };
  * const command = new SendWorkflowStepStateCommand(input);
  * const response = await client.send(command);
  * ```

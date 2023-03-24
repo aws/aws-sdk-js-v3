@@ -40,6 +40,7 @@ export interface GetSendQuotaCommandOutput extends GetSendQuotaResponse, __Metad
  * import { SESClient, GetSendQuotaCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, GetSendQuotaCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
+ * const input = {};
  * const command = new GetSendQuotaCommand(input);
  * const response = await client.send(command);
  * ```

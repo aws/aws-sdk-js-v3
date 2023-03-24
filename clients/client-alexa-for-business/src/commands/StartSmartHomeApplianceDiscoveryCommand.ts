@@ -45,6 +45,9 @@ export interface StartSmartHomeApplianceDiscoveryCommandOutput
  * import { AlexaForBusinessClient, StartSmartHomeApplianceDiscoveryCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, StartSmartHomeApplianceDiscoveryCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
+ * const input = {
+ *   RoomArn: "STRING_VALUE", // required
+ * };
  * const command = new StartSmartHomeApplianceDiscoveryCommand(input);
  * const response = await client.send(command);
  * ```

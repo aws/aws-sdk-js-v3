@@ -53,6 +53,81 @@ export interface ModifyListenerCommandOutput extends ModifyListenerOutput, __Met
  * import { ElasticLoadBalancingV2Client, ModifyListenerCommand } from "@aws-sdk/client-elastic-load-balancing-v2"; // ES Modules import
  * // const { ElasticLoadBalancingV2Client, ModifyListenerCommand } = require("@aws-sdk/client-elastic-load-balancing-v2"); // CommonJS import
  * const client = new ElasticLoadBalancingV2Client(config);
+ * const input = {
+ *   ListenerArn: "STRING_VALUE", // required
+ *   Port: Number("int"),
+ *   Protocol: "HTTP" || "HTTPS" || "TCP" || "TLS" || "UDP" || "TCP_UDP" || "GENEVE",
+ *   SslPolicy: "STRING_VALUE",
+ *   Certificates: [
+ *     {
+ *       CertificateArn: "STRING_VALUE",
+ *       IsDefault: true || false,
+ *     },
+ *   ],
+ *   DefaultActions: [
+ *     {
+ *       Type: "forward" || "authenticate-oidc" || "authenticate-cognito" || "redirect" || "fixed-response", // required
+ *       TargetGroupArn: "STRING_VALUE",
+ *       AuthenticateOidcConfig: {
+ *         Issuer: "STRING_VALUE", // required
+ *         AuthorizationEndpoint: "STRING_VALUE", // required
+ *         TokenEndpoint: "STRING_VALUE", // required
+ *         UserInfoEndpoint: "STRING_VALUE", // required
+ *         ClientId: "STRING_VALUE", // required
+ *         ClientSecret: "STRING_VALUE",
+ *         SessionCookieName: "STRING_VALUE",
+ *         Scope: "STRING_VALUE",
+ *         SessionTimeout: Number("long"),
+ *         AuthenticationRequestExtraParams: {
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *         OnUnauthenticatedRequest: "deny" || "allow" || "authenticate",
+ *         UseExistingClientSecret: true || false,
+ *       },
+ *       AuthenticateCognitoConfig: {
+ *         UserPoolArn: "STRING_VALUE", // required
+ *         UserPoolClientId: "STRING_VALUE", // required
+ *         UserPoolDomain: "STRING_VALUE", // required
+ *         SessionCookieName: "STRING_VALUE",
+ *         Scope: "STRING_VALUE",
+ *         SessionTimeout: Number("long"),
+ *         AuthenticationRequestExtraParams: {
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *         OnUnauthenticatedRequest: "deny" || "allow" || "authenticate",
+ *       },
+ *       Order: Number("int"),
+ *       RedirectConfig: {
+ *         Protocol: "STRING_VALUE",
+ *         Port: "STRING_VALUE",
+ *         Host: "STRING_VALUE",
+ *         Path: "STRING_VALUE",
+ *         Query: "STRING_VALUE",
+ *         StatusCode: "HTTP_301" || "HTTP_302", // required
+ *       },
+ *       FixedResponseConfig: {
+ *         MessageBody: "STRING_VALUE",
+ *         StatusCode: "STRING_VALUE", // required
+ *         ContentType: "STRING_VALUE",
+ *       },
+ *       ForwardConfig: {
+ *         TargetGroups: [
+ *           {
+ *             TargetGroupArn: "STRING_VALUE",
+ *             Weight: Number("int"),
+ *           },
+ *         ],
+ *         TargetGroupStickinessConfig: {
+ *           Enabled: true || false,
+ *           DurationSeconds: Number("int"),
+ *         },
+ *       },
+ *     },
+ *   ],
+ *   AlpnPolicy: [
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new ModifyListenerCommand(input);
  * const response = await client.send(command);
  * ```

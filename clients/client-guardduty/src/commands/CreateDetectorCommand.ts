@@ -48,6 +48,35 @@ export interface CreateDetectorCommandOutput extends CreateDetectorResponse, __M
  * import { GuardDutyClient, CreateDetectorCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
  * // const { GuardDutyClient, CreateDetectorCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
  * const client = new GuardDutyClient(config);
+ * const input = {
+ *   Enable: true || false, // required
+ *   ClientToken: "STRING_VALUE",
+ *   FindingPublishingFrequency: "FIFTEEN_MINUTES" || "ONE_HOUR" || "SIX_HOURS",
+ *   DataSources: {
+ *     S3Logs: {
+ *       Enable: true || false, // required
+ *     },
+ *     Kubernetes: {
+ *       AuditLogs: {
+ *         Enable: true || false, // required
+ *       },
+ *     },
+ *     MalwareProtection: {
+ *       ScanEc2InstanceWithFindings: {
+ *         EbsVolumes: true || false,
+ *       },
+ *     },
+ *   },
+ *   Tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   Features: [
+ *     {
+ *       Name: "S3_DATA_EVENTS" || "EKS_AUDIT_LOGS" || "EBS_MALWARE_PROTECTION" || "RDS_LOGIN_EVENTS",
+ *       Status: "ENABLED" || "DISABLED",
+ *     },
+ *   ],
+ * };
  * const command = new CreateDetectorCommand(input);
  * const response = await client.send(command);
  * ```

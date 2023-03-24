@@ -52,6 +52,11 @@ export interface ListQueuesCommandOutput extends ListQueuesResult, __MetadataBea
  * import { SQSClient, ListQueuesCommand } from "@aws-sdk/client-sqs"; // ES Modules import
  * // const { SQSClient, ListQueuesCommand } = require("@aws-sdk/client-sqs"); // CommonJS import
  * const client = new SQSClient(config);
+ * const input = {
+ *   QueueNamePrefix: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListQueuesCommand(input);
  * const response = await client.send(command);
  * ```

@@ -43,6 +43,12 @@ export interface ProvisionPublicIpv4PoolCidrCommandOutput extends ProvisionPubli
  * import { EC2Client, ProvisionPublicIpv4PoolCidrCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ProvisionPublicIpv4PoolCidrCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   DryRun: true || false,
+ *   IpamPoolId: "STRING_VALUE", // required
+ *   PoolId: "STRING_VALUE", // required
+ *   NetmaskLength: Number("int"), // required
+ * };
  * const command = new ProvisionPublicIpv4PoolCidrCommand(input);
  * const response = await client.send(command);
  * ```

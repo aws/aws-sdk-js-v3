@@ -146,6 +146,43 @@ export interface PutBucketAnalyticsConfigurationCommandOutput extends __Metadata
  * import { S3Client, PutBucketAnalyticsConfigurationCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, PutBucketAnalyticsConfigurationCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
+ * const input = {
+ *   Bucket: "STRING_VALUE", // required
+ *   Id: "STRING_VALUE", // required
+ *   AnalyticsConfiguration: {
+ *     Id: "STRING_VALUE", // required
+ *     Filter: { // Union: only one key present
+ *       Prefix: "STRING_VALUE",
+ *       Tag: {
+ *         Key: "STRING_VALUE", // required
+ *         Value: "STRING_VALUE", // required
+ *       },
+ *       And: {
+ *         Prefix: "STRING_VALUE",
+ *         Tags: [
+ *           {
+ *             Key: "STRING_VALUE", // required
+ *             Value: "STRING_VALUE", // required
+ *           },
+ *         ],
+ *       },
+ *     },
+ *     StorageClassAnalysis: {
+ *       DataExport: {
+ *         OutputSchemaVersion: "V_1", // required
+ *         Destination: {
+ *           S3BucketDestination: {
+ *             Format: "CSV", // required
+ *             BucketAccountId: "STRING_VALUE",
+ *             Bucket: "STRING_VALUE", // required
+ *             Prefix: "STRING_VALUE",
+ *           },
+ *         },
+ *       },
+ *     },
+ *   },
+ *   ExpectedBucketOwner: "STRING_VALUE",
+ * };
  * const command = new PutBucketAnalyticsConfigurationCommand(input);
  * const response = await client.send(command);
  * ```

@@ -44,6 +44,15 @@ export interface DescribeEnvironmentMembershipsCommandOutput
  * import { Cloud9Client, DescribeEnvironmentMembershipsCommand } from "@aws-sdk/client-cloud9"; // ES Modules import
  * // const { Cloud9Client, DescribeEnvironmentMembershipsCommand } = require("@aws-sdk/client-cloud9"); // CommonJS import
  * const client = new Cloud9Client(config);
+ * const input = {
+ *   userArn: "STRING_VALUE",
+ *   environmentId: "STRING_VALUE",
+ *   permissions: [
+ *     "owner" || "read-write" || "read-only",
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new DescribeEnvironmentMembershipsCommand(input);
  * const response = await client.send(command);
  * ```

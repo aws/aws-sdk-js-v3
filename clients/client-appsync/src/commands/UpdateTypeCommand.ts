@@ -42,6 +42,12 @@ export interface UpdateTypeCommandOutput extends UpdateTypeResponse, __MetadataB
  * import { AppSyncClient, UpdateTypeCommand } from "@aws-sdk/client-appsync"; // ES Modules import
  * // const { AppSyncClient, UpdateTypeCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
  * const client = new AppSyncClient(config);
+ * const input = {
+ *   apiId: "STRING_VALUE", // required
+ *   typeName: "STRING_VALUE", // required
+ *   definition: "STRING_VALUE",
+ *   format: "SDL" || "JSON", // required
+ * };
  * const command = new UpdateTypeCommand(input);
  * const response = await client.send(command);
  * ```

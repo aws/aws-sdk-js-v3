@@ -42,6 +42,19 @@ export interface GetGroupIdCommandOutput extends GetGroupIdResponse, __MetadataB
  * import { IdentitystoreClient, GetGroupIdCommand } from "@aws-sdk/client-identitystore"; // ES Modules import
  * // const { IdentitystoreClient, GetGroupIdCommand } = require("@aws-sdk/client-identitystore"); // CommonJS import
  * const client = new IdentitystoreClient(config);
+ * const input = {
+ *   IdentityStoreId: "STRING_VALUE", // required
+ *   AlternateIdentifier: { // Union: only one key present
+ *     ExternalId: {
+ *       Issuer: "STRING_VALUE", // required
+ *       Id: "STRING_VALUE", // required
+ *     },
+ *     UniqueAttribute: {
+ *       AttributePath: "STRING_VALUE", // required
+ *       AttributeValue: "DOCUMENT_VALUE", // required
+ *     },
+ *   },
+ * };
  * const command = new GetGroupIdCommand(input);
  * const response = await client.send(command);
  * ```

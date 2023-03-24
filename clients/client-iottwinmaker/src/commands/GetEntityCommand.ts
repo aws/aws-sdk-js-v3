@@ -42,6 +42,10 @@ export interface GetEntityCommandOutput extends GetEntityResponse, __MetadataBea
  * import { IoTTwinMakerClient, GetEntityCommand } from "@aws-sdk/client-iottwinmaker"; // ES Modules import
  * // const { IoTTwinMakerClient, GetEntityCommand } = require("@aws-sdk/client-iottwinmaker"); // CommonJS import
  * const client = new IoTTwinMakerClient(config);
+ * const input = {
+ *   workspaceId: "STRING_VALUE", // required
+ *   entityId: "STRING_VALUE", // required
+ * };
  * const command = new GetEntityCommand(input);
  * const response = await client.send(command);
  * ```

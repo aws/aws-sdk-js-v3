@@ -42,6 +42,10 @@ export interface ListWorkerBlocksCommandOutput extends ListWorkerBlocksResponse,
  * import { MTurkClient, ListWorkerBlocksCommand } from "@aws-sdk/client-mturk"; // ES Modules import
  * // const { MTurkClient, ListWorkerBlocksCommand } = require("@aws-sdk/client-mturk"); // CommonJS import
  * const client = new MTurkClient(config);
+ * const input = {
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListWorkerBlocksCommand(input);
  * const response = await client.send(command);
  * ```

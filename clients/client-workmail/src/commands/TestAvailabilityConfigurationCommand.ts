@@ -55,6 +55,18 @@ export interface TestAvailabilityConfigurationCommandOutput
  * import { WorkMailClient, TestAvailabilityConfigurationCommand } from "@aws-sdk/client-workmail"; // ES Modules import
  * // const { WorkMailClient, TestAvailabilityConfigurationCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
  * const client = new WorkMailClient(config);
+ * const input = {
+ *   OrganizationId: "STRING_VALUE", // required
+ *   DomainName: "STRING_VALUE",
+ *   EwsProvider: {
+ *     EwsEndpoint: "STRING_VALUE", // required
+ *     EwsUsername: "STRING_VALUE", // required
+ *     EwsPassword: "STRING_VALUE", // required
+ *   },
+ *   LambdaProvider: {
+ *     LambdaArn: "STRING_VALUE", // required
+ *   },
+ * };
  * const command = new TestAvailabilityConfigurationCommand(input);
  * const response = await client.send(command);
  * ```

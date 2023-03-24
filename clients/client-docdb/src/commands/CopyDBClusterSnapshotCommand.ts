@@ -54,6 +54,19 @@ export interface CopyDBClusterSnapshotCommandOutput extends CopyDBClusterSnapsho
  * import { DocDBClient, CopyDBClusterSnapshotCommand } from "@aws-sdk/client-docdb"; // ES Modules import
  * // const { DocDBClient, CopyDBClusterSnapshotCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
  * const client = new DocDBClient(config);
+ * const input = {
+ *   SourceDBClusterSnapshotIdentifier: "STRING_VALUE", // required
+ *   TargetDBClusterSnapshotIdentifier: "STRING_VALUE", // required
+ *   KmsKeyId: "STRING_VALUE",
+ *   PreSignedUrl: "STRING_VALUE",
+ *   CopyTags: true || false,
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CopyDBClusterSnapshotCommand(input);
  * const response = await client.send(command);
  * ```

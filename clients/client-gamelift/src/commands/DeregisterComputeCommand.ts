@@ -43,6 +43,10 @@ export interface DeregisterComputeCommandOutput extends DeregisterComputeOutput,
  * import { GameLiftClient, DeregisterComputeCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, DeregisterComputeCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = {
+ *   FleetId: "STRING_VALUE", // required
+ *   ComputeName: "STRING_VALUE", // required
+ * };
  * const command = new DeregisterComputeCommand(input);
  * const response = await client.send(command);
  * ```

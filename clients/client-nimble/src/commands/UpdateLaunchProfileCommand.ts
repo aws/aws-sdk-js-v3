@@ -47,6 +47,50 @@ export interface UpdateLaunchProfileCommandOutput extends UpdateLaunchProfileRes
  * import { NimbleClient, UpdateLaunchProfileCommand } from "@aws-sdk/client-nimble"; // ES Modules import
  * // const { NimbleClient, UpdateLaunchProfileCommand } = require("@aws-sdk/client-nimble"); // CommonJS import
  * const client = new NimbleClient(config);
+ * const input = {
+ *   clientToken: "STRING_VALUE",
+ *   description: "STRING_VALUE",
+ *   launchProfileId: "STRING_VALUE", // required
+ *   launchProfileProtocolVersions: [
+ *     "STRING_VALUE",
+ *   ],
+ *   name: "STRING_VALUE",
+ *   streamConfiguration: {
+ *     clipboardMode: "ENABLED" || "DISABLED", // required
+ *     ec2InstanceTypes: [ // required
+ *       "g4dn.xlarge" || "g4dn.2xlarge" || "g4dn.4xlarge" || "g4dn.8xlarge" || "g4dn.12xlarge" || "g4dn.16xlarge" || "g3.4xlarge" || "g3s.xlarge" || "g5.xlarge" || "g5.2xlarge" || "g5.4xlarge" || "g5.8xlarge" || "g5.16xlarge",
+ *     ],
+ *     maxSessionLengthInMinutes: Number("int"),
+ *     streamingImageIds: [ // required
+ *       "STRING_VALUE",
+ *     ],
+ *     maxStoppedSessionLengthInMinutes: Number("int"),
+ *     sessionStorage: {
+ *       root: {
+ *         linux: "STRING_VALUE",
+ *         windows: "STRING_VALUE",
+ *       },
+ *       mode: [ // required
+ *         "UPLOAD",
+ *       ],
+ *     },
+ *     sessionBackup: {
+ *       mode: "AUTOMATIC" || "DEACTIVATED",
+ *       maxBackupsToRetain: Number("int"),
+ *     },
+ *     sessionPersistenceMode: "DEACTIVATED" || "ACTIVATED",
+ *     volumeConfiguration: {
+ *       size: Number("int"),
+ *       throughput: Number("int"),
+ *       iops: Number("int"),
+ *     },
+ *     automaticTerminationMode: "DEACTIVATED" || "ACTIVATED",
+ *   },
+ *   studioComponentIds: [
+ *     "STRING_VALUE",
+ *   ],
+ *   studioId: "STRING_VALUE", // required
+ * };
  * const command = new UpdateLaunchProfileCommand(input);
  * const response = await client.send(command);
  * ```

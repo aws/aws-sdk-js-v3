@@ -46,6 +46,10 @@ export interface UnshareApplicationCommandOutput extends __MetadataBearer {}
  * import { ServerlessApplicationRepositoryClient, UnshareApplicationCommand } from "@aws-sdk/client-serverlessapplicationrepository"; // ES Modules import
  * // const { ServerlessApplicationRepositoryClient, UnshareApplicationCommand } = require("@aws-sdk/client-serverlessapplicationrepository"); // CommonJS import
  * const client = new ServerlessApplicationRepositoryClient(config);
+ * const input = {
+ *   ApplicationId: "STRING_VALUE", // required
+ *   OrganizationId: "STRING_VALUE", // required
+ * };
  * const command = new UnshareApplicationCommand(input);
  * const response = await client.send(command);
  * ```

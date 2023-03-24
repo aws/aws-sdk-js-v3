@@ -45,6 +45,20 @@ export interface CreateSchemaCommandOutput extends CreateSchemaResponse, __Metad
  * import { GlueClient, CreateSchemaCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, CreateSchemaCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = {
+ *   RegistryId: {
+ *     RegistryName: "STRING_VALUE",
+ *     RegistryArn: "STRING_VALUE",
+ *   },
+ *   SchemaName: "STRING_VALUE", // required
+ *   DataFormat: "AVRO" || "JSON" || "PROTOBUF", // required
+ *   Compatibility: "NONE" || "DISABLED" || "BACKWARD" || "BACKWARD_ALL" || "FORWARD" || "FORWARD_ALL" || "FULL" || "FULL_ALL",
+ *   Description: "STRING_VALUE",
+ *   Tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   SchemaDefinition: "STRING_VALUE",
+ * };
  * const command = new CreateSchemaCommand(input);
  * const response = await client.send(command);
  * ```

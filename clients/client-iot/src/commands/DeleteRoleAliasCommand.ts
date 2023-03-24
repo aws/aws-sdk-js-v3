@@ -43,6 +43,9 @@ export interface DeleteRoleAliasCommandOutput extends DeleteRoleAliasResponse, _
  * import { IoTClient, DeleteRoleAliasCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, DeleteRoleAliasCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = {
+ *   roleAlias: "STRING_VALUE", // required
+ * };
  * const command = new DeleteRoleAliasCommand(input);
  * const response = await client.send(command);
  * ```

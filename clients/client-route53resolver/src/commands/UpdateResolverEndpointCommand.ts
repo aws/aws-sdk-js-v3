@@ -43,6 +43,17 @@ export interface UpdateResolverEndpointCommandOutput extends UpdateResolverEndpo
  * import { Route53ResolverClient, UpdateResolverEndpointCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
  * // const { Route53ResolverClient, UpdateResolverEndpointCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
  * const client = new Route53ResolverClient(config);
+ * const input = {
+ *   ResolverEndpointId: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE",
+ *   ResolverEndpointType: "IPV6" || "IPV4" || "DUALSTACK",
+ *   UpdateIpAddresses: [
+ *     {
+ *       IpId: "STRING_VALUE", // required
+ *       Ipv6: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new UpdateResolverEndpointCommand(input);
  * const response = await client.send(command);
  * ```

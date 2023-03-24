@@ -44,6 +44,11 @@ export interface ExecuteProvisionedProductPlanCommandOutput
  * import { ServiceCatalogClient, ExecuteProvisionedProductPlanCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, ExecuteProvisionedProductPlanCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
+ * const input = {
+ *   AcceptLanguage: "STRING_VALUE",
+ *   PlanId: "STRING_VALUE", // required
+ *   IdempotencyToken: "STRING_VALUE", // required
+ * };
  * const command = new ExecuteProvisionedProductPlanCommand(input);
  * const response = await client.send(command);
  * ```

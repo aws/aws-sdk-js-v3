@@ -42,6 +42,20 @@ export interface BatchDescribeMergeConflictsCommandOutput extends BatchDescribeM
  * import { CodeCommitClient, BatchDescribeMergeConflictsCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, BatchDescribeMergeConflictsCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
  * const client = new CodeCommitClient(config);
+ * const input = {
+ *   repositoryName: "STRING_VALUE", // required
+ *   destinationCommitSpecifier: "STRING_VALUE", // required
+ *   sourceCommitSpecifier: "STRING_VALUE", // required
+ *   mergeOption: "STRING_VALUE", // required
+ *   maxMergeHunks: Number("int"),
+ *   maxConflictFiles: Number("int"),
+ *   filePaths: [
+ *     "STRING_VALUE",
+ *   ],
+ *   conflictDetailLevel: "STRING_VALUE",
+ *   conflictResolutionStrategy: "STRING_VALUE",
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new BatchDescribeMergeConflictsCommand(input);
  * const response = await client.send(command);
  * ```

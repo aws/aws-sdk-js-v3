@@ -42,6 +42,11 @@ export interface StartResourceScanCommandOutput extends __MetadataBearer {}
  * import { AccessAnalyzerClient, StartResourceScanCommand } from "@aws-sdk/client-accessanalyzer"; // ES Modules import
  * // const { AccessAnalyzerClient, StartResourceScanCommand } = require("@aws-sdk/client-accessanalyzer"); // CommonJS import
  * const client = new AccessAnalyzerClient(config);
+ * const input = {
+ *   analyzerArn: "STRING_VALUE", // required
+ *   resourceArn: "STRING_VALUE", // required
+ *   resourceOwnerAccount: "STRING_VALUE",
+ * };
  * const command = new StartResourceScanCommand(input);
  * const response = await client.send(command);
  * ```

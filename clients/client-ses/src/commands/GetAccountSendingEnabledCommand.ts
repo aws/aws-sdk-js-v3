@@ -43,6 +43,7 @@ export interface GetAccountSendingEnabledCommandOutput extends GetAccountSending
  * import { SESClient, GetAccountSendingEnabledCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, GetAccountSendingEnabledCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
+ * const input = {};
  * const command = new GetAccountSendingEnabledCommand(input);
  * const response = await client.send(command);
  * ```

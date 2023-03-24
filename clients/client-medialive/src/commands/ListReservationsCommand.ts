@@ -42,6 +42,18 @@ export interface ListReservationsCommandOutput extends ListReservationsResponse,
  * import { MediaLiveClient, ListReservationsCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, ListReservationsCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
  * const client = new MediaLiveClient(config);
+ * const input = {
+ *   ChannelClass: "STRING_VALUE",
+ *   Codec: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   MaximumBitrate: "STRING_VALUE",
+ *   MaximumFramerate: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   Resolution: "STRING_VALUE",
+ *   ResourceType: "STRING_VALUE",
+ *   SpecialFeature: "STRING_VALUE",
+ *   VideoQuality: "STRING_VALUE",
+ * };
  * const command = new ListReservationsCommand(input);
  * const response = await client.send(command);
  * ```

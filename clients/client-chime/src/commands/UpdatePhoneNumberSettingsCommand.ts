@@ -47,6 +47,9 @@ export interface UpdatePhoneNumberSettingsCommandOutput extends __MetadataBearer
  * import { ChimeClient, UpdatePhoneNumberSettingsCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, UpdatePhoneNumberSettingsCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = {
+ *   CallingName: "STRING_VALUE", // required
+ * };
  * const command = new UpdatePhoneNumberSettingsCommand(input);
  * const response = await client.send(command);
  * ```

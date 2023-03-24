@@ -42,6 +42,13 @@ export interface ListTableMetadataCommandOutput extends ListTableMetadataOutput,
  * import { AthenaClient, ListTableMetadataCommand } from "@aws-sdk/client-athena"; // ES Modules import
  * // const { AthenaClient, ListTableMetadataCommand } = require("@aws-sdk/client-athena"); // CommonJS import
  * const client = new AthenaClient(config);
+ * const input = {
+ *   CatalogName: "STRING_VALUE", // required
+ *   DatabaseName: "STRING_VALUE", // required
+ *   Expression: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListTableMetadataCommand(input);
  * const response = await client.send(command);
  * ```

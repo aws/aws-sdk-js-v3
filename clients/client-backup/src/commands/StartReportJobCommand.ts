@@ -42,6 +42,10 @@ export interface StartReportJobCommandOutput extends StartReportJobOutput, __Met
  * import { BackupClient, StartReportJobCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, StartReportJobCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
+ * const input = {
+ *   ReportPlanName: "STRING_VALUE", // required
+ *   IdempotencyToken: "STRING_VALUE",
+ * };
  * const command = new StartReportJobCommand(input);
  * const response = await client.send(command);
  * ```

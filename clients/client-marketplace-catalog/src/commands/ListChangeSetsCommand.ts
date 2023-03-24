@@ -51,6 +51,23 @@ export interface ListChangeSetsCommandOutput extends ListChangeSetsResponse, __M
  * import { MarketplaceCatalogClient, ListChangeSetsCommand } from "@aws-sdk/client-marketplace-catalog"; // ES Modules import
  * // const { MarketplaceCatalogClient, ListChangeSetsCommand } = require("@aws-sdk/client-marketplace-catalog"); // CommonJS import
  * const client = new MarketplaceCatalogClient(config);
+ * const input = {
+ *   Catalog: "STRING_VALUE", // required
+ *   FilterList: [
+ *     {
+ *       Name: "STRING_VALUE",
+ *       ValueList: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   Sort: {
+ *     SortBy: "STRING_VALUE",
+ *     SortOrder: "ASCENDING" || "DESCENDING",
+ *   },
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListChangeSetsCommand(input);
  * const response = await client.send(command);
  * ```

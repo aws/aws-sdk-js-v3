@@ -42,6 +42,10 @@ export interface GetPrefetchScheduleCommandOutput extends GetPrefetchScheduleRes
  * import { MediaTailorClient, GetPrefetchScheduleCommand } from "@aws-sdk/client-mediatailor"; // ES Modules import
  * // const { MediaTailorClient, GetPrefetchScheduleCommand } = require("@aws-sdk/client-mediatailor"); // CommonJS import
  * const client = new MediaTailorClient(config);
+ * const input = {
+ *   Name: "STRING_VALUE", // required
+ *   PlaybackConfigurationName: "STRING_VALUE", // required
+ * };
  * const command = new GetPrefetchScheduleCommand(input);
  * const response = await client.send(command);
  * ```

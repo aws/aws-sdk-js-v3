@@ -42,6 +42,18 @@ export interface CreateWorldTemplateCommandOutput extends CreateWorldTemplateRes
  * import { RoboMakerClient, CreateWorldTemplateCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
  * // const { RoboMakerClient, CreateWorldTemplateCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
  * const client = new RoboMakerClient(config);
+ * const input = {
+ *   clientRequestToken: "STRING_VALUE",
+ *   name: "STRING_VALUE",
+ *   templateBody: "STRING_VALUE",
+ *   templateLocation: {
+ *     s3Bucket: "STRING_VALUE", // required
+ *     s3Key: "STRING_VALUE", // required
+ *   },
+ *   tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateWorldTemplateCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,16 @@ export interface UpdateAccountSettingsCommandOutput extends UpdateAccountSetting
  * import { ProtonClient, UpdateAccountSettingsCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, UpdateAccountSettingsCommand } = require("@aws-sdk/client-proton"); // CommonJS import
  * const client = new ProtonClient(config);
+ * const input = {
+ *   pipelineServiceRoleArn: "STRING_VALUE",
+ *   pipelineProvisioningRepository: {
+ *     provider: "STRING_VALUE", // required
+ *     name: "STRING_VALUE", // required
+ *     branch: "STRING_VALUE", // required
+ *   },
+ *   deletePipelineProvisioningRepository: true || false,
+ *   pipelineCodebuildRoleArn: "STRING_VALUE",
+ * };
  * const command = new UpdateAccountSettingsCommand(input);
  * const response = await client.send(command);
  * ```

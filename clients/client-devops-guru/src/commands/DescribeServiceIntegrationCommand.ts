@@ -44,6 +44,7 @@ export interface DescribeServiceIntegrationCommandOutput extends DescribeService
  * import { DevOpsGuruClient, DescribeServiceIntegrationCommand } from "@aws-sdk/client-devops-guru"; // ES Modules import
  * // const { DevOpsGuruClient, DescribeServiceIntegrationCommand } = require("@aws-sdk/client-devops-guru"); // CommonJS import
  * const client = new DevOpsGuruClient(config);
+ * const input = {};
  * const command = new DescribeServiceIntegrationCommand(input);
  * const response = await client.send(command);
  * ```

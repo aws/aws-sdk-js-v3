@@ -50,6 +50,16 @@ export interface PutAggregationAuthorizationCommandOutput
  * import { ConfigServiceClient, PutAggregationAuthorizationCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, PutAggregationAuthorizationCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
+ * const input = {
+ *   AuthorizedAccountId: "STRING_VALUE", // required
+ *   AuthorizedAwsRegion: "STRING_VALUE", // required
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new PutAggregationAuthorizationCommand(input);
  * const response = await client.send(command);
  * ```

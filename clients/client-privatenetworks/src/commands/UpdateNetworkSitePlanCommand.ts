@@ -46,6 +46,30 @@ export interface UpdateNetworkSitePlanCommandOutput extends UpdateNetworkSiteRes
  * import { PrivateNetworksClient, UpdateNetworkSitePlanCommand } from "@aws-sdk/client-privatenetworks"; // ES Modules import
  * // const { PrivateNetworksClient, UpdateNetworkSitePlanCommand } = require("@aws-sdk/client-privatenetworks"); // CommonJS import
  * const client = new PrivateNetworksClient(config);
+ * const input = {
+ *   networkSiteArn: "STRING_VALUE", // required
+ *   pendingPlan: {
+ *     resourceDefinitions: [
+ *       {
+ *         type: "STRING_VALUE", // required
+ *         options: [
+ *           {
+ *             name: "STRING_VALUE", // required
+ *             value: "STRING_VALUE",
+ *           },
+ *         ],
+ *         count: Number("int"), // required
+ *       },
+ *     ],
+ *     options: [
+ *       {
+ *         name: "STRING_VALUE", // required
+ *         value: "STRING_VALUE",
+ *       },
+ *     ],
+ *   },
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new UpdateNetworkSitePlanCommand(input);
  * const response = await client.send(command);
  * ```

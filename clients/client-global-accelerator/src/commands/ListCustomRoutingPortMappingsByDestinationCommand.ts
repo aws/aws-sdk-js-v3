@@ -55,6 +55,12 @@ export interface ListCustomRoutingPortMappingsByDestinationCommandOutput
  * import { GlobalAcceleratorClient, ListCustomRoutingPortMappingsByDestinationCommand } from "@aws-sdk/client-global-accelerator"; // ES Modules import
  * // const { GlobalAcceleratorClient, ListCustomRoutingPortMappingsByDestinationCommand } = require("@aws-sdk/client-global-accelerator"); // CommonJS import
  * const client = new GlobalAcceleratorClient(config);
+ * const input = {
+ *   EndpointId: "STRING_VALUE", // required
+ *   DestinationAddress: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListCustomRoutingPortMappingsByDestinationCommand(input);
  * const response = await client.send(command);
  * ```

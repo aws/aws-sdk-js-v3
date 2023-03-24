@@ -47,6 +47,10 @@ export interface DescribePermissionsCommandOutput extends DescribePermissionsRes
  * import { OpsWorksClient, DescribePermissionsCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, DescribePermissionsCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
+ * const input = {
+ *   IamUserArn: "STRING_VALUE",
+ *   StackId: "STRING_VALUE",
+ * };
  * const command = new DescribePermissionsCommand(input);
  * const response = await client.send(command);
  * ```

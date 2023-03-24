@@ -42,6 +42,7 @@ export interface InitializeServiceCommandOutput extends InitializeServiceRespons
  * import { MgnClient, InitializeServiceCommand } from "@aws-sdk/client-mgn"; // ES Modules import
  * // const { MgnClient, InitializeServiceCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
  * const client = new MgnClient(config);
+ * const input = {};
  * const command = new InitializeServiceCommand(input);
  * const response = await client.send(command);
  * ```

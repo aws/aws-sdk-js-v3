@@ -43,6 +43,11 @@ export interface ModifyClusterSnapshotCommandOutput extends ModifyClusterSnapsho
  * import { RedshiftClient, ModifyClusterSnapshotCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, ModifyClusterSnapshotCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = {
+ *   SnapshotIdentifier: "STRING_VALUE", // required
+ *   ManualSnapshotRetentionPeriod: Number("int"),
+ *   Force: true || false,
+ * };
  * const command = new ModifyClusterSnapshotCommand(input);
  * const response = await client.send(command);
  * ```

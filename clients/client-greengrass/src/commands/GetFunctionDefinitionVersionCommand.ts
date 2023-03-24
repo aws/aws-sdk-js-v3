@@ -44,6 +44,11 @@ export interface GetFunctionDefinitionVersionCommandOutput
  * import { GreengrassClient, GetFunctionDefinitionVersionCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, GetFunctionDefinitionVersionCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
+ * const input = {
+ *   FunctionDefinitionId: "STRING_VALUE", // required
+ *   FunctionDefinitionVersionId: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new GetFunctionDefinitionVersionCommand(input);
  * const response = await client.send(command);
  * ```

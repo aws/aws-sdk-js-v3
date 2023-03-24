@@ -43,6 +43,25 @@ export interface CreateLocationEfsCommandOutput extends CreateLocationEfsRespons
  * import { DataSyncClient, CreateLocationEfsCommand } from "@aws-sdk/client-datasync"; // ES Modules import
  * // const { DataSyncClient, CreateLocationEfsCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
  * const client = new DataSyncClient(config);
+ * const input = {
+ *   Subdirectory: "STRING_VALUE",
+ *   EfsFilesystemArn: "STRING_VALUE", // required
+ *   Ec2Config: {
+ *     SubnetArn: "STRING_VALUE", // required
+ *     SecurityGroupArns: [ // required
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   AccessPointArn: "STRING_VALUE",
+ *   FileSystemAccessRoleArn: "STRING_VALUE",
+ *   InTransitEncryption: "NONE" || "TLS1_2",
+ * };
  * const command = new CreateLocationEfsCommand(input);
  * const response = await client.send(command);
  * ```

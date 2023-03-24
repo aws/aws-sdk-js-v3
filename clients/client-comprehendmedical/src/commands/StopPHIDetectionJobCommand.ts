@@ -46,6 +46,9 @@ export interface StopPHIDetectionJobCommandOutput extends StopPHIDetectionJobRes
  * import { ComprehendMedicalClient, StopPHIDetectionJobCommand } from "@aws-sdk/client-comprehendmedical"; // ES Modules import
  * // const { ComprehendMedicalClient, StopPHIDetectionJobCommand } = require("@aws-sdk/client-comprehendmedical"); // CommonJS import
  * const client = new ComprehendMedicalClient(config);
+ * const input = {
+ *   JobId: "STRING_VALUE", // required
+ * };
  * const command = new StopPHIDetectionJobCommand(input);
  * const response = await client.send(command);
  * ```

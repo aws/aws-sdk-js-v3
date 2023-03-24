@@ -61,6 +61,21 @@ export interface GetInterpolatedAssetPropertyValuesCommandOutput
  * import { IoTSiteWiseClient, GetInterpolatedAssetPropertyValuesCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, GetInterpolatedAssetPropertyValuesCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
+ * const input = {
+ *   assetId: "STRING_VALUE",
+ *   propertyId: "STRING_VALUE",
+ *   propertyAlias: "STRING_VALUE",
+ *   startTimeInSeconds: Number("long"), // required
+ *   startTimeOffsetInNanos: Number("int"),
+ *   endTimeInSeconds: Number("long"), // required
+ *   endTimeOffsetInNanos: Number("int"),
+ *   quality: "GOOD" || "BAD" || "UNCERTAIN", // required
+ *   intervalInSeconds: Number("long"), // required
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   type: "STRING_VALUE", // required
+ *   intervalWindowInSeconds: Number("long"),
+ * };
  * const command = new GetInterpolatedAssetPropertyValuesCommand(input);
  * const response = await client.send(command);
  * ```

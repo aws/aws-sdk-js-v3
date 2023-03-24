@@ -42,6 +42,10 @@ export interface ListGamesCommandOutput extends ListGamesResult, __MetadataBeare
  * import { GameSparksClient, ListGamesCommand } from "@aws-sdk/client-gamesparks"; // ES Modules import
  * // const { GameSparksClient, ListGamesCommand } = require("@aws-sdk/client-gamesparks"); // CommonJS import
  * const client = new GameSparksClient(config);
+ * const input = {
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListGamesCommand(input);
  * const response = await client.send(command);
  * ```

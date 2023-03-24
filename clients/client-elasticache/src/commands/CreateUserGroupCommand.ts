@@ -43,6 +43,19 @@ export interface CreateUserGroupCommandOutput extends UserGroup, __MetadataBeare
  * import { ElastiCacheClient, CreateUserGroupCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, CreateUserGroupCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
  * const client = new ElastiCacheClient(config);
+ * const input = {
+ *   UserGroupId: "STRING_VALUE", // required
+ *   Engine: "STRING_VALUE", // required
+ *   UserIds: [
+ *     "STRING_VALUE",
+ *   ],
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateUserGroupCommand(input);
  * const response = await client.send(command);
  * ```

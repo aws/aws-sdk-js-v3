@@ -46,6 +46,10 @@ export interface GetInstanceAccessDetailsCommandOutput extends GetInstanceAccess
  * import { LightsailClient, GetInstanceAccessDetailsCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, GetInstanceAccessDetailsCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = {
+ *   instanceName: "STRING_VALUE", // required
+ *   protocol: "ssh" || "rdp",
+ * };
  * const command = new GetInstanceAccessDetailsCommand(input);
  * const response = await client.send(command);
  * ```

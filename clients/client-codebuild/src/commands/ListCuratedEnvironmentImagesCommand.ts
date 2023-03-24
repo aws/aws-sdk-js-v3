@@ -44,6 +44,7 @@ export interface ListCuratedEnvironmentImagesCommandOutput
  * import { CodeBuildClient, ListCuratedEnvironmentImagesCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
  * // const { CodeBuildClient, ListCuratedEnvironmentImagesCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
  * const client = new CodeBuildClient(config);
+ * const input = {};
  * const command = new ListCuratedEnvironmentImagesCommand(input);
  * const response = await client.send(command);
  * ```

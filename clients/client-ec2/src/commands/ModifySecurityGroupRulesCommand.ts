@@ -42,6 +42,25 @@ export interface ModifySecurityGroupRulesCommandOutput extends ModifySecurityGro
  * import { EC2Client, ModifySecurityGroupRulesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ModifySecurityGroupRulesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   GroupId: "STRING_VALUE", // required
+ *   SecurityGroupRules: [ // required
+ *     {
+ *       SecurityGroupRuleId: "STRING_VALUE", // required
+ *       SecurityGroupRule: {
+ *         IpProtocol: "STRING_VALUE",
+ *         FromPort: Number("int"),
+ *         ToPort: Number("int"),
+ *         CidrIpv4: "STRING_VALUE",
+ *         CidrIpv6: "STRING_VALUE",
+ *         PrefixListId: "STRING_VALUE",
+ *         ReferencedGroupId: "STRING_VALUE",
+ *         Description: "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ *   DryRun: true || false,
+ * };
  * const command = new ModifySecurityGroupRulesCommand(input);
  * const response = await client.send(command);
  * ```

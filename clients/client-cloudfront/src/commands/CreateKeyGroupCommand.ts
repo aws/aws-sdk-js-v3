@@ -50,6 +50,15 @@ export interface CreateKeyGroupCommandOutput extends CreateKeyGroupResult, __Met
  * import { CloudFrontClient, CreateKeyGroupCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, CreateKeyGroupCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
+ * const input = {
+ *   KeyGroupConfig: {
+ *     Name: "STRING_VALUE", // required
+ *     Items: [ // required
+ *       "STRING_VALUE",
+ *     ],
+ *     Comment: "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateKeyGroupCommand(input);
  * const response = await client.send(command);
  * ```

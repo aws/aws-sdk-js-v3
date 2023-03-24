@@ -45,6 +45,10 @@ export interface RestoreAddressToClassicCommandOutput extends RestoreAddressToCl
  * import { EC2Client, RestoreAddressToClassicCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, RestoreAddressToClassicCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   DryRun: true || false,
+ *   PublicIp: "STRING_VALUE", // required
+ * };
  * const command = new RestoreAddressToClassicCommand(input);
  * const response = await client.send(command);
  * ```

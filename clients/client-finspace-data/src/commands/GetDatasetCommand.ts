@@ -42,6 +42,9 @@ export interface GetDatasetCommandOutput extends GetDatasetResponse, __MetadataB
  * import { FinspaceDataClient, GetDatasetCommand } from "@aws-sdk/client-finspace-data"; // ES Modules import
  * // const { FinspaceDataClient, GetDatasetCommand } = require("@aws-sdk/client-finspace-data"); // CommonJS import
  * const client = new FinspaceDataClient(config);
+ * const input = {
+ *   datasetId: "STRING_VALUE", // required
+ * };
  * const command = new GetDatasetCommand(input);
  * const response = await client.send(command);
  * ```

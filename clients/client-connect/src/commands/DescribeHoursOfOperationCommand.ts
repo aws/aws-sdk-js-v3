@@ -43,6 +43,10 @@ export interface DescribeHoursOfOperationCommandOutput extends DescribeHoursOfOp
  * import { ConnectClient, DescribeHoursOfOperationCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, DescribeHoursOfOperationCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = {
+ *   InstanceId: "STRING_VALUE", // required
+ *   HoursOfOperationId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeHoursOfOperationCommand(input);
  * const response = await client.send(command);
  * ```

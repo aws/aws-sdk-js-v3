@@ -44,6 +44,11 @@ export interface BatchGetMembershipDatasourcesCommandOutput
  * import { DetectiveClient, BatchGetMembershipDatasourcesCommand } from "@aws-sdk/client-detective"; // ES Modules import
  * // const { DetectiveClient, BatchGetMembershipDatasourcesCommand } = require("@aws-sdk/client-detective"); // CommonJS import
  * const client = new DetectiveClient(config);
+ * const input = {
+ *   GraphArns: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new BatchGetMembershipDatasourcesCommand(input);
  * const response = await client.send(command);
  * ```

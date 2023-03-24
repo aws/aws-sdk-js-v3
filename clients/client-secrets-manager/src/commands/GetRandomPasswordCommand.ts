@@ -55,6 +55,16 @@ export interface GetRandomPasswordCommandOutput extends GetRandomPasswordRespons
  * import { SecretsManagerClient, GetRandomPasswordCommand } from "@aws-sdk/client-secrets-manager"; // ES Modules import
  * // const { SecretsManagerClient, GetRandomPasswordCommand } = require("@aws-sdk/client-secrets-manager"); // CommonJS import
  * const client = new SecretsManagerClient(config);
+ * const input = {
+ *   PasswordLength: Number("long"),
+ *   ExcludeCharacters: "STRING_VALUE",
+ *   ExcludeNumbers: true || false,
+ *   ExcludePunctuation: true || false,
+ *   ExcludeUppercase: true || false,
+ *   ExcludeLowercase: true || false,
+ *   IncludeSpace: true || false,
+ *   RequireEachIncludedType: true || false,
+ * };
  * const command = new GetRandomPasswordCommand(input);
  * const response = await client.send(command);
  * ```

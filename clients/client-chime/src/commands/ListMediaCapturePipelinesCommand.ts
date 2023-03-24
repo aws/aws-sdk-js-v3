@@ -46,6 +46,10 @@ export interface ListMediaCapturePipelinesCommandOutput extends ListMediaCapture
  * import { ChimeClient, ListMediaCapturePipelinesCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, ListMediaCapturePipelinesCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = {
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListMediaCapturePipelinesCommand(input);
  * const response = await client.send(command);
  * ```

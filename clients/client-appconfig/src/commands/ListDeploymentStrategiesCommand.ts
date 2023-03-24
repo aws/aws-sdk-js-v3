@@ -42,6 +42,10 @@ export interface ListDeploymentStrategiesCommandOutput extends DeploymentStrateg
  * import { AppConfigClient, ListDeploymentStrategiesCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
  * // const { AppConfigClient, ListDeploymentStrategiesCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
  * const client = new AppConfigClient(config);
+ * const input = {
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListDeploymentStrategiesCommand(input);
  * const response = await client.send(command);
  * ```

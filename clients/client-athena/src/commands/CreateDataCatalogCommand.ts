@@ -43,6 +43,20 @@ export interface CreateDataCatalogCommandOutput extends CreateDataCatalogOutput,
  * import { AthenaClient, CreateDataCatalogCommand } from "@aws-sdk/client-athena"; // ES Modules import
  * // const { AthenaClient, CreateDataCatalogCommand } = require("@aws-sdk/client-athena"); // CommonJS import
  * const client = new AthenaClient(config);
+ * const input = {
+ *   Name: "STRING_VALUE", // required
+ *   Type: "LAMBDA" || "GLUE" || "HIVE", // required
+ *   Description: "STRING_VALUE",
+ *   Parameters: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateDataCatalogCommand(input);
  * const response = await client.send(command);
  * ```

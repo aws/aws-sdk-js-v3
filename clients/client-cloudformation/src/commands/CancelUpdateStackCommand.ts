@@ -47,6 +47,10 @@ export interface CancelUpdateStackCommandOutput extends __MetadataBearer {}
  * import { CloudFormationClient, CancelUpdateStackCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, CancelUpdateStackCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
  * const client = new CloudFormationClient(config);
+ * const input = {
+ *   StackName: "STRING_VALUE", // required
+ *   ClientRequestToken: "STRING_VALUE",
+ * };
  * const command = new CancelUpdateStackCommand(input);
  * const response = await client.send(command);
  * ```

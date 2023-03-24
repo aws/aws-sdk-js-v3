@@ -42,6 +42,18 @@ export interface PutLaunchProfileMembersCommandOutput extends PutLaunchProfileMe
  * import { NimbleClient, PutLaunchProfileMembersCommand } from "@aws-sdk/client-nimble"; // ES Modules import
  * // const { NimbleClient, PutLaunchProfileMembersCommand } = require("@aws-sdk/client-nimble"); // CommonJS import
  * const client = new NimbleClient(config);
+ * const input = {
+ *   clientToken: "STRING_VALUE",
+ *   identityStoreId: "STRING_VALUE", // required
+ *   launchProfileId: "STRING_VALUE", // required
+ *   members: [ // required
+ *     {
+ *       persona: "USER", // required
+ *       principalId: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   studioId: "STRING_VALUE", // required
+ * };
  * const command = new PutLaunchProfileMembersCommand(input);
  * const response = await client.send(command);
  * ```

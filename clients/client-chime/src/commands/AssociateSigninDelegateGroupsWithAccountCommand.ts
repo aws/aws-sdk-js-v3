@@ -48,6 +48,14 @@ export interface AssociateSigninDelegateGroupsWithAccountCommandOutput
  * import { ChimeClient, AssociateSigninDelegateGroupsWithAccountCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, AssociateSigninDelegateGroupsWithAccountCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = {
+ *   AccountId: "STRING_VALUE", // required
+ *   SigninDelegateGroups: [ // required
+ *     {
+ *       GroupName: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new AssociateSigninDelegateGroupsWithAccountCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,9 @@ export interface DeleteSpotDatafeedSubscriptionCommandOutput extends __MetadataB
  * import { EC2Client, DeleteSpotDatafeedSubscriptionCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DeleteSpotDatafeedSubscriptionCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   DryRun: true || false,
+ * };
  * const command = new DeleteSpotDatafeedSubscriptionCommand(input);
  * const response = await client.send(command);
  * ```

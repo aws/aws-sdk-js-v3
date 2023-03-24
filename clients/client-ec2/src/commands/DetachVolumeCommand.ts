@@ -50,6 +50,13 @@ export interface DetachVolumeCommandOutput extends VolumeAttachment, __MetadataB
  * import { EC2Client, DetachVolumeCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DetachVolumeCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   Device: "STRING_VALUE",
+ *   Force: true || false,
+ *   InstanceId: "STRING_VALUE",
+ *   VolumeId: "STRING_VALUE", // required
+ *   DryRun: true || false,
+ * };
  * const command = new DetachVolumeCommand(input);
  * const response = await client.send(command);
  * ```

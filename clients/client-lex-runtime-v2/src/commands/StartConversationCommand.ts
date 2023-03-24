@@ -108,6 +108,171 @@ export interface StartConversationCommandOutput extends StartConversationRespons
  * import { LexRuntimeV2Client, StartConversationCommand } from "@aws-sdk/client-lex-runtime-v2"; // ES Modules import
  * // const { LexRuntimeV2Client, StartConversationCommand } = require("@aws-sdk/client-lex-runtime-v2"); // CommonJS import
  * const client = new LexRuntimeV2Client(config);
+ * const input = {
+ *   botId: "STRING_VALUE", // required
+ *   botAliasId: "STRING_VALUE", // required
+ *   localeId: "STRING_VALUE", // required
+ *   sessionId: "STRING_VALUE", // required
+ *   conversationMode: "AUDIO" || "TEXT",
+ *   requestEventStream: { // Union: only one key present
+ *     ConfigurationEvent: {
+ *       requestAttributes: {
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *       responseContentType: "STRING_VALUE", // required
+ *       sessionState: {
+ *         dialogAction: {
+ *           type: "Close" || "ConfirmIntent" || "Delegate" || "ElicitIntent" || "ElicitSlot" || "None", // required
+ *           slotToElicit: "STRING_VALUE",
+ *           slotElicitationStyle: "Default" || "SpellByLetter" || "SpellByWord",
+ *           subSlotToElicit: {
+ *             name: "STRING_VALUE", // required
+ *             subSlotToElicit: {
+ *               name: "STRING_VALUE", // required
+ *               subSlotToElicit: {
+ *                 name: "<ElicitSubSlot>",
+ *                 subSlotToElicit: "<ElicitSubSlot>",
+ *               },
+ *             },
+ *           },
+ *         },
+ *         intent: {
+ *           name: "STRING_VALUE", // required
+ *           slots: {
+ *             "<keys>": {
+ *               value: {
+ *                 originalValue: "STRING_VALUE",
+ *                 interpretedValue: "STRING_VALUE", // required
+ *                 resolvedValues: [
+ *                   "STRING_VALUE",
+ *                 ],
+ *               },
+ *               shape: "Scalar" || "List" || "Composite",
+ *               values: [
+ *                 {
+ *                   value: {
+ *                     originalValue: "STRING_VALUE",
+ *                     interpretedValue: "STRING_VALUE", // required
+ *                     resolvedValues: [
+ *                       "STRING_VALUE",
+ *                     ],
+ *                   },
+ *                   shape: "Scalar" || "List" || "Composite",
+ *                   values: [
+ *                     {
+ *                       value: "<Slot>",
+ *                       shape: "<Slot>",
+ *                       values: "<Slot>",
+ *                       subSlots: {
+ *                         "<keys>": {
+ *                           value: "<Slot>",
+ *                           shape: "<Slot>",
+ *                           values: "<Slot>",
+ *                           subSlots: {
+ *                             "<keys>": "<Slot>",
+ *                           },
+ *                         },
+ *                       },
+ *                     },
+ *                   ],
+ *                   subSlots: "<Slot>",
+ *                 },
+ *               ],
+ *               subSlots: "<Slot>",
+ *             },
+ *           },
+ *           state: "Failed" || "Fulfilled" || "InProgress" || "ReadyForFulfillment" || "Waiting" || "FulfillmentInProgress",
+ *           confirmationState: "Confirmed" || "Denied" || "None",
+ *         },
+ *         activeContexts: [
+ *           {
+ *             name: "STRING_VALUE", // required
+ *             timeToLive: {
+ *               timeToLiveInSeconds: Number("int"), // required
+ *               turnsToLive: Number("int"), // required
+ *             },
+ *             contextAttributes: { // required
+ *               "<keys>": "STRING_VALUE",
+ *             },
+ *           },
+ *         ],
+ *         sessionAttributes: {
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *         originatingRequestId: "STRING_VALUE",
+ *         runtimeHints: {
+ *           slotHints: {
+ *             "<keys>": {
+ *               "<keys>": {
+ *                 runtimeHintValues: [
+ *                   {
+ *                     phrase: "STRING_VALUE", // required
+ *                   },
+ *                 ],
+ *                 subSlotHints: {
+ *                   "<keys>": {
+ *                     runtimeHintValues: [
+ *                       {
+ *                         phrase: "STRING_VALUE", // required
+ *                       },
+ *                     ],
+ *                     subSlotHints: {
+ *                       "<keys>": "<RuntimeHintDetails>",
+ *                     },
+ *                   },
+ *                 },
+ *               },
+ *             },
+ *           },
+ *         },
+ *       },
+ *       welcomeMessages: [
+ *         {
+ *           content: "STRING_VALUE",
+ *           contentType: "CustomPayload" || "ImageResponseCard" || "PlainText" || "SSML", // required
+ *           imageResponseCard: {
+ *             title: "STRING_VALUE", // required
+ *             subtitle: "STRING_VALUE",
+ *             imageUrl: "STRING_VALUE",
+ *             buttons: [
+ *               {
+ *                 text: "STRING_VALUE", // required
+ *                 value: "STRING_VALUE", // required
+ *               },
+ *             ],
+ *           },
+ *         },
+ *       ],
+ *       disablePlayback: true || false,
+ *       eventId: "STRING_VALUE",
+ *       clientTimestampMillis: Number("long"),
+ *     },
+ *     AudioInputEvent: {
+ *       audioChunk: "BLOB_VALUE",
+ *       contentType: "STRING_VALUE", // required
+ *       eventId: "STRING_VALUE",
+ *       clientTimestampMillis: Number("long"),
+ *     },
+ *     DTMFInputEvent: {
+ *       inputCharacter: "STRING_VALUE", // required
+ *       eventId: "STRING_VALUE",
+ *       clientTimestampMillis: Number("long"),
+ *     },
+ *     TextInputEvent: {
+ *       text: "STRING_VALUE", // required
+ *       eventId: "STRING_VALUE",
+ *       clientTimestampMillis: Number("long"),
+ *     },
+ *     PlaybackCompletionEvent: {
+ *       eventId: "STRING_VALUE",
+ *       clientTimestampMillis: Number("long"),
+ *     },
+ *     DisconnectionEvent: {
+ *       eventId: "STRING_VALUE",
+ *       clientTimestampMillis: Number("long"),
+ *     },
+ *   },
+ * };
  * const command = new StartConversationCommand(input);
  * const response = await client.send(command);
  * ```

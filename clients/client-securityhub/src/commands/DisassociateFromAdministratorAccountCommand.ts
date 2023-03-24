@@ -51,6 +51,7 @@ export interface DisassociateFromAdministratorAccountCommandOutput
  * import { SecurityHubClient, DisassociateFromAdministratorAccountCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, DisassociateFromAdministratorAccountCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
  * const client = new SecurityHubClient(config);
+ * const input = {};
  * const command = new DisassociateFromAdministratorAccountCommand(input);
  * const response = await client.send(command);
  * ```

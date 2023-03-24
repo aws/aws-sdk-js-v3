@@ -39,6 +39,7 @@ export interface PeerVpcCommandOutput extends PeerVpcResult, __MetadataBearer {}
  * import { LightsailClient, PeerVpcCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, PeerVpcCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = {};
  * const command = new PeerVpcCommand(input);
  * const response = await client.send(command);
  * ```

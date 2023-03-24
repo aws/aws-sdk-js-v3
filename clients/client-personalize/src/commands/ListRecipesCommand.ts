@@ -43,6 +43,12 @@ export interface ListRecipesCommandOutput extends ListRecipesResponse, __Metadat
  * import { PersonalizeClient, ListRecipesCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, ListRecipesCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
  * const client = new PersonalizeClient(config);
+ * const input = {
+ *   recipeProvider: "SERVICE",
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   domain: "ECOMMERCE" || "VIDEO_ON_DEMAND",
+ * };
  * const command = new ListRecipesCommand(input);
  * const response = await client.send(command);
  * ```

@@ -44,6 +44,11 @@ export interface ListSkillsStoreSkillsByCategoryCommandOutput
  * import { AlexaForBusinessClient, ListSkillsStoreSkillsByCategoryCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, ListSkillsStoreSkillsByCategoryCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
+ * const input = {
+ *   CategoryId: Number("long"), // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListSkillsStoreSkillsByCategoryCommand(input);
  * const response = await client.send(command);
  * ```

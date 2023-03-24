@@ -42,6 +42,11 @@ export interface CreateGroupCommandOutput extends CreateGroupResponse, __Metadat
  * import { IdentitystoreClient, CreateGroupCommand } from "@aws-sdk/client-identitystore"; // ES Modules import
  * // const { IdentitystoreClient, CreateGroupCommand } = require("@aws-sdk/client-identitystore"); // CommonJS import
  * const client = new IdentitystoreClient(config);
+ * const input = {
+ *   IdentityStoreId: "STRING_VALUE", // required
+ *   DisplayName: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ * };
  * const command = new CreateGroupCommand(input);
  * const response = await client.send(command);
  * ```

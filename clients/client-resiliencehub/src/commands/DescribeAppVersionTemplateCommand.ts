@@ -42,6 +42,10 @@ export interface DescribeAppVersionTemplateCommandOutput extends DescribeAppVers
  * import { ResiliencehubClient, DescribeAppVersionTemplateCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
  * // const { ResiliencehubClient, DescribeAppVersionTemplateCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
  * const client = new ResiliencehubClient(config);
+ * const input = {
+ *   appArn: "STRING_VALUE", // required
+ *   appVersion: "STRING_VALUE", // required
+ * };
  * const command = new DescribeAppVersionTemplateCommand(input);
  * const response = await client.send(command);
  * ```

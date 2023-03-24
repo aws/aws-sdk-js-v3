@@ -48,6 +48,10 @@ export interface DescribeApplicationSnapshotCommandOutput
  * import { KinesisAnalyticsV2Client, DescribeApplicationSnapshotCommand } from "@aws-sdk/client-kinesis-analytics-v2"; // ES Modules import
  * // const { KinesisAnalyticsV2Client, DescribeApplicationSnapshotCommand } = require("@aws-sdk/client-kinesis-analytics-v2"); // CommonJS import
  * const client = new KinesisAnalyticsV2Client(config);
+ * const input = {
+ *   ApplicationName: "STRING_VALUE", // required
+ *   SnapshotName: "STRING_VALUE", // required
+ * };
  * const command = new DescribeApplicationSnapshotCommand(input);
  * const response = await client.send(command);
  * ```

@@ -89,6 +89,10 @@ export interface RecordActivityTaskHeartbeatCommandOutput extends ActivityTaskSt
  * import { SWFClient, RecordActivityTaskHeartbeatCommand } from "@aws-sdk/client-swf"; // ES Modules import
  * // const { SWFClient, RecordActivityTaskHeartbeatCommand } = require("@aws-sdk/client-swf"); // CommonJS import
  * const client = new SWFClient(config);
+ * const input = {
+ *   taskToken: "STRING_VALUE", // required
+ *   details: "STRING_VALUE",
+ * };
  * const command = new RecordActivityTaskHeartbeatCommand(input);
  * const response = await client.send(command);
  * ```

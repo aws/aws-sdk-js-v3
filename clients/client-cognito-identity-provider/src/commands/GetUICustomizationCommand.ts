@@ -56,6 +56,10 @@ export interface GetUICustomizationCommandOutput extends GetUICustomizationRespo
  * import { CognitoIdentityProviderClient, GetUICustomizationCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, GetUICustomizationCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
+ * const input = {
+ *   UserPoolId: "STRING_VALUE", // required
+ *   ClientId: "STRING_VALUE",
+ * };
  * const command = new GetUICustomizationCommand(input);
  * const response = await client.send(command);
  * ```

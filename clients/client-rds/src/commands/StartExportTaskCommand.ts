@@ -54,6 +54,17 @@ export interface StartExportTaskCommandOutput extends ExportTask, __MetadataBear
  * import { RDSClient, StartExportTaskCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, StartExportTaskCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = {
+ *   ExportTaskIdentifier: "STRING_VALUE", // required
+ *   SourceArn: "STRING_VALUE", // required
+ *   S3BucketName: "STRING_VALUE", // required
+ *   IamRoleArn: "STRING_VALUE", // required
+ *   KmsKeyId: "STRING_VALUE", // required
+ *   S3Prefix: "STRING_VALUE",
+ *   ExportOnly: [
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new StartExportTaskCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,9 @@ export interface GetAnnotationStoreCommandOutput extends GetAnnotationStoreRespo
  * import { OmicsClient, GetAnnotationStoreCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, GetAnnotationStoreCommand } = require("@aws-sdk/client-omics"); // CommonJS import
  * const client = new OmicsClient(config);
+ * const input = {
+ *   name: "STRING_VALUE", // required
+ * };
  * const command = new GetAnnotationStoreCommand(input);
  * const response = await client.send(command);
  * ```

@@ -44,6 +44,7 @@ export interface DescribeStorageConfigurationCommandOutput
  * import { IoTSiteWiseClient, DescribeStorageConfigurationCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, DescribeStorageConfigurationCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
+ * const input = {};
  * const command = new DescribeStorageConfigurationCommand(input);
  * const response = await client.send(command);
  * ```

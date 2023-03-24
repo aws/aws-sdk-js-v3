@@ -84,6 +84,19 @@ export interface UpdateGlobalTableCommandOutput extends UpdateGlobalTableOutput,
  * import { DynamoDBClient, UpdateGlobalTableCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
  * // const { DynamoDBClient, UpdateGlobalTableCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
  * const client = new DynamoDBClient(config);
+ * const input = {
+ *   GlobalTableName: "STRING_VALUE", // required
+ *   ReplicaUpdates: [ // required
+ *     {
+ *       Create: {
+ *         RegionName: "STRING_VALUE", // required
+ *       },
+ *       Delete: {
+ *         RegionName: "STRING_VALUE", // required
+ *       },
+ *     },
+ *   ],
+ * };
  * const command = new UpdateGlobalTableCommand(input);
  * const response = await client.send(command);
  * ```

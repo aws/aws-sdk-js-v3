@@ -48,6 +48,11 @@ export interface RegisterContainerImageCommandOutput extends RegisterContainerIm
  * import { LightsailClient, RegisterContainerImageCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, RegisterContainerImageCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = {
+ *   serviceName: "STRING_VALUE", // required
+ *   label: "STRING_VALUE", // required
+ *   digest: "STRING_VALUE", // required
+ * };
  * const command = new RegisterContainerImageCommand(input);
  * const response = await client.send(command);
  * ```

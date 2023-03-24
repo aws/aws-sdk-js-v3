@@ -42,6 +42,9 @@ export interface DescribeTrackerCommandOutput extends DescribeTrackerResponse, _
  * import { LocationClient, DescribeTrackerCommand } from "@aws-sdk/client-location"; // ES Modules import
  * // const { LocationClient, DescribeTrackerCommand } = require("@aws-sdk/client-location"); // CommonJS import
  * const client = new LocationClient(config);
+ * const input = {
+ *   TrackerName: "STRING_VALUE", // required
+ * };
  * const command = new DescribeTrackerCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,32 @@ export interface UpdateDatabaseCommandOutput extends UpdateDatabaseResponse, __M
  * import { GlueClient, UpdateDatabaseCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, UpdateDatabaseCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = {
+ *   CatalogId: "STRING_VALUE",
+ *   Name: "STRING_VALUE", // required
+ *   DatabaseInput: {
+ *     Name: "STRING_VALUE", // required
+ *     Description: "STRING_VALUE",
+ *     LocationUri: "STRING_VALUE",
+ *     Parameters: {
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *     CreateTableDefaultPermissions: [
+ *       {
+ *         Principal: {
+ *           DataLakePrincipalIdentifier: "STRING_VALUE",
+ *         },
+ *         Permissions: [
+ *           "ALL" || "SELECT" || "ALTER" || "DROP" || "DELETE" || "INSERT" || "CREATE_DATABASE" || "CREATE_TABLE" || "DATA_LOCATION_ACCESS",
+ *         ],
+ *       },
+ *     ],
+ *     TargetDatabase: {
+ *       CatalogId: "STRING_VALUE",
+ *       DatabaseName: "STRING_VALUE",
+ *     },
+ *   },
+ * };
  * const command = new UpdateDatabaseCommand(input);
  * const response = await client.send(command);
  * ```

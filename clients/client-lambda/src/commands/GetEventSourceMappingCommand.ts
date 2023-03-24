@@ -43,6 +43,9 @@ export interface GetEventSourceMappingCommandOutput extends EventSourceMappingCo
  * import { LambdaClient, GetEventSourceMappingCommand } from "@aws-sdk/client-lambda"; // ES Modules import
  * // const { LambdaClient, GetEventSourceMappingCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
  * const client = new LambdaClient(config);
+ * const input = {
+ *   UUID: "STRING_VALUE", // required
+ * };
  * const command = new GetEventSourceMappingCommand(input);
  * const response = await client.send(command);
  * ```

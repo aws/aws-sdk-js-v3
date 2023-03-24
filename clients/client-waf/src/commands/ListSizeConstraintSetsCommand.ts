@@ -50,6 +50,10 @@ export interface ListSizeConstraintSetsCommandOutput extends ListSizeConstraintS
  * import { WAFClient, ListSizeConstraintSetsCommand } from "@aws-sdk/client-waf"; // ES Modules import
  * // const { WAFClient, ListSizeConstraintSetsCommand } = require("@aws-sdk/client-waf"); // CommonJS import
  * const client = new WAFClient(config);
+ * const input = {
+ *   NextMarker: "STRING_VALUE",
+ *   Limit: Number("int"),
+ * };
  * const command = new ListSizeConstraintSetsCommand(input);
  * const response = await client.send(command);
  * ```

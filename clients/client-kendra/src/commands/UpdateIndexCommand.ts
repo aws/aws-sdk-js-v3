@@ -42,6 +42,58 @@ export interface UpdateIndexCommandOutput extends __MetadataBearer {}
  * import { KendraClient, UpdateIndexCommand } from "@aws-sdk/client-kendra"; // ES Modules import
  * // const { KendraClient, UpdateIndexCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
  * const client = new KendraClient(config);
+ * const input = {
+ *   Id: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE",
+ *   RoleArn: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   DocumentMetadataConfigurationUpdates: [
+ *     {
+ *       Name: "STRING_VALUE", // required
+ *       Type: "STRING_VALUE" || "STRING_LIST_VALUE" || "LONG_VALUE" || "DATE_VALUE", // required
+ *       Relevance: {
+ *         Freshness: true || false,
+ *         Importance: Number("int"),
+ *         Duration: "STRING_VALUE",
+ *         RankOrder: "ASCENDING" || "DESCENDING",
+ *         ValueImportanceMap: {
+ *           "<keys>": Number("int"),
+ *         },
+ *       },
+ *       Search: {
+ *         Facetable: true || false,
+ *         Searchable: true || false,
+ *         Displayable: true || false,
+ *         Sortable: true || false,
+ *       },
+ *     },
+ *   ],
+ *   CapacityUnits: {
+ *     StorageCapacityUnits: Number("int"), // required
+ *     QueryCapacityUnits: Number("int"), // required
+ *   },
+ *   UserTokenConfigurations: [
+ *     {
+ *       JwtTokenTypeConfiguration: {
+ *         KeyLocation: "URL" || "SECRET_MANAGER", // required
+ *         URL: "STRING_VALUE",
+ *         SecretManagerArn: "STRING_VALUE",
+ *         UserNameAttributeField: "STRING_VALUE",
+ *         GroupAttributeField: "STRING_VALUE",
+ *         Issuer: "STRING_VALUE",
+ *         ClaimRegex: "STRING_VALUE",
+ *       },
+ *       JsonTokenTypeConfiguration: {
+ *         UserNameAttributeField: "STRING_VALUE", // required
+ *         GroupAttributeField: "STRING_VALUE", // required
+ *       },
+ *     },
+ *   ],
+ *   UserContextPolicy: "ATTRIBUTE_FILTER" || "USER_TOKEN",
+ *   UserGroupResolutionConfiguration: {
+ *     UserGroupResolutionMode: "AWS_SSO" || "NONE", // required
+ *   },
+ * };
  * const command = new UpdateIndexCommand(input);
  * const response = await client.send(command);
  * ```

@@ -44,6 +44,13 @@ export interface DescribeIdentityProviderConfigCommandOutput
  * import { EKSClient, DescribeIdentityProviderConfigCommand } from "@aws-sdk/client-eks"; // ES Modules import
  * // const { EKSClient, DescribeIdentityProviderConfigCommand } = require("@aws-sdk/client-eks"); // CommonJS import
  * const client = new EKSClient(config);
+ * const input = {
+ *   clusterName: "STRING_VALUE", // required
+ *   identityProviderConfig: {
+ *     type: "STRING_VALUE", // required
+ *     name: "STRING_VALUE", // required
+ *   },
+ * };
  * const command = new DescribeIdentityProviderConfigCommand(input);
  * const response = await client.send(command);
  * ```

@@ -63,6 +63,9 @@ export interface StopDeliveryStreamEncryptionCommandOutput
  * import { FirehoseClient, StopDeliveryStreamEncryptionCommand } from "@aws-sdk/client-firehose"; // ES Modules import
  * // const { FirehoseClient, StopDeliveryStreamEncryptionCommand } = require("@aws-sdk/client-firehose"); // CommonJS import
  * const client = new FirehoseClient(config);
+ * const input = {
+ *   DeliveryStreamName: "STRING_VALUE", // required
+ * };
  * const command = new StopDeliveryStreamEncryptionCommand(input);
  * const response = await client.send(command);
  * ```

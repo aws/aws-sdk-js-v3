@@ -43,6 +43,9 @@ export interface GetFirewallConfigCommandOutput extends GetFirewallConfigRespons
  * import { Route53ResolverClient, GetFirewallConfigCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
  * // const { Route53ResolverClient, GetFirewallConfigCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
  * const client = new Route53ResolverClient(config);
+ * const input = {
+ *   ResourceId: "STRING_VALUE", // required
+ * };
  * const command = new GetFirewallConfigCommand(input);
  * const response = await client.send(command);
  * ```

@@ -59,6 +59,270 @@ export interface QueryCommandOutput extends QueryResult, __MetadataBearer {}
  * import { KendraClient, QueryCommand } from "@aws-sdk/client-kendra"; // ES Modules import
  * // const { KendraClient, QueryCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
  * const client = new KendraClient(config);
+ * const input = {
+ *   IndexId: "STRING_VALUE", // required
+ *   QueryText: "STRING_VALUE",
+ *   AttributeFilter: {
+ *     AndAllFilters: [
+ *       {
+ *         AndAllFilters: [
+ *           {
+ *             AndAllFilters: "<AttributeFilter>",
+ *             OrAllFilters: [
+ *               "<AttributeFilterList>",
+ *             ],
+ *             NotFilter: {
+ *               AndAllFilters: "<AttributeFilter>",
+ *               OrAllFilters: [
+ *                 "<AttributeFilterList>",
+ *               ],
+ *               NotFilter: {
+ *                 AndAllFilters: "<AttributeFilter>",
+ *                 OrAllFilters: "<AttributeFilter>",
+ *                 NotFilter: "<AttributeFilter>",
+ *                 EqualsTo: {
+ *                   Key: "STRING_VALUE", // required
+ *                   Value: {
+ *                     StringValue: "STRING_VALUE",
+ *                     StringListValue: [
+ *                       "STRING_VALUE",
+ *                     ],
+ *                     LongValue: Number("long"),
+ *                     DateValue: new Date("TIMESTAMP"),
+ *                   },
+ *                 },
+ *                 ContainsAll: {
+ *                   Key: "STRING_VALUE", // required
+ *                   Value: {
+ *                     StringValue: "STRING_VALUE",
+ *                     StringListValue: [
+ *                       "STRING_VALUE",
+ *                     ],
+ *                     LongValue: Number("long"),
+ *                     DateValue: new Date("TIMESTAMP"),
+ *                   },
+ *                 },
+ *                 ContainsAny: {
+ *                   Key: "STRING_VALUE", // required
+ *                   Value: {
+ *                     StringValue: "STRING_VALUE",
+ *                     StringListValue: [
+ *                       "STRING_VALUE",
+ *                     ],
+ *                     LongValue: Number("long"),
+ *                     DateValue: new Date("TIMESTAMP"),
+ *                   },
+ *                 },
+ *                 GreaterThan: {
+ *                   Key: "STRING_VALUE", // required
+ *                   Value: {
+ *                     StringValue: "STRING_VALUE",
+ *                     StringListValue: [
+ *                       "STRING_VALUE",
+ *                     ],
+ *                     LongValue: Number("long"),
+ *                     DateValue: new Date("TIMESTAMP"),
+ *                   },
+ *                 },
+ *                 GreaterThanOrEquals: {
+ *                   Key: "STRING_VALUE", // required
+ *                   Value: {
+ *                     StringValue: "STRING_VALUE",
+ *                     StringListValue: [
+ *                       "STRING_VALUE",
+ *                     ],
+ *                     LongValue: Number("long"),
+ *                     DateValue: new Date("TIMESTAMP"),
+ *                   },
+ *                 },
+ *                 LessThan: {
+ *                   Key: "STRING_VALUE", // required
+ *                   Value: {
+ *                     StringValue: "STRING_VALUE",
+ *                     StringListValue: [
+ *                       "STRING_VALUE",
+ *                     ],
+ *                     LongValue: Number("long"),
+ *                     DateValue: new Date("TIMESTAMP"),
+ *                   },
+ *                 },
+ *                 LessThanOrEquals: {
+ *                   Key: "STRING_VALUE", // required
+ *                   Value: {
+ *                     StringValue: "STRING_VALUE",
+ *                     StringListValue: [
+ *                       "STRING_VALUE",
+ *                     ],
+ *                     LongValue: Number("long"),
+ *                     DateValue: new Date("TIMESTAMP"),
+ *                   },
+ *                 },
+ *               },
+ *               EqualsTo: {
+ *                 Key: "STRING_VALUE", // required
+ *                 Value: {
+ *                   StringValue: "STRING_VALUE",
+ *                   StringListValue: [
+ *                     "STRING_VALUE",
+ *                   ],
+ *                   LongValue: Number("long"),
+ *                   DateValue: new Date("TIMESTAMP"),
+ *                 },
+ *               },
+ *               ContainsAll: {
+ *                 Key: "STRING_VALUE", // required
+ *                 Value: {
+ *                   StringValue: "STRING_VALUE",
+ *                   StringListValue: [
+ *                     "STRING_VALUE",
+ *                   ],
+ *                   LongValue: Number("long"),
+ *                   DateValue: new Date("TIMESTAMP"),
+ *                 },
+ *               },
+ *               ContainsAny: {
+ *                 Key: "STRING_VALUE", // required
+ *                 Value: {
+ *                   StringValue: "STRING_VALUE",
+ *                   StringListValue: [
+ *                     "STRING_VALUE",
+ *                   ],
+ *                   LongValue: Number("long"),
+ *                   DateValue: new Date("TIMESTAMP"),
+ *                 },
+ *               },
+ *               GreaterThan: {
+ *                 Key: "STRING_VALUE", // required
+ *                 Value: {
+ *                   StringValue: "STRING_VALUE",
+ *                   StringListValue: [
+ *                     "STRING_VALUE",
+ *                   ],
+ *                   LongValue: Number("long"),
+ *                   DateValue: new Date("TIMESTAMP"),
+ *                 },
+ *               },
+ *               GreaterThanOrEquals: {
+ *                 Key: "STRING_VALUE", // required
+ *                 Value: {
+ *                   StringValue: "STRING_VALUE",
+ *                   StringListValue: [
+ *                     "STRING_VALUE",
+ *                   ],
+ *                   LongValue: Number("long"),
+ *                   DateValue: new Date("TIMESTAMP"),
+ *                 },
+ *               },
+ *               LessThan: {
+ *                 Key: "STRING_VALUE", // required
+ *                 Value: {
+ *                   StringValue: "STRING_VALUE",
+ *                   StringListValue: [
+ *                     "STRING_VALUE",
+ *                   ],
+ *                   LongValue: Number("long"),
+ *                   DateValue: new Date("TIMESTAMP"),
+ *                 },
+ *               },
+ *               LessThanOrEquals: {
+ *                 Key: "STRING_VALUE", // required
+ *                 Value: {
+ *                   StringValue: "STRING_VALUE",
+ *                   StringListValue: [
+ *                     "STRING_VALUE",
+ *                   ],
+ *                   LongValue: Number("long"),
+ *                   DateValue: new Date("TIMESTAMP"),
+ *                 },
+ *               },
+ *             },
+ *             EqualsTo: "<AttributeFilter>",
+ *             ContainsAll: "<AttributeFilter>",
+ *             ContainsAny: "<AttributeFilter>",
+ *             GreaterThan: "<AttributeFilter>",
+ *             GreaterThanOrEquals: "<AttributeFilter>",
+ *             LessThan: "<AttributeFilter>",
+ *             LessThanOrEquals: "<AttributeFilter>",
+ *           },
+ *         ],
+ *         OrAllFilters: "<AttributeFilter>",
+ *         NotFilter: "<AttributeFilter>",
+ *         EqualsTo: "<AttributeFilter>",
+ *         ContainsAll: "<AttributeFilter>",
+ *         ContainsAny: "<AttributeFilter>",
+ *         GreaterThan: "<AttributeFilter>",
+ *         GreaterThanOrEquals: "<AttributeFilter>",
+ *         LessThan: "<AttributeFilter>",
+ *         LessThanOrEquals: "<AttributeFilter>",
+ *       },
+ *     ],
+ *     OrAllFilters: "<AttributeFilter>",
+ *     NotFilter: "<AttributeFilter>",
+ *     EqualsTo: "<AttributeFilter>",
+ *     ContainsAll: "<AttributeFilter>",
+ *     ContainsAny: "<AttributeFilter>",
+ *     GreaterThan: "<AttributeFilter>",
+ *     GreaterThanOrEquals: "<AttributeFilter>",
+ *     LessThan: "<AttributeFilter>",
+ *     LessThanOrEquals: "<AttributeFilter>",
+ *   },
+ *   Facets: [
+ *     {
+ *       DocumentAttributeKey: "STRING_VALUE",
+ *       Facets: [
+ *         {
+ *           DocumentAttributeKey: "STRING_VALUE",
+ *           Facets: [
+ *             "<FacetList>",
+ *           ],
+ *           MaxResults: Number("int"),
+ *         },
+ *       ],
+ *       MaxResults: Number("int"),
+ *     },
+ *   ],
+ *   RequestedDocumentAttributes: [
+ *     "STRING_VALUE",
+ *   ],
+ *   QueryResultTypeFilter: "DOCUMENT" || "QUESTION_ANSWER" || "ANSWER",
+ *   DocumentRelevanceOverrideConfigurations: [
+ *     {
+ *       Name: "STRING_VALUE", // required
+ *       Relevance: {
+ *         Freshness: true || false,
+ *         Importance: Number("int"),
+ *         Duration: "STRING_VALUE",
+ *         RankOrder: "ASCENDING" || "DESCENDING",
+ *         ValueImportanceMap: {
+ *           "<keys>": Number("int"),
+ *         },
+ *       },
+ *     },
+ *   ],
+ *   PageNumber: Number("int"),
+ *   PageSize: Number("int"),
+ *   SortingConfiguration: {
+ *     DocumentAttributeKey: "STRING_VALUE", // required
+ *     SortOrder: "DESC" || "ASC", // required
+ *   },
+ *   UserContext: {
+ *     Token: "STRING_VALUE",
+ *     UserId: "STRING_VALUE",
+ *     Groups: [
+ *       "STRING_VALUE",
+ *     ],
+ *     DataSourceGroups: [
+ *       {
+ *         GroupId: "STRING_VALUE", // required
+ *         DataSourceId: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *   },
+ *   VisitorId: "STRING_VALUE",
+ *   SpellCorrectionConfiguration: {
+ *     IncludeQuerySpellCheckSuggestions: true || false, // required
+ *   },
+ * };
  * const command = new QueryCommand(input);
  * const response = await client.send(command);
  * ```

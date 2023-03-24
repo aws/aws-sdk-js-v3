@@ -42,6 +42,12 @@ export interface ListQueuedMessagesCommandOutput extends ListQueuedMessagesRespo
  * import { IoTWirelessClient, ListQueuedMessagesCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, ListQueuedMessagesCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
+ * const input = {
+ *   Id: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   WirelessDeviceType: "Sidewalk" || "LoRaWAN",
+ * };
  * const command = new ListQueuedMessagesCommand(input);
  * const response = await client.send(command);
  * ```

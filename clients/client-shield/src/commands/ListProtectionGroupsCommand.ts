@@ -43,6 +43,24 @@ export interface ListProtectionGroupsCommandOutput extends ListProtectionGroupsR
  * import { ShieldClient, ListProtectionGroupsCommand } from "@aws-sdk/client-shield"; // ES Modules import
  * // const { ShieldClient, ListProtectionGroupsCommand } = require("@aws-sdk/client-shield"); // CommonJS import
  * const client = new ShieldClient(config);
+ * const input = {
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   InclusionFilters: {
+ *     ProtectionGroupIds: [
+ *       "STRING_VALUE",
+ *     ],
+ *     Patterns: [
+ *       "STRING_VALUE",
+ *     ],
+ *     ResourceTypes: [
+ *       "STRING_VALUE",
+ *     ],
+ *     Aggregations: [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ * };
  * const command = new ListProtectionGroupsCommand(input);
  * const response = await client.send(command);
  * ```

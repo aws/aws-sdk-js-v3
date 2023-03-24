@@ -61,6 +61,11 @@ export interface DescribeTimeSeriesCommandOutput extends DescribeTimeSeriesRespo
  * import { IoTSiteWiseClient, DescribeTimeSeriesCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, DescribeTimeSeriesCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
+ * const input = {
+ *   alias: "STRING_VALUE",
+ *   assetId: "STRING_VALUE",
+ *   propertyId: "STRING_VALUE",
+ * };
  * const command = new DescribeTimeSeriesCommand(input);
  * const response = await client.send(command);
  * ```

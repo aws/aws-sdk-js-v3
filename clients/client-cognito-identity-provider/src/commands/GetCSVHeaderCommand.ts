@@ -48,6 +48,9 @@ export interface GetCSVHeaderCommandOutput extends GetCSVHeaderResponse, __Metad
  * import { CognitoIdentityProviderClient, GetCSVHeaderCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, GetCSVHeaderCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
+ * const input = {
+ *   UserPoolId: "STRING_VALUE", // required
+ * };
  * const command = new GetCSVHeaderCommand(input);
  * const response = await client.send(command);
  * ```

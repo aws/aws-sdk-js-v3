@@ -46,6 +46,10 @@ export interface DisassociateLicenseCommandOutput extends DisassociateLicenseRes
  * import { GrafanaClient, DisassociateLicenseCommand } from "@aws-sdk/client-grafana"; // ES Modules import
  * // const { GrafanaClient, DisassociateLicenseCommand } = require("@aws-sdk/client-grafana"); // CommonJS import
  * const client = new GrafanaClient(config);
+ * const input = {
+ *   workspaceId: "STRING_VALUE", // required
+ *   licenseType: "STRING_VALUE", // required
+ * };
  * const command = new DisassociateLicenseCommand(input);
  * const response = await client.send(command);
  * ```

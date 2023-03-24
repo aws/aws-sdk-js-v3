@@ -43,6 +43,10 @@ export interface ListChannelsCommandOutput extends ListChannelsResponse, __Metad
  * import { CloudTrailClient, ListChannelsCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
  * // const { CloudTrailClient, ListChannelsCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
  * const client = new CloudTrailClient(config);
+ * const input = {
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListChannelsCommand(input);
  * const response = await client.send(command);
  * ```

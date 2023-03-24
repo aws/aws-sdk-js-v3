@@ -43,6 +43,51 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationRespons
  * import { EMRServerlessClient, UpdateApplicationCommand } from "@aws-sdk/client-emr-serverless"; // ES Modules import
  * // const { EMRServerlessClient, UpdateApplicationCommand } = require("@aws-sdk/client-emr-serverless"); // CommonJS import
  * const client = new EMRServerlessClient(config);
+ * const input = {
+ *   applicationId: "STRING_VALUE", // required
+ *   clientToken: "STRING_VALUE", // required
+ *   initialCapacity: {
+ *     "<keys>": {
+ *       workerCount: Number("long"), // required
+ *       workerConfiguration: {
+ *         cpu: "STRING_VALUE", // required
+ *         memory: "STRING_VALUE", // required
+ *         disk: "STRING_VALUE",
+ *       },
+ *     },
+ *   },
+ *   maximumCapacity: {
+ *     cpu: "STRING_VALUE", // required
+ *     memory: "STRING_VALUE", // required
+ *     disk: "STRING_VALUE",
+ *   },
+ *   autoStartConfiguration: {
+ *     enabled: true || false,
+ *   },
+ *   autoStopConfiguration: {
+ *     enabled: true || false,
+ *     idleTimeoutMinutes: Number("int"),
+ *   },
+ *   networkConfiguration: {
+ *     subnetIds: [
+ *       "STRING_VALUE",
+ *     ],
+ *     securityGroupIds: [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   architecture: "STRING_VALUE",
+ *   imageConfiguration: {
+ *     imageUri: "STRING_VALUE",
+ *   },
+ *   workerTypeSpecifications: {
+ *     "<keys>": {
+ *       imageConfiguration: {
+ *         imageUri: "STRING_VALUE",
+ *       },
+ *     },
+ *   },
+ * };
  * const command = new UpdateApplicationCommand(input);
  * const response = await client.send(command);
  * ```

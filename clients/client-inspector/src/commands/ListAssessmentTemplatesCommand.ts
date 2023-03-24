@@ -43,6 +43,23 @@ export interface ListAssessmentTemplatesCommandOutput extends ListAssessmentTemp
  * import { InspectorClient, ListAssessmentTemplatesCommand } from "@aws-sdk/client-inspector"; // ES Modules import
  * // const { InspectorClient, ListAssessmentTemplatesCommand } = require("@aws-sdk/client-inspector"); // CommonJS import
  * const client = new InspectorClient(config);
+ * const input = {
+ *   assessmentTargetArns: [
+ *     "STRING_VALUE",
+ *   ],
+ *   filter: {
+ *     namePattern: "STRING_VALUE",
+ *     durationRange: {
+ *       minSeconds: Number("int"),
+ *       maxSeconds: Number("int"),
+ *     },
+ *     rulesPackageArns: [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListAssessmentTemplatesCommand(input);
  * const response = await client.send(command);
  * ```

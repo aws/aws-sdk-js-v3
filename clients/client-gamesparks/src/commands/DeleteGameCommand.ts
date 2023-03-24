@@ -42,6 +42,9 @@ export interface DeleteGameCommandOutput extends DeleteGameResult, __MetadataBea
  * import { GameSparksClient, DeleteGameCommand } from "@aws-sdk/client-gamesparks"; // ES Modules import
  * // const { GameSparksClient, DeleteGameCommand } = require("@aws-sdk/client-gamesparks"); // CommonJS import
  * const client = new GameSparksClient(config);
+ * const input = {
+ *   GameName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteGameCommand(input);
  * const response = await client.send(command);
  * ```

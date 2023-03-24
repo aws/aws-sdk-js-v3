@@ -61,6 +61,19 @@ export interface DescribeUsageLimitsCommandOutput extends UsageLimitList, __Meta
  * import { RedshiftClient, DescribeUsageLimitsCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DescribeUsageLimitsCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = {
+ *   UsageLimitId: "STRING_VALUE",
+ *   ClusterIdentifier: "STRING_VALUE",
+ *   FeatureType: "spectrum" || "concurrency-scaling" || "cross-region-datasharing",
+ *   MaxRecords: Number("int"),
+ *   Marker: "STRING_VALUE",
+ *   TagKeys: [
+ *     "STRING_VALUE",
+ *   ],
+ *   TagValues: [
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DescribeUsageLimitsCommand(input);
  * const response = await client.send(command);
  * ```

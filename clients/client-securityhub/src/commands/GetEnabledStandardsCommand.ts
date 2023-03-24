@@ -42,6 +42,13 @@ export interface GetEnabledStandardsCommandOutput extends GetEnabledStandardsRes
  * import { SecurityHubClient, GetEnabledStandardsCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, GetEnabledStandardsCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
  * const client = new SecurityHubClient(config);
+ * const input = {
+ *   StandardsSubscriptionArns: [
+ *     "STRING_VALUE",
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new GetEnabledStandardsCommand(input);
  * const response = await client.send(command);
  * ```

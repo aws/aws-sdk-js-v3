@@ -49,6 +49,11 @@ export interface DeleteServiceQuotaIncreaseRequestFromTemplateCommandOutput
  * import { ServiceQuotasClient, DeleteServiceQuotaIncreaseRequestFromTemplateCommand } from "@aws-sdk/client-service-quotas"; // ES Modules import
  * // const { ServiceQuotasClient, DeleteServiceQuotaIncreaseRequestFromTemplateCommand } = require("@aws-sdk/client-service-quotas"); // CommonJS import
  * const client = new ServiceQuotasClient(config);
+ * const input = {
+ *   ServiceCode: "STRING_VALUE", // required
+ *   QuotaCode: "STRING_VALUE", // required
+ *   AwsRegion: "STRING_VALUE", // required
+ * };
  * const command = new DeleteServiceQuotaIncreaseRequestFromTemplateCommand(input);
  * const response = await client.send(command);
  * ```

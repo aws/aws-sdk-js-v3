@@ -58,6 +58,37 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  * import { ChimeSDKMessagingClient, CreateChannelCommand } from "@aws-sdk/client-chime-sdk-messaging"; // ES Modules import
  * // const { ChimeSDKMessagingClient, CreateChannelCommand } = require("@aws-sdk/client-chime-sdk-messaging"); // CommonJS import
  * const client = new ChimeSDKMessagingClient(config);
+ * const input = {
+ *   AppInstanceArn: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE", // required
+ *   Mode: "UNRESTRICTED" || "RESTRICTED",
+ *   Privacy: "PUBLIC" || "PRIVATE",
+ *   Metadata: "STRING_VALUE",
+ *   ClientRequestToken: "STRING_VALUE", // required
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   ChimeBearer: "STRING_VALUE", // required
+ *   ChannelId: "STRING_VALUE",
+ *   MemberArns: [
+ *     "STRING_VALUE",
+ *   ],
+ *   ModeratorArns: [
+ *     "STRING_VALUE",
+ *   ],
+ *   ElasticChannelConfiguration: {
+ *     MaximumSubChannels: Number("int"), // required
+ *     TargetMembershipsPerSubChannel: Number("int"), // required
+ *     MinimumMembershipPercentage: Number("int"), // required
+ *   },
+ *   ExpirationSettings: {
+ *     ExpirationDays: Number("int"), // required
+ *     ExpirationCriterion: "CREATED_TIMESTAMP" || "LAST_MESSAGE_TIMESTAMP", // required
+ *   },
+ * };
  * const command = new CreateChannelCommand(input);
  * const response = await client.send(command);
  * ```

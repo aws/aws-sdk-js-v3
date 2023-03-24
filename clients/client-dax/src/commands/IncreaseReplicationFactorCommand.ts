@@ -42,6 +42,13 @@ export interface IncreaseReplicationFactorCommandOutput extends IncreaseReplicat
  * import { DAXClient, IncreaseReplicationFactorCommand } from "@aws-sdk/client-dax"; // ES Modules import
  * // const { DAXClient, IncreaseReplicationFactorCommand } = require("@aws-sdk/client-dax"); // CommonJS import
  * const client = new DAXClient(config);
+ * const input = {
+ *   ClusterName: "STRING_VALUE", // required
+ *   NewReplicationFactor: Number("int"), // required
+ *   AvailabilityZones: [
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new IncreaseReplicationFactorCommand(input);
  * const response = await client.send(command);
  * ```

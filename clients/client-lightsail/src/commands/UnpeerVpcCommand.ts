@@ -39,6 +39,7 @@ export interface UnpeerVpcCommandOutput extends UnpeerVpcResult, __MetadataBeare
  * import { LightsailClient, UnpeerVpcCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, UnpeerVpcCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = {};
  * const command = new UnpeerVpcCommand(input);
  * const response = await client.send(command);
  * ```

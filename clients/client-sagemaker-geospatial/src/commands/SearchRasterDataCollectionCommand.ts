@@ -51,6 +51,76 @@ export interface SearchRasterDataCollectionCommandOutput extends SearchRasterDat
  * import { SageMakerGeospatialClient, SearchRasterDataCollectionCommand } from "@aws-sdk/client-sagemaker-geospatial"; // ES Modules import
  * // const { SageMakerGeospatialClient, SearchRasterDataCollectionCommand } = require("@aws-sdk/client-sagemaker-geospatial"); // CommonJS import
  * const client = new SageMakerGeospatialClient(config);
+ * const input = {
+ *   Arn: "STRING_VALUE", // required
+ *   RasterDataCollectionQuery: {
+ *     TimeRangeFilter: {
+ *       StartTime: new Date("TIMESTAMP"), // required
+ *       EndTime: new Date("TIMESTAMP"), // required
+ *     },
+ *     AreaOfInterest: { // Union: only one key present
+ *       AreaOfInterestGeometry: { // Union: only one key present
+ *         PolygonGeometry: {
+ *           Coordinates: [ // required
+ *             [
+ *               [
+ *                 Number("double"),
+ *               ],
+ *             ],
+ *           ],
+ *         },
+ *         MultiPolygonGeometry: {
+ *           Coordinates: [ // required
+ *             [
+ *               [
+ *                 [
+ *                   Number("double"),
+ *                 ],
+ *               ],
+ *             ],
+ *           ],
+ *         },
+ *       },
+ *     },
+ *     PropertyFilters: {
+ *       Properties: [
+ *         {
+ *           Property: { // Union: only one key present
+ *             EoCloudCover: {
+ *               LowerBound: Number("float"), // required
+ *               UpperBound: Number("float"), // required
+ *             },
+ *             ViewOffNadir: {
+ *               LowerBound: Number("float"), // required
+ *               UpperBound: Number("float"), // required
+ *             },
+ *             ViewSunAzimuth: {
+ *               LowerBound: Number("float"), // required
+ *               UpperBound: Number("float"), // required
+ *             },
+ *             ViewSunElevation: {
+ *               LowerBound: Number("float"), // required
+ *               UpperBound: Number("float"), // required
+ *             },
+ *             Platform: {
+ *               Value: "STRING_VALUE", // required
+ *               ComparisonOperator: "STRING_VALUE",
+ *             },
+ *             LandsatCloudCoverLand: {
+ *               LowerBound: Number("float"), // required
+ *               UpperBound: Number("float"), // required
+ *             },
+ *           },
+ *         },
+ *       ],
+ *       LogicalOperator: "STRING_VALUE",
+ *     },
+ *     BandFilter: [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new SearchRasterDataCollectionCommand(input);
  * const response = await client.send(command);
  * ```

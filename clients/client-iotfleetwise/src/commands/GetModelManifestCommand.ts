@@ -42,6 +42,9 @@ export interface GetModelManifestCommandOutput extends GetModelManifestResponse,
  * import { IoTFleetWiseClient, GetModelManifestCommand } from "@aws-sdk/client-iotfleetwise"; // ES Modules import
  * // const { IoTFleetWiseClient, GetModelManifestCommand } = require("@aws-sdk/client-iotfleetwise"); // CommonJS import
  * const client = new IoTFleetWiseClient(config);
+ * const input = {
+ *   name: "STRING_VALUE", // required
+ * };
  * const command = new GetModelManifestCommand(input);
  * const response = await client.send(command);
  * ```

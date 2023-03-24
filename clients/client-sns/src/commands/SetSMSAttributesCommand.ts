@@ -52,6 +52,11 @@ export interface SetSMSAttributesCommandOutput extends SetSMSAttributesResponse,
  * import { SNSClient, SetSMSAttributesCommand } from "@aws-sdk/client-sns"; // ES Modules import
  * // const { SNSClient, SetSMSAttributesCommand } = require("@aws-sdk/client-sns"); // CommonJS import
  * const client = new SNSClient(config);
+ * const input = {
+ *   attributes: { // required
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new SetSMSAttributesCommand(input);
  * const response = await client.send(command);
  * ```

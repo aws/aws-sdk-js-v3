@@ -44,6 +44,15 @@ export interface DescribeTestCasesCommandOutput extends DescribeTestCasesOutput,
  * import { CodeBuildClient, DescribeTestCasesCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
  * // const { CodeBuildClient, DescribeTestCasesCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
  * const client = new CodeBuildClient(config);
+ * const input = {
+ *   reportArn: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   filter: {
+ *     status: "STRING_VALUE",
+ *     keyword: "STRING_VALUE",
+ *   },
+ * };
  * const command = new DescribeTestCasesCommand(input);
  * const response = await client.send(command);
  * ```

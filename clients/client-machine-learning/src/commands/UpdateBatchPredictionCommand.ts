@@ -43,6 +43,10 @@ export interface UpdateBatchPredictionCommandOutput extends UpdateBatchPredictio
  * import { MachineLearningClient, UpdateBatchPredictionCommand } from "@aws-sdk/client-machine-learning"; // ES Modules import
  * // const { MachineLearningClient, UpdateBatchPredictionCommand } = require("@aws-sdk/client-machine-learning"); // CommonJS import
  * const client = new MachineLearningClient(config);
+ * const input = {
+ *   BatchPredictionId: "STRING_VALUE", // required
+ *   BatchPredictionName: "STRING_VALUE", // required
+ * };
  * const command = new UpdateBatchPredictionCommand(input);
  * const response = await client.send(command);
  * ```

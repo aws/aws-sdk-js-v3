@@ -42,6 +42,35 @@ export interface RegisterAgentCommandOutput extends RegisterAgentResponse, __Met
  * import { GroundStationClient, RegisterAgentCommand } from "@aws-sdk/client-groundstation"; // ES Modules import
  * // const { GroundStationClient, RegisterAgentCommand } = require("@aws-sdk/client-groundstation"); // CommonJS import
  * const client = new GroundStationClient(config);
+ * const input = {
+ *   discoveryData: {
+ *     publicIpAddresses: [ // required
+ *       "STRING_VALUE",
+ *     ],
+ *     privateIpAddresses: [ // required
+ *       "STRING_VALUE",
+ *     ],
+ *     capabilityArns: [ // required
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   agentDetails: {
+ *     agentVersion: "STRING_VALUE", // required
+ *     instanceId: "STRING_VALUE", // required
+ *     instanceType: "STRING_VALUE", // required
+ *     reservedCpuCores: [ // required
+ *       Number("int"),
+ *     ],
+ *     componentVersions: [ // required
+ *       {
+ *         componentType: "STRING_VALUE", // required
+ *         versions: [ // required
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *     ],
+ *   },
+ * };
  * const command = new RegisterAgentCommand(input);
  * const response = await client.send(command);
  * ```

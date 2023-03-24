@@ -119,6 +119,41 @@ export interface CreateEndpointCommandOutput extends CreateEndpointOutput, __Met
  * import { SageMakerClient, CreateEndpointCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, CreateEndpointCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = {
+ *   EndpointName: "STRING_VALUE", // required
+ *   EndpointConfigName: "STRING_VALUE", // required
+ *   DeploymentConfig: {
+ *     BlueGreenUpdatePolicy: {
+ *       TrafficRoutingConfiguration: {
+ *         Type: "ALL_AT_ONCE" || "CANARY" || "LINEAR", // required
+ *         WaitIntervalInSeconds: Number("int"), // required
+ *         CanarySize: {
+ *           Type: "INSTANCE_COUNT" || "CAPACITY_PERCENT", // required
+ *           Value: Number("int"), // required
+ *         },
+ *         LinearStepSize: {
+ *           Type: "INSTANCE_COUNT" || "CAPACITY_PERCENT", // required
+ *           Value: Number("int"), // required
+ *         },
+ *       },
+ *       TerminationWaitInSeconds: Number("int"),
+ *       MaximumExecutionTimeoutInSeconds: Number("int"),
+ *     },
+ *     AutoRollbackConfiguration: {
+ *       Alarms: [
+ *         {
+ *           AlarmName: "STRING_VALUE",
+ *         },
+ *       ],
+ *     },
+ *   },
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateEndpointCommand(input);
  * const response = await client.send(command);
  * ```

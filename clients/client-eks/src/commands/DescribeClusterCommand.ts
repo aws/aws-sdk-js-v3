@@ -50,6 +50,9 @@ export interface DescribeClusterCommandOutput extends DescribeClusterResponse, _
  * import { EKSClient, DescribeClusterCommand } from "@aws-sdk/client-eks"; // ES Modules import
  * // const { EKSClient, DescribeClusterCommand } = require("@aws-sdk/client-eks"); // CommonJS import
  * const client = new EKSClient(config);
+ * const input = {
+ *   name: "STRING_VALUE", // required
+ * };
  * const command = new DescribeClusterCommand(input);
  * const response = await client.send(command);
  * ```

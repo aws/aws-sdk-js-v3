@@ -76,6 +76,64 @@ export interface CreateTransformJobCommandOutput extends CreateTransformJobRespo
  * import { SageMakerClient, CreateTransformJobCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, CreateTransformJobCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = {
+ *   TransformJobName: "STRING_VALUE", // required
+ *   ModelName: "STRING_VALUE", // required
+ *   MaxConcurrentTransforms: Number("int"),
+ *   ModelClientConfig: {
+ *     InvocationsTimeoutInSeconds: Number("int"),
+ *     InvocationsMaxRetries: Number("int"),
+ *   },
+ *   MaxPayloadInMB: Number("int"),
+ *   BatchStrategy: "MultiRecord" || "SingleRecord",
+ *   Environment: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   TransformInput: {
+ *     DataSource: {
+ *       S3DataSource: {
+ *         S3DataType: "ManifestFile" || "S3Prefix" || "AugmentedManifestFile", // required
+ *         S3Uri: "STRING_VALUE", // required
+ *       },
+ *     },
+ *     ContentType: "STRING_VALUE",
+ *     CompressionType: "None" || "Gzip",
+ *     SplitType: "None" || "Line" || "RecordIO" || "TFRecord",
+ *   },
+ *   TransformOutput: {
+ *     S3OutputPath: "STRING_VALUE", // required
+ *     Accept: "STRING_VALUE",
+ *     AssembleWith: "None" || "Line",
+ *     KmsKeyId: "STRING_VALUE",
+ *   },
+ *   DataCaptureConfig: {
+ *     DestinationS3Uri: "STRING_VALUE", // required
+ *     KmsKeyId: "STRING_VALUE",
+ *     GenerateInferenceId: true || false,
+ *   },
+ *   TransformResources: {
+ *     InstanceType: "ml.m4.xlarge" || "ml.m4.2xlarge" || "ml.m4.4xlarge" || "ml.m4.10xlarge" || "ml.m4.16xlarge" || "ml.c4.xlarge" || "ml.c4.2xlarge" || "ml.c4.4xlarge" || "ml.c4.8xlarge" || "ml.p2.xlarge" || "ml.p2.8xlarge" || "ml.p2.16xlarge" || "ml.p3.2xlarge" || "ml.p3.8xlarge" || "ml.p3.16xlarge" || "ml.c5.xlarge" || "ml.c5.2xlarge" || "ml.c5.4xlarge" || "ml.c5.9xlarge" || "ml.c5.18xlarge" || "ml.m5.large" || "ml.m5.xlarge" || "ml.m5.2xlarge" || "ml.m5.4xlarge" || "ml.m5.12xlarge" || "ml.m5.24xlarge" || "ml.g4dn.xlarge" || "ml.g4dn.2xlarge" || "ml.g4dn.4xlarge" || "ml.g4dn.8xlarge" || "ml.g4dn.12xlarge" || "ml.g4dn.16xlarge", // required
+ *     InstanceCount: Number("int"), // required
+ *     VolumeKmsKeyId: "STRING_VALUE",
+ *   },
+ *   DataProcessing: {
+ *     InputFilter: "STRING_VALUE",
+ *     OutputFilter: "STRING_VALUE",
+ *     JoinSource: "Input" || "None",
+ *   },
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   ExperimentConfig: {
+ *     ExperimentName: "STRING_VALUE",
+ *     TrialName: "STRING_VALUE",
+ *     TrialComponentDisplayName: "STRING_VALUE",
+ *     RunName: "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateTransformJobCommand(input);
  * const response = await client.send(command);
  * ```

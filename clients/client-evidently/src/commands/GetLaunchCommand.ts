@@ -43,6 +43,10 @@ export interface GetLaunchCommandOutput extends GetLaunchResponse, __MetadataBea
  * import { EvidentlyClient, GetLaunchCommand } from "@aws-sdk/client-evidently"; // ES Modules import
  * // const { EvidentlyClient, GetLaunchCommand } = require("@aws-sdk/client-evidently"); // CommonJS import
  * const client = new EvidentlyClient(config);
+ * const input = {
+ *   project: "STRING_VALUE", // required
+ *   launch: "STRING_VALUE", // required
+ * };
  * const command = new GetLaunchCommand(input);
  * const response = await client.send(command);
  * ```

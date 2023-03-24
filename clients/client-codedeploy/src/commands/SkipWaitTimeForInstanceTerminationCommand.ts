@@ -45,6 +45,9 @@ export interface SkipWaitTimeForInstanceTerminationCommandOutput extends __Metad
  * import { CodeDeployClient, SkipWaitTimeForInstanceTerminationCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
  * // const { CodeDeployClient, SkipWaitTimeForInstanceTerminationCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
  * const client = new CodeDeployClient(config);
+ * const input = {
+ *   deploymentId: "STRING_VALUE",
+ * };
  * const command = new SkipWaitTimeForInstanceTerminationCommand(input);
  * const response = await client.send(command);
  * ```

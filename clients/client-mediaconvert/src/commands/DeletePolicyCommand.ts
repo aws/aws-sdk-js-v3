@@ -42,6 +42,7 @@ export interface DeletePolicyCommandOutput extends DeletePolicyResponse, __Metad
  * import { MediaConvertClient, DeletePolicyCommand } from "@aws-sdk/client-mediaconvert"; // ES Modules import
  * // const { MediaConvertClient, DeletePolicyCommand } = require("@aws-sdk/client-mediaconvert"); // CommonJS import
  * const client = new MediaConvertClient(config);
+ * const input = {};
  * const command = new DeletePolicyCommand(input);
  * const response = await client.send(command);
  * ```

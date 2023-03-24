@@ -42,6 +42,34 @@ export interface PutExternalModelCommandOutput extends PutExternalModelResult, _
  * import { FraudDetectorClient, PutExternalModelCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, PutExternalModelCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
  * const client = new FraudDetectorClient(config);
+ * const input = {
+ *   modelEndpoint: "STRING_VALUE", // required
+ *   modelSource: "SAGEMAKER", // required
+ *   invokeModelEndpointRoleArn: "STRING_VALUE", // required
+ *   inputConfiguration: {
+ *     eventTypeName: "STRING_VALUE",
+ *     format: "TEXT_CSV" || "APPLICATION_JSON",
+ *     useEventVariables: true || false, // required
+ *     jsonInputTemplate: "STRING_VALUE",
+ *     csvInputTemplate: "STRING_VALUE",
+ *   },
+ *   outputConfiguration: {
+ *     format: "TEXT_CSV" || "APPLICATION_JSONLINES", // required
+ *     jsonKeyToVariableMap: {
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *     csvIndexToVariableMap: {
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *   },
+ *   modelEndpointStatus: "ASSOCIATED" || "DISSOCIATED", // required
+ *   tags: [
+ *     {
+ *       key: "STRING_VALUE", // required
+ *       value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new PutExternalModelCommand(input);
  * const response = await client.send(command);
  * ```

@@ -47,6 +47,10 @@ export interface UpdateConfigurationSetReputationMetricsEnabledCommandOutput ext
  * import { SESClient, UpdateConfigurationSetReputationMetricsEnabledCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, UpdateConfigurationSetReputationMetricsEnabledCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
+ * const input = {
+ *   ConfigurationSetName: "STRING_VALUE", // required
+ *   Enabled: true || false, // required
+ * };
  * const command = new UpdateConfigurationSetReputationMetricsEnabledCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,9 @@ export interface DescribeBackupPolicyCommandOutput extends BackupPolicyDescripti
  * import { EFSClient, DescribeBackupPolicyCommand } from "@aws-sdk/client-efs"; // ES Modules import
  * // const { EFSClient, DescribeBackupPolicyCommand } = require("@aws-sdk/client-efs"); // CommonJS import
  * const client = new EFSClient(config);
+ * const input = {
+ *   FileSystemId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeBackupPolicyCommand(input);
  * const response = await client.send(command);
  * ```

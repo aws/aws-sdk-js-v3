@@ -49,6 +49,10 @@ export interface UpdateWorkspaceBundleCommandOutput extends UpdateWorkspaceBundl
  * import { WorkSpacesClient, UpdateWorkspaceBundleCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, UpdateWorkspaceBundleCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
  * const client = new WorkSpacesClient(config);
+ * const input = {
+ *   BundleId: "STRING_VALUE",
+ *   ImageId: "STRING_VALUE",
+ * };
  * const command = new UpdateWorkspaceBundleCommand(input);
  * const response = await client.send(command);
  * ```

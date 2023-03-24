@@ -51,6 +51,11 @@ export interface UpdateGatewayCapabilityConfigurationCommandOutput
  * import { IoTSiteWiseClient, UpdateGatewayCapabilityConfigurationCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, UpdateGatewayCapabilityConfigurationCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
+ * const input = {
+ *   gatewayId: "STRING_VALUE", // required
+ *   capabilityNamespace: "STRING_VALUE", // required
+ *   capabilityConfiguration: "STRING_VALUE", // required
+ * };
  * const command = new UpdateGatewayCapabilityConfigurationCommand(input);
  * const response = await client.send(command);
  * ```

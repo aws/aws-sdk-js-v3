@@ -43,6 +43,9 @@ export interface GetMonitoringSubscriptionCommandOutput extends GetMonitoringSub
  * import { CloudFrontClient, GetMonitoringSubscriptionCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, GetMonitoringSubscriptionCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
+ * const input = {
+ *   DistributionId: "STRING_VALUE", // required
+ * };
  * const command = new GetMonitoringSubscriptionCommand(input);
  * const response = await client.send(command);
  * ```

@@ -45,6 +45,19 @@ export interface ListHubContentVersionsCommandOutput extends ListHubContentVersi
  * import { SageMakerClient, ListHubContentVersionsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListHubContentVersionsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = {
+ *   HubName: "STRING_VALUE", // required
+ *   HubContentType: "Model" || "Notebook", // required
+ *   HubContentName: "STRING_VALUE", // required
+ *   MinVersion: "STRING_VALUE",
+ *   MaxSchemaVersion: "STRING_VALUE",
+ *   CreationTimeBefore: new Date("TIMESTAMP"),
+ *   CreationTimeAfter: new Date("TIMESTAMP"),
+ *   SortBy: "HubContentName" || "CreationTime" || "HubContentStatus",
+ *   SortOrder: "Ascending" || "Descending",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListHubContentVersionsCommand(input);
  * const response = await client.send(command);
  * ```

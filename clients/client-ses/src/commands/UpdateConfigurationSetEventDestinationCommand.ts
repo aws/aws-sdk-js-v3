@@ -59,6 +59,32 @@ export interface UpdateConfigurationSetEventDestinationCommandOutput
  * import { SESClient, UpdateConfigurationSetEventDestinationCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, UpdateConfigurationSetEventDestinationCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
+ * const input = {
+ *   ConfigurationSetName: "STRING_VALUE", // required
+ *   EventDestination: {
+ *     Name: "STRING_VALUE", // required
+ *     Enabled: true || false,
+ *     MatchingEventTypes: [ // required
+ *       "STRING_VALUE",
+ *     ],
+ *     KinesisFirehoseDestination: {
+ *       IAMRoleARN: "STRING_VALUE", // required
+ *       DeliveryStreamARN: "STRING_VALUE", // required
+ *     },
+ *     CloudWatchDestination: {
+ *       DimensionConfigurations: [ // required
+ *         {
+ *           DimensionName: "STRING_VALUE", // required
+ *           DimensionValueSource: "STRING_VALUE", // required
+ *           DefaultDimensionValue: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *     },
+ *     SNSDestination: {
+ *       TopicARN: "STRING_VALUE", // required
+ *     },
+ *   },
+ * };
  * const command = new UpdateConfigurationSetEventDestinationCommand(input);
  * const response = await client.send(command);
  * ```

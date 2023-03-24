@@ -40,6 +40,9 @@ export interface DeleteJobCommandOutput extends DeleteJobResponse, __MetadataBea
  * import { GlueClient, DeleteJobCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, DeleteJobCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = {
+ *   JobName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteJobCommand(input);
  * const response = await client.send(command);
  * ```

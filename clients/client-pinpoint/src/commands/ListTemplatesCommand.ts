@@ -42,6 +42,12 @@ export interface ListTemplatesCommandOutput extends ListTemplatesResponse, __Met
  * import { PinpointClient, ListTemplatesCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, ListTemplatesCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
+ * const input = {
+ *   NextToken: "STRING_VALUE",
+ *   PageSize: "STRING_VALUE",
+ *   Prefix: "STRING_VALUE",
+ *   TemplateType: "STRING_VALUE",
+ * };
  * const command = new ListTemplatesCommand(input);
  * const response = await client.send(command);
  * ```

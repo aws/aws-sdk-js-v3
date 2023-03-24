@@ -48,6 +48,11 @@ export interface ListStreamingImagesCommandOutput extends ListStreamingImagesRes
  * import { NimbleClient, ListStreamingImagesCommand } from "@aws-sdk/client-nimble"; // ES Modules import
  * // const { NimbleClient, ListStreamingImagesCommand } = require("@aws-sdk/client-nimble"); // CommonJS import
  * const client = new NimbleClient(config);
+ * const input = {
+ *   nextToken: "STRING_VALUE",
+ *   owner: "STRING_VALUE",
+ *   studioId: "STRING_VALUE", // required
+ * };
  * const command = new ListStreamingImagesCommand(input);
  * const response = await client.send(command);
  * ```

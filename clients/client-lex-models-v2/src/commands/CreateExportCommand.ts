@@ -51,6 +51,26 @@ export interface CreateExportCommandOutput extends CreateExportResponse, __Metad
  * import { LexModelsV2Client, CreateExportCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
  * // const { LexModelsV2Client, CreateExportCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
  * const client = new LexModelsV2Client(config);
+ * const input = {
+ *   resourceSpecification: {
+ *     botExportSpecification: {
+ *       botId: "STRING_VALUE", // required
+ *       botVersion: "STRING_VALUE", // required
+ *     },
+ *     botLocaleExportSpecification: {
+ *       botId: "STRING_VALUE", // required
+ *       botVersion: "STRING_VALUE", // required
+ *       localeId: "STRING_VALUE", // required
+ *     },
+ *     customVocabularyExportSpecification: {
+ *       botId: "STRING_VALUE", // required
+ *       botVersion: "STRING_VALUE", // required
+ *       localeId: "STRING_VALUE", // required
+ *     },
+ *   },
+ *   fileFormat: "LexJson" || "TSV", // required
+ *   filePassword: "STRING_VALUE",
+ * };
  * const command = new CreateExportCommand(input);
  * const response = await client.send(command);
  * ```

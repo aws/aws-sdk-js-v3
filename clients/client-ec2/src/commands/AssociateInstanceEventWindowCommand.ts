@@ -47,6 +47,24 @@ export interface AssociateInstanceEventWindowCommandOutput
  * import { EC2Client, AssociateInstanceEventWindowCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, AssociateInstanceEventWindowCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   DryRun: true || false,
+ *   InstanceEventWindowId: "STRING_VALUE", // required
+ *   AssociationTarget: {
+ *     InstanceIds: [
+ *       "STRING_VALUE",
+ *     ],
+ *     InstanceTags: [
+ *       {
+ *         Key: "STRING_VALUE",
+ *         Value: "STRING_VALUE",
+ *       },
+ *     ],
+ *     DedicatedHostIds: [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ * };
  * const command = new AssociateInstanceEventWindowCommand(input);
  * const response = await client.send(command);
  * ```

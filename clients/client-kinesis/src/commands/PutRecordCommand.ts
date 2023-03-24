@@ -78,6 +78,14 @@ export interface PutRecordCommandOutput extends PutRecordOutput, __MetadataBeare
  * import { KinesisClient, PutRecordCommand } from "@aws-sdk/client-kinesis"; // ES Modules import
  * // const { KinesisClient, PutRecordCommand } = require("@aws-sdk/client-kinesis"); // CommonJS import
  * const client = new KinesisClient(config);
+ * const input = {
+ *   StreamName: "STRING_VALUE",
+ *   Data: "BLOB_VALUE", // required
+ *   PartitionKey: "STRING_VALUE", // required
+ *   ExplicitHashKey: "STRING_VALUE",
+ *   SequenceNumberForOrdering: "STRING_VALUE",
+ *   StreamARN: "STRING_VALUE",
+ * };
  * const command = new PutRecordCommand(input);
  * const response = await client.send(command);
  * ```

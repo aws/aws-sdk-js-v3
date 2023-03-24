@@ -42,6 +42,15 @@ export interface ListCheckDetailsCommandOutput extends ListCheckDetailsOutput, _
  * import { WellArchitectedClient, ListCheckDetailsCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
  * // const { WellArchitectedClient, ListCheckDetailsCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
  * const client = new WellArchitectedClient(config);
+ * const input = {
+ *   WorkloadId: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   LensArn: "STRING_VALUE", // required
+ *   PillarId: "STRING_VALUE", // required
+ *   QuestionId: "STRING_VALUE", // required
+ *   ChoiceId: "STRING_VALUE", // required
+ * };
  * const command = new ListCheckDetailsCommand(input);
  * const response = await client.send(command);
  * ```

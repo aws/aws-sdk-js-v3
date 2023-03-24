@@ -42,6 +42,17 @@ export interface UpdateOpsMetadataCommandOutput extends UpdateOpsMetadataResult,
  * import { SSMClient, UpdateOpsMetadataCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, UpdateOpsMetadataCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = {
+ *   OpsMetadataArn: "STRING_VALUE", // required
+ *   MetadataToUpdate: {
+ *     "<keys>": {
+ *       Value: "STRING_VALUE",
+ *     },
+ *   },
+ *   KeysToDelete: [
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new UpdateOpsMetadataCommand(input);
  * const response = await client.send(command);
  * ```

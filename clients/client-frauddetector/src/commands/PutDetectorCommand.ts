@@ -42,6 +42,17 @@ export interface PutDetectorCommandOutput extends PutDetectorResult, __MetadataB
  * import { FraudDetectorClient, PutDetectorCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, PutDetectorCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
  * const client = new FraudDetectorClient(config);
+ * const input = {
+ *   detectorId: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   eventTypeName: "STRING_VALUE", // required
+ *   tags: [
+ *     {
+ *       key: "STRING_VALUE", // required
+ *       value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new PutDetectorCommand(input);
  * const response = await client.send(command);
  * ```

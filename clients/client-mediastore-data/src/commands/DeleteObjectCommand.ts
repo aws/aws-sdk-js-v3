@@ -42,6 +42,9 @@ export interface DeleteObjectCommandOutput extends DeleteObjectResponse, __Metad
  * import { MediaStoreDataClient, DeleteObjectCommand } from "@aws-sdk/client-mediastore-data"; // ES Modules import
  * // const { MediaStoreDataClient, DeleteObjectCommand } = require("@aws-sdk/client-mediastore-data"); // CommonJS import
  * const client = new MediaStoreDataClient(config);
+ * const input = {
+ *   Path: "STRING_VALUE", // required
+ * };
  * const command = new DeleteObjectCommand(input);
  * const response = await client.send(command);
  * ```

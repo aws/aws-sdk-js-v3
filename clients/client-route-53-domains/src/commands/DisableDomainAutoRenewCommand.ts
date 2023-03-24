@@ -43,6 +43,9 @@ export interface DisableDomainAutoRenewCommandOutput extends DisableDomainAutoRe
  * import { Route53DomainsClient, DisableDomainAutoRenewCommand } from "@aws-sdk/client-route-53-domains"; // ES Modules import
  * // const { Route53DomainsClient, DisableDomainAutoRenewCommand } = require("@aws-sdk/client-route-53-domains"); // CommonJS import
  * const client = new Route53DomainsClient(config);
+ * const input = {
+ *   DomainName: "STRING_VALUE", // required
+ * };
  * const command = new DisableDomainAutoRenewCommand(input);
  * const response = await client.send(command);
  * ```

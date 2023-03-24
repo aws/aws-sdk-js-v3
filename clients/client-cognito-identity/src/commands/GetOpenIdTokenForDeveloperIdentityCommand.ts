@@ -60,6 +60,17 @@ export interface GetOpenIdTokenForDeveloperIdentityCommandOutput
  * import { CognitoIdentityClient, GetOpenIdTokenForDeveloperIdentityCommand } from "@aws-sdk/client-cognito-identity"; // ES Modules import
  * // const { CognitoIdentityClient, GetOpenIdTokenForDeveloperIdentityCommand } = require("@aws-sdk/client-cognito-identity"); // CommonJS import
  * const client = new CognitoIdentityClient(config);
+ * const input = {
+ *   IdentityPoolId: "STRING_VALUE", // required
+ *   IdentityId: "STRING_VALUE",
+ *   Logins: { // required
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   PrincipalTags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   TokenDuration: Number("long"),
+ * };
  * const command = new GetOpenIdTokenForDeveloperIdentityCommand(input);
  * const response = await client.send(command);
  * ```

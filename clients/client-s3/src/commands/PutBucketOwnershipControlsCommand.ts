@@ -59,6 +59,18 @@ export interface PutBucketOwnershipControlsCommandOutput extends __MetadataBeare
  * import { S3Client, PutBucketOwnershipControlsCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, PutBucketOwnershipControlsCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
+ * const input = {
+ *   Bucket: "STRING_VALUE", // required
+ *   ContentMD5: "STRING_VALUE",
+ *   ExpectedBucketOwner: "STRING_VALUE",
+ *   OwnershipControls: {
+ *     Rules: [ // required
+ *       {
+ *         ObjectOwnership: "BucketOwnerPreferred" || "ObjectWriter" || "BucketOwnerEnforced", // required
+ *       },
+ *     ],
+ *   },
+ * };
  * const command = new PutBucketOwnershipControlsCommand(input);
  * const response = await client.send(command);
  * ```

@@ -48,6 +48,10 @@ export interface DisableIpamOrganizationAdminAccountCommandOutput
  * import { EC2Client, DisableIpamOrganizationAdminAccountCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DisableIpamOrganizationAdminAccountCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   DryRun: true || false,
+ *   DelegatedAdminAccountId: "STRING_VALUE", // required
+ * };
  * const command = new DisableIpamOrganizationAdminAccountCommand(input);
  * const response = await client.send(command);
  * ```

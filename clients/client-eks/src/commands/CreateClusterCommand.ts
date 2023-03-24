@@ -62,6 +62,61 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  * import { EKSClient, CreateClusterCommand } from "@aws-sdk/client-eks"; // ES Modules import
  * // const { EKSClient, CreateClusterCommand } = require("@aws-sdk/client-eks"); // CommonJS import
  * const client = new EKSClient(config);
+ * const input = {
+ *   name: "STRING_VALUE", // required
+ *   version: "STRING_VALUE",
+ *   roleArn: "STRING_VALUE", // required
+ *   resourcesVpcConfig: {
+ *     subnetIds: [
+ *       "STRING_VALUE",
+ *     ],
+ *     securityGroupIds: [
+ *       "STRING_VALUE",
+ *     ],
+ *     endpointPublicAccess: true || false,
+ *     endpointPrivateAccess: true || false,
+ *     publicAccessCidrs: [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   kubernetesNetworkConfig: {
+ *     serviceIpv4Cidr: "STRING_VALUE",
+ *     ipFamily: "ipv4" || "ipv6",
+ *   },
+ *   logging: {
+ *     clusterLogging: [
+ *       {
+ *         types: [
+ *           "api" || "audit" || "authenticator" || "controllerManager" || "scheduler",
+ *         ],
+ *         enabled: true || false,
+ *       },
+ *     ],
+ *   },
+ *   clientRequestToken: "STRING_VALUE",
+ *   tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   encryptionConfig: [
+ *     {
+ *       resources: [
+ *         "STRING_VALUE",
+ *       ],
+ *       provider: {
+ *         keyArn: "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ *   outpostConfig: {
+ *     outpostArns: [ // required
+ *       "STRING_VALUE",
+ *     ],
+ *     controlPlaneInstanceType: "STRING_VALUE", // required
+ *     controlPlanePlacement: {
+ *       groupName: "STRING_VALUE",
+ *     },
+ *   },
+ * };
  * const command = new CreateClusterCommand(input);
  * const response = await client.send(command);
  * ```

@@ -44,6 +44,11 @@ export interface PutAccountSuppressionAttributesCommandOutput
  * import { SESv2Client, PutAccountSuppressionAttributesCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, PutAccountSuppressionAttributesCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
  * const client = new SESv2Client(config);
+ * const input = {
+ *   SuppressedReasons: [
+ *     "BOUNCE" || "COMPLAINT",
+ *   ],
+ * };
  * const command = new PutAccountSuppressionAttributesCommand(input);
  * const response = await client.send(command);
  * ```

@@ -177,6 +177,25 @@ export interface UploadPartCommandOutput extends UploadPartOutput, __MetadataBea
  * import { S3Client, UploadPartCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, UploadPartCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
+ * const input = {
+ *   Body: "STREAMING_BLOB_VALUE",
+ *   Bucket: "STRING_VALUE", // required
+ *   ContentLength: Number("long"),
+ *   ContentMD5: "STRING_VALUE",
+ *   ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256",
+ *   ChecksumCRC32: "STRING_VALUE",
+ *   ChecksumCRC32C: "STRING_VALUE",
+ *   ChecksumSHA1: "STRING_VALUE",
+ *   ChecksumSHA256: "STRING_VALUE",
+ *   Key: "STRING_VALUE", // required
+ *   PartNumber: Number("int"), // required
+ *   UploadId: "STRING_VALUE", // required
+ *   SSECustomerAlgorithm: "STRING_VALUE",
+ *   SSECustomerKey: "STRING_VALUE",
+ *   SSECustomerKeyMD5: "STRING_VALUE",
+ *   RequestPayer: "requester",
+ *   ExpectedBucketOwner: "STRING_VALUE",
+ * };
  * const command = new UploadPartCommand(input);
  * const response = await client.send(command);
  * ```

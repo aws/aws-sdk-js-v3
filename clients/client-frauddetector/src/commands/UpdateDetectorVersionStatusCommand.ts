@@ -43,6 +43,11 @@ export interface UpdateDetectorVersionStatusCommandOutput extends UpdateDetector
  * import { FraudDetectorClient, UpdateDetectorVersionStatusCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, UpdateDetectorVersionStatusCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
  * const client = new FraudDetectorClient(config);
+ * const input = {
+ *   detectorId: "STRING_VALUE", // required
+ *   detectorVersionId: "STRING_VALUE", // required
+ *   status: "DRAFT" || "ACTIVE" || "INACTIVE", // required
+ * };
  * const command = new UpdateDetectorVersionStatusCommand(input);
  * const response = await client.send(command);
  * ```

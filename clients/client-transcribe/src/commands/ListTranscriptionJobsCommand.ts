@@ -44,6 +44,12 @@ export interface ListTranscriptionJobsCommandOutput extends ListTranscriptionJob
  * import { TranscribeClient, ListTranscriptionJobsCommand } from "@aws-sdk/client-transcribe"; // ES Modules import
  * // const { TranscribeClient, ListTranscriptionJobsCommand } = require("@aws-sdk/client-transcribe"); // CommonJS import
  * const client = new TranscribeClient(config);
+ * const input = {
+ *   Status: "QUEUED" || "IN_PROGRESS" || "FAILED" || "COMPLETED",
+ *   JobNameContains: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListTranscriptionJobsCommand(input);
  * const response = await client.send(command);
  * ```

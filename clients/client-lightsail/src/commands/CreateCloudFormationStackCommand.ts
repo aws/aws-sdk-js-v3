@@ -49,6 +49,17 @@ export interface CreateCloudFormationStackCommandOutput extends CreateCloudForma
  * import { LightsailClient, CreateCloudFormationStackCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, CreateCloudFormationStackCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = {
+ *   instances: [ // required
+ *     {
+ *       sourceName: "STRING_VALUE", // required
+ *       instanceType: "STRING_VALUE", // required
+ *       portInfoSource: "DEFAULT" || "INSTANCE" || "NONE" || "CLOSED", // required
+ *       userData: "STRING_VALUE",
+ *       availabilityZone: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateCloudFormationStackCommand(input);
  * const response = await client.send(command);
  * ```

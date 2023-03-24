@@ -42,6 +42,18 @@ export interface CreatePullRequestCommandOutput extends CreatePullRequestOutput,
  * import { CodeCommitClient, CreatePullRequestCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, CreatePullRequestCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
  * const client = new CodeCommitClient(config);
+ * const input = {
+ *   title: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   targets: [ // required
+ *     {
+ *       repositoryName: "STRING_VALUE", // required
+ *       sourceReference: "STRING_VALUE", // required
+ *       destinationReference: "STRING_VALUE",
+ *     },
+ *   ],
+ *   clientRequestToken: "STRING_VALUE",
+ * };
  * const command = new CreatePullRequestCommand(input);
  * const response = await client.send(command);
  * ```

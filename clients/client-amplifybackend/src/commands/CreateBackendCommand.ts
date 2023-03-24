@@ -42,6 +42,13 @@ export interface CreateBackendCommandOutput extends CreateBackendResponse, __Met
  * import { AmplifyBackendClient, CreateBackendCommand } from "@aws-sdk/client-amplifybackend"; // ES Modules import
  * // const { AmplifyBackendClient, CreateBackendCommand } = require("@aws-sdk/client-amplifybackend"); // CommonJS import
  * const client = new AmplifyBackendClient(config);
+ * const input = {
+ *   AppId: "STRING_VALUE", // required
+ *   AppName: "STRING_VALUE", // required
+ *   BackendEnvironmentName: "STRING_VALUE", // required
+ *   ResourceConfig: {},
+ *   ResourceName: "STRING_VALUE",
+ * };
  * const command = new CreateBackendCommand(input);
  * const response = await client.send(command);
  * ```

@@ -76,6 +76,23 @@ export interface PutBucketEncryptionCommandOutput extends __MetadataBearer {}
  * import { S3Client, PutBucketEncryptionCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, PutBucketEncryptionCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
+ * const input = {
+ *   Bucket: "STRING_VALUE", // required
+ *   ContentMD5: "STRING_VALUE",
+ *   ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256",
+ *   ServerSideEncryptionConfiguration: {
+ *     Rules: [ // required
+ *       {
+ *         ApplyServerSideEncryptionByDefault: {
+ *           SSEAlgorithm: "AES256" || "aws:kms", // required
+ *           KMSMasterKeyID: "STRING_VALUE",
+ *         },
+ *         BucketKeyEnabled: true || false,
+ *       },
+ *     ],
+ *   },
+ *   ExpectedBucketOwner: "STRING_VALUE",
+ * };
  * const command = new PutBucketEncryptionCommand(input);
  * const response = await client.send(command);
  * ```

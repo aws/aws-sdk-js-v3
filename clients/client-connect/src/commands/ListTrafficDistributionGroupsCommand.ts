@@ -44,6 +44,11 @@ export interface ListTrafficDistributionGroupsCommandOutput
  * import { ConnectClient, ListTrafficDistributionGroupsCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, ListTrafficDistributionGroupsCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = {
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   InstanceId: "STRING_VALUE",
+ * };
  * const command = new ListTrafficDistributionGroupsCommand(input);
  * const response = await client.send(command);
  * ```

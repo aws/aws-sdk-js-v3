@@ -42,6 +42,12 @@ export interface ListDestinationsCommandOutput extends ListDestinationsResponse,
  * import { IoTRoboRunnerClient, ListDestinationsCommand } from "@aws-sdk/client-iot-roborunner"; // ES Modules import
  * // const { IoTRoboRunnerClient, ListDestinationsCommand } = require("@aws-sdk/client-iot-roborunner"); // CommonJS import
  * const client = new IoTRoboRunnerClient(config);
+ * const input = {
+ *   site: "STRING_VALUE", // required
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ *   state: "STRING_VALUE",
+ * };
  * const command = new ListDestinationsCommand(input);
  * const response = await client.send(command);
  * ```

@@ -110,6 +110,75 @@ export interface CreateComponentVersionCommandOutput extends CreateComponentVers
  * import { GreengrassV2Client, CreateComponentVersionCommand } from "@aws-sdk/client-greengrassv2"; // ES Modules import
  * // const { GreengrassV2Client, CreateComponentVersionCommand } = require("@aws-sdk/client-greengrassv2"); // CommonJS import
  * const client = new GreengrassV2Client(config);
+ * const input = {
+ *   inlineRecipe: "BLOB_VALUE",
+ *   lambdaFunction: {
+ *     lambdaArn: "STRING_VALUE", // required
+ *     componentName: "STRING_VALUE",
+ *     componentVersion: "STRING_VALUE",
+ *     componentPlatforms: [
+ *       {
+ *         name: "STRING_VALUE",
+ *         attributes: {
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *       },
+ *     ],
+ *     componentDependencies: {
+ *       "<keys>": {
+ *         versionRequirement: "STRING_VALUE",
+ *         dependencyType: "HARD" || "SOFT",
+ *       },
+ *     },
+ *     componentLambdaParameters: {
+ *       eventSources: [
+ *         {
+ *           topic: "STRING_VALUE", // required
+ *           type: "PUB_SUB" || "IOT_CORE", // required
+ *         },
+ *       ],
+ *       maxQueueSize: Number("int"),
+ *       maxInstancesCount: Number("int"),
+ *       maxIdleTimeInSeconds: Number("int"),
+ *       timeoutInSeconds: Number("int"),
+ *       statusTimeoutInSeconds: Number("int"),
+ *       pinned: true || false,
+ *       inputPayloadEncodingType: "json" || "binary",
+ *       execArgs: [
+ *         "STRING_VALUE",
+ *       ],
+ *       environmentVariables: {
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *       linuxProcessParams: {
+ *         isolationMode: "GreengrassContainer" || "NoContainer",
+ *         containerParams: {
+ *           memorySizeInKB: Number("int"),
+ *           mountROSysfs: true || false,
+ *           volumes: [
+ *             {
+ *               sourcePath: "STRING_VALUE", // required
+ *               destinationPath: "STRING_VALUE", // required
+ *               permission: "ro" || "rw",
+ *               addGroupOwner: true || false,
+ *             },
+ *           ],
+ *           devices: [
+ *             {
+ *               path: "STRING_VALUE", // required
+ *               permission: "ro" || "rw",
+ *               addGroupOwner: true || false,
+ *             },
+ *           ],
+ *         },
+ *       },
+ *     },
+ *   },
+ *   tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new CreateComponentVersionCommand(input);
  * const response = await client.send(command);
  * ```

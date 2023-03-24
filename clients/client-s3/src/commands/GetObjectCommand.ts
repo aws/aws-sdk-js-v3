@@ -210,6 +210,29 @@ export interface GetObjectCommandOutput extends __WithSdkStreamMixin<GetObjectOu
  * import { S3Client, GetObjectCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, GetObjectCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
+ * const input = {
+ *   Bucket: "STRING_VALUE", // required
+ *   IfMatch: "STRING_VALUE",
+ *   IfModifiedSince: new Date("TIMESTAMP"),
+ *   IfNoneMatch: "STRING_VALUE",
+ *   IfUnmodifiedSince: new Date("TIMESTAMP"),
+ *   Key: "STRING_VALUE", // required
+ *   Range: "STRING_VALUE",
+ *   ResponseCacheControl: "STRING_VALUE",
+ *   ResponseContentDisposition: "STRING_VALUE",
+ *   ResponseContentEncoding: "STRING_VALUE",
+ *   ResponseContentLanguage: "STRING_VALUE",
+ *   ResponseContentType: "STRING_VALUE",
+ *   ResponseExpires: new Date("TIMESTAMP"),
+ *   VersionId: "STRING_VALUE",
+ *   SSECustomerAlgorithm: "STRING_VALUE",
+ *   SSECustomerKey: "STRING_VALUE",
+ *   SSECustomerKeyMD5: "STRING_VALUE",
+ *   RequestPayer: "requester",
+ *   PartNumber: Number("int"),
+ *   ExpectedBucketOwner: "STRING_VALUE",
+ *   ChecksumMode: "ENABLED",
+ * };
  * const command = new GetObjectCommand(input);
  * const response = await client.send(command);
  * ```

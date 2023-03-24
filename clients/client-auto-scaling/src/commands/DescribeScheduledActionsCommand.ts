@@ -45,6 +45,16 @@ export interface DescribeScheduledActionsCommandOutput extends ScheduledActionsT
  * import { AutoScalingClient, DescribeScheduledActionsCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, DescribeScheduledActionsCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
  * const client = new AutoScalingClient(config);
+ * const input = {
+ *   AutoScalingGroupName: "STRING_VALUE",
+ *   ScheduledActionNames: [
+ *     "STRING_VALUE",
+ *   ],
+ *   StartTime: new Date("TIMESTAMP"),
+ *   EndTime: new Date("TIMESTAMP"),
+ *   NextToken: "STRING_VALUE",
+ *   MaxRecords: Number("int"),
+ * };
  * const command = new DescribeScheduledActionsCommand(input);
  * const response = await client.send(command);
  * ```

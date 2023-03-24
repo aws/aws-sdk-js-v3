@@ -42,6 +42,13 @@ export interface UpdateContactChannelCommandOutput extends UpdateContactChannelR
  * import { SSMContactsClient, UpdateContactChannelCommand } from "@aws-sdk/client-ssm-contacts"; // ES Modules import
  * // const { SSMContactsClient, UpdateContactChannelCommand } = require("@aws-sdk/client-ssm-contacts"); // CommonJS import
  * const client = new SSMContactsClient(config);
+ * const input = {
+ *   ContactChannelId: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE",
+ *   DeliveryAddress: {
+ *     SimpleAddress: "STRING_VALUE",
+ *   },
+ * };
  * const command = new UpdateContactChannelCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,20 @@ export interface AddFlowVpcInterfacesCommandOutput extends AddFlowVpcInterfacesR
  * import { MediaConnectClient, AddFlowVpcInterfacesCommand } from "@aws-sdk/client-mediaconnect"; // ES Modules import
  * // const { MediaConnectClient, AddFlowVpcInterfacesCommand } = require("@aws-sdk/client-mediaconnect"); // CommonJS import
  * const client = new MediaConnectClient(config);
+ * const input = {
+ *   FlowArn: "STRING_VALUE", // required
+ *   VpcInterfaces: [ // required
+ *     {
+ *       Name: "STRING_VALUE", // required
+ *       NetworkInterfaceType: "ena" || "efa",
+ *       RoleArn: "STRING_VALUE", // required
+ *       SecurityGroupIds: [ // required
+ *         "STRING_VALUE",
+ *       ],
+ *       SubnetId: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new AddFlowVpcInterfacesCommand(input);
  * const response = await client.send(command);
  * ```

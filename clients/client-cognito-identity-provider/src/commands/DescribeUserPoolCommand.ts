@@ -47,6 +47,9 @@ export interface DescribeUserPoolCommandOutput extends DescribeUserPoolResponse,
  * import { CognitoIdentityProviderClient, DescribeUserPoolCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, DescribeUserPoolCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
+ * const input = {
+ *   UserPoolId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeUserPoolCommand(input);
  * const response = await client.send(command);
  * ```

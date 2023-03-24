@@ -42,6 +42,22 @@ export interface PutRepositoryCatalogDataCommandOutput extends PutRepositoryCata
  * import { ECRPUBLICClient, PutRepositoryCatalogDataCommand } from "@aws-sdk/client-ecr-public"; // ES Modules import
  * // const { ECRPUBLICClient, PutRepositoryCatalogDataCommand } = require("@aws-sdk/client-ecr-public"); // CommonJS import
  * const client = new ECRPUBLICClient(config);
+ * const input = {
+ *   registryId: "STRING_VALUE",
+ *   repositoryName: "STRING_VALUE", // required
+ *   catalogData: {
+ *     description: "STRING_VALUE",
+ *     architectures: [
+ *       "STRING_VALUE",
+ *     ],
+ *     operatingSystems: [
+ *       "STRING_VALUE",
+ *     ],
+ *     logoImageBlob: "BLOB_VALUE",
+ *     aboutText: "STRING_VALUE",
+ *     usageText: "STRING_VALUE",
+ *   },
+ * };
  * const command = new PutRepositoryCatalogDataCommand(input);
  * const response = await client.send(command);
  * ```

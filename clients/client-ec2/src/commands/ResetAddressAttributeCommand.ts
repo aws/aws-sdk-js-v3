@@ -42,6 +42,11 @@ export interface ResetAddressAttributeCommandOutput extends ResetAddressAttribut
  * import { EC2Client, ResetAddressAttributeCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ResetAddressAttributeCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   AllocationId: "STRING_VALUE", // required
+ *   Attribute: "domain-name", // required
+ *   DryRun: true || false,
+ * };
  * const command = new ResetAddressAttributeCommand(input);
  * const response = await client.send(command);
  * ```

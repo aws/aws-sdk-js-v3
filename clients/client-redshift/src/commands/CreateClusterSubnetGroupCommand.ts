@@ -48,6 +48,19 @@ export interface CreateClusterSubnetGroupCommandOutput extends CreateClusterSubn
  * import { RedshiftClient, CreateClusterSubnetGroupCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, CreateClusterSubnetGroupCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = {
+ *   ClusterSubnetGroupName: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE", // required
+ *   SubnetIds: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateClusterSubnetGroupCommand(input);
  * const response = await client.send(command);
  * ```

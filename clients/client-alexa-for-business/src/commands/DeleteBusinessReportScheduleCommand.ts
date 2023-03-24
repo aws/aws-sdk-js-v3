@@ -45,6 +45,9 @@ export interface DeleteBusinessReportScheduleCommandOutput
  * import { AlexaForBusinessClient, DeleteBusinessReportScheduleCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, DeleteBusinessReportScheduleCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
+ * const input = {
+ *   ScheduleArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteBusinessReportScheduleCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,11 @@ export interface UpdateSkillGroupCommandOutput extends UpdateSkillGroupResponse,
  * import { AlexaForBusinessClient, UpdateSkillGroupCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, UpdateSkillGroupCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
+ * const input = {
+ *   SkillGroupArn: "STRING_VALUE",
+ *   SkillGroupName: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ * };
  * const command = new UpdateSkillGroupCommand(input);
  * const response = await client.send(command);
  * ```

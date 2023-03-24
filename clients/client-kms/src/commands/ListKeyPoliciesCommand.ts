@@ -63,6 +63,11 @@ export interface ListKeyPoliciesCommandOutput extends ListKeyPoliciesResponse, _
  * import { KMSClient, ListKeyPoliciesCommand } from "@aws-sdk/client-kms"; // ES Modules import
  * // const { KMSClient, ListKeyPoliciesCommand } = require("@aws-sdk/client-kms"); // CommonJS import
  * const client = new KMSClient(config);
+ * const input = {
+ *   KeyId: "STRING_VALUE", // required
+ *   Limit: Number("int"),
+ *   Marker: "STRING_VALUE",
+ * };
  * const command = new ListKeyPoliciesCommand(input);
  * const response = await client.send(command);
  * ```

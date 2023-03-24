@@ -42,6 +42,18 @@ export interface UpdateAllowListCommandOutput extends UpdateAllowListResponse, _
  * import { Macie2Client, UpdateAllowListCommand } from "@aws-sdk/client-macie2"; // ES Modules import
  * // const { Macie2Client, UpdateAllowListCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
  * const client = new Macie2Client(config);
+ * const input = {
+ *   criteria: {
+ *     regex: "STRING_VALUE",
+ *     s3WordsList: {
+ *       bucketName: "STRING_VALUE", // required
+ *       objectKey: "STRING_VALUE", // required
+ *     },
+ *   },
+ *   description: "STRING_VALUE",
+ *   id: "STRING_VALUE", // required
+ *   name: "STRING_VALUE", // required
+ * };
  * const command = new UpdateAllowListCommand(input);
  * const response = await client.send(command);
  * ```

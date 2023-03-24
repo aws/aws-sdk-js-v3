@@ -44,6 +44,66 @@ export interface PutAppValidationConfigurationCommandOutput
  * import { SMSClient, PutAppValidationConfigurationCommand } from "@aws-sdk/client-sms"; // ES Modules import
  * // const { SMSClient, PutAppValidationConfigurationCommand } = require("@aws-sdk/client-sms"); // CommonJS import
  * const client = new SMSClient(config);
+ * const input = {
+ *   appId: "STRING_VALUE", // required
+ *   appValidationConfigurations: [
+ *     {
+ *       validationId: "STRING_VALUE",
+ *       name: "STRING_VALUE",
+ *       appValidationStrategy: "STRING_VALUE",
+ *       ssmValidationParameters: {
+ *         source: {
+ *           s3Location: {
+ *             bucket: "STRING_VALUE",
+ *             key: "STRING_VALUE",
+ *           },
+ *         },
+ *         instanceId: "STRING_VALUE",
+ *         scriptType: "STRING_VALUE",
+ *         command: "STRING_VALUE",
+ *         executionTimeoutSeconds: Number("int"),
+ *         outputS3BucketName: "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ *   serverGroupValidationConfigurations: [
+ *     {
+ *       serverGroupId: "STRING_VALUE",
+ *       serverValidationConfigurations: [
+ *         {
+ *           server: {
+ *             serverId: "STRING_VALUE",
+ *             serverType: "STRING_VALUE",
+ *             vmServer: {
+ *               vmServerAddress: {
+ *                 vmManagerId: "STRING_VALUE",
+ *                 vmId: "STRING_VALUE",
+ *               },
+ *               vmName: "STRING_VALUE",
+ *               vmManagerName: "STRING_VALUE",
+ *               vmManagerType: "STRING_VALUE",
+ *               vmPath: "STRING_VALUE",
+ *             },
+ *             replicationJobId: "STRING_VALUE",
+ *             replicationJobTerminated: true || false,
+ *           },
+ *           validationId: "STRING_VALUE",
+ *           name: "STRING_VALUE",
+ *           serverValidationStrategy: "STRING_VALUE",
+ *           userDataValidationParameters: {
+ *             source: {
+ *               s3Location: {
+ *                 bucket: "STRING_VALUE",
+ *                 key: "STRING_VALUE",
+ *               },
+ *             },
+ *             scriptType: "STRING_VALUE",
+ *           },
+ *         },
+ *       ],
+ *     },
+ *   ],
+ * };
  * const command = new PutAppValidationConfigurationCommand(input);
  * const response = await client.send(command);
  * ```

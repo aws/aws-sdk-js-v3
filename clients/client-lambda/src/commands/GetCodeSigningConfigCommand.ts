@@ -42,6 +42,9 @@ export interface GetCodeSigningConfigCommandOutput extends GetCodeSigningConfigR
  * import { LambdaClient, GetCodeSigningConfigCommand } from "@aws-sdk/client-lambda"; // ES Modules import
  * // const { LambdaClient, GetCodeSigningConfigCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
  * const client = new LambdaClient(config);
+ * const input = {
+ *   CodeSigningConfigArn: "STRING_VALUE", // required
+ * };
  * const command = new GetCodeSigningConfigCommand(input);
  * const response = await client.send(command);
  * ```

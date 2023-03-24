@@ -44,6 +44,13 @@ export interface PutMobileDeviceAccessOverrideCommandOutput
  * import { WorkMailClient, PutMobileDeviceAccessOverrideCommand } from "@aws-sdk/client-workmail"; // ES Modules import
  * // const { WorkMailClient, PutMobileDeviceAccessOverrideCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
  * const client = new WorkMailClient(config);
+ * const input = {
+ *   OrganizationId: "STRING_VALUE", // required
+ *   UserId: "STRING_VALUE", // required
+ *   DeviceId: "STRING_VALUE", // required
+ *   Effect: "ALLOW" || "DENY", // required
+ *   Description: "STRING_VALUE",
+ * };
  * const command = new PutMobileDeviceAccessOverrideCommand(input);
  * const response = await client.send(command);
  * ```

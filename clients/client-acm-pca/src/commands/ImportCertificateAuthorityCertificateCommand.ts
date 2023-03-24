@@ -170,6 +170,11 @@ export interface ImportCertificateAuthorityCertificateCommandOutput extends __Me
  * import { ACMPCAClient, ImportCertificateAuthorityCertificateCommand } from "@aws-sdk/client-acm-pca"; // ES Modules import
  * // const { ACMPCAClient, ImportCertificateAuthorityCertificateCommand } = require("@aws-sdk/client-acm-pca"); // CommonJS import
  * const client = new ACMPCAClient(config);
+ * const input = {
+ *   CertificateAuthorityArn: "STRING_VALUE", // required
+ *   Certificate: "BLOB_VALUE", // required
+ *   CertificateChain: "BLOB_VALUE",
+ * };
  * const command = new ImportCertificateAuthorityCertificateCommand(input);
  * const response = await client.send(command);
  * ```

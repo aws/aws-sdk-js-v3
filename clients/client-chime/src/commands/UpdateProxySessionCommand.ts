@@ -46,6 +46,14 @@ export interface UpdateProxySessionCommandOutput extends UpdateProxySessionRespo
  * import { ChimeClient, UpdateProxySessionCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, UpdateProxySessionCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = {
+ *   VoiceConnectorId: "STRING_VALUE", // required
+ *   ProxySessionId: "STRING_VALUE", // required
+ *   Capabilities: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ *   ExpiryMinutes: Number("int"),
+ * };
  * const command = new UpdateProxySessionCommand(input);
  * const response = await client.send(command);
  * ```

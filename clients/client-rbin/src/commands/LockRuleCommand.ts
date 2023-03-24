@@ -42,6 +42,15 @@ export interface LockRuleCommandOutput extends LockRuleResponse, __MetadataBeare
  * import { RbinClient, LockRuleCommand } from "@aws-sdk/client-rbin"; // ES Modules import
  * // const { RbinClient, LockRuleCommand } = require("@aws-sdk/client-rbin"); // CommonJS import
  * const client = new RbinClient(config);
+ * const input = {
+ *   Identifier: "STRING_VALUE", // required
+ *   LockConfiguration: {
+ *     UnlockDelay: {
+ *       UnlockDelayValue: Number("int"), // required
+ *       UnlockDelayUnit: "DAYS", // required
+ *     },
+ *   },
+ * };
  * const command = new LockRuleCommand(input);
  * const response = await client.send(command);
  * ```

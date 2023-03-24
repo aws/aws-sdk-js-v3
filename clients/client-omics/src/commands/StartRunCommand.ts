@@ -42,6 +42,23 @@ export interface StartRunCommandOutput extends StartRunResponse, __MetadataBeare
  * import { OmicsClient, StartRunCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, StartRunCommand } = require("@aws-sdk/client-omics"); // CommonJS import
  * const client = new OmicsClient(config);
+ * const input = {
+ *   workflowId: "STRING_VALUE",
+ *   workflowType: "STRING_VALUE",
+ *   runId: "STRING_VALUE",
+ *   roleArn: "STRING_VALUE", // required
+ *   name: "STRING_VALUE",
+ *   runGroupId: "STRING_VALUE",
+ *   priority: Number("int"),
+ *   parameters: "DOCUMENT_VALUE",
+ *   storageCapacity: Number("int"),
+ *   outputUri: "STRING_VALUE",
+ *   logLevel: "STRING_VALUE",
+ *   tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   requestId: "STRING_VALUE", // required
+ * };
  * const command = new StartRunCommand(input);
  * const response = await client.send(command);
  * ```

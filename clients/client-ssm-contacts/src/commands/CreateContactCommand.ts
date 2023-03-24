@@ -44,6 +44,37 @@ export interface CreateContactCommandOutput extends CreateContactResult, __Metad
  * import { SSMContactsClient, CreateContactCommand } from "@aws-sdk/client-ssm-contacts"; // ES Modules import
  * // const { SSMContactsClient, CreateContactCommand } = require("@aws-sdk/client-ssm-contacts"); // CommonJS import
  * const client = new SSMContactsClient(config);
+ * const input = {
+ *   Alias: "STRING_VALUE", // required
+ *   DisplayName: "STRING_VALUE",
+ *   Type: "STRING_VALUE", // required
+ *   Plan: {
+ *     Stages: [ // required
+ *       {
+ *         DurationInMinutes: Number("int"), // required
+ *         Targets: [ // required
+ *           {
+ *             ChannelTargetInfo: {
+ *               ContactChannelId: "STRING_VALUE", // required
+ *               RetryIntervalInMinutes: Number("int"),
+ *             },
+ *             ContactTargetInfo: {
+ *               ContactId: "STRING_VALUE",
+ *               IsEssential: true || false, // required
+ *             },
+ *           },
+ *         ],
+ *       },
+ *     ],
+ *   },
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   IdempotencyToken: "STRING_VALUE",
+ * };
  * const command = new CreateContactCommand(input);
  * const response = await client.send(command);
  * ```

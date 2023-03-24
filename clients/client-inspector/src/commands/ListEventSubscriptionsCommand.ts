@@ -43,6 +43,11 @@ export interface ListEventSubscriptionsCommandOutput extends ListEventSubscripti
  * import { InspectorClient, ListEventSubscriptionsCommand } from "@aws-sdk/client-inspector"; // ES Modules import
  * // const { InspectorClient, ListEventSubscriptionsCommand } = require("@aws-sdk/client-inspector"); // CommonJS import
  * const client = new InspectorClient(config);
+ * const input = {
+ *   resourceArn: "STRING_VALUE",
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListEventSubscriptionsCommand(input);
  * const response = await client.send(command);
  * ```

@@ -44,6 +44,10 @@ export interface PutImagePolicyCommandOutput extends PutImagePolicyResponse, __M
  * import { ImagebuilderClient, PutImagePolicyCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
  * // const { ImagebuilderClient, PutImagePolicyCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
  * const client = new ImagebuilderClient(config);
+ * const input = {
+ *   imageArn: "STRING_VALUE", // required
+ *   policy: "STRING_VALUE", // required
+ * };
  * const command = new PutImagePolicyCommand(input);
  * const response = await client.send(command);
  * ```

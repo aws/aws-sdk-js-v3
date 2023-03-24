@@ -42,6 +42,9 @@ export interface DescribeArtifactCommandOutput extends DescribeArtifactResponse,
  * import { SageMakerClient, DescribeArtifactCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DescribeArtifactCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = {
+ *   ArtifactArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeArtifactCommand(input);
  * const response = await client.send(command);
  * ```

@@ -49,6 +49,23 @@ export interface CreateServiceCommandOutput extends CreateServiceOutput, __Metad
  * import { ProtonClient, CreateServiceCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, CreateServiceCommand } = require("@aws-sdk/client-proton"); // CommonJS import
  * const client = new ProtonClient(config);
+ * const input = {
+ *   name: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   templateName: "STRING_VALUE", // required
+ *   templateMajorVersion: "STRING_VALUE", // required
+ *   templateMinorVersion: "STRING_VALUE",
+ *   spec: "STRING_VALUE", // required
+ *   repositoryConnectionArn: "STRING_VALUE",
+ *   repositoryId: "STRING_VALUE",
+ *   branchName: "STRING_VALUE",
+ *   tags: [
+ *     {
+ *       key: "STRING_VALUE", // required
+ *       value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateServiceCommand(input);
  * const response = await client.send(command);
  * ```

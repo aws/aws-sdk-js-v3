@@ -45,6 +45,9 @@ export interface StartInputDeviceMaintenanceWindowCommandOutput
  * import { MediaLiveClient, StartInputDeviceMaintenanceWindowCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, StartInputDeviceMaintenanceWindowCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
  * const client = new MediaLiveClient(config);
+ * const input = {
+ *   InputDeviceId: "STRING_VALUE", // required
+ * };
  * const command = new StartInputDeviceMaintenanceWindowCommand(input);
  * const response = await client.send(command);
  * ```

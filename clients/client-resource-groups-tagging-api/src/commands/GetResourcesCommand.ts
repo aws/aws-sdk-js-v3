@@ -69,6 +69,27 @@ export interface GetResourcesCommandOutput extends GetResourcesOutput, __Metadat
  * import { ResourceGroupsTaggingAPIClient, GetResourcesCommand } from "@aws-sdk/client-resource-groups-tagging-api"; // ES Modules import
  * // const { ResourceGroupsTaggingAPIClient, GetResourcesCommand } = require("@aws-sdk/client-resource-groups-tagging-api"); // CommonJS import
  * const client = new ResourceGroupsTaggingAPIClient(config);
+ * const input = {
+ *   PaginationToken: "STRING_VALUE",
+ *   TagFilters: [
+ *     {
+ *       Key: "STRING_VALUE",
+ *       Values: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   ResourcesPerPage: Number("int"),
+ *   TagsPerPage: Number("int"),
+ *   ResourceTypeFilters: [
+ *     "STRING_VALUE",
+ *   ],
+ *   IncludeComplianceDetails: true || false,
+ *   ExcludeCompliantResources: true || false,
+ *   ResourceARNList: [
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new GetResourcesCommand(input);
  * const response = await client.send(command);
  * ```

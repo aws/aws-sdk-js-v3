@@ -45,6 +45,57 @@ export interface CreateReceiptRuleCommandOutput extends CreateReceiptRuleRespons
  * import { SESClient, CreateReceiptRuleCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, CreateReceiptRuleCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
+ * const input = {
+ *   RuleSetName: "STRING_VALUE", // required
+ *   After: "STRING_VALUE",
+ *   Rule: {
+ *     Name: "STRING_VALUE", // required
+ *     Enabled: true || false,
+ *     TlsPolicy: "STRING_VALUE",
+ *     Recipients: [
+ *       "STRING_VALUE",
+ *     ],
+ *     Actions: [
+ *       {
+ *         S3Action: {
+ *           TopicArn: "STRING_VALUE",
+ *           BucketName: "STRING_VALUE", // required
+ *           ObjectKeyPrefix: "STRING_VALUE",
+ *           KmsKeyArn: "STRING_VALUE",
+ *         },
+ *         BounceAction: {
+ *           TopicArn: "STRING_VALUE",
+ *           SmtpReplyCode: "STRING_VALUE", // required
+ *           StatusCode: "STRING_VALUE",
+ *           Message: "STRING_VALUE", // required
+ *           Sender: "STRING_VALUE", // required
+ *         },
+ *         WorkmailAction: {
+ *           TopicArn: "STRING_VALUE",
+ *           OrganizationArn: "STRING_VALUE", // required
+ *         },
+ *         LambdaAction: {
+ *           TopicArn: "STRING_VALUE",
+ *           FunctionArn: "STRING_VALUE", // required
+ *           InvocationType: "STRING_VALUE",
+ *         },
+ *         StopAction: {
+ *           Scope: "STRING_VALUE", // required
+ *           TopicArn: "STRING_VALUE",
+ *         },
+ *         AddHeaderAction: {
+ *           HeaderName: "STRING_VALUE", // required
+ *           HeaderValue: "STRING_VALUE", // required
+ *         },
+ *         SNSAction: {
+ *           TopicArn: "STRING_VALUE", // required
+ *           Encoding: "STRING_VALUE",
+ *         },
+ *       },
+ *     ],
+ *     ScanEnabled: true || false,
+ *   },
+ * };
  * const command = new CreateReceiptRuleCommand(input);
  * const response = await client.send(command);
  * ```

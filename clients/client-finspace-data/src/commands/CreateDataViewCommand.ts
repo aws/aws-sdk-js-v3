@@ -42,6 +42,25 @@ export interface CreateDataViewCommandOutput extends CreateDataViewResponse, __M
  * import { FinspaceDataClient, CreateDataViewCommand } from "@aws-sdk/client-finspace-data"; // ES Modules import
  * // const { FinspaceDataClient, CreateDataViewCommand } = require("@aws-sdk/client-finspace-data"); // CommonJS import
  * const client = new FinspaceDataClient(config);
+ * const input = {
+ *   clientToken: "STRING_VALUE",
+ *   datasetId: "STRING_VALUE", // required
+ *   autoUpdate: true || false,
+ *   sortColumns: [
+ *     "STRING_VALUE",
+ *   ],
+ *   partitionColumns: [
+ *     "STRING_VALUE",
+ *   ],
+ *   asOfTimestamp: Number("long"),
+ *   destinationTypeParams: {
+ *     destinationType: "STRING_VALUE", // required
+ *     s3DestinationExportFileFormat: "STRING_VALUE",
+ *     s3DestinationExportFileFormatOptions: {
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *   },
+ * };
  * const command = new CreateDataViewCommand(input);
  * const response = await client.send(command);
  * ```

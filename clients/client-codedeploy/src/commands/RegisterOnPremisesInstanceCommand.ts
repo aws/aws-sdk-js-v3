@@ -45,6 +45,11 @@ export interface RegisterOnPremisesInstanceCommandOutput extends __MetadataBeare
  * import { CodeDeployClient, RegisterOnPremisesInstanceCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
  * // const { CodeDeployClient, RegisterOnPremisesInstanceCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
  * const client = new CodeDeployClient(config);
+ * const input = {
+ *   instanceName: "STRING_VALUE", // required
+ *   iamSessionArn: "STRING_VALUE",
+ *   iamUserArn: "STRING_VALUE",
+ * };
  * const command = new RegisterOnPremisesInstanceCommand(input);
  * const response = await client.send(command);
  * ```

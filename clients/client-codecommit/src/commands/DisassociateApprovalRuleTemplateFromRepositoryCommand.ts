@@ -46,6 +46,10 @@ export interface DisassociateApprovalRuleTemplateFromRepositoryCommandOutput ext
  * import { CodeCommitClient, DisassociateApprovalRuleTemplateFromRepositoryCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, DisassociateApprovalRuleTemplateFromRepositoryCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
  * const client = new CodeCommitClient(config);
+ * const input = {
+ *   approvalRuleTemplateName: "STRING_VALUE", // required
+ *   repositoryName: "STRING_VALUE", // required
+ * };
  * const command = new DisassociateApprovalRuleTemplateFromRepositoryCommand(input);
  * const response = await client.send(command);
  * ```

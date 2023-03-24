@@ -45,6 +45,7 @@ export interface GetSendStatisticsCommandOutput extends GetSendStatisticsRespons
  * import { SESClient, GetSendStatisticsCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, GetSendStatisticsCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
+ * const input = {};
  * const command = new GetSendStatisticsCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,9 @@ export interface GetConnectorDefinitionCommandOutput extends GetConnectorDefinit
  * import { GreengrassClient, GetConnectorDefinitionCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, GetConnectorDefinitionCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
+ * const input = {
+ *   ConnectorDefinitionId: "STRING_VALUE", // required
+ * };
  * const command = new GetConnectorDefinitionCommand(input);
  * const response = await client.send(command);
  * ```

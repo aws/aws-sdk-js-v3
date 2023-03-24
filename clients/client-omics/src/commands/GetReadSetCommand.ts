@@ -47,6 +47,12 @@ export interface GetReadSetCommandOutput
  * import { OmicsClient, GetReadSetCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, GetReadSetCommand } = require("@aws-sdk/client-omics"); // CommonJS import
  * const client = new OmicsClient(config);
+ * const input = {
+ *   id: "STRING_VALUE", // required
+ *   sequenceStoreId: "STRING_VALUE", // required
+ *   file: "STRING_VALUE",
+ *   partNumber: Number("int"), // required
+ * };
  * const command = new GetReadSetCommand(input);
  * const response = await client.send(command);
  * ```

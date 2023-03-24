@@ -43,6 +43,9 @@ export interface DeactivateContactChannelCommandOutput extends DeactivateContact
  * import { SSMContactsClient, DeactivateContactChannelCommand } from "@aws-sdk/client-ssm-contacts"; // ES Modules import
  * // const { SSMContactsClient, DeactivateContactChannelCommand } = require("@aws-sdk/client-ssm-contacts"); // CommonJS import
  * const client = new SSMContactsClient(config);
+ * const input = {
+ *   ContactChannelId: "STRING_VALUE", // required
+ * };
  * const command = new DeactivateContactChannelCommand(input);
  * const response = await client.send(command);
  * ```

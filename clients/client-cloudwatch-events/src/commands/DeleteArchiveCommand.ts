@@ -42,6 +42,9 @@ export interface DeleteArchiveCommandOutput extends DeleteArchiveResponse, __Met
  * import { CloudWatchEventsClient, DeleteArchiveCommand } from "@aws-sdk/client-cloudwatch-events"; // ES Modules import
  * // const { CloudWatchEventsClient, DeleteArchiveCommand } = require("@aws-sdk/client-cloudwatch-events"); // CommonJS import
  * const client = new CloudWatchEventsClient(config);
+ * const input = {
+ *   ArchiveName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteArchiveCommand(input);
  * const response = await client.send(command);
  * ```

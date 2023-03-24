@@ -46,6 +46,9 @@ export interface GetNetworkResourceCommandOutput extends GetNetworkResourceRespo
  * import { PrivateNetworksClient, GetNetworkResourceCommand } from "@aws-sdk/client-privatenetworks"; // ES Modules import
  * // const { PrivateNetworksClient, GetNetworkResourceCommand } = require("@aws-sdk/client-privatenetworks"); // CommonJS import
  * const client = new PrivateNetworksClient(config);
+ * const input = {
+ *   networkResourceArn: "STRING_VALUE", // required
+ * };
  * const command = new GetNetworkResourceCommand(input);
  * const response = await client.send(command);
  * ```

@@ -52,6 +52,14 @@ export interface CreateBackupVaultCommandOutput extends CreateBackupVaultOutput,
  * import { BackupClient, CreateBackupVaultCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, CreateBackupVaultCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
+ * const input = {
+ *   BackupVaultName: "STRING_VALUE", // required
+ *   BackupVaultTags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   EncryptionKeyArn: "STRING_VALUE",
+ *   CreatorRequestId: "STRING_VALUE",
+ * };
  * const command = new CreateBackupVaultCommand(input);
  * const response = await client.send(command);
  * ```

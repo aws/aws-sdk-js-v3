@@ -39,6 +39,22 @@ export interface SendEventCommandOutput extends SendEventResult, __MetadataBeare
  * import { FraudDetectorClient, SendEventCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, SendEventCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
  * const client = new FraudDetectorClient(config);
+ * const input = {
+ *   eventId: "STRING_VALUE", // required
+ *   eventTypeName: "STRING_VALUE", // required
+ *   eventTimestamp: "STRING_VALUE", // required
+ *   eventVariables: { // required
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   assignedLabel: "STRING_VALUE",
+ *   labelTimestamp: "STRING_VALUE",
+ *   entities: [ // required
+ *     {
+ *       entityType: "STRING_VALUE", // required
+ *       entityId: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new SendEventCommand(input);
  * const response = await client.send(command);
  * ```

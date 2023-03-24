@@ -53,6 +53,27 @@ export interface CreateHostCommandOutput extends CreateHostOutput, __MetadataBea
  * import { CodeStarConnectionsClient, CreateHostCommand } from "@aws-sdk/client-codestar-connections"; // ES Modules import
  * // const { CodeStarConnectionsClient, CreateHostCommand } = require("@aws-sdk/client-codestar-connections"); // CommonJS import
  * const client = new CodeStarConnectionsClient(config);
+ * const input = {
+ *   Name: "STRING_VALUE", // required
+ *   ProviderType: "STRING_VALUE", // required
+ *   ProviderEndpoint: "STRING_VALUE", // required
+ *   VpcConfiguration: {
+ *     VpcId: "STRING_VALUE", // required
+ *     SubnetIds: [ // required
+ *       "STRING_VALUE",
+ *     ],
+ *     SecurityGroupIds: [ // required
+ *       "STRING_VALUE",
+ *     ],
+ *     TlsCertificate: "STRING_VALUE",
+ *   },
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateHostCommand(input);
  * const response = await client.send(command);
  * ```

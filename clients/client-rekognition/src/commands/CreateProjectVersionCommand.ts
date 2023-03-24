@@ -71,6 +71,45 @@ export interface CreateProjectVersionCommandOutput extends CreateProjectVersionR
  * import { RekognitionClient, CreateProjectVersionCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, CreateProjectVersionCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
+ * const input = {
+ *   ProjectArn: "STRING_VALUE", // required
+ *   VersionName: "STRING_VALUE", // required
+ *   OutputConfig: {
+ *     S3Bucket: "STRING_VALUE",
+ *     S3KeyPrefix: "STRING_VALUE",
+ *   },
+ *   TrainingData: {
+ *     Assets: [
+ *       {
+ *         GroundTruthManifest: {
+ *           S3Object: {
+ *             Bucket: "STRING_VALUE",
+ *             Name: "STRING_VALUE",
+ *             Version: "STRING_VALUE",
+ *           },
+ *         },
+ *       },
+ *     ],
+ *   },
+ *   TestingData: {
+ *     Assets: [
+ *       {
+ *         GroundTruthManifest: {
+ *           S3Object: {
+ *             Bucket: "STRING_VALUE",
+ *             Name: "STRING_VALUE",
+ *             Version: "STRING_VALUE",
+ *           },
+ *         },
+ *       },
+ *     ],
+ *     AutoCreate: true || false,
+ *   },
+ *   Tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   KmsKeyId: "STRING_VALUE",
+ * };
  * const command = new CreateProjectVersionCommand(input);
  * const response = await client.send(command);
  * ```

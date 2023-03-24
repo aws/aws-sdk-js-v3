@@ -46,6 +46,11 @@ export interface DeleteLogPatternCommandOutput extends DeleteLogPatternResponse,
  * import { ApplicationInsightsClient, DeleteLogPatternCommand } from "@aws-sdk/client-application-insights"; // ES Modules import
  * // const { ApplicationInsightsClient, DeleteLogPatternCommand } = require("@aws-sdk/client-application-insights"); // CommonJS import
  * const client = new ApplicationInsightsClient(config);
+ * const input = {
+ *   ResourceGroupName: "STRING_VALUE", // required
+ *   PatternSetName: "STRING_VALUE", // required
+ *   PatternName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteLogPatternCommand(input);
  * const response = await client.send(command);
  * ```

@@ -45,6 +45,27 @@ export interface UpdateExtensionCommandOutput extends Extension, __MetadataBeare
  * import { AppConfigClient, UpdateExtensionCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
  * // const { AppConfigClient, UpdateExtensionCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
  * const client = new AppConfigClient(config);
+ * const input = {
+ *   ExtensionIdentifier: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   Actions: {
+ *     "<keys>": [
+ *       {
+ *         Name: "STRING_VALUE",
+ *         Description: "STRING_VALUE",
+ *         Uri: "STRING_VALUE",
+ *         RoleArn: "STRING_VALUE",
+ *       },
+ *     ],
+ *   },
+ *   Parameters: {
+ *     "<keys>": {
+ *       Description: "STRING_VALUE",
+ *       Required: true || false,
+ *     },
+ *   },
+ *   VersionNumber: Number("int"),
+ * };
  * const command = new UpdateExtensionCommand(input);
  * const response = await client.send(command);
  * ```

@@ -43,6 +43,10 @@ export interface DeleteFunctionUrlConfigCommandOutput extends __MetadataBearer {
  * import { LambdaClient, DeleteFunctionUrlConfigCommand } from "@aws-sdk/client-lambda"; // ES Modules import
  * // const { LambdaClient, DeleteFunctionUrlConfigCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
  * const client = new LambdaClient(config);
+ * const input = {
+ *   FunctionName: "STRING_VALUE", // required
+ *   Qualifier: "STRING_VALUE",
+ * };
  * const command = new DeleteFunctionUrlConfigCommand(input);
  * const response = await client.send(command);
  * ```

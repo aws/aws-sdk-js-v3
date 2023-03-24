@@ -42,6 +42,10 @@ export interface DeleteLifecyclePolicyCommandOutput extends DeleteLifecyclePolic
  * import { ECRClient, DeleteLifecyclePolicyCommand } from "@aws-sdk/client-ecr"; // ES Modules import
  * // const { ECRClient, DeleteLifecyclePolicyCommand } = require("@aws-sdk/client-ecr"); // CommonJS import
  * const client = new ECRClient(config);
+ * const input = {
+ *   registryId: "STRING_VALUE",
+ *   repositoryName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteLifecyclePolicyCommand(input);
  * const response = await client.send(command);
  * ```

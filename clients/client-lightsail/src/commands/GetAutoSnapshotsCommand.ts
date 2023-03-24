@@ -43,6 +43,9 @@ export interface GetAutoSnapshotsCommandOutput extends GetAutoSnapshotsResult, _
  * import { LightsailClient, GetAutoSnapshotsCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, GetAutoSnapshotsCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = {
+ *   resourceName: "STRING_VALUE", // required
+ * };
  * const command = new GetAutoSnapshotsCommand(input);
  * const response = await client.send(command);
  * ```

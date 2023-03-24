@@ -46,6 +46,18 @@ export interface PutHypervisorPropertyMappingsCommandOutput
  * import { BackupGatewayClient, PutHypervisorPropertyMappingsCommand } from "@aws-sdk/client-backup-gateway"; // ES Modules import
  * // const { BackupGatewayClient, PutHypervisorPropertyMappingsCommand } = require("@aws-sdk/client-backup-gateway"); // CommonJS import
  * const client = new BackupGatewayClient(config);
+ * const input = {
+ *   HypervisorArn: "STRING_VALUE", // required
+ *   VmwareToAwsTagMappings: [ // required
+ *     {
+ *       VmwareCategory: "STRING_VALUE", // required
+ *       VmwareTagName: "STRING_VALUE", // required
+ *       AwsTagKey: "STRING_VALUE", // required
+ *       AwsTagValue: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   IamRoleArn: "STRING_VALUE", // required
+ * };
  * const command = new PutHypervisorPropertyMappingsCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,52 @@ export interface CreateUserCommandOutput extends CreateUserResponse, __MetadataB
  * import { IdentitystoreClient, CreateUserCommand } from "@aws-sdk/client-identitystore"; // ES Modules import
  * // const { IdentitystoreClient, CreateUserCommand } = require("@aws-sdk/client-identitystore"); // CommonJS import
  * const client = new IdentitystoreClient(config);
+ * const input = {
+ *   IdentityStoreId: "STRING_VALUE", // required
+ *   UserName: "STRING_VALUE",
+ *   Name: {
+ *     Formatted: "STRING_VALUE",
+ *     FamilyName: "STRING_VALUE",
+ *     GivenName: "STRING_VALUE",
+ *     MiddleName: "STRING_VALUE",
+ *     HonorificPrefix: "STRING_VALUE",
+ *     HonorificSuffix: "STRING_VALUE",
+ *   },
+ *   DisplayName: "STRING_VALUE",
+ *   NickName: "STRING_VALUE",
+ *   ProfileUrl: "STRING_VALUE",
+ *   Emails: [
+ *     {
+ *       Value: "STRING_VALUE",
+ *       Type: "STRING_VALUE",
+ *       Primary: true || false,
+ *     },
+ *   ],
+ *   Addresses: [
+ *     {
+ *       StreetAddress: "STRING_VALUE",
+ *       Locality: "STRING_VALUE",
+ *       Region: "STRING_VALUE",
+ *       PostalCode: "STRING_VALUE",
+ *       Country: "STRING_VALUE",
+ *       Formatted: "STRING_VALUE",
+ *       Type: "STRING_VALUE",
+ *       Primary: true || false,
+ *     },
+ *   ],
+ *   PhoneNumbers: [
+ *     {
+ *       Value: "STRING_VALUE",
+ *       Type: "STRING_VALUE",
+ *       Primary: true || false,
+ *     },
+ *   ],
+ *   UserType: "STRING_VALUE",
+ *   Title: "STRING_VALUE",
+ *   PreferredLanguage: "STRING_VALUE",
+ *   Locale: "STRING_VALUE",
+ *   Timezone: "STRING_VALUE",
+ * };
  * const command = new CreateUserCommand(input);
  * const response = await client.send(command);
  * ```

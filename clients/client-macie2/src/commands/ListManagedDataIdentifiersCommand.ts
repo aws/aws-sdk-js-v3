@@ -42,6 +42,9 @@ export interface ListManagedDataIdentifiersCommandOutput extends ListManagedData
  * import { Macie2Client, ListManagedDataIdentifiersCommand } from "@aws-sdk/client-macie2"; // ES Modules import
  * // const { Macie2Client, ListManagedDataIdentifiersCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
  * const client = new Macie2Client(config);
+ * const input = {
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListManagedDataIdentifiersCommand(input);
  * const response = await client.send(command);
  * ```

@@ -46,6 +46,30 @@ export interface CreateFeatureCommandOutput extends CreateFeatureResponse, __Met
  * import { EvidentlyClient, CreateFeatureCommand } from "@aws-sdk/client-evidently"; // ES Modules import
  * // const { EvidentlyClient, CreateFeatureCommand } = require("@aws-sdk/client-evidently"); // CommonJS import
  * const client = new EvidentlyClient(config);
+ * const input = {
+ *   project: "STRING_VALUE", // required
+ *   name: "STRING_VALUE", // required
+ *   evaluationStrategy: "STRING_VALUE",
+ *   description: "STRING_VALUE",
+ *   variations: [ // required
+ *     {
+ *       name: "STRING_VALUE", // required
+ *       value: { // Union: only one key present
+ *         boolValue: true || false,
+ *         stringValue: "STRING_VALUE",
+ *         longValue: Number("long"),
+ *         doubleValue: Number("double"),
+ *       },
+ *     },
+ *   ],
+ *   defaultVariation: "STRING_VALUE",
+ *   tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   entityOverrides: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateFeatureCommand(input);
  * const response = await client.send(command);
  * ```

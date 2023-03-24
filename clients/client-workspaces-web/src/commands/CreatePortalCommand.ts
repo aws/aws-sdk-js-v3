@@ -42,6 +42,21 @@ export interface CreatePortalCommandOutput extends CreatePortalResponse, __Metad
  * import { WorkSpacesWebClient, CreatePortalCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
  * // const { WorkSpacesWebClient, CreatePortalCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
  * const client = new WorkSpacesWebClient(config);
+ * const input = {
+ *   displayName: "STRING_VALUE",
+ *   tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   customerManagedKey: "STRING_VALUE",
+ *   additionalEncryptionContext: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   clientToken: "STRING_VALUE",
+ *   authenticationType: "STRING_VALUE",
+ * };
  * const command = new CreatePortalCommand(input);
  * const response = await client.send(command);
  * ```

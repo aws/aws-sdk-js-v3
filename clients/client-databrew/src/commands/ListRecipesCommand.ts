@@ -42,6 +42,11 @@ export interface ListRecipesCommandOutput extends ListRecipesResponse, __Metadat
  * import { DataBrewClient, ListRecipesCommand } from "@aws-sdk/client-databrew"; // ES Modules import
  * // const { DataBrewClient, ListRecipesCommand } = require("@aws-sdk/client-databrew"); // CommonJS import
  * const client = new DataBrewClient(config);
+ * const input = {
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   RecipeVersion: "STRING_VALUE",
+ * };
  * const command = new ListRecipesCommand(input);
  * const response = await client.send(command);
  * ```

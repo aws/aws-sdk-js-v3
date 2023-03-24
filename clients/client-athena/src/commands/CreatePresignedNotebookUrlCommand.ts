@@ -44,6 +44,9 @@ export interface CreatePresignedNotebookUrlCommandOutput extends CreatePresigned
  * import { AthenaClient, CreatePresignedNotebookUrlCommand } from "@aws-sdk/client-athena"; // ES Modules import
  * // const { AthenaClient, CreatePresignedNotebookUrlCommand } = require("@aws-sdk/client-athena"); // CommonJS import
  * const client = new AthenaClient(config);
+ * const input = {
+ *   SessionId: "STRING_VALUE", // required
+ * };
  * const command = new CreatePresignedNotebookUrlCommand(input);
  * const response = await client.send(command);
  * ```

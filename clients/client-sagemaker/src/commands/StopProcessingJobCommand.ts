@@ -42,6 +42,9 @@ export interface StopProcessingJobCommandOutput extends __MetadataBearer {}
  * import { SageMakerClient, StopProcessingJobCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, StopProcessingJobCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = {
+ *   ProcessingJobName: "STRING_VALUE", // required
+ * };
  * const command = new StopProcessingJobCommand(input);
  * const response = await client.send(command);
  * ```

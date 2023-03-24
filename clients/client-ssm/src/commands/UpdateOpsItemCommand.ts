@@ -47,6 +47,39 @@ export interface UpdateOpsItemCommandOutput extends UpdateOpsItemResponse, __Met
  * import { SSMClient, UpdateOpsItemCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, UpdateOpsItemCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = {
+ *   Description: "STRING_VALUE",
+ *   OperationalData: {
+ *     "<keys>": {
+ *       Value: "STRING_VALUE",
+ *       Type: "SearchableString" || "String",
+ *     },
+ *   },
+ *   OperationalDataToDelete: [
+ *     "STRING_VALUE",
+ *   ],
+ *   Notifications: [
+ *     {
+ *       Arn: "STRING_VALUE",
+ *     },
+ *   ],
+ *   Priority: Number("int"),
+ *   RelatedOpsItems: [
+ *     {
+ *       OpsItemId: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   Status: "Open" || "InProgress" || "Resolved" || "Pending" || "TimedOut" || "Cancelling" || "Cancelled" || "Failed" || "CompletedWithSuccess" || "CompletedWithFailure" || "Scheduled" || "RunbookInProgress" || "PendingChangeCalendarOverride" || "ChangeCalendarOverrideApproved" || "ChangeCalendarOverrideRejected" || "PendingApproval" || "Approved" || "Rejected" || "Closed",
+ *   OpsItemId: "STRING_VALUE", // required
+ *   Title: "STRING_VALUE",
+ *   Category: "STRING_VALUE",
+ *   Severity: "STRING_VALUE",
+ *   ActualStartTime: new Date("TIMESTAMP"),
+ *   ActualEndTime: new Date("TIMESTAMP"),
+ *   PlannedStartTime: new Date("TIMESTAMP"),
+ *   PlannedEndTime: new Date("TIMESTAMP"),
+ *   OpsItemArn: "STRING_VALUE",
+ * };
  * const command = new UpdateOpsItemCommand(input);
  * const response = await client.send(command);
  * ```

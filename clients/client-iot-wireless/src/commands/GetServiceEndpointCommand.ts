@@ -42,6 +42,9 @@ export interface GetServiceEndpointCommandOutput extends GetServiceEndpointRespo
  * import { IoTWirelessClient, GetServiceEndpointCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, GetServiceEndpointCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
+ * const input = {
+ *   ServiceType: "CUPS" || "LNS",
+ * };
  * const command = new GetServiceEndpointCommand(input);
  * const response = await client.send(command);
  * ```

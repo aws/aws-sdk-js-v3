@@ -42,6 +42,48 @@ export interface CreateInputCommandOutput extends CreateInputResponse, __Metadat
  * import { MediaLiveClient, CreateInputCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, CreateInputCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
  * const client = new MediaLiveClient(config);
+ * const input = {
+ *   Destinations: [
+ *     {
+ *       StreamName: "STRING_VALUE",
+ *     },
+ *   ],
+ *   InputDevices: [
+ *     {
+ *       Id: "STRING_VALUE",
+ *     },
+ *   ],
+ *   InputSecurityGroups: [
+ *     "STRING_VALUE",
+ *   ],
+ *   MediaConnectFlows: [
+ *     {
+ *       FlowArn: "STRING_VALUE",
+ *     },
+ *   ],
+ *   Name: "STRING_VALUE",
+ *   RequestId: "STRING_VALUE",
+ *   RoleArn: "STRING_VALUE",
+ *   Sources: [
+ *     {
+ *       PasswordParam: "STRING_VALUE",
+ *       Url: "STRING_VALUE",
+ *       Username: "STRING_VALUE",
+ *     },
+ *   ],
+ *   Tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   Type: "UDP_PUSH" || "RTP_PUSH" || "RTMP_PUSH" || "RTMP_PULL" || "URL_PULL" || "MP4_FILE" || "MEDIACONNECT" || "INPUT_DEVICE" || "AWS_CDI" || "TS_FILE",
+ *   Vpc: {
+ *     SecurityGroupIds: [
+ *       "STRING_VALUE",
+ *     ],
+ *     SubnetIds: [ // required
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ * };
  * const command = new CreateInputCommand(input);
  * const response = await client.send(command);
  * ```

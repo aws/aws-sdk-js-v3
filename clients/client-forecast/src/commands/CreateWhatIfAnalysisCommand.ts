@@ -58,6 +58,36 @@ export interface CreateWhatIfAnalysisCommandOutput extends CreateWhatIfAnalysisR
  * import { ForecastClient, CreateWhatIfAnalysisCommand } from "@aws-sdk/client-forecast"; // ES Modules import
  * // const { ForecastClient, CreateWhatIfAnalysisCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
  * const client = new ForecastClient(config);
+ * const input = {
+ *   WhatIfAnalysisName: "STRING_VALUE", // required
+ *   ForecastArn: "STRING_VALUE", // required
+ *   TimeSeriesSelector: {
+ *     TimeSeriesIdentifiers: {
+ *       DataSource: {
+ *         S3Config: {
+ *           Path: "STRING_VALUE", // required
+ *           RoleArn: "STRING_VALUE", // required
+ *           KMSKeyArn: "STRING_VALUE",
+ *         },
+ *       },
+ *       Schema: {
+ *         Attributes: [
+ *           {
+ *             AttributeName: "STRING_VALUE",
+ *             AttributeType: "string" || "integer" || "float" || "timestamp" || "geolocation",
+ *           },
+ *         ],
+ *       },
+ *       Format: "STRING_VALUE",
+ *     },
+ *   },
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateWhatIfAnalysisCommand(input);
  * const response = await client.send(command);
  * ```

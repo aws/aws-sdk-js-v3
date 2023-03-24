@@ -42,6 +42,9 @@ export interface DeleteNotebookCommandOutput extends DeleteNotebookOutput, __Met
  * import { AthenaClient, DeleteNotebookCommand } from "@aws-sdk/client-athena"; // ES Modules import
  * // const { AthenaClient, DeleteNotebookCommand } = require("@aws-sdk/client-athena"); // CommonJS import
  * const client = new AthenaClient(config);
+ * const input = {
+ *   NotebookId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteNotebookCommand(input);
  * const response = await client.send(command);
  * ```

@@ -71,6 +71,10 @@ export interface CreateBackupCommandOutput extends CreateBackupOutput, __Metadat
  * import { DynamoDBClient, CreateBackupCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
  * // const { DynamoDBClient, CreateBackupCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
  * const client = new DynamoDBClient(config);
+ * const input = {
+ *   TableName: "STRING_VALUE", // required
+ *   BackupName: "STRING_VALUE", // required
+ * };
  * const command = new CreateBackupCommand(input);
  * const response = await client.send(command);
  * ```

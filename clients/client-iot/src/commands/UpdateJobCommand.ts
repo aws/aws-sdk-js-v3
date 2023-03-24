@@ -43,6 +43,47 @@ export interface UpdateJobCommandOutput extends __MetadataBearer {}
  * import { IoTClient, UpdateJobCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, UpdateJobCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = {
+ *   jobId: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   presignedUrlConfig: {
+ *     roleArn: "STRING_VALUE",
+ *     expiresInSec: Number("long"),
+ *   },
+ *   jobExecutionsRolloutConfig: {
+ *     maximumPerMinute: Number("int"),
+ *     exponentialRate: {
+ *       baseRatePerMinute: Number("int"), // required
+ *       incrementFactor: Number("double"), // required
+ *       rateIncreaseCriteria: {
+ *         numberOfNotifiedThings: Number("int"),
+ *         numberOfSucceededThings: Number("int"),
+ *       },
+ *     },
+ *   },
+ *   abortConfig: {
+ *     criteriaList: [ // required
+ *       {
+ *         failureType: "FAILED" || "REJECTED" || "TIMED_OUT" || "ALL", // required
+ *         action: "CANCEL", // required
+ *         thresholdPercentage: Number("double"), // required
+ *         minNumberOfExecutedThings: Number("int"), // required
+ *       },
+ *     ],
+ *   },
+ *   timeoutConfig: {
+ *     inProgressTimeoutInMinutes: Number("long"),
+ *   },
+ *   namespaceId: "STRING_VALUE",
+ *   jobExecutionsRetryConfig: {
+ *     criteriaList: [ // required
+ *       {
+ *         failureType: "FAILED" || "TIMED_OUT" || "ALL", // required
+ *         numberOfRetries: Number("int"), // required
+ *       },
+ *     ],
+ *   },
+ * };
  * const command = new UpdateJobCommand(input);
  * const response = await client.send(command);
  * ```

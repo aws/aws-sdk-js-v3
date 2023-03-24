@@ -43,6 +43,13 @@ export interface ListArchivesCommandOutput extends ListArchivesResponse, __Metad
  * import { EventBridgeClient, ListArchivesCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
  * // const { EventBridgeClient, ListArchivesCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
  * const client = new EventBridgeClient(config);
+ * const input = {
+ *   NamePrefix: "STRING_VALUE",
+ *   EventSourceArn: "STRING_VALUE",
+ *   State: "ENABLED" || "DISABLED" || "CREATING" || "UPDATING" || "CREATE_FAILED" || "UPDATE_FAILED",
+ *   NextToken: "STRING_VALUE",
+ *   Limit: Number("int"),
+ * };
  * const command = new ListArchivesCommand(input);
  * const response = await client.send(command);
  * ```

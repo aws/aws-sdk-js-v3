@@ -42,6 +42,12 @@ export interface ListExperimentsCommandOutput extends ListExperimentsResponse, _
  * import { EvidentlyClient, ListExperimentsCommand } from "@aws-sdk/client-evidently"; // ES Modules import
  * // const { EvidentlyClient, ListExperimentsCommand } = require("@aws-sdk/client-evidently"); // CommonJS import
  * const client = new EvidentlyClient(config);
+ * const input = {
+ *   project: "STRING_VALUE", // required
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ *   status: "STRING_VALUE",
+ * };
  * const command = new ListExperimentsCommand(input);
  * const response = await client.send(command);
  * ```

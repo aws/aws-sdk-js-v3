@@ -66,6 +66,9 @@ export interface DescribeDomainCommandOutput extends DomainDetail, __MetadataBea
  * import { SWFClient, DescribeDomainCommand } from "@aws-sdk/client-swf"; // ES Modules import
  * // const { SWFClient, DescribeDomainCommand } = require("@aws-sdk/client-swf"); // CommonJS import
  * const client = new SWFClient(config);
+ * const input = {
+ *   name: "STRING_VALUE", // required
+ * };
  * const command = new DescribeDomainCommand(input);
  * const response = await client.send(command);
  * ```

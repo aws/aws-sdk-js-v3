@@ -42,6 +42,35 @@ export interface UpdateApiCommandOutput extends UpdateApiResponse, __MetadataBea
  * import { ApiGatewayV2Client, UpdateApiCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
  * // const { ApiGatewayV2Client, UpdateApiCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import
  * const client = new ApiGatewayV2Client(config);
+ * const input = {
+ *   ApiId: "STRING_VALUE", // required
+ *   ApiKeySelectionExpression: "STRING_VALUE",
+ *   CorsConfiguration: {
+ *     AllowCredentials: true || false,
+ *     AllowHeaders: [
+ *       "STRING_VALUE",
+ *     ],
+ *     AllowMethods: [
+ *       "STRING_VALUE",
+ *     ],
+ *     AllowOrigins: [
+ *       "STRING_VALUE",
+ *     ],
+ *     ExposeHeaders: [
+ *       "STRING_VALUE",
+ *     ],
+ *     MaxAge: Number("int"),
+ *   },
+ *   CredentialsArn: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   DisableSchemaValidation: true || false,
+ *   DisableExecuteApiEndpoint: true || false,
+ *   Name: "STRING_VALUE",
+ *   RouteKey: "STRING_VALUE",
+ *   RouteSelectionExpression: "STRING_VALUE",
+ *   Target: "STRING_VALUE",
+ *   Version: "STRING_VALUE",
+ * };
  * const command = new UpdateApiCommand(input);
  * const response = await client.send(command);
  * ```

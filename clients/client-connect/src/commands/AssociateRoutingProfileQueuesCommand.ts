@@ -42,6 +42,20 @@ export interface AssociateRoutingProfileQueuesCommandOutput extends __MetadataBe
  * import { ConnectClient, AssociateRoutingProfileQueuesCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, AssociateRoutingProfileQueuesCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = {
+ *   InstanceId: "STRING_VALUE", // required
+ *   RoutingProfileId: "STRING_VALUE", // required
+ *   QueueConfigs: [ // required
+ *     {
+ *       QueueReference: {
+ *         QueueId: "STRING_VALUE", // required
+ *         Channel: "VOICE" || "CHAT" || "TASK", // required
+ *       },
+ *       Priority: Number("int"), // required
+ *       Delay: Number("int"), // required
+ *     },
+ *   ],
+ * };
  * const command = new AssociateRoutingProfileQueuesCommand(input);
  * const response = await client.send(command);
  * ```

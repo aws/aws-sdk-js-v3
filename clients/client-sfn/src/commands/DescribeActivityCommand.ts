@@ -45,6 +45,9 @@ export interface DescribeActivityCommandOutput extends DescribeActivityOutput, _
  * import { SFNClient, DescribeActivityCommand } from "@aws-sdk/client-sfn"; // ES Modules import
  * // const { SFNClient, DescribeActivityCommand } = require("@aws-sdk/client-sfn"); // CommonJS import
  * const client = new SFNClient(config);
+ * const input = {
+ *   activityArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeActivityCommand(input);
  * const response = await client.send(command);
  * ```

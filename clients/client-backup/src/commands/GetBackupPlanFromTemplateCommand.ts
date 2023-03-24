@@ -46,6 +46,9 @@ export interface GetBackupPlanFromTemplateCommandOutput extends GetBackupPlanFro
  * import { BackupClient, GetBackupPlanFromTemplateCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, GetBackupPlanFromTemplateCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
+ * const input = {
+ *   BackupPlanTemplateId: "STRING_VALUE", // required
+ * };
  * const command = new GetBackupPlanFromTemplateCommand(input);
  * const response = await client.send(command);
  * ```

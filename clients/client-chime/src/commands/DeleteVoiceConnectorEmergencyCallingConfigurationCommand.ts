@@ -43,6 +43,9 @@ export interface DeleteVoiceConnectorEmergencyCallingConfigurationCommandOutput 
  * import { ChimeClient, DeleteVoiceConnectorEmergencyCallingConfigurationCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, DeleteVoiceConnectorEmergencyCallingConfigurationCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = {
+ *   VoiceConnectorId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteVoiceConnectorEmergencyCallingConfigurationCommand(input);
  * const response = await client.send(command);
  * ```

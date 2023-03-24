@@ -42,6 +42,10 @@ export interface DeleteReferenceCommandOutput extends DeleteReferenceResponse, _
  * import { OmicsClient, DeleteReferenceCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, DeleteReferenceCommand } = require("@aws-sdk/client-omics"); // CommonJS import
  * const client = new OmicsClient(config);
+ * const input = {
+ *   id: "STRING_VALUE", // required
+ *   referenceStoreId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteReferenceCommand(input);
  * const response = await client.send(command);
  * ```

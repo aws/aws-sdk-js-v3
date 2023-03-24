@@ -42,6 +42,31 @@ export interface CreateDevEndpointCommandOutput extends CreateDevEndpointRespons
  * import { GlueClient, CreateDevEndpointCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, CreateDevEndpointCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = {
+ *   EndpointName: "STRING_VALUE", // required
+ *   RoleArn: "STRING_VALUE", // required
+ *   SecurityGroupIds: [
+ *     "STRING_VALUE",
+ *   ],
+ *   SubnetId: "STRING_VALUE",
+ *   PublicKey: "STRING_VALUE",
+ *   PublicKeys: [
+ *     "STRING_VALUE",
+ *   ],
+ *   NumberOfNodes: Number("int"),
+ *   WorkerType: "Standard" || "G.1X" || "G.2X" || "G.025X",
+ *   GlueVersion: "STRING_VALUE",
+ *   NumberOfWorkers: Number("int"),
+ *   ExtraPythonLibsS3Path: "STRING_VALUE",
+ *   ExtraJarsS3Path: "STRING_VALUE",
+ *   SecurityConfiguration: "STRING_VALUE",
+ *   Tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   Arguments: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateDevEndpointCommand(input);
  * const response = await client.send(command);
  * ```

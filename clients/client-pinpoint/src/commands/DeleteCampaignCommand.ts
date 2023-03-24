@@ -42,6 +42,10 @@ export interface DeleteCampaignCommandOutput extends DeleteCampaignResponse, __M
  * import { PinpointClient, DeleteCampaignCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, DeleteCampaignCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
+ * const input = {
+ *   ApplicationId: "STRING_VALUE", // required
+ *   CampaignId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteCampaignCommand(input);
  * const response = await client.send(command);
  * ```

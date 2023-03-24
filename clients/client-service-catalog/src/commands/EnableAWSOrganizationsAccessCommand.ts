@@ -56,6 +56,7 @@ export interface EnableAWSOrganizationsAccessCommandOutput
  * import { ServiceCatalogClient, EnableAWSOrganizationsAccessCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, EnableAWSOrganizationsAccessCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
+ * const input = {};
  * const command = new EnableAWSOrganizationsAccessCommand(input);
  * const response = await client.send(command);
  * ```

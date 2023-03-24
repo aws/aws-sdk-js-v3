@@ -43,6 +43,13 @@ export interface ListPullRequestsCommandOutput extends ListPullRequestsOutput, _
  * import { CodeCommitClient, ListPullRequestsCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, ListPullRequestsCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
  * const client = new CodeCommitClient(config);
+ * const input = {
+ *   repositoryName: "STRING_VALUE", // required
+ *   authorArn: "STRING_VALUE",
+ *   pullRequestStatus: "STRING_VALUE",
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListPullRequestsCommand(input);
  * const response = await client.send(command);
  * ```

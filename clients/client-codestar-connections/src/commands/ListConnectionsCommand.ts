@@ -46,6 +46,12 @@ export interface ListConnectionsCommandOutput extends ListConnectionsOutput, __M
  * import { CodeStarConnectionsClient, ListConnectionsCommand } from "@aws-sdk/client-codestar-connections"; // ES Modules import
  * // const { CodeStarConnectionsClient, ListConnectionsCommand } = require("@aws-sdk/client-codestar-connections"); // CommonJS import
  * const client = new CodeStarConnectionsClient(config);
+ * const input = {
+ *   ProviderTypeFilter: "STRING_VALUE",
+ *   HostArnFilter: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListConnectionsCommand(input);
  * const response = await client.send(command);
  * ```

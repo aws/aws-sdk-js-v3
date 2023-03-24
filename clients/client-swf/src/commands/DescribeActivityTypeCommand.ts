@@ -80,6 +80,13 @@ export interface DescribeActivityTypeCommandOutput extends ActivityTypeDetail, _
  * import { SWFClient, DescribeActivityTypeCommand } from "@aws-sdk/client-swf"; // ES Modules import
  * // const { SWFClient, DescribeActivityTypeCommand } = require("@aws-sdk/client-swf"); // CommonJS import
  * const client = new SWFClient(config);
+ * const input = {
+ *   domain: "STRING_VALUE", // required
+ *   activityType: {
+ *     name: "STRING_VALUE", // required
+ *     version: "STRING_VALUE", // required
+ *   },
+ * };
  * const command = new DescribeActivityTypeCommand(input);
  * const response = await client.send(command);
  * ```

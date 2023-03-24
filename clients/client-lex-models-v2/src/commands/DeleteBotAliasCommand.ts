@@ -42,6 +42,11 @@ export interface DeleteBotAliasCommandOutput extends DeleteBotAliasResponse, __M
  * import { LexModelsV2Client, DeleteBotAliasCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
  * // const { LexModelsV2Client, DeleteBotAliasCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
  * const client = new LexModelsV2Client(config);
+ * const input = {
+ *   botAliasId: "STRING_VALUE", // required
+ *   botId: "STRING_VALUE", // required
+ *   skipResourceInUseCheck: true || false,
+ * };
  * const command = new DeleteBotAliasCommand(input);
  * const response = await client.send(command);
  * ```

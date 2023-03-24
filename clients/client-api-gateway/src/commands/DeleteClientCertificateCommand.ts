@@ -42,6 +42,9 @@ export interface DeleteClientCertificateCommandOutput extends __MetadataBearer {
  * import { APIGatewayClient, DeleteClientCertificateCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, DeleteClientCertificateCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
+ * const input = {
+ *   clientCertificateId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteClientCertificateCommand(input);
  * const response = await client.send(command);
  * ```

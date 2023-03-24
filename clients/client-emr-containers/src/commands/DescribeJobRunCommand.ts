@@ -47,6 +47,10 @@ export interface DescribeJobRunCommandOutput extends DescribeJobRunResponse, __M
  * import { EMRContainersClient, DescribeJobRunCommand } from "@aws-sdk/client-emr-containers"; // ES Modules import
  * // const { EMRContainersClient, DescribeJobRunCommand } = require("@aws-sdk/client-emr-containers"); // CommonJS import
  * const client = new EMRContainersClient(config);
+ * const input = {
+ *   id: "STRING_VALUE", // required
+ *   virtualClusterId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeJobRunCommand(input);
  * const response = await client.send(command);
  * ```

@@ -56,6 +56,17 @@ export interface UpdatePortfolioShareCommandOutput extends UpdatePortfolioShareO
  * import { ServiceCatalogClient, UpdatePortfolioShareCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, UpdatePortfolioShareCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
+ * const input = {
+ *   AcceptLanguage: "STRING_VALUE",
+ *   PortfolioId: "STRING_VALUE", // required
+ *   AccountId: "STRING_VALUE",
+ *   OrganizationNode: {
+ *     Type: "ORGANIZATION" || "ORGANIZATIONAL_UNIT" || "ACCOUNT",
+ *     Value: "STRING_VALUE",
+ *   },
+ *   ShareTagOptions: true || false,
+ *   SharePrincipals: true || false,
+ * };
  * const command = new UpdatePortfolioShareCommand(input);
  * const response = await client.send(command);
  * ```

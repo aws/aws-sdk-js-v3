@@ -120,6 +120,57 @@ export interface CreateComputeEnvironmentCommandOutput extends CreateComputeEnvi
  * import { BatchClient, CreateComputeEnvironmentCommand } from "@aws-sdk/client-batch"; // ES Modules import
  * // const { BatchClient, CreateComputeEnvironmentCommand } = require("@aws-sdk/client-batch"); // CommonJS import
  * const client = new BatchClient(config);
+ * const input = {
+ *   computeEnvironmentName: "STRING_VALUE", // required
+ *   type: "MANAGED" || "UNMANAGED", // required
+ *   state: "ENABLED" || "DISABLED",
+ *   unmanagedvCpus: Number("int"),
+ *   computeResources: {
+ *     type: "EC2" || "SPOT" || "FARGATE" || "FARGATE_SPOT", // required
+ *     allocationStrategy: "BEST_FIT" || "BEST_FIT_PROGRESSIVE" || "SPOT_CAPACITY_OPTIMIZED",
+ *     minvCpus: Number("int"),
+ *     maxvCpus: Number("int"), // required
+ *     desiredvCpus: Number("int"),
+ *     instanceTypes: [
+ *       "STRING_VALUE",
+ *     ],
+ *     imageId: "STRING_VALUE",
+ *     subnets: [ // required
+ *       "STRING_VALUE",
+ *     ],
+ *     securityGroupIds: [
+ *       "STRING_VALUE",
+ *     ],
+ *     ec2KeyPair: "STRING_VALUE",
+ *     instanceRole: "STRING_VALUE",
+ *     tags: {
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *     placementGroup: "STRING_VALUE",
+ *     bidPercentage: Number("int"),
+ *     spotIamFleetRole: "STRING_VALUE",
+ *     launchTemplate: {
+ *       launchTemplateId: "STRING_VALUE",
+ *       launchTemplateName: "STRING_VALUE",
+ *       version: "STRING_VALUE",
+ *     },
+ *     ec2Configuration: [
+ *       {
+ *         imageType: "STRING_VALUE", // required
+ *         imageIdOverride: "STRING_VALUE",
+ *         imageKubernetesVersion: "STRING_VALUE",
+ *       },
+ *     ],
+ *   },
+ *   serviceRole: "STRING_VALUE",
+ *   tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   eksConfiguration: {
+ *     eksClusterArn: "STRING_VALUE", // required
+ *     kubernetesNamespace: "STRING_VALUE", // required
+ *   },
+ * };
  * const command = new CreateComputeEnvironmentCommand(input);
  * const response = await client.send(command);
  * ```

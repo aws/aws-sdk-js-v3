@@ -46,6 +46,7 @@ export interface GetPortfolioPreferencesCommandOutput extends GetPortfolioPrefer
  * import { MigrationHubStrategyClient, GetPortfolioPreferencesCommand } from "@aws-sdk/client-migrationhubstrategy"; // ES Modules import
  * // const { MigrationHubStrategyClient, GetPortfolioPreferencesCommand } = require("@aws-sdk/client-migrationhubstrategy"); // CommonJS import
  * const client = new MigrationHubStrategyClient(config);
+ * const input = {};
  * const command = new GetPortfolioPreferencesCommand(input);
  * const response = await client.send(command);
  * ```

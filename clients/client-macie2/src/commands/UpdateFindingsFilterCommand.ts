@@ -42,6 +42,33 @@ export interface UpdateFindingsFilterCommandOutput extends UpdateFindingsFilterR
  * import { Macie2Client, UpdateFindingsFilterCommand } from "@aws-sdk/client-macie2"; // ES Modules import
  * // const { Macie2Client, UpdateFindingsFilterCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
  * const client = new Macie2Client(config);
+ * const input = {
+ *   action: "ARCHIVE" || "NOOP",
+ *   clientToken: "STRING_VALUE",
+ *   description: "STRING_VALUE",
+ *   findingCriteria: {
+ *     criterion: {
+ *       "<keys>": {
+ *         eq: [
+ *           "STRING_VALUE",
+ *         ],
+ *         eqExactMatch: [
+ *           "STRING_VALUE",
+ *         ],
+ *         gt: Number("long"),
+ *         gte: Number("long"),
+ *         lt: Number("long"),
+ *         lte: Number("long"),
+ *         neq: [
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *     },
+ *   },
+ *   id: "STRING_VALUE", // required
+ *   name: "STRING_VALUE",
+ *   position: Number("int"),
+ * };
  * const command = new UpdateFindingsFilterCommand(input);
  * const response = await client.send(command);
  * ```

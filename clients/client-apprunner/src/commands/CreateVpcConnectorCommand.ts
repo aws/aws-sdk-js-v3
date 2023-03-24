@@ -43,6 +43,21 @@ export interface CreateVpcConnectorCommandOutput extends CreateVpcConnectorRespo
  * import { AppRunnerClient, CreateVpcConnectorCommand } from "@aws-sdk/client-apprunner"; // ES Modules import
  * // const { AppRunnerClient, CreateVpcConnectorCommand } = require("@aws-sdk/client-apprunner"); // CommonJS import
  * const client = new AppRunnerClient(config);
+ * const input = {
+ *   VpcConnectorName: "STRING_VALUE", // required
+ *   Subnets: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ *   SecurityGroups: [
+ *     "STRING_VALUE",
+ *   ],
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateVpcConnectorCommand(input);
  * const response = await client.send(command);
  * ```

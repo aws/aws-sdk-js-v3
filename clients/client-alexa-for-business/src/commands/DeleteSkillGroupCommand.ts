@@ -42,6 +42,9 @@ export interface DeleteSkillGroupCommandOutput extends DeleteSkillGroupResponse,
  * import { AlexaForBusinessClient, DeleteSkillGroupCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, DeleteSkillGroupCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
+ * const input = {
+ *   SkillGroupArn: "STRING_VALUE",
+ * };
  * const command = new DeleteSkillGroupCommand(input);
  * const response = await client.send(command);
  * ```

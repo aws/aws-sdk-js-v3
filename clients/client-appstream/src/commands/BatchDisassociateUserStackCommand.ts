@@ -47,6 +47,16 @@ export interface BatchDisassociateUserStackCommandOutput extends BatchDisassocia
  * import { AppStreamClient, BatchDisassociateUserStackCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, BatchDisassociateUserStackCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
  * const client = new AppStreamClient(config);
+ * const input = {
+ *   UserStackAssociations: [ // required
+ *     {
+ *       StackName: "STRING_VALUE", // required
+ *       UserName: "STRING_VALUE", // required
+ *       AuthenticationType: "API" || "SAML" || "USERPOOL" || "AWS_AD", // required
+ *       SendEmailNotification: true || false,
+ *     },
+ *   ],
+ * };
  * const command = new BatchDisassociateUserStackCommand(input);
  * const response = await client.send(command);
  * ```

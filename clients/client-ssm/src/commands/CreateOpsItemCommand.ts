@@ -47,6 +47,42 @@ export interface CreateOpsItemCommandOutput extends CreateOpsItemResponse, __Met
  * import { SSMClient, CreateOpsItemCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, CreateOpsItemCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = {
+ *   Description: "STRING_VALUE", // required
+ *   OpsItemType: "STRING_VALUE",
+ *   OperationalData: {
+ *     "<keys>": {
+ *       Value: "STRING_VALUE",
+ *       Type: "SearchableString" || "String",
+ *     },
+ *   },
+ *   Notifications: [
+ *     {
+ *       Arn: "STRING_VALUE",
+ *     },
+ *   ],
+ *   Priority: Number("int"),
+ *   RelatedOpsItems: [
+ *     {
+ *       OpsItemId: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   Source: "STRING_VALUE", // required
+ *   Title: "STRING_VALUE", // required
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   Category: "STRING_VALUE",
+ *   Severity: "STRING_VALUE",
+ *   ActualStartTime: new Date("TIMESTAMP"),
+ *   ActualEndTime: new Date("TIMESTAMP"),
+ *   PlannedStartTime: new Date("TIMESTAMP"),
+ *   PlannedEndTime: new Date("TIMESTAMP"),
+ *   AccountId: "STRING_VALUE",
+ * };
  * const command = new CreateOpsItemCommand(input);
  * const response = await client.send(command);
  * ```

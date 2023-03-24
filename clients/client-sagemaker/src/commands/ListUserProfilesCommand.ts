@@ -42,6 +42,14 @@ export interface ListUserProfilesCommandOutput extends ListUserProfilesResponse,
  * import { SageMakerClient, ListUserProfilesCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListUserProfilesCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = {
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   SortOrder: "Ascending" || "Descending",
+ *   SortBy: "CreationTime" || "LastModifiedTime",
+ *   DomainIdEquals: "STRING_VALUE",
+ *   UserProfileNameContains: "STRING_VALUE",
+ * };
  * const command = new ListUserProfilesCommand(input);
  * const response = await client.send(command);
  * ```

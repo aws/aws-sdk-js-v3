@@ -43,6 +43,17 @@ export interface CreateTrackerCommandOutput extends CreateTrackerResponse, __Met
  * import { LocationClient, CreateTrackerCommand } from "@aws-sdk/client-location"; // ES Modules import
  * // const { LocationClient, CreateTrackerCommand } = require("@aws-sdk/client-location"); // CommonJS import
  * const client = new LocationClient(config);
+ * const input = {
+ *   TrackerName: "STRING_VALUE", // required
+ *   PricingPlan: "STRING_VALUE",
+ *   KmsKeyId: "STRING_VALUE",
+ *   PricingPlanDataSource: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   Tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   PositionFiltering: "STRING_VALUE",
+ * };
  * const command = new CreateTrackerCommand(input);
  * const response = await client.send(command);
  * ```

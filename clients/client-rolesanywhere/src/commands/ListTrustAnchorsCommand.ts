@@ -46,6 +46,10 @@ export interface ListTrustAnchorsCommandOutput extends ListTrustAnchorsResponse,
  * import { RolesAnywhereClient, ListTrustAnchorsCommand } from "@aws-sdk/client-rolesanywhere"; // ES Modules import
  * // const { RolesAnywhereClient, ListTrustAnchorsCommand } = require("@aws-sdk/client-rolesanywhere"); // CommonJS import
  * const client = new RolesAnywhereClient(config);
+ * const input = {
+ *   nextToken: "STRING_VALUE",
+ *   pageSize: Number("int"),
+ * };
  * const command = new ListTrustAnchorsCommand(input);
  * const response = await client.send(command);
  * ```

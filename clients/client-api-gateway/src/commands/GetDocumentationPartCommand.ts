@@ -42,6 +42,10 @@ export interface GetDocumentationPartCommandOutput extends DocumentationPart, __
  * import { APIGatewayClient, GetDocumentationPartCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, GetDocumentationPartCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
+ * const input = {
+ *   restApiId: "STRING_VALUE", // required
+ *   documentationPartId: "STRING_VALUE", // required
+ * };
  * const command = new GetDocumentationPartCommand(input);
  * const response = await client.send(command);
  * ```

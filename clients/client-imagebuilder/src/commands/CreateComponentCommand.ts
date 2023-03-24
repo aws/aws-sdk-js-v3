@@ -53,6 +53,23 @@ export interface CreateComponentCommandOutput extends CreateComponentResponse, _
  * import { ImagebuilderClient, CreateComponentCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
  * // const { ImagebuilderClient, CreateComponentCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
  * const client = new ImagebuilderClient(config);
+ * const input = {
+ *   name: "STRING_VALUE", // required
+ *   semanticVersion: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   changeDescription: "STRING_VALUE",
+ *   platform: "Windows" || "Linux", // required
+ *   supportedOsVersions: [
+ *     "STRING_VALUE",
+ *   ],
+ *   data: "STRING_VALUE",
+ *   uri: "STRING_VALUE",
+ *   kmsKeyId: "STRING_VALUE",
+ *   tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   clientToken: "STRING_VALUE", // required
+ * };
  * const command = new CreateComponentCommand(input);
  * const response = await client.send(command);
  * ```

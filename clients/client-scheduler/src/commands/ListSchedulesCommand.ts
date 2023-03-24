@@ -42,6 +42,13 @@ export interface ListSchedulesCommandOutput extends ListSchedulesOutput, __Metad
  * import { SchedulerClient, ListSchedulesCommand } from "@aws-sdk/client-scheduler"; // ES Modules import
  * // const { SchedulerClient, ListSchedulesCommand } = require("@aws-sdk/client-scheduler"); // CommonJS import
  * const client = new SchedulerClient(config);
+ * const input = {
+ *   GroupName: "STRING_VALUE",
+ *   NamePrefix: "STRING_VALUE",
+ *   State: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListSchedulesCommand(input);
  * const response = await client.send(command);
  * ```

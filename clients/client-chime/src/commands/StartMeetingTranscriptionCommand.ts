@@ -42,6 +42,32 @@ export interface StartMeetingTranscriptionCommandOutput extends StartMeetingTran
  * import { ChimeClient, StartMeetingTranscriptionCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, StartMeetingTranscriptionCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = {
+ *   MeetingId: "STRING_VALUE", // required
+ *   TranscriptionConfiguration: {
+ *     EngineTranscribeSettings: {
+ *       LanguageCode: "STRING_VALUE", // required
+ *       VocabularyFilterMethod: "STRING_VALUE",
+ *       VocabularyFilterName: "STRING_VALUE",
+ *       VocabularyName: "STRING_VALUE",
+ *       Region: "STRING_VALUE",
+ *       EnablePartialResultsStabilization: true || false,
+ *       PartialResultsStability: "STRING_VALUE",
+ *       ContentIdentificationType: "STRING_VALUE",
+ *       ContentRedactionType: "STRING_VALUE",
+ *       PiiEntityTypes: "STRING_VALUE",
+ *       LanguageModelName: "STRING_VALUE",
+ *     },
+ *     EngineTranscribeMedicalSettings: {
+ *       LanguageCode: "STRING_VALUE", // required
+ *       Specialty: "STRING_VALUE", // required
+ *       Type: "STRING_VALUE", // required
+ *       VocabularyName: "STRING_VALUE",
+ *       Region: "STRING_VALUE",
+ *       ContentIdentificationType: "STRING_VALUE",
+ *     },
+ *   },
+ * };
  * const command = new StartMeetingTranscriptionCommand(input);
  * const response = await client.send(command);
  * ```

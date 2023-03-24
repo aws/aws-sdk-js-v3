@@ -56,6 +56,10 @@ export interface DetachPolicyCommandOutput extends __MetadataBearer {}
  * import { OrganizationsClient, DetachPolicyCommand } from "@aws-sdk/client-organizations"; // ES Modules import
  * // const { OrganizationsClient, DetachPolicyCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
  * const client = new OrganizationsClient(config);
+ * const input = {
+ *   PolicyId: "STRING_VALUE", // required
+ *   TargetId: "STRING_VALUE", // required
+ * };
  * const command = new DetachPolicyCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,11 @@ export interface DeleteRouteResponseCommandOutput extends __MetadataBearer {}
  * import { ApiGatewayV2Client, DeleteRouteResponseCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
  * // const { ApiGatewayV2Client, DeleteRouteResponseCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import
  * const client = new ApiGatewayV2Client(config);
+ * const input = {
+ *   ApiId: "STRING_VALUE", // required
+ *   RouteId: "STRING_VALUE", // required
+ *   RouteResponseId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteRouteResponseCommand(input);
  * const response = await client.send(command);
  * ```

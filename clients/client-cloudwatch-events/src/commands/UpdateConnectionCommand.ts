@@ -42,6 +42,75 @@ export interface UpdateConnectionCommandOutput extends UpdateConnectionResponse,
  * import { CloudWatchEventsClient, UpdateConnectionCommand } from "@aws-sdk/client-cloudwatch-events"; // ES Modules import
  * // const { CloudWatchEventsClient, UpdateConnectionCommand } = require("@aws-sdk/client-cloudwatch-events"); // CommonJS import
  * const client = new CloudWatchEventsClient(config);
+ * const input = {
+ *   Name: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   AuthorizationType: "STRING_VALUE",
+ *   AuthParameters: {
+ *     BasicAuthParameters: {
+ *       Username: "STRING_VALUE",
+ *       Password: "STRING_VALUE",
+ *     },
+ *     OAuthParameters: {
+ *       ClientParameters: {
+ *         ClientID: "STRING_VALUE",
+ *         ClientSecret: "STRING_VALUE",
+ *       },
+ *       AuthorizationEndpoint: "STRING_VALUE",
+ *       HttpMethod: "STRING_VALUE",
+ *       OAuthHttpParameters: {
+ *         HeaderParameters: [
+ *           {
+ *             Key: "STRING_VALUE",
+ *             Value: "STRING_VALUE",
+ *             IsValueSecret: true || false,
+ *           },
+ *         ],
+ *         QueryStringParameters: [
+ *           {
+ *             Key: "STRING_VALUE",
+ *             Value: "STRING_VALUE",
+ *             IsValueSecret: true || false,
+ *           },
+ *         ],
+ *         BodyParameters: [
+ *           {
+ *             Key: "STRING_VALUE",
+ *             Value: "STRING_VALUE",
+ *             IsValueSecret: true || false,
+ *           },
+ *         ],
+ *       },
+ *     },
+ *     ApiKeyAuthParameters: {
+ *       ApiKeyName: "STRING_VALUE",
+ *       ApiKeyValue: "STRING_VALUE",
+ *     },
+ *     InvocationHttpParameters: {
+ *       HeaderParameters: [
+ *         {
+ *           Key: "STRING_VALUE",
+ *           Value: "STRING_VALUE",
+ *           IsValueSecret: true || false,
+ *         },
+ *       ],
+ *       QueryStringParameters: [
+ *         {
+ *           Key: "STRING_VALUE",
+ *           Value: "STRING_VALUE",
+ *           IsValueSecret: true || false,
+ *         },
+ *       ],
+ *       BodyParameters: [
+ *         {
+ *           Key: "STRING_VALUE",
+ *           Value: "STRING_VALUE",
+ *           IsValueSecret: true || false,
+ *         },
+ *       ],
+ *     },
+ *   },
+ * };
  * const command = new UpdateConnectionCommand(input);
  * const response = await client.send(command);
  * ```

@@ -44,6 +44,10 @@ export interface GetVerifiedAccessGroupPolicyCommandOutput
  * import { EC2Client, GetVerifiedAccessGroupPolicyCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, GetVerifiedAccessGroupPolicyCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   VerifiedAccessGroupId: "STRING_VALUE", // required
+ *   DryRun: true || false,
+ * };
  * const command = new GetVerifiedAccessGroupPolicyCommand(input);
  * const response = await client.send(command);
  * ```

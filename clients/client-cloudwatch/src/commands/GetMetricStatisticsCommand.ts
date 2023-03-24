@@ -88,6 +88,26 @@ export interface GetMetricStatisticsCommandOutput extends GetMetricStatisticsOut
  * import { CloudWatchClient, GetMetricStatisticsCommand } from "@aws-sdk/client-cloudwatch"; // ES Modules import
  * // const { CloudWatchClient, GetMetricStatisticsCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import
  * const client = new CloudWatchClient(config);
+ * const input = {
+ *   Namespace: "STRING_VALUE", // required
+ *   MetricName: "STRING_VALUE", // required
+ *   Dimensions: [
+ *     {
+ *       Name: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   StartTime: new Date("TIMESTAMP"), // required
+ *   EndTime: new Date("TIMESTAMP"), // required
+ *   Period: Number("int"), // required
+ *   Statistics: [
+ *     "SampleCount" || "Average" || "Sum" || "Minimum" || "Maximum",
+ *   ],
+ *   ExtendedStatistics: [
+ *     "STRING_VALUE",
+ *   ],
+ *   Unit: "Seconds" || "Microseconds" || "Milliseconds" || "Bytes" || "Kilobytes" || "Megabytes" || "Gigabytes" || "Terabytes" || "Bits" || "Kilobits" || "Megabits" || "Gigabits" || "Terabits" || "Percent" || "Count" || "Bytes/Second" || "Kilobytes/Second" || "Megabytes/Second" || "Gigabytes/Second" || "Terabytes/Second" || "Bits/Second" || "Kilobits/Second" || "Megabits/Second" || "Gigabits/Second" || "Terabits/Second" || "Count/Second" || "None",
+ * };
  * const command = new GetMetricStatisticsCommand(input);
  * const response = await client.send(command);
  * ```

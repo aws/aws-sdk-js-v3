@@ -65,6 +65,10 @@ export interface CreatePartnerEventSourceCommandOutput extends CreatePartnerEven
  * import { EventBridgeClient, CreatePartnerEventSourceCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
  * // const { EventBridgeClient, CreatePartnerEventSourceCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
  * const client = new EventBridgeClient(config);
+ * const input = {
+ *   Name: "STRING_VALUE", // required
+ *   Account: "STRING_VALUE", // required
+ * };
  * const command = new CreatePartnerEventSourceCommand(input);
  * const response = await client.send(command);
  * ```

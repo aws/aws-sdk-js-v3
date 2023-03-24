@@ -42,6 +42,10 @@ export interface GetWorkflowCommandOutput extends GetWorkflowResponse, __Metadat
  * import { CustomerProfilesClient, GetWorkflowCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
  * // const { CustomerProfilesClient, GetWorkflowCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
  * const client = new CustomerProfilesClient(config);
+ * const input = {
+ *   DomainName: "STRING_VALUE", // required
+ *   WorkflowId: "STRING_VALUE", // required
+ * };
  * const command = new GetWorkflowCommand(input);
  * const response = await client.send(command);
  * ```

@@ -45,6 +45,36 @@ export interface CreateFrameworkCommandOutput extends CreateFrameworkOutput, __M
  * import { BackupClient, CreateFrameworkCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, CreateFrameworkCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
+ * const input = {
+ *   FrameworkName: "STRING_VALUE", // required
+ *   FrameworkDescription: "STRING_VALUE",
+ *   FrameworkControls: [ // required
+ *     {
+ *       ControlName: "STRING_VALUE", // required
+ *       ControlInputParameters: [
+ *         {
+ *           ParameterName: "STRING_VALUE",
+ *           ParameterValue: "STRING_VALUE",
+ *         },
+ *       ],
+ *       ControlScope: {
+ *         ComplianceResourceIds: [
+ *           "STRING_VALUE",
+ *         ],
+ *         ComplianceResourceTypes: [
+ *           "STRING_VALUE",
+ *         ],
+ *         Tags: {
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *       },
+ *     },
+ *   ],
+ *   IdempotencyToken: "STRING_VALUE",
+ *   FrameworkTags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateFrameworkCommand(input);
  * const response = await client.send(command);
  * ```

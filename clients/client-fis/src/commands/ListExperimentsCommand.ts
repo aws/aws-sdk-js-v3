@@ -42,6 +42,10 @@ export interface ListExperimentsCommandOutput extends ListExperimentsResponse, _
  * import { FisClient, ListExperimentsCommand } from "@aws-sdk/client-fis"; // ES Modules import
  * // const { FisClient, ListExperimentsCommand } = require("@aws-sdk/client-fis"); // CommonJS import
  * const client = new FisClient(config);
+ * const input = {
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListExperimentsCommand(input);
  * const response = await client.send(command);
  * ```

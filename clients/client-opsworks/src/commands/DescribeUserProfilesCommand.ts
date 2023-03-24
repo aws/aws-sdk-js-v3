@@ -46,6 +46,11 @@ export interface DescribeUserProfilesCommandOutput extends DescribeUserProfilesR
  * import { OpsWorksClient, DescribeUserProfilesCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, DescribeUserProfilesCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
+ * const input = {
+ *   IamUserArns: [
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DescribeUserProfilesCommand(input);
  * const response = await client.send(command);
  * ```

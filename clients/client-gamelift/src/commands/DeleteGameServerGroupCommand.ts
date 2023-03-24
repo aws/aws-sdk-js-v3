@@ -76,6 +76,10 @@ export interface DeleteGameServerGroupCommandOutput extends DeleteGameServerGrou
  * import { GameLiftClient, DeleteGameServerGroupCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, DeleteGameServerGroupCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = {
+ *   GameServerGroupName: "STRING_VALUE", // required
+ *   DeleteOption: "SAFE_DELETE" || "FORCE_DELETE" || "RETAIN",
+ * };
  * const command = new DeleteGameServerGroupCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,10 @@ export interface DescribeAnalysisCommandOutput extends DescribeAnalysisResponse,
  * import { QuickSightClient, DescribeAnalysisCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, DescribeAnalysisCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
+ * const input = {
+ *   AwsAccountId: "STRING_VALUE", // required
+ *   AnalysisId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeAnalysisCommand(input);
  * const response = await client.send(command);
  * ```

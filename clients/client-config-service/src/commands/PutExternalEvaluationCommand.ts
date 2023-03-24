@@ -43,6 +43,16 @@ export interface PutExternalEvaluationCommandOutput extends PutExternalEvaluatio
  * import { ConfigServiceClient, PutExternalEvaluationCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, PutExternalEvaluationCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
+ * const input = {
+ *   ConfigRuleName: "STRING_VALUE", // required
+ *   ExternalEvaluation: {
+ *     ComplianceResourceType: "STRING_VALUE", // required
+ *     ComplianceResourceId: "STRING_VALUE", // required
+ *     ComplianceType: "COMPLIANT" || "NON_COMPLIANT" || "NOT_APPLICABLE" || "INSUFFICIENT_DATA", // required
+ *     Annotation: "STRING_VALUE",
+ *     OrderingTimestamp: new Date("TIMESTAMP"), // required
+ *   },
+ * };
  * const command = new PutExternalEvaluationCommand(input);
  * const response = await client.send(command);
  * ```

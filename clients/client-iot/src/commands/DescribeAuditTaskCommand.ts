@@ -43,6 +43,9 @@ export interface DescribeAuditTaskCommandOutput extends DescribeAuditTaskRespons
  * import { IoTClient, DescribeAuditTaskCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, DescribeAuditTaskCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = {
+ *   taskId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeAuditTaskCommand(input);
  * const response = await client.send(command);
  * ```

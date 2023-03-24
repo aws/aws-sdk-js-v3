@@ -42,6 +42,10 @@ export interface DescribeFirewallCommandOutput extends DescribeFirewallResponse,
  * import { NetworkFirewallClient, DescribeFirewallCommand } from "@aws-sdk/client-network-firewall"; // ES Modules import
  * // const { NetworkFirewallClient, DescribeFirewallCommand } = require("@aws-sdk/client-network-firewall"); // CommonJS import
  * const client = new NetworkFirewallClient(config);
+ * const input = {
+ *   FirewallName: "STRING_VALUE",
+ *   FirewallArn: "STRING_VALUE",
+ * };
  * const command = new DescribeFirewallCommand(input);
  * const response = await client.send(command);
  * ```

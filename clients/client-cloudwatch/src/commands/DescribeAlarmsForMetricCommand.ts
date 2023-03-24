@@ -46,6 +46,20 @@ export interface DescribeAlarmsForMetricCommandOutput extends DescribeAlarmsForM
  * import { CloudWatchClient, DescribeAlarmsForMetricCommand } from "@aws-sdk/client-cloudwatch"; // ES Modules import
  * // const { CloudWatchClient, DescribeAlarmsForMetricCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import
  * const client = new CloudWatchClient(config);
+ * const input = {
+ *   MetricName: "STRING_VALUE", // required
+ *   Namespace: "STRING_VALUE", // required
+ *   Statistic: "SampleCount" || "Average" || "Sum" || "Minimum" || "Maximum",
+ *   ExtendedStatistic: "STRING_VALUE",
+ *   Dimensions: [
+ *     {
+ *       Name: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   Period: Number("int"),
+ *   Unit: "Seconds" || "Microseconds" || "Milliseconds" || "Bytes" || "Kilobytes" || "Megabytes" || "Gigabytes" || "Terabytes" || "Bits" || "Kilobits" || "Megabits" || "Gigabits" || "Terabits" || "Percent" || "Count" || "Bytes/Second" || "Kilobytes/Second" || "Megabytes/Second" || "Gigabytes/Second" || "Terabytes/Second" || "Bits/Second" || "Kilobits/Second" || "Megabits/Second" || "Gigabits/Second" || "Terabits/Second" || "Count/Second" || "None",
+ * };
  * const command = new DescribeAlarmsForMetricCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,20 @@ export interface PurchaseOfferingCommandOutput extends PurchaseOfferingResponse,
  * import { MediaLiveClient, PurchaseOfferingCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, PurchaseOfferingCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
  * const client = new MediaLiveClient(config);
+ * const input = {
+ *   Count: Number("int"), // required
+ *   Name: "STRING_VALUE",
+ *   OfferingId: "STRING_VALUE", // required
+ *   RenewalSettings: {
+ *     AutomaticRenewal: "DISABLED" || "ENABLED" || "UNAVAILABLE",
+ *     RenewalCount: Number("int"),
+ *   },
+ *   RequestId: "STRING_VALUE",
+ *   Start: "STRING_VALUE",
+ *   Tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new PurchaseOfferingCommand(input);
  * const response = await client.send(command);
  * ```

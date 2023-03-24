@@ -50,6 +50,21 @@ export interface DescribeHostReservationOfferingsCommandOutput
  * import { EC2Client, DescribeHostReservationOfferingsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeHostReservationOfferingsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   Filter: [
+ *     {
+ *       Name: "STRING_VALUE",
+ *       Values: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxDuration: Number("int"),
+ *   MaxResults: Number("int"),
+ *   MinDuration: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   OfferingId: "STRING_VALUE",
+ * };
  * const command = new DescribeHostReservationOfferingsCommand(input);
  * const response = await client.send(command);
  * ```

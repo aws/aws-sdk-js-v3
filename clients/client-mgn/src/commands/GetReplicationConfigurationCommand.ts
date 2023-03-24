@@ -46,6 +46,9 @@ export interface GetReplicationConfigurationCommandOutput extends ReplicationCon
  * import { MgnClient, GetReplicationConfigurationCommand } from "@aws-sdk/client-mgn"; // ES Modules import
  * // const { MgnClient, GetReplicationConfigurationCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
  * const client = new MgnClient(config);
+ * const input = {
+ *   sourceServerID: "STRING_VALUE", // required
+ * };
  * const command = new GetReplicationConfigurationCommand(input);
  * const response = await client.send(command);
  * ```

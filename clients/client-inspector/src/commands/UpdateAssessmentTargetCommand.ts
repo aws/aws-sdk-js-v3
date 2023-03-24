@@ -45,6 +45,11 @@ export interface UpdateAssessmentTargetCommandOutput extends __MetadataBearer {}
  * import { InspectorClient, UpdateAssessmentTargetCommand } from "@aws-sdk/client-inspector"; // ES Modules import
  * // const { InspectorClient, UpdateAssessmentTargetCommand } = require("@aws-sdk/client-inspector"); // CommonJS import
  * const client = new InspectorClient(config);
+ * const input = {
+ *   assessmentTargetArn: "STRING_VALUE", // required
+ *   assessmentTargetName: "STRING_VALUE", // required
+ *   resourceGroupArn: "STRING_VALUE",
+ * };
  * const command = new UpdateAssessmentTargetCommand(input);
  * const response = await client.send(command);
  * ```

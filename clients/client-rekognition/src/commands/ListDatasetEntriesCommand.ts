@@ -55,6 +55,17 @@ export interface ListDatasetEntriesCommandOutput extends ListDatasetEntriesRespo
  * import { RekognitionClient, ListDatasetEntriesCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, ListDatasetEntriesCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
+ * const input = {
+ *   DatasetArn: "STRING_VALUE", // required
+ *   ContainsLabels: [
+ *     "STRING_VALUE",
+ *   ],
+ *   Labeled: true || false,
+ *   SourceRefContains: "STRING_VALUE",
+ *   HasErrors: true || false,
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListDatasetEntriesCommand(input);
  * const response = await client.send(command);
  * ```

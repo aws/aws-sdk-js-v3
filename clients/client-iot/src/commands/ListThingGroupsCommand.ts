@@ -43,6 +43,13 @@ export interface ListThingGroupsCommandOutput extends ListThingGroupsResponse, _
  * import { IoTClient, ListThingGroupsCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, ListThingGroupsCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = {
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   parentGroup: "STRING_VALUE",
+ *   namePrefixFilter: "STRING_VALUE",
+ *   recursive: true || false,
+ * };
  * const command = new ListThingGroupsCommand(input);
  * const response = await client.send(command);
  * ```

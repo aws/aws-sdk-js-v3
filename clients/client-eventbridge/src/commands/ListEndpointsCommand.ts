@@ -42,6 +42,12 @@ export interface ListEndpointsCommandOutput extends ListEndpointsResponse, __Met
  * import { EventBridgeClient, ListEndpointsCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
  * // const { EventBridgeClient, ListEndpointsCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
  * const client = new EventBridgeClient(config);
+ * const input = {
+ *   NamePrefix: "STRING_VALUE",
+ *   HomeRegion: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListEndpointsCommand(input);
  * const response = await client.send(command);
  * ```

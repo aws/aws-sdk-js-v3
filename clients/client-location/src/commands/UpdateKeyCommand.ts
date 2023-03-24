@@ -47,6 +47,24 @@ export interface UpdateKeyCommandOutput extends UpdateKeyResponse, __MetadataBea
  * import { LocationClient, UpdateKeyCommand } from "@aws-sdk/client-location"; // ES Modules import
  * // const { LocationClient, UpdateKeyCommand } = require("@aws-sdk/client-location"); // CommonJS import
  * const client = new LocationClient(config);
+ * const input = {
+ *   KeyName: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   ExpireTime: new Date("TIMESTAMP"),
+ *   NoExpiry: true || false,
+ *   ForceUpdate: true || false,
+ *   Restrictions: {
+ *     AllowActions: [ // required
+ *       "STRING_VALUE",
+ *     ],
+ *     AllowResources: [ // required
+ *       "STRING_VALUE",
+ *     ],
+ *     AllowReferers: [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ * };
  * const command = new UpdateKeyCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,21 @@ export interface UpdateReplicationSetCommandOutput extends UpdateReplicationSetO
  * import { SSMIncidentsClient, UpdateReplicationSetCommand } from "@aws-sdk/client-ssm-incidents"; // ES Modules import
  * // const { SSMIncidentsClient, UpdateReplicationSetCommand } = require("@aws-sdk/client-ssm-incidents"); // CommonJS import
  * const client = new SSMIncidentsClient(config);
+ * const input = {
+ *   arn: "STRING_VALUE", // required
+ *   actions: [ // required
+ *     { // Union: only one key present
+ *       addRegionAction: {
+ *         regionName: "STRING_VALUE", // required
+ *         sseKmsKeyId: "STRING_VALUE",
+ *       },
+ *       deleteRegionAction: {
+ *         regionName: "STRING_VALUE", // required
+ *       },
+ *     },
+ *   ],
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new UpdateReplicationSetCommand(input);
  * const response = await client.send(command);
  * ```

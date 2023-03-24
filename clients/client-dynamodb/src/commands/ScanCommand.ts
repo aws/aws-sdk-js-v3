@@ -64,6 +64,114 @@ export interface ScanCommandOutput extends ScanOutput, __MetadataBearer {}
  * import { DynamoDBClient, ScanCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
  * // const { DynamoDBClient, ScanCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
  * const client = new DynamoDBClient(config);
+ * const input = {
+ *   TableName: "STRING_VALUE", // required
+ *   IndexName: "STRING_VALUE",
+ *   AttributesToGet: [
+ *     "STRING_VALUE",
+ *   ],
+ *   Limit: Number("int"),
+ *   Select: "ALL_ATTRIBUTES" || "ALL_PROJECTED_ATTRIBUTES" || "SPECIFIC_ATTRIBUTES" || "COUNT",
+ *   ScanFilter: {
+ *     "<keys>": {
+ *       AttributeValueList: [
+ *         { // Union: only one key present
+ *           S: "STRING_VALUE",
+ *           N: "STRING_VALUE",
+ *           B: "BLOB_VALUE",
+ *           SS: [
+ *             "STRING_VALUE",
+ *           ],
+ *           NS: [
+ *             "STRING_VALUE",
+ *           ],
+ *           BS: [
+ *             "BLOB_VALUE",
+ *           ],
+ *           M: {
+ *             "<keys>": { // Union: only one key present
+ *               S: "STRING_VALUE",
+ *               N: "STRING_VALUE",
+ *               B: "BLOB_VALUE",
+ *               SS: [
+ *                 "STRING_VALUE",
+ *               ],
+ *               NS: [
+ *                 "STRING_VALUE",
+ *               ],
+ *               BS: [
+ *                 "BLOB_VALUE",
+ *               ],
+ *               M: {
+ *                 "<keys>": { // Union: only one key present
+ *                   S: "<AttributeValue>",
+ *                   N: "<AttributeValue>",
+ *                   B: "<AttributeValue>",
+ *                   SS: "<AttributeValue>",
+ *                   NS: "<AttributeValue>",
+ *                   BS: "<AttributeValue>",
+ *                   M: "<AttributeValue>",
+ *                   L: [
+ *                     { // Union: only one key present
+ *                       S: "<AttributeValue>",
+ *                       N: "<AttributeValue>",
+ *                       B: "<AttributeValue>",
+ *                       SS: "<AttributeValue>",
+ *                       NS: "<AttributeValue>",
+ *                       BS: "<AttributeValue>",
+ *                       M: "<AttributeValue>",
+ *                       L: [
+ *                         { // Union: only one key present
+ *                           S: "<AttributeValue>",
+ *                           N: "<AttributeValue>",
+ *                           B: "<AttributeValue>",
+ *                           SS: "<AttributeValue>",
+ *                           NS: "<AttributeValue>",
+ *                           BS: "<AttributeValue>",
+ *                           M: "<AttributeValue>",
+ *                           L: "<AttributeValue>",
+ *                           NULL: true || false,
+ *                           BOOL: true || false,
+ *                         },
+ *                       ],
+ *                       NULL: true || false,
+ *                       BOOL: true || false,
+ *                     },
+ *                   ],
+ *                   NULL: "<AttributeValue>",
+ *                   BOOL: "<AttributeValue>",
+ *                 },
+ *               },
+ *               L: "<AttributeValue>",
+ *               NULL: "<AttributeValue>",
+ *               BOOL: "<AttributeValue>",
+ *             },
+ *           },
+ *           L: "<AttributeValue>",
+ *           NULL: "<AttributeValue>",
+ *           BOOL: "<AttributeValue>",
+ *         },
+ *       ],
+ *       ComparisonOperator: "EQ" || "NE" || "IN" || "LE" || "LT" || "GE" || "GT" || "BETWEEN" || "NOT_NULL" || "NULL" || "CONTAINS" || "NOT_CONTAINS" || "BEGINS_WITH", // required
+ *     },
+ *   },
+ *   ConditionalOperator: "AND" || "OR",
+ *   ExclusiveStartKey: {
+ *     "<keys>": "<AttributeValue>",
+ *   },
+ *   ReturnConsumedCapacity: "INDEXES" || "TOTAL" || "NONE",
+ *   TotalSegments: Number("int"),
+ *   Segment: Number("int"),
+ *   ProjectionExpression: "STRING_VALUE",
+ *   FilterExpression: "STRING_VALUE",
+ *   ExpressionAttributeNames: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   ExpressionAttributeValues: {
+ *     "<keys>": "<AttributeValue>",
+ *   },
+ *   ConsistentRead: true || false,
+ * };
  * const command = new ScanCommand(input);
  * const response = await client.send(command);
  * ```

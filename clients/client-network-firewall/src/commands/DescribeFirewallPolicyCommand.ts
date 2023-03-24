@@ -42,6 +42,10 @@ export interface DescribeFirewallPolicyCommandOutput extends DescribeFirewallPol
  * import { NetworkFirewallClient, DescribeFirewallPolicyCommand } from "@aws-sdk/client-network-firewall"; // ES Modules import
  * // const { NetworkFirewallClient, DescribeFirewallPolicyCommand } = require("@aws-sdk/client-network-firewall"); // CommonJS import
  * const client = new NetworkFirewallClient(config);
+ * const input = {
+ *   FirewallPolicyName: "STRING_VALUE",
+ *   FirewallPolicyArn: "STRING_VALUE",
+ * };
  * const command = new DescribeFirewallPolicyCommand(input);
  * const response = await client.send(command);
  * ```

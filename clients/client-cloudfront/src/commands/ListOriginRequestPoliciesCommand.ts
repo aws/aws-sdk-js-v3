@@ -49,6 +49,11 @@ export interface ListOriginRequestPoliciesCommandOutput extends ListOriginReques
  * import { CloudFrontClient, ListOriginRequestPoliciesCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, ListOriginRequestPoliciesCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
+ * const input = {
+ *   Type: "managed" || "custom",
+ *   Marker: "STRING_VALUE",
+ *   MaxItems: Number("int"),
+ * };
  * const command = new ListOriginRequestPoliciesCommand(input);
  * const response = await client.send(command);
  * ```

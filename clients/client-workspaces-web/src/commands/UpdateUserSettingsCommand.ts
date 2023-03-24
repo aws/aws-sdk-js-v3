@@ -42,6 +42,17 @@ export interface UpdateUserSettingsCommandOutput extends UpdateUserSettingsRespo
  * import { WorkSpacesWebClient, UpdateUserSettingsCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
  * // const { WorkSpacesWebClient, UpdateUserSettingsCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
  * const client = new WorkSpacesWebClient(config);
+ * const input = {
+ *   userSettingsArn: "STRING_VALUE", // required
+ *   copyAllowed: "STRING_VALUE",
+ *   pasteAllowed: "STRING_VALUE",
+ *   downloadAllowed: "STRING_VALUE",
+ *   uploadAllowed: "STRING_VALUE",
+ *   printAllowed: "STRING_VALUE",
+ *   disconnectTimeoutInMinutes: Number("int"),
+ *   idleDisconnectTimeoutInMinutes: Number("int"),
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new UpdateUserSettingsCommand(input);
  * const response = await client.send(command);
  * ```

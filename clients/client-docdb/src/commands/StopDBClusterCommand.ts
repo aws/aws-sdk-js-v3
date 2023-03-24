@@ -45,6 +45,9 @@ export interface StopDBClusterCommandOutput extends StopDBClusterResult, __Metad
  * import { DocDBClient, StopDBClusterCommand } from "@aws-sdk/client-docdb"; // ES Modules import
  * // const { DocDBClient, StopDBClusterCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
  * const client = new DocDBClient(config);
+ * const input = {
+ *   DBClusterIdentifier: "STRING_VALUE", // required
+ * };
  * const command = new StopDBClusterCommand(input);
  * const response = await client.send(command);
  * ```

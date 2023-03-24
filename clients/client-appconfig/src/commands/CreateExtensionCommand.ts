@@ -50,6 +50,30 @@ export interface CreateExtensionCommandOutput extends Extension, __MetadataBeare
  * import { AppConfigClient, CreateExtensionCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
  * // const { AppConfigClient, CreateExtensionCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
  * const client = new AppConfigClient(config);
+ * const input = {
+ *   Name: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   Actions: { // required
+ *     "<keys>": [
+ *       {
+ *         Name: "STRING_VALUE",
+ *         Description: "STRING_VALUE",
+ *         Uri: "STRING_VALUE",
+ *         RoleArn: "STRING_VALUE",
+ *       },
+ *     ],
+ *   },
+ *   Parameters: {
+ *     "<keys>": {
+ *       Description: "STRING_VALUE",
+ *       Required: true || false,
+ *     },
+ *   },
+ *   Tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   LatestVersionNumber: Number("int"),
+ * };
  * const command = new CreateExtensionCommand(input);
  * const response = await client.send(command);
  * ```

@@ -52,6 +52,10 @@ export interface AssociateAliasCommandOutput extends __MetadataBearer {}
  * import { CloudFrontClient, AssociateAliasCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, AssociateAliasCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
+ * const input = {
+ *   TargetDistributionId: "STRING_VALUE", // required
+ *   Alias: "STRING_VALUE", // required
+ * };
  * const command = new AssociateAliasCommand(input);
  * const response = await client.send(command);
  * ```

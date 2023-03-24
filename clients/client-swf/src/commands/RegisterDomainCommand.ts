@@ -65,6 +65,17 @@ export interface RegisterDomainCommandOutput extends __MetadataBearer {}
  * import { SWFClient, RegisterDomainCommand } from "@aws-sdk/client-swf"; // ES Modules import
  * // const { SWFClient, RegisterDomainCommand } = require("@aws-sdk/client-swf"); // CommonJS import
  * const client = new SWFClient(config);
+ * const input = {
+ *   name: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   workflowExecutionRetentionPeriodInDays: "STRING_VALUE", // required
+ *   tags: [
+ *     {
+ *       key: "STRING_VALUE", // required
+ *       value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new RegisterDomainCommand(input);
  * const response = await client.send(command);
  * ```

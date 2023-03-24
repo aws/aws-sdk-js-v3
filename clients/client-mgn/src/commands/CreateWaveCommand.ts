@@ -47,6 +47,13 @@ export interface CreateWaveCommandOutput extends Wave, __MetadataBearer {}
  * import { MgnClient, CreateWaveCommand } from "@aws-sdk/client-mgn"; // ES Modules import
  * // const { MgnClient, CreateWaveCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
  * const client = new MgnClient(config);
+ * const input = {
+ *   name: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateWaveCommand(input);
  * const response = await client.send(command);
  * ```

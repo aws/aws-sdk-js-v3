@@ -45,6 +45,33 @@ export interface UpdateLogLevelsByResourceTypesCommandOutput
  * import { IoTWirelessClient, UpdateLogLevelsByResourceTypesCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, UpdateLogLevelsByResourceTypesCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
+ * const input = {
+ *   DefaultLogLevel: "INFO" || "ERROR" || "DISABLED",
+ *   WirelessDeviceLogOptions: [
+ *     {
+ *       Type: "Sidewalk" || "LoRaWAN", // required
+ *       LogLevel: "INFO" || "ERROR" || "DISABLED", // required
+ *       Events: [
+ *         {
+ *           Event: "Join" || "Rejoin" || "Uplink_Data" || "Downlink_Data" || "Registration", // required
+ *           LogLevel: "INFO" || "ERROR" || "DISABLED", // required
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   WirelessGatewayLogOptions: [
+ *     {
+ *       Type: "LoRaWAN", // required
+ *       LogLevel: "INFO" || "ERROR" || "DISABLED", // required
+ *       Events: [
+ *         {
+ *           Event: "CUPS_Request" || "Certificate", // required
+ *           LogLevel: "INFO" || "ERROR" || "DISABLED", // required
+ *         },
+ *       ],
+ *     },
+ *   ],
+ * };
  * const command = new UpdateLogLevelsByResourceTypesCommand(input);
  * const response = await client.send(command);
  * ```

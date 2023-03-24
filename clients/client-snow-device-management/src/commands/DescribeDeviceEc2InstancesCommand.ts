@@ -48,6 +48,12 @@ export interface DescribeDeviceEc2InstancesCommandOutput extends DescribeDeviceE
  * import { SnowDeviceManagementClient, DescribeDeviceEc2InstancesCommand } from "@aws-sdk/client-snow-device-management"; // ES Modules import
  * // const { SnowDeviceManagementClient, DescribeDeviceEc2InstancesCommand } = require("@aws-sdk/client-snow-device-management"); // CommonJS import
  * const client = new SnowDeviceManagementClient(config);
+ * const input = {
+ *   managedDeviceId: "STRING_VALUE", // required
+ *   instanceIds: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DescribeDeviceEc2InstancesCommand(input);
  * const response = await client.send(command);
  * ```

@@ -46,6 +46,9 @@ export interface GetResourceSetCommandOutput extends GetResourceSetResponse, __M
  * import { Route53RecoveryReadinessClient, GetResourceSetCommand } from "@aws-sdk/client-route53-recovery-readiness"; // ES Modules import
  * // const { Route53RecoveryReadinessClient, GetResourceSetCommand } = require("@aws-sdk/client-route53-recovery-readiness"); // CommonJS import
  * const client = new Route53RecoveryReadinessClient(config);
+ * const input = {
+ *   ResourceSetName: "STRING_VALUE", // required
+ * };
  * const command = new GetResourceSetCommand(input);
  * const response = await client.send(command);
  * ```

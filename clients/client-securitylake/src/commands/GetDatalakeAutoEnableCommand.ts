@@ -44,6 +44,7 @@ export interface GetDatalakeAutoEnableCommandOutput extends GetDatalakeAutoEnabl
  * import { SecurityLakeClient, GetDatalakeAutoEnableCommand } from "@aws-sdk/client-securitylake"; // ES Modules import
  * // const { SecurityLakeClient, GetDatalakeAutoEnableCommand } = require("@aws-sdk/client-securitylake"); // CommonJS import
  * const client = new SecurityLakeClient(config);
+ * const input = {};
  * const command = new GetDatalakeAutoEnableCommand(input);
  * const response = await client.send(command);
  * ```

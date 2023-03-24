@@ -51,6 +51,9 @@ export interface DeleteInstanceAccessControlAttributeConfigurationCommandOutput
  * import { SSOAdminClient, DeleteInstanceAccessControlAttributeConfigurationCommand } from "@aws-sdk/client-sso-admin"; // ES Modules import
  * // const { SSOAdminClient, DeleteInstanceAccessControlAttributeConfigurationCommand } = require("@aws-sdk/client-sso-admin"); // CommonJS import
  * const client = new SSOAdminClient(config);
+ * const input = {
+ *   InstanceArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteInstanceAccessControlAttributeConfigurationCommand(input);
  * const response = await client.send(command);
  * ```

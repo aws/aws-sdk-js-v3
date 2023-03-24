@@ -42,6 +42,11 @@ export interface DeprovisionIpamPoolCidrCommandOutput extends DeprovisionIpamPoo
  * import { EC2Client, DeprovisionIpamPoolCidrCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DeprovisionIpamPoolCidrCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   DryRun: true || false,
+ *   IpamPoolId: "STRING_VALUE", // required
+ *   Cidr: "STRING_VALUE",
+ * };
  * const command = new DeprovisionIpamPoolCidrCommand(input);
  * const response = await client.send(command);
  * ```

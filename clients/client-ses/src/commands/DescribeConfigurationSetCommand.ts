@@ -45,6 +45,12 @@ export interface DescribeConfigurationSetCommandOutput extends DescribeConfigura
  * import { SESClient, DescribeConfigurationSetCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, DescribeConfigurationSetCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
+ * const input = {
+ *   ConfigurationSetName: "STRING_VALUE", // required
+ *   ConfigurationSetAttributeNames: [
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DescribeConfigurationSetCommand(input);
  * const response = await client.send(command);
  * ```

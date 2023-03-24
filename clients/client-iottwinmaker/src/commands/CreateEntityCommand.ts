@@ -42,6 +42,151 @@ export interface CreateEntityCommandOutput extends CreateEntityResponse, __Metad
  * import { IoTTwinMakerClient, CreateEntityCommand } from "@aws-sdk/client-iottwinmaker"; // ES Modules import
  * // const { IoTTwinMakerClient, CreateEntityCommand } = require("@aws-sdk/client-iottwinmaker"); // CommonJS import
  * const client = new IoTTwinMakerClient(config);
+ * const input = {
+ *   workspaceId: "STRING_VALUE", // required
+ *   entityId: "STRING_VALUE",
+ *   entityName: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   components: {
+ *     "<keys>": {
+ *       description: "STRING_VALUE",
+ *       componentTypeId: "STRING_VALUE",
+ *       properties: {
+ *         "<keys>": {
+ *           definition: {
+ *             dataType: {
+ *               type: "STRING_VALUE", // required
+ *               nestedType: {
+ *                 type: "STRING_VALUE", // required
+ *                 nestedType: {
+ *                   type: "<DataType>",
+ *                   nestedType: "<DataType>",
+ *                   allowedValues: [
+ *                     {
+ *                       booleanValue: true || false,
+ *                       doubleValue: Number("double"),
+ *                       integerValue: Number("int"),
+ *                       longValue: Number("long"),
+ *                       stringValue: "STRING_VALUE",
+ *                       listValue: [
+ *                         {
+ *                           booleanValue: true || false,
+ *                           doubleValue: Number("double"),
+ *                           integerValue: Number("int"),
+ *                           longValue: Number("long"),
+ *                           stringValue: "STRING_VALUE",
+ *                           listValue: [
+ *                             "<DataValueList>",
+ *                           ],
+ *                           mapValue: {
+ *                             "<keys>": {
+ *                               booleanValue: "<DataValue>",
+ *                               doubleValue: "<DataValue>",
+ *                               integerValue: "<DataValue>",
+ *                               longValue: "<DataValue>",
+ *                               stringValue: "<DataValue>",
+ *                               listValue: "<DataValue>",
+ *                               mapValue: {
+ *                                 "<keys>": {
+ *                                   booleanValue: "<DataValue>",
+ *                                   doubleValue: "<DataValue>",
+ *                                   integerValue: "<DataValue>",
+ *                                   longValue: "<DataValue>",
+ *                                   stringValue: "<DataValue>",
+ *                                   listValue: "<DataValue>",
+ *                                   mapValue: "<DataValue>",
+ *                                   relationshipValue: {
+ *                                     targetEntityId: "STRING_VALUE",
+ *                                     targetComponentName: "STRING_VALUE",
+ *                                   },
+ *                                   expression: "STRING_VALUE",
+ *                                 },
+ *                               },
+ *                               relationshipValue: {
+ *                                 targetEntityId: "STRING_VALUE",
+ *                                 targetComponentName: "STRING_VALUE",
+ *                               },
+ *                               expression: "STRING_VALUE",
+ *                             },
+ *                           },
+ *                           relationshipValue: "<DataValue>",
+ *                           expression: "<DataValue>",
+ *                         },
+ *                       ],
+ *                       mapValue: "<DataValue>",
+ *                       relationshipValue: "<DataValue>",
+ *                       expression: "<DataValue>",
+ *                     },
+ *                   ],
+ *                   unitOfMeasure: "STRING_VALUE",
+ *                   relationship: {
+ *                     targetComponentTypeId: "STRING_VALUE",
+ *                     relationshipType: "STRING_VALUE",
+ *                   },
+ *                 },
+ *                 allowedValues: [
+ *                   "<DataValueList>",
+ *                 ],
+ *                 unitOfMeasure: "STRING_VALUE",
+ *                 relationship: {
+ *                   targetComponentTypeId: "STRING_VALUE",
+ *                   relationshipType: "STRING_VALUE",
+ *                 },
+ *               },
+ *               allowedValues: "<DataType>",
+ *               unitOfMeasure: "<DataType>",
+ *               relationship: "<DataType>",
+ *             },
+ *             isRequiredInEntity: true || false,
+ *             isExternalId: true || false,
+ *             isStoredExternally: true || false,
+ *             isTimeSeries: true || false,
+ *             defaultValue: {
+ *               booleanValue: "<DataValue>",
+ *               doubleValue: "<DataValue>",
+ *               integerValue: "<DataValue>",
+ *               longValue: "<DataValue>",
+ *               stringValue: "<DataValue>",
+ *               listValue: "<DataValue>",
+ *               mapValue: "<DataValue>",
+ *               relationshipValue: "<DataValue>",
+ *               expression: "<DataValue>",
+ *             },
+ *             configuration: {
+ *               "<keys>": "STRING_VALUE",
+ *             },
+ *             displayName: "STRING_VALUE",
+ *           },
+ *           value: {
+ *             booleanValue: "<DataValue>",
+ *             doubleValue: "<DataValue>",
+ *             integerValue: "<DataValue>",
+ *             longValue: "<DataValue>",
+ *             stringValue: "<DataValue>",
+ *             listValue: "<DataValue>",
+ *             mapValue: "<DataValue>",
+ *             relationshipValue: "<DataValue>",
+ *             expression: "<DataValue>",
+ *           },
+ *           updateType: "STRING_VALUE",
+ *         },
+ *       },
+ *       propertyGroups: {
+ *         "<keys>": {
+ *           groupType: "STRING_VALUE",
+ *           propertyNames: [
+ *             "STRING_VALUE",
+ *           ],
+ *           updateType: "STRING_VALUE",
+ *         },
+ *       },
+ *     },
+ *   },
+ *   parentEntityId: "STRING_VALUE",
+ *   tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateEntityCommand(input);
  * const response = await client.send(command);
  * ```

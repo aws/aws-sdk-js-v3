@@ -102,6 +102,11 @@ export interface GetDocumentAnalysisCommandOutput extends GetDocumentAnalysisRes
  * import { TextractClient, GetDocumentAnalysisCommand } from "@aws-sdk/client-textract"; // ES Modules import
  * // const { TextractClient, GetDocumentAnalysisCommand } = require("@aws-sdk/client-textract"); // CommonJS import
  * const client = new TextractClient(config);
+ * const input = {
+ *   JobId: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new GetDocumentAnalysisCommand(input);
  * const response = await client.send(command);
  * ```

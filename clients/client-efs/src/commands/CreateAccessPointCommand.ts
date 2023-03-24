@@ -55,6 +55,31 @@ export interface CreateAccessPointCommandOutput extends AccessPointDescription, 
  * import { EFSClient, CreateAccessPointCommand } from "@aws-sdk/client-efs"; // ES Modules import
  * // const { EFSClient, CreateAccessPointCommand } = require("@aws-sdk/client-efs"); // CommonJS import
  * const client = new EFSClient(config);
+ * const input = {
+ *   ClientToken: "STRING_VALUE", // required
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   FileSystemId: "STRING_VALUE", // required
+ *   PosixUser: {
+ *     Uid: Number("long"), // required
+ *     Gid: Number("long"), // required
+ *     SecondaryGids: [
+ *       Number("long"),
+ *     ],
+ *   },
+ *   RootDirectory: {
+ *     Path: "STRING_VALUE",
+ *     CreationInfo: {
+ *       OwnerUid: Number("long"), // required
+ *       OwnerGid: Number("long"), // required
+ *       Permissions: "STRING_VALUE", // required
+ *     },
+ *   },
+ * };
  * const command = new CreateAccessPointCommand(input);
  * const response = await client.send(command);
  * ```

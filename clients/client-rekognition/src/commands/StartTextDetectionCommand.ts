@@ -49,6 +49,44 @@ export interface StartTextDetectionCommandOutput extends StartTextDetectionRespo
  * import { RekognitionClient, StartTextDetectionCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, StartTextDetectionCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
+ * const input = {
+ *   Video: {
+ *     S3Object: {
+ *       Bucket: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *       Version: "STRING_VALUE",
+ *     },
+ *   },
+ *   ClientRequestToken: "STRING_VALUE",
+ *   NotificationChannel: {
+ *     SNSTopicArn: "STRING_VALUE", // required
+ *     RoleArn: "STRING_VALUE", // required
+ *   },
+ *   JobTag: "STRING_VALUE",
+ *   Filters: {
+ *     WordFilter: {
+ *       MinConfidence: Number("float"),
+ *       MinBoundingBoxHeight: Number("float"),
+ *       MinBoundingBoxWidth: Number("float"),
+ *     },
+ *     RegionsOfInterest: [
+ *       {
+ *         BoundingBox: {
+ *           Width: Number("float"),
+ *           Height: Number("float"),
+ *           Left: Number("float"),
+ *           Top: Number("float"),
+ *         },
+ *         Polygon: [
+ *           {
+ *             X: Number("float"),
+ *             Y: Number("float"),
+ *           },
+ *         ],
+ *       },
+ *     ],
+ *   },
+ * };
  * const command = new StartTextDetectionCommand(input);
  * const response = await client.send(command);
  * ```

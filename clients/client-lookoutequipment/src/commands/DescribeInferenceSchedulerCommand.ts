@@ -43,6 +43,9 @@ export interface DescribeInferenceSchedulerCommandOutput extends DescribeInferen
  * import { LookoutEquipmentClient, DescribeInferenceSchedulerCommand } from "@aws-sdk/client-lookoutequipment"; // ES Modules import
  * // const { LookoutEquipmentClient, DescribeInferenceSchedulerCommand } = require("@aws-sdk/client-lookoutequipment"); // CommonJS import
  * const client = new LookoutEquipmentClient(config);
+ * const input = {
+ *   InferenceSchedulerName: "STRING_VALUE", // required
+ * };
  * const command = new DescribeInferenceSchedulerCommand(input);
  * const response = await client.send(command);
  * ```

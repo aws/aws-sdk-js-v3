@@ -42,6 +42,13 @@ export interface UpdateRunGroupCommandOutput extends __MetadataBearer {}
  * import { OmicsClient, UpdateRunGroupCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, UpdateRunGroupCommand } = require("@aws-sdk/client-omics"); // CommonJS import
  * const client = new OmicsClient(config);
+ * const input = {
+ *   id: "STRING_VALUE", // required
+ *   name: "STRING_VALUE",
+ *   maxCpus: Number("int"),
+ *   maxRuns: Number("int"),
+ *   maxDuration: Number("int"),
+ * };
  * const command = new UpdateRunGroupCommand(input);
  * const response = await client.send(command);
  * ```

@@ -43,6 +43,15 @@ export interface UpdatePackageCommandOutput extends UpdatePackageResponse, __Met
  * import { OpenSearchClient, UpdatePackageCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
  * // const { OpenSearchClient, UpdatePackageCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
  * const client = new OpenSearchClient(config);
+ * const input = {
+ *   PackageID: "STRING_VALUE", // required
+ *   PackageSource: {
+ *     S3BucketName: "STRING_VALUE",
+ *     S3Key: "STRING_VALUE",
+ *   },
+ *   PackageDescription: "STRING_VALUE",
+ *   CommitMessage: "STRING_VALUE",
+ * };
  * const command = new UpdatePackageCommand(input);
  * const response = await client.send(command);
  * ```

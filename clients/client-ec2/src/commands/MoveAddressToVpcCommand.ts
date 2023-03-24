@@ -50,6 +50,10 @@ export interface MoveAddressToVpcCommandOutput extends MoveAddressToVpcResult, _
  * import { EC2Client, MoveAddressToVpcCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, MoveAddressToVpcCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   DryRun: true || false,
+ *   PublicIp: "STRING_VALUE", // required
+ * };
  * const command = new MoveAddressToVpcCommand(input);
  * const response = await client.send(command);
  * ```

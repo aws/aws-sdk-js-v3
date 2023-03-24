@@ -42,6 +42,35 @@ export interface StartAnnotationImportJobCommandOutput extends StartAnnotationIm
  * import { OmicsClient, StartAnnotationImportJobCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, StartAnnotationImportJobCommand } = require("@aws-sdk/client-omics"); // CommonJS import
  * const client = new OmicsClient(config);
+ * const input = {
+ *   destinationName: "STRING_VALUE", // required
+ *   roleArn: "STRING_VALUE", // required
+ *   items: [ // required
+ *     {
+ *       source: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   formatOptions: { // Union: only one key present
+ *     tsvOptions: {
+ *       readOptions: {
+ *         sep: "STRING_VALUE",
+ *         encoding: "STRING_VALUE",
+ *         quote: "STRING_VALUE",
+ *         quoteAll: true || false,
+ *         escape: "STRING_VALUE",
+ *         escapeQuotes: true || false,
+ *         comment: "STRING_VALUE",
+ *         header: true || false,
+ *         lineSep: "STRING_VALUE",
+ *       },
+ *     },
+ *     vcfOptions: {
+ *       ignoreQualField: true || false,
+ *       ignoreFilterField: true || false,
+ *     },
+ *   },
+ *   runLeftNormalization: true || false,
+ * };
  * const command = new StartAnnotationImportJobCommand(input);
  * const response = await client.send(command);
  * ```

@@ -45,6 +45,7 @@ export interface DeleteNamespaceCommandOutput extends DeleteNamespaceResponse, _
  * import { IoTThingsGraphClient, DeleteNamespaceCommand } from "@aws-sdk/client-iotthingsgraph"; // ES Modules import
  * // const { IoTThingsGraphClient, DeleteNamespaceCommand } = require("@aws-sdk/client-iotthingsgraph"); // CommonJS import
  * const client = new IoTThingsGraphClient(config);
+ * const input = {};
  * const command = new DeleteNamespaceCommand(input);
  * const response = await client.send(command);
  * ```

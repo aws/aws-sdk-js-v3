@@ -42,6 +42,12 @@ export interface UpdateRevealConfigurationCommandOutput extends UpdateRevealConf
  * import { Macie2Client, UpdateRevealConfigurationCommand } from "@aws-sdk/client-macie2"; // ES Modules import
  * // const { Macie2Client, UpdateRevealConfigurationCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
  * const client = new Macie2Client(config);
+ * const input = {
+ *   configuration: {
+ *     kmsKeyId: "STRING_VALUE",
+ *     status: "ENABLED" || "DISABLED", // required
+ *   },
+ * };
  * const command = new UpdateRevealConfigurationCommand(input);
  * const response = await client.send(command);
  * ```

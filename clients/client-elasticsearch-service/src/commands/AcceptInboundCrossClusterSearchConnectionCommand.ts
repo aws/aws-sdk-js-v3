@@ -52,6 +52,9 @@ export interface AcceptInboundCrossClusterSearchConnectionCommandOutput
  * import { ElasticsearchServiceClient, AcceptInboundCrossClusterSearchConnectionCommand } from "@aws-sdk/client-elasticsearch-service"; // ES Modules import
  * // const { ElasticsearchServiceClient, AcceptInboundCrossClusterSearchConnectionCommand } = require("@aws-sdk/client-elasticsearch-service"); // CommonJS import
  * const client = new ElasticsearchServiceClient(config);
+ * const input = {
+ *   CrossClusterSearchConnectionId: "STRING_VALUE", // required
+ * };
  * const command = new AcceptInboundCrossClusterSearchConnectionCommand(input);
  * const response = await client.send(command);
  * ```

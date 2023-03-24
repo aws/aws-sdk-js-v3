@@ -42,6 +42,17 @@ export interface UpdateActionCommandOutput extends UpdateActionResponse, __Metad
  * import { SageMakerClient, UpdateActionCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, UpdateActionCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = {
+ *   ActionName: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   Status: "Unknown" || "InProgress" || "Completed" || "Failed" || "Stopping" || "Stopped",
+ *   Properties: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   PropertiesToRemove: [
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new UpdateActionCommand(input);
  * const response = await client.send(command);
  * ```

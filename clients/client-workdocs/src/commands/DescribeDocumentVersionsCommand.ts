@@ -48,6 +48,14 @@ export interface DescribeDocumentVersionsCommandOutput extends DescribeDocumentV
  * import { WorkDocsClient, DescribeDocumentVersionsCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
  * // const { WorkDocsClient, DescribeDocumentVersionsCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
  * const client = new WorkDocsClient(config);
+ * const input = {
+ *   AuthenticationToken: "STRING_VALUE",
+ *   DocumentId: "STRING_VALUE", // required
+ *   Marker: "STRING_VALUE",
+ *   Limit: Number("int"),
+ *   Include: "STRING_VALUE",
+ *   Fields: "STRING_VALUE",
+ * };
  * const command = new DescribeDocumentVersionsCommand(input);
  * const response = await client.send(command);
  * ```

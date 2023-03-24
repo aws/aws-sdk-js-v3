@@ -42,6 +42,9 @@ export interface DeleteSubnetGroupCommandOutput extends DeleteSubnetGroupRespons
  * import { MemoryDBClient, DeleteSubnetGroupCommand } from "@aws-sdk/client-memorydb"; // ES Modules import
  * // const { MemoryDBClient, DeleteSubnetGroupCommand } = require("@aws-sdk/client-memorydb"); // CommonJS import
  * const client = new MemoryDBClient(config);
+ * const input = {
+ *   SubnetGroupName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteSubnetGroupCommand(input);
  * const response = await client.send(command);
  * ```

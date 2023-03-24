@@ -46,6 +46,26 @@ export interface CreateNetworkProfileCommandOutput extends CreateNetworkProfileR
  * import { AlexaForBusinessClient, CreateNetworkProfileCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, CreateNetworkProfileCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
+ * const input = {
+ *   NetworkProfileName: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   Ssid: "STRING_VALUE", // required
+ *   SecurityType: "STRING_VALUE", // required
+ *   EapMethod: "STRING_VALUE",
+ *   CurrentPassword: "STRING_VALUE",
+ *   NextPassword: "STRING_VALUE",
+ *   CertificateAuthorityArn: "STRING_VALUE",
+ *   TrustAnchors: [
+ *     "STRING_VALUE",
+ *   ],
+ *   ClientRequestToken: "STRING_VALUE", // required
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateNetworkProfileCommand(input);
  * const response = await client.send(command);
  * ```

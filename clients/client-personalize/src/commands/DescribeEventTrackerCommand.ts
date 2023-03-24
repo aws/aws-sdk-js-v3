@@ -44,6 +44,9 @@ export interface DescribeEventTrackerCommandOutput extends DescribeEventTrackerR
  * import { PersonalizeClient, DescribeEventTrackerCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, DescribeEventTrackerCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
  * const client = new PersonalizeClient(config);
+ * const input = {
+ *   eventTrackerArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeEventTrackerCommand(input);
  * const response = await client.send(command);
  * ```

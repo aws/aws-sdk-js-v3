@@ -47,6 +47,9 @@ export interface DeleteMLTransformCommandOutput extends DeleteMLTransformRespons
  * import { GlueClient, DeleteMLTransformCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, DeleteMLTransformCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = {
+ *   TransformId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteMLTransformCommand(input);
  * const response = await client.send(command);
  * ```

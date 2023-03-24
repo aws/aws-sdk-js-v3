@@ -57,6 +57,10 @@ export interface SetIdentityFeedbackForwardingEnabledCommandOutput
  * import { SESClient, SetIdentityFeedbackForwardingEnabledCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, SetIdentityFeedbackForwardingEnabledCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
+ * const input = {
+ *   Identity: "STRING_VALUE", // required
+ *   ForwardingEnabled: true || false, // required
+ * };
  * const command = new SetIdentityFeedbackForwardingEnabledCommand(input);
  * const response = await client.send(command);
  * ```

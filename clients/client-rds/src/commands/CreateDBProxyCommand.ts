@@ -42,6 +42,36 @@ export interface CreateDBProxyCommandOutput extends CreateDBProxyResponse, __Met
  * import { RDSClient, CreateDBProxyCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, CreateDBProxyCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = {
+ *   DBProxyName: "STRING_VALUE", // required
+ *   EngineFamily: "MYSQL" || "POSTGRESQL" || "SQLSERVER", // required
+ *   Auth: [ // required
+ *     {
+ *       Description: "STRING_VALUE",
+ *       UserName: "STRING_VALUE",
+ *       AuthScheme: "SECRETS",
+ *       SecretArn: "STRING_VALUE",
+ *       IAMAuth: "DISABLED" || "REQUIRED" || "ENABLED",
+ *       ClientPasswordAuthType: "MYSQL_NATIVE_PASSWORD" || "POSTGRES_SCRAM_SHA_256" || "POSTGRES_MD5" || "SQL_SERVER_AUTHENTICATION",
+ *     },
+ *   ],
+ *   RoleArn: "STRING_VALUE", // required
+ *   VpcSubnetIds: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ *   VpcSecurityGroupIds: [
+ *     "STRING_VALUE",
+ *   ],
+ *   RequireTLS: true || false,
+ *   IdleClientTimeout: Number("int"),
+ *   DebugLogging: true || false,
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateDBProxyCommand(input);
  * const response = await client.send(command);
  * ```

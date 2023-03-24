@@ -42,6 +42,10 @@ export interface GetTrustStoreCertificateCommandOutput extends GetTrustStoreCert
  * import { WorkSpacesWebClient, GetTrustStoreCertificateCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
  * // const { WorkSpacesWebClient, GetTrustStoreCertificateCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
  * const client = new WorkSpacesWebClient(config);
+ * const input = {
+ *   trustStoreArn: "STRING_VALUE", // required
+ *   thumbprint: "STRING_VALUE", // required
+ * };
  * const command = new GetTrustStoreCertificateCommand(input);
  * const response = await client.send(command);
  * ```

@@ -88,6 +88,39 @@ export interface AnalyzeDocumentCommandOutput extends AnalyzeDocumentResponse, _
  * import { TextractClient, AnalyzeDocumentCommand } from "@aws-sdk/client-textract"; // ES Modules import
  * // const { TextractClient, AnalyzeDocumentCommand } = require("@aws-sdk/client-textract"); // CommonJS import
  * const client = new TextractClient(config);
+ * const input = {
+ *   Document: {
+ *     Bytes: "BLOB_VALUE",
+ *     S3Object: {
+ *       Bucket: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *       Version: "STRING_VALUE",
+ *     },
+ *   },
+ *   FeatureTypes: [ // required
+ *     "TABLES" || "FORMS" || "QUERIES" || "SIGNATURES",
+ *   ],
+ *   HumanLoopConfig: {
+ *     HumanLoopName: "STRING_VALUE", // required
+ *     FlowDefinitionArn: "STRING_VALUE", // required
+ *     DataAttributes: {
+ *       ContentClassifiers: [
+ *         "FreeOfPersonallyIdentifiableInformation" || "FreeOfAdultContent",
+ *       ],
+ *     },
+ *   },
+ *   QueriesConfig: {
+ *     Queries: [ // required
+ *       {
+ *         Text: "STRING_VALUE", // required
+ *         Alias: "STRING_VALUE",
+ *         Pages: [
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *     ],
+ *   },
+ * };
  * const command = new AnalyzeDocumentCommand(input);
  * const response = await client.send(command);
  * ```

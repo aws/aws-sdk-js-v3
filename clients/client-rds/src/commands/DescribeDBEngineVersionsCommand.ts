@@ -42,6 +42,25 @@ export interface DescribeDBEngineVersionsCommandOutput extends DBEngineVersionMe
  * import { RDSClient, DescribeDBEngineVersionsCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, DescribeDBEngineVersionsCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = {
+ *   Engine: "STRING_VALUE",
+ *   EngineVersion: "STRING_VALUE",
+ *   DBParameterGroupFamily: "STRING_VALUE",
+ *   Filters: [
+ *     {
+ *       Name: "STRING_VALUE", // required
+ *       Values: [ // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxRecords: Number("int"),
+ *   Marker: "STRING_VALUE",
+ *   DefaultOnly: true || false,
+ *   ListSupportedCharacterSets: true || false,
+ *   ListSupportedTimezones: true || false,
+ *   IncludeAll: true || false,
+ * };
  * const command = new DescribeDBEngineVersionsCommand(input);
  * const response = await client.send(command);
  * ```

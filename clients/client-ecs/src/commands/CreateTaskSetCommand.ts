@@ -45,6 +45,59 @@ export interface CreateTaskSetCommandOutput extends CreateTaskSetResponse, __Met
  * import { ECSClient, CreateTaskSetCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, CreateTaskSetCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
  * const client = new ECSClient(config);
+ * const input = {
+ *   service: "STRING_VALUE", // required
+ *   cluster: "STRING_VALUE", // required
+ *   externalId: "STRING_VALUE",
+ *   taskDefinition: "STRING_VALUE", // required
+ *   networkConfiguration: {
+ *     awsvpcConfiguration: {
+ *       subnets: [ // required
+ *         "STRING_VALUE",
+ *       ],
+ *       securityGroups: [
+ *         "STRING_VALUE",
+ *       ],
+ *       assignPublicIp: "ENABLED" || "DISABLED",
+ *     },
+ *   },
+ *   loadBalancers: [
+ *     {
+ *       targetGroupArn: "STRING_VALUE",
+ *       loadBalancerName: "STRING_VALUE",
+ *       containerName: "STRING_VALUE",
+ *       containerPort: Number("int"),
+ *     },
+ *   ],
+ *   serviceRegistries: [
+ *     {
+ *       registryArn: "STRING_VALUE",
+ *       port: Number("int"),
+ *       containerName: "STRING_VALUE",
+ *       containerPort: Number("int"),
+ *     },
+ *   ],
+ *   launchType: "EC2" || "FARGATE" || "EXTERNAL",
+ *   capacityProviderStrategy: [
+ *     {
+ *       capacityProvider: "STRING_VALUE", // required
+ *       weight: Number("int"),
+ *       base: Number("int"),
+ *     },
+ *   ],
+ *   platformVersion: "STRING_VALUE",
+ *   scale: {
+ *     value: Number("double"),
+ *     unit: "PERCENT",
+ *   },
+ *   clientToken: "STRING_VALUE",
+ *   tags: [
+ *     {
+ *       key: "STRING_VALUE",
+ *       value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateTaskSetCommand(input);
  * const response = await client.send(command);
  * ```

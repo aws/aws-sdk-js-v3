@@ -43,6 +43,21 @@ export interface CreateSubscriberCommandOutput extends CreateSubscriberResponse,
  * import { SecurityLakeClient, CreateSubscriberCommand } from "@aws-sdk/client-securitylake"; // ES Modules import
  * // const { SecurityLakeClient, CreateSubscriberCommand } = require("@aws-sdk/client-securitylake"); // CommonJS import
  * const client = new SecurityLakeClient(config);
+ * const input = {
+ *   sourceTypes: [ // required
+ *     { // Union: only one key present
+ *       awsSourceType: "STRING_VALUE",
+ *       customSourceType: "STRING_VALUE",
+ *     },
+ *   ],
+ *   accountId: "STRING_VALUE", // required
+ *   externalId: "STRING_VALUE", // required
+ *   accessTypes: [
+ *     "STRING_VALUE",
+ *   ],
+ *   subscriberName: "STRING_VALUE", // required
+ *   subscriberDescription: "STRING_VALUE",
+ * };
  * const command = new CreateSubscriberCommand(input);
  * const response = await client.send(command);
  * ```

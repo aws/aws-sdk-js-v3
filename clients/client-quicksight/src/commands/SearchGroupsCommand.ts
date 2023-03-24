@@ -42,6 +42,19 @@ export interface SearchGroupsCommandOutput extends SearchGroupsResponse, __Metad
  * import { QuickSightClient, SearchGroupsCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, SearchGroupsCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
+ * const input = {
+ *   AwsAccountId: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   Namespace: "STRING_VALUE", // required
+ *   Filters: [ // required
+ *     {
+ *       Operator: "StartsWith", // required
+ *       Name: "GROUP_NAME", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new SearchGroupsCommand(input);
  * const response = await client.send(command);
  * ```

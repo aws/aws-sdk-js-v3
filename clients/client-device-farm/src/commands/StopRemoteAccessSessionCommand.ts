@@ -42,6 +42,9 @@ export interface StopRemoteAccessSessionCommandOutput extends StopRemoteAccessSe
  * import { DeviceFarmClient, StopRemoteAccessSessionCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, StopRemoteAccessSessionCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
+ * const input = {
+ *   arn: "STRING_VALUE", // required
+ * };
  * const command = new StopRemoteAccessSessionCommand(input);
  * const response = await client.send(command);
  * ```

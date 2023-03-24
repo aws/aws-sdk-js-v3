@@ -42,6 +42,24 @@ export interface DescribeDBEngineVersionsCommandOutput extends DBEngineVersionMe
  * import { NeptuneClient, DescribeDBEngineVersionsCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, DescribeDBEngineVersionsCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
  * const client = new NeptuneClient(config);
+ * const input = {
+ *   Engine: "STRING_VALUE",
+ *   EngineVersion: "STRING_VALUE",
+ *   DBParameterGroupFamily: "STRING_VALUE",
+ *   Filters: [
+ *     {
+ *       Name: "STRING_VALUE", // required
+ *       Values: [ // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxRecords: Number("int"),
+ *   Marker: "STRING_VALUE",
+ *   DefaultOnly: true || false,
+ *   ListSupportedCharacterSets: true || false,
+ *   ListSupportedTimezones: true || false,
+ * };
  * const command = new DescribeDBEngineVersionsCommand(input);
  * const response = await client.send(command);
  * ```

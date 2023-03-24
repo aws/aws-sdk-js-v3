@@ -54,6 +54,17 @@ export interface RegisterClusterCommandOutput extends RegisterClusterResponse, _
  * import { EKSClient, RegisterClusterCommand } from "@aws-sdk/client-eks"; // ES Modules import
  * // const { EKSClient, RegisterClusterCommand } = require("@aws-sdk/client-eks"); // CommonJS import
  * const client = new EKSClient(config);
+ * const input = {
+ *   name: "STRING_VALUE", // required
+ *   connectorConfig: {
+ *     roleArn: "STRING_VALUE", // required
+ *     provider: "EKS_ANYWHERE" || "ANTHOS" || "GKE" || "AKS" || "OPENSHIFT" || "TANZU" || "RANCHER" || "EC2" || "OTHER", // required
+ *   },
+ *   clientRequestToken: "STRING_VALUE",
+ *   tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new RegisterClusterCommand(input);
  * const response = await client.send(command);
  * ```

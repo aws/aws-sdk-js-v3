@@ -45,6 +45,42 @@ export interface CreateWorkGroupCommandOutput extends CreateWorkGroupOutput, __M
  * import { AthenaClient, CreateWorkGroupCommand } from "@aws-sdk/client-athena"; // ES Modules import
  * // const { AthenaClient, CreateWorkGroupCommand } = require("@aws-sdk/client-athena"); // CommonJS import
  * const client = new AthenaClient(config);
+ * const input = {
+ *   Name: "STRING_VALUE", // required
+ *   Configuration: {
+ *     ResultConfiguration: {
+ *       OutputLocation: "STRING_VALUE",
+ *       EncryptionConfiguration: {
+ *         EncryptionOption: "SSE_S3" || "SSE_KMS" || "CSE_KMS", // required
+ *         KmsKey: "STRING_VALUE",
+ *       },
+ *       ExpectedBucketOwner: "STRING_VALUE",
+ *       AclConfiguration: {
+ *         S3AclOption: "BUCKET_OWNER_FULL_CONTROL", // required
+ *       },
+ *     },
+ *     EnforceWorkGroupConfiguration: true || false,
+ *     PublishCloudWatchMetricsEnabled: true || false,
+ *     BytesScannedCutoffPerQuery: Number("long"),
+ *     RequesterPaysEnabled: true || false,
+ *     EngineVersion: {
+ *       SelectedEngineVersion: "STRING_VALUE",
+ *       EffectiveEngineVersion: "STRING_VALUE",
+ *     },
+ *     AdditionalConfiguration: "STRING_VALUE",
+ *     ExecutionRole: "STRING_VALUE",
+ *     CustomerContentEncryptionConfiguration: {
+ *       KmsKey: "STRING_VALUE", // required
+ *     },
+ *   },
+ *   Description: "STRING_VALUE",
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateWorkGroupCommand(input);
  * const response = await client.send(command);
  * ```

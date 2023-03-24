@@ -42,6 +42,11 @@ export interface ListMonitorsCommandOutput extends ListMonitorsOutput, __Metadat
  * import { InternetMonitorClient, ListMonitorsCommand } from "@aws-sdk/client-internetmonitor"; // ES Modules import
  * // const { InternetMonitorClient, ListMonitorsCommand } = require("@aws-sdk/client-internetmonitor"); // CommonJS import
  * const client = new InternetMonitorClient(config);
+ * const input = {
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   MonitorStatus: "STRING_VALUE",
+ * };
  * const command = new ListMonitorsCommand(input);
  * const response = await client.send(command);
  * ```

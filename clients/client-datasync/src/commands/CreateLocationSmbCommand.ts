@@ -46,6 +46,25 @@ export interface CreateLocationSmbCommandOutput extends CreateLocationSmbRespons
  * import { DataSyncClient, CreateLocationSmbCommand } from "@aws-sdk/client-datasync"; // ES Modules import
  * // const { DataSyncClient, CreateLocationSmbCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
  * const client = new DataSyncClient(config);
+ * const input = {
+ *   Subdirectory: "STRING_VALUE", // required
+ *   ServerHostname: "STRING_VALUE", // required
+ *   User: "STRING_VALUE", // required
+ *   Domain: "STRING_VALUE",
+ *   Password: "STRING_VALUE", // required
+ *   AgentArns: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ *   MountOptions: {
+ *     Version: "AUTOMATIC" || "SMB2" || "SMB3" || "SMB1" || "SMB2_0",
+ *   },
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateLocationSmbCommand(input);
  * const response = await client.send(command);
  * ```

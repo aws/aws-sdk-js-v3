@@ -60,6 +60,9 @@ export interface GetAccessKeyInfoCommandOutput extends GetAccessKeyInfoResponse,
  * import { STSClient, GetAccessKeyInfoCommand } from "@aws-sdk/client-sts"; // ES Modules import
  * // const { STSClient, GetAccessKeyInfoCommand } = require("@aws-sdk/client-sts"); // CommonJS import
  * const client = new STSClient(config);
+ * const input = {
+ *   AccessKeyId: "STRING_VALUE", // required
+ * };
  * const command = new GetAccessKeyInfoCommand(input);
  * const response = await client.send(command);
  * ```

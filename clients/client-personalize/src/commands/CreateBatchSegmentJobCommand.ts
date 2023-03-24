@@ -44,6 +44,31 @@ export interface CreateBatchSegmentJobCommandOutput extends CreateBatchSegmentJo
  * import { PersonalizeClient, CreateBatchSegmentJobCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, CreateBatchSegmentJobCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
  * const client = new PersonalizeClient(config);
+ * const input = {
+ *   jobName: "STRING_VALUE", // required
+ *   solutionVersionArn: "STRING_VALUE", // required
+ *   filterArn: "STRING_VALUE",
+ *   numResults: Number("int"),
+ *   jobInput: {
+ *     s3DataSource: {
+ *       path: "STRING_VALUE", // required
+ *       kmsKeyArn: "STRING_VALUE",
+ *     },
+ *   },
+ *   jobOutput: {
+ *     s3DataDestination: {
+ *       path: "STRING_VALUE", // required
+ *       kmsKeyArn: "STRING_VALUE",
+ *     },
+ *   },
+ *   roleArn: "STRING_VALUE", // required
+ *   tags: [
+ *     {
+ *       tagKey: "STRING_VALUE", // required
+ *       tagValue: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateBatchSegmentJobCommand(input);
  * const response = await client.send(command);
  * ```

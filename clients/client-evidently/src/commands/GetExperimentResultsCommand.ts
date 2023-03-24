@@ -49,6 +49,26 @@ export interface GetExperimentResultsCommandOutput extends GetExperimentResultsR
  * import { EvidentlyClient, GetExperimentResultsCommand } from "@aws-sdk/client-evidently"; // ES Modules import
  * // const { EvidentlyClient, GetExperimentResultsCommand } = require("@aws-sdk/client-evidently"); // CommonJS import
  * const client = new EvidentlyClient(config);
+ * const input = {
+ *   project: "STRING_VALUE", // required
+ *   experiment: "STRING_VALUE", // required
+ *   startTime: new Date("TIMESTAMP"),
+ *   endTime: new Date("TIMESTAMP"),
+ *   metricNames: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ *   treatmentNames: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ *   baseStat: "STRING_VALUE",
+ *   resultStats: [
+ *     "STRING_VALUE",
+ *   ],
+ *   reportNames: [
+ *     "STRING_VALUE",
+ *   ],
+ *   period: Number("long"),
+ * };
  * const command = new GetExperimentResultsCommand(input);
  * const response = await client.send(command);
  * ```

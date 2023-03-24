@@ -42,6 +42,10 @@ export interface ListPipelinesCommandOutput extends ListPipelinesOutput, __Metad
  * import { CodePipelineClient, ListPipelinesCommand } from "@aws-sdk/client-codepipeline"; // ES Modules import
  * // const { CodePipelineClient, ListPipelinesCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import
  * const client = new CodePipelineClient(config);
+ * const input = {
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListPipelinesCommand(input);
  * const response = await client.send(command);
  * ```

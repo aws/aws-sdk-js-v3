@@ -39,6 +39,19 @@ export interface GetUserIdCommandOutput extends GetUserIdResponse, __MetadataBea
  * import { IdentitystoreClient, GetUserIdCommand } from "@aws-sdk/client-identitystore"; // ES Modules import
  * // const { IdentitystoreClient, GetUserIdCommand } = require("@aws-sdk/client-identitystore"); // CommonJS import
  * const client = new IdentitystoreClient(config);
+ * const input = {
+ *   IdentityStoreId: "STRING_VALUE", // required
+ *   AlternateIdentifier: { // Union: only one key present
+ *     ExternalId: {
+ *       Issuer: "STRING_VALUE", // required
+ *       Id: "STRING_VALUE", // required
+ *     },
+ *     UniqueAttribute: {
+ *       AttributePath: "STRING_VALUE", // required
+ *       AttributeValue: "DOCUMENT_VALUE", // required
+ *     },
+ *   },
+ * };
  * const command = new GetUserIdCommand(input);
  * const response = await client.send(command);
  * ```

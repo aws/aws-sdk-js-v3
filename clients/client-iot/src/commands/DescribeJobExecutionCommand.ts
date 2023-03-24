@@ -43,6 +43,11 @@ export interface DescribeJobExecutionCommandOutput extends DescribeJobExecutionR
  * import { IoTClient, DescribeJobExecutionCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, DescribeJobExecutionCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = {
+ *   jobId: "STRING_VALUE", // required
+ *   thingName: "STRING_VALUE", // required
+ *   executionNumber: Number("long"),
+ * };
  * const command = new DescribeJobExecutionCommand(input);
  * const response = await client.send(command);
  * ```

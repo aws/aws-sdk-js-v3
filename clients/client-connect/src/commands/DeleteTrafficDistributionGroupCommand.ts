@@ -47,6 +47,9 @@ export interface DeleteTrafficDistributionGroupCommandOutput
  * import { ConnectClient, DeleteTrafficDistributionGroupCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, DeleteTrafficDistributionGroupCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = {
+ *   TrafficDistributionGroupId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteTrafficDistributionGroupCommand(input);
  * const response = await client.send(command);
  * ```

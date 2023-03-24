@@ -47,6 +47,12 @@ export interface DescribeApplicationFleetAssociationsCommandOutput
  * import { AppStreamClient, DescribeApplicationFleetAssociationsCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, DescribeApplicationFleetAssociationsCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
  * const client = new AppStreamClient(config);
+ * const input = {
+ *   FleetName: "STRING_VALUE",
+ *   ApplicationArn: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeApplicationFleetAssociationsCommand(input);
  * const response = await client.send(command);
  * ```

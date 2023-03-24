@@ -42,6 +42,16 @@ export interface UpdateInstanceProfileCommandOutput extends UpdateInstanceProfil
  * import { DeviceFarmClient, UpdateInstanceProfileCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, UpdateInstanceProfileCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
+ * const input = {
+ *   arn: "STRING_VALUE", // required
+ *   name: "STRING_VALUE",
+ *   description: "STRING_VALUE",
+ *   packageCleanup: true || false,
+ *   excludeAppPackagesFromCleanup: [
+ *     "STRING_VALUE",
+ *   ],
+ *   rebootAfterUse: true || false,
+ * };
  * const command = new UpdateInstanceProfileCommand(input);
  * const response = await client.send(command);
  * ```

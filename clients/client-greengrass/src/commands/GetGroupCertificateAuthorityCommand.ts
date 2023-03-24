@@ -44,6 +44,10 @@ export interface GetGroupCertificateAuthorityCommandOutput
  * import { GreengrassClient, GetGroupCertificateAuthorityCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, GetGroupCertificateAuthorityCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
+ * const input = {
+ *   CertificateAuthorityId: "STRING_VALUE", // required
+ *   GroupId: "STRING_VALUE", // required
+ * };
  * const command = new GetGroupCertificateAuthorityCommand(input);
  * const response = await client.send(command);
  * ```

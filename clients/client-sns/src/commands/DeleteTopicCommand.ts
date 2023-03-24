@@ -42,6 +42,9 @@ export interface DeleteTopicCommandOutput extends __MetadataBearer {}
  * import { SNSClient, DeleteTopicCommand } from "@aws-sdk/client-sns"; // ES Modules import
  * // const { SNSClient, DeleteTopicCommand } = require("@aws-sdk/client-sns"); // CommonJS import
  * const client = new SNSClient(config);
+ * const input = {
+ *   TopicArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteTopicCommand(input);
  * const response = await client.send(command);
  * ```

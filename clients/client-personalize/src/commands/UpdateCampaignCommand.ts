@@ -53,6 +53,16 @@ export interface UpdateCampaignCommandOutput extends UpdateCampaignResponse, __M
  * import { PersonalizeClient, UpdateCampaignCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, UpdateCampaignCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
  * const client = new PersonalizeClient(config);
+ * const input = {
+ *   campaignArn: "STRING_VALUE", // required
+ *   solutionVersionArn: "STRING_VALUE",
+ *   minProvisionedTPS: Number("int"),
+ *   campaignConfig: {
+ *     itemExplorationConfig: {
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *   },
+ * };
  * const command = new UpdateCampaignCommand(input);
  * const response = await client.send(command);
  * ```

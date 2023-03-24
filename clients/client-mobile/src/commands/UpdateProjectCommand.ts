@@ -44,6 +44,10 @@ export interface UpdateProjectCommandOutput extends UpdateProjectResult, __Metad
  * import { MobileClient, UpdateProjectCommand } from "@aws-sdk/client-mobile"; // ES Modules import
  * // const { MobileClient, UpdateProjectCommand } = require("@aws-sdk/client-mobile"); // CommonJS import
  * const client = new MobileClient(config);
+ * const input = {
+ *   contents: "BLOB_VALUE",
+ *   projectId: "STRING_VALUE", // required
+ * };
  * const command = new UpdateProjectCommand(input);
  * const response = await client.send(command);
  * ```

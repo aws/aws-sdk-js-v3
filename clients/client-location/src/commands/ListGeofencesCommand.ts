@@ -46,6 +46,11 @@ export interface ListGeofencesCommandOutput extends ListGeofencesResponse, __Met
  * import { LocationClient, ListGeofencesCommand } from "@aws-sdk/client-location"; // ES Modules import
  * // const { LocationClient, ListGeofencesCommand } = require("@aws-sdk/client-location"); // CommonJS import
  * const client = new LocationClient(config);
+ * const input = {
+ *   CollectionName: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListGeofencesCommand(input);
  * const response = await client.send(command);
  * ```

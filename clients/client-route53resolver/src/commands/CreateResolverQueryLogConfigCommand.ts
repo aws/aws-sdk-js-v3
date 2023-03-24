@@ -50,6 +50,17 @@ export interface CreateResolverQueryLogConfigCommandOutput
  * import { Route53ResolverClient, CreateResolverQueryLogConfigCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
  * // const { Route53ResolverClient, CreateResolverQueryLogConfigCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
  * const client = new Route53ResolverClient(config);
+ * const input = {
+ *   Name: "STRING_VALUE", // required
+ *   DestinationArn: "STRING_VALUE", // required
+ *   CreatorRequestId: "STRING_VALUE", // required
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateResolverQueryLogConfigCommand(input);
  * const response = await client.send(command);
  * ```

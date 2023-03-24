@@ -47,6 +47,13 @@ export interface GetReferenceCommandOutput
  * import { OmicsClient, GetReferenceCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, GetReferenceCommand } = require("@aws-sdk/client-omics"); // CommonJS import
  * const client = new OmicsClient(config);
+ * const input = {
+ *   id: "STRING_VALUE", // required
+ *   referenceStoreId: "STRING_VALUE", // required
+ *   range: "STRING_VALUE",
+ *   partNumber: Number("int"), // required
+ *   file: "STRING_VALUE",
+ * };
  * const command = new GetReferenceCommand(input);
  * const response = await client.send(command);
  * ```

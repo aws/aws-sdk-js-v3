@@ -48,6 +48,24 @@ export interface CreateRelationalDatabaseCommandOutput extends CreateRelationalD
  * import { LightsailClient, CreateRelationalDatabaseCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, CreateRelationalDatabaseCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = {
+ *   relationalDatabaseName: "STRING_VALUE", // required
+ *   availabilityZone: "STRING_VALUE",
+ *   relationalDatabaseBlueprintId: "STRING_VALUE", // required
+ *   relationalDatabaseBundleId: "STRING_VALUE", // required
+ *   masterDatabaseName: "STRING_VALUE", // required
+ *   masterUsername: "STRING_VALUE", // required
+ *   masterUserPassword: "STRING_VALUE",
+ *   preferredBackupWindow: "STRING_VALUE",
+ *   preferredMaintenanceWindow: "STRING_VALUE",
+ *   publiclyAccessible: true || false,
+ *   tags: [
+ *     {
+ *       key: "STRING_VALUE",
+ *       value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateRelationalDatabaseCommand(input);
  * const response = await client.send(command);
  * ```

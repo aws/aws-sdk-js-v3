@@ -42,6 +42,10 @@ export interface GetConnectorsCommandOutput extends GetConnectorsResponse, __Met
  * import { SMSClient, GetConnectorsCommand } from "@aws-sdk/client-sms"; // ES Modules import
  * // const { SMSClient, GetConnectorsCommand } = require("@aws-sdk/client-sms"); // CommonJS import
  * const client = new SMSClient(config);
+ * const input = {
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new GetConnectorsCommand(input);
  * const response = await client.send(command);
  * ```

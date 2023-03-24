@@ -42,6 +42,9 @@ export interface DescribePlaceIndexCommandOutput extends DescribePlaceIndexRespo
  * import { LocationClient, DescribePlaceIndexCommand } from "@aws-sdk/client-location"; // ES Modules import
  * // const { LocationClient, DescribePlaceIndexCommand } = require("@aws-sdk/client-location"); // CommonJS import
  * const client = new LocationClient(config);
+ * const input = {
+ *   IndexName: "STRING_VALUE", // required
+ * };
  * const command = new DescribePlaceIndexCommand(input);
  * const response = await client.send(command);
  * ```

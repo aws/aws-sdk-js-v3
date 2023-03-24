@@ -42,6 +42,9 @@ export interface DeleteTaskCommandOutput extends DeleteTaskResponse, __MetadataB
  * import { DataSyncClient, DeleteTaskCommand } from "@aws-sdk/client-datasync"; // ES Modules import
  * // const { DataSyncClient, DeleteTaskCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
  * const client = new DataSyncClient(config);
+ * const input = {
+ *   TaskArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteTaskCommand(input);
  * const response = await client.send(command);
  * ```

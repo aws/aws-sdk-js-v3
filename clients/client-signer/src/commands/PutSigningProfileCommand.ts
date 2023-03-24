@@ -44,6 +44,30 @@ export interface PutSigningProfileCommandOutput extends PutSigningProfileRespons
  * import { SignerClient, PutSigningProfileCommand } from "@aws-sdk/client-signer"; // ES Modules import
  * // const { SignerClient, PutSigningProfileCommand } = require("@aws-sdk/client-signer"); // CommonJS import
  * const client = new SignerClient(config);
+ * const input = {
+ *   profileName: "STRING_VALUE", // required
+ *   signingMaterial: {
+ *     certificateArn: "STRING_VALUE", // required
+ *   },
+ *   signatureValidityPeriod: {
+ *     value: Number("int"),
+ *     type: "STRING_VALUE",
+ *   },
+ *   platformId: "STRING_VALUE", // required
+ *   overrides: {
+ *     signingConfiguration: {
+ *       encryptionAlgorithm: "STRING_VALUE",
+ *       hashAlgorithm: "STRING_VALUE",
+ *     },
+ *     signingImageFormat: "STRING_VALUE",
+ *   },
+ *   signingParameters: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new PutSigningProfileCommand(input);
  * const response = await client.send(command);
  * ```

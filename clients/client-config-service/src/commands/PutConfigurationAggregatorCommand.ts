@@ -60,6 +60,33 @@ export interface PutConfigurationAggregatorCommandOutput extends PutConfiguratio
  * import { ConfigServiceClient, PutConfigurationAggregatorCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, PutConfigurationAggregatorCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
+ * const input = {
+ *   ConfigurationAggregatorName: "STRING_VALUE", // required
+ *   AccountAggregationSources: [
+ *     {
+ *       AccountIds: [ // required
+ *         "STRING_VALUE",
+ *       ],
+ *       AllAwsRegions: true || false,
+ *       AwsRegions: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   OrganizationAggregationSource: {
+ *     RoleArn: "STRING_VALUE", // required
+ *     AwsRegions: [
+ *       "STRING_VALUE",
+ *     ],
+ *     AllAwsRegions: true || false,
+ *   },
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new PutConfigurationAggregatorCommand(input);
  * const response = await client.send(command);
  * ```

@@ -71,6 +71,11 @@ export interface DescribeTrustedAdvisorCheckRefreshStatusesCommandOutput
  * import { SupportClient, DescribeTrustedAdvisorCheckRefreshStatusesCommand } from "@aws-sdk/client-support"; // ES Modules import
  * // const { SupportClient, DescribeTrustedAdvisorCheckRefreshStatusesCommand } = require("@aws-sdk/client-support"); // CommonJS import
  * const client = new SupportClient(config);
+ * const input = {
+ *   checkIds: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DescribeTrustedAdvisorCheckRefreshStatusesCommand(input);
  * const response = await client.send(command);
  * ```

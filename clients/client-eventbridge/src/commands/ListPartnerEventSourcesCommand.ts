@@ -43,6 +43,11 @@ export interface ListPartnerEventSourcesCommandOutput extends ListPartnerEventSo
  * import { EventBridgeClient, ListPartnerEventSourcesCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
  * // const { EventBridgeClient, ListPartnerEventSourcesCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
  * const client = new EventBridgeClient(config);
+ * const input = {
+ *   NamePrefix: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   Limit: Number("int"),
+ * };
  * const command = new ListPartnerEventSourcesCommand(input);
  * const response = await client.send(command);
  * ```

@@ -44,6 +44,11 @@ export interface DescribeDomainsCommandOutput extends DescribeDomainsResponse, _
  * import { CloudSearchClient, DescribeDomainsCommand } from "@aws-sdk/client-cloudsearch"; // ES Modules import
  * // const { CloudSearchClient, DescribeDomainsCommand } = require("@aws-sdk/client-cloudsearch"); // CommonJS import
  * const client = new CloudSearchClient(config);
+ * const input = {
+ *   DomainNames: [
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DescribeDomainsCommand(input);
  * const response = await client.send(command);
  * ```

@@ -52,6 +52,12 @@ export interface DeleteTableCommandOutput extends DeleteTableResponse, __Metadat
  * import { GlueClient, DeleteTableCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, DeleteTableCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = {
+ *   CatalogId: "STRING_VALUE",
+ *   DatabaseName: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE", // required
+ *   TransactionId: "STRING_VALUE",
+ * };
  * const command = new DeleteTableCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,16 @@ export interface UpdateDevicesCommandOutput extends __MetadataBearer {}
  * import { SageMakerClient, UpdateDevicesCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, UpdateDevicesCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = {
+ *   DeviceFleetName: "STRING_VALUE", // required
+ *   Devices: [ // required
+ *     {
+ *       DeviceName: "STRING_VALUE", // required
+ *       Description: "STRING_VALUE",
+ *       IotThingName: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new UpdateDevicesCommand(input);
  * const response = await client.send(command);
  * ```

@@ -44,6 +44,14 @@ export interface DescribeInstancesHealthCommandOutput extends DescribeInstancesH
  * import { ElasticBeanstalkClient, DescribeInstancesHealthCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
  * // const { ElasticBeanstalkClient, DescribeInstancesHealthCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
  * const client = new ElasticBeanstalkClient(config);
+ * const input = {
+ *   EnvironmentName: "STRING_VALUE",
+ *   EnvironmentId: "STRING_VALUE",
+ *   AttributeNames: [
+ *     "HealthStatus" || "Color" || "Causes" || "ApplicationMetrics" || "RefreshedAt" || "LaunchedAt" || "System" || "Deployment" || "AvailabilityZone" || "InstanceType" || "All",
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeInstancesHealthCommand(input);
  * const response = await client.send(command);
  * ```

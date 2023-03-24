@@ -42,6 +42,7 @@ export interface DisableMacieCommandOutput extends DisableMacieResponse, __Metad
  * import { Macie2Client, DisableMacieCommand } from "@aws-sdk/client-macie2"; // ES Modules import
  * // const { Macie2Client, DisableMacieCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
  * const client = new Macie2Client(config);
+ * const input = {};
  * const command = new DisableMacieCommand(input);
  * const response = await client.send(command);
  * ```

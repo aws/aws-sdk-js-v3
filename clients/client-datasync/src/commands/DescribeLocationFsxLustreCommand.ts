@@ -42,6 +42,9 @@ export interface DescribeLocationFsxLustreCommandOutput extends DescribeLocation
  * import { DataSyncClient, DescribeLocationFsxLustreCommand } from "@aws-sdk/client-datasync"; // ES Modules import
  * // const { DataSyncClient, DescribeLocationFsxLustreCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
  * const client = new DataSyncClient(config);
+ * const input = {
+ *   LocationArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeLocationFsxLustreCommand(input);
  * const response = await client.send(command);
  * ```

@@ -43,6 +43,20 @@ export interface SearchContentCommandOutput extends SearchContentResponse, __Met
  * import { WisdomClient, SearchContentCommand } from "@aws-sdk/client-wisdom"; // ES Modules import
  * // const { WisdomClient, SearchContentCommand } = require("@aws-sdk/client-wisdom"); // CommonJS import
  * const client = new WisdomClient(config);
+ * const input = {
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   knowledgeBaseId: "STRING_VALUE", // required
+ *   searchExpression: {
+ *     filters: [ // required
+ *       {
+ *         field: "STRING_VALUE", // required
+ *         operator: "STRING_VALUE", // required
+ *         value: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *   },
+ * };
  * const command = new SearchContentCommand(input);
  * const response = await client.send(command);
  * ```

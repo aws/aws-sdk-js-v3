@@ -46,6 +46,10 @@ export interface GetCloudFormationTemplateCommandOutput extends GetCloudFormatio
  * import { ServerlessApplicationRepositoryClient, GetCloudFormationTemplateCommand } from "@aws-sdk/client-serverlessapplicationrepository"; // ES Modules import
  * // const { ServerlessApplicationRepositoryClient, GetCloudFormationTemplateCommand } = require("@aws-sdk/client-serverlessapplicationrepository"); // CommonJS import
  * const client = new ServerlessApplicationRepositoryClient(config);
+ * const input = {
+ *   ApplicationId: "STRING_VALUE", // required
+ *   TemplateId: "STRING_VALUE", // required
+ * };
  * const command = new GetCloudFormationTemplateCommand(input);
  * const response = await client.send(command);
  * ```

@@ -46,6 +46,19 @@ export interface ListPackageVersionsCommandOutput extends ListPackageVersionsRes
  * import { CodeartifactClient, ListPackageVersionsCommand } from "@aws-sdk/client-codeartifact"; // ES Modules import
  * // const { CodeartifactClient, ListPackageVersionsCommand } = require("@aws-sdk/client-codeartifact"); // CommonJS import
  * const client = new CodeartifactClient(config);
+ * const input = {
+ *   domain: "STRING_VALUE", // required
+ *   domainOwner: "STRING_VALUE",
+ *   repository: "STRING_VALUE", // required
+ *   format: "npm" || "pypi" || "maven" || "nuget" || "generic", // required
+ *   namespace: "STRING_VALUE",
+ *   package: "STRING_VALUE", // required
+ *   status: "Published" || "Unfinished" || "Unlisted" || "Archived" || "Disposed" || "Deleted",
+ *   sortBy: "PUBLISHED_TIME",
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ *   originType: "INTERNAL" || "EXTERNAL" || "UNKNOWN",
+ * };
  * const command = new ListPackageVersionsCommand(input);
  * const response = await client.send(command);
  * ```

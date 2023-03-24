@@ -52,6 +52,11 @@ export interface DescribeComponentConfigurationRecommendationCommandOutput
  * import { ApplicationInsightsClient, DescribeComponentConfigurationRecommendationCommand } from "@aws-sdk/client-application-insights"; // ES Modules import
  * // const { ApplicationInsightsClient, DescribeComponentConfigurationRecommendationCommand } = require("@aws-sdk/client-application-insights"); // CommonJS import
  * const client = new ApplicationInsightsClient(config);
+ * const input = {
+ *   ResourceGroupName: "STRING_VALUE", // required
+ *   ComponentName: "STRING_VALUE", // required
+ *   Tier: "STRING_VALUE", // required
+ * };
  * const command = new DescribeComponentConfigurationRecommendationCommand(input);
  * const response = await client.send(command);
  * ```

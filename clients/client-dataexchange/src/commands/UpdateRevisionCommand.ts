@@ -42,6 +42,12 @@ export interface UpdateRevisionCommandOutput extends UpdateRevisionResponse, __M
  * import { DataExchangeClient, UpdateRevisionCommand } from "@aws-sdk/client-dataexchange"; // ES Modules import
  * // const { DataExchangeClient, UpdateRevisionCommand } = require("@aws-sdk/client-dataexchange"); // CommonJS import
  * const client = new DataExchangeClient(config);
+ * const input = {
+ *   Comment: "STRING_VALUE",
+ *   DataSetId: "STRING_VALUE", // required
+ *   Finalized: true || false,
+ *   RevisionId: "STRING_VALUE", // required
+ * };
  * const command = new UpdateRevisionCommand(input);
  * const response = await client.send(command);
  * ```

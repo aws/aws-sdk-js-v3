@@ -42,6 +42,9 @@ export interface DeleteDeviceProfileCommandOutput extends DeleteDeviceProfileRes
  * import { IoTWirelessClient, DeleteDeviceProfileCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, DeleteDeviceProfileCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
+ * const input = {
+ *   Id: "STRING_VALUE", // required
+ * };
  * const command = new DeleteDeviceProfileCommand(input);
  * const response = await client.send(command);
  * ```

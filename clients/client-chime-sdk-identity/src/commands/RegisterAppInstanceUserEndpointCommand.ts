@@ -49,6 +49,18 @@ export interface RegisterAppInstanceUserEndpointCommandOutput
  * import { ChimeSDKIdentityClient, RegisterAppInstanceUserEndpointCommand } from "@aws-sdk/client-chime-sdk-identity"; // ES Modules import
  * // const { ChimeSDKIdentityClient, RegisterAppInstanceUserEndpointCommand } = require("@aws-sdk/client-chime-sdk-identity"); // CommonJS import
  * const client = new ChimeSDKIdentityClient(config);
+ * const input = {
+ *   AppInstanceUserArn: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE",
+ *   Type: "APNS" || "APNS_SANDBOX" || "GCM", // required
+ *   ResourceArn: "STRING_VALUE", // required
+ *   EndpointAttributes: {
+ *     DeviceToken: "STRING_VALUE", // required
+ *     VoipDeviceToken: "STRING_VALUE",
+ *   },
+ *   ClientRequestToken: "STRING_VALUE", // required
+ *   AllowMessages: "ALL" || "NONE",
+ * };
  * const command = new RegisterAppInstanceUserEndpointCommand(input);
  * const response = await client.send(command);
  * ```

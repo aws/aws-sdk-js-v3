@@ -49,6 +49,9 @@ export interface GetSigningCertificateCommandOutput extends GetSigningCertificat
  * import { CognitoIdentityProviderClient, GetSigningCertificateCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, GetSigningCertificateCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
+ * const input = {
+ *   UserPoolId: "STRING_VALUE", // required
+ * };
  * const command = new GetSigningCertificateCommand(input);
  * const response = await client.send(command);
  * ```

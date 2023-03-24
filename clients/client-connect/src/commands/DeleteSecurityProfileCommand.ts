@@ -43,6 +43,10 @@ export interface DeleteSecurityProfileCommandOutput extends __MetadataBearer {}
  * import { ConnectClient, DeleteSecurityProfileCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, DeleteSecurityProfileCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = {
+ *   InstanceId: "STRING_VALUE", // required
+ *   SecurityProfileId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteSecurityProfileCommand(input);
  * const response = await client.send(command);
  * ```

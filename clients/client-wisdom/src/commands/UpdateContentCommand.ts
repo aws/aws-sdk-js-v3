@@ -46,6 +46,18 @@ export interface UpdateContentCommandOutput extends UpdateContentResponse, __Met
  * import { WisdomClient, UpdateContentCommand } from "@aws-sdk/client-wisdom"; // ES Modules import
  * // const { WisdomClient, UpdateContentCommand } = require("@aws-sdk/client-wisdom"); // CommonJS import
  * const client = new WisdomClient(config);
+ * const input = {
+ *   knowledgeBaseId: "STRING_VALUE", // required
+ *   contentId: "STRING_VALUE", // required
+ *   revisionId: "STRING_VALUE",
+ *   title: "STRING_VALUE",
+ *   overrideLinkOutUri: "STRING_VALUE",
+ *   removeOverrideLinkOutUri: true || false,
+ *   metadata: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   uploadId: "STRING_VALUE",
+ * };
  * const command = new UpdateContentCommand(input);
  * const response = await client.send(command);
  * ```

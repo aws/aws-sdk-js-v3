@@ -59,6 +59,66 @@ export interface CreatePresetCommandOutput extends CreatePresetResponse, __Metad
  * import { ElasticTranscoderClient, CreatePresetCommand } from "@aws-sdk/client-elastic-transcoder"; // ES Modules import
  * // const { ElasticTranscoderClient, CreatePresetCommand } = require("@aws-sdk/client-elastic-transcoder"); // CommonJS import
  * const client = new ElasticTranscoderClient(config);
+ * const input = {
+ *   Name: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   Container: "STRING_VALUE", // required
+ *   Video: {
+ *     Codec: "STRING_VALUE",
+ *     CodecOptions: {
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *     KeyframesMaxDist: "STRING_VALUE",
+ *     FixedGOP: "STRING_VALUE",
+ *     BitRate: "STRING_VALUE",
+ *     FrameRate: "STRING_VALUE",
+ *     MaxFrameRate: "STRING_VALUE",
+ *     Resolution: "STRING_VALUE",
+ *     AspectRatio: "STRING_VALUE",
+ *     MaxWidth: "STRING_VALUE",
+ *     MaxHeight: "STRING_VALUE",
+ *     DisplayAspectRatio: "STRING_VALUE",
+ *     SizingPolicy: "STRING_VALUE",
+ *     PaddingPolicy: "STRING_VALUE",
+ *     Watermarks: [
+ *       {
+ *         Id: "STRING_VALUE",
+ *         MaxWidth: "STRING_VALUE",
+ *         MaxHeight: "STRING_VALUE",
+ *         SizingPolicy: "STRING_VALUE",
+ *         HorizontalAlign: "STRING_VALUE",
+ *         HorizontalOffset: "STRING_VALUE",
+ *         VerticalAlign: "STRING_VALUE",
+ *         VerticalOffset: "STRING_VALUE",
+ *         Opacity: "STRING_VALUE",
+ *         Target: "STRING_VALUE",
+ *       },
+ *     ],
+ *   },
+ *   Audio: {
+ *     Codec: "STRING_VALUE",
+ *     SampleRate: "STRING_VALUE",
+ *     BitRate: "STRING_VALUE",
+ *     Channels: "STRING_VALUE",
+ *     AudioPackingMode: "STRING_VALUE",
+ *     CodecOptions: {
+ *       Profile: "STRING_VALUE",
+ *       BitDepth: "STRING_VALUE",
+ *       BitOrder: "STRING_VALUE",
+ *       Signed: "STRING_VALUE",
+ *     },
+ *   },
+ *   Thumbnails: {
+ *     Format: "STRING_VALUE",
+ *     Interval: "STRING_VALUE",
+ *     Resolution: "STRING_VALUE",
+ *     AspectRatio: "STRING_VALUE",
+ *     MaxWidth: "STRING_VALUE",
+ *     MaxHeight: "STRING_VALUE",
+ *     SizingPolicy: "STRING_VALUE",
+ *     PaddingPolicy: "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreatePresetCommand(input);
  * const response = await client.send(command);
  * ```

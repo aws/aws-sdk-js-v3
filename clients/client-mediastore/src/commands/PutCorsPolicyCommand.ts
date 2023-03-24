@@ -52,6 +52,26 @@ export interface PutCorsPolicyCommandOutput extends PutCorsPolicyOutput, __Metad
  * import { MediaStoreClient, PutCorsPolicyCommand } from "@aws-sdk/client-mediastore"; // ES Modules import
  * // const { MediaStoreClient, PutCorsPolicyCommand } = require("@aws-sdk/client-mediastore"); // CommonJS import
  * const client = new MediaStoreClient(config);
+ * const input = {
+ *   ContainerName: "STRING_VALUE", // required
+ *   CorsPolicy: [ // required
+ *     {
+ *       AllowedOrigins: [ // required
+ *         "STRING_VALUE",
+ *       ],
+ *       AllowedMethods: [
+ *         "STRING_VALUE",
+ *       ],
+ *       AllowedHeaders: [ // required
+ *         "STRING_VALUE",
+ *       ],
+ *       MaxAgeSeconds: Number("int"),
+ *       ExposeHeaders: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ * };
  * const command = new PutCorsPolicyCommand(input);
  * const response = await client.send(command);
  * ```

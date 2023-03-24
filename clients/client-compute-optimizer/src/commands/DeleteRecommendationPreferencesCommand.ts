@@ -47,6 +47,16 @@ export interface DeleteRecommendationPreferencesCommandOutput
  * import { ComputeOptimizerClient, DeleteRecommendationPreferencesCommand } from "@aws-sdk/client-compute-optimizer"; // ES Modules import
  * // const { ComputeOptimizerClient, DeleteRecommendationPreferencesCommand } = require("@aws-sdk/client-compute-optimizer"); // CommonJS import
  * const client = new ComputeOptimizerClient(config);
+ * const input = {
+ *   resourceType: "Ec2Instance" || "AutoScalingGroup" || "EbsVolume" || "LambdaFunction" || "NotApplicable" || "EcsService", // required
+ *   scope: {
+ *     name: "Organization" || "AccountId" || "ResourceArn",
+ *     value: "STRING_VALUE",
+ *   },
+ *   recommendationPreferenceNames: [ // required
+ *     "EnhancedInfrastructureMetrics" || "InferredWorkloadTypes" || "ExternalMetricsPreference",
+ *   ],
+ * };
  * const command = new DeleteRecommendationPreferencesCommand(input);
  * const response = await client.send(command);
  * ```

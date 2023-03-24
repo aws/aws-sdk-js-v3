@@ -42,6 +42,10 @@ export interface PublishRecipeCommandOutput extends PublishRecipeResponse, __Met
  * import { DataBrewClient, PublishRecipeCommand } from "@aws-sdk/client-databrew"; // ES Modules import
  * // const { DataBrewClient, PublishRecipeCommand } = require("@aws-sdk/client-databrew"); // CommonJS import
  * const client = new DataBrewClient(config);
+ * const input = {
+ *   Description: "STRING_VALUE",
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new PublishRecipeCommand(input);
  * const response = await client.send(command);
  * ```

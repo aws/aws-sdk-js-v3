@@ -58,6 +58,10 @@ export interface CreateServiceSpecificCredentialCommandOutput
  * import { IAMClient, CreateServiceSpecificCredentialCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, CreateServiceSpecificCredentialCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = {
+ *   UserName: "STRING_VALUE", // required
+ *   ServiceName: "STRING_VALUE", // required
+ * };
  * const command = new CreateServiceSpecificCredentialCommand(input);
  * const response = await client.send(command);
  * ```

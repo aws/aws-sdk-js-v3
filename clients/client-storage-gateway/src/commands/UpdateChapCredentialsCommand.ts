@@ -54,6 +54,12 @@ export interface UpdateChapCredentialsCommandOutput extends UpdateChapCredential
  * import { StorageGatewayClient, UpdateChapCredentialsCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, UpdateChapCredentialsCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
+ * const input = {
+ *   TargetARN: "STRING_VALUE", // required
+ *   SecretToAuthenticateInitiator: "STRING_VALUE", // required
+ *   InitiatorName: "STRING_VALUE", // required
+ *   SecretToAuthenticateTarget: "STRING_VALUE",
+ * };
  * const command = new UpdateChapCredentialsCommand(input);
  * const response = await client.send(command);
  * ```

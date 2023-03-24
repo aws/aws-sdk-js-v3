@@ -46,6 +46,14 @@ export interface GetMigrationsCommandOutput extends GetMigrationsResponse, __Met
  * import { LexModelBuildingServiceClient, GetMigrationsCommand } from "@aws-sdk/client-lex-model-building-service"; // ES Modules import
  * // const { LexModelBuildingServiceClient, GetMigrationsCommand } = require("@aws-sdk/client-lex-model-building-service"); // CommonJS import
  * const client = new LexModelBuildingServiceClient(config);
+ * const input = {
+ *   sortByAttribute: "STRING_VALUE",
+ *   sortByOrder: "STRING_VALUE",
+ *   v1BotNameContains: "STRING_VALUE",
+ *   migrationStatusEquals: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new GetMigrationsCommand(input);
  * const response = await client.send(command);
  * ```

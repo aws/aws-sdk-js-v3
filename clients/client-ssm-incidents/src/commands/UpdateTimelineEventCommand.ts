@@ -43,6 +43,20 @@ export interface UpdateTimelineEventCommandOutput extends UpdateTimelineEventOut
  * import { SSMIncidentsClient, UpdateTimelineEventCommand } from "@aws-sdk/client-ssm-incidents"; // ES Modules import
  * // const { SSMIncidentsClient, UpdateTimelineEventCommand } = require("@aws-sdk/client-ssm-incidents"); // CommonJS import
  * const client = new SSMIncidentsClient(config);
+ * const input = {
+ *   clientToken: "STRING_VALUE",
+ *   incidentRecordArn: "STRING_VALUE", // required
+ *   eventId: "STRING_VALUE", // required
+ *   eventTime: new Date("TIMESTAMP"),
+ *   eventType: "STRING_VALUE",
+ *   eventData: "STRING_VALUE",
+ *   eventReferences: [
+ *     { // Union: only one key present
+ *       resource: "STRING_VALUE",
+ *       relatedItemId: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new UpdateTimelineEventCommand(input);
  * const response = await client.send(command);
  * ```

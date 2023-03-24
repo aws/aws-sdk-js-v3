@@ -46,6 +46,16 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  * import { IvsClient, CreateChannelCommand } from "@aws-sdk/client-ivs"; // ES Modules import
  * // const { IvsClient, CreateChannelCommand } = require("@aws-sdk/client-ivs"); // CommonJS import
  * const client = new IvsClient(config);
+ * const input = {
+ *   name: "STRING_VALUE",
+ *   latencyMode: "STRING_VALUE",
+ *   type: "BASIC" || "STANDARD",
+ *   authorized: true || false,
+ *   recordingConfigurationArn: "STRING_VALUE",
+ *   tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateChannelCommand(input);
  * const response = await client.send(command);
  * ```

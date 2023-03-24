@@ -42,6 +42,7 @@ export interface DescribeStorageCommandOutput extends CustomerStorageMessage, __
  * import { RedshiftClient, DescribeStorageCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DescribeStorageCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = {};
  * const command = new DescribeStorageCommand(input);
  * const response = await client.send(command);
  * ```

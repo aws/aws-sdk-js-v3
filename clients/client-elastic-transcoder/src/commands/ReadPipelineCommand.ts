@@ -46,6 +46,9 @@ export interface ReadPipelineCommandOutput extends ReadPipelineResponse, __Metad
  * import { ElasticTranscoderClient, ReadPipelineCommand } from "@aws-sdk/client-elastic-transcoder"; // ES Modules import
  * // const { ElasticTranscoderClient, ReadPipelineCommand } = require("@aws-sdk/client-elastic-transcoder"); // CommonJS import
  * const client = new ElasticTranscoderClient(config);
+ * const input = {
+ *   Id: "STRING_VALUE", // required
+ * };
  * const command = new ReadPipelineCommand(input);
  * const response = await client.send(command);
  * ```

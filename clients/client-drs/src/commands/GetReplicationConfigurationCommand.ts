@@ -46,6 +46,9 @@ export interface GetReplicationConfigurationCommandOutput extends ReplicationCon
  * import { DrsClient, GetReplicationConfigurationCommand } from "@aws-sdk/client-drs"; // ES Modules import
  * // const { DrsClient, GetReplicationConfigurationCommand } = require("@aws-sdk/client-drs"); // CommonJS import
  * const client = new DrsClient(config);
+ * const input = {
+ *   sourceServerID: "STRING_VALUE", // required
+ * };
  * const command = new GetReplicationConfigurationCommand(input);
  * const response = await client.send(command);
  * ```

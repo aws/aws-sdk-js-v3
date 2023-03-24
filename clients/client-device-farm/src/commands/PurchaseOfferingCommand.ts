@@ -45,6 +45,11 @@ export interface PurchaseOfferingCommandOutput extends PurchaseOfferingResult, _
  * import { DeviceFarmClient, PurchaseOfferingCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, PurchaseOfferingCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
+ * const input = {
+ *   offeringId: "STRING_VALUE", // required
+ *   quantity: Number("int"), // required
+ *   offeringPromotionId: "STRING_VALUE",
+ * };
  * const command = new PurchaseOfferingCommand(input);
  * const response = await client.send(command);
  * ```

@@ -46,6 +46,12 @@ export interface SetPlatformApplicationAttributesCommandOutput extends __Metadat
  * import { SNSClient, SetPlatformApplicationAttributesCommand } from "@aws-sdk/client-sns"; // ES Modules import
  * // const { SNSClient, SetPlatformApplicationAttributesCommand } = require("@aws-sdk/client-sns"); // CommonJS import
  * const client = new SNSClient(config);
+ * const input = {
+ *   PlatformApplicationArn: "STRING_VALUE", // required
+ *   Attributes: { // required
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new SetPlatformApplicationAttributesCommand(input);
  * const response = await client.send(command);
  * ```

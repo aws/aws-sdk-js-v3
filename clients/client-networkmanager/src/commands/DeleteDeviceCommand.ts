@@ -43,6 +43,10 @@ export interface DeleteDeviceCommandOutput extends DeleteDeviceResponse, __Metad
  * import { NetworkManagerClient, DeleteDeviceCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, DeleteDeviceCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
+ * const input = {
+ *   GlobalNetworkId: "STRING_VALUE", // required
+ *   DeviceId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteDeviceCommand(input);
  * const response = await client.send(command);
  * ```

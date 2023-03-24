@@ -42,6 +42,13 @@ export interface UpdateDeviceInstanceCommandOutput extends UpdateDeviceInstanceR
  * import { DeviceFarmClient, UpdateDeviceInstanceCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, UpdateDeviceInstanceCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
+ * const input = {
+ *   arn: "STRING_VALUE", // required
+ *   profileArn: "STRING_VALUE",
+ *   labels: [
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new UpdateDeviceInstanceCommand(input);
  * const response = await client.send(command);
  * ```

@@ -48,6 +48,11 @@ export interface ModifyVpcEndpointServicePayerResponsibilityCommandOutput
  * import { EC2Client, ModifyVpcEndpointServicePayerResponsibilityCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ModifyVpcEndpointServicePayerResponsibilityCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   DryRun: true || false,
+ *   ServiceId: "STRING_VALUE", // required
+ *   PayerResponsibility: "ServiceOwner", // required
+ * };
  * const command = new ModifyVpcEndpointServicePayerResponsibilityCommand(input);
  * const response = await client.send(command);
  * ```

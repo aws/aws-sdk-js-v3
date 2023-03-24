@@ -45,6 +45,19 @@ export interface ImportVolumeCommandOutput extends ImportVolumeResult, __Metadat
  * import { EC2Client, ImportVolumeCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ImportVolumeCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   AvailabilityZone: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   DryRun: true || false,
+ *   Image: {
+ *     Bytes: Number("long"), // required
+ *     Format: "VMDK" || "RAW" || "VHD", // required
+ *     ImportManifestUrl: "STRING_VALUE", // required
+ *   },
+ *   Volume: {
+ *     Size: Number("long"), // required
+ *   },
+ * };
  * const command = new ImportVolumeCommand(input);
  * const response = await client.send(command);
  * ```

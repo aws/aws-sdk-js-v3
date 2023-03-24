@@ -54,6 +54,12 @@ export interface UpdateModelVersionStatusCommandOutput extends UpdateModelVersio
  * import { FraudDetectorClient, UpdateModelVersionStatusCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, UpdateModelVersionStatusCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
  * const client = new FraudDetectorClient(config);
+ * const input = {
+ *   modelId: "STRING_VALUE", // required
+ *   modelType: "ONLINE_FRAUD_INSIGHTS" || "TRANSACTION_FRAUD_INSIGHTS" || "ACCOUNT_TAKEOVER_INSIGHTS", // required
+ *   modelVersionNumber: "STRING_VALUE", // required
+ *   status: "ACTIVE" || "INACTIVE" || "TRAINING_CANCELLED", // required
+ * };
  * const command = new UpdateModelVersionStatusCommand(input);
  * const response = await client.send(command);
  * ```

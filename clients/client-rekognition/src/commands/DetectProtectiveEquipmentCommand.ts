@@ -78,6 +78,22 @@ export interface DetectProtectiveEquipmentCommandOutput extends DetectProtective
  * import { RekognitionClient, DetectProtectiveEquipmentCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, DetectProtectiveEquipmentCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
+ * const input = {
+ *   Image: {
+ *     Bytes: "BLOB_VALUE",
+ *     S3Object: {
+ *       Bucket: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *       Version: "STRING_VALUE",
+ *     },
+ *   },
+ *   SummarizationAttributes: {
+ *     MinConfidence: Number("float"), // required
+ *     RequiredEquipmentTypes: [ // required
+ *       "FACE_COVER" || "HAND_COVER" || "HEAD_COVER",
+ *     ],
+ *   },
+ * };
  * const command = new DetectProtectiveEquipmentCommand(input);
  * const response = await client.send(command);
  * ```

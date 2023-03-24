@@ -47,6 +47,10 @@ export interface DeleteBlueGreenDeploymentCommandOutput extends DeleteBlueGreenD
  * import { RDSClient, DeleteBlueGreenDeploymentCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, DeleteBlueGreenDeploymentCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = {
+ *   BlueGreenDeploymentIdentifier: "STRING_VALUE", // required
+ *   DeleteTarget: true || false,
+ * };
  * const command = new DeleteBlueGreenDeploymentCommand(input);
  * const response = await client.send(command);
  * ```

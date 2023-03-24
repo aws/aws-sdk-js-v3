@@ -42,6 +42,12 @@ export interface DisableMetricsCollectionCommandOutput extends __MetadataBearer 
  * import { AutoScalingClient, DisableMetricsCollectionCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, DisableMetricsCollectionCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
  * const client = new AutoScalingClient(config);
+ * const input = {
+ *   AutoScalingGroupName: "STRING_VALUE", // required
+ *   Metrics: [
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DisableMetricsCollectionCommand(input);
  * const response = await client.send(command);
  * ```

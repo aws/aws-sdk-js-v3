@@ -42,6 +42,10 @@ export interface ListKeyspacesCommandOutput extends ListKeyspacesResponse, __Met
  * import { KeyspacesClient, ListKeyspacesCommand } from "@aws-sdk/client-keyspaces"; // ES Modules import
  * // const { KeyspacesClient, ListKeyspacesCommand } = require("@aws-sdk/client-keyspaces"); // CommonJS import
  * const client = new KeyspacesClient(config);
+ * const input = {
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListKeyspacesCommand(input);
  * const response = await client.send(command);
  * ```

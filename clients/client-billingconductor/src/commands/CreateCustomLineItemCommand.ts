@@ -48,6 +48,31 @@ export interface CreateCustomLineItemCommandOutput extends CreateCustomLineItemO
  * import { BillingconductorClient, CreateCustomLineItemCommand } from "@aws-sdk/client-billingconductor"; // ES Modules import
  * // const { BillingconductorClient, CreateCustomLineItemCommand } = require("@aws-sdk/client-billingconductor"); // CommonJS import
  * const client = new BillingconductorClient(config);
+ * const input = {
+ *   ClientToken: "STRING_VALUE",
+ *   Name: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE", // required
+ *   BillingGroupArn: "STRING_VALUE", // required
+ *   BillingPeriodRange: {
+ *     InclusiveStartBillingPeriod: "STRING_VALUE", // required
+ *     ExclusiveEndBillingPeriod: "STRING_VALUE",
+ *   },
+ *   Tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   ChargeDetails: {
+ *     Flat: {
+ *       ChargeValue: Number("double"), // required
+ *     },
+ *     Percentage: {
+ *       PercentageValue: Number("double"), // required
+ *       AssociatedValues: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *     Type: "STRING_VALUE", // required
+ *   },
+ * };
  * const command = new CreateCustomLineItemCommand(input);
  * const response = await client.send(command);
  * ```

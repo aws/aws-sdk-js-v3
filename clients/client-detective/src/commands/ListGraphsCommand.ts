@@ -45,6 +45,10 @@ export interface ListGraphsCommandOutput extends ListGraphsResponse, __MetadataB
  * import { DetectiveClient, ListGraphsCommand } from "@aws-sdk/client-detective"; // ES Modules import
  * // const { DetectiveClient, ListGraphsCommand } = require("@aws-sdk/client-detective"); // CommonJS import
  * const client = new DetectiveClient(config);
+ * const input = {
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListGraphsCommand(input);
  * const response = await client.send(command);
  * ```

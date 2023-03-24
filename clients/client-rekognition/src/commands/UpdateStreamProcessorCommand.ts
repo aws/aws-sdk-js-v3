@@ -44,6 +44,39 @@ export interface UpdateStreamProcessorCommandOutput extends UpdateStreamProcesso
  * import { RekognitionClient, UpdateStreamProcessorCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, UpdateStreamProcessorCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
+ * const input = {
+ *   Name: "STRING_VALUE", // required
+ *   SettingsForUpdate: {
+ *     ConnectedHomeForUpdate: {
+ *       Labels: [
+ *         "STRING_VALUE",
+ *       ],
+ *       MinConfidence: Number("float"),
+ *     },
+ *   },
+ *   RegionsOfInterestForUpdate: [
+ *     {
+ *       BoundingBox: {
+ *         Width: Number("float"),
+ *         Height: Number("float"),
+ *         Left: Number("float"),
+ *         Top: Number("float"),
+ *       },
+ *       Polygon: [
+ *         {
+ *           X: Number("float"),
+ *           Y: Number("float"),
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   DataSharingPreferenceForUpdate: {
+ *     OptIn: true || false, // required
+ *   },
+ *   ParametersToDelete: [
+ *     "ConnectedHomeMinConfidence" || "RegionsOfInterest",
+ *   ],
+ * };
  * const command = new UpdateStreamProcessorCommand(input);
  * const response = await client.send(command);
  * ```

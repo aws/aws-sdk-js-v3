@@ -45,6 +45,19 @@ export interface ListPlatformBranchesCommandOutput extends ListPlatformBranchesR
  * import { ElasticBeanstalkClient, ListPlatformBranchesCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
  * // const { ElasticBeanstalkClient, ListPlatformBranchesCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
  * const client = new ElasticBeanstalkClient(config);
+ * const input = {
+ *   Filters: [
+ *     {
+ *       Attribute: "STRING_VALUE",
+ *       Operator: "STRING_VALUE",
+ *       Values: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxRecords: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListPlatformBranchesCommand(input);
  * const response = await client.send(command);
  * ```

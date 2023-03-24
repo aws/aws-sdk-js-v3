@@ -42,6 +42,12 @@ export interface ListGeneratedCodeJobsCommandOutput extends ListGeneratedCodeJob
  * import { GameSparksClient, ListGeneratedCodeJobsCommand } from "@aws-sdk/client-gamesparks"; // ES Modules import
  * // const { GameSparksClient, ListGeneratedCodeJobsCommand } = require("@aws-sdk/client-gamesparks"); // CommonJS import
  * const client = new GameSparksClient(config);
+ * const input = {
+ *   GameName: "STRING_VALUE", // required
+ *   SnapshotId: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListGeneratedCodeJobsCommand(input);
  * const response = await client.send(command);
  * ```

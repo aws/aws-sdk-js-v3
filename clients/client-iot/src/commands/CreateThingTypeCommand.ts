@@ -43,6 +43,21 @@ export interface CreateThingTypeCommandOutput extends CreateThingTypeResponse, _
  * import { IoTClient, CreateThingTypeCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, CreateThingTypeCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = {
+ *   thingTypeName: "STRING_VALUE", // required
+ *   thingTypeProperties: {
+ *     thingTypeDescription: "STRING_VALUE",
+ *     searchableAttributes: [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateThingTypeCommand(input);
  * const response = await client.send(command);
  * ```

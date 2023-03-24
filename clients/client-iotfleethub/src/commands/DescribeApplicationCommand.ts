@@ -45,6 +45,9 @@ export interface DescribeApplicationCommandOutput extends DescribeApplicationRes
  * import { IoTFleetHubClient, DescribeApplicationCommand } from "@aws-sdk/client-iotfleethub"; // ES Modules import
  * // const { IoTFleetHubClient, DescribeApplicationCommand } = require("@aws-sdk/client-iotfleethub"); // CommonJS import
  * const client = new IoTFleetHubClient(config);
+ * const input = {
+ *   applicationId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeApplicationCommand(input);
  * const response = await client.send(command);
  * ```

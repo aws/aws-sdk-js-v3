@@ -42,6 +42,9 @@ export interface DeleteInsightCommandOutput extends DeleteInsightResponse, __Met
  * import { DevOpsGuruClient, DeleteInsightCommand } from "@aws-sdk/client-devops-guru"; // ES Modules import
  * // const { DevOpsGuruClient, DeleteInsightCommand } = require("@aws-sdk/client-devops-guru"); // CommonJS import
  * const client = new DevOpsGuruClient(config);
+ * const input = {
+ *   Id: "STRING_VALUE", // required
+ * };
  * const command = new DeleteInsightCommand(input);
  * const response = await client.send(command);
  * ```

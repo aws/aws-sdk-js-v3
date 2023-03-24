@@ -42,6 +42,10 @@ export interface DeleteReportGroupCommandOutput extends DeleteReportGroupOutput,
  * import { CodeBuildClient, DeleteReportGroupCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
  * // const { CodeBuildClient, DeleteReportGroupCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
  * const client = new CodeBuildClient(config);
+ * const input = {
+ *   arn: "STRING_VALUE", // required
+ *   deleteReports: true || false,
+ * };
  * const command = new DeleteReportGroupCommand(input);
  * const response = await client.send(command);
  * ```

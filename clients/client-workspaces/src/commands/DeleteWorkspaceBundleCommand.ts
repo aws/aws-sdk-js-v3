@@ -44,6 +44,9 @@ export interface DeleteWorkspaceBundleCommandOutput extends DeleteWorkspaceBundl
  * import { WorkSpacesClient, DeleteWorkspaceBundleCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, DeleteWorkspaceBundleCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
  * const client = new WorkSpacesClient(config);
+ * const input = {
+ *   BundleId: "STRING_VALUE",
+ * };
  * const command = new DeleteWorkspaceBundleCommand(input);
  * const response = await client.send(command);
  * ```

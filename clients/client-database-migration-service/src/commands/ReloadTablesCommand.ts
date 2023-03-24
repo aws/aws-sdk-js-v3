@@ -48,6 +48,16 @@ export interface ReloadTablesCommandOutput extends ReloadTablesResponse, __Metad
  * import { DatabaseMigrationServiceClient, ReloadTablesCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, ReloadTablesCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
+ * const input = {
+ *   ReplicationTaskArn: "STRING_VALUE", // required
+ *   TablesToReload: [ // required
+ *     {
+ *       SchemaName: "STRING_VALUE", // required
+ *       TableName: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   ReloadOption: "data-reload" || "validate-only",
+ * };
  * const command = new ReloadTablesCommand(input);
  * const response = await client.send(command);
  * ```

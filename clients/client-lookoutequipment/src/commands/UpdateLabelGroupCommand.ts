@@ -44,6 +44,12 @@ export interface UpdateLabelGroupCommandOutput extends __MetadataBearer {}
  * import { LookoutEquipmentClient, UpdateLabelGroupCommand } from "@aws-sdk/client-lookoutequipment"; // ES Modules import
  * // const { LookoutEquipmentClient, UpdateLabelGroupCommand } = require("@aws-sdk/client-lookoutequipment"); // CommonJS import
  * const client = new LookoutEquipmentClient(config);
+ * const input = {
+ *   LabelGroupName: "STRING_VALUE", // required
+ *   FaultCodes: [
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new UpdateLabelGroupCommand(input);
  * const response = await client.send(command);
  * ```

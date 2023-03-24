@@ -47,6 +47,40 @@ export interface PutBlockPublicAccessConfigurationCommandOutput
  * import { EMRClient, PutBlockPublicAccessConfigurationCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, PutBlockPublicAccessConfigurationCommand } = require("@aws-sdk/client-emr"); // CommonJS import
  * const client = new EMRClient(config);
+ * const input = {
+ *   BlockPublicAccessConfiguration: {
+ *     BlockPublicSecurityGroupRules: true || false, // required
+ *     PermittedPublicSecurityGroupRuleRanges: [
+ *       {
+ *         MinRange: Number("int"), // required
+ *         MaxRange: Number("int"),
+ *       },
+ *     ],
+ *     Classification: "STRING_VALUE",
+ *     Configurations: [
+ *       {
+ *         Classification: "STRING_VALUE",
+ *         Configurations: [
+ *           {
+ *             Classification: "STRING_VALUE",
+ *             Configurations: [
+ *               "<ConfigurationList>",
+ *             ],
+ *             Properties: {
+ *               "<keys>": "STRING_VALUE",
+ *             },
+ *           },
+ *         ],
+ *         Properties: {
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *       },
+ *     ],
+ *     Properties: {
+ *       "<keys>": "<String>",
+ *     },
+ *   },
+ * };
  * const command = new PutBlockPublicAccessConfigurationCommand(input);
  * const response = await client.send(command);
  * ```

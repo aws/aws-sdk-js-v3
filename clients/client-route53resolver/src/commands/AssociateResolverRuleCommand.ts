@@ -45,6 +45,11 @@ export interface AssociateResolverRuleCommandOutput extends AssociateResolverRul
  * import { Route53ResolverClient, AssociateResolverRuleCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
  * // const { Route53ResolverClient, AssociateResolverRuleCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
  * const client = new Route53ResolverClient(config);
+ * const input = {
+ *   ResolverRuleId: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE",
+ *   VPCId: "STRING_VALUE", // required
+ * };
  * const command = new AssociateResolverRuleCommand(input);
  * const response = await client.send(command);
  * ```

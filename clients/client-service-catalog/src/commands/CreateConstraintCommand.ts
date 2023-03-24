@@ -43,6 +43,15 @@ export interface CreateConstraintCommandOutput extends CreateConstraintOutput, _
  * import { ServiceCatalogClient, CreateConstraintCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, CreateConstraintCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
+ * const input = {
+ *   AcceptLanguage: "STRING_VALUE",
+ *   PortfolioId: "STRING_VALUE", // required
+ *   ProductId: "STRING_VALUE", // required
+ *   Parameters: "STRING_VALUE", // required
+ *   Type: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   IdempotencyToken: "STRING_VALUE", // required
+ * };
  * const command = new CreateConstraintCommand(input);
  * const response = await client.send(command);
  * ```

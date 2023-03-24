@@ -42,6 +42,10 @@ export interface DeauthorizeDataShareCommandOutput extends DataShare, __Metadata
  * import { RedshiftClient, DeauthorizeDataShareCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DeauthorizeDataShareCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = {
+ *   DataShareArn: "STRING_VALUE", // required
+ *   ConsumerIdentifier: "STRING_VALUE", // required
+ * };
  * const command = new DeauthorizeDataShareCommand(input);
  * const response = await client.send(command);
  * ```

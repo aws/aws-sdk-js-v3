@@ -48,6 +48,18 @@ export interface PutScheduledUpdateGroupActionCommandOutput extends __MetadataBe
  * import { AutoScalingClient, PutScheduledUpdateGroupActionCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, PutScheduledUpdateGroupActionCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
  * const client = new AutoScalingClient(config);
+ * const input = {
+ *   AutoScalingGroupName: "STRING_VALUE", // required
+ *   ScheduledActionName: "STRING_VALUE", // required
+ *   Time: new Date("TIMESTAMP"),
+ *   StartTime: new Date("TIMESTAMP"),
+ *   EndTime: new Date("TIMESTAMP"),
+ *   Recurrence: "STRING_VALUE",
+ *   MinSize: Number("int"),
+ *   MaxSize: Number("int"),
+ *   DesiredCapacity: Number("int"),
+ *   TimeZone: "STRING_VALUE",
+ * };
  * const command = new PutScheduledUpdateGroupActionCommand(input);
  * const response = await client.send(command);
  * ```

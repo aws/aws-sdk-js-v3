@@ -44,6 +44,10 @@ export interface RenewOfferingCommandOutput extends RenewOfferingResult, __Metad
  * import { DeviceFarmClient, RenewOfferingCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, RenewOfferingCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
+ * const input = {
+ *   offeringId: "STRING_VALUE", // required
+ *   quantity: Number("int"), // required
+ * };
  * const command = new RenewOfferingCommand(input);
  * const response = await client.send(command);
  * ```

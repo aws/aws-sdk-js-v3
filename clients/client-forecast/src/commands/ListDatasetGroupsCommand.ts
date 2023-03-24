@@ -46,6 +46,10 @@ export interface ListDatasetGroupsCommandOutput extends ListDatasetGroupsRespons
  * import { ForecastClient, ListDatasetGroupsCommand } from "@aws-sdk/client-forecast"; // ES Modules import
  * // const { ForecastClient, ListDatasetGroupsCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
  * const client = new ForecastClient(config);
+ * const input = {
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListDatasetGroupsCommand(input);
  * const response = await client.send(command);
  * ```

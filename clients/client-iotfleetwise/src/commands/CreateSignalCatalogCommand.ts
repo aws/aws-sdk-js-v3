@@ -43,6 +43,60 @@ export interface CreateSignalCatalogCommandOutput extends CreateSignalCatalogRes
  * import { IoTFleetWiseClient, CreateSignalCatalogCommand } from "@aws-sdk/client-iotfleetwise"; // ES Modules import
  * // const { IoTFleetWiseClient, CreateSignalCatalogCommand } = require("@aws-sdk/client-iotfleetwise"); // CommonJS import
  * const client = new IoTFleetWiseClient(config);
+ * const input = {
+ *   name: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   nodes: [
+ *     { // Union: only one key present
+ *       branch: {
+ *         fullyQualifiedName: "STRING_VALUE", // required
+ *         description: "STRING_VALUE",
+ *       },
+ *       sensor: {
+ *         fullyQualifiedName: "STRING_VALUE", // required
+ *         dataType: "STRING_VALUE", // required
+ *         description: "STRING_VALUE",
+ *         unit: "STRING_VALUE",
+ *         allowedValues: [
+ *           "STRING_VALUE",
+ *         ],
+ *         min: Number("double"),
+ *         max: Number("double"),
+ *       },
+ *       actuator: {
+ *         fullyQualifiedName: "STRING_VALUE", // required
+ *         dataType: "STRING_VALUE", // required
+ *         description: "STRING_VALUE",
+ *         unit: "STRING_VALUE",
+ *         allowedValues: [
+ *           "STRING_VALUE",
+ *         ],
+ *         min: Number("double"),
+ *         max: Number("double"),
+ *         assignedValue: "STRING_VALUE",
+ *       },
+ *       attribute: {
+ *         fullyQualifiedName: "STRING_VALUE", // required
+ *         dataType: "STRING_VALUE", // required
+ *         description: "STRING_VALUE",
+ *         unit: "STRING_VALUE",
+ *         allowedValues: [
+ *           "STRING_VALUE",
+ *         ],
+ *         min: Number("double"),
+ *         max: Number("double"),
+ *         assignedValue: "STRING_VALUE",
+ *         defaultValue: "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ *   tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateSignalCatalogCommand(input);
  * const response = await client.send(command);
  * ```

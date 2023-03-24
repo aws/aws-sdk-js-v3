@@ -46,6 +46,11 @@ export interface UpdateApprovalRuleTemplateContentCommandOutput
  * import { CodeCommitClient, UpdateApprovalRuleTemplateContentCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, UpdateApprovalRuleTemplateContentCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
  * const client = new CodeCommitClient(config);
+ * const input = {
+ *   approvalRuleTemplateName: "STRING_VALUE", // required
+ *   newRuleContent: "STRING_VALUE", // required
+ *   existingRuleContentSha256: "STRING_VALUE",
+ * };
  * const command = new UpdateApprovalRuleTemplateContentCommand(input);
  * const response = await client.send(command);
  * ```

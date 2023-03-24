@@ -64,6 +64,12 @@ export interface DeleteDBInstanceCommandOutput extends DeleteDBInstanceResult, _
  * import { RDSClient, DeleteDBInstanceCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, DeleteDBInstanceCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = {
+ *   DBInstanceIdentifier: "STRING_VALUE", // required
+ *   SkipFinalSnapshot: true || false,
+ *   FinalDBSnapshotIdentifier: "STRING_VALUE",
+ *   DeleteAutomatedBackups: true || false,
+ * };
  * const command = new DeleteDBInstanceCommand(input);
  * const response = await client.send(command);
  * ```

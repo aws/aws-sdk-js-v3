@@ -47,6 +47,10 @@ export interface CancelQueryCommandOutput extends CancelQueryResponse, __Metadat
  * import { CloudTrailClient, CancelQueryCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
  * // const { CloudTrailClient, CancelQueryCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
  * const client = new CloudTrailClient(config);
+ * const input = {
+ *   EventDataStore: "STRING_VALUE",
+ *   QueryId: "STRING_VALUE", // required
+ * };
  * const command = new CancelQueryCommand(input);
  * const response = await client.send(command);
  * ```

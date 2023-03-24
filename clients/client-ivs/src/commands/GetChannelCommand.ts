@@ -42,6 +42,9 @@ export interface GetChannelCommandOutput extends GetChannelResponse, __MetadataB
  * import { IvsClient, GetChannelCommand } from "@aws-sdk/client-ivs"; // ES Modules import
  * // const { IvsClient, GetChannelCommand } = require("@aws-sdk/client-ivs"); // CommonJS import
  * const client = new IvsClient(config);
+ * const input = {
+ *   arn: "STRING_VALUE", // required
+ * };
  * const command = new GetChannelCommand(input);
  * const response = await client.send(command);
  * ```

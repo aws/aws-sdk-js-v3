@@ -42,6 +42,11 @@ export interface DeleteVerifiedAccessGroupCommandOutput extends DeleteVerifiedAc
  * import { EC2Client, DeleteVerifiedAccessGroupCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DeleteVerifiedAccessGroupCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   VerifiedAccessGroupId: "STRING_VALUE", // required
+ *   ClientToken: "STRING_VALUE",
+ *   DryRun: true || false,
+ * };
  * const command = new DeleteVerifiedAccessGroupCommand(input);
  * const response = await client.send(command);
  * ```

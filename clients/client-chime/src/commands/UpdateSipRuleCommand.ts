@@ -42,6 +42,18 @@ export interface UpdateSipRuleCommandOutput extends UpdateSipRuleResponse, __Met
  * import { ChimeClient, UpdateSipRuleCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, UpdateSipRuleCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = {
+ *   SipRuleId: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE", // required
+ *   Disabled: true || false,
+ *   TargetApplications: [
+ *     {
+ *       SipMediaApplicationId: "STRING_VALUE",
+ *       Priority: Number("int"),
+ *       AwsRegion: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new UpdateSipRuleCommand(input);
  * const response = await client.send(command);
  * ```

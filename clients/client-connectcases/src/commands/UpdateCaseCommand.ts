@@ -45,6 +45,20 @@ export interface UpdateCaseCommandOutput extends UpdateCaseResponse, __MetadataB
  * import { ConnectCasesClient, UpdateCaseCommand } from "@aws-sdk/client-connectcases"; // ES Modules import
  * // const { ConnectCasesClient, UpdateCaseCommand } = require("@aws-sdk/client-connectcases"); // CommonJS import
  * const client = new ConnectCasesClient(config);
+ * const input = {
+ *   domainId: "STRING_VALUE", // required
+ *   caseId: "STRING_VALUE", // required
+ *   fields: [ // required
+ *     {
+ *       id: "STRING_VALUE", // required
+ *       value: { // Union: only one key present
+ *         stringValue: "STRING_VALUE",
+ *         doubleValue: Number("double"),
+ *         booleanValue: true || false,
+ *       },
+ *     },
+ *   ],
+ * };
  * const command = new UpdateCaseCommand(input);
  * const response = await client.send(command);
  * ```

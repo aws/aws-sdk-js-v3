@@ -42,6 +42,18 @@ export interface ListComponentTypesCommandOutput extends ListComponentTypesRespo
  * import { IoTTwinMakerClient, ListComponentTypesCommand } from "@aws-sdk/client-iottwinmaker"; // ES Modules import
  * // const { IoTTwinMakerClient, ListComponentTypesCommand } = require("@aws-sdk/client-iottwinmaker"); // CommonJS import
  * const client = new IoTTwinMakerClient(config);
+ * const input = {
+ *   workspaceId: "STRING_VALUE", // required
+ *   filters: [
+ *     { // Union: only one key present
+ *       extendsFrom: "STRING_VALUE",
+ *       namespace: "STRING_VALUE",
+ *       isAbstract: true || false,
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListComponentTypesCommand(input);
  * const response = await client.send(command);
  * ```

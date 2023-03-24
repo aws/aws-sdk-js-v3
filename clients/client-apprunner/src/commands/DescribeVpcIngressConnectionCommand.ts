@@ -44,6 +44,9 @@ export interface DescribeVpcIngressConnectionCommandOutput
  * import { AppRunnerClient, DescribeVpcIngressConnectionCommand } from "@aws-sdk/client-apprunner"; // ES Modules import
  * // const { AppRunnerClient, DescribeVpcIngressConnectionCommand } = require("@aws-sdk/client-apprunner"); // CommonJS import
  * const client = new AppRunnerClient(config);
+ * const input = {
+ *   VpcIngressConnectionArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeVpcIngressConnectionCommand(input);
  * const response = await client.send(command);
  * ```

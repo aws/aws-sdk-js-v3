@@ -43,6 +43,27 @@ export interface UpdateAccessCommandOutput extends UpdateAccessResponse, __Metad
  * import { TransferClient, UpdateAccessCommand } from "@aws-sdk/client-transfer"; // ES Modules import
  * // const { TransferClient, UpdateAccessCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
  * const client = new TransferClient(config);
+ * const input = {
+ *   HomeDirectory: "STRING_VALUE",
+ *   HomeDirectoryType: "PATH" || "LOGICAL",
+ *   HomeDirectoryMappings: [
+ *     {
+ *       Entry: "STRING_VALUE", // required
+ *       Target: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   Policy: "STRING_VALUE",
+ *   PosixProfile: {
+ *     Uid: Number("long"), // required
+ *     Gid: Number("long"), // required
+ *     SecondaryGids: [
+ *       Number("long"),
+ *     ],
+ *   },
+ *   Role: "STRING_VALUE",
+ *   ServerId: "STRING_VALUE", // required
+ *   ExternalId: "STRING_VALUE", // required
+ * };
  * const command = new UpdateAccessCommand(input);
  * const response = await client.send(command);
  * ```

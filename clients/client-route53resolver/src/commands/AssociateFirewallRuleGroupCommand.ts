@@ -42,6 +42,20 @@ export interface AssociateFirewallRuleGroupCommandOutput extends AssociateFirewa
  * import { Route53ResolverClient, AssociateFirewallRuleGroupCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
  * // const { Route53ResolverClient, AssociateFirewallRuleGroupCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
  * const client = new Route53ResolverClient(config);
+ * const input = {
+ *   CreatorRequestId: "STRING_VALUE", // required
+ *   FirewallRuleGroupId: "STRING_VALUE", // required
+ *   VpcId: "STRING_VALUE", // required
+ *   Priority: Number("int"), // required
+ *   Name: "STRING_VALUE", // required
+ *   MutationProtection: "ENABLED" || "DISABLED",
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new AssociateFirewallRuleGroupCommand(input);
  * const response = await client.send(command);
  * ```

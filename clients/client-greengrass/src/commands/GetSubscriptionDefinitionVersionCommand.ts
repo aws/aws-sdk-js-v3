@@ -44,6 +44,11 @@ export interface GetSubscriptionDefinitionVersionCommandOutput
  * import { GreengrassClient, GetSubscriptionDefinitionVersionCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, GetSubscriptionDefinitionVersionCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
+ * const input = {
+ *   NextToken: "STRING_VALUE",
+ *   SubscriptionDefinitionId: "STRING_VALUE", // required
+ *   SubscriptionDefinitionVersionId: "STRING_VALUE", // required
+ * };
  * const command = new GetSubscriptionDefinitionVersionCommand(input);
  * const response = await client.send(command);
  * ```

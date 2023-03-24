@@ -42,6 +42,9 @@ export interface CancelReplayCommandOutput extends CancelReplayResponse, __Metad
  * import { CloudWatchEventsClient, CancelReplayCommand } from "@aws-sdk/client-cloudwatch-events"; // ES Modules import
  * // const { CloudWatchEventsClient, CancelReplayCommand } = require("@aws-sdk/client-cloudwatch-events"); // CommonJS import
  * const client = new CloudWatchEventsClient(config);
+ * const input = {
+ *   ReplayName: "STRING_VALUE", // required
+ * };
  * const command = new CancelReplayCommand(input);
  * const response = await client.send(command);
  * ```

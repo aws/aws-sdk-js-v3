@@ -42,6 +42,37 @@ export interface CreateCommitCommandOutput extends CreateCommitOutput, __Metadat
  * import { CodeCommitClient, CreateCommitCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, CreateCommitCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
  * const client = new CodeCommitClient(config);
+ * const input = {
+ *   repositoryName: "STRING_VALUE", // required
+ *   branchName: "STRING_VALUE", // required
+ *   parentCommitId: "STRING_VALUE",
+ *   authorName: "STRING_VALUE",
+ *   email: "STRING_VALUE",
+ *   commitMessage: "STRING_VALUE",
+ *   keepEmptyFolders: true || false,
+ *   putFiles: [
+ *     {
+ *       filePath: "STRING_VALUE", // required
+ *       fileMode: "STRING_VALUE",
+ *       fileContent: "BLOB_VALUE",
+ *       sourceFile: {
+ *         filePath: "STRING_VALUE", // required
+ *         isMove: true || false,
+ *       },
+ *     },
+ *   ],
+ *   deleteFiles: [
+ *     {
+ *       filePath: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   setFileModes: [
+ *     {
+ *       filePath: "STRING_VALUE", // required
+ *       fileMode: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateCommitCommand(input);
  * const response = await client.send(command);
  * ```

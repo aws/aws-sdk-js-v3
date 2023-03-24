@@ -39,6 +39,9 @@ export interface GetFleetCommandOutput extends GetFleetResponse, __MetadataBeare
  * import { IoTFleetWiseClient, GetFleetCommand } from "@aws-sdk/client-iotfleetwise"; // ES Modules import
  * // const { IoTFleetWiseClient, GetFleetCommand } = require("@aws-sdk/client-iotfleetwise"); // CommonJS import
  * const client = new IoTFleetWiseClient(config);
+ * const input = {
+ *   fleetId: "STRING_VALUE", // required
+ * };
  * const command = new GetFleetCommand(input);
  * const response = await client.send(command);
  * ```

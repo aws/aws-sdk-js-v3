@@ -46,6 +46,10 @@ export interface DeleteFirewallManagerRuleGroupsCommandOutput
  * import { WAFV2Client, DeleteFirewallManagerRuleGroupsCommand } from "@aws-sdk/client-wafv2"; // ES Modules import
  * // const { WAFV2Client, DeleteFirewallManagerRuleGroupsCommand } = require("@aws-sdk/client-wafv2"); // CommonJS import
  * const client = new WAFV2Client(config);
+ * const input = {
+ *   WebACLArn: "STRING_VALUE", // required
+ *   WebACLLockToken: "STRING_VALUE", // required
+ * };
  * const command = new DeleteFirewallManagerRuleGroupsCommand(input);
  * const response = await client.send(command);
  * ```

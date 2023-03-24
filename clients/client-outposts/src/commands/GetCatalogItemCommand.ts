@@ -42,6 +42,9 @@ export interface GetCatalogItemCommandOutput extends GetCatalogItemOutput, __Met
  * import { OutpostsClient, GetCatalogItemCommand } from "@aws-sdk/client-outposts"; // ES Modules import
  * // const { OutpostsClient, GetCatalogItemCommand } = require("@aws-sdk/client-outposts"); // CommonJS import
  * const client = new OutpostsClient(config);
+ * const input = {
+ *   CatalogItemId: "STRING_VALUE", // required
+ * };
  * const command = new GetCatalogItemCommand(input);
  * const response = await client.send(command);
  * ```

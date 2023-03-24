@@ -42,6 +42,10 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOut
  * import { KinesisVideoClient, ListTagsForResourceCommand } from "@aws-sdk/client-kinesis-video"; // ES Modules import
  * // const { KinesisVideoClient, ListTagsForResourceCommand } = require("@aws-sdk/client-kinesis-video"); // CommonJS import
  * const client = new KinesisVideoClient(config);
+ * const input = {
+ *   NextToken: "STRING_VALUE",
+ *   ResourceARN: "STRING_VALUE", // required
+ * };
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,25 @@ export interface PutMethodCommandOutput extends Method, __MetadataBearer {}
  * import { APIGatewayClient, PutMethodCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, PutMethodCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
+ * const input = {
+ *   restApiId: "STRING_VALUE", // required
+ *   resourceId: "STRING_VALUE", // required
+ *   httpMethod: "STRING_VALUE", // required
+ *   authorizationType: "STRING_VALUE", // required
+ *   authorizerId: "STRING_VALUE",
+ *   apiKeyRequired: true || false,
+ *   operationName: "STRING_VALUE",
+ *   requestParameters: {
+ *     "<keys>": true || false,
+ *   },
+ *   requestModels: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   requestValidatorId: "STRING_VALUE",
+ *   authorizationScopes: [
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new PutMethodCommand(input);
  * const response = await client.send(command);
  * ```

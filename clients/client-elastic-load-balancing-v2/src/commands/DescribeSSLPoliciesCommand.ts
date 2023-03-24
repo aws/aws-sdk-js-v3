@@ -48,6 +48,14 @@ export interface DescribeSSLPoliciesCommandOutput extends DescribeSSLPoliciesOut
  * import { ElasticLoadBalancingV2Client, DescribeSSLPoliciesCommand } from "@aws-sdk/client-elastic-load-balancing-v2"; // ES Modules import
  * // const { ElasticLoadBalancingV2Client, DescribeSSLPoliciesCommand } = require("@aws-sdk/client-elastic-load-balancing-v2"); // CommonJS import
  * const client = new ElasticLoadBalancingV2Client(config);
+ * const input = {
+ *   Names: [
+ *     "STRING_VALUE",
+ *   ],
+ *   Marker: "STRING_VALUE",
+ *   PageSize: Number("int"),
+ *   LoadBalancerType: "application" || "network" || "gateway",
+ * };
  * const command = new DescribeSSLPoliciesCommand(input);
  * const response = await client.send(command);
  * ```

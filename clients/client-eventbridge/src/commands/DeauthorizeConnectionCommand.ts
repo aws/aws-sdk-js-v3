@@ -43,6 +43,9 @@ export interface DeauthorizeConnectionCommandOutput extends DeauthorizeConnectio
  * import { EventBridgeClient, DeauthorizeConnectionCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
  * // const { EventBridgeClient, DeauthorizeConnectionCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
  * const client = new EventBridgeClient(config);
+ * const input = {
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new DeauthorizeConnectionCommand(input);
  * const response = await client.send(command);
  * ```

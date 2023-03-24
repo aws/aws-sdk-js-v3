@@ -47,6 +47,19 @@ export interface UpdateIdentityProviderCommandOutput extends UpdateIdentityProvi
  * import { CognitoIdentityProviderClient, UpdateIdentityProviderCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, UpdateIdentityProviderCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
+ * const input = {
+ *   UserPoolId: "STRING_VALUE", // required
+ *   ProviderName: "STRING_VALUE", // required
+ *   ProviderDetails: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   AttributeMapping: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   IdpIdentifiers: [
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new UpdateIdentityProviderCommand(input);
  * const response = await client.send(command);
  * ```

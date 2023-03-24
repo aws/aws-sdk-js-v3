@@ -51,6 +51,32 @@ export interface CreateReplicationInstanceCommandOutput extends CreateReplicatio
  * import { DatabaseMigrationServiceClient, CreateReplicationInstanceCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, CreateReplicationInstanceCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
+ * const input = {
+ *   ReplicationInstanceIdentifier: "STRING_VALUE", // required
+ *   AllocatedStorage: Number("int"),
+ *   ReplicationInstanceClass: "STRING_VALUE", // required
+ *   VpcSecurityGroupIds: [
+ *     "STRING_VALUE",
+ *   ],
+ *   AvailabilityZone: "STRING_VALUE",
+ *   ReplicationSubnetGroupIdentifier: "STRING_VALUE",
+ *   PreferredMaintenanceWindow: "STRING_VALUE",
+ *   MultiAZ: true || false,
+ *   EngineVersion: "STRING_VALUE",
+ *   AutoMinorVersionUpgrade: true || false,
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *       ResourceArn: "STRING_VALUE",
+ *     },
+ *   ],
+ *   KmsKeyId: "STRING_VALUE",
+ *   PubliclyAccessible: true || false,
+ *   DnsNameServers: "STRING_VALUE",
+ *   ResourceIdentifier: "STRING_VALUE",
+ *   NetworkType: "STRING_VALUE",
+ * };
  * const command = new CreateReplicationInstanceCommand(input);
  * const response = await client.send(command);
  * ```

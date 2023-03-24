@@ -50,6 +50,26 @@ export interface UpdateReplicationConfigurationTemplateCommandOutput
  * import { MgnClient, UpdateReplicationConfigurationTemplateCommand } from "@aws-sdk/client-mgn"; // ES Modules import
  * // const { MgnClient, UpdateReplicationConfigurationTemplateCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
  * const client = new MgnClient(config);
+ * const input = {
+ *   replicationConfigurationTemplateID: "STRING_VALUE", // required
+ *   arn: "STRING_VALUE",
+ *   stagingAreaSubnetId: "STRING_VALUE",
+ *   associateDefaultSecurityGroup: true || false,
+ *   replicationServersSecurityGroupsIDs: [
+ *     "STRING_VALUE",
+ *   ],
+ *   replicationServerInstanceType: "STRING_VALUE",
+ *   useDedicatedReplicationServer: true || false,
+ *   defaultLargeStagingDiskType: "STRING_VALUE",
+ *   ebsEncryption: "STRING_VALUE",
+ *   ebsEncryptionKeyArn: "STRING_VALUE",
+ *   bandwidthThrottling: Number("long"),
+ *   dataPlaneRouting: "STRING_VALUE",
+ *   createPublicIP: true || false,
+ *   stagingAreaTags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new UpdateReplicationConfigurationTemplateCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,15 @@ export interface ListNodesCommandOutput extends ListNodesResponse, __MetadataBea
  * import { PanoramaClient, ListNodesCommand } from "@aws-sdk/client-panorama"; // ES Modules import
  * // const { PanoramaClient, ListNodesCommand } = require("@aws-sdk/client-panorama"); // CommonJS import
  * const client = new PanoramaClient(config);
+ * const input = {
+ *   Category: "STRING_VALUE",
+ *   OwnerAccount: "STRING_VALUE",
+ *   PackageName: "STRING_VALUE",
+ *   PackageVersion: "STRING_VALUE",
+ *   PatchVersion: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListNodesCommand(input);
  * const response = await client.send(command);
  * ```

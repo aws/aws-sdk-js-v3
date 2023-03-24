@@ -46,6 +46,16 @@ export interface BatchEnableStandardsCommandOutput extends BatchEnableStandardsR
  * import { SecurityHubClient, BatchEnableStandardsCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, BatchEnableStandardsCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
  * const client = new SecurityHubClient(config);
+ * const input = {
+ *   StandardsSubscriptionRequests: [ // required
+ *     {
+ *       StandardsArn: "STRING_VALUE", // required
+ *       StandardsInput: {
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ * };
  * const command = new BatchEnableStandardsCommand(input);
  * const response = await client.send(command);
  * ```

@@ -141,6 +141,17 @@ export interface PostContentCommandOutput
  * import { LexRuntimeServiceClient, PostContentCommand } from "@aws-sdk/client-lex-runtime-service"; // ES Modules import
  * // const { LexRuntimeServiceClient, PostContentCommand } = require("@aws-sdk/client-lex-runtime-service"); // CommonJS import
  * const client = new LexRuntimeServiceClient(config);
+ * const input = {
+ *   botName: "STRING_VALUE", // required
+ *   botAlias: "STRING_VALUE", // required
+ *   userId: "STRING_VALUE", // required
+ *   sessionAttributes: "STRING_VALUE",
+ *   requestAttributes: "STRING_VALUE",
+ *   contentType: "STRING_VALUE", // required
+ *   accept: "STRING_VALUE",
+ *   inputStream: "STREAMING_BLOB_VALUE", // required
+ *   activeContexts: "STRING_VALUE",
+ * };
  * const command = new PostContentCommand(input);
  * const response = await client.send(command);
  * ```

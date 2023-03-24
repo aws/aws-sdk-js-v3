@@ -46,6 +46,60 @@ export interface GetOpsSummaryCommandOutput extends GetOpsSummaryResult, __Metad
  * import { SSMClient, GetOpsSummaryCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, GetOpsSummaryCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = {
+ *   SyncName: "STRING_VALUE",
+ *   Filters: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Values: [ // required
+ *         "STRING_VALUE",
+ *       ],
+ *       Type: "Equal" || "NotEqual" || "BeginWith" || "LessThan" || "GreaterThan" || "Exists",
+ *     },
+ *   ],
+ *   Aggregators: [
+ *     {
+ *       AggregatorType: "STRING_VALUE",
+ *       TypeName: "STRING_VALUE",
+ *       AttributeName: "STRING_VALUE",
+ *       Values: {
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *       Filters: [
+ *         {
+ *           Key: "STRING_VALUE", // required
+ *           Values: [ // required
+ *             "STRING_VALUE",
+ *           ],
+ *           Type: "Equal" || "NotEqual" || "BeginWith" || "LessThan" || "GreaterThan" || "Exists",
+ *         },
+ *       ],
+ *       Aggregators: [
+ *         {
+ *           AggregatorType: "STRING_VALUE",
+ *           TypeName: "STRING_VALUE",
+ *           AttributeName: "STRING_VALUE",
+ *           Values: {
+ *             "<keys>": "STRING_VALUE",
+ *           },
+ *           Filters: [
+ *             "<OpsFilterList>",
+ *           ],
+ *           Aggregators: [
+ *             "<OpsAggregatorList>",
+ *           ],
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   ResultAttributes: [
+ *     {
+ *       TypeName: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new GetOpsSummaryCommand(input);
  * const response = await client.send(command);
  * ```

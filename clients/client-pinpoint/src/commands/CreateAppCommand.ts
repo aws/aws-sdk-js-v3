@@ -42,6 +42,14 @@ export interface CreateAppCommandOutput extends CreateAppResponse, __MetadataBea
  * import { PinpointClient, CreateAppCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, CreateAppCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
+ * const input = {
+ *   CreateApplicationRequest: {
+ *     Name: "STRING_VALUE", // required
+ *     tags: {
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *   },
+ * };
  * const command = new CreateAppCommand(input);
  * const response = await client.send(command);
  * ```

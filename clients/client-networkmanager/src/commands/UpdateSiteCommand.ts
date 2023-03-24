@@ -48,6 +48,16 @@ export interface UpdateSiteCommandOutput extends UpdateSiteResponse, __MetadataB
  * import { NetworkManagerClient, UpdateSiteCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, UpdateSiteCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
+ * const input = {
+ *   GlobalNetworkId: "STRING_VALUE", // required
+ *   SiteId: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   Location: {
+ *     Address: "STRING_VALUE",
+ *     Latitude: "STRING_VALUE",
+ *     Longitude: "STRING_VALUE",
+ *   },
+ * };
  * const command = new UpdateSiteCommand(input);
  * const response = await client.send(command);
  * ```

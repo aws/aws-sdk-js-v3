@@ -42,6 +42,9 @@ export interface DeleteFlowCommandOutput extends DeleteFlowResponse, __MetadataB
  * import { MediaConnectClient, DeleteFlowCommand } from "@aws-sdk/client-mediaconnect"; // ES Modules import
  * // const { MediaConnectClient, DeleteFlowCommand } = require("@aws-sdk/client-mediaconnect"); // CommonJS import
  * const client = new MediaConnectClient(config);
+ * const input = {
+ *   FlowArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteFlowCommand(input);
  * const response = await client.send(command);
  * ```

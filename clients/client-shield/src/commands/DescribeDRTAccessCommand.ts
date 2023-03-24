@@ -42,6 +42,7 @@ export interface DescribeDRTAccessCommandOutput extends DescribeDRTAccessRespons
  * import { ShieldClient, DescribeDRTAccessCommand } from "@aws-sdk/client-shield"; // ES Modules import
  * // const { ShieldClient, DescribeDRTAccessCommand } = require("@aws-sdk/client-shield"); // CommonJS import
  * const client = new ShieldClient(config);
+ * const input = {};
  * const command = new DescribeDRTAccessCommand(input);
  * const response = await client.send(command);
  * ```

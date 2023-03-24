@@ -44,6 +44,23 @@ export interface IncreaseReplicaCountCommandOutput extends IncreaseReplicaCountR
  * import { ElastiCacheClient, IncreaseReplicaCountCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, IncreaseReplicaCountCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
  * const client = new ElastiCacheClient(config);
+ * const input = {
+ *   ReplicationGroupId: "STRING_VALUE", // required
+ *   NewReplicaCount: Number("int"),
+ *   ReplicaConfiguration: [
+ *     {
+ *       NodeGroupId: "STRING_VALUE", // required
+ *       NewReplicaCount: Number("int"), // required
+ *       PreferredAvailabilityZones: [
+ *         "STRING_VALUE",
+ *       ],
+ *       PreferredOutpostArns: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   ApplyImmediately: true || false, // required
+ * };
  * const command = new IncreaseReplicaCountCommand(input);
  * const response = await client.send(command);
  * ```

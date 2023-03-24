@@ -44,6 +44,15 @@ export interface CreateReceiptFilterCommandOutput extends CreateReceiptFilterRes
  * import { SESClient, CreateReceiptFilterCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, CreateReceiptFilterCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
+ * const input = {
+ *   Filter: {
+ *     Name: "STRING_VALUE", // required
+ *     IpFilter: {
+ *       Policy: "STRING_VALUE", // required
+ *       Cidr: "STRING_VALUE", // required
+ *     },
+ *   },
+ * };
  * const command = new CreateReceiptFilterCommand(input);
  * const response = await client.send(command);
  * ```

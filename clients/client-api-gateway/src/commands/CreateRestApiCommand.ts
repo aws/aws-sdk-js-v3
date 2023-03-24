@@ -42,6 +42,30 @@ export interface CreateRestApiCommandOutput extends RestApi, __MetadataBearer {}
  * import { APIGatewayClient, CreateRestApiCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, CreateRestApiCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
+ * const input = {
+ *   name: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   version: "STRING_VALUE",
+ *   cloneFrom: "STRING_VALUE",
+ *   binaryMediaTypes: [
+ *     "STRING_VALUE",
+ *   ],
+ *   minimumCompressionSize: Number("int"),
+ *   apiKeySource: "HEADER" || "AUTHORIZER",
+ *   endpointConfiguration: {
+ *     types: [
+ *       "REGIONAL" || "EDGE" || "PRIVATE",
+ *     ],
+ *     vpcEndpointIds: [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   policy: "STRING_VALUE",
+ *   tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   disableExecuteApiEndpoint: true || false,
+ * };
  * const command = new CreateRestApiCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,84 @@ export interface UpdatePartitionCommandOutput extends UpdatePartitionResponse, _
  * import { GlueClient, UpdatePartitionCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, UpdatePartitionCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = {
+ *   CatalogId: "STRING_VALUE",
+ *   DatabaseName: "STRING_VALUE", // required
+ *   TableName: "STRING_VALUE", // required
+ *   PartitionValueList: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ *   PartitionInput: {
+ *     Values: [
+ *       "STRING_VALUE",
+ *     ],
+ *     LastAccessTime: new Date("TIMESTAMP"),
+ *     StorageDescriptor: {
+ *       Columns: [
+ *         {
+ *           Name: "STRING_VALUE", // required
+ *           Type: "STRING_VALUE",
+ *           Comment: "STRING_VALUE",
+ *           Parameters: {
+ *             "<keys>": "STRING_VALUE",
+ *           },
+ *         },
+ *       ],
+ *       Location: "STRING_VALUE",
+ *       AdditionalLocations: [
+ *         "STRING_VALUE",
+ *       ],
+ *       InputFormat: "STRING_VALUE",
+ *       OutputFormat: "STRING_VALUE",
+ *       Compressed: true || false,
+ *       NumberOfBuckets: Number("int"),
+ *       SerdeInfo: {
+ *         Name: "STRING_VALUE",
+ *         SerializationLibrary: "STRING_VALUE",
+ *         Parameters: {
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *       },
+ *       BucketColumns: [
+ *         "STRING_VALUE",
+ *       ],
+ *       SortColumns: [
+ *         {
+ *           Column: "STRING_VALUE", // required
+ *           SortOrder: Number("int"), // required
+ *         },
+ *       ],
+ *       Parameters: {
+ *         "<keys>": "<ParametersMapValue>",
+ *       },
+ *       SkewedInfo: {
+ *         SkewedColumnNames: [
+ *           "STRING_VALUE",
+ *         ],
+ *         SkewedColumnValues: [
+ *           "STRING_VALUE",
+ *         ],
+ *         SkewedColumnValueLocationMaps: {
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *       },
+ *       StoredAsSubDirectories: true || false,
+ *       SchemaReference: {
+ *         SchemaId: {
+ *           SchemaArn: "STRING_VALUE",
+ *           SchemaName: "STRING_VALUE",
+ *           RegistryName: "STRING_VALUE",
+ *         },
+ *         SchemaVersionId: "STRING_VALUE",
+ *         SchemaVersionNumber: Number("long"),
+ *       },
+ *     },
+ *     Parameters: {
+ *       "<keys>": "<ParametersMapValue>",
+ *     },
+ *     LastAnalyzedTime: new Date("TIMESTAMP"),
+ *   },
+ * };
  * const command = new UpdatePartitionCommand(input);
  * const response = await client.send(command);
  * ```

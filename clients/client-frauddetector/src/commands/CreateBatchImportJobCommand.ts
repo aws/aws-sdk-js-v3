@@ -42,6 +42,19 @@ export interface CreateBatchImportJobCommandOutput extends CreateBatchImportJobR
  * import { FraudDetectorClient, CreateBatchImportJobCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, CreateBatchImportJobCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
  * const client = new FraudDetectorClient(config);
+ * const input = {
+ *   jobId: "STRING_VALUE", // required
+ *   inputPath: "STRING_VALUE", // required
+ *   outputPath: "STRING_VALUE", // required
+ *   eventTypeName: "STRING_VALUE", // required
+ *   iamRoleArn: "STRING_VALUE", // required
+ *   tags: [
+ *     {
+ *       key: "STRING_VALUE", // required
+ *       value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateBatchImportJobCommand(input);
  * const response = await client.send(command);
  * ```

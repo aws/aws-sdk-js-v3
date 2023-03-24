@@ -50,6 +50,10 @@ export interface DisassociateWebsiteCertificateAuthorityCommandOutput
  * import { WorkLinkClient, DisassociateWebsiteCertificateAuthorityCommand } from "@aws-sdk/client-worklink"; // ES Modules import
  * // const { WorkLinkClient, DisassociateWebsiteCertificateAuthorityCommand } = require("@aws-sdk/client-worklink"); // CommonJS import
  * const client = new WorkLinkClient(config);
+ * const input = {
+ *   FleetArn: "STRING_VALUE", // required
+ *   WebsiteCaId: "STRING_VALUE", // required
+ * };
  * const command = new DisassociateWebsiteCertificateAuthorityCommand(input);
  * const response = await client.send(command);
  * ```

@@ -215,6 +215,27 @@ export interface UploadPartCopyCommandOutput extends UploadPartCopyOutput, __Met
  * import { S3Client, UploadPartCopyCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, UploadPartCopyCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
+ * const input = {
+ *   Bucket: "STRING_VALUE", // required
+ *   CopySource: "STRING_VALUE", // required
+ *   CopySourceIfMatch: "STRING_VALUE",
+ *   CopySourceIfModifiedSince: new Date("TIMESTAMP"),
+ *   CopySourceIfNoneMatch: "STRING_VALUE",
+ *   CopySourceIfUnmodifiedSince: new Date("TIMESTAMP"),
+ *   CopySourceRange: "STRING_VALUE",
+ *   Key: "STRING_VALUE", // required
+ *   PartNumber: Number("int"), // required
+ *   UploadId: "STRING_VALUE", // required
+ *   SSECustomerAlgorithm: "STRING_VALUE",
+ *   SSECustomerKey: "STRING_VALUE",
+ *   SSECustomerKeyMD5: "STRING_VALUE",
+ *   CopySourceSSECustomerAlgorithm: "STRING_VALUE",
+ *   CopySourceSSECustomerKey: "STRING_VALUE",
+ *   CopySourceSSECustomerKeyMD5: "STRING_VALUE",
+ *   RequestPayer: "requester",
+ *   ExpectedBucketOwner: "STRING_VALUE",
+ *   ExpectedSourceBucketOwner: "STRING_VALUE",
+ * };
  * const command = new UploadPartCopyCommand(input);
  * const response = await client.send(command);
  * ```

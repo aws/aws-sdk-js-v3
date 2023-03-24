@@ -44,6 +44,10 @@ export interface ListTablesCommandOutput extends ListTablesOutput, __MetadataBea
  * import { DynamoDBClient, ListTablesCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
  * // const { DynamoDBClient, ListTablesCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
  * const client = new DynamoDBClient(config);
+ * const input = {
+ *   ExclusiveStartTableName: "STRING_VALUE",
+ *   Limit: Number("int"),
+ * };
  * const command = new ListTablesCommand(input);
  * const response = await client.send(command);
  * ```

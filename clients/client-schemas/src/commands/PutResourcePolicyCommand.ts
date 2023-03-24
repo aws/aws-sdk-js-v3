@@ -42,6 +42,11 @@ export interface PutResourcePolicyCommandOutput extends PutResourcePolicyRespons
  * import { SchemasClient, PutResourcePolicyCommand } from "@aws-sdk/client-schemas"; // ES Modules import
  * // const { SchemasClient, PutResourcePolicyCommand } = require("@aws-sdk/client-schemas"); // CommonJS import
  * const client = new SchemasClient(config);
+ * const input = {
+ *   Policy: "STRING_VALUE", // required
+ *   RegistryName: "STRING_VALUE",
+ *   RevisionId: "STRING_VALUE",
+ * };
  * const command = new PutResourcePolicyCommand(input);
  * const response = await client.send(command);
  * ```

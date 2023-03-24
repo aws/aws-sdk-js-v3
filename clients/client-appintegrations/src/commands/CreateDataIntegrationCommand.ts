@@ -47,6 +47,38 @@ export interface CreateDataIntegrationCommandOutput extends CreateDataIntegratio
  * import { AppIntegrationsClient, CreateDataIntegrationCommand } from "@aws-sdk/client-appintegrations"; // ES Modules import
  * // const { AppIntegrationsClient, CreateDataIntegrationCommand } = require("@aws-sdk/client-appintegrations"); // CommonJS import
  * const client = new AppIntegrationsClient(config);
+ * const input = {
+ *   Name: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   KmsKey: "STRING_VALUE", // required
+ *   SourceURI: "STRING_VALUE", // required
+ *   ScheduleConfig: {
+ *     FirstExecutionFrom: "STRING_VALUE",
+ *     Object: "STRING_VALUE",
+ *     ScheduleExpression: "STRING_VALUE", // required
+ *   },
+ *   Tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   ClientToken: "STRING_VALUE",
+ *   FileConfiguration: {
+ *     Folders: [ // required
+ *       "STRING_VALUE",
+ *     ],
+ *     Filters: {
+ *       "<keys>": [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   },
+ *   ObjectConfiguration: {
+ *     "<keys>": {
+ *       "<keys>": [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   },
+ * };
  * const command = new CreateDataIntegrationCommand(input);
  * const response = await client.send(command);
  * ```

@@ -44,6 +44,50 @@ export interface ModifyInstanceGroupsCommandOutput extends __MetadataBearer {}
  * import { EMRClient, ModifyInstanceGroupsCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, ModifyInstanceGroupsCommand } = require("@aws-sdk/client-emr"); // CommonJS import
  * const client = new EMRClient(config);
+ * const input = {
+ *   ClusterId: "STRING_VALUE",
+ *   InstanceGroups: [
+ *     {
+ *       InstanceGroupId: "STRING_VALUE", // required
+ *       InstanceCount: Number("int"),
+ *       EC2InstanceIdsToTerminate: [
+ *         "STRING_VALUE",
+ *       ],
+ *       ShrinkPolicy: {
+ *         DecommissionTimeout: Number("int"),
+ *         InstanceResizePolicy: {
+ *           InstancesToTerminate: [
+ *             "STRING_VALUE",
+ *           ],
+ *           InstancesToProtect: [
+ *             "STRING_VALUE",
+ *           ],
+ *           InstanceTerminationTimeout: Number("int"),
+ *         },
+ *       },
+ *       ReconfigurationType: "OVERWRITE" || "MERGE",
+ *       Configurations: [
+ *         {
+ *           Classification: "STRING_VALUE",
+ *           Configurations: [
+ *             {
+ *               Classification: "STRING_VALUE",
+ *               Configurations: [
+ *                 "<ConfigurationList>",
+ *               ],
+ *               Properties: {
+ *                 "<keys>": "STRING_VALUE",
+ *               },
+ *             },
+ *           ],
+ *           Properties: {
+ *             "<keys>": "STRING_VALUE",
+ *           },
+ *         },
+ *       ],
+ *     },
+ *   ],
+ * };
  * const command = new ModifyInstanceGroupsCommand(input);
  * const response = await client.send(command);
  * ```

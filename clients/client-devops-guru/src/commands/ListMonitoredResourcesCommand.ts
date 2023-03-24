@@ -44,6 +44,16 @@ export interface ListMonitoredResourcesCommandOutput extends ListMonitoredResour
  * import { DevOpsGuruClient, ListMonitoredResourcesCommand } from "@aws-sdk/client-devops-guru"; // ES Modules import
  * // const { DevOpsGuruClient, ListMonitoredResourcesCommand } = require("@aws-sdk/client-devops-guru"); // CommonJS import
  * const client = new DevOpsGuruClient(config);
+ * const input = {
+ *   Filters: {
+ *     ResourcePermission: "FULL_PERMISSION" || "MISSING_PERMISSION", // required
+ *     ResourceTypeFilters: [ // required
+ *       "LOG_GROUPS" || "CLOUDFRONT_DISTRIBUTION" || "DYNAMODB_TABLE" || "EC2_NAT_GATEWAY" || "ECS_CLUSTER" || "ECS_SERVICE" || "EKS_CLUSTER" || "ELASTIC_BEANSTALK_ENVIRONMENT" || "ELASTIC_LOAD_BALANCER_LOAD_BALANCER" || "ELASTIC_LOAD_BALANCING_V2_LOAD_BALANCER" || "ELASTIC_LOAD_BALANCING_V2_TARGET_GROUP" || "ELASTICACHE_CACHE_CLUSTER" || "ELASTICSEARCH_DOMAIN" || "KINESIS_STREAM" || "LAMBDA_FUNCTION" || "OPEN_SEARCH_SERVICE_DOMAIN" || "RDS_DB_INSTANCE" || "RDS_DB_CLUSTER" || "REDSHIFT_CLUSTER" || "ROUTE53_HOSTED_ZONE" || "ROUTE53_HEALTH_CHECK" || "S3_BUCKET" || "SAGEMAKER_ENDPOINT" || "SNS_TOPIC" || "SQS_QUEUE" || "STEP_FUNCTIONS_ACTIVITY" || "STEP_FUNCTIONS_STATE_MACHINE",
+ *     ],
+ *   },
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListMonitoredResourcesCommand(input);
  * const response = await client.send(command);
  * ```

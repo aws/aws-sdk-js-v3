@@ -53,6 +53,22 @@ export interface UpdateFleetAttributesCommandOutput extends UpdateFleetAttribute
  * import { GameLiftClient, UpdateFleetAttributesCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, UpdateFleetAttributesCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = {
+ *   FleetId: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   NewGameSessionProtectionPolicy: "NoProtection" || "FullProtection",
+ *   ResourceCreationLimitPolicy: {
+ *     NewGameSessionsPerCreator: Number("int"),
+ *     PolicyPeriodInMinutes: Number("int"),
+ *   },
+ *   MetricGroups: [
+ *     "STRING_VALUE",
+ *   ],
+ *   AnywhereConfiguration: {
+ *     Cost: "STRING_VALUE", // required
+ *   },
+ * };
  * const command = new UpdateFleetAttributesCommand(input);
  * const response = await client.send(command);
  * ```

@@ -44,6 +44,14 @@ export interface ListApplicationsCommandOutput extends ListApplicationsResponse,
  * import { M2Client, ListApplicationsCommand } from "@aws-sdk/client-m2"; // ES Modules import
  * // const { M2Client, ListApplicationsCommand } = require("@aws-sdk/client-m2"); // CommonJS import
  * const client = new M2Client(config);
+ * const input = {
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   names: [
+ *     "STRING_VALUE",
+ *   ],
+ *   environmentId: "STRING_VALUE",
+ * };
  * const command = new ListApplicationsCommand(input);
  * const response = await client.send(command);
  * ```

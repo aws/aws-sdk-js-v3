@@ -44,6 +44,418 @@ export interface CreateTopicRuleCommandOutput extends __MetadataBearer {}
  * import { IoTClient, CreateTopicRuleCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, CreateTopicRuleCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = {
+ *   ruleName: "STRING_VALUE", // required
+ *   topicRulePayload: {
+ *     sql: "STRING_VALUE", // required
+ *     description: "STRING_VALUE",
+ *     actions: [ // required
+ *       {
+ *         dynamoDB: {
+ *           tableName: "STRING_VALUE", // required
+ *           roleArn: "STRING_VALUE", // required
+ *           operation: "STRING_VALUE",
+ *           hashKeyField: "STRING_VALUE", // required
+ *           hashKeyValue: "STRING_VALUE", // required
+ *           hashKeyType: "STRING" || "NUMBER",
+ *           rangeKeyField: "STRING_VALUE",
+ *           rangeKeyValue: "STRING_VALUE",
+ *           rangeKeyType: "STRING" || "NUMBER",
+ *           payloadField: "STRING_VALUE",
+ *         },
+ *         dynamoDBv2: {
+ *           roleArn: "STRING_VALUE", // required
+ *           putItem: {
+ *             tableName: "STRING_VALUE", // required
+ *           },
+ *         },
+ *         lambda: {
+ *           functionArn: "STRING_VALUE", // required
+ *         },
+ *         sns: {
+ *           targetArn: "STRING_VALUE", // required
+ *           roleArn: "STRING_VALUE", // required
+ *           messageFormat: "RAW" || "JSON",
+ *         },
+ *         sqs: {
+ *           roleArn: "STRING_VALUE", // required
+ *           queueUrl: "STRING_VALUE", // required
+ *           useBase64: true || false,
+ *         },
+ *         kinesis: {
+ *           roleArn: "STRING_VALUE", // required
+ *           streamName: "STRING_VALUE", // required
+ *           partitionKey: "STRING_VALUE",
+ *         },
+ *         republish: {
+ *           roleArn: "STRING_VALUE", // required
+ *           topic: "STRING_VALUE", // required
+ *           qos: Number("int"),
+ *           headers: {
+ *             payloadFormatIndicator: "STRING_VALUE",
+ *             contentType: "STRING_VALUE",
+ *             responseTopic: "STRING_VALUE",
+ *             correlationData: "STRING_VALUE",
+ *             messageExpiry: "STRING_VALUE",
+ *             userProperties: [
+ *               {
+ *                 key: "STRING_VALUE", // required
+ *                 value: "STRING_VALUE", // required
+ *               },
+ *             ],
+ *           },
+ *         },
+ *         s3: {
+ *           roleArn: "STRING_VALUE", // required
+ *           bucketName: "STRING_VALUE", // required
+ *           key: "STRING_VALUE", // required
+ *           cannedAcl: "private" || "public-read" || "public-read-write" || "aws-exec-read" || "authenticated-read" || "bucket-owner-read" || "bucket-owner-full-control" || "log-delivery-write",
+ *         },
+ *         firehose: {
+ *           roleArn: "STRING_VALUE", // required
+ *           deliveryStreamName: "STRING_VALUE", // required
+ *           separator: "STRING_VALUE",
+ *           batchMode: true || false,
+ *         },
+ *         cloudwatchMetric: {
+ *           roleArn: "STRING_VALUE", // required
+ *           metricNamespace: "STRING_VALUE", // required
+ *           metricName: "STRING_VALUE", // required
+ *           metricValue: "STRING_VALUE", // required
+ *           metricUnit: "STRING_VALUE", // required
+ *           metricTimestamp: "STRING_VALUE",
+ *         },
+ *         cloudwatchAlarm: {
+ *           roleArn: "STRING_VALUE", // required
+ *           alarmName: "STRING_VALUE", // required
+ *           stateReason: "STRING_VALUE", // required
+ *           stateValue: "STRING_VALUE", // required
+ *         },
+ *         cloudwatchLogs: {
+ *           roleArn: "STRING_VALUE", // required
+ *           logGroupName: "STRING_VALUE", // required
+ *           batchMode: true || false,
+ *         },
+ *         elasticsearch: {
+ *           roleArn: "STRING_VALUE", // required
+ *           endpoint: "STRING_VALUE", // required
+ *           index: "STRING_VALUE", // required
+ *           type: "STRING_VALUE", // required
+ *           id: "STRING_VALUE", // required
+ *         },
+ *         salesforce: {
+ *           token: "STRING_VALUE", // required
+ *           url: "STRING_VALUE", // required
+ *         },
+ *         iotAnalytics: {
+ *           channelArn: "STRING_VALUE",
+ *           channelName: "STRING_VALUE",
+ *           batchMode: true || false,
+ *           roleArn: "STRING_VALUE",
+ *         },
+ *         iotEvents: {
+ *           inputName: "STRING_VALUE", // required
+ *           messageId: "STRING_VALUE",
+ *           batchMode: true || false,
+ *           roleArn: "STRING_VALUE", // required
+ *         },
+ *         iotSiteWise: {
+ *           putAssetPropertyValueEntries: [ // required
+ *             {
+ *               entryId: "STRING_VALUE",
+ *               assetId: "STRING_VALUE",
+ *               propertyId: "STRING_VALUE",
+ *               propertyAlias: "STRING_VALUE",
+ *               propertyValues: [ // required
+ *                 {
+ *                   value: { // Union: only one key present
+ *                     stringValue: "STRING_VALUE",
+ *                     integerValue: "STRING_VALUE",
+ *                     doubleValue: "STRING_VALUE",
+ *                     booleanValue: "STRING_VALUE",
+ *                   },
+ *                   timestamp: {
+ *                     timeInSeconds: "STRING_VALUE", // required
+ *                     offsetInNanos: "STRING_VALUE",
+ *                   },
+ *                   quality: "STRING_VALUE",
+ *                 },
+ *               ],
+ *             },
+ *           ],
+ *           roleArn: "STRING_VALUE", // required
+ *         },
+ *         stepFunctions: {
+ *           executionNamePrefix: "STRING_VALUE",
+ *           stateMachineName: "STRING_VALUE", // required
+ *           roleArn: "STRING_VALUE", // required
+ *         },
+ *         timestream: {
+ *           roleArn: "STRING_VALUE", // required
+ *           databaseName: "STRING_VALUE", // required
+ *           tableName: "STRING_VALUE", // required
+ *           dimensions: [ // required
+ *             {
+ *               name: "STRING_VALUE", // required
+ *               value: "STRING_VALUE", // required
+ *             },
+ *           ],
+ *           timestamp: {
+ *             value: "STRING_VALUE", // required
+ *             unit: "STRING_VALUE", // required
+ *           },
+ *         },
+ *         http: {
+ *           url: "STRING_VALUE", // required
+ *           confirmationUrl: "STRING_VALUE",
+ *           headers: [
+ *             {
+ *               key: "STRING_VALUE", // required
+ *               value: "STRING_VALUE", // required
+ *             },
+ *           ],
+ *           auth: {
+ *             sigv4: {
+ *               signingRegion: "STRING_VALUE", // required
+ *               serviceName: "STRING_VALUE", // required
+ *               roleArn: "STRING_VALUE", // required
+ *             },
+ *           },
+ *         },
+ *         kafka: {
+ *           destinationArn: "STRING_VALUE", // required
+ *           topic: "STRING_VALUE", // required
+ *           key: "STRING_VALUE",
+ *           partition: "STRING_VALUE",
+ *           clientProperties: { // required
+ *             "<keys>": "STRING_VALUE",
+ *           },
+ *         },
+ *         openSearch: {
+ *           roleArn: "STRING_VALUE", // required
+ *           endpoint: "STRING_VALUE", // required
+ *           index: "STRING_VALUE", // required
+ *           type: "STRING_VALUE", // required
+ *           id: "STRING_VALUE", // required
+ *         },
+ *         location: {
+ *           roleArn: "STRING_VALUE", // required
+ *           trackerName: "STRING_VALUE", // required
+ *           deviceId: "STRING_VALUE", // required
+ *           timestamp: {
+ *             value: "STRING_VALUE", // required
+ *             unit: "STRING_VALUE",
+ *           },
+ *           latitude: "STRING_VALUE", // required
+ *           longitude: "STRING_VALUE", // required
+ *         },
+ *       },
+ *     ],
+ *     ruleDisabled: true || false,
+ *     awsIotSqlVersion: "STRING_VALUE",
+ *     errorAction: {
+ *       dynamoDB: {
+ *         tableName: "STRING_VALUE", // required
+ *         roleArn: "STRING_VALUE", // required
+ *         operation: "STRING_VALUE",
+ *         hashKeyField: "STRING_VALUE", // required
+ *         hashKeyValue: "STRING_VALUE", // required
+ *         hashKeyType: "STRING" || "NUMBER",
+ *         rangeKeyField: "STRING_VALUE",
+ *         rangeKeyValue: "STRING_VALUE",
+ *         rangeKeyType: "STRING" || "NUMBER",
+ *         payloadField: "STRING_VALUE",
+ *       },
+ *       dynamoDBv2: {
+ *         roleArn: "STRING_VALUE", // required
+ *         putItem: {
+ *           tableName: "STRING_VALUE", // required
+ *         },
+ *       },
+ *       lambda: {
+ *         functionArn: "STRING_VALUE", // required
+ *       },
+ *       sns: {
+ *         targetArn: "STRING_VALUE", // required
+ *         roleArn: "STRING_VALUE", // required
+ *         messageFormat: "RAW" || "JSON",
+ *       },
+ *       sqs: {
+ *         roleArn: "STRING_VALUE", // required
+ *         queueUrl: "STRING_VALUE", // required
+ *         useBase64: true || false,
+ *       },
+ *       kinesis: {
+ *         roleArn: "STRING_VALUE", // required
+ *         streamName: "STRING_VALUE", // required
+ *         partitionKey: "STRING_VALUE",
+ *       },
+ *       republish: {
+ *         roleArn: "STRING_VALUE", // required
+ *         topic: "STRING_VALUE", // required
+ *         qos: Number("int"),
+ *         headers: {
+ *           payloadFormatIndicator: "STRING_VALUE",
+ *           contentType: "STRING_VALUE",
+ *           responseTopic: "STRING_VALUE",
+ *           correlationData: "STRING_VALUE",
+ *           messageExpiry: "STRING_VALUE",
+ *           userProperties: [
+ *             {
+ *               key: "STRING_VALUE", // required
+ *               value: "STRING_VALUE", // required
+ *             },
+ *           ],
+ *         },
+ *       },
+ *       s3: {
+ *         roleArn: "STRING_VALUE", // required
+ *         bucketName: "STRING_VALUE", // required
+ *         key: "STRING_VALUE", // required
+ *         cannedAcl: "private" || "public-read" || "public-read-write" || "aws-exec-read" || "authenticated-read" || "bucket-owner-read" || "bucket-owner-full-control" || "log-delivery-write",
+ *       },
+ *       firehose: {
+ *         roleArn: "STRING_VALUE", // required
+ *         deliveryStreamName: "STRING_VALUE", // required
+ *         separator: "STRING_VALUE",
+ *         batchMode: true || false,
+ *       },
+ *       cloudwatchMetric: {
+ *         roleArn: "STRING_VALUE", // required
+ *         metricNamespace: "STRING_VALUE", // required
+ *         metricName: "STRING_VALUE", // required
+ *         metricValue: "STRING_VALUE", // required
+ *         metricUnit: "STRING_VALUE", // required
+ *         metricTimestamp: "STRING_VALUE",
+ *       },
+ *       cloudwatchAlarm: {
+ *         roleArn: "STRING_VALUE", // required
+ *         alarmName: "STRING_VALUE", // required
+ *         stateReason: "STRING_VALUE", // required
+ *         stateValue: "STRING_VALUE", // required
+ *       },
+ *       cloudwatchLogs: {
+ *         roleArn: "STRING_VALUE", // required
+ *         logGroupName: "STRING_VALUE", // required
+ *         batchMode: true || false,
+ *       },
+ *       elasticsearch: {
+ *         roleArn: "STRING_VALUE", // required
+ *         endpoint: "STRING_VALUE", // required
+ *         index: "STRING_VALUE", // required
+ *         type: "STRING_VALUE", // required
+ *         id: "STRING_VALUE", // required
+ *       },
+ *       salesforce: {
+ *         token: "STRING_VALUE", // required
+ *         url: "STRING_VALUE", // required
+ *       },
+ *       iotAnalytics: {
+ *         channelArn: "STRING_VALUE",
+ *         channelName: "STRING_VALUE",
+ *         batchMode: true || false,
+ *         roleArn: "STRING_VALUE",
+ *       },
+ *       iotEvents: {
+ *         inputName: "STRING_VALUE", // required
+ *         messageId: "STRING_VALUE",
+ *         batchMode: true || false,
+ *         roleArn: "STRING_VALUE", // required
+ *       },
+ *       iotSiteWise: {
+ *         putAssetPropertyValueEntries: [ // required
+ *           {
+ *             entryId: "STRING_VALUE",
+ *             assetId: "STRING_VALUE",
+ *             propertyId: "STRING_VALUE",
+ *             propertyAlias: "STRING_VALUE",
+ *             propertyValues: [ // required
+ *               {
+ *                 value: { // Union: only one key present
+ *                   stringValue: "STRING_VALUE",
+ *                   integerValue: "STRING_VALUE",
+ *                   doubleValue: "STRING_VALUE",
+ *                   booleanValue: "STRING_VALUE",
+ *                 },
+ *                 timestamp: {
+ *                   timeInSeconds: "STRING_VALUE", // required
+ *                   offsetInNanos: "STRING_VALUE",
+ *                 },
+ *                 quality: "STRING_VALUE",
+ *               },
+ *             ],
+ *           },
+ *         ],
+ *         roleArn: "STRING_VALUE", // required
+ *       },
+ *       stepFunctions: {
+ *         executionNamePrefix: "STRING_VALUE",
+ *         stateMachineName: "STRING_VALUE", // required
+ *         roleArn: "STRING_VALUE", // required
+ *       },
+ *       timestream: {
+ *         roleArn: "STRING_VALUE", // required
+ *         databaseName: "STRING_VALUE", // required
+ *         tableName: "STRING_VALUE", // required
+ *         dimensions: [ // required
+ *           {
+ *             name: "STRING_VALUE", // required
+ *             value: "STRING_VALUE", // required
+ *           },
+ *         ],
+ *         timestamp: {
+ *           value: "STRING_VALUE", // required
+ *           unit: "STRING_VALUE", // required
+ *         },
+ *       },
+ *       http: {
+ *         url: "STRING_VALUE", // required
+ *         confirmationUrl: "STRING_VALUE",
+ *         headers: [
+ *           {
+ *             key: "STRING_VALUE", // required
+ *             value: "STRING_VALUE", // required
+ *           },
+ *         ],
+ *         auth: {
+ *           sigv4: {
+ *             signingRegion: "STRING_VALUE", // required
+ *             serviceName: "STRING_VALUE", // required
+ *             roleArn: "STRING_VALUE", // required
+ *           },
+ *         },
+ *       },
+ *       kafka: {
+ *         destinationArn: "STRING_VALUE", // required
+ *         topic: "STRING_VALUE", // required
+ *         key: "STRING_VALUE",
+ *         partition: "STRING_VALUE",
+ *         clientProperties: { // required
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *       },
+ *       openSearch: {
+ *         roleArn: "STRING_VALUE", // required
+ *         endpoint: "STRING_VALUE", // required
+ *         index: "STRING_VALUE", // required
+ *         type: "STRING_VALUE", // required
+ *         id: "STRING_VALUE", // required
+ *       },
+ *       location: {
+ *         roleArn: "STRING_VALUE", // required
+ *         trackerName: "STRING_VALUE", // required
+ *         deviceId: "STRING_VALUE", // required
+ *         timestamp: {
+ *           value: "STRING_VALUE", // required
+ *           unit: "STRING_VALUE",
+ *         },
+ *         latitude: "STRING_VALUE", // required
+ *         longitude: "STRING_VALUE", // required
+ *       },
+ *     },
+ *   },
+ *   tags: "STRING_VALUE",
+ * };
  * const command = new CreateTopicRuleCommand(input);
  * const response = await client.send(command);
  * ```

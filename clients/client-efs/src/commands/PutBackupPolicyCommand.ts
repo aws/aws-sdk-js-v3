@@ -42,6 +42,12 @@ export interface PutBackupPolicyCommandOutput extends BackupPolicyDescription, _
  * import { EFSClient, PutBackupPolicyCommand } from "@aws-sdk/client-efs"; // ES Modules import
  * // const { EFSClient, PutBackupPolicyCommand } = require("@aws-sdk/client-efs"); // CommonJS import
  * const client = new EFSClient(config);
+ * const input = {
+ *   FileSystemId: "STRING_VALUE", // required
+ *   BackupPolicy: {
+ *     Status: "ENABLED" || "ENABLING" || "DISABLED" || "DISABLING", // required
+ *   },
+ * };
  * const command = new PutBackupPolicyCommand(input);
  * const response = await client.send(command);
  * ```

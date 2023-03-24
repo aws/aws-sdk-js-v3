@@ -47,6 +47,20 @@ export interface UpdateDirectoryConfigCommandOutput extends UpdateDirectoryConfi
  * import { AppStreamClient, UpdateDirectoryConfigCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, UpdateDirectoryConfigCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
  * const client = new AppStreamClient(config);
+ * const input = {
+ *   DirectoryName: "STRING_VALUE", // required
+ *   OrganizationalUnitDistinguishedNames: [
+ *     "STRING_VALUE",
+ *   ],
+ *   ServiceAccountCredentials: {
+ *     AccountName: "STRING_VALUE", // required
+ *     AccountPassword: "STRING_VALUE", // required
+ *   },
+ *   CertificateBasedAuthProperties: {
+ *     Status: "DISABLED" || "ENABLED" || "ENABLED_NO_DIRECTORY_LOGIN_FALLBACK",
+ *     CertificateAuthorityArn: "STRING_VALUE",
+ *   },
+ * };
  * const command = new UpdateDirectoryConfigCommand(input);
  * const response = await client.send(command);
  * ```

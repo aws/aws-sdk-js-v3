@@ -42,6 +42,10 @@ export interface GetTerminologyCommandOutput extends GetTerminologyResponse, __M
  * import { TranslateClient, GetTerminologyCommand } from "@aws-sdk/client-translate"; // ES Modules import
  * // const { TranslateClient, GetTerminologyCommand } = require("@aws-sdk/client-translate"); // CommonJS import
  * const client = new TranslateClient(config);
+ * const input = {
+ *   Name: "STRING_VALUE", // required
+ *   TerminologyDataFormat: "CSV" || "TMX" || "TSV",
+ * };
  * const command = new GetTerminologyCommand(input);
  * const response = await client.send(command);
  * ```

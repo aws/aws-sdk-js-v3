@@ -48,6 +48,7 @@ export interface GetMessagingSessionEndpointCommandOutput
  * import { ChimeSDKMessagingClient, GetMessagingSessionEndpointCommand } from "@aws-sdk/client-chime-sdk-messaging"; // ES Modules import
  * // const { ChimeSDKMessagingClient, GetMessagingSessionEndpointCommand } = require("@aws-sdk/client-chime-sdk-messaging"); // CommonJS import
  * const client = new ChimeSDKMessagingClient(config);
+ * const input = {};
  * const command = new GetMessagingSessionEndpointCommand(input);
  * const response = await client.send(command);
  * ```

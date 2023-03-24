@@ -44,6 +44,10 @@ export interface TestRenderTemplateCommandOutput extends TestRenderTemplateRespo
  * import { SESClient, TestRenderTemplateCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, TestRenderTemplateCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
+ * const input = {
+ *   TemplateName: "STRING_VALUE", // required
+ *   TemplateData: "STRING_VALUE", // required
+ * };
  * const command = new TestRenderTemplateCommand(input);
  * const response = await client.send(command);
  * ```

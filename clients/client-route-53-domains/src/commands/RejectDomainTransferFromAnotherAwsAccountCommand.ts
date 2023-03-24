@@ -51,6 +51,9 @@ export interface RejectDomainTransferFromAnotherAwsAccountCommandOutput
  * import { Route53DomainsClient, RejectDomainTransferFromAnotherAwsAccountCommand } from "@aws-sdk/client-route-53-domains"; // ES Modules import
  * // const { Route53DomainsClient, RejectDomainTransferFromAnotherAwsAccountCommand } = require("@aws-sdk/client-route-53-domains"); // CommonJS import
  * const client = new Route53DomainsClient(config);
+ * const input = {
+ *   DomainName: "STRING_VALUE", // required
+ * };
  * const command = new RejectDomainTransferFromAnotherAwsAccountCommand(input);
  * const response = await client.send(command);
  * ```

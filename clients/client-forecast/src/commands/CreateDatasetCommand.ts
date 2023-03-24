@@ -87,6 +87,30 @@ export interface CreateDatasetCommandOutput extends CreateDatasetResponse, __Met
  * import { ForecastClient, CreateDatasetCommand } from "@aws-sdk/client-forecast"; // ES Modules import
  * // const { ForecastClient, CreateDatasetCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
  * const client = new ForecastClient(config);
+ * const input = {
+ *   DatasetName: "STRING_VALUE", // required
+ *   Domain: "RETAIL" || "CUSTOM" || "INVENTORY_PLANNING" || "EC2_CAPACITY" || "WORK_FORCE" || "WEB_TRAFFIC" || "METRICS", // required
+ *   DatasetType: "TARGET_TIME_SERIES" || "RELATED_TIME_SERIES" || "ITEM_METADATA", // required
+ *   DataFrequency: "STRING_VALUE",
+ *   Schema: {
+ *     Attributes: [
+ *       {
+ *         AttributeName: "STRING_VALUE",
+ *         AttributeType: "string" || "integer" || "float" || "timestamp" || "geolocation",
+ *       },
+ *     ],
+ *   },
+ *   EncryptionConfig: {
+ *     RoleArn: "STRING_VALUE", // required
+ *     KMSKeyArn: "STRING_VALUE", // required
+ *   },
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateDatasetCommand(input);
  * const response = await client.send(command);
  * ```

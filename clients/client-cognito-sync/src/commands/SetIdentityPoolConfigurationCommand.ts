@@ -94,6 +94,20 @@ export interface SetIdentityPoolConfigurationCommandOutput
  * import { CognitoSyncClient, SetIdentityPoolConfigurationCommand } from "@aws-sdk/client-cognito-sync"; // ES Modules import
  * // const { CognitoSyncClient, SetIdentityPoolConfigurationCommand } = require("@aws-sdk/client-cognito-sync"); // CommonJS import
  * const client = new CognitoSyncClient(config);
+ * const input = {
+ *   IdentityPoolId: "STRING_VALUE", // required
+ *   PushSync: {
+ *     ApplicationArns: [
+ *       "STRING_VALUE",
+ *     ],
+ *     RoleArn: "STRING_VALUE",
+ *   },
+ *   CognitoStreams: {
+ *     StreamName: "STRING_VALUE",
+ *     RoleArn: "STRING_VALUE",
+ *     StreamingStatus: "STRING_VALUE",
+ *   },
+ * };
  * const command = new SetIdentityPoolConfigurationCommand(input);
  * const response = await client.send(command);
  * ```

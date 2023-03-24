@@ -42,6 +42,9 @@ export interface DeleteConnectPeerCommandOutput extends DeleteConnectPeerRespons
  * import { NetworkManagerClient, DeleteConnectPeerCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, DeleteConnectPeerCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
+ * const input = {
+ *   ConnectPeerId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteConnectPeerCommand(input);
  * const response = await client.send(command);
  * ```

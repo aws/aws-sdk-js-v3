@@ -44,6 +44,11 @@ export interface ResetSnapshotAttributeCommandOutput extends __MetadataBearer {}
  * import { EC2Client, ResetSnapshotAttributeCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ResetSnapshotAttributeCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   Attribute: "productCodes" || "createVolumePermission", // required
+ *   SnapshotId: "STRING_VALUE", // required
+ *   DryRun: true || false,
+ * };
  * const command = new ResetSnapshotAttributeCommand(input);
  * const response = await client.send(command);
  * ```

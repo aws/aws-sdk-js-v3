@@ -48,6 +48,12 @@ export interface SuspendProcessesCommandOutput extends __MetadataBearer {}
  * import { AutoScalingClient, SuspendProcessesCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, SuspendProcessesCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
  * const client = new AutoScalingClient(config);
+ * const input = {
+ *   AutoScalingGroupName: "STRING_VALUE", // required
+ *   ScalingProcesses: [
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new SuspendProcessesCommand(input);
  * const response = await client.send(command);
  * ```

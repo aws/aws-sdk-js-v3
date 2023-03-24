@@ -55,6 +55,80 @@ export interface CreateLayerCommandOutput extends CreateLayerResult, __MetadataB
  * import { OpsWorksClient, CreateLayerCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, CreateLayerCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
+ * const input = {
+ *   StackId: "STRING_VALUE", // required
+ *   Type: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE", // required
+ *   Shortname: "STRING_VALUE", // required
+ *   Attributes: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   CloudWatchLogsConfiguration: {
+ *     Enabled: true || false,
+ *     LogStreams: [
+ *       {
+ *         LogGroupName: "STRING_VALUE",
+ *         DatetimeFormat: "STRING_VALUE",
+ *         TimeZone: "STRING_VALUE",
+ *         File: "STRING_VALUE",
+ *         FileFingerprintLines: "STRING_VALUE",
+ *         MultiLineStartPattern: "STRING_VALUE",
+ *         InitialPosition: "STRING_VALUE",
+ *         Encoding: "STRING_VALUE",
+ *         BufferDuration: Number("int"),
+ *         BatchCount: Number("int"),
+ *         BatchSize: Number("int"),
+ *       },
+ *     ],
+ *   },
+ *   CustomInstanceProfileArn: "STRING_VALUE",
+ *   CustomJson: "STRING_VALUE",
+ *   CustomSecurityGroupIds: [
+ *     "STRING_VALUE",
+ *   ],
+ *   Packages: [
+ *     "STRING_VALUE",
+ *   ],
+ *   VolumeConfigurations: [
+ *     {
+ *       MountPoint: "STRING_VALUE", // required
+ *       RaidLevel: Number("int"),
+ *       NumberOfDisks: Number("int"), // required
+ *       Size: Number("int"), // required
+ *       VolumeType: "STRING_VALUE",
+ *       Iops: Number("int"),
+ *       Encrypted: true || false,
+ *     },
+ *   ],
+ *   EnableAutoHealing: true || false,
+ *   AutoAssignElasticIps: true || false,
+ *   AutoAssignPublicIps: true || false,
+ *   CustomRecipes: {
+ *     Setup: [
+ *       "STRING_VALUE",
+ *     ],
+ *     Configure: [
+ *       "STRING_VALUE",
+ *     ],
+ *     Deploy: [
+ *       "STRING_VALUE",
+ *     ],
+ *     Undeploy: [
+ *       "STRING_VALUE",
+ *     ],
+ *     Shutdown: [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   InstallUpdatesOnBoot: true || false,
+ *   UseEbsOptimizedInstances: true || false,
+ *   LifecycleEventConfiguration: {
+ *     Shutdown: {
+ *       ExecutionTimeout: Number("int"),
+ *       DelayUntilElbConnectionsDrained: true || false,
+ *     },
+ *   },
+ * };
  * const command = new CreateLayerCommand(input);
  * const response = await client.send(command);
  * ```

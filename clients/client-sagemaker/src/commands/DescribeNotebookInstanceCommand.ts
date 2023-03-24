@@ -42,6 +42,9 @@ export interface DescribeNotebookInstanceCommandOutput extends DescribeNotebookI
  * import { SageMakerClient, DescribeNotebookInstanceCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DescribeNotebookInstanceCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = {
+ *   NotebookInstanceName: "STRING_VALUE", // required
+ * };
  * const command = new DescribeNotebookInstanceCommand(input);
  * const response = await client.send(command);
  * ```

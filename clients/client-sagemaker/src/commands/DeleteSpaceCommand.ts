@@ -42,6 +42,10 @@ export interface DeleteSpaceCommandOutput extends __MetadataBearer {}
  * import { SageMakerClient, DeleteSpaceCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DeleteSpaceCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = {
+ *   DomainId: "STRING_VALUE", // required
+ *   SpaceName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteSpaceCommand(input);
  * const response = await client.send(command);
  * ```

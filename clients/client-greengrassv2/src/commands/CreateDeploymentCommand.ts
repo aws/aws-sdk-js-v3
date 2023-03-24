@@ -52,6 +52,70 @@ export interface CreateDeploymentCommandOutput extends CreateDeploymentResponse,
  * import { GreengrassV2Client, CreateDeploymentCommand } from "@aws-sdk/client-greengrassv2"; // ES Modules import
  * // const { GreengrassV2Client, CreateDeploymentCommand } = require("@aws-sdk/client-greengrassv2"); // CommonJS import
  * const client = new GreengrassV2Client(config);
+ * const input = {
+ *   targetArn: "STRING_VALUE", // required
+ *   deploymentName: "STRING_VALUE",
+ *   components: {
+ *     "<keys>": {
+ *       componentVersion: "STRING_VALUE",
+ *       configurationUpdate: {
+ *         merge: "STRING_VALUE",
+ *         reset: [
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *       runWith: {
+ *         posixUser: "STRING_VALUE",
+ *         systemResourceLimits: {
+ *           memory: Number("long"),
+ *           cpus: Number("double"),
+ *         },
+ *         windowsUser: "STRING_VALUE",
+ *       },
+ *     },
+ *   },
+ *   iotJobConfiguration: {
+ *     jobExecutionsRolloutConfig: {
+ *       exponentialRate: {
+ *         baseRatePerMinute: Number("int"), // required
+ *         incrementFactor: Number("double"), // required
+ *         rateIncreaseCriteria: {
+ *           numberOfNotifiedThings: Number("int"),
+ *           numberOfSucceededThings: Number("int"),
+ *         },
+ *       },
+ *       maximumPerMinute: Number("int"),
+ *     },
+ *     abortConfig: {
+ *       criteriaList: [ // required
+ *         {
+ *           failureType: "FAILED" || "REJECTED" || "TIMED_OUT" || "ALL", // required
+ *           action: "CANCEL", // required
+ *           thresholdPercentage: Number("double"), // required
+ *           minNumberOfExecutedThings: Number("int"), // required
+ *         },
+ *       ],
+ *     },
+ *     timeoutConfig: {
+ *       inProgressTimeoutInMinutes: Number("long"),
+ *     },
+ *   },
+ *   deploymentPolicies: {
+ *     failureHandlingPolicy: "ROLLBACK" || "DO_NOTHING",
+ *     componentUpdatePolicy: {
+ *       timeoutInSeconds: Number("int"),
+ *       action: "NOTIFY_COMPONENTS" || "SKIP_NOTIFY_COMPONENTS",
+ *     },
+ *     configurationValidationPolicy: {
+ *       timeoutInSeconds: Number("int"),
+ *     },
+ *   },
+ *   parentTargetArn: "STRING_VALUE",
+ *   tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new CreateDeploymentCommand(input);
  * const response = await client.send(command);
  * ```

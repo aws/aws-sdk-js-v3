@@ -69,6 +69,33 @@ export interface CreateLoadBalancerCommandOutput extends CreateLoadBalancerOutpu
  * import { ElasticLoadBalancingV2Client, CreateLoadBalancerCommand } from "@aws-sdk/client-elastic-load-balancing-v2"; // ES Modules import
  * // const { ElasticLoadBalancingV2Client, CreateLoadBalancerCommand } = require("@aws-sdk/client-elastic-load-balancing-v2"); // CommonJS import
  * const client = new ElasticLoadBalancingV2Client(config);
+ * const input = {
+ *   Name: "STRING_VALUE", // required
+ *   Subnets: [
+ *     "STRING_VALUE",
+ *   ],
+ *   SubnetMappings: [
+ *     {
+ *       SubnetId: "STRING_VALUE",
+ *       AllocationId: "STRING_VALUE",
+ *       PrivateIPv4Address: "STRING_VALUE",
+ *       IPv6Address: "STRING_VALUE",
+ *     },
+ *   ],
+ *   SecurityGroups: [
+ *     "STRING_VALUE",
+ *   ],
+ *   Scheme: "internet-facing" || "internal",
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   Type: "application" || "network" || "gateway",
+ *   IpAddressType: "ipv4" || "dualstack",
+ *   CustomerOwnedIpv4Pool: "STRING_VALUE",
+ * };
  * const command = new CreateLoadBalancerCommand(input);
  * const response = await client.send(command);
  * ```

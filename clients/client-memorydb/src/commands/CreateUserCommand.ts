@@ -42,6 +42,22 @@ export interface CreateUserCommandOutput extends CreateUserResponse, __MetadataB
  * import { MemoryDBClient, CreateUserCommand } from "@aws-sdk/client-memorydb"; // ES Modules import
  * // const { MemoryDBClient, CreateUserCommand } = require("@aws-sdk/client-memorydb"); // CommonJS import
  * const client = new MemoryDBClient(config);
+ * const input = {
+ *   UserName: "STRING_VALUE", // required
+ *   AuthenticationMode: {
+ *     Type: "password",
+ *     Passwords: [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   AccessString: "STRING_VALUE", // required
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateUserCommand(input);
  * const response = await client.send(command);
  * ```

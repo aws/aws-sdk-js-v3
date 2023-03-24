@@ -67,6 +67,9 @@ export interface RefreshTrustedAdvisorCheckCommandOutput extends RefreshTrustedA
  * import { SupportClient, RefreshTrustedAdvisorCheckCommand } from "@aws-sdk/client-support"; // ES Modules import
  * // const { SupportClient, RefreshTrustedAdvisorCheckCommand } = require("@aws-sdk/client-support"); // CommonJS import
  * const client = new SupportClient(config);
+ * const input = {
+ *   checkId: "STRING_VALUE", // required
+ * };
  * const command = new RefreshTrustedAdvisorCheckCommand(input);
  * const response = await client.send(command);
  * ```

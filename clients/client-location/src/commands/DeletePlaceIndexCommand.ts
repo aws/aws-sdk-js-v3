@@ -45,6 +45,9 @@ export interface DeletePlaceIndexCommandOutput extends DeletePlaceIndexResponse,
  * import { LocationClient, DeletePlaceIndexCommand } from "@aws-sdk/client-location"; // ES Modules import
  * // const { LocationClient, DeletePlaceIndexCommand } = require("@aws-sdk/client-location"); // CommonJS import
  * const client = new LocationClient(config);
+ * const input = {
+ *   IndexName: "STRING_VALUE", // required
+ * };
  * const command = new DeletePlaceIndexCommand(input);
  * const response = await client.send(command);
  * ```

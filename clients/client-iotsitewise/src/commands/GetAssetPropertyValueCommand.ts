@@ -53,6 +53,11 @@ export interface GetAssetPropertyValueCommandOutput extends GetAssetPropertyValu
  * import { IoTSiteWiseClient, GetAssetPropertyValueCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, GetAssetPropertyValueCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
+ * const input = {
+ *   assetId: "STRING_VALUE",
+ *   propertyId: "STRING_VALUE",
+ *   propertyAlias: "STRING_VALUE",
+ * };
  * const command = new GetAssetPropertyValueCommand(input);
  * const response = await client.send(command);
  * ```

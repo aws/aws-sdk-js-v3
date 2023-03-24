@@ -48,6 +48,9 @@ export interface DeleteSolutionCommandOutput extends __MetadataBearer {}
  * import { PersonalizeClient, DeleteSolutionCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, DeleteSolutionCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
  * const client = new PersonalizeClient(config);
+ * const input = {
+ *   solutionArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteSolutionCommand(input);
  * const response = await client.send(command);
  * ```

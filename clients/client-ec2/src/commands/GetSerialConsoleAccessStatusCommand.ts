@@ -47,6 +47,9 @@ export interface GetSerialConsoleAccessStatusCommandOutput
  * import { EC2Client, GetSerialConsoleAccessStatusCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, GetSerialConsoleAccessStatusCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   DryRun: true || false,
+ * };
  * const command = new GetSerialConsoleAccessStatusCommand(input);
  * const response = await client.send(command);
  * ```

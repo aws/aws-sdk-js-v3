@@ -47,6 +47,12 @@ export interface CreateCustomLogSourceCommandOutput extends CreateCustomLogSourc
  * import { SecurityLakeClient, CreateCustomLogSourceCommand } from "@aws-sdk/client-securitylake"; // ES Modules import
  * // const { SecurityLakeClient, CreateCustomLogSourceCommand } = require("@aws-sdk/client-securitylake"); // CommonJS import
  * const client = new SecurityLakeClient(config);
+ * const input = {
+ *   customSourceName: "STRING_VALUE", // required
+ *   eventClass: "STRING_VALUE", // required
+ *   glueInvocationRoleArn: "STRING_VALUE", // required
+ *   logProviderAccountId: "STRING_VALUE", // required
+ * };
  * const command = new CreateCustomLogSourceCommand(input);
  * const response = await client.send(command);
  * ```

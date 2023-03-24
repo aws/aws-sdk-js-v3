@@ -42,6 +42,20 @@ export interface ListCodeReviewsCommandOutput extends ListCodeReviewsResponse, _
  * import { CodeGuruReviewerClient, ListCodeReviewsCommand } from "@aws-sdk/client-codeguru-reviewer"; // ES Modules import
  * // const { CodeGuruReviewerClient, ListCodeReviewsCommand } = require("@aws-sdk/client-codeguru-reviewer"); // CommonJS import
  * const client = new CodeGuruReviewerClient(config);
+ * const input = {
+ *   ProviderTypes: [
+ *     "CodeCommit" || "GitHub" || "Bitbucket" || "GitHubEnterpriseServer" || "S3Bucket",
+ *   ],
+ *   States: [
+ *     "Completed" || "Pending" || "Failed" || "Deleting",
+ *   ],
+ *   RepositoryNames: [
+ *     "STRING_VALUE",
+ *   ],
+ *   Type: "PullRequest" || "RepositoryAnalysis", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListCodeReviewsCommand(input);
  * const response = await client.send(command);
  * ```

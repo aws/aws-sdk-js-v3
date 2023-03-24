@@ -43,6 +43,20 @@ export interface UpdateProjectCommandOutput extends UpdateProjectResult, __Metad
  * import { DeviceFarmClient, UpdateProjectCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, UpdateProjectCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
+ * const input = {
+ *   arn: "STRING_VALUE", // required
+ *   name: "STRING_VALUE",
+ *   defaultJobTimeoutMinutes: Number("int"),
+ *   vpcConfig: {
+ *     securityGroupIds: [ // required
+ *       "STRING_VALUE",
+ *     ],
+ *     subnetIds: [ // required
+ *       "STRING_VALUE",
+ *     ],
+ *     vpcId: "STRING_VALUE", // required
+ *   },
+ * };
  * const command = new UpdateProjectCommand(input);
  * const response = await client.send(command);
  * ```

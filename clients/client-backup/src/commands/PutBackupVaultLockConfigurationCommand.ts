@@ -54,6 +54,12 @@ export interface PutBackupVaultLockConfigurationCommandOutput extends __Metadata
  * import { BackupClient, PutBackupVaultLockConfigurationCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, PutBackupVaultLockConfigurationCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
+ * const input = {
+ *   BackupVaultName: "STRING_VALUE", // required
+ *   MinRetentionDays: Number("long"),
+ *   MaxRetentionDays: Number("long"),
+ *   ChangeableForDays: Number("long"),
+ * };
  * const command = new PutBackupVaultLockConfigurationCommand(input);
  * const response = await client.send(command);
  * ```

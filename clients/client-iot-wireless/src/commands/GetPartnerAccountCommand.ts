@@ -46,6 +46,10 @@ export interface GetPartnerAccountCommandOutput extends GetPartnerAccountRespons
  * import { IoTWirelessClient, GetPartnerAccountCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, GetPartnerAccountCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
+ * const input = {
+ *   PartnerAccountId: "STRING_VALUE", // required
+ *   PartnerType: "Sidewalk", // required
+ * };
  * const command = new GetPartnerAccountCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,9 @@ export interface DeleteEventsByEventTypeCommandOutput extends DeleteEventsByEven
  * import { FraudDetectorClient, DeleteEventsByEventTypeCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, DeleteEventsByEventTypeCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
  * const client = new FraudDetectorClient(config);
+ * const input = {
+ *   eventTypeName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteEventsByEventTypeCommand(input);
  * const response = await client.send(command);
  * ```

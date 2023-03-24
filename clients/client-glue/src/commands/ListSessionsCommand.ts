@@ -42,6 +42,14 @@ export interface ListSessionsCommandOutput extends ListSessionsResponse, __Metad
  * import { GlueClient, ListSessionsCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, ListSessionsCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = {
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   Tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   RequestOrigin: "STRING_VALUE",
+ * };
  * const command = new ListSessionsCommand(input);
  * const response = await client.send(command);
  * ```

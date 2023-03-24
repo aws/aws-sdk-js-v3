@@ -42,6 +42,9 @@ export interface StopImportCommandOutput extends StopImportResponse, __MetadataB
  * import { CloudTrailClient, StopImportCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
  * // const { CloudTrailClient, StopImportCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
  * const client = new CloudTrailClient(config);
+ * const input = {
+ *   ImportId: "STRING_VALUE", // required
+ * };
  * const command = new StopImportCommand(input);
  * const response = await client.send(command);
  * ```

@@ -44,6 +44,9 @@ export interface DeleteDestinationCommandOutput extends __MetadataBearer {}
  * import { CloudWatchLogsClient, DeleteDestinationCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, DeleteDestinationCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
+ * const input = {
+ *   destinationName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteDestinationCommand(input);
  * const response = await client.send(command);
  * ```

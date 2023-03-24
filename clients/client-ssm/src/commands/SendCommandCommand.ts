@@ -47,6 +47,55 @@ export interface SendCommandCommandOutput extends SendCommandResult, __MetadataB
  * import { SSMClient, SendCommandCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, SendCommandCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = {
+ *   InstanceIds: [
+ *     "STRING_VALUE",
+ *   ],
+ *   Targets: [
+ *     {
+ *       Key: "STRING_VALUE",
+ *       Values: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   DocumentName: "STRING_VALUE", // required
+ *   DocumentVersion: "STRING_VALUE",
+ *   DocumentHash: "STRING_VALUE",
+ *   DocumentHashType: "Sha256" || "Sha1",
+ *   TimeoutSeconds: Number("int"),
+ *   Comment: "STRING_VALUE",
+ *   Parameters: {
+ *     "<keys>": [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   OutputS3Region: "STRING_VALUE",
+ *   OutputS3BucketName: "STRING_VALUE",
+ *   OutputS3KeyPrefix: "STRING_VALUE",
+ *   MaxConcurrency: "STRING_VALUE",
+ *   MaxErrors: "STRING_VALUE",
+ *   ServiceRoleArn: "STRING_VALUE",
+ *   NotificationConfig: {
+ *     NotificationArn: "STRING_VALUE",
+ *     NotificationEvents: [
+ *       "All" || "InProgress" || "Success" || "TimedOut" || "Cancelled" || "Failed",
+ *     ],
+ *     NotificationType: "Command" || "Invocation",
+ *   },
+ *   CloudWatchOutputConfig: {
+ *     CloudWatchLogGroupName: "STRING_VALUE",
+ *     CloudWatchOutputEnabled: true || false,
+ *   },
+ *   AlarmConfiguration: {
+ *     IgnorePollAlarmFailure: true || false,
+ *     Alarms: [ // required
+ *       {
+ *         Name: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *   },
+ * };
  * const command = new SendCommandCommand(input);
  * const response = await client.send(command);
  * ```

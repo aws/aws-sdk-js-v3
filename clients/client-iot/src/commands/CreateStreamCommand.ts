@@ -45,6 +45,27 @@ export interface CreateStreamCommandOutput extends CreateStreamResponse, __Metad
  * import { IoTClient, CreateStreamCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, CreateStreamCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = {
+ *   streamId: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   files: [ // required
+ *     {
+ *       fileId: Number("int"),
+ *       s3Location: {
+ *         bucket: "STRING_VALUE",
+ *         key: "STRING_VALUE",
+ *         version: "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ *   roleArn: "STRING_VALUE", // required
+ *   tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateStreamCommand(input);
  * const response = await client.send(command);
  * ```

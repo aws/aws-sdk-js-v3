@@ -43,6 +43,9 @@ export interface DeleteSegmentCommandOutput extends DeleteSegmentResponse, __Met
  * import { EvidentlyClient, DeleteSegmentCommand } from "@aws-sdk/client-evidently"; // ES Modules import
  * // const { EvidentlyClient, DeleteSegmentCommand } = require("@aws-sdk/client-evidently"); // CommonJS import
  * const client = new EvidentlyClient(config);
+ * const input = {
+ *   segment: "STRING_VALUE", // required
+ * };
  * const command = new DeleteSegmentCommand(input);
  * const response = await client.send(command);
  * ```

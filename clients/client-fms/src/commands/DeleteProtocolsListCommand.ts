@@ -42,6 +42,9 @@ export interface DeleteProtocolsListCommandOutput extends __MetadataBearer {}
  * import { FMSClient, DeleteProtocolsListCommand } from "@aws-sdk/client-fms"; // ES Modules import
  * // const { FMSClient, DeleteProtocolsListCommand } = require("@aws-sdk/client-fms"); // CommonJS import
  * const client = new FMSClient(config);
+ * const input = {
+ *   ListId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteProtocolsListCommand(input);
  * const response = await client.send(command);
  * ```

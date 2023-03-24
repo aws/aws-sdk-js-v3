@@ -46,6 +46,19 @@ export interface ListApplicationComponentsCommandOutput extends ListApplicationC
  * import { MigrationHubStrategyClient, ListApplicationComponentsCommand } from "@aws-sdk/client-migrationhubstrategy"; // ES Modules import
  * // const { MigrationHubStrategyClient, ListApplicationComponentsCommand } = require("@aws-sdk/client-migrationhubstrategy"); // CommonJS import
  * const client = new MigrationHubStrategyClient(config);
+ * const input = {
+ *   applicationComponentCriteria: "STRING_VALUE",
+ *   filterValue: "STRING_VALUE",
+ *   sort: "STRING_VALUE",
+ *   groupIdFilter: [
+ *     {
+ *       name: "STRING_VALUE",
+ *       value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListApplicationComponentsCommand(input);
  * const response = await client.send(command);
  * ```

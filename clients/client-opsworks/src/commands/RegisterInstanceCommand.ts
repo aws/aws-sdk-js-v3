@@ -60,6 +60,18 @@ export interface RegisterInstanceCommandOutput extends RegisterInstanceResult, _
  * import { OpsWorksClient, RegisterInstanceCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, RegisterInstanceCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
+ * const input = {
+ *   StackId: "STRING_VALUE", // required
+ *   Hostname: "STRING_VALUE",
+ *   PublicIp: "STRING_VALUE",
+ *   PrivateIp: "STRING_VALUE",
+ *   RsaPublicKey: "STRING_VALUE",
+ *   RsaPublicKeyFingerprint: "STRING_VALUE",
+ *   InstanceIdentity: {
+ *     Document: "STRING_VALUE",
+ *     Signature: "STRING_VALUE",
+ *   },
+ * };
  * const command = new RegisterInstanceCommand(input);
  * const response = await client.send(command);
  * ```

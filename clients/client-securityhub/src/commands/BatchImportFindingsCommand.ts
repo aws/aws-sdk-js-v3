@@ -116,6 +116,3986 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  * import { SecurityHubClient, BatchImportFindingsCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, BatchImportFindingsCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
  * const client = new SecurityHubClient(config);
+ * const input = {
+ *   Findings: [ // required
+ *     {
+ *       SchemaVersion: "STRING_VALUE", // required
+ *       Id: "STRING_VALUE", // required
+ *       ProductArn: "STRING_VALUE", // required
+ *       ProductName: "STRING_VALUE",
+ *       CompanyName: "STRING_VALUE",
+ *       Region: "STRING_VALUE",
+ *       GeneratorId: "STRING_VALUE", // required
+ *       AwsAccountId: "STRING_VALUE", // required
+ *       Types: [
+ *         "STRING_VALUE",
+ *       ],
+ *       FirstObservedAt: "STRING_VALUE",
+ *       LastObservedAt: "STRING_VALUE",
+ *       CreatedAt: "STRING_VALUE", // required
+ *       UpdatedAt: "STRING_VALUE", // required
+ *       Severity: {
+ *         Product: Number("double"),
+ *         Label: "INFORMATIONAL" || "LOW" || "MEDIUM" || "HIGH" || "CRITICAL",
+ *         Normalized: Number("int"),
+ *         Original: "STRING_VALUE",
+ *       },
+ *       Confidence: Number("int"),
+ *       Criticality: Number("int"),
+ *       Title: "STRING_VALUE", // required
+ *       Description: "STRING_VALUE", // required
+ *       Remediation: {
+ *         Recommendation: {
+ *           Text: "STRING_VALUE",
+ *           Url: "STRING_VALUE",
+ *         },
+ *       },
+ *       SourceUrl: "STRING_VALUE",
+ *       ProductFields: {
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *       UserDefinedFields: {
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *       Malware: [
+ *         {
+ *           Name: "STRING_VALUE", // required
+ *           Type: "ADWARE" || "BLENDED_THREAT" || "BOTNET_AGENT" || "COIN_MINER" || "EXPLOIT_KIT" || "KEYLOGGER" || "MACRO" || "POTENTIALLY_UNWANTED" || "SPYWARE" || "RANSOMWARE" || "REMOTE_ACCESS" || "ROOTKIT" || "TROJAN" || "VIRUS" || "WORM",
+ *           Path: "STRING_VALUE",
+ *           State: "OBSERVED" || "REMOVAL_FAILED" || "REMOVED",
+ *         },
+ *       ],
+ *       Network: {
+ *         Direction: "IN" || "OUT",
+ *         Protocol: "STRING_VALUE",
+ *         OpenPortRange: {
+ *           Begin: Number("int"),
+ *           End: Number("int"),
+ *         },
+ *         SourceIpV4: "STRING_VALUE",
+ *         SourceIpV6: "STRING_VALUE",
+ *         SourcePort: Number("int"),
+ *         SourceDomain: "STRING_VALUE",
+ *         SourceMac: "STRING_VALUE",
+ *         DestinationIpV4: "STRING_VALUE",
+ *         DestinationIpV6: "STRING_VALUE",
+ *         DestinationPort: Number("int"),
+ *         DestinationDomain: "STRING_VALUE",
+ *       },
+ *       NetworkPath: [
+ *         {
+ *           ComponentId: "STRING_VALUE",
+ *           ComponentType: "STRING_VALUE",
+ *           Egress: {
+ *             Protocol: "STRING_VALUE",
+ *             Destination: {
+ *               Address: [
+ *                 "STRING_VALUE",
+ *               ],
+ *               PortRanges: [
+ *                 {
+ *                   Begin: Number("int"),
+ *                   End: Number("int"),
+ *                 },
+ *               ],
+ *             },
+ *             Source: {
+ *               Address: [
+ *                 "STRING_VALUE",
+ *               ],
+ *               PortRanges: [
+ *                 {
+ *                   Begin: Number("int"),
+ *                   End: Number("int"),
+ *                 },
+ *               ],
+ *             },
+ *           },
+ *           Ingress: {
+ *             Protocol: "STRING_VALUE",
+ *             Destination: {
+ *               Address: [
+ *                 "STRING_VALUE",
+ *               ],
+ *               PortRanges: [
+ *                 {
+ *                   Begin: Number("int"),
+ *                   End: Number("int"),
+ *                 },
+ *               ],
+ *             },
+ *             Source: {
+ *               Address: [
+ *                 "STRING_VALUE",
+ *               ],
+ *               PortRanges: [
+ *                 {
+ *                   Begin: Number("int"),
+ *                   End: Number("int"),
+ *                 },
+ *               ],
+ *             },
+ *           },
+ *         },
+ *       ],
+ *       Process: {
+ *         Name: "STRING_VALUE",
+ *         Path: "STRING_VALUE",
+ *         Pid: Number("int"),
+ *         ParentPid: Number("int"),
+ *         LaunchedAt: "STRING_VALUE",
+ *         TerminatedAt: "STRING_VALUE",
+ *       },
+ *       Threats: [
+ *         {
+ *           Name: "STRING_VALUE",
+ *           Severity: "STRING_VALUE",
+ *           ItemCount: Number("int"),
+ *           FilePaths: [
+ *             {
+ *               FilePath: "STRING_VALUE",
+ *               FileName: "STRING_VALUE",
+ *               ResourceId: "STRING_VALUE",
+ *               Hash: "STRING_VALUE",
+ *             },
+ *           ],
+ *         },
+ *       ],
+ *       ThreatIntelIndicators: [
+ *         {
+ *           Type: "DOMAIN" || "EMAIL_ADDRESS" || "HASH_MD5" || "HASH_SHA1" || "HASH_SHA256" || "HASH_SHA512" || "IPV4_ADDRESS" || "IPV6_ADDRESS" || "MUTEX" || "PROCESS" || "URL",
+ *           Value: "STRING_VALUE",
+ *           Category: "BACKDOOR" || "CARD_STEALER" || "COMMAND_AND_CONTROL" || "DROP_SITE" || "EXPLOIT_SITE" || "KEYLOGGER",
+ *           LastObservedAt: "STRING_VALUE",
+ *           Source: "STRING_VALUE",
+ *           SourceUrl: "STRING_VALUE",
+ *         },
+ *       ],
+ *       Resources: [ // required
+ *         {
+ *           Type: "STRING_VALUE", // required
+ *           Id: "STRING_VALUE", // required
+ *           Partition: "aws" || "aws-cn" || "aws-us-gov",
+ *           Region: "STRING_VALUE",
+ *           ResourceRole: "STRING_VALUE",
+ *           Tags: {
+ *             "<keys>": "STRING_VALUE",
+ *           },
+ *           DataClassification: {
+ *             DetailedResultsLocation: "STRING_VALUE",
+ *             Result: {
+ *               MimeType: "STRING_VALUE",
+ *               SizeClassified: Number("long"),
+ *               AdditionalOccurrences: true || false,
+ *               Status: {
+ *                 Code: "STRING_VALUE",
+ *                 Reason: "STRING_VALUE",
+ *               },
+ *               SensitiveData: [
+ *                 {
+ *                   Category: "STRING_VALUE",
+ *                   Detections: [
+ *                     {
+ *                       Count: Number("long"),
+ *                       Type: "STRING_VALUE",
+ *                       Occurrences: {
+ *                         LineRanges: [
+ *                           {
+ *                             Start: Number("long"),
+ *                             End: Number("long"),
+ *                             StartColumn: Number("long"),
+ *                           },
+ *                         ],
+ *                         OffsetRanges: [
+ *                           {
+ *                             Start: Number("long"),
+ *                             End: Number("long"),
+ *                             StartColumn: Number("long"),
+ *                           },
+ *                         ],
+ *                         Pages: [
+ *                           {
+ *                             PageNumber: Number("long"),
+ *                             LineRange: {
+ *                               Start: Number("long"),
+ *                               End: Number("long"),
+ *                               StartColumn: Number("long"),
+ *                             },
+ *                             OffsetRange: {
+ *                               Start: Number("long"),
+ *                               End: Number("long"),
+ *                               StartColumn: Number("long"),
+ *                             },
+ *                           },
+ *                         ],
+ *                         Records: [
+ *                           {
+ *                             JsonPath: "STRING_VALUE",
+ *                             RecordIndex: Number("long"),
+ *                           },
+ *                         ],
+ *                         Cells: [
+ *                           {
+ *                             Column: Number("long"),
+ *                             Row: Number("long"),
+ *                             ColumnName: "STRING_VALUE",
+ *                             CellReference: "STRING_VALUE",
+ *                           },
+ *                         ],
+ *                       },
+ *                     },
+ *                   ],
+ *                   TotalCount: Number("long"),
+ *                 },
+ *               ],
+ *               CustomDataIdentifiers: {
+ *                 Detections: [
+ *                   {
+ *                     Count: Number("long"),
+ *                     Arn: "STRING_VALUE",
+ *                     Name: "STRING_VALUE",
+ *                     Occurrences: {
+ *                       LineRanges: [
+ *                         {
+ *                           Start: "<Range>",
+ *                           End: "<Range>",
+ *                           StartColumn: "<Range>",
+ *                         },
+ *                       ],
+ *                       OffsetRanges: [
+ *                         {
+ *                           Start: "<Range>",
+ *                           End: "<Range>",
+ *                           StartColumn: "<Range>",
+ *                         },
+ *                       ],
+ *                       Pages: [
+ *                         {
+ *                           PageNumber: Number("long"),
+ *                           LineRange: {
+ *                             Start: "<Range>",
+ *                             End: "<Range>",
+ *                             StartColumn: "<Range>",
+ *                           },
+ *                           OffsetRange: {
+ *                             Start: "<Range>",
+ *                             End: "<Range>",
+ *                             StartColumn: "<Range>",
+ *                           },
+ *                         },
+ *                       ],
+ *                       Records: [
+ *                         {
+ *                           JsonPath: "STRING_VALUE",
+ *                           RecordIndex: Number("long"),
+ *                         },
+ *                       ],
+ *                       Cells: [
+ *                         {
+ *                           Column: Number("long"),
+ *                           Row: Number("long"),
+ *                           ColumnName: "STRING_VALUE",
+ *                           CellReference: "STRING_VALUE",
+ *                         },
+ *                       ],
+ *                     },
+ *                   },
+ *                 ],
+ *                 TotalCount: Number("long"),
+ *               },
+ *             },
+ *           },
+ *           Details: {
+ *             AwsAutoScalingAutoScalingGroup: {
+ *               LaunchConfigurationName: "STRING_VALUE",
+ *               LoadBalancerNames: [
+ *                 "STRING_VALUE",
+ *               ],
+ *               HealthCheckType: "STRING_VALUE",
+ *               HealthCheckGracePeriod: Number("int"),
+ *               CreatedTime: "STRING_VALUE",
+ *               MixedInstancesPolicy: {
+ *                 InstancesDistribution: {
+ *                   OnDemandAllocationStrategy: "STRING_VALUE",
+ *                   OnDemandBaseCapacity: Number("int"),
+ *                   OnDemandPercentageAboveBaseCapacity: Number("int"),
+ *                   SpotAllocationStrategy: "STRING_VALUE",
+ *                   SpotInstancePools: Number("int"),
+ *                   SpotMaxPrice: "STRING_VALUE",
+ *                 },
+ *                 LaunchTemplate: {
+ *                   LaunchTemplateSpecification: {
+ *                     LaunchTemplateId: "STRING_VALUE",
+ *                     LaunchTemplateName: "STRING_VALUE",
+ *                     Version: "STRING_VALUE",
+ *                   },
+ *                   Overrides: [
+ *                     {
+ *                       InstanceType: "STRING_VALUE",
+ *                       WeightedCapacity: "STRING_VALUE",
+ *                     },
+ *                   ],
+ *                 },
+ *               },
+ *               AvailabilityZones: [
+ *                 {
+ *                   Value: "STRING_VALUE",
+ *                 },
+ *               ],
+ *               LaunchTemplate: {
+ *                 LaunchTemplateId: "STRING_VALUE",
+ *                 LaunchTemplateName: "STRING_VALUE",
+ *                 Version: "STRING_VALUE",
+ *               },
+ *               CapacityRebalance: true || false,
+ *             },
+ *             AwsCodeBuildProject: {
+ *               EncryptionKey: "STRING_VALUE",
+ *               Artifacts: [
+ *                 {
+ *                   ArtifactIdentifier: "STRING_VALUE",
+ *                   EncryptionDisabled: true || false,
+ *                   Location: "STRING_VALUE",
+ *                   Name: "STRING_VALUE",
+ *                   NamespaceType: "STRING_VALUE",
+ *                   OverrideArtifactName: true || false,
+ *                   Packaging: "STRING_VALUE",
+ *                   Path: "STRING_VALUE",
+ *                   Type: "STRING_VALUE",
+ *                 },
+ *               ],
+ *               Environment: {
+ *                 Certificate: "STRING_VALUE",
+ *                 EnvironmentVariables: [
+ *                   {
+ *                     Name: "STRING_VALUE",
+ *                     Type: "STRING_VALUE",
+ *                     Value: "STRING_VALUE",
+ *                   },
+ *                 ],
+ *                 PrivilegedMode: true || false,
+ *                 ImagePullCredentialsType: "STRING_VALUE",
+ *                 RegistryCredential: {
+ *                   Credential: "STRING_VALUE",
+ *                   CredentialProvider: "STRING_VALUE",
+ *                 },
+ *                 Type: "STRING_VALUE",
+ *               },
+ *               Name: "STRING_VALUE",
+ *               Source: {
+ *                 Type: "STRING_VALUE",
+ *                 Location: "STRING_VALUE",
+ *                 GitCloneDepth: Number("int"),
+ *                 InsecureSsl: true || false,
+ *               },
+ *               ServiceRole: "STRING_VALUE",
+ *               LogsConfig: {
+ *                 CloudWatchLogs: {
+ *                   GroupName: "STRING_VALUE",
+ *                   Status: "STRING_VALUE",
+ *                   StreamName: "STRING_VALUE",
+ *                 },
+ *                 S3Logs: {
+ *                   EncryptionDisabled: true || false,
+ *                   Location: "STRING_VALUE",
+ *                   Status: "STRING_VALUE",
+ *                 },
+ *               },
+ *               VpcConfig: {
+ *                 VpcId: "STRING_VALUE",
+ *                 Subnets: [
+ *                   "STRING_VALUE",
+ *                 ],
+ *                 SecurityGroupIds: [
+ *                   "STRING_VALUE",
+ *                 ],
+ *               },
+ *               SecondaryArtifacts: [
+ *                 {
+ *                   ArtifactIdentifier: "STRING_VALUE",
+ *                   EncryptionDisabled: true || false,
+ *                   Location: "STRING_VALUE",
+ *                   Name: "STRING_VALUE",
+ *                   NamespaceType: "STRING_VALUE",
+ *                   OverrideArtifactName: true || false,
+ *                   Packaging: "STRING_VALUE",
+ *                   Path: "STRING_VALUE",
+ *                   Type: "STRING_VALUE",
+ *                 },
+ *               ],
+ *             },
+ *             AwsCloudFrontDistribution: {
+ *               CacheBehaviors: {
+ *                 Items: [
+ *                   {
+ *                     ViewerProtocolPolicy: "STRING_VALUE",
+ *                   },
+ *                 ],
+ *               },
+ *               DefaultCacheBehavior: {
+ *                 ViewerProtocolPolicy: "STRING_VALUE",
+ *               },
+ *               DefaultRootObject: "STRING_VALUE",
+ *               DomainName: "STRING_VALUE",
+ *               ETag: "STRING_VALUE",
+ *               LastModifiedTime: "STRING_VALUE",
+ *               Logging: {
+ *                 Bucket: "STRING_VALUE",
+ *                 Enabled: true || false,
+ *                 IncludeCookies: true || false,
+ *                 Prefix: "STRING_VALUE",
+ *               },
+ *               Origins: {
+ *                 Items: [
+ *                   {
+ *                     DomainName: "STRING_VALUE",
+ *                     Id: "STRING_VALUE",
+ *                     OriginPath: "STRING_VALUE",
+ *                     S3OriginConfig: {
+ *                       OriginAccessIdentity: "STRING_VALUE",
+ *                     },
+ *                     CustomOriginConfig: {
+ *                       HttpPort: Number("int"),
+ *                       HttpsPort: Number("int"),
+ *                       OriginKeepaliveTimeout: Number("int"),
+ *                       OriginProtocolPolicy: "STRING_VALUE",
+ *                       OriginReadTimeout: Number("int"),
+ *                       OriginSslProtocols: {
+ *                         Items: [
+ *                           "STRING_VALUE",
+ *                         ],
+ *                         Quantity: Number("int"),
+ *                       },
+ *                     },
+ *                   },
+ *                 ],
+ *               },
+ *               OriginGroups: {
+ *                 Items: [
+ *                   {
+ *                     FailoverCriteria: {
+ *                       StatusCodes: {
+ *                         Items: [
+ *                           Number("int"),
+ *                         ],
+ *                         Quantity: Number("int"),
+ *                       },
+ *                     },
+ *                   },
+ *                 ],
+ *               },
+ *               ViewerCertificate: {
+ *                 AcmCertificateArn: "STRING_VALUE",
+ *                 Certificate: "STRING_VALUE",
+ *                 CertificateSource: "STRING_VALUE",
+ *                 CloudFrontDefaultCertificate: true || false,
+ *                 IamCertificateId: "STRING_VALUE",
+ *                 MinimumProtocolVersion: "STRING_VALUE",
+ *                 SslSupportMethod: "STRING_VALUE",
+ *               },
+ *               Status: "STRING_VALUE",
+ *               WebAclId: "STRING_VALUE",
+ *             },
+ *             AwsEc2Instance: {
+ *               Type: "STRING_VALUE",
+ *               ImageId: "STRING_VALUE",
+ *               IpV4Addresses: [
+ *                 "STRING_VALUE",
+ *               ],
+ *               IpV6Addresses: [
+ *                 "STRING_VALUE",
+ *               ],
+ *               KeyName: "STRING_VALUE",
+ *               IamInstanceProfileArn: "STRING_VALUE",
+ *               VpcId: "STRING_VALUE",
+ *               SubnetId: "STRING_VALUE",
+ *               LaunchedAt: "STRING_VALUE",
+ *               NetworkInterfaces: [
+ *                 {
+ *                   NetworkInterfaceId: "STRING_VALUE",
+ *                 },
+ *               ],
+ *               VirtualizationType: "STRING_VALUE",
+ *               MetadataOptions: {
+ *                 HttpEndpoint: "STRING_VALUE",
+ *                 HttpProtocolIpv6: "STRING_VALUE",
+ *                 HttpPutResponseHopLimit: Number("int"),
+ *                 HttpTokens: "STRING_VALUE",
+ *                 InstanceMetadataTags: "STRING_VALUE",
+ *               },
+ *             },
+ *             AwsEc2NetworkInterface: {
+ *               Attachment: {
+ *                 AttachTime: "STRING_VALUE",
+ *                 AttachmentId: "STRING_VALUE",
+ *                 DeleteOnTermination: true || false,
+ *                 DeviceIndex: Number("int"),
+ *                 InstanceId: "STRING_VALUE",
+ *                 InstanceOwnerId: "STRING_VALUE",
+ *                 Status: "STRING_VALUE",
+ *               },
+ *               NetworkInterfaceId: "STRING_VALUE",
+ *               SecurityGroups: [
+ *                 {
+ *                   GroupName: "STRING_VALUE",
+ *                   GroupId: "STRING_VALUE",
+ *                 },
+ *               ],
+ *               SourceDestCheck: true || false,
+ *               IpV6Addresses: [
+ *                 {
+ *                   IpV6Address: "STRING_VALUE",
+ *                 },
+ *               ],
+ *               PrivateIpAddresses: [
+ *                 {
+ *                   PrivateIpAddress: "STRING_VALUE",
+ *                   PrivateDnsName: "STRING_VALUE",
+ *                 },
+ *               ],
+ *               PublicDnsName: "STRING_VALUE",
+ *               PublicIp: "STRING_VALUE",
+ *             },
+ *             AwsEc2SecurityGroup: {
+ *               GroupName: "STRING_VALUE",
+ *               GroupId: "STRING_VALUE",
+ *               OwnerId: "STRING_VALUE",
+ *               VpcId: "STRING_VALUE",
+ *               IpPermissions: [
+ *                 {
+ *                   IpProtocol: "STRING_VALUE",
+ *                   FromPort: Number("int"),
+ *                   ToPort: Number("int"),
+ *                   UserIdGroupPairs: [
+ *                     {
+ *                       GroupId: "STRING_VALUE",
+ *                       GroupName: "STRING_VALUE",
+ *                       PeeringStatus: "STRING_VALUE",
+ *                       UserId: "STRING_VALUE",
+ *                       VpcId: "STRING_VALUE",
+ *                       VpcPeeringConnectionId: "STRING_VALUE",
+ *                     },
+ *                   ],
+ *                   IpRanges: [
+ *                     {
+ *                       CidrIp: "STRING_VALUE",
+ *                     },
+ *                   ],
+ *                   Ipv6Ranges: [
+ *                     {
+ *                       CidrIpv6: "STRING_VALUE",
+ *                     },
+ *                   ],
+ *                   PrefixListIds: [
+ *                     {
+ *                       PrefixListId: "STRING_VALUE",
+ *                     },
+ *                   ],
+ *                 },
+ *               ],
+ *               IpPermissionsEgress: [
+ *                 {
+ *                   IpProtocol: "STRING_VALUE",
+ *                   FromPort: Number("int"),
+ *                   ToPort: Number("int"),
+ *                   UserIdGroupPairs: [
+ *                     {
+ *                       GroupId: "STRING_VALUE",
+ *                       GroupName: "STRING_VALUE",
+ *                       PeeringStatus: "STRING_VALUE",
+ *                       UserId: "STRING_VALUE",
+ *                       VpcId: "STRING_VALUE",
+ *                       VpcPeeringConnectionId: "STRING_VALUE",
+ *                     },
+ *                   ],
+ *                   IpRanges: [
+ *                     {
+ *                       CidrIp: "STRING_VALUE",
+ *                     },
+ *                   ],
+ *                   Ipv6Ranges: [
+ *                     {
+ *                       CidrIpv6: "STRING_VALUE",
+ *                     },
+ *                   ],
+ *                   PrefixListIds: [
+ *                     {
+ *                       PrefixListId: "STRING_VALUE",
+ *                     },
+ *                   ],
+ *                 },
+ *               ],
+ *             },
+ *             AwsEc2Volume: {
+ *               CreateTime: "STRING_VALUE",
+ *               DeviceName: "STRING_VALUE",
+ *               Encrypted: true || false,
+ *               Size: Number("int"),
+ *               SnapshotId: "STRING_VALUE",
+ *               Status: "STRING_VALUE",
+ *               KmsKeyId: "STRING_VALUE",
+ *               Attachments: [
+ *                 {
+ *                   AttachTime: "STRING_VALUE",
+ *                   DeleteOnTermination: true || false,
+ *                   InstanceId: "STRING_VALUE",
+ *                   Status: "STRING_VALUE",
+ *                 },
+ *               ],
+ *               VolumeId: "STRING_VALUE",
+ *               VolumeType: "STRING_VALUE",
+ *               VolumeScanStatus: "STRING_VALUE",
+ *             },
+ *             AwsEc2Vpc: {
+ *               CidrBlockAssociationSet: [
+ *                 {
+ *                   AssociationId: "STRING_VALUE",
+ *                   CidrBlock: "STRING_VALUE",
+ *                   CidrBlockState: "STRING_VALUE",
+ *                 },
+ *               ],
+ *               Ipv6CidrBlockAssociationSet: [
+ *                 {
+ *                   AssociationId: "STRING_VALUE",
+ *                   Ipv6CidrBlock: "STRING_VALUE",
+ *                   CidrBlockState: "STRING_VALUE",
+ *                 },
+ *               ],
+ *               DhcpOptionsId: "STRING_VALUE",
+ *               State: "STRING_VALUE",
+ *             },
+ *             AwsEc2Eip: {
+ *               InstanceId: "STRING_VALUE",
+ *               PublicIp: "STRING_VALUE",
+ *               AllocationId: "STRING_VALUE",
+ *               AssociationId: "STRING_VALUE",
+ *               Domain: "STRING_VALUE",
+ *               PublicIpv4Pool: "STRING_VALUE",
+ *               NetworkBorderGroup: "STRING_VALUE",
+ *               NetworkInterfaceId: "STRING_VALUE",
+ *               NetworkInterfaceOwnerId: "STRING_VALUE",
+ *               PrivateIpAddress: "STRING_VALUE",
+ *             },
+ *             AwsEc2Subnet: {
+ *               AssignIpv6AddressOnCreation: true || false,
+ *               AvailabilityZone: "STRING_VALUE",
+ *               AvailabilityZoneId: "STRING_VALUE",
+ *               AvailableIpAddressCount: Number("int"),
+ *               CidrBlock: "STRING_VALUE",
+ *               DefaultForAz: true || false,
+ *               MapPublicIpOnLaunch: true || false,
+ *               OwnerId: "STRING_VALUE",
+ *               State: "STRING_VALUE",
+ *               SubnetArn: "STRING_VALUE",
+ *               SubnetId: "STRING_VALUE",
+ *               VpcId: "STRING_VALUE",
+ *               Ipv6CidrBlockAssociationSet: [
+ *                 {
+ *                   AssociationId: "STRING_VALUE",
+ *                   Ipv6CidrBlock: "STRING_VALUE",
+ *                   CidrBlockState: "STRING_VALUE",
+ *                 },
+ *               ],
+ *             },
+ *             AwsEc2NetworkAcl: {
+ *               IsDefault: true || false,
+ *               NetworkAclId: "STRING_VALUE",
+ *               OwnerId: "STRING_VALUE",
+ *               VpcId: "STRING_VALUE",
+ *               Associations: [
+ *                 {
+ *                   NetworkAclAssociationId: "STRING_VALUE",
+ *                   NetworkAclId: "STRING_VALUE",
+ *                   SubnetId: "STRING_VALUE",
+ *                 },
+ *               ],
+ *               Entries: [
+ *                 {
+ *                   CidrBlock: "STRING_VALUE",
+ *                   Egress: true || false,
+ *                   IcmpTypeCode: {
+ *                     Code: Number("int"),
+ *                     Type: Number("int"),
+ *                   },
+ *                   Ipv6CidrBlock: "STRING_VALUE",
+ *                   PortRange: {
+ *                     From: Number("int"),
+ *                     To: Number("int"),
+ *                   },
+ *                   Protocol: "STRING_VALUE",
+ *                   RuleAction: "STRING_VALUE",
+ *                   RuleNumber: Number("int"),
+ *                 },
+ *               ],
+ *             },
+ *             AwsElbv2LoadBalancer: {
+ *               AvailabilityZones: [
+ *                 {
+ *                   ZoneName: "STRING_VALUE",
+ *                   SubnetId: "STRING_VALUE",
+ *                 },
+ *               ],
+ *               CanonicalHostedZoneId: "STRING_VALUE",
+ *               CreatedTime: "STRING_VALUE",
+ *               DNSName: "STRING_VALUE",
+ *               IpAddressType: "STRING_VALUE",
+ *               Scheme: "STRING_VALUE",
+ *               SecurityGroups: [
+ *                 "STRING_VALUE",
+ *               ],
+ *               State: {
+ *                 Code: "STRING_VALUE",
+ *                 Reason: "STRING_VALUE",
+ *               },
+ *               Type: "STRING_VALUE",
+ *               VpcId: "STRING_VALUE",
+ *               LoadBalancerAttributes: [
+ *                 {
+ *                   Key: "STRING_VALUE",
+ *                   Value: "STRING_VALUE",
+ *                 },
+ *               ],
+ *             },
+ *             AwsElasticBeanstalkEnvironment: {
+ *               ApplicationName: "STRING_VALUE",
+ *               Cname: "STRING_VALUE",
+ *               DateCreated: "STRING_VALUE",
+ *               DateUpdated: "STRING_VALUE",
+ *               Description: "STRING_VALUE",
+ *               EndpointUrl: "STRING_VALUE",
+ *               EnvironmentArn: "STRING_VALUE",
+ *               EnvironmentId: "STRING_VALUE",
+ *               EnvironmentLinks: [
+ *                 {
+ *                   EnvironmentName: "STRING_VALUE",
+ *                   LinkName: "STRING_VALUE",
+ *                 },
+ *               ],
+ *               EnvironmentName: "STRING_VALUE",
+ *               OptionSettings: [
+ *                 {
+ *                   Namespace: "STRING_VALUE",
+ *                   OptionName: "STRING_VALUE",
+ *                   ResourceName: "STRING_VALUE",
+ *                   Value: "STRING_VALUE",
+ *                 },
+ *               ],
+ *               PlatformArn: "STRING_VALUE",
+ *               SolutionStackName: "STRING_VALUE",
+ *               Status: "STRING_VALUE",
+ *               Tier: {
+ *                 Name: "STRING_VALUE",
+ *                 Type: "STRING_VALUE",
+ *                 Version: "STRING_VALUE",
+ *               },
+ *               VersionLabel: "STRING_VALUE",
+ *             },
+ *             AwsElasticsearchDomain: {
+ *               AccessPolicies: "STRING_VALUE",
+ *               DomainEndpointOptions: {
+ *                 EnforceHTTPS: true || false,
+ *                 TLSSecurityPolicy: "STRING_VALUE",
+ *               },
+ *               DomainId: "STRING_VALUE",
+ *               DomainName: "STRING_VALUE",
+ *               Endpoint: "STRING_VALUE",
+ *               Endpoints: {
+ *                 "<keys>": "<NonEmptyString>",
+ *               },
+ *               ElasticsearchVersion: "STRING_VALUE",
+ *               ElasticsearchClusterConfig: {
+ *                 DedicatedMasterCount: Number("int"),
+ *                 DedicatedMasterEnabled: true || false,
+ *                 DedicatedMasterType: "STRING_VALUE",
+ *                 InstanceCount: Number("int"),
+ *                 InstanceType: "STRING_VALUE",
+ *                 ZoneAwarenessConfig: {
+ *                   AvailabilityZoneCount: Number("int"),
+ *                 },
+ *                 ZoneAwarenessEnabled: true || false,
+ *               },
+ *               EncryptionAtRestOptions: {
+ *                 Enabled: true || false,
+ *                 KmsKeyId: "STRING_VALUE",
+ *               },
+ *               LogPublishingOptions: {
+ *                 IndexSlowLogs: {
+ *                   CloudWatchLogsLogGroupArn: "STRING_VALUE",
+ *                   Enabled: true || false,
+ *                 },
+ *                 SearchSlowLogs: {
+ *                   CloudWatchLogsLogGroupArn: "STRING_VALUE",
+ *                   Enabled: true || false,
+ *                 },
+ *                 AuditLogs: {
+ *                   CloudWatchLogsLogGroupArn: "STRING_VALUE",
+ *                   Enabled: true || false,
+ *                 },
+ *               },
+ *               NodeToNodeEncryptionOptions: {
+ *                 Enabled: true || false,
+ *               },
+ *               ServiceSoftwareOptions: {
+ *                 AutomatedUpdateDate: "STRING_VALUE",
+ *                 Cancellable: true || false,
+ *                 CurrentVersion: "STRING_VALUE",
+ *                 Description: "STRING_VALUE",
+ *                 NewVersion: "STRING_VALUE",
+ *                 UpdateAvailable: true || false,
+ *                 UpdateStatus: "STRING_VALUE",
+ *               },
+ *               VPCOptions: {
+ *                 AvailabilityZones: [
+ *                   "STRING_VALUE",
+ *                 ],
+ *                 SecurityGroupIds: [
+ *                   "STRING_VALUE",
+ *                 ],
+ *                 SubnetIds: [
+ *                   "STRING_VALUE",
+ *                 ],
+ *                 VPCId: "STRING_VALUE",
+ *               },
+ *             },
+ *             AwsS3Bucket: {
+ *               OwnerId: "STRING_VALUE",
+ *               OwnerName: "STRING_VALUE",
+ *               OwnerAccountId: "STRING_VALUE",
+ *               CreatedAt: "STRING_VALUE",
+ *               ServerSideEncryptionConfiguration: {
+ *                 Rules: [
+ *                   {
+ *                     ApplyServerSideEncryptionByDefault: {
+ *                       SSEAlgorithm: "STRING_VALUE",
+ *                       KMSMasterKeyID: "STRING_VALUE",
+ *                     },
+ *                   },
+ *                 ],
+ *               },
+ *               BucketLifecycleConfiguration: {
+ *                 Rules: [
+ *                   {
+ *                     AbortIncompleteMultipartUpload: {
+ *                       DaysAfterInitiation: Number("int"),
+ *                     },
+ *                     ExpirationDate: "STRING_VALUE",
+ *                     ExpirationInDays: Number("int"),
+ *                     ExpiredObjectDeleteMarker: true || false,
+ *                     Filter: {
+ *                       Predicate: {
+ *                         Operands: [
+ *                           {
+ *                             Prefix: "STRING_VALUE",
+ *                             Tag: {
+ *                               Key: "STRING_VALUE",
+ *                               Value: "STRING_VALUE",
+ *                             },
+ *                             Type: "STRING_VALUE",
+ *                           },
+ *                         ],
+ *                         Prefix: "STRING_VALUE",
+ *                         Tag: {
+ *                           Key: "STRING_VALUE",
+ *                           Value: "STRING_VALUE",
+ *                         },
+ *                         Type: "STRING_VALUE",
+ *                       },
+ *                     },
+ *                     ID: "STRING_VALUE",
+ *                     NoncurrentVersionExpirationInDays: Number("int"),
+ *                     NoncurrentVersionTransitions: [
+ *                       {
+ *                         Days: Number("int"),
+ *                         StorageClass: "STRING_VALUE",
+ *                       },
+ *                     ],
+ *                     Prefix: "STRING_VALUE",
+ *                     Status: "STRING_VALUE",
+ *                     Transitions: [
+ *                       {
+ *                         Date: "STRING_VALUE",
+ *                         Days: Number("int"),
+ *                         StorageClass: "STRING_VALUE",
+ *                       },
+ *                     ],
+ *                   },
+ *                 ],
+ *               },
+ *               PublicAccessBlockConfiguration: {
+ *                 BlockPublicAcls: true || false,
+ *                 BlockPublicPolicy: true || false,
+ *                 IgnorePublicAcls: true || false,
+ *                 RestrictPublicBuckets: true || false,
+ *               },
+ *               AccessControlList: "STRING_VALUE",
+ *               BucketLoggingConfiguration: {
+ *                 DestinationBucketName: "STRING_VALUE",
+ *                 LogFilePrefix: "STRING_VALUE",
+ *               },
+ *               BucketWebsiteConfiguration: {
+ *                 ErrorDocument: "STRING_VALUE",
+ *                 IndexDocumentSuffix: "STRING_VALUE",
+ *                 RedirectAllRequestsTo: {
+ *                   Hostname: "STRING_VALUE",
+ *                   Protocol: "STRING_VALUE",
+ *                 },
+ *                 RoutingRules: [
+ *                   {
+ *                     Condition: {
+ *                       HttpErrorCodeReturnedEquals: "STRING_VALUE",
+ *                       KeyPrefixEquals: "STRING_VALUE",
+ *                     },
+ *                     Redirect: {
+ *                       Hostname: "STRING_VALUE",
+ *                       HttpRedirectCode: "STRING_VALUE",
+ *                       Protocol: "STRING_VALUE",
+ *                       ReplaceKeyPrefixWith: "STRING_VALUE",
+ *                       ReplaceKeyWith: "STRING_VALUE",
+ *                     },
+ *                   },
+ *                 ],
+ *               },
+ *               BucketNotificationConfiguration: {
+ *                 Configurations: [
+ *                   {
+ *                     Events: [
+ *                       "STRING_VALUE",
+ *                     ],
+ *                     Filter: {
+ *                       S3KeyFilter: {
+ *                         FilterRules: [
+ *                           {
+ *                             Name: "Prefix" || "Suffix",
+ *                             Value: "STRING_VALUE",
+ *                           },
+ *                         ],
+ *                       },
+ *                     },
+ *                     Destination: "STRING_VALUE",
+ *                     Type: "STRING_VALUE",
+ *                   },
+ *                 ],
+ *               },
+ *               BucketVersioningConfiguration: {
+ *                 IsMfaDeleteEnabled: true || false,
+ *                 Status: "STRING_VALUE",
+ *               },
+ *             },
+ *             AwsS3AccountPublicAccessBlock: {
+ *               BlockPublicAcls: true || false,
+ *               BlockPublicPolicy: true || false,
+ *               IgnorePublicAcls: true || false,
+ *               RestrictPublicBuckets: true || false,
+ *             },
+ *             AwsS3Object: {
+ *               LastModified: "STRING_VALUE",
+ *               ETag: "STRING_VALUE",
+ *               VersionId: "STRING_VALUE",
+ *               ContentType: "STRING_VALUE",
+ *               ServerSideEncryption: "STRING_VALUE",
+ *               SSEKMSKeyId: "STRING_VALUE",
+ *             },
+ *             AwsSecretsManagerSecret: {
+ *               RotationRules: {
+ *                 AutomaticallyAfterDays: Number("int"),
+ *               },
+ *               RotationOccurredWithinFrequency: true || false,
+ *               KmsKeyId: "STRING_VALUE",
+ *               RotationEnabled: true || false,
+ *               RotationLambdaArn: "STRING_VALUE",
+ *               Deleted: true || false,
+ *               Name: "STRING_VALUE",
+ *               Description: "STRING_VALUE",
+ *             },
+ *             AwsIamAccessKey: {
+ *               UserName: "STRING_VALUE",
+ *               Status: "Active" || "Inactive",
+ *               CreatedAt: "STRING_VALUE",
+ *               PrincipalId: "STRING_VALUE",
+ *               PrincipalType: "STRING_VALUE",
+ *               PrincipalName: "STRING_VALUE",
+ *               AccountId: "STRING_VALUE",
+ *               AccessKeyId: "STRING_VALUE",
+ *               SessionContext: {
+ *                 Attributes: {
+ *                   MfaAuthenticated: true || false,
+ *                   CreationDate: "STRING_VALUE",
+ *                 },
+ *                 SessionIssuer: {
+ *                   Type: "STRING_VALUE",
+ *                   PrincipalId: "STRING_VALUE",
+ *                   Arn: "STRING_VALUE",
+ *                   AccountId: "STRING_VALUE",
+ *                   UserName: "STRING_VALUE",
+ *                 },
+ *               },
+ *             },
+ *             AwsIamUser: {
+ *               AttachedManagedPolicies: [
+ *                 {
+ *                   PolicyName: "STRING_VALUE",
+ *                   PolicyArn: "STRING_VALUE",
+ *                 },
+ *               ],
+ *               CreateDate: "STRING_VALUE",
+ *               GroupList: [
+ *                 "STRING_VALUE",
+ *               ],
+ *               Path: "STRING_VALUE",
+ *               PermissionsBoundary: {
+ *                 PermissionsBoundaryArn: "STRING_VALUE",
+ *                 PermissionsBoundaryType: "STRING_VALUE",
+ *               },
+ *               UserId: "STRING_VALUE",
+ *               UserName: "STRING_VALUE",
+ *               UserPolicyList: [
+ *                 {
+ *                   PolicyName: "STRING_VALUE",
+ *                 },
+ *               ],
+ *             },
+ *             AwsIamPolicy: {
+ *               AttachmentCount: Number("int"),
+ *               CreateDate: "STRING_VALUE",
+ *               DefaultVersionId: "STRING_VALUE",
+ *               Description: "STRING_VALUE",
+ *               IsAttachable: true || false,
+ *               Path: "STRING_VALUE",
+ *               PermissionsBoundaryUsageCount: Number("int"),
+ *               PolicyId: "STRING_VALUE",
+ *               PolicyName: "STRING_VALUE",
+ *               PolicyVersionList: [
+ *                 {
+ *                   VersionId: "STRING_VALUE",
+ *                   IsDefaultVersion: true || false,
+ *                   CreateDate: "STRING_VALUE",
+ *                 },
+ *               ],
+ *               UpdateDate: "STRING_VALUE",
+ *             },
+ *             AwsApiGatewayV2Stage: {
+ *               ClientCertificateId: "STRING_VALUE",
+ *               CreatedDate: "STRING_VALUE",
+ *               Description: "STRING_VALUE",
+ *               DefaultRouteSettings: {
+ *                 DetailedMetricsEnabled: true || false,
+ *                 LoggingLevel: "STRING_VALUE",
+ *                 DataTraceEnabled: true || false,
+ *                 ThrottlingBurstLimit: Number("int"),
+ *                 ThrottlingRateLimit: Number("double"),
+ *               },
+ *               DeploymentId: "STRING_VALUE",
+ *               LastUpdatedDate: "STRING_VALUE",
+ *               RouteSettings: {
+ *                 DetailedMetricsEnabled: true || false,
+ *                 LoggingLevel: "STRING_VALUE",
+ *                 DataTraceEnabled: true || false,
+ *                 ThrottlingBurstLimit: Number("int"),
+ *                 ThrottlingRateLimit: Number("double"),
+ *               },
+ *               StageName: "STRING_VALUE",
+ *               StageVariables: {
+ *                 "<keys>": "<NonEmptyString>",
+ *               },
+ *               AccessLogSettings: {
+ *                 Format: "STRING_VALUE",
+ *                 DestinationArn: "STRING_VALUE",
+ *               },
+ *               AutoDeploy: true || false,
+ *               LastDeploymentStatusMessage: "STRING_VALUE",
+ *               ApiGatewayManaged: true || false,
+ *             },
+ *             AwsApiGatewayV2Api: {
+ *               ApiEndpoint: "STRING_VALUE",
+ *               ApiId: "STRING_VALUE",
+ *               ApiKeySelectionExpression: "STRING_VALUE",
+ *               CreatedDate: "STRING_VALUE",
+ *               Description: "STRING_VALUE",
+ *               Version: "STRING_VALUE",
+ *               Name: "STRING_VALUE",
+ *               ProtocolType: "STRING_VALUE",
+ *               RouteSelectionExpression: "STRING_VALUE",
+ *               CorsConfiguration: {
+ *                 AllowOrigins: [
+ *                   "STRING_VALUE",
+ *                 ],
+ *                 AllowCredentials: true || false,
+ *                 ExposeHeaders: [
+ *                   "STRING_VALUE",
+ *                 ],
+ *                 MaxAge: Number("int"),
+ *                 AllowMethods: [
+ *                   "STRING_VALUE",
+ *                 ],
+ *                 AllowHeaders: [
+ *                   "STRING_VALUE",
+ *                 ],
+ *               },
+ *             },
+ *             AwsDynamoDbTable: {
+ *               AttributeDefinitions: [
+ *                 {
+ *                   AttributeName: "STRING_VALUE",
+ *                   AttributeType: "STRING_VALUE",
+ *                 },
+ *               ],
+ *               BillingModeSummary: {
+ *                 BillingMode: "STRING_VALUE",
+ *                 LastUpdateToPayPerRequestDateTime: "STRING_VALUE",
+ *               },
+ *               CreationDateTime: "STRING_VALUE",
+ *               GlobalSecondaryIndexes: [
+ *                 {
+ *                   Backfilling: true || false,
+ *                   IndexArn: "STRING_VALUE",
+ *                   IndexName: "STRING_VALUE",
+ *                   IndexSizeBytes: Number("long"),
+ *                   IndexStatus: "STRING_VALUE",
+ *                   ItemCount: Number("int"),
+ *                   KeySchema: [
+ *                     {
+ *                       AttributeName: "STRING_VALUE",
+ *                       KeyType: "STRING_VALUE",
+ *                     },
+ *                   ],
+ *                   Projection: {
+ *                     NonKeyAttributes: [
+ *                       "STRING_VALUE",
+ *                     ],
+ *                     ProjectionType: "STRING_VALUE",
+ *                   },
+ *                   ProvisionedThroughput: {
+ *                     LastDecreaseDateTime: "STRING_VALUE",
+ *                     LastIncreaseDateTime: "STRING_VALUE",
+ *                     NumberOfDecreasesToday: Number("int"),
+ *                     ReadCapacityUnits: Number("int"),
+ *                     WriteCapacityUnits: Number("int"),
+ *                   },
+ *                 },
+ *               ],
+ *               GlobalTableVersion: "STRING_VALUE",
+ *               ItemCount: Number("int"),
+ *               KeySchema: [
+ *                 {
+ *                   AttributeName: "STRING_VALUE",
+ *                   KeyType: "STRING_VALUE",
+ *                 },
+ *               ],
+ *               LatestStreamArn: "STRING_VALUE",
+ *               LatestStreamLabel: "STRING_VALUE",
+ *               LocalSecondaryIndexes: [
+ *                 {
+ *                   IndexArn: "STRING_VALUE",
+ *                   IndexName: "STRING_VALUE",
+ *                   KeySchema: [
+ *                     {
+ *                       AttributeName: "STRING_VALUE",
+ *                       KeyType: "STRING_VALUE",
+ *                     },
+ *                   ],
+ *                   Projection: {
+ *                     NonKeyAttributes: [
+ *                       "STRING_VALUE",
+ *                     ],
+ *                     ProjectionType: "STRING_VALUE",
+ *                   },
+ *                 },
+ *               ],
+ *               ProvisionedThroughput: {
+ *                 LastDecreaseDateTime: "STRING_VALUE",
+ *                 LastIncreaseDateTime: "STRING_VALUE",
+ *                 NumberOfDecreasesToday: Number("int"),
+ *                 ReadCapacityUnits: Number("int"),
+ *                 WriteCapacityUnits: Number("int"),
+ *               },
+ *               Replicas: [
+ *                 {
+ *                   GlobalSecondaryIndexes: [
+ *                     {
+ *                       IndexName: "STRING_VALUE",
+ *                       ProvisionedThroughputOverride: {
+ *                         ReadCapacityUnits: Number("int"),
+ *                       },
+ *                     },
+ *                   ],
+ *                   KmsMasterKeyId: "STRING_VALUE",
+ *                   ProvisionedThroughputOverride: {
+ *                     ReadCapacityUnits: Number("int"),
+ *                   },
+ *                   RegionName: "STRING_VALUE",
+ *                   ReplicaStatus: "STRING_VALUE",
+ *                   ReplicaStatusDescription: "STRING_VALUE",
+ *                 },
+ *               ],
+ *               RestoreSummary: {
+ *                 SourceBackupArn: "STRING_VALUE",
+ *                 SourceTableArn: "STRING_VALUE",
+ *                 RestoreDateTime: "STRING_VALUE",
+ *                 RestoreInProgress: true || false,
+ *               },
+ *               SseDescription: {
+ *                 InaccessibleEncryptionDateTime: "STRING_VALUE",
+ *                 Status: "STRING_VALUE",
+ *                 SseType: "STRING_VALUE",
+ *                 KmsMasterKeyArn: "STRING_VALUE",
+ *               },
+ *               StreamSpecification: {
+ *                 StreamEnabled: true || false,
+ *                 StreamViewType: "STRING_VALUE",
+ *               },
+ *               TableId: "STRING_VALUE",
+ *               TableName: "STRING_VALUE",
+ *               TableSizeBytes: Number("long"),
+ *               TableStatus: "STRING_VALUE",
+ *             },
+ *             AwsApiGatewayStage: {
+ *               DeploymentId: "STRING_VALUE",
+ *               ClientCertificateId: "STRING_VALUE",
+ *               StageName: "STRING_VALUE",
+ *               Description: "STRING_VALUE",
+ *               CacheClusterEnabled: true || false,
+ *               CacheClusterSize: "STRING_VALUE",
+ *               CacheClusterStatus: "STRING_VALUE",
+ *               MethodSettings: [
+ *                 {
+ *                   MetricsEnabled: true || false,
+ *                   LoggingLevel: "STRING_VALUE",
+ *                   DataTraceEnabled: true || false,
+ *                   ThrottlingBurstLimit: Number("int"),
+ *                   ThrottlingRateLimit: Number("double"),
+ *                   CachingEnabled: true || false,
+ *                   CacheTtlInSeconds: Number("int"),
+ *                   CacheDataEncrypted: true || false,
+ *                   RequireAuthorizationForCacheControl: true || false,
+ *                   UnauthorizedCacheControlHeaderStrategy: "STRING_VALUE",
+ *                   HttpMethod: "STRING_VALUE",
+ *                   ResourcePath: "STRING_VALUE",
+ *                 },
+ *               ],
+ *               Variables: {
+ *                 "<keys>": "<NonEmptyString>",
+ *               },
+ *               DocumentationVersion: "STRING_VALUE",
+ *               AccessLogSettings: {
+ *                 Format: "STRING_VALUE",
+ *                 DestinationArn: "STRING_VALUE",
+ *               },
+ *               CanarySettings: {
+ *                 PercentTraffic: Number("double"),
+ *                 DeploymentId: "STRING_VALUE",
+ *                 StageVariableOverrides: {
+ *                   "<keys>": "<NonEmptyString>",
+ *                 },
+ *                 UseStageCache: true || false,
+ *               },
+ *               TracingEnabled: true || false,
+ *               CreatedDate: "STRING_VALUE",
+ *               LastUpdatedDate: "STRING_VALUE",
+ *               WebAclArn: "STRING_VALUE",
+ *             },
+ *             AwsApiGatewayRestApi: {
+ *               Id: "STRING_VALUE",
+ *               Name: "STRING_VALUE",
+ *               Description: "STRING_VALUE",
+ *               CreatedDate: "STRING_VALUE",
+ *               Version: "STRING_VALUE",
+ *               BinaryMediaTypes: [
+ *                 "<NonEmptyStringList>",
+ *               ],
+ *               MinimumCompressionSize: Number("int"),
+ *               ApiKeySource: "STRING_VALUE",
+ *               EndpointConfiguration: {
+ *                 Types: [
+ *                   "<NonEmptyStringList>",
+ *                 ],
+ *               },
+ *             },
+ *             AwsCloudTrailTrail: {
+ *               CloudWatchLogsLogGroupArn: "STRING_VALUE",
+ *               CloudWatchLogsRoleArn: "STRING_VALUE",
+ *               HasCustomEventSelectors: true || false,
+ *               HomeRegion: "STRING_VALUE",
+ *               IncludeGlobalServiceEvents: true || false,
+ *               IsMultiRegionTrail: true || false,
+ *               IsOrganizationTrail: true || false,
+ *               KmsKeyId: "STRING_VALUE",
+ *               LogFileValidationEnabled: true || false,
+ *               Name: "STRING_VALUE",
+ *               S3BucketName: "STRING_VALUE",
+ *               S3KeyPrefix: "STRING_VALUE",
+ *               SnsTopicArn: "STRING_VALUE",
+ *               SnsTopicName: "STRING_VALUE",
+ *               TrailArn: "STRING_VALUE",
+ *             },
+ *             AwsSsmPatchCompliance: {
+ *               Patch: {
+ *                 ComplianceSummary: {
+ *                   Status: "STRING_VALUE",
+ *                   CompliantCriticalCount: Number("int"),
+ *                   CompliantHighCount: Number("int"),
+ *                   CompliantMediumCount: Number("int"),
+ *                   ExecutionType: "STRING_VALUE",
+ *                   NonCompliantCriticalCount: Number("int"),
+ *                   CompliantInformationalCount: Number("int"),
+ *                   NonCompliantInformationalCount: Number("int"),
+ *                   CompliantUnspecifiedCount: Number("int"),
+ *                   NonCompliantLowCount: Number("int"),
+ *                   NonCompliantHighCount: Number("int"),
+ *                   CompliantLowCount: Number("int"),
+ *                   ComplianceType: "STRING_VALUE",
+ *                   PatchBaselineId: "STRING_VALUE",
+ *                   OverallSeverity: "STRING_VALUE",
+ *                   NonCompliantMediumCount: Number("int"),
+ *                   NonCompliantUnspecifiedCount: Number("int"),
+ *                   PatchGroup: "STRING_VALUE",
+ *                 },
+ *               },
+ *             },
+ *             AwsCertificateManagerCertificate: {
+ *               CertificateAuthorityArn: "STRING_VALUE",
+ *               CreatedAt: "STRING_VALUE",
+ *               DomainName: "STRING_VALUE",
+ *               DomainValidationOptions: [
+ *                 {
+ *                   DomainName: "STRING_VALUE",
+ *                   ResourceRecord: {
+ *                     Name: "STRING_VALUE",
+ *                     Type: "STRING_VALUE",
+ *                     Value: "STRING_VALUE",
+ *                   },
+ *                   ValidationDomain: "STRING_VALUE",
+ *                   ValidationEmails: [
+ *                     "<StringList>",
+ *                   ],
+ *                   ValidationMethod: "STRING_VALUE",
+ *                   ValidationStatus: "STRING_VALUE",
+ *                 },
+ *               ],
+ *               ExtendedKeyUsages: [
+ *                 {
+ *                   Name: "STRING_VALUE",
+ *                   OId: "STRING_VALUE",
+ *                 },
+ *               ],
+ *               FailureReason: "STRING_VALUE",
+ *               ImportedAt: "STRING_VALUE",
+ *               InUseBy: [
+ *                 "<StringList>",
+ *               ],
+ *               IssuedAt: "STRING_VALUE",
+ *               Issuer: "STRING_VALUE",
+ *               KeyAlgorithm: "STRING_VALUE",
+ *               KeyUsages: [
+ *                 {
+ *                   Name: "STRING_VALUE",
+ *                 },
+ *               ],
+ *               NotAfter: "STRING_VALUE",
+ *               NotBefore: "STRING_VALUE",
+ *               Options: {
+ *                 CertificateTransparencyLoggingPreference: "STRING_VALUE",
+ *               },
+ *               RenewalEligibility: "STRING_VALUE",
+ *               RenewalSummary: {
+ *                 DomainValidationOptions: [
+ *                   {
+ *                     DomainName: "STRING_VALUE",
+ *                     ResourceRecord: {
+ *                       Name: "STRING_VALUE",
+ *                       Type: "STRING_VALUE",
+ *                       Value: "STRING_VALUE",
+ *                     },
+ *                     ValidationDomain: "STRING_VALUE",
+ *                     ValidationEmails: [
+ *                       "<StringList>",
+ *                     ],
+ *                     ValidationMethod: "STRING_VALUE",
+ *                     ValidationStatus: "STRING_VALUE",
+ *                   },
+ *                 ],
+ *                 RenewalStatus: "STRING_VALUE",
+ *                 RenewalStatusReason: "STRING_VALUE",
+ *                 UpdatedAt: "STRING_VALUE",
+ *               },
+ *               Serial: "STRING_VALUE",
+ *               SignatureAlgorithm: "STRING_VALUE",
+ *               Status: "STRING_VALUE",
+ *               Subject: "STRING_VALUE",
+ *               SubjectAlternativeNames: [
+ *                 "<StringList>",
+ *               ],
+ *               Type: "STRING_VALUE",
+ *             },
+ *             AwsRedshiftCluster: {
+ *               AllowVersionUpgrade: true || false,
+ *               AutomatedSnapshotRetentionPeriod: Number("int"),
+ *               AvailabilityZone: "STRING_VALUE",
+ *               ClusterAvailabilityStatus: "STRING_VALUE",
+ *               ClusterCreateTime: "STRING_VALUE",
+ *               ClusterIdentifier: "STRING_VALUE",
+ *               ClusterNodes: [
+ *                 {
+ *                   NodeRole: "STRING_VALUE",
+ *                   PrivateIpAddress: "STRING_VALUE",
+ *                   PublicIpAddress: "STRING_VALUE",
+ *                 },
+ *               ],
+ *               ClusterParameterGroups: [
+ *                 {
+ *                   ClusterParameterStatusList: [
+ *                     {
+ *                       ParameterName: "STRING_VALUE",
+ *                       ParameterApplyStatus: "STRING_VALUE",
+ *                       ParameterApplyErrorDescription: "STRING_VALUE",
+ *                     },
+ *                   ],
+ *                   ParameterApplyStatus: "STRING_VALUE",
+ *                   ParameterGroupName: "STRING_VALUE",
+ *                 },
+ *               ],
+ *               ClusterPublicKey: "STRING_VALUE",
+ *               ClusterRevisionNumber: "STRING_VALUE",
+ *               ClusterSecurityGroups: [
+ *                 {
+ *                   ClusterSecurityGroupName: "STRING_VALUE",
+ *                   Status: "STRING_VALUE",
+ *                 },
+ *               ],
+ *               ClusterSnapshotCopyStatus: {
+ *                 DestinationRegion: "STRING_VALUE",
+ *                 ManualSnapshotRetentionPeriod: Number("int"),
+ *                 RetentionPeriod: Number("int"),
+ *                 SnapshotCopyGrantName: "STRING_VALUE",
+ *               },
+ *               ClusterStatus: "STRING_VALUE",
+ *               ClusterSubnetGroupName: "STRING_VALUE",
+ *               ClusterVersion: "STRING_VALUE",
+ *               DBName: "STRING_VALUE",
+ *               DeferredMaintenanceWindows: [
+ *                 {
+ *                   DeferMaintenanceEndTime: "STRING_VALUE",
+ *                   DeferMaintenanceIdentifier: "STRING_VALUE",
+ *                   DeferMaintenanceStartTime: "STRING_VALUE",
+ *                 },
+ *               ],
+ *               ElasticIpStatus: {
+ *                 ElasticIp: "STRING_VALUE",
+ *                 Status: "STRING_VALUE",
+ *               },
+ *               ElasticResizeNumberOfNodeOptions: "STRING_VALUE",
+ *               Encrypted: true || false,
+ *               Endpoint: {
+ *                 Address: "STRING_VALUE",
+ *                 Port: Number("int"),
+ *               },
+ *               EnhancedVpcRouting: true || false,
+ *               ExpectedNextSnapshotScheduleTime: "STRING_VALUE",
+ *               ExpectedNextSnapshotScheduleTimeStatus: "STRING_VALUE",
+ *               HsmStatus: {
+ *                 HsmClientCertificateIdentifier: "STRING_VALUE",
+ *                 HsmConfigurationIdentifier: "STRING_VALUE",
+ *                 Status: "STRING_VALUE",
+ *               },
+ *               IamRoles: [
+ *                 {
+ *                   ApplyStatus: "STRING_VALUE",
+ *                   IamRoleArn: "STRING_VALUE",
+ *                 },
+ *               ],
+ *               KmsKeyId: "STRING_VALUE",
+ *               MaintenanceTrackName: "STRING_VALUE",
+ *               ManualSnapshotRetentionPeriod: Number("int"),
+ *               MasterUsername: "STRING_VALUE",
+ *               NextMaintenanceWindowStartTime: "STRING_VALUE",
+ *               NodeType: "STRING_VALUE",
+ *               NumberOfNodes: Number("int"),
+ *               PendingActions: [
+ *                 "<StringList>",
+ *               ],
+ *               PendingModifiedValues: {
+ *                 AutomatedSnapshotRetentionPeriod: Number("int"),
+ *                 ClusterIdentifier: "STRING_VALUE",
+ *                 ClusterType: "STRING_VALUE",
+ *                 ClusterVersion: "STRING_VALUE",
+ *                 EncryptionType: "STRING_VALUE",
+ *                 EnhancedVpcRouting: true || false,
+ *                 MaintenanceTrackName: "STRING_VALUE",
+ *                 MasterUserPassword: "STRING_VALUE",
+ *                 NodeType: "STRING_VALUE",
+ *                 NumberOfNodes: Number("int"),
+ *                 PubliclyAccessible: true || false,
+ *               },
+ *               PreferredMaintenanceWindow: "STRING_VALUE",
+ *               PubliclyAccessible: true || false,
+ *               ResizeInfo: {
+ *                 AllowCancelResize: true || false,
+ *                 ResizeType: "STRING_VALUE",
+ *               },
+ *               RestoreStatus: {
+ *                 CurrentRestoreRateInMegaBytesPerSecond: Number("double"),
+ *                 ElapsedTimeInSeconds: Number("long"),
+ *                 EstimatedTimeToCompletionInSeconds: Number("long"),
+ *                 ProgressInMegaBytes: Number("long"),
+ *                 SnapshotSizeInMegaBytes: Number("long"),
+ *                 Status: "STRING_VALUE",
+ *               },
+ *               SnapshotScheduleIdentifier: "STRING_VALUE",
+ *               SnapshotScheduleState: "STRING_VALUE",
+ *               VpcId: "STRING_VALUE",
+ *               VpcSecurityGroups: [
+ *                 {
+ *                   Status: "STRING_VALUE",
+ *                   VpcSecurityGroupId: "STRING_VALUE",
+ *                 },
+ *               ],
+ *               LoggingStatus: {
+ *                 BucketName: "STRING_VALUE",
+ *                 LastFailureMessage: "STRING_VALUE",
+ *                 LastFailureTime: "STRING_VALUE",
+ *                 LastSuccessfulDeliveryTime: "STRING_VALUE",
+ *                 LoggingEnabled: true || false,
+ *                 S3KeyPrefix: "STRING_VALUE",
+ *               },
+ *             },
+ *             AwsElbLoadBalancer: {
+ *               AvailabilityZones: [
+ *                 "<StringList>",
+ *               ],
+ *               BackendServerDescriptions: [
+ *                 {
+ *                   InstancePort: Number("int"),
+ *                   PolicyNames: [
+ *                     "<StringList>",
+ *                   ],
+ *                 },
+ *               ],
+ *               CanonicalHostedZoneName: "STRING_VALUE",
+ *               CanonicalHostedZoneNameID: "STRING_VALUE",
+ *               CreatedTime: "STRING_VALUE",
+ *               DnsName: "STRING_VALUE",
+ *               HealthCheck: {
+ *                 HealthyThreshold: Number("int"),
+ *                 Interval: Number("int"),
+ *                 Target: "STRING_VALUE",
+ *                 Timeout: Number("int"),
+ *                 UnhealthyThreshold: Number("int"),
+ *               },
+ *               Instances: [
+ *                 {
+ *                   InstanceId: "STRING_VALUE",
+ *                 },
+ *               ],
+ *               ListenerDescriptions: [
+ *                 {
+ *                   Listener: {
+ *                     InstancePort: Number("int"),
+ *                     InstanceProtocol: "STRING_VALUE",
+ *                     LoadBalancerPort: Number("int"),
+ *                     Protocol: "STRING_VALUE",
+ *                     SslCertificateId: "STRING_VALUE",
+ *                   },
+ *                   PolicyNames: [
+ *                     "<StringList>",
+ *                   ],
+ *                 },
+ *               ],
+ *               LoadBalancerAttributes: {
+ *                 AccessLog: {
+ *                   EmitInterval: Number("int"),
+ *                   Enabled: true || false,
+ *                   S3BucketName: "STRING_VALUE",
+ *                   S3BucketPrefix: "STRING_VALUE",
+ *                 },
+ *                 ConnectionDraining: {
+ *                   Enabled: true || false,
+ *                   Timeout: Number("int"),
+ *                 },
+ *                 ConnectionSettings: {
+ *                   IdleTimeout: Number("int"),
+ *                 },
+ *                 CrossZoneLoadBalancing: {
+ *                   Enabled: true || false,
+ *                 },
+ *                 AdditionalAttributes: [
+ *                   {
+ *                     Key: "STRING_VALUE",
+ *                     Value: "STRING_VALUE",
+ *                   },
+ *                 ],
+ *               },
+ *               LoadBalancerName: "STRING_VALUE",
+ *               Policies: {
+ *                 AppCookieStickinessPolicies: [
+ *                   {
+ *                     CookieName: "STRING_VALUE",
+ *                     PolicyName: "STRING_VALUE",
+ *                   },
+ *                 ],
+ *                 LbCookieStickinessPolicies: [
+ *                   {
+ *                     CookieExpirationPeriod: Number("long"),
+ *                     PolicyName: "STRING_VALUE",
+ *                   },
+ *                 ],
+ *                 OtherPolicies: [
+ *                   "<StringList>",
+ *                 ],
+ *               },
+ *               Scheme: "STRING_VALUE",
+ *               SecurityGroups: [
+ *                 "<StringList>",
+ *               ],
+ *               SourceSecurityGroup: {
+ *                 GroupName: "STRING_VALUE",
+ *                 OwnerAlias: "STRING_VALUE",
+ *               },
+ *               Subnets: [
+ *                 "<StringList>",
+ *               ],
+ *               VpcId: "STRING_VALUE",
+ *             },
+ *             AwsIamGroup: {
+ *               AttachedManagedPolicies: [
+ *                 {
+ *                   PolicyName: "STRING_VALUE",
+ *                   PolicyArn: "STRING_VALUE",
+ *                 },
+ *               ],
+ *               CreateDate: "STRING_VALUE",
+ *               GroupId: "STRING_VALUE",
+ *               GroupName: "STRING_VALUE",
+ *               GroupPolicyList: [
+ *                 {
+ *                   PolicyName: "STRING_VALUE",
+ *                 },
+ *               ],
+ *               Path: "STRING_VALUE",
+ *             },
+ *             AwsIamRole: {
+ *               AssumeRolePolicyDocument: "STRING_VALUE",
+ *               AttachedManagedPolicies: [
+ *                 {
+ *                   PolicyName: "STRING_VALUE",
+ *                   PolicyArn: "STRING_VALUE",
+ *                 },
+ *               ],
+ *               CreateDate: "STRING_VALUE",
+ *               InstanceProfileList: [
+ *                 {
+ *                   Arn: "STRING_VALUE",
+ *                   CreateDate: "STRING_VALUE",
+ *                   InstanceProfileId: "STRING_VALUE",
+ *                   InstanceProfileName: "STRING_VALUE",
+ *                   Path: "STRING_VALUE",
+ *                   Roles: [
+ *                     {
+ *                       Arn: "STRING_VALUE",
+ *                       AssumeRolePolicyDocument: "STRING_VALUE",
+ *                       CreateDate: "STRING_VALUE",
+ *                       Path: "STRING_VALUE",
+ *                       RoleId: "STRING_VALUE",
+ *                       RoleName: "STRING_VALUE",
+ *                     },
+ *                   ],
+ *                 },
+ *               ],
+ *               PermissionsBoundary: {
+ *                 PermissionsBoundaryArn: "STRING_VALUE",
+ *                 PermissionsBoundaryType: "STRING_VALUE",
+ *               },
+ *               RoleId: "STRING_VALUE",
+ *               RoleName: "STRING_VALUE",
+ *               RolePolicyList: [
+ *                 {
+ *                   PolicyName: "STRING_VALUE",
+ *                 },
+ *               ],
+ *               MaxSessionDuration: Number("int"),
+ *               Path: "STRING_VALUE",
+ *             },
+ *             AwsKmsKey: {
+ *               AWSAccountId: "STRING_VALUE",
+ *               CreationDate: Number("double"),
+ *               KeyId: "STRING_VALUE",
+ *               KeyManager: "STRING_VALUE",
+ *               KeyState: "STRING_VALUE",
+ *               Origin: "STRING_VALUE",
+ *               Description: "STRING_VALUE",
+ *               KeyRotationStatus: true || false,
+ *             },
+ *             AwsLambdaFunction: {
+ *               Code: {
+ *                 S3Bucket: "STRING_VALUE",
+ *                 S3Key: "STRING_VALUE",
+ *                 S3ObjectVersion: "STRING_VALUE",
+ *                 ZipFile: "STRING_VALUE",
+ *               },
+ *               CodeSha256: "STRING_VALUE",
+ *               DeadLetterConfig: {
+ *                 TargetArn: "STRING_VALUE",
+ *               },
+ *               Environment: {
+ *                 Variables: {
+ *                   "<keys>": "<NonEmptyString>",
+ *                 },
+ *                 Error: {
+ *                   ErrorCode: "STRING_VALUE",
+ *                   Message: "STRING_VALUE",
+ *                 },
+ *               },
+ *               FunctionName: "STRING_VALUE",
+ *               Handler: "STRING_VALUE",
+ *               KmsKeyArn: "STRING_VALUE",
+ *               LastModified: "STRING_VALUE",
+ *               Layers: [
+ *                 {
+ *                   Arn: "STRING_VALUE",
+ *                   CodeSize: Number("int"),
+ *                 },
+ *               ],
+ *               MasterArn: "STRING_VALUE",
+ *               MemorySize: Number("int"),
+ *               RevisionId: "STRING_VALUE",
+ *               Role: "STRING_VALUE",
+ *               Runtime: "STRING_VALUE",
+ *               Timeout: Number("int"),
+ *               TracingConfig: {
+ *                 Mode: "STRING_VALUE",
+ *               },
+ *               VpcConfig: {
+ *                 SecurityGroupIds: [
+ *                   "<NonEmptyStringList>",
+ *                 ],
+ *                 SubnetIds: [
+ *                   "<NonEmptyStringList>",
+ *                 ],
+ *                 VpcId: "STRING_VALUE",
+ *               },
+ *               Version: "STRING_VALUE",
+ *               Architectures: [
+ *                 "<NonEmptyStringList>",
+ *               ],
+ *               PackageType: "STRING_VALUE",
+ *             },
+ *             AwsLambdaLayerVersion: {
+ *               Version: Number("long"),
+ *               CompatibleRuntimes: [
+ *                 "<NonEmptyStringList>",
+ *               ],
+ *               CreatedDate: "STRING_VALUE",
+ *             },
+ *             AwsRdsDbInstance: {
+ *               AssociatedRoles: [
+ *                 {
+ *                   RoleArn: "STRING_VALUE",
+ *                   FeatureName: "STRING_VALUE",
+ *                   Status: "STRING_VALUE",
+ *                 },
+ *               ],
+ *               CACertificateIdentifier: "STRING_VALUE",
+ *               DBClusterIdentifier: "STRING_VALUE",
+ *               DBInstanceIdentifier: "STRING_VALUE",
+ *               DBInstanceClass: "STRING_VALUE",
+ *               DbInstancePort: Number("int"),
+ *               DbiResourceId: "STRING_VALUE",
+ *               DBName: "STRING_VALUE",
+ *               DeletionProtection: true || false,
+ *               Endpoint: {
+ *                 Address: "STRING_VALUE",
+ *                 Port: Number("int"),
+ *                 HostedZoneId: "STRING_VALUE",
+ *               },
+ *               Engine: "STRING_VALUE",
+ *               EngineVersion: "STRING_VALUE",
+ *               IAMDatabaseAuthenticationEnabled: true || false,
+ *               InstanceCreateTime: "STRING_VALUE",
+ *               KmsKeyId: "STRING_VALUE",
+ *               PubliclyAccessible: true || false,
+ *               StorageEncrypted: true || false,
+ *               TdeCredentialArn: "STRING_VALUE",
+ *               VpcSecurityGroups: [
+ *                 {
+ *                   VpcSecurityGroupId: "STRING_VALUE",
+ *                   Status: "STRING_VALUE",
+ *                 },
+ *               ],
+ *               MultiAz: true || false,
+ *               EnhancedMonitoringResourceArn: "STRING_VALUE",
+ *               DbInstanceStatus: "STRING_VALUE",
+ *               MasterUsername: "STRING_VALUE",
+ *               AllocatedStorage: Number("int"),
+ *               PreferredBackupWindow: "STRING_VALUE",
+ *               BackupRetentionPeriod: Number("int"),
+ *               DbSecurityGroups: [
+ *                 "<StringList>",
+ *               ],
+ *               DbParameterGroups: [
+ *                 {
+ *                   DbParameterGroupName: "STRING_VALUE",
+ *                   ParameterApplyStatus: "STRING_VALUE",
+ *                 },
+ *               ],
+ *               AvailabilityZone: "STRING_VALUE",
+ *               DbSubnetGroup: {
+ *                 DbSubnetGroupName: "STRING_VALUE",
+ *                 DbSubnetGroupDescription: "STRING_VALUE",
+ *                 VpcId: "STRING_VALUE",
+ *                 SubnetGroupStatus: "STRING_VALUE",
+ *                 Subnets: [
+ *                   {
+ *                     SubnetIdentifier: "STRING_VALUE",
+ *                     SubnetAvailabilityZone: {
+ *                       Name: "STRING_VALUE",
+ *                     },
+ *                     SubnetStatus: "STRING_VALUE",
+ *                   },
+ *                 ],
+ *                 DbSubnetGroupArn: "STRING_VALUE",
+ *               },
+ *               PreferredMaintenanceWindow: "STRING_VALUE",
+ *               PendingModifiedValues: {
+ *                 DbInstanceClass: "STRING_VALUE",
+ *                 AllocatedStorage: Number("int"),
+ *                 MasterUserPassword: "STRING_VALUE",
+ *                 Port: Number("int"),
+ *                 BackupRetentionPeriod: Number("int"),
+ *                 MultiAZ: true || false,
+ *                 EngineVersion: "STRING_VALUE",
+ *                 LicenseModel: "STRING_VALUE",
+ *                 Iops: Number("int"),
+ *                 DbInstanceIdentifier: "STRING_VALUE",
+ *                 StorageType: "STRING_VALUE",
+ *                 CaCertificateIdentifier: "STRING_VALUE",
+ *                 DbSubnetGroupName: "STRING_VALUE",
+ *                 PendingCloudWatchLogsExports: {
+ *                   LogTypesToEnable: [
+ *                     "<StringList>",
+ *                   ],
+ *                   LogTypesToDisable: [
+ *                     "<StringList>",
+ *                   ],
+ *                 },
+ *                 ProcessorFeatures: [
+ *                   {
+ *                     Name: "STRING_VALUE",
+ *                     Value: "STRING_VALUE",
+ *                   },
+ *                 ],
+ *               },
+ *               LatestRestorableTime: "STRING_VALUE",
+ *               AutoMinorVersionUpgrade: true || false,
+ *               ReadReplicaSourceDBInstanceIdentifier: "STRING_VALUE",
+ *               ReadReplicaDBInstanceIdentifiers: [
+ *                 "<StringList>",
+ *               ],
+ *               ReadReplicaDBClusterIdentifiers: [
+ *                 "<StringList>",
+ *               ],
+ *               LicenseModel: "STRING_VALUE",
+ *               Iops: Number("int"),
+ *               OptionGroupMemberships: [
+ *                 {
+ *                   OptionGroupName: "STRING_VALUE",
+ *                   Status: "STRING_VALUE",
+ *                 },
+ *               ],
+ *               CharacterSetName: "STRING_VALUE",
+ *               SecondaryAvailabilityZone: "STRING_VALUE",
+ *               StatusInfos: [
+ *                 {
+ *                   StatusType: "STRING_VALUE",
+ *                   Normal: true || false,
+ *                   Status: "STRING_VALUE",
+ *                   Message: "STRING_VALUE",
+ *                 },
+ *               ],
+ *               StorageType: "STRING_VALUE",
+ *               DomainMemberships: [
+ *                 {
+ *                   Domain: "STRING_VALUE",
+ *                   Status: "STRING_VALUE",
+ *                   Fqdn: "STRING_VALUE",
+ *                   IamRoleName: "STRING_VALUE",
+ *                 },
+ *               ],
+ *               CopyTagsToSnapshot: true || false,
+ *               MonitoringInterval: Number("int"),
+ *               MonitoringRoleArn: "STRING_VALUE",
+ *               PromotionTier: Number("int"),
+ *               Timezone: "STRING_VALUE",
+ *               PerformanceInsightsEnabled: true || false,
+ *               PerformanceInsightsKmsKeyId: "STRING_VALUE",
+ *               PerformanceInsightsRetentionPeriod: Number("int"),
+ *               EnabledCloudWatchLogsExports: [
+ *                 "<StringList>",
+ *               ],
+ *               ProcessorFeatures: [
+ *                 {
+ *                   Name: "STRING_VALUE",
+ *                   Value: "STRING_VALUE",
+ *                 },
+ *               ],
+ *               ListenerEndpoint: {
+ *                 Address: "STRING_VALUE",
+ *                 Port: Number("int"),
+ *                 HostedZoneId: "STRING_VALUE",
+ *               },
+ *               MaxAllocatedStorage: Number("int"),
+ *             },
+ *             AwsSnsTopic: {
+ *               KmsMasterKeyId: "STRING_VALUE",
+ *               Subscription: [
+ *                 {
+ *                   Endpoint: "STRING_VALUE",
+ *                   Protocol: "STRING_VALUE",
+ *                 },
+ *               ],
+ *               TopicName: "STRING_VALUE",
+ *               Owner: "STRING_VALUE",
+ *               SqsSuccessFeedbackRoleArn: "STRING_VALUE",
+ *               SqsFailureFeedbackRoleArn: "STRING_VALUE",
+ *               ApplicationSuccessFeedbackRoleArn: "STRING_VALUE",
+ *               FirehoseSuccessFeedbackRoleArn: "STRING_VALUE",
+ *               FirehoseFailureFeedbackRoleArn: "STRING_VALUE",
+ *               HttpSuccessFeedbackRoleArn: "STRING_VALUE",
+ *               HttpFailureFeedbackRoleArn: "STRING_VALUE",
+ *             },
+ *             AwsSqsQueue: {
+ *               KmsDataKeyReusePeriodSeconds: Number("int"),
+ *               KmsMasterKeyId: "STRING_VALUE",
+ *               QueueName: "STRING_VALUE",
+ *               DeadLetterTargetArn: "STRING_VALUE",
+ *             },
+ *             AwsWafWebAcl: {
+ *               Name: "STRING_VALUE",
+ *               DefaultAction: "STRING_VALUE",
+ *               Rules: [
+ *                 {
+ *                   Action: {
+ *                     Type: "STRING_VALUE",
+ *                   },
+ *                   ExcludedRules: [
+ *                     {
+ *                       RuleId: "STRING_VALUE",
+ *                     },
+ *                   ],
+ *                   OverrideAction: {
+ *                     Type: "STRING_VALUE",
+ *                   },
+ *                   Priority: Number("int"),
+ *                   RuleId: "STRING_VALUE",
+ *                   Type: "STRING_VALUE",
+ *                 },
+ *               ],
+ *               WebAclId: "STRING_VALUE",
+ *             },
+ *             AwsRdsDbSnapshot: {
+ *               DbSnapshotIdentifier: "STRING_VALUE",
+ *               DbInstanceIdentifier: "STRING_VALUE",
+ *               SnapshotCreateTime: "STRING_VALUE",
+ *               Engine: "STRING_VALUE",
+ *               AllocatedStorage: Number("int"),
+ *               Status: "STRING_VALUE",
+ *               Port: Number("int"),
+ *               AvailabilityZone: "STRING_VALUE",
+ *               VpcId: "STRING_VALUE",
+ *               InstanceCreateTime: "STRING_VALUE",
+ *               MasterUsername: "STRING_VALUE",
+ *               EngineVersion: "STRING_VALUE",
+ *               LicenseModel: "STRING_VALUE",
+ *               SnapshotType: "STRING_VALUE",
+ *               Iops: Number("int"),
+ *               OptionGroupName: "STRING_VALUE",
+ *               PercentProgress: Number("int"),
+ *               SourceRegion: "STRING_VALUE",
+ *               SourceDbSnapshotIdentifier: "STRING_VALUE",
+ *               StorageType: "STRING_VALUE",
+ *               TdeCredentialArn: "STRING_VALUE",
+ *               Encrypted: true || false,
+ *               KmsKeyId: "STRING_VALUE",
+ *               Timezone: "STRING_VALUE",
+ *               IamDatabaseAuthenticationEnabled: true || false,
+ *               ProcessorFeatures: [
+ *                 {
+ *                   Name: "STRING_VALUE",
+ *                   Value: "STRING_VALUE",
+ *                 },
+ *               ],
+ *               DbiResourceId: "STRING_VALUE",
+ *             },
+ *             AwsRdsDbClusterSnapshot: {
+ *               AvailabilityZones: [
+ *                 "<StringList>",
+ *               ],
+ *               SnapshotCreateTime: "STRING_VALUE",
+ *               Engine: "STRING_VALUE",
+ *               AllocatedStorage: Number("int"),
+ *               Status: "STRING_VALUE",
+ *               Port: Number("int"),
+ *               VpcId: "STRING_VALUE",
+ *               ClusterCreateTime: "STRING_VALUE",
+ *               MasterUsername: "STRING_VALUE",
+ *               EngineVersion: "STRING_VALUE",
+ *               LicenseModel: "STRING_VALUE",
+ *               SnapshotType: "STRING_VALUE",
+ *               PercentProgress: Number("int"),
+ *               StorageEncrypted: true || false,
+ *               KmsKeyId: "STRING_VALUE",
+ *               DbClusterIdentifier: "STRING_VALUE",
+ *               DbClusterSnapshotIdentifier: "STRING_VALUE",
+ *               IamDatabaseAuthenticationEnabled: true || false,
+ *             },
+ *             AwsRdsDbCluster: {
+ *               AllocatedStorage: Number("int"),
+ *               AvailabilityZones: [
+ *                 "<StringList>",
+ *               ],
+ *               BackupRetentionPeriod: Number("int"),
+ *               DatabaseName: "STRING_VALUE",
+ *               Status: "STRING_VALUE",
+ *               Endpoint: "STRING_VALUE",
+ *               ReaderEndpoint: "STRING_VALUE",
+ *               CustomEndpoints: [
+ *                 "<StringList>",
+ *               ],
+ *               MultiAz: true || false,
+ *               Engine: "STRING_VALUE",
+ *               EngineVersion: "STRING_VALUE",
+ *               Port: Number("int"),
+ *               MasterUsername: "STRING_VALUE",
+ *               PreferredBackupWindow: "STRING_VALUE",
+ *               PreferredMaintenanceWindow: "STRING_VALUE",
+ *               ReadReplicaIdentifiers: [
+ *                 "<StringList>",
+ *               ],
+ *               VpcSecurityGroups: [
+ *                 {
+ *                   VpcSecurityGroupId: "STRING_VALUE",
+ *                   Status: "STRING_VALUE",
+ *                 },
+ *               ],
+ *               HostedZoneId: "STRING_VALUE",
+ *               StorageEncrypted: true || false,
+ *               KmsKeyId: "STRING_VALUE",
+ *               DbClusterResourceId: "STRING_VALUE",
+ *               AssociatedRoles: [
+ *                 {
+ *                   RoleArn: "STRING_VALUE",
+ *                   Status: "STRING_VALUE",
+ *                 },
+ *               ],
+ *               ClusterCreateTime: "STRING_VALUE",
+ *               EnabledCloudWatchLogsExports: [
+ *                 "<StringList>",
+ *               ],
+ *               EngineMode: "STRING_VALUE",
+ *               DeletionProtection: true || false,
+ *               HttpEndpointEnabled: true || false,
+ *               ActivityStreamStatus: "STRING_VALUE",
+ *               CopyTagsToSnapshot: true || false,
+ *               CrossAccountClone: true || false,
+ *               DomainMemberships: [
+ *                 {
+ *                   Domain: "STRING_VALUE",
+ *                   Status: "STRING_VALUE",
+ *                   Fqdn: "STRING_VALUE",
+ *                   IamRoleName: "STRING_VALUE",
+ *                 },
+ *               ],
+ *               DbClusterParameterGroup: "STRING_VALUE",
+ *               DbSubnetGroup: "STRING_VALUE",
+ *               DbClusterOptionGroupMemberships: [
+ *                 {
+ *                   DbClusterOptionGroupName: "STRING_VALUE",
+ *                   Status: "STRING_VALUE",
+ *                 },
+ *               ],
+ *               DbClusterIdentifier: "STRING_VALUE",
+ *               DbClusterMembers: [
+ *                 {
+ *                   IsClusterWriter: true || false,
+ *                   PromotionTier: Number("int"),
+ *                   DbInstanceIdentifier: "STRING_VALUE",
+ *                   DbClusterParameterGroupStatus: "STRING_VALUE",
+ *                 },
+ *               ],
+ *               IamDatabaseAuthenticationEnabled: true || false,
+ *             },
+ *             AwsEcsCluster: {
+ *               ClusterArn: "STRING_VALUE",
+ *               ActiveServicesCount: Number("int"),
+ *               CapacityProviders: [
+ *                 "<NonEmptyStringList>",
+ *               ],
+ *               ClusterSettings: [
+ *                 {
+ *                   Name: "STRING_VALUE",
+ *                   Value: "STRING_VALUE",
+ *                 },
+ *               ],
+ *               Configuration: {
+ *                 ExecuteCommandConfiguration: {
+ *                   KmsKeyId: "STRING_VALUE",
+ *                   LogConfiguration: {
+ *                     CloudWatchEncryptionEnabled: true || false,
+ *                     CloudWatchLogGroupName: "STRING_VALUE",
+ *                     S3BucketName: "STRING_VALUE",
+ *                     S3EncryptionEnabled: true || false,
+ *                     S3KeyPrefix: "STRING_VALUE",
+ *                   },
+ *                   Logging: "STRING_VALUE",
+ *                 },
+ *               },
+ *               DefaultCapacityProviderStrategy: [
+ *                 {
+ *                   Base: Number("int"),
+ *                   CapacityProvider: "STRING_VALUE",
+ *                   Weight: Number("int"),
+ *                 },
+ *               ],
+ *               ClusterName: "STRING_VALUE",
+ *               RegisteredContainerInstancesCount: Number("int"),
+ *               RunningTasksCount: Number("int"),
+ *               Status: "STRING_VALUE",
+ *             },
+ *             AwsEcsContainer: {
+ *               Name: "STRING_VALUE",
+ *               Image: "STRING_VALUE",
+ *               MountPoints: [
+ *                 {
+ *                   SourceVolume: "STRING_VALUE",
+ *                   ContainerPath: "STRING_VALUE",
+ *                 },
+ *               ],
+ *               Privileged: true || false,
+ *             },
+ *             AwsEcsTaskDefinition: {
+ *               ContainerDefinitions: [
+ *                 {
+ *                   Command: [
+ *                     "<NonEmptyStringList>",
+ *                   ],
+ *                   Cpu: Number("int"),
+ *                   DependsOn: [
+ *                     {
+ *                       Condition: "STRING_VALUE",
+ *                       ContainerName: "STRING_VALUE",
+ *                     },
+ *                   ],
+ *                   DisableNetworking: true || false,
+ *                   DnsSearchDomains: [
+ *                     "<NonEmptyStringList>",
+ *                   ],
+ *                   DnsServers: [
+ *                     "<NonEmptyStringList>",
+ *                   ],
+ *                   DockerLabels: {
+ *                     "<keys>": "<NonEmptyString>",
+ *                   },
+ *                   DockerSecurityOptions: [
+ *                     "<NonEmptyStringList>",
+ *                   ],
+ *                   EntryPoint: [
+ *                     "<NonEmptyStringList>",
+ *                   ],
+ *                   Environment: [
+ *                     {
+ *                       Name: "STRING_VALUE",
+ *                       Value: "STRING_VALUE",
+ *                     },
+ *                   ],
+ *                   EnvironmentFiles: [
+ *                     {
+ *                       Type: "STRING_VALUE",
+ *                       Value: "STRING_VALUE",
+ *                     },
+ *                   ],
+ *                   Essential: true || false,
+ *                   ExtraHosts: [
+ *                     {
+ *                       Hostname: "STRING_VALUE",
+ *                       IpAddress: "STRING_VALUE",
+ *                     },
+ *                   ],
+ *                   FirelensConfiguration: {
+ *                     Options: {
+ *                       "<keys>": "<NonEmptyString>",
+ *                     },
+ *                     Type: "STRING_VALUE",
+ *                   },
+ *                   HealthCheck: {
+ *                     Command: [
+ *                       "<NonEmptyStringList>",
+ *                     ],
+ *                     Interval: Number("int"),
+ *                     Retries: Number("int"),
+ *                     StartPeriod: Number("int"),
+ *                     Timeout: Number("int"),
+ *                   },
+ *                   Hostname: "STRING_VALUE",
+ *                   Image: "STRING_VALUE",
+ *                   Interactive: true || false,
+ *                   Links: [
+ *                     "<NonEmptyStringList>",
+ *                   ],
+ *                   LinuxParameters: {
+ *                     Capabilities: {
+ *                       Add: [
+ *                         "<NonEmptyStringList>",
+ *                       ],
+ *                       Drop: [
+ *                         "<NonEmptyStringList>",
+ *                       ],
+ *                     },
+ *                     Devices: [
+ *                       {
+ *                         ContainerPath: "STRING_VALUE",
+ *                         HostPath: "STRING_VALUE",
+ *                         Permissions: [
+ *                           "<NonEmptyStringList>",
+ *                         ],
+ *                       },
+ *                     ],
+ *                     InitProcessEnabled: true || false,
+ *                     MaxSwap: Number("int"),
+ *                     SharedMemorySize: Number("int"),
+ *                     Swappiness: Number("int"),
+ *                     Tmpfs: [
+ *                       {
+ *                         ContainerPath: "STRING_VALUE",
+ *                         MountOptions: [
+ *                           "<NonEmptyStringList>",
+ *                         ],
+ *                         Size: Number("int"),
+ *                       },
+ *                     ],
+ *                   },
+ *                   LogConfiguration: {
+ *                     LogDriver: "STRING_VALUE",
+ *                     Options: {
+ *                       "<keys>": "<NonEmptyString>",
+ *                     },
+ *                     SecretOptions: [
+ *                       {
+ *                         Name: "STRING_VALUE",
+ *                         ValueFrom: "STRING_VALUE",
+ *                       },
+ *                     ],
+ *                   },
+ *                   Memory: Number("int"),
+ *                   MemoryReservation: Number("int"),
+ *                   MountPoints: [
+ *                     {
+ *                       ContainerPath: "STRING_VALUE",
+ *                       ReadOnly: true || false,
+ *                       SourceVolume: "STRING_VALUE",
+ *                     },
+ *                   ],
+ *                   Name: "STRING_VALUE",
+ *                   PortMappings: [
+ *                     {
+ *                       ContainerPort: Number("int"),
+ *                       HostPort: Number("int"),
+ *                       Protocol: "STRING_VALUE",
+ *                     },
+ *                   ],
+ *                   Privileged: true || false,
+ *                   PseudoTerminal: true || false,
+ *                   ReadonlyRootFilesystem: true || false,
+ *                   RepositoryCredentials: {
+ *                     CredentialsParameter: "STRING_VALUE",
+ *                   },
+ *                   ResourceRequirements: [
+ *                     {
+ *                       Type: "STRING_VALUE",
+ *                       Value: "STRING_VALUE",
+ *                     },
+ *                   ],
+ *                   Secrets: [
+ *                     {
+ *                       Name: "STRING_VALUE",
+ *                       ValueFrom: "STRING_VALUE",
+ *                     },
+ *                   ],
+ *                   StartTimeout: Number("int"),
+ *                   StopTimeout: Number("int"),
+ *                   SystemControls: [
+ *                     {
+ *                       Namespace: "STRING_VALUE",
+ *                       Value: "STRING_VALUE",
+ *                     },
+ *                   ],
+ *                   Ulimits: [
+ *                     {
+ *                       HardLimit: Number("int"),
+ *                       Name: "STRING_VALUE",
+ *                       SoftLimit: Number("int"),
+ *                     },
+ *                   ],
+ *                   User: "STRING_VALUE",
+ *                   VolumesFrom: [
+ *                     {
+ *                       ReadOnly: true || false,
+ *                       SourceContainer: "STRING_VALUE",
+ *                     },
+ *                   ],
+ *                   WorkingDirectory: "STRING_VALUE",
+ *                 },
+ *               ],
+ *               Cpu: "STRING_VALUE",
+ *               ExecutionRoleArn: "STRING_VALUE",
+ *               Family: "STRING_VALUE",
+ *               InferenceAccelerators: [
+ *                 {
+ *                   DeviceName: "STRING_VALUE",
+ *                   DeviceType: "STRING_VALUE",
+ *                 },
+ *               ],
+ *               IpcMode: "STRING_VALUE",
+ *               Memory: "STRING_VALUE",
+ *               NetworkMode: "STRING_VALUE",
+ *               PidMode: "STRING_VALUE",
+ *               PlacementConstraints: [
+ *                 {
+ *                   Expression: "STRING_VALUE",
+ *                   Type: "STRING_VALUE",
+ *                 },
+ *               ],
+ *               ProxyConfiguration: {
+ *                 ContainerName: "STRING_VALUE",
+ *                 ProxyConfigurationProperties: [
+ *                   {
+ *                     Name: "STRING_VALUE",
+ *                     Value: "STRING_VALUE",
+ *                   },
+ *                 ],
+ *                 Type: "STRING_VALUE",
+ *               },
+ *               RequiresCompatibilities: [
+ *                 "<NonEmptyStringList>",
+ *               ],
+ *               TaskRoleArn: "STRING_VALUE",
+ *               Volumes: [
+ *                 {
+ *                   DockerVolumeConfiguration: {
+ *                     Autoprovision: true || false,
+ *                     Driver: "STRING_VALUE",
+ *                     DriverOpts: {
+ *                       "<keys>": "<NonEmptyString>",
+ *                     },
+ *                     Labels: {
+ *                       "<keys>": "<NonEmptyString>",
+ *                     },
+ *                     Scope: "STRING_VALUE",
+ *                   },
+ *                   EfsVolumeConfiguration: {
+ *                     AuthorizationConfig: {
+ *                       AccessPointId: "STRING_VALUE",
+ *                       Iam: "STRING_VALUE",
+ *                     },
+ *                     FilesystemId: "STRING_VALUE",
+ *                     RootDirectory: "STRING_VALUE",
+ *                     TransitEncryption: "STRING_VALUE",
+ *                     TransitEncryptionPort: Number("int"),
+ *                   },
+ *                   Host: {
+ *                     SourcePath: "STRING_VALUE",
+ *                   },
+ *                   Name: "STRING_VALUE",
+ *                 },
+ *               ],
+ *             },
+ *             Container: {
+ *               ContainerRuntime: "STRING_VALUE",
+ *               Name: "STRING_VALUE",
+ *               ImageId: "STRING_VALUE",
+ *               ImageName: "STRING_VALUE",
+ *               LaunchedAt: "STRING_VALUE",
+ *               VolumeMounts: [
+ *                 {
+ *                   Name: "STRING_VALUE",
+ *                   MountPath: "STRING_VALUE",
+ *                 },
+ *               ],
+ *               Privileged: true || false,
+ *             },
+ *             Other: {
+ *               "<keys>": "<NonEmptyString>",
+ *             },
+ *             AwsRdsEventSubscription: {
+ *               CustSubscriptionId: "STRING_VALUE",
+ *               CustomerAwsId: "STRING_VALUE",
+ *               Enabled: true || false,
+ *               EventCategoriesList: [
+ *                 "<NonEmptyStringList>",
+ *               ],
+ *               EventSubscriptionArn: "STRING_VALUE",
+ *               SnsTopicArn: "STRING_VALUE",
+ *               SourceIdsList: [
+ *                 "<NonEmptyStringList>",
+ *               ],
+ *               SourceType: "STRING_VALUE",
+ *               Status: "STRING_VALUE",
+ *               SubscriptionCreationTime: "STRING_VALUE",
+ *             },
+ *             AwsEcsService: {
+ *               CapacityProviderStrategy: [
+ *                 {
+ *                   Base: Number("int"),
+ *                   CapacityProvider: "STRING_VALUE",
+ *                   Weight: Number("int"),
+ *                 },
+ *               ],
+ *               Cluster: "STRING_VALUE",
+ *               DeploymentConfiguration: {
+ *                 DeploymentCircuitBreaker: {
+ *                   Enable: true || false,
+ *                   Rollback: true || false,
+ *                 },
+ *                 MaximumPercent: Number("int"),
+ *                 MinimumHealthyPercent: Number("int"),
+ *               },
+ *               DeploymentController: {
+ *                 Type: "STRING_VALUE",
+ *               },
+ *               DesiredCount: Number("int"),
+ *               EnableEcsManagedTags: true || false,
+ *               EnableExecuteCommand: true || false,
+ *               HealthCheckGracePeriodSeconds: Number("int"),
+ *               LaunchType: "STRING_VALUE",
+ *               LoadBalancers: [
+ *                 {
+ *                   ContainerName: "STRING_VALUE",
+ *                   ContainerPort: Number("int"),
+ *                   LoadBalancerName: "STRING_VALUE",
+ *                   TargetGroupArn: "STRING_VALUE",
+ *                 },
+ *               ],
+ *               Name: "STRING_VALUE",
+ *               NetworkConfiguration: {
+ *                 AwsVpcConfiguration: {
+ *                   AssignPublicIp: "STRING_VALUE",
+ *                   SecurityGroups: [
+ *                     "<NonEmptyStringList>",
+ *                   ],
+ *                   Subnets: [
+ *                     "<NonEmptyStringList>",
+ *                   ],
+ *                 },
+ *               },
+ *               PlacementConstraints: [
+ *                 {
+ *                   Expression: "STRING_VALUE",
+ *                   Type: "STRING_VALUE",
+ *                 },
+ *               ],
+ *               PlacementStrategies: [
+ *                 {
+ *                   Field: "STRING_VALUE",
+ *                   Type: "STRING_VALUE",
+ *                 },
+ *               ],
+ *               PlatformVersion: "STRING_VALUE",
+ *               PropagateTags: "STRING_VALUE",
+ *               Role: "STRING_VALUE",
+ *               SchedulingStrategy: "STRING_VALUE",
+ *               ServiceArn: "STRING_VALUE",
+ *               ServiceName: "STRING_VALUE",
+ *               ServiceRegistries: [
+ *                 {
+ *                   ContainerName: "STRING_VALUE",
+ *                   ContainerPort: Number("int"),
+ *                   Port: Number("int"),
+ *                   RegistryArn: "STRING_VALUE",
+ *                 },
+ *               ],
+ *               TaskDefinition: "STRING_VALUE",
+ *             },
+ *             AwsAutoScalingLaunchConfiguration: {
+ *               AssociatePublicIpAddress: true || false,
+ *               BlockDeviceMappings: [
+ *                 {
+ *                   DeviceName: "STRING_VALUE",
+ *                   Ebs: {
+ *                     DeleteOnTermination: true || false,
+ *                     Encrypted: true || false,
+ *                     Iops: Number("int"),
+ *                     SnapshotId: "STRING_VALUE",
+ *                     VolumeSize: Number("int"),
+ *                     VolumeType: "STRING_VALUE",
+ *                   },
+ *                   NoDevice: true || false,
+ *                   VirtualName: "STRING_VALUE",
+ *                 },
+ *               ],
+ *               ClassicLinkVpcId: "STRING_VALUE",
+ *               ClassicLinkVpcSecurityGroups: [
+ *                 "<NonEmptyStringList>",
+ *               ],
+ *               CreatedTime: "STRING_VALUE",
+ *               EbsOptimized: true || false,
+ *               IamInstanceProfile: "STRING_VALUE",
+ *               ImageId: "STRING_VALUE",
+ *               InstanceMonitoring: {
+ *                 Enabled: true || false,
+ *               },
+ *               InstanceType: "STRING_VALUE",
+ *               KernelId: "STRING_VALUE",
+ *               KeyName: "STRING_VALUE",
+ *               LaunchConfigurationName: "STRING_VALUE",
+ *               PlacementTenancy: "STRING_VALUE",
+ *               RamdiskId: "STRING_VALUE",
+ *               SecurityGroups: [
+ *                 "<NonEmptyStringList>",
+ *               ],
+ *               SpotPrice: "STRING_VALUE",
+ *               UserData: "STRING_VALUE",
+ *               MetadataOptions: {
+ *                 HttpEndpoint: "STRING_VALUE",
+ *                 HttpPutResponseHopLimit: Number("int"),
+ *                 HttpTokens: "STRING_VALUE",
+ *               },
+ *             },
+ *             AwsEc2VpnConnection: {
+ *               VpnConnectionId: "STRING_VALUE",
+ *               State: "STRING_VALUE",
+ *               CustomerGatewayId: "STRING_VALUE",
+ *               CustomerGatewayConfiguration: "STRING_VALUE",
+ *               Type: "STRING_VALUE",
+ *               VpnGatewayId: "STRING_VALUE",
+ *               Category: "STRING_VALUE",
+ *               VgwTelemetry: [
+ *                 {
+ *                   AcceptedRouteCount: Number("int"),
+ *                   CertificateArn: "STRING_VALUE",
+ *                   LastStatusChange: "STRING_VALUE",
+ *                   OutsideIpAddress: "STRING_VALUE",
+ *                   Status: "STRING_VALUE",
+ *                   StatusMessage: "STRING_VALUE",
+ *                 },
+ *               ],
+ *               Options: {
+ *                 StaticRoutesOnly: true || false,
+ *                 TunnelOptions: [
+ *                   {
+ *                     DpdTimeoutSeconds: Number("int"),
+ *                     IkeVersions: [
+ *                       "<NonEmptyStringList>",
+ *                     ],
+ *                     OutsideIpAddress: "STRING_VALUE",
+ *                     Phase1DhGroupNumbers: [
+ *                       Number("int"),
+ *                     ],
+ *                     Phase1EncryptionAlgorithms: [
+ *                       "<NonEmptyStringList>",
+ *                     ],
+ *                     Phase1IntegrityAlgorithms: [
+ *                       "<NonEmptyStringList>",
+ *                     ],
+ *                     Phase1LifetimeSeconds: Number("int"),
+ *                     Phase2DhGroupNumbers: [
+ *                       Number("int"),
+ *                     ],
+ *                     Phase2EncryptionAlgorithms: [
+ *                       "<NonEmptyStringList>",
+ *                     ],
+ *                     Phase2IntegrityAlgorithms: [
+ *                       "<NonEmptyStringList>",
+ *                     ],
+ *                     Phase2LifetimeSeconds: Number("int"),
+ *                     PreSharedKey: "STRING_VALUE",
+ *                     RekeyFuzzPercentage: Number("int"),
+ *                     RekeyMarginTimeSeconds: Number("int"),
+ *                     ReplayWindowSize: Number("int"),
+ *                     TunnelInsideCidr: "STRING_VALUE",
+ *                   },
+ *                 ],
+ *               },
+ *               Routes: [
+ *                 {
+ *                   DestinationCidrBlock: "STRING_VALUE",
+ *                   State: "STRING_VALUE",
+ *                 },
+ *               ],
+ *               TransitGatewayId: "STRING_VALUE",
+ *             },
+ *             AwsEcrContainerImage: {
+ *               RegistryId: "STRING_VALUE",
+ *               RepositoryName: "STRING_VALUE",
+ *               Architecture: "STRING_VALUE",
+ *               ImageDigest: "STRING_VALUE",
+ *               ImageTags: [
+ *                 "<NonEmptyStringList>",
+ *               ],
+ *               ImagePublishedAt: "STRING_VALUE",
+ *             },
+ *             AwsOpenSearchServiceDomain: {
+ *               Arn: "STRING_VALUE",
+ *               AccessPolicies: "STRING_VALUE",
+ *               DomainName: "STRING_VALUE",
+ *               Id: "STRING_VALUE",
+ *               DomainEndpoint: "STRING_VALUE",
+ *               EngineVersion: "STRING_VALUE",
+ *               EncryptionAtRestOptions: {
+ *                 Enabled: true || false,
+ *                 KmsKeyId: "STRING_VALUE",
+ *               },
+ *               NodeToNodeEncryptionOptions: {
+ *                 Enabled: true || false,
+ *               },
+ *               ServiceSoftwareOptions: {
+ *                 AutomatedUpdateDate: "STRING_VALUE",
+ *                 Cancellable: true || false,
+ *                 CurrentVersion: "STRING_VALUE",
+ *                 Description: "STRING_VALUE",
+ *                 NewVersion: "STRING_VALUE",
+ *                 UpdateAvailable: true || false,
+ *                 UpdateStatus: "STRING_VALUE",
+ *                 OptionalDeployment: true || false,
+ *               },
+ *               ClusterConfig: {
+ *                 InstanceCount: Number("int"),
+ *                 WarmEnabled: true || false,
+ *                 WarmCount: Number("int"),
+ *                 DedicatedMasterEnabled: true || false,
+ *                 ZoneAwarenessConfig: {
+ *                   AvailabilityZoneCount: Number("int"),
+ *                 },
+ *                 DedicatedMasterCount: Number("int"),
+ *                 InstanceType: "STRING_VALUE",
+ *                 WarmType: "STRING_VALUE",
+ *                 ZoneAwarenessEnabled: true || false,
+ *                 DedicatedMasterType: "STRING_VALUE",
+ *               },
+ *               DomainEndpointOptions: {
+ *                 CustomEndpointCertificateArn: "STRING_VALUE",
+ *                 CustomEndpointEnabled: true || false,
+ *                 EnforceHTTPS: true || false,
+ *                 CustomEndpoint: "STRING_VALUE",
+ *                 TLSSecurityPolicy: "STRING_VALUE",
+ *               },
+ *               VpcOptions: {
+ *                 SecurityGroupIds: [
+ *                   "<NonEmptyStringList>",
+ *                 ],
+ *                 SubnetIds: [
+ *                   "<NonEmptyStringList>",
+ *                 ],
+ *               },
+ *               LogPublishingOptions: {
+ *                 IndexSlowLogs: {
+ *                   CloudWatchLogsLogGroupArn: "STRING_VALUE",
+ *                   Enabled: true || false,
+ *                 },
+ *                 SearchSlowLogs: {
+ *                   CloudWatchLogsLogGroupArn: "STRING_VALUE",
+ *                   Enabled: true || false,
+ *                 },
+ *                 AuditLogs: {
+ *                   CloudWatchLogsLogGroupArn: "STRING_VALUE",
+ *                   Enabled: true || false,
+ *                 },
+ *               },
+ *               DomainEndpoints: {
+ *                 "<keys>": "<NonEmptyString>",
+ *               },
+ *               AdvancedSecurityOptions: {
+ *                 Enabled: true || false,
+ *                 InternalUserDatabaseEnabled: true || false,
+ *                 MasterUserOptions: {
+ *                   MasterUserArn: "STRING_VALUE",
+ *                   MasterUserName: "STRING_VALUE",
+ *                   MasterUserPassword: "STRING_VALUE",
+ *                 },
+ *               },
+ *             },
+ *             AwsEc2VpcEndpointService: {
+ *               AcceptanceRequired: true || false,
+ *               AvailabilityZones: [
+ *                 "<NonEmptyStringList>",
+ *               ],
+ *               BaseEndpointDnsNames: [
+ *                 "<NonEmptyStringList>",
+ *               ],
+ *               ManagesVpcEndpoints: true || false,
+ *               GatewayLoadBalancerArns: [
+ *                 "<NonEmptyStringList>",
+ *               ],
+ *               NetworkLoadBalancerArns: [
+ *                 "<NonEmptyStringList>",
+ *               ],
+ *               PrivateDnsName: "STRING_VALUE",
+ *               ServiceId: "STRING_VALUE",
+ *               ServiceName: "STRING_VALUE",
+ *               ServiceState: "STRING_VALUE",
+ *               ServiceType: [
+ *                 {
+ *                   ServiceType: "STRING_VALUE",
+ *                 },
+ *               ],
+ *             },
+ *             AwsXrayEncryptionConfig: {
+ *               KeyId: "STRING_VALUE",
+ *               Status: "STRING_VALUE",
+ *               Type: "STRING_VALUE",
+ *             },
+ *             AwsWafRateBasedRule: {
+ *               MetricName: "STRING_VALUE",
+ *               Name: "STRING_VALUE",
+ *               RateKey: "STRING_VALUE",
+ *               RateLimit: Number("long"),
+ *               RuleId: "STRING_VALUE",
+ *               MatchPredicates: [
+ *                 {
+ *                   DataId: "STRING_VALUE",
+ *                   Negated: true || false,
+ *                   Type: "STRING_VALUE",
+ *                 },
+ *               ],
+ *             },
+ *             AwsWafRegionalRateBasedRule: {
+ *               MetricName: "STRING_VALUE",
+ *               Name: "STRING_VALUE",
+ *               RateKey: "STRING_VALUE",
+ *               RateLimit: Number("long"),
+ *               RuleId: "STRING_VALUE",
+ *               MatchPredicates: [
+ *                 {
+ *                   DataId: "STRING_VALUE",
+ *                   Negated: true || false,
+ *                   Type: "STRING_VALUE",
+ *                 },
+ *               ],
+ *             },
+ *             AwsEcrRepository: {
+ *               Arn: "STRING_VALUE",
+ *               ImageScanningConfiguration: {
+ *                 ScanOnPush: true || false,
+ *               },
+ *               ImageTagMutability: "STRING_VALUE",
+ *               LifecyclePolicy: {
+ *                 LifecyclePolicyText: "STRING_VALUE",
+ *                 RegistryId: "STRING_VALUE",
+ *               },
+ *               RepositoryName: "STRING_VALUE",
+ *               RepositoryPolicyText: "STRING_VALUE",
+ *             },
+ *             AwsEksCluster: {
+ *               Arn: "STRING_VALUE",
+ *               CertificateAuthorityData: "STRING_VALUE",
+ *               ClusterStatus: "STRING_VALUE",
+ *               Endpoint: "STRING_VALUE",
+ *               Name: "STRING_VALUE",
+ *               ResourcesVpcConfig: {
+ *                 SecurityGroupIds: [
+ *                   "<NonEmptyStringList>",
+ *                 ],
+ *                 SubnetIds: [
+ *                   "<NonEmptyStringList>",
+ *                 ],
+ *               },
+ *               RoleArn: "STRING_VALUE",
+ *               Version: "STRING_VALUE",
+ *               Logging: {
+ *                 ClusterLogging: [
+ *                   {
+ *                     Enabled: true || false,
+ *                     Types: [
+ *                       "<NonEmptyStringList>",
+ *                     ],
+ *                   },
+ *                 ],
+ *               },
+ *             },
+ *             AwsNetworkFirewallFirewallPolicy: {
+ *               FirewallPolicy: {
+ *                 StatefulRuleGroupReferences: [
+ *                   {
+ *                     ResourceArn: "STRING_VALUE",
+ *                   },
+ *                 ],
+ *                 StatelessCustomActions: [
+ *                   {
+ *                     ActionDefinition: {
+ *                       PublishMetricAction: {
+ *                         Dimensions: [
+ *                           {
+ *                             Value: "STRING_VALUE",
+ *                           },
+ *                         ],
+ *                       },
+ *                     },
+ *                     ActionName: "STRING_VALUE",
+ *                   },
+ *                 ],
+ *                 StatelessDefaultActions: [
+ *                   "<NonEmptyStringList>",
+ *                 ],
+ *                 StatelessFragmentDefaultActions: [
+ *                   "<NonEmptyStringList>",
+ *                 ],
+ *                 StatelessRuleGroupReferences: [
+ *                   {
+ *                     Priority: Number("int"),
+ *                     ResourceArn: "STRING_VALUE",
+ *                   },
+ *                 ],
+ *               },
+ *               FirewallPolicyArn: "STRING_VALUE",
+ *               FirewallPolicyId: "STRING_VALUE",
+ *               FirewallPolicyName: "STRING_VALUE",
+ *               Description: "STRING_VALUE",
+ *             },
+ *             AwsNetworkFirewallFirewall: {
+ *               DeleteProtection: true || false,
+ *               Description: "STRING_VALUE",
+ *               FirewallArn: "STRING_VALUE",
+ *               FirewallId: "STRING_VALUE",
+ *               FirewallName: "STRING_VALUE",
+ *               FirewallPolicyArn: "STRING_VALUE",
+ *               FirewallPolicyChangeProtection: true || false,
+ *               SubnetChangeProtection: true || false,
+ *               SubnetMappings: [
+ *                 {
+ *                   SubnetId: "STRING_VALUE",
+ *                 },
+ *               ],
+ *               VpcId: "STRING_VALUE",
+ *             },
+ *             AwsNetworkFirewallRuleGroup: {
+ *               Capacity: Number("int"),
+ *               Description: "STRING_VALUE",
+ *               RuleGroup: {
+ *                 RuleVariables: {
+ *                   IpSets: {
+ *                     Definition: [
+ *                       "<NonEmptyStringList>",
+ *                     ],
+ *                   },
+ *                   PortSets: {
+ *                     Definition: [
+ *                       "<NonEmptyStringList>",
+ *                     ],
+ *                   },
+ *                 },
+ *                 RulesSource: {
+ *                   RulesSourceList: {
+ *                     GeneratedRulesType: "STRING_VALUE",
+ *                     TargetTypes: [
+ *                       "<NonEmptyStringList>",
+ *                     ],
+ *                     Targets: [
+ *                       "<NonEmptyStringList>",
+ *                     ],
+ *                   },
+ *                   RulesString: "STRING_VALUE",
+ *                   StatefulRules: [
+ *                     {
+ *                       Action: "STRING_VALUE",
+ *                       Header: {
+ *                         Destination: "STRING_VALUE",
+ *                         DestinationPort: "STRING_VALUE",
+ *                         Direction: "STRING_VALUE",
+ *                         Protocol: "STRING_VALUE",
+ *                         Source: "STRING_VALUE",
+ *                         SourcePort: "STRING_VALUE",
+ *                       },
+ *                       RuleOptions: [
+ *                         {
+ *                           Keyword: "STRING_VALUE",
+ *                           Settings: [
+ *                             "STRING_VALUE",
+ *                           ],
+ *                         },
+ *                       ],
+ *                     },
+ *                   ],
+ *                   StatelessRulesAndCustomActions: {
+ *                     CustomActions: [
+ *                       {
+ *                         ActionDefinition: {
+ *                           PublishMetricAction: {
+ *                             Dimensions: [
+ *                               {
+ *                                 Value: "STRING_VALUE",
+ *                               },
+ *                             ],
+ *                           },
+ *                         },
+ *                         ActionName: "STRING_VALUE",
+ *                       },
+ *                     ],
+ *                     StatelessRules: [
+ *                       {
+ *                         Priority: Number("int"),
+ *                         RuleDefinition: {
+ *                           Actions: [
+ *                             "<NonEmptyStringList>",
+ *                           ],
+ *                           MatchAttributes: {
+ *                             DestinationPorts: [
+ *                               {
+ *                                 FromPort: Number("int"),
+ *                                 ToPort: Number("int"),
+ *                               },
+ *                             ],
+ *                             Destinations: [
+ *                               {
+ *                                 AddressDefinition: "STRING_VALUE",
+ *                               },
+ *                             ],
+ *                             Protocols: [
+ *                               Number("int"),
+ *                             ],
+ *                             SourcePorts: [
+ *                               {
+ *                                 FromPort: Number("int"),
+ *                                 ToPort: Number("int"),
+ *                               },
+ *                             ],
+ *                             Sources: [
+ *                               {
+ *                                 AddressDefinition: "STRING_VALUE",
+ *                               },
+ *                             ],
+ *                             TcpFlags: [
+ *                               {
+ *                                 Flags: [
+ *                                   "<NonEmptyStringList>",
+ *                                 ],
+ *                                 Masks: [
+ *                                   "<NonEmptyStringList>",
+ *                                 ],
+ *                               },
+ *                             ],
+ *                           },
+ *                         },
+ *                       },
+ *                     ],
+ *                   },
+ *                 },
+ *               },
+ *               RuleGroupArn: "STRING_VALUE",
+ *               RuleGroupId: "STRING_VALUE",
+ *               RuleGroupName: "STRING_VALUE",
+ *               Type: "STRING_VALUE",
+ *             },
+ *             AwsRdsDbSecurityGroup: {
+ *               DbSecurityGroupArn: "STRING_VALUE",
+ *               DbSecurityGroupDescription: "STRING_VALUE",
+ *               DbSecurityGroupName: "STRING_VALUE",
+ *               Ec2SecurityGroups: [
+ *                 {
+ *                   Ec2SecurityGroupId: "STRING_VALUE",
+ *                   Ec2SecurityGroupName: "STRING_VALUE",
+ *                   Ec2SecurityGroupOwnerId: "STRING_VALUE",
+ *                   Status: "STRING_VALUE",
+ *                 },
+ *               ],
+ *               IpRanges: [
+ *                 {
+ *                   CidrIp: "STRING_VALUE",
+ *                   Status: "STRING_VALUE",
+ *                 },
+ *               ],
+ *               OwnerId: "STRING_VALUE",
+ *               VpcId: "STRING_VALUE",
+ *             },
+ *             AwsKinesisStream: {
+ *               Name: "STRING_VALUE",
+ *               Arn: "STRING_VALUE",
+ *               StreamEncryption: {
+ *                 EncryptionType: "STRING_VALUE",
+ *                 KeyId: "STRING_VALUE",
+ *               },
+ *               ShardCount: Number("int"),
+ *               RetentionPeriodHours: Number("int"),
+ *             },
+ *             AwsEc2TransitGateway: {
+ *               Id: "STRING_VALUE",
+ *               Description: "STRING_VALUE",
+ *               DefaultRouteTablePropagation: "STRING_VALUE",
+ *               AutoAcceptSharedAttachments: "STRING_VALUE",
+ *               DefaultRouteTableAssociation: "STRING_VALUE",
+ *               TransitGatewayCidrBlocks: [
+ *                 "<NonEmptyStringList>",
+ *               ],
+ *               AssociationDefaultRouteTableId: "STRING_VALUE",
+ *               PropagationDefaultRouteTableId: "STRING_VALUE",
+ *               VpnEcmpSupport: "STRING_VALUE",
+ *               DnsSupport: "STRING_VALUE",
+ *               MulticastSupport: "STRING_VALUE",
+ *               AmazonSideAsn: Number("int"),
+ *             },
+ *             AwsEfsAccessPoint: {
+ *               AccessPointId: "STRING_VALUE",
+ *               Arn: "STRING_VALUE",
+ *               ClientToken: "STRING_VALUE",
+ *               FileSystemId: "STRING_VALUE",
+ *               PosixUser: {
+ *                 Gid: "STRING_VALUE",
+ *                 SecondaryGids: [
+ *                   "<NonEmptyStringList>",
+ *                 ],
+ *                 Uid: "STRING_VALUE",
+ *               },
+ *               RootDirectory: {
+ *                 CreationInfo: {
+ *                   OwnerGid: "STRING_VALUE",
+ *                   OwnerUid: "STRING_VALUE",
+ *                   Permissions: "STRING_VALUE",
+ *                 },
+ *                 Path: "STRING_VALUE",
+ *               },
+ *             },
+ *             AwsCloudFormationStack: {
+ *               Capabilities: [
+ *                 "<NonEmptyStringList>",
+ *               ],
+ *               CreationTime: "STRING_VALUE",
+ *               Description: "STRING_VALUE",
+ *               DisableRollback: true || false,
+ *               DriftInformation: {
+ *                 StackDriftStatus: "STRING_VALUE",
+ *               },
+ *               EnableTerminationProtection: true || false,
+ *               LastUpdatedTime: "STRING_VALUE",
+ *               NotificationArns: [
+ *                 "<NonEmptyStringList>",
+ *               ],
+ *               Outputs: [
+ *                 {
+ *                   Description: "STRING_VALUE",
+ *                   OutputKey: "STRING_VALUE",
+ *                   OutputValue: "STRING_VALUE",
+ *                 },
+ *               ],
+ *               RoleArn: "STRING_VALUE",
+ *               StackId: "STRING_VALUE",
+ *               StackName: "STRING_VALUE",
+ *               StackStatus: "STRING_VALUE",
+ *               StackStatusReason: "STRING_VALUE",
+ *               TimeoutInMinutes: Number("int"),
+ *             },
+ *             AwsCloudWatchAlarm: {
+ *               ActionsEnabled: true || false,
+ *               AlarmActions: [
+ *                 "<NonEmptyStringList>",
+ *               ],
+ *               AlarmArn: "STRING_VALUE",
+ *               AlarmConfigurationUpdatedTimestamp: "STRING_VALUE",
+ *               AlarmDescription: "STRING_VALUE",
+ *               AlarmName: "STRING_VALUE",
+ *               ComparisonOperator: "STRING_VALUE",
+ *               DatapointsToAlarm: Number("int"),
+ *               Dimensions: [
+ *                 {
+ *                   Name: "STRING_VALUE",
+ *                   Value: "STRING_VALUE",
+ *                 },
+ *               ],
+ *               EvaluateLowSampleCountPercentile: "STRING_VALUE",
+ *               EvaluationPeriods: Number("int"),
+ *               ExtendedStatistic: "STRING_VALUE",
+ *               InsufficientDataActions: [
+ *                 "<NonEmptyStringList>",
+ *               ],
+ *               MetricName: "STRING_VALUE",
+ *               Namespace: "STRING_VALUE",
+ *               OkActions: [
+ *                 "<NonEmptyStringList>",
+ *               ],
+ *               Period: Number("int"),
+ *               Statistic: "STRING_VALUE",
+ *               Threshold: Number("double"),
+ *               ThresholdMetricId: "STRING_VALUE",
+ *               TreatMissingData: "STRING_VALUE",
+ *               Unit: "STRING_VALUE",
+ *             },
+ *             AwsEc2VpcPeeringConnection: {
+ *               AccepterVpcInfo: {
+ *                 CidrBlock: "STRING_VALUE",
+ *                 CidrBlockSet: [
+ *                   {
+ *                     CidrBlock: "STRING_VALUE",
+ *                   },
+ *                 ],
+ *                 Ipv6CidrBlockSet: [
+ *                   {
+ *                     Ipv6CidrBlock: "STRING_VALUE",
+ *                   },
+ *                 ],
+ *                 OwnerId: "STRING_VALUE",
+ *                 PeeringOptions: {
+ *                   AllowDnsResolutionFromRemoteVpc: true || false,
+ *                   AllowEgressFromLocalClassicLinkToRemoteVpc: true || false,
+ *                   AllowEgressFromLocalVpcToRemoteClassicLink: true || false,
+ *                 },
+ *                 Region: "STRING_VALUE",
+ *                 VpcId: "STRING_VALUE",
+ *               },
+ *               ExpirationTime: "STRING_VALUE",
+ *               RequesterVpcInfo: {
+ *                 CidrBlock: "STRING_VALUE",
+ *                 CidrBlockSet: [
+ *                   {
+ *                     CidrBlock: "STRING_VALUE",
+ *                   },
+ *                 ],
+ *                 Ipv6CidrBlockSet: [
+ *                   {
+ *                     Ipv6CidrBlock: "STRING_VALUE",
+ *                   },
+ *                 ],
+ *                 OwnerId: "STRING_VALUE",
+ *                 PeeringOptions: {
+ *                   AllowDnsResolutionFromRemoteVpc: true || false,
+ *                   AllowEgressFromLocalClassicLinkToRemoteVpc: true || false,
+ *                   AllowEgressFromLocalVpcToRemoteClassicLink: true || false,
+ *                 },
+ *                 Region: "STRING_VALUE",
+ *                 VpcId: "STRING_VALUE",
+ *               },
+ *               Status: {
+ *                 Code: "STRING_VALUE",
+ *                 Message: "STRING_VALUE",
+ *               },
+ *               VpcPeeringConnectionId: "STRING_VALUE",
+ *             },
+ *             AwsWafRegionalRuleGroup: {
+ *               MetricName: "STRING_VALUE",
+ *               Name: "STRING_VALUE",
+ *               RuleGroupId: "STRING_VALUE",
+ *               Rules: [
+ *                 {
+ *                   Action: {
+ *                     Type: "STRING_VALUE",
+ *                   },
+ *                   Priority: Number("int"),
+ *                   RuleId: "STRING_VALUE",
+ *                   Type: "STRING_VALUE",
+ *                 },
+ *               ],
+ *             },
+ *             AwsWafRegionalRule: {
+ *               MetricName: "STRING_VALUE",
+ *               Name: "STRING_VALUE",
+ *               PredicateList: [
+ *                 {
+ *                   DataId: "STRING_VALUE",
+ *                   Negated: true || false,
+ *                   Type: "STRING_VALUE",
+ *                 },
+ *               ],
+ *               RuleId: "STRING_VALUE",
+ *             },
+ *             AwsWafRegionalWebAcl: {
+ *               DefaultAction: "STRING_VALUE",
+ *               MetricName: "STRING_VALUE",
+ *               Name: "STRING_VALUE",
+ *               RulesList: [
+ *                 {
+ *                   Action: {
+ *                     Type: "STRING_VALUE",
+ *                   },
+ *                   OverrideAction: {
+ *                     Type: "STRING_VALUE",
+ *                   },
+ *                   Priority: Number("int"),
+ *                   RuleId: "STRING_VALUE",
+ *                   Type: "STRING_VALUE",
+ *                 },
+ *               ],
+ *               WebAclId: "STRING_VALUE",
+ *             },
+ *             AwsWafRule: {
+ *               MetricName: "STRING_VALUE",
+ *               Name: "STRING_VALUE",
+ *               PredicateList: [
+ *                 {
+ *                   DataId: "STRING_VALUE",
+ *                   Negated: true || false,
+ *                   Type: "STRING_VALUE",
+ *                 },
+ *               ],
+ *               RuleId: "STRING_VALUE",
+ *             },
+ *             AwsWafRuleGroup: {
+ *               MetricName: "STRING_VALUE",
+ *               Name: "STRING_VALUE",
+ *               RuleGroupId: "STRING_VALUE",
+ *               Rules: [
+ *                 {
+ *                   Action: {
+ *                     Type: "STRING_VALUE",
+ *                   },
+ *                   Priority: Number("int"),
+ *                   RuleId: "STRING_VALUE",
+ *                   Type: "STRING_VALUE",
+ *                 },
+ *               ],
+ *             },
+ *             AwsEcsTask: {
+ *               ClusterArn: "STRING_VALUE",
+ *               TaskDefinitionArn: "STRING_VALUE",
+ *               Version: "STRING_VALUE",
+ *               CreatedAt: "STRING_VALUE",
+ *               StartedAt: "STRING_VALUE",
+ *               StartedBy: "STRING_VALUE",
+ *               Group: "STRING_VALUE",
+ *               Volumes: [
+ *                 {
+ *                   Name: "STRING_VALUE",
+ *                   Host: {
+ *                     SourcePath: "STRING_VALUE",
+ *                   },
+ *                 },
+ *               ],
+ *               Containers: [
+ *                 {
+ *                   Name: "STRING_VALUE",
+ *                   Image: "STRING_VALUE",
+ *                   MountPoints: [
+ *                     {
+ *                       SourceVolume: "STRING_VALUE",
+ *                       ContainerPath: "STRING_VALUE",
+ *                     },
+ *                   ],
+ *                   Privileged: true || false,
+ *                 },
+ *               ],
+ *             },
+ *             AwsBackupBackupVault: {
+ *               BackupVaultArn: "STRING_VALUE",
+ *               BackupVaultName: "STRING_VALUE",
+ *               EncryptionKeyArn: "STRING_VALUE",
+ *               Notifications: {
+ *                 BackupVaultEvents: [
+ *                   "<NonEmptyStringList>",
+ *                 ],
+ *                 SnsTopicArn: "STRING_VALUE",
+ *               },
+ *               AccessPolicy: "STRING_VALUE",
+ *             },
+ *             AwsBackupBackupPlan: {
+ *               BackupPlan: {
+ *                 BackupPlanName: "STRING_VALUE",
+ *                 AdvancedBackupSettings: [
+ *                   {
+ *                     BackupOptions: {
+ *                       "<keys>": "<NonEmptyString>",
+ *                     },
+ *                     ResourceType: "STRING_VALUE",
+ *                   },
+ *                 ],
+ *                 BackupPlanRule: [
+ *                   {
+ *                     TargetBackupVault: "STRING_VALUE",
+ *                     StartWindowMinutes: Number("long"),
+ *                     ScheduleExpression: "STRING_VALUE",
+ *                     RuleName: "STRING_VALUE",
+ *                     RuleId: "STRING_VALUE",
+ *                     EnableContinuousBackup: true || false,
+ *                     CompletionWindowMinutes: Number("long"),
+ *                     CopyActions: [
+ *                       {
+ *                         DestinationBackupVaultArn: "STRING_VALUE",
+ *                         Lifecycle: {
+ *                           DeleteAfterDays: Number("long"),
+ *                           MoveToColdStorageAfterDays: Number("long"),
+ *                         },
+ *                       },
+ *                     ],
+ *                     Lifecycle: {
+ *                       DeleteAfterDays: Number("long"),
+ *                       MoveToColdStorageAfterDays: Number("long"),
+ *                     },
+ *                   },
+ *                 ],
+ *               },
+ *               BackupPlanArn: "STRING_VALUE",
+ *               BackupPlanId: "STRING_VALUE",
+ *               VersionId: "STRING_VALUE",
+ *             },
+ *             AwsBackupRecoveryPoint: {
+ *               BackupSizeInBytes: Number("long"),
+ *               BackupVaultArn: "STRING_VALUE",
+ *               BackupVaultName: "STRING_VALUE",
+ *               CalculatedLifecycle: {
+ *                 DeleteAt: "STRING_VALUE",
+ *                 MoveToColdStorageAt: "STRING_VALUE",
+ *               },
+ *               CompletionDate: "STRING_VALUE",
+ *               CreatedBy: {
+ *                 BackupPlanArn: "STRING_VALUE",
+ *                 BackupPlanId: "STRING_VALUE",
+ *                 BackupPlanVersion: "STRING_VALUE",
+ *                 BackupRuleId: "STRING_VALUE",
+ *               },
+ *               CreationDate: "STRING_VALUE",
+ *               EncryptionKeyArn: "STRING_VALUE",
+ *               IamRoleArn: "STRING_VALUE",
+ *               IsEncrypted: true || false,
+ *               LastRestoreTime: "STRING_VALUE",
+ *               Lifecycle: {
+ *                 DeleteAfterDays: Number("long"),
+ *                 MoveToColdStorageAfterDays: Number("long"),
+ *               },
+ *               RecoveryPointArn: "STRING_VALUE",
+ *               ResourceArn: "STRING_VALUE",
+ *               ResourceType: "STRING_VALUE",
+ *               SourceBackupVaultArn: "STRING_VALUE",
+ *               Status: "STRING_VALUE",
+ *               StatusMessage: "STRING_VALUE",
+ *               StorageClass: "STRING_VALUE",
+ *             },
+ *             AwsEc2LaunchTemplate: {
+ *               LaunchTemplateName: "STRING_VALUE",
+ *               Id: "STRING_VALUE",
+ *               LaunchTemplateData: {
+ *                 BlockDeviceMappingSet: [
+ *                   {
+ *                     DeviceName: "STRING_VALUE",
+ *                     Ebs: {
+ *                       DeleteOnTermination: true || false,
+ *                       Encrypted: true || false,
+ *                       Iops: Number("int"),
+ *                       KmsKeyId: "STRING_VALUE",
+ *                       SnapshotId: "STRING_VALUE",
+ *                       Throughput: Number("int"),
+ *                       VolumeSize: Number("int"),
+ *                       VolumeType: "STRING_VALUE",
+ *                     },
+ *                     NoDevice: "STRING_VALUE",
+ *                     VirtualName: "STRING_VALUE",
+ *                   },
+ *                 ],
+ *                 CapacityReservationSpecification: {
+ *                   CapacityReservationPreference: "STRING_VALUE",
+ *                   CapacityReservationTarget: {
+ *                     CapacityReservationId: "STRING_VALUE",
+ *                     CapacityReservationResourceGroupArn: "STRING_VALUE",
+ *                   },
+ *                 },
+ *                 CpuOptions: {
+ *                   CoreCount: Number("int"),
+ *                   ThreadsPerCore: Number("int"),
+ *                 },
+ *                 CreditSpecification: {
+ *                   CpuCredits: "STRING_VALUE",
+ *                 },
+ *                 DisableApiStop: true || false,
+ *                 DisableApiTermination: true || false,
+ *                 EbsOptimized: true || false,
+ *                 ElasticGpuSpecificationSet: [
+ *                   {
+ *                     Type: "STRING_VALUE",
+ *                   },
+ *                 ],
+ *                 ElasticInferenceAcceleratorSet: [
+ *                   {
+ *                     Count: Number("int"),
+ *                     Type: "STRING_VALUE",
+ *                   },
+ *                 ],
+ *                 EnclaveOptions: {
+ *                   Enabled: true || false,
+ *                 },
+ *                 HibernationOptions: {
+ *                   Configured: true || false,
+ *                 },
+ *                 IamInstanceProfile: {
+ *                   Arn: "STRING_VALUE",
+ *                   Name: "STRING_VALUE",
+ *                 },
+ *                 ImageId: "STRING_VALUE",
+ *                 InstanceInitiatedShutdownBehavior: "STRING_VALUE",
+ *                 InstanceMarketOptions: {
+ *                   MarketType: "STRING_VALUE",
+ *                   SpotOptions: {
+ *                     BlockDurationMinutes: Number("int"),
+ *                     InstanceInterruptionBehavior: "STRING_VALUE",
+ *                     MaxPrice: "STRING_VALUE",
+ *                     SpotInstanceType: "STRING_VALUE",
+ *                     ValidUntil: "STRING_VALUE",
+ *                   },
+ *                 },
+ *                 InstanceRequirements: {
+ *                   AcceleratorCount: {
+ *                     Max: Number("int"),
+ *                     Min: Number("int"),
+ *                   },
+ *                   AcceleratorManufacturers: [
+ *                     "<NonEmptyStringList>",
+ *                   ],
+ *                   AcceleratorNames: [
+ *                     "<NonEmptyStringList>",
+ *                   ],
+ *                   AcceleratorTotalMemoryMiB: {
+ *                     Max: Number("int"),
+ *                     Min: Number("int"),
+ *                   },
+ *                   AcceleratorTypes: [
+ *                     "<NonEmptyStringList>",
+ *                   ],
+ *                   BareMetal: "STRING_VALUE",
+ *                   BaselineEbsBandwidthMbps: {
+ *                     Max: Number("int"),
+ *                     Min: Number("int"),
+ *                   },
+ *                   BurstablePerformance: "STRING_VALUE",
+ *                   CpuManufacturers: [
+ *                     "<NonEmptyStringList>",
+ *                   ],
+ *                   ExcludedInstanceTypes: [
+ *                     "<NonEmptyStringList>",
+ *                   ],
+ *                   InstanceGenerations: [
+ *                     "<NonEmptyStringList>",
+ *                   ],
+ *                   LocalStorage: "STRING_VALUE",
+ *                   LocalStorageTypes: [
+ *                     "<NonEmptyStringList>",
+ *                   ],
+ *                   MemoryGiBPerVCpu: {
+ *                     Max: Number("double"),
+ *                     Min: Number("double"),
+ *                   },
+ *                   MemoryMiB: {
+ *                     Max: Number("int"),
+ *                     Min: Number("int"),
+ *                   },
+ *                   NetworkInterfaceCount: {
+ *                     Max: Number("int"),
+ *                     Min: Number("int"),
+ *                   },
+ *                   OnDemandMaxPricePercentageOverLowestPrice: Number("int"),
+ *                   RequireHibernateSupport: true || false,
+ *                   SpotMaxPricePercentageOverLowestPrice: Number("int"),
+ *                   TotalLocalStorageGB: {
+ *                     Max: Number("double"),
+ *                     Min: Number("double"),
+ *                   },
+ *                   VCpuCount: {
+ *                     Max: Number("int"),
+ *                     Min: Number("int"),
+ *                   },
+ *                 },
+ *                 InstanceType: "STRING_VALUE",
+ *                 KernelId: "STRING_VALUE",
+ *                 KeyName: "STRING_VALUE",
+ *                 LicenseSet: [
+ *                   {
+ *                     LicenseConfigurationArn: "STRING_VALUE",
+ *                   },
+ *                 ],
+ *                 MaintenanceOptions: {
+ *                   AutoRecovery: "STRING_VALUE",
+ *                 },
+ *                 MetadataOptions: {
+ *                   HttpEndpoint: "STRING_VALUE",
+ *                   HttpProtocolIpv6: "STRING_VALUE",
+ *                   HttpTokens: "STRING_VALUE",
+ *                   HttpPutResponseHopLimit: Number("int"),
+ *                   InstanceMetadataTags: "STRING_VALUE",
+ *                 },
+ *                 Monitoring: {
+ *                   Enabled: true || false,
+ *                 },
+ *                 NetworkInterfaceSet: [
+ *                   {
+ *                     AssociateCarrierIpAddress: true || false,
+ *                     AssociatePublicIpAddress: true || false,
+ *                     DeleteOnTermination: true || false,
+ *                     Description: "STRING_VALUE",
+ *                     DeviceIndex: Number("int"),
+ *                     Groups: [
+ *                       "<NonEmptyStringList>",
+ *                     ],
+ *                     InterfaceType: "STRING_VALUE",
+ *                     Ipv4PrefixCount: Number("int"),
+ *                     Ipv4Prefixes: [
+ *                       {
+ *                         Ipv4Prefix: "STRING_VALUE",
+ *                       },
+ *                     ],
+ *                     Ipv6AddressCount: Number("int"),
+ *                     Ipv6Addresses: [
+ *                       {
+ *                         Ipv6Address: "STRING_VALUE",
+ *                       },
+ *                     ],
+ *                     Ipv6PrefixCount: Number("int"),
+ *                     Ipv6Prefixes: [
+ *                       {
+ *                         Ipv6Prefix: "STRING_VALUE",
+ *                       },
+ *                     ],
+ *                     NetworkCardIndex: Number("int"),
+ *                     NetworkInterfaceId: "STRING_VALUE",
+ *                     PrivateIpAddress: "STRING_VALUE",
+ *                     PrivateIpAddresses: [
+ *                       {
+ *                         Primary: true || false,
+ *                         PrivateIpAddress: "STRING_VALUE",
+ *                       },
+ *                     ],
+ *                     SecondaryPrivateIpAddressCount: Number("int"),
+ *                     SubnetId: "STRING_VALUE",
+ *                   },
+ *                 ],
+ *                 Placement: {
+ *                   Affinity: "STRING_VALUE",
+ *                   AvailabilityZone: "STRING_VALUE",
+ *                   GroupName: "STRING_VALUE",
+ *                   HostId: "STRING_VALUE",
+ *                   HostResourceGroupArn: "STRING_VALUE",
+ *                   PartitionNumber: Number("int"),
+ *                   SpreadDomain: "STRING_VALUE",
+ *                   Tenancy: "STRING_VALUE",
+ *                 },
+ *                 PrivateDnsNameOptions: {
+ *                   EnableResourceNameDnsAAAARecord: true || false,
+ *                   EnableResourceNameDnsARecord: true || false,
+ *                   HostnameType: "STRING_VALUE",
+ *                 },
+ *                 RamDiskId: "STRING_VALUE",
+ *                 SecurityGroupIdSet: [
+ *                   "<NonEmptyStringList>",
+ *                 ],
+ *                 SecurityGroupSet: [
+ *                   "<NonEmptyStringList>",
+ *                 ],
+ *                 UserData: "STRING_VALUE",
+ *               },
+ *               DefaultVersionNumber: Number("long"),
+ *               LatestVersionNumber: Number("long"),
+ *             },
+ *             AwsSageMakerNotebookInstance: {
+ *               AcceleratorTypes: [
+ *                 "<NonEmptyStringList>",
+ *               ],
+ *               AdditionalCodeRepositories: [
+ *                 "<NonEmptyStringList>",
+ *               ],
+ *               DefaultCodeRepository: "STRING_VALUE",
+ *               DirectInternetAccess: "STRING_VALUE",
+ *               FailureReason: "STRING_VALUE",
+ *               InstanceMetadataServiceConfiguration: {
+ *                 MinimumInstanceMetadataServiceVersion: "STRING_VALUE",
+ *               },
+ *               InstanceType: "STRING_VALUE",
+ *               KmsKeyId: "STRING_VALUE",
+ *               NetworkInterfaceId: "STRING_VALUE",
+ *               NotebookInstanceArn: "STRING_VALUE",
+ *               NotebookInstanceLifecycleConfigName: "STRING_VALUE",
+ *               NotebookInstanceName: "STRING_VALUE",
+ *               NotebookInstanceStatus: "STRING_VALUE",
+ *               PlatformIdentifier: "STRING_VALUE",
+ *               RoleArn: "STRING_VALUE",
+ *               RootAccess: "STRING_VALUE",
+ *               SecurityGroups: [
+ *                 "<NonEmptyStringList>",
+ *               ],
+ *               SubnetId: "STRING_VALUE",
+ *               Url: "STRING_VALUE",
+ *               VolumeSizeInGB: Number("int"),
+ *             },
+ *             AwsWafv2WebAcl: {
+ *               Name: "STRING_VALUE",
+ *               Arn: "STRING_VALUE",
+ *               ManagedbyFirewallManager: true || false,
+ *               Id: "STRING_VALUE",
+ *               Capacity: Number("long"),
+ *               CaptchaConfig: {
+ *                 ImmunityTimeProperty: {
+ *                   ImmunityTime: Number("long"),
+ *                 },
+ *               },
+ *               DefaultAction: {
+ *                 Allow: {
+ *                   CustomRequestHandling: {
+ *                     InsertHeaders: [
+ *                       {
+ *                         Name: "STRING_VALUE",
+ *                         Value: "STRING_VALUE",
+ *                       },
+ *                     ],
+ *                   },
+ *                 },
+ *                 Block: {
+ *                   CustomResponse: {
+ *                     CustomResponseBodyKey: "STRING_VALUE",
+ *                     ResponseCode: Number("int"),
+ *                     ResponseHeaders: [
+ *                       {
+ *                         Name: "STRING_VALUE",
+ *                         Value: "STRING_VALUE",
+ *                       },
+ *                     ],
+ *                   },
+ *                 },
+ *               },
+ *               Description: "STRING_VALUE",
+ *               Rules: [
+ *                 {
+ *                   Action: {
+ *                     Allow: {
+ *                       CustomRequestHandling: {
+ *                         InsertHeaders: [
+ *                           {
+ *                             Name: "STRING_VALUE",
+ *                             Value: "STRING_VALUE",
+ *                           },
+ *                         ],
+ *                       },
+ *                     },
+ *                     Block: {
+ *                       CustomResponse: {
+ *                         CustomResponseBodyKey: "STRING_VALUE",
+ *                         ResponseCode: Number("int"),
+ *                         ResponseHeaders: [
+ *                           {
+ *                             Name: "STRING_VALUE",
+ *                             Value: "STRING_VALUE",
+ *                           },
+ *                         ],
+ *                       },
+ *                     },
+ *                     Captcha: {
+ *                       CustomRequestHandling: {
+ *                         InsertHeaders: [
+ *                           {
+ *                             Name: "STRING_VALUE",
+ *                             Value: "STRING_VALUE",
+ *                           },
+ *                         ],
+ *                       },
+ *                     },
+ *                     Count: {
+ *                       CustomRequestHandling: {
+ *                         InsertHeaders: [
+ *                           {
+ *                             Name: "STRING_VALUE",
+ *                             Value: "STRING_VALUE",
+ *                           },
+ *                         ],
+ *                       },
+ *                     },
+ *                   },
+ *                   Name: "STRING_VALUE",
+ *                   OverrideAction: "STRING_VALUE",
+ *                   Priority: Number("int"),
+ *                   VisibilityConfig: {
+ *                     CloudWatchMetricsEnabled: true || false,
+ *                     MetricName: "STRING_VALUE",
+ *                     SampledRequestsEnabled: true || false,
+ *                   },
+ *                 },
+ *               ],
+ *               VisibilityConfig: {
+ *                 CloudWatchMetricsEnabled: true || false,
+ *                 MetricName: "STRING_VALUE",
+ *                 SampledRequestsEnabled: true || false,
+ *               },
+ *             },
+ *             AwsWafv2RuleGroup: {
+ *               Capacity: Number("long"),
+ *               Description: "STRING_VALUE",
+ *               Id: "STRING_VALUE",
+ *               Name: "STRING_VALUE",
+ *               Arn: "STRING_VALUE",
+ *               Rules: [
+ *                 {
+ *                   Action: {
+ *                     Allow: {
+ *                       CustomRequestHandling: {
+ *                         InsertHeaders: [
+ *                           {
+ *                             Name: "STRING_VALUE",
+ *                             Value: "STRING_VALUE",
+ *                           },
+ *                         ],
+ *                       },
+ *                     },
+ *                     Block: {
+ *                       CustomResponse: {
+ *                         CustomResponseBodyKey: "STRING_VALUE",
+ *                         ResponseCode: Number("int"),
+ *                         ResponseHeaders: [
+ *                           {
+ *                             Name: "STRING_VALUE",
+ *                             Value: "STRING_VALUE",
+ *                           },
+ *                         ],
+ *                       },
+ *                     },
+ *                     Captcha: {
+ *                       CustomRequestHandling: {
+ *                         InsertHeaders: [
+ *                           {
+ *                             Name: "STRING_VALUE",
+ *                             Value: "STRING_VALUE",
+ *                           },
+ *                         ],
+ *                       },
+ *                     },
+ *                     Count: {
+ *                       CustomRequestHandling: {
+ *                         InsertHeaders: [
+ *                           {
+ *                             Name: "STRING_VALUE",
+ *                             Value: "STRING_VALUE",
+ *                           },
+ *                         ],
+ *                       },
+ *                     },
+ *                   },
+ *                   Name: "STRING_VALUE",
+ *                   OverrideAction: "STRING_VALUE",
+ *                   Priority: Number("int"),
+ *                   VisibilityConfig: {
+ *                     CloudWatchMetricsEnabled: true || false,
+ *                     MetricName: "STRING_VALUE",
+ *                     SampledRequestsEnabled: true || false,
+ *                   },
+ *                 },
+ *               ],
+ *               Scope: "STRING_VALUE",
+ *               VisibilityConfig: {
+ *                 CloudWatchMetricsEnabled: true || false,
+ *                 MetricName: "STRING_VALUE",
+ *                 SampledRequestsEnabled: true || false,
+ *               },
+ *             },
+ *           },
+ *         },
+ *       ],
+ *       Compliance: {
+ *         Status: "PASSED" || "WARNING" || "FAILED" || "NOT_AVAILABLE",
+ *         RelatedRequirements: [
+ *           "STRING_VALUE",
+ *         ],
+ *         StatusReasons: [
+ *           {
+ *             ReasonCode: "STRING_VALUE", // required
+ *             Description: "STRING_VALUE",
+ *           },
+ *         ],
+ *         SecurityControlId: "STRING_VALUE",
+ *         AssociatedStandards: [
+ *           {
+ *             StandardsId: "STRING_VALUE",
+ *           },
+ *         ],
+ *       },
+ *       VerificationState: "UNKNOWN" || "TRUE_POSITIVE" || "FALSE_POSITIVE" || "BENIGN_POSITIVE",
+ *       WorkflowState: "NEW" || "ASSIGNED" || "IN_PROGRESS" || "DEFERRED" || "RESOLVED",
+ *       Workflow: {
+ *         Status: "NEW" || "NOTIFIED" || "RESOLVED" || "SUPPRESSED",
+ *       },
+ *       RecordState: "ACTIVE" || "ARCHIVED",
+ *       RelatedFindings: [
+ *         {
+ *           ProductArn: "STRING_VALUE", // required
+ *           Id: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *       Note: {
+ *         Text: "STRING_VALUE", // required
+ *         UpdatedBy: "STRING_VALUE", // required
+ *         UpdatedAt: "STRING_VALUE", // required
+ *       },
+ *       Vulnerabilities: [
+ *         {
+ *           Id: "STRING_VALUE", // required
+ *           VulnerablePackages: [
+ *             {
+ *               Name: "STRING_VALUE",
+ *               Version: "STRING_VALUE",
+ *               Epoch: "STRING_VALUE",
+ *               Release: "STRING_VALUE",
+ *               Architecture: "STRING_VALUE",
+ *               PackageManager: "STRING_VALUE",
+ *               FilePath: "STRING_VALUE",
+ *               FixedInVersion: "STRING_VALUE",
+ *               Remediation: "STRING_VALUE",
+ *               SourceLayerHash: "STRING_VALUE",
+ *               SourceLayerArn: "STRING_VALUE",
+ *             },
+ *           ],
+ *           Cvss: [
+ *             {
+ *               Version: "STRING_VALUE",
+ *               BaseScore: Number("double"),
+ *               BaseVector: "STRING_VALUE",
+ *               Source: "STRING_VALUE",
+ *               Adjustments: [
+ *                 {
+ *                   Metric: "STRING_VALUE",
+ *                   Reason: "STRING_VALUE",
+ *                 },
+ *               ],
+ *             },
+ *           ],
+ *           RelatedVulnerabilities: [
+ *             "<StringList>",
+ *           ],
+ *           Vendor: {
+ *             Name: "STRING_VALUE", // required
+ *             Url: "STRING_VALUE",
+ *             VendorSeverity: "STRING_VALUE",
+ *             VendorCreatedAt: "STRING_VALUE",
+ *             VendorUpdatedAt: "STRING_VALUE",
+ *           },
+ *           ReferenceUrls: [
+ *             "<StringList>",
+ *           ],
+ *           FixAvailable: "YES" || "NO" || "PARTIAL",
+ *         },
+ *       ],
+ *       PatchSummary: {
+ *         Id: "STRING_VALUE", // required
+ *         InstalledCount: Number("int"),
+ *         MissingCount: Number("int"),
+ *         FailedCount: Number("int"),
+ *         InstalledOtherCount: Number("int"),
+ *         InstalledRejectedCount: Number("int"),
+ *         InstalledPendingReboot: Number("int"),
+ *         OperationStartTime: "STRING_VALUE",
+ *         OperationEndTime: "STRING_VALUE",
+ *         RebootOption: "STRING_VALUE",
+ *         Operation: "STRING_VALUE",
+ *       },
+ *       Action: {
+ *         ActionType: "STRING_VALUE",
+ *         NetworkConnectionAction: {
+ *           ConnectionDirection: "STRING_VALUE",
+ *           RemoteIpDetails: {
+ *             IpAddressV4: "STRING_VALUE",
+ *             Organization: {
+ *               Asn: Number("int"),
+ *               AsnOrg: "STRING_VALUE",
+ *               Isp: "STRING_VALUE",
+ *               Org: "STRING_VALUE",
+ *             },
+ *             Country: {
+ *               CountryCode: "STRING_VALUE",
+ *               CountryName: "STRING_VALUE",
+ *             },
+ *             City: {
+ *               CityName: "STRING_VALUE",
+ *             },
+ *             GeoLocation: {
+ *               Lon: Number("double"),
+ *               Lat: Number("double"),
+ *             },
+ *           },
+ *           RemotePortDetails: {
+ *             Port: Number("int"),
+ *             PortName: "STRING_VALUE",
+ *           },
+ *           LocalPortDetails: {
+ *             Port: Number("int"),
+ *             PortName: "STRING_VALUE",
+ *           },
+ *           Protocol: "STRING_VALUE",
+ *           Blocked: true || false,
+ *         },
+ *         AwsApiCallAction: {
+ *           Api: "STRING_VALUE",
+ *           ServiceName: "STRING_VALUE",
+ *           CallerType: "STRING_VALUE",
+ *           RemoteIpDetails: {
+ *             IpAddressV4: "STRING_VALUE",
+ *             Organization: {
+ *               Asn: Number("int"),
+ *               AsnOrg: "STRING_VALUE",
+ *               Isp: "STRING_VALUE",
+ *               Org: "STRING_VALUE",
+ *             },
+ *             Country: {
+ *               CountryCode: "STRING_VALUE",
+ *               CountryName: "STRING_VALUE",
+ *             },
+ *             City: {
+ *               CityName: "STRING_VALUE",
+ *             },
+ *             GeoLocation: {
+ *               Lon: Number("double"),
+ *               Lat: Number("double"),
+ *             },
+ *           },
+ *           DomainDetails: {
+ *             Domain: "STRING_VALUE",
+ *           },
+ *           AffectedResources: {
+ *             "<keys>": "<NonEmptyString>",
+ *           },
+ *           FirstSeen: "STRING_VALUE",
+ *           LastSeen: "STRING_VALUE",
+ *         },
+ *         DnsRequestAction: {
+ *           Domain: "STRING_VALUE",
+ *           Protocol: "STRING_VALUE",
+ *           Blocked: true || false,
+ *         },
+ *         PortProbeAction: {
+ *           PortProbeDetails: [
+ *             {
+ *               LocalPortDetails: {
+ *                 Port: Number("int"),
+ *                 PortName: "STRING_VALUE",
+ *               },
+ *               LocalIpDetails: {
+ *                 IpAddressV4: "STRING_VALUE",
+ *               },
+ *               RemoteIpDetails: {
+ *                 IpAddressV4: "STRING_VALUE",
+ *                 Organization: {
+ *                   Asn: Number("int"),
+ *                   AsnOrg: "STRING_VALUE",
+ *                   Isp: "STRING_VALUE",
+ *                   Org: "STRING_VALUE",
+ *                 },
+ *                 Country: {
+ *                   CountryCode: "STRING_VALUE",
+ *                   CountryName: "STRING_VALUE",
+ *                 },
+ *                 City: {
+ *                   CityName: "STRING_VALUE",
+ *                 },
+ *                 GeoLocation: {
+ *                   Lon: Number("double"),
+ *                   Lat: Number("double"),
+ *                 },
+ *               },
+ *             },
+ *           ],
+ *           Blocked: true || false,
+ *         },
+ *       },
+ *       FindingProviderFields: {
+ *         Confidence: Number("int"),
+ *         Criticality: Number("int"),
+ *         RelatedFindings: [
+ *           {
+ *             ProductArn: "STRING_VALUE", // required
+ *             Id: "STRING_VALUE", // required
+ *           },
+ *         ],
+ *         Severity: {
+ *           Label: "INFORMATIONAL" || "LOW" || "MEDIUM" || "HIGH" || "CRITICAL",
+ *           Original: "STRING_VALUE",
+ *         },
+ *         Types: [
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *       Sample: true || false,
+ *     },
+ *   ],
+ * };
  * const command = new BatchImportFindingsCommand(input);
  * const response = await client.send(command);
  * ```

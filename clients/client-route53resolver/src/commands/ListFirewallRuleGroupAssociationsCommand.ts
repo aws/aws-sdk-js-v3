@@ -48,6 +48,14 @@ export interface ListFirewallRuleGroupAssociationsCommandOutput
  * import { Route53ResolverClient, ListFirewallRuleGroupAssociationsCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
  * // const { Route53ResolverClient, ListFirewallRuleGroupAssociationsCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
  * const client = new Route53ResolverClient(config);
+ * const input = {
+ *   FirewallRuleGroupId: "STRING_VALUE",
+ *   VpcId: "STRING_VALUE",
+ *   Priority: Number("int"),
+ *   Status: "COMPLETE" || "DELETING" || "UPDATING",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListFirewallRuleGroupAssociationsCommand(input);
  * const response = await client.send(command);
  * ```

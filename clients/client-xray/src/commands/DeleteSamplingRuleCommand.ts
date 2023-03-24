@@ -42,6 +42,10 @@ export interface DeleteSamplingRuleCommandOutput extends DeleteSamplingRuleResul
  * import { XRayClient, DeleteSamplingRuleCommand } from "@aws-sdk/client-xray"; // ES Modules import
  * // const { XRayClient, DeleteSamplingRuleCommand } = require("@aws-sdk/client-xray"); // CommonJS import
  * const client = new XRayClient(config);
+ * const input = {
+ *   RuleName: "STRING_VALUE",
+ *   RuleARN: "STRING_VALUE",
+ * };
  * const command = new DeleteSamplingRuleCommand(input);
  * const response = await client.send(command);
  * ```

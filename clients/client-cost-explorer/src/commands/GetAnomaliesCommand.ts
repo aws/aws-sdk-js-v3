@@ -44,6 +44,21 @@ export interface GetAnomaliesCommandOutput extends GetAnomaliesResponse, __Metad
  * import { CostExplorerClient, GetAnomaliesCommand } from "@aws-sdk/client-cost-explorer"; // ES Modules import
  * // const { CostExplorerClient, GetAnomaliesCommand } = require("@aws-sdk/client-cost-explorer"); // CommonJS import
  * const client = new CostExplorerClient(config);
+ * const input = {
+ *   MonitorArn: "STRING_VALUE",
+ *   DateInterval: {
+ *     StartDate: "STRING_VALUE", // required
+ *     EndDate: "STRING_VALUE",
+ *   },
+ *   Feedback: "YES" || "NO" || "PLANNED_ACTIVITY",
+ *   TotalImpact: {
+ *     NumericOperator: "EQUAL" || "GREATER_THAN_OR_EQUAL" || "LESS_THAN_OR_EQUAL" || "GREATER_THAN" || "LESS_THAN" || "BETWEEN", // required
+ *     StartValue: Number("double"), // required
+ *     EndValue: Number("double"),
+ *   },
+ *   NextPageToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new GetAnomaliesCommand(input);
  * const response = await client.send(command);
  * ```

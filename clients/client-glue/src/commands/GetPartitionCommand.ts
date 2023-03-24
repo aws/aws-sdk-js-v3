@@ -42,6 +42,14 @@ export interface GetPartitionCommandOutput extends GetPartitionResponse, __Metad
  * import { GlueClient, GetPartitionCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, GetPartitionCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = {
+ *   CatalogId: "STRING_VALUE",
+ *   DatabaseName: "STRING_VALUE", // required
+ *   TableName: "STRING_VALUE", // required
+ *   PartitionValues: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new GetPartitionCommand(input);
  * const response = await client.send(command);
  * ```

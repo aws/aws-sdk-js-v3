@@ -45,6 +45,9 @@ export interface DescribeSpotDatafeedSubscriptionCommandOutput
  * import { EC2Client, DescribeSpotDatafeedSubscriptionCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeSpotDatafeedSubscriptionCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   DryRun: true || false,
+ * };
  * const command = new DescribeSpotDatafeedSubscriptionCommand(input);
  * const response = await client.send(command);
  * ```

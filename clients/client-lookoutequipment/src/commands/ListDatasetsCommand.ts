@@ -43,6 +43,11 @@ export interface ListDatasetsCommandOutput extends ListDatasetsResponse, __Metad
  * import { LookoutEquipmentClient, ListDatasetsCommand } from "@aws-sdk/client-lookoutequipment"; // ES Modules import
  * // const { LookoutEquipmentClient, ListDatasetsCommand } = require("@aws-sdk/client-lookoutequipment"); // CommonJS import
  * const client = new LookoutEquipmentClient(config);
+ * const input = {
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   DatasetNameBeginsWith: "STRING_VALUE",
+ * };
  * const command = new ListDatasetsCommand(input);
  * const response = await client.send(command);
  * ```

@@ -45,6 +45,15 @@ export interface UnlinkIdentityCommandOutput extends __MetadataBearer {}
  * import { CognitoIdentityClient, UnlinkIdentityCommand } from "@aws-sdk/client-cognito-identity"; // ES Modules import
  * // const { CognitoIdentityClient, UnlinkIdentityCommand } = require("@aws-sdk/client-cognito-identity"); // CommonJS import
  * const client = new CognitoIdentityClient(config);
+ * const input = {
+ *   IdentityId: "STRING_VALUE", // required
+ *   Logins: { // required
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   LoginsToRemove: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new UnlinkIdentityCommand(input);
  * const response = await client.send(command);
  * ```

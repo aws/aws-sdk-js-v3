@@ -44,6 +44,14 @@ export interface AssignPrivateNatGatewayAddressCommandOutput
  * import { EC2Client, AssignPrivateNatGatewayAddressCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, AssignPrivateNatGatewayAddressCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   NatGatewayId: "STRING_VALUE", // required
+ *   PrivateIpAddresses: [
+ *     "STRING_VALUE",
+ *   ],
+ *   PrivateIpAddressCount: Number("int"),
+ *   DryRun: true || false,
+ * };
  * const command = new AssignPrivateNatGatewayAddressCommand(input);
  * const response = await client.send(command);
  * ```

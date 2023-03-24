@@ -51,6 +51,73 @@ export interface CreateScheduledQueryCommandOutput extends CreateScheduledQueryR
  * import { TimestreamQueryClient, CreateScheduledQueryCommand } from "@aws-sdk/client-timestream-query"; // ES Modules import
  * // const { TimestreamQueryClient, CreateScheduledQueryCommand } = require("@aws-sdk/client-timestream-query"); // CommonJS import
  * const client = new TimestreamQueryClient(config);
+ * const input = {
+ *   Name: "STRING_VALUE", // required
+ *   QueryString: "STRING_VALUE", // required
+ *   ScheduleConfiguration: {
+ *     ScheduleExpression: "STRING_VALUE", // required
+ *   },
+ *   NotificationConfiguration: {
+ *     SnsConfiguration: {
+ *       TopicArn: "STRING_VALUE", // required
+ *     },
+ *   },
+ *   TargetConfiguration: {
+ *     TimestreamConfiguration: {
+ *       DatabaseName: "STRING_VALUE", // required
+ *       TableName: "STRING_VALUE", // required
+ *       TimeColumn: "STRING_VALUE", // required
+ *       DimensionMappings: [ // required
+ *         {
+ *           Name: "STRING_VALUE", // required
+ *           DimensionValueType: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *       MultiMeasureMappings: {
+ *         TargetMultiMeasureName: "STRING_VALUE",
+ *         MultiMeasureAttributeMappings: [ // required
+ *           {
+ *             SourceColumn: "STRING_VALUE", // required
+ *             TargetMultiMeasureAttributeName: "STRING_VALUE",
+ *             MeasureValueType: "STRING_VALUE", // required
+ *           },
+ *         ],
+ *       },
+ *       MixedMeasureMappings: [
+ *         {
+ *           MeasureName: "STRING_VALUE",
+ *           SourceColumn: "STRING_VALUE",
+ *           TargetMeasureName: "STRING_VALUE",
+ *           MeasureValueType: "STRING_VALUE", // required
+ *           MultiMeasureAttributeMappings: [
+ *             {
+ *               SourceColumn: "STRING_VALUE", // required
+ *               TargetMultiMeasureAttributeName: "STRING_VALUE",
+ *               MeasureValueType: "STRING_VALUE", // required
+ *             },
+ *           ],
+ *         },
+ *       ],
+ *       MeasureNameColumn: "STRING_VALUE",
+ *     },
+ *   },
+ *   ClientToken: "STRING_VALUE",
+ *   ScheduledQueryExecutionRoleArn: "STRING_VALUE", // required
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   KmsKeyId: "STRING_VALUE",
+ *   ErrorReportConfiguration: {
+ *     S3Configuration: {
+ *       BucketName: "STRING_VALUE", // required
+ *       ObjectKeyPrefix: "STRING_VALUE",
+ *       EncryptionOption: "STRING_VALUE",
+ *     },
+ *   },
+ * };
  * const command = new CreateScheduledQueryCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,10 @@ export interface DeletePrefetchScheduleCommandOutput extends DeletePrefetchSched
  * import { MediaTailorClient, DeletePrefetchScheduleCommand } from "@aws-sdk/client-mediatailor"; // ES Modules import
  * // const { MediaTailorClient, DeletePrefetchScheduleCommand } = require("@aws-sdk/client-mediatailor"); // CommonJS import
  * const client = new MediaTailorClient(config);
+ * const input = {
+ *   Name: "STRING_VALUE", // required
+ *   PlaybackConfigurationName: "STRING_VALUE", // required
+ * };
  * const command = new DeletePrefetchScheduleCommand(input);
  * const response = await client.send(command);
  * ```

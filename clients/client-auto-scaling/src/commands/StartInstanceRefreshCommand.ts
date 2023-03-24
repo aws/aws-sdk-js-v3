@@ -65,6 +65,125 @@ export interface StartInstanceRefreshCommandOutput extends StartInstanceRefreshA
  * import { AutoScalingClient, StartInstanceRefreshCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, StartInstanceRefreshCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
  * const client = new AutoScalingClient(config);
+ * const input = {
+ *   AutoScalingGroupName: "STRING_VALUE", // required
+ *   Strategy: "Rolling",
+ *   DesiredConfiguration: {
+ *     LaunchTemplate: {
+ *       LaunchTemplateId: "STRING_VALUE",
+ *       LaunchTemplateName: "STRING_VALUE",
+ *       Version: "STRING_VALUE",
+ *     },
+ *     MixedInstancesPolicy: {
+ *       LaunchTemplate: {
+ *         LaunchTemplateSpecification: {
+ *           LaunchTemplateId: "STRING_VALUE",
+ *           LaunchTemplateName: "STRING_VALUE",
+ *           Version: "STRING_VALUE",
+ *         },
+ *         Overrides: [
+ *           {
+ *             InstanceType: "STRING_VALUE",
+ *             WeightedCapacity: "STRING_VALUE",
+ *             LaunchTemplateSpecification: {
+ *               LaunchTemplateId: "<LaunchTemplateSpecification>",
+ *               LaunchTemplateName: "<LaunchTemplateSpecification>",
+ *               Version: "<LaunchTemplateSpecification>",
+ *             },
+ *             InstanceRequirements: {
+ *               VCpuCount: {
+ *                 Min: Number("int"), // required
+ *                 Max: Number("int"),
+ *               },
+ *               MemoryMiB: {
+ *                 Min: Number("int"), // required
+ *                 Max: Number("int"),
+ *               },
+ *               CpuManufacturers: [
+ *                 "intel" || "amd" || "amazon-web-services",
+ *               ],
+ *               MemoryGiBPerVCpu: {
+ *                 Min: Number("double"),
+ *                 Max: Number("double"),
+ *               },
+ *               ExcludedInstanceTypes: [
+ *                 "STRING_VALUE",
+ *               ],
+ *               InstanceGenerations: [
+ *                 "current" || "previous",
+ *               ],
+ *               SpotMaxPricePercentageOverLowestPrice: Number("int"),
+ *               OnDemandMaxPricePercentageOverLowestPrice: Number("int"),
+ *               BareMetal: "included" || "excluded" || "required",
+ *               BurstablePerformance: "included" || "excluded" || "required",
+ *               RequireHibernateSupport: true || false,
+ *               NetworkInterfaceCount: {
+ *                 Min: Number("int"),
+ *                 Max: Number("int"),
+ *               },
+ *               LocalStorage: "included" || "excluded" || "required",
+ *               LocalStorageTypes: [
+ *                 "hdd" || "ssd",
+ *               ],
+ *               TotalLocalStorageGB: {
+ *                 Min: Number("double"),
+ *                 Max: Number("double"),
+ *               },
+ *               BaselineEbsBandwidthMbps: {
+ *                 Min: Number("int"),
+ *                 Max: Number("int"),
+ *               },
+ *               AcceleratorTypes: [
+ *                 "gpu" || "fpga" || "inference",
+ *               ],
+ *               AcceleratorCount: {
+ *                 Min: Number("int"),
+ *                 Max: Number("int"),
+ *               },
+ *               AcceleratorManufacturers: [
+ *                 "nvidia" || "amd" || "amazon-web-services" || "xilinx",
+ *               ],
+ *               AcceleratorNames: [
+ *                 "a100" || "v100" || "k80" || "t4" || "m60" || "radeon-pro-v520" || "vu9p",
+ *               ],
+ *               AcceleratorTotalMemoryMiB: {
+ *                 Min: Number("int"),
+ *                 Max: Number("int"),
+ *               },
+ *               NetworkBandwidthGbps: {
+ *                 Min: Number("double"),
+ *                 Max: Number("double"),
+ *               },
+ *               AllowedInstanceTypes: [
+ *                 "STRING_VALUE",
+ *               ],
+ *             },
+ *           },
+ *         ],
+ *       },
+ *       InstancesDistribution: {
+ *         OnDemandAllocationStrategy: "STRING_VALUE",
+ *         OnDemandBaseCapacity: Number("int"),
+ *         OnDemandPercentageAboveBaseCapacity: Number("int"),
+ *         SpotAllocationStrategy: "STRING_VALUE",
+ *         SpotInstancePools: Number("int"),
+ *         SpotMaxPrice: "STRING_VALUE",
+ *       },
+ *     },
+ *   },
+ *   Preferences: {
+ *     MinHealthyPercentage: Number("int"),
+ *     InstanceWarmup: Number("int"),
+ *     CheckpointPercentages: [
+ *       Number("int"),
+ *     ],
+ *     CheckpointDelay: Number("int"),
+ *     SkipMatching: true || false,
+ *     AutoRollback: true || false,
+ *     ScaleInProtectedInstances: "Refresh" || "Ignore" || "Wait",
+ *     StandbyInstances: "Terminate" || "Ignore" || "Wait",
+ *   },
+ * };
  * const command = new StartInstanceRefreshCommand(input);
  * const response = await client.send(command);
  * ```

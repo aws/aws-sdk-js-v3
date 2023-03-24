@@ -45,6 +45,27 @@ export interface UpdateMLTransformCommandOutput extends UpdateMLTransformRespons
  * import { GlueClient, UpdateMLTransformCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, UpdateMLTransformCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = {
+ *   TransformId: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   Parameters: {
+ *     TransformType: "FIND_MATCHES", // required
+ *     FindMatchesParameters: {
+ *       PrimaryKeyColumnName: "STRING_VALUE",
+ *       PrecisionRecallTradeoff: Number("double"),
+ *       AccuracyCostTradeoff: Number("double"),
+ *       EnforceProvidedLabels: true || false,
+ *     },
+ *   },
+ *   Role: "STRING_VALUE",
+ *   GlueVersion: "STRING_VALUE",
+ *   MaxCapacity: Number("double"),
+ *   WorkerType: "Standard" || "G.1X" || "G.2X" || "G.025X",
+ *   NumberOfWorkers: Number("int"),
+ *   Timeout: Number("int"),
+ *   MaxRetries: Number("int"),
+ * };
  * const command = new UpdateMLTransformCommand(input);
  * const response = await client.send(command);
  * ```

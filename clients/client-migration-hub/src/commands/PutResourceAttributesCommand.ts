@@ -67,6 +67,17 @@ export interface PutResourceAttributesCommandOutput extends PutResourceAttribute
  * import { MigrationHubClient, PutResourceAttributesCommand } from "@aws-sdk/client-migration-hub"; // ES Modules import
  * // const { MigrationHubClient, PutResourceAttributesCommand } = require("@aws-sdk/client-migration-hub"); // CommonJS import
  * const client = new MigrationHubClient(config);
+ * const input = {
+ *   ProgressUpdateStream: "STRING_VALUE", // required
+ *   MigrationTaskName: "STRING_VALUE", // required
+ *   ResourceAttributeList: [ // required
+ *     {
+ *       Type: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   DryRun: true || false,
+ * };
  * const command = new PutResourceAttributesCommand(input);
  * const response = await client.send(command);
  * ```

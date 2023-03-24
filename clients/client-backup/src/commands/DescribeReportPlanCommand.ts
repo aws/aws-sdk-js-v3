@@ -42,6 +42,9 @@ export interface DescribeReportPlanCommandOutput extends DescribeReportPlanOutpu
  * import { BackupClient, DescribeReportPlanCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, DescribeReportPlanCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
+ * const input = {
+ *   ReportPlanName: "STRING_VALUE", // required
+ * };
  * const command = new DescribeReportPlanCommand(input);
  * const response = await client.send(command);
  * ```

@@ -43,6 +43,7 @@ export interface GetInvitationConfigurationCommandOutput extends GetInvitationCo
  * import { AlexaForBusinessClient, GetInvitationConfigurationCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, GetInvitationConfigurationCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
+ * const input = {};
  * const command = new GetInvitationConfigurationCommand(input);
  * const response = await client.send(command);
  * ```

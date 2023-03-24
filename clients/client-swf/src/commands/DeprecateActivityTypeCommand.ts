@@ -84,6 +84,13 @@ export interface DeprecateActivityTypeCommandOutput extends __MetadataBearer {}
  * import { SWFClient, DeprecateActivityTypeCommand } from "@aws-sdk/client-swf"; // ES Modules import
  * // const { SWFClient, DeprecateActivityTypeCommand } = require("@aws-sdk/client-swf"); // CommonJS import
  * const client = new SWFClient(config);
+ * const input = {
+ *   domain: "STRING_VALUE", // required
+ *   activityType: {
+ *     name: "STRING_VALUE", // required
+ *     version: "STRING_VALUE", // required
+ *   },
+ * };
  * const command = new DeprecateActivityTypeCommand(input);
  * const response = await client.send(command);
  * ```

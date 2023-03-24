@@ -44,6 +44,9 @@ export interface DescribeOrganizationalUnitCommandOutput extends DescribeOrganiz
  * import { OrganizationsClient, DescribeOrganizationalUnitCommand } from "@aws-sdk/client-organizations"; // ES Modules import
  * // const { OrganizationsClient, DescribeOrganizationalUnitCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
  * const client = new OrganizationsClient(config);
+ * const input = {
+ *   OrganizationalUnitId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeOrganizationalUnitCommand(input);
  * const response = await client.send(command);
  * ```

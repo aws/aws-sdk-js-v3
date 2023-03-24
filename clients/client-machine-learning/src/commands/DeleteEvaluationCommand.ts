@@ -47,6 +47,9 @@ export interface DeleteEvaluationCommandOutput extends DeleteEvaluationOutput, _
  * import { MachineLearningClient, DeleteEvaluationCommand } from "@aws-sdk/client-machine-learning"; // ES Modules import
  * // const { MachineLearningClient, DeleteEvaluationCommand } = require("@aws-sdk/client-machine-learning"); // CommonJS import
  * const client = new MachineLearningClient(config);
+ * const input = {
+ *   EvaluationId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteEvaluationCommand(input);
  * const response = await client.send(command);
  * ```

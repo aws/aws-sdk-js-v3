@@ -42,6 +42,10 @@ export interface ListWorldTemplatesCommandOutput extends ListWorldTemplatesRespo
  * import { RoboMakerClient, ListWorldTemplatesCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
  * // const { RoboMakerClient, ListWorldTemplatesCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
  * const client = new RoboMakerClient(config);
+ * const input = {
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListWorldTemplatesCommand(input);
  * const response = await client.send(command);
  * ```

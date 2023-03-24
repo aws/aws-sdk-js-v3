@@ -52,6 +52,9 @@ export interface DeclineHandshakeCommandOutput extends DeclineHandshakeResponse,
  * import { OrganizationsClient, DeclineHandshakeCommand } from "@aws-sdk/client-organizations"; // ES Modules import
  * // const { OrganizationsClient, DeclineHandshakeCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
  * const client = new OrganizationsClient(config);
+ * const input = {
+ *   HandshakeId: "STRING_VALUE", // required
+ * };
  * const command = new DeclineHandshakeCommand(input);
  * const response = await client.send(command);
  * ```

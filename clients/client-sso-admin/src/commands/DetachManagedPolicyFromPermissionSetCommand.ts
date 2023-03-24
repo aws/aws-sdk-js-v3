@@ -47,6 +47,11 @@ export interface DetachManagedPolicyFromPermissionSetCommandOutput
  * import { SSOAdminClient, DetachManagedPolicyFromPermissionSetCommand } from "@aws-sdk/client-sso-admin"; // ES Modules import
  * // const { SSOAdminClient, DetachManagedPolicyFromPermissionSetCommand } = require("@aws-sdk/client-sso-admin"); // CommonJS import
  * const client = new SSOAdminClient(config);
+ * const input = {
+ *   InstanceArn: "STRING_VALUE", // required
+ *   PermissionSetArn: "STRING_VALUE", // required
+ *   ManagedPolicyArn: "STRING_VALUE", // required
+ * };
  * const command = new DetachManagedPolicyFromPermissionSetCommand(input);
  * const response = await client.send(command);
  * ```

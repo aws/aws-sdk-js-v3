@@ -42,6 +42,27 @@ export interface UpdateAgentStatusCommandOutput extends UpdateAgentStatusRespons
  * import { GroundStationClient, UpdateAgentStatusCommand } from "@aws-sdk/client-groundstation"; // ES Modules import
  * // const { GroundStationClient, UpdateAgentStatusCommand } = require("@aws-sdk/client-groundstation"); // CommonJS import
  * const client = new GroundStationClient(config);
+ * const input = {
+ *   agentId: "STRING_VALUE", // required
+ *   taskId: "STRING_VALUE", // required
+ *   aggregateStatus: {
+ *     status: "STRING_VALUE", // required
+ *     signatureMap: {
+ *       "<keys>": true || false,
+ *     },
+ *   },
+ *   componentStatuses: [ // required
+ *     {
+ *       componentType: "STRING_VALUE", // required
+ *       capabilityArn: "STRING_VALUE", // required
+ *       status: "STRING_VALUE", // required
+ *       bytesSent: Number("long"),
+ *       bytesReceived: Number("long"),
+ *       packetsDropped: Number("long"),
+ *       dataflowId: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new UpdateAgentStatusCommand(input);
  * const response = await client.send(command);
  * ```

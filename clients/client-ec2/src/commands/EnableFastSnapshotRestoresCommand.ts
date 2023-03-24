@@ -47,6 +47,15 @@ export interface EnableFastSnapshotRestoresCommandOutput extends EnableFastSnaps
  * import { EC2Client, EnableFastSnapshotRestoresCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, EnableFastSnapshotRestoresCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   AvailabilityZones: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ *   SourceSnapshotIds: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ *   DryRun: true || false,
+ * };
  * const command = new EnableFastSnapshotRestoresCommand(input);
  * const response = await client.send(command);
  * ```

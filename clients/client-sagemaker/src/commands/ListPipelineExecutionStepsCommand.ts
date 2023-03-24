@@ -42,6 +42,12 @@ export interface ListPipelineExecutionStepsCommandOutput extends ListPipelineExe
  * import { SageMakerClient, ListPipelineExecutionStepsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListPipelineExecutionStepsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = {
+ *   PipelineExecutionArn: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   SortOrder: "Ascending" || "Descending",
+ * };
  * const command = new ListPipelineExecutionStepsCommand(input);
  * const response = await client.send(command);
  * ```

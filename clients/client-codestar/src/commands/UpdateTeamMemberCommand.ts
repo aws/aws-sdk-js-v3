@@ -44,6 +44,12 @@ export interface UpdateTeamMemberCommandOutput extends UpdateTeamMemberResult, _
  * import { CodeStarClient, UpdateTeamMemberCommand } from "@aws-sdk/client-codestar"; // ES Modules import
  * // const { CodeStarClient, UpdateTeamMemberCommand } = require("@aws-sdk/client-codestar"); // CommonJS import
  * const client = new CodeStarClient(config);
+ * const input = {
+ *   projectId: "STRING_VALUE", // required
+ *   userArn: "STRING_VALUE", // required
+ *   projectRole: "STRING_VALUE",
+ *   remoteAccessAllowed: true || false,
+ * };
  * const command = new UpdateTeamMemberCommand(input);
  * const response = await client.send(command);
  * ```

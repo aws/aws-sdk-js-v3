@@ -49,6 +49,12 @@ export interface TerminateSolNetworkInstanceCommandOutput extends TerminateSolNe
  * import { TnbClient, TerminateSolNetworkInstanceCommand } from "@aws-sdk/client-tnb"; // ES Modules import
  * // const { TnbClient, TerminateSolNetworkInstanceCommand } = require("@aws-sdk/client-tnb"); // CommonJS import
  * const client = new TnbClient(config);
+ * const input = {
+ *   nsInstanceId: "STRING_VALUE", // required
+ *   tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new TerminateSolNetworkInstanceCommand(input);
  * const response = await client.send(command);
  * ```

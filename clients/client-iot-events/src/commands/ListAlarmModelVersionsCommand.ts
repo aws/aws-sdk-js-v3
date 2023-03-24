@@ -43,6 +43,11 @@ export interface ListAlarmModelVersionsCommandOutput extends ListAlarmModelVersi
  * import { IoTEventsClient, ListAlarmModelVersionsCommand } from "@aws-sdk/client-iot-events"; // ES Modules import
  * // const { IoTEventsClient, ListAlarmModelVersionsCommand } = require("@aws-sdk/client-iot-events"); // CommonJS import
  * const client = new IoTEventsClient(config);
+ * const input = {
+ *   alarmModelName: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListAlarmModelVersionsCommand(input);
  * const response = await client.send(command);
  * ```

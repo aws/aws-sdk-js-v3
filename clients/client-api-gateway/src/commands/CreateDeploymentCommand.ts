@@ -42,6 +42,25 @@ export interface CreateDeploymentCommandOutput extends Deployment, __MetadataBea
  * import { APIGatewayClient, CreateDeploymentCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, CreateDeploymentCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
+ * const input = {
+ *   restApiId: "STRING_VALUE", // required
+ *   stageName: "STRING_VALUE",
+ *   stageDescription: "STRING_VALUE",
+ *   description: "STRING_VALUE",
+ *   cacheClusterEnabled: true || false,
+ *   cacheClusterSize: "0.5" || "1.6" || "6.1" || "13.5" || "28.4" || "58.2" || "118" || "237",
+ *   variables: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   canarySettings: {
+ *     percentTraffic: Number("double"),
+ *     stageVariableOverrides: {
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *     useStageCache: true || false,
+ *   },
+ *   tracingEnabled: true || false,
+ * };
  * const command = new CreateDeploymentCommand(input);
  * const response = await client.send(command);
  * ```

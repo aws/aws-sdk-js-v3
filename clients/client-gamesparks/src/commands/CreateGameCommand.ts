@@ -45,6 +45,14 @@ export interface CreateGameCommandOutput extends CreateGameResult, __MetadataBea
  * import { GameSparksClient, CreateGameCommand } from "@aws-sdk/client-gamesparks"; // ES Modules import
  * // const { GameSparksClient, CreateGameCommand } = require("@aws-sdk/client-gamesparks"); // CommonJS import
  * const client = new GameSparksClient(config);
+ * const input = {
+ *   GameName: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   ClientToken: "STRING_VALUE",
+ *   Tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateGameCommand(input);
  * const response = await client.send(command);
  * ```

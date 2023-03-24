@@ -47,6 +47,13 @@ export interface PutFindingsPublicationConfigurationCommandOutput
  * import { Macie2Client, PutFindingsPublicationConfigurationCommand } from "@aws-sdk/client-macie2"; // ES Modules import
  * // const { Macie2Client, PutFindingsPublicationConfigurationCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
  * const client = new Macie2Client(config);
+ * const input = {
+ *   clientToken: "STRING_VALUE",
+ *   securityHubConfiguration: {
+ *     publishClassificationFindings: true || false, // required
+ *     publishPolicyFindings: true || false, // required
+ *   },
+ * };
  * const command = new PutFindingsPublicationConfigurationCommand(input);
  * const response = await client.send(command);
  * ```

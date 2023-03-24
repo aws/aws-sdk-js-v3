@@ -43,6 +43,9 @@ export interface GetInstanceCommandOutput extends GetInstanceResult, __MetadataB
  * import { LightsailClient, GetInstanceCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, GetInstanceCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = {
+ *   instanceName: "STRING_VALUE", // required
+ * };
  * const command = new GetInstanceCommand(input);
  * const response = await client.send(command);
  * ```

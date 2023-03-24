@@ -43,6 +43,7 @@ export interface GetRegistrationCodeCommandOutput extends GetRegistrationCodeRes
  * import { IoTClient, GetRegistrationCodeCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, GetRegistrationCodeCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = {};
  * const command = new GetRegistrationCodeCommand(input);
  * const response = await client.send(command);
  * ```

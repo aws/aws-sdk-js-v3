@@ -54,6 +54,10 @@ export interface StartStudioSSOConfigurationRepairCommandOutput
  * import { NimbleClient, StartStudioSSOConfigurationRepairCommand } from "@aws-sdk/client-nimble"; // ES Modules import
  * // const { NimbleClient, StartStudioSSOConfigurationRepairCommand } = require("@aws-sdk/client-nimble"); // CommonJS import
  * const client = new NimbleClient(config);
+ * const input = {
+ *   clientToken: "STRING_VALUE",
+ *   studioId: "STRING_VALUE", // required
+ * };
  * const command = new StartStudioSSOConfigurationRepairCommand(input);
  * const response = await client.send(command);
  * ```

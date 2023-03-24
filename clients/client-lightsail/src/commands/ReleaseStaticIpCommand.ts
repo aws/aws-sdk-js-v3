@@ -42,6 +42,9 @@ export interface ReleaseStaticIpCommandOutput extends ReleaseStaticIpResult, __M
  * import { LightsailClient, ReleaseStaticIpCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, ReleaseStaticIpCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = {
+ *   staticIpName: "STRING_VALUE", // required
+ * };
  * const command = new ReleaseStaticIpCommand(input);
  * const response = await client.send(command);
  * ```

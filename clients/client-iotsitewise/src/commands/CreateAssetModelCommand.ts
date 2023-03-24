@@ -46,6 +46,145 @@ export interface CreateAssetModelCommandOutput extends CreateAssetModelResponse,
  * import { IoTSiteWiseClient, CreateAssetModelCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, CreateAssetModelCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
+ * const input = {
+ *   assetModelName: "STRING_VALUE", // required
+ *   assetModelDescription: "STRING_VALUE",
+ *   assetModelProperties: [
+ *     {
+ *       name: "STRING_VALUE", // required
+ *       dataType: "STRING" || "INTEGER" || "DOUBLE" || "BOOLEAN" || "STRUCT", // required
+ *       dataTypeSpec: "STRING_VALUE",
+ *       unit: "STRING_VALUE",
+ *       type: {
+ *         attribute: {
+ *           defaultValue: "STRING_VALUE",
+ *         },
+ *         measurement: {
+ *           processingConfig: {
+ *             forwardingConfig: {
+ *               state: "DISABLED" || "ENABLED", // required
+ *             },
+ *           },
+ *         },
+ *         transform: {
+ *           expression: "STRING_VALUE", // required
+ *           variables: [ // required
+ *             {
+ *               name: "STRING_VALUE", // required
+ *               value: {
+ *                 propertyId: "STRING_VALUE", // required
+ *                 hierarchyId: "STRING_VALUE",
+ *               },
+ *             },
+ *           ],
+ *           processingConfig: {
+ *             computeLocation: "EDGE" || "CLOUD", // required
+ *             forwardingConfig: {
+ *               state: "DISABLED" || "ENABLED", // required
+ *             },
+ *           },
+ *         },
+ *         metric: {
+ *           expression: "STRING_VALUE", // required
+ *           variables: [ // required
+ *             {
+ *               name: "STRING_VALUE", // required
+ *               value: {
+ *                 propertyId: "STRING_VALUE", // required
+ *                 hierarchyId: "STRING_VALUE",
+ *               },
+ *             },
+ *           ],
+ *           window: {
+ *             tumbling: {
+ *               interval: "STRING_VALUE", // required
+ *               offset: "STRING_VALUE",
+ *             },
+ *           },
+ *           processingConfig: {
+ *             computeLocation: "EDGE" || "CLOUD", // required
+ *           },
+ *         },
+ *       },
+ *     },
+ *   ],
+ *   assetModelHierarchies: [
+ *     {
+ *       name: "STRING_VALUE", // required
+ *       childAssetModelId: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   assetModelCompositeModels: [
+ *     {
+ *       name: "STRING_VALUE", // required
+ *       description: "STRING_VALUE",
+ *       type: "STRING_VALUE", // required
+ *       properties: [
+ *         {
+ *           name: "STRING_VALUE", // required
+ *           dataType: "STRING" || "INTEGER" || "DOUBLE" || "BOOLEAN" || "STRUCT", // required
+ *           dataTypeSpec: "STRING_VALUE",
+ *           unit: "STRING_VALUE",
+ *           type: {
+ *             attribute: {
+ *               defaultValue: "STRING_VALUE",
+ *             },
+ *             measurement: {
+ *               processingConfig: {
+ *                 forwardingConfig: {
+ *                   state: "DISABLED" || "ENABLED", // required
+ *                 },
+ *               },
+ *             },
+ *             transform: {
+ *               expression: "STRING_VALUE", // required
+ *               variables: [ // required
+ *                 {
+ *                   name: "STRING_VALUE", // required
+ *                   value: {
+ *                     propertyId: "STRING_VALUE", // required
+ *                     hierarchyId: "STRING_VALUE",
+ *                   },
+ *                 },
+ *               ],
+ *               processingConfig: {
+ *                 computeLocation: "EDGE" || "CLOUD", // required
+ *                 forwardingConfig: {
+ *                   state: "DISABLED" || "ENABLED", // required
+ *                 },
+ *               },
+ *             },
+ *             metric: {
+ *               expression: "STRING_VALUE", // required
+ *               variables: [ // required
+ *                 {
+ *                   name: "STRING_VALUE", // required
+ *                   value: {
+ *                     propertyId: "STRING_VALUE", // required
+ *                     hierarchyId: "STRING_VALUE",
+ *                   },
+ *                 },
+ *               ],
+ *               window: {
+ *                 tumbling: {
+ *                   interval: "STRING_VALUE", // required
+ *                   offset: "STRING_VALUE",
+ *                 },
+ *               },
+ *               processingConfig: {
+ *                 computeLocation: "EDGE" || "CLOUD", // required
+ *               },
+ *             },
+ *           },
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   clientToken: "STRING_VALUE",
+ *   tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateAssetModelCommand(input);
  * const response = await client.send(command);
  * ```

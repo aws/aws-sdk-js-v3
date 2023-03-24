@@ -39,6 +39,42 @@ export interface UpdateAppCommandOutput extends UpdateAppResponse, __MetadataBea
  * import { SMSClient, UpdateAppCommand } from "@aws-sdk/client-sms"; // ES Modules import
  * // const { SMSClient, UpdateAppCommand } = require("@aws-sdk/client-sms"); // CommonJS import
  * const client = new SMSClient(config);
+ * const input = {
+ *   appId: "STRING_VALUE",
+ *   name: "STRING_VALUE",
+ *   description: "STRING_VALUE",
+ *   roleName: "STRING_VALUE",
+ *   serverGroups: [
+ *     {
+ *       serverGroupId: "STRING_VALUE",
+ *       name: "STRING_VALUE",
+ *       serverList: [
+ *         {
+ *           serverId: "STRING_VALUE",
+ *           serverType: "STRING_VALUE",
+ *           vmServer: {
+ *             vmServerAddress: {
+ *               vmManagerId: "STRING_VALUE",
+ *               vmId: "STRING_VALUE",
+ *             },
+ *             vmName: "STRING_VALUE",
+ *             vmManagerName: "STRING_VALUE",
+ *             vmManagerType: "STRING_VALUE",
+ *             vmPath: "STRING_VALUE",
+ *           },
+ *           replicationJobId: "STRING_VALUE",
+ *           replicationJobTerminated: true || false,
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   tags: [
+ *     {
+ *       key: "STRING_VALUE",
+ *       value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new UpdateAppCommand(input);
  * const response = await client.send(command);
  * ```

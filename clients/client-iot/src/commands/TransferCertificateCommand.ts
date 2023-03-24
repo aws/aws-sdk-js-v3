@@ -50,6 +50,11 @@ export interface TransferCertificateCommandOutput extends TransferCertificateRes
  * import { IoTClient, TransferCertificateCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, TransferCertificateCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = {
+ *   certificateId: "STRING_VALUE", // required
+ *   targetAwsAccount: "STRING_VALUE", // required
+ *   transferMessage: "STRING_VALUE",
+ * };
  * const command = new TransferCertificateCommand(input);
  * const response = await client.send(command);
  * ```

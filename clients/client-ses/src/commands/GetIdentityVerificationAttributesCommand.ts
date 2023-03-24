@@ -62,6 +62,11 @@ export interface GetIdentityVerificationAttributesCommandOutput
  * import { SESClient, GetIdentityVerificationAttributesCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, GetIdentityVerificationAttributesCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
+ * const input = {
+ *   Identities: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new GetIdentityVerificationAttributesCommand(input);
  * const response = await client.send(command);
  * ```

@@ -49,6 +49,14 @@ export interface ListSavingsPlansPurchaseRecommendationGenerationCommandOutput
  * import { CostExplorerClient, ListSavingsPlansPurchaseRecommendationGenerationCommand } from "@aws-sdk/client-cost-explorer"; // ES Modules import
  * // const { CostExplorerClient, ListSavingsPlansPurchaseRecommendationGenerationCommand } = require("@aws-sdk/client-cost-explorer"); // CommonJS import
  * const client = new CostExplorerClient(config);
+ * const input = {
+ *   GenerationStatus: "SUCCEEDED" || "PROCESSING" || "FAILED",
+ *   RecommendationIds: [
+ *     "STRING_VALUE",
+ *   ],
+ *   PageSize: Number("int"),
+ *   NextPageToken: "STRING_VALUE",
+ * };
  * const command = new ListSavingsPlansPurchaseRecommendationGenerationCommand(input);
  * const response = await client.send(command);
  * ```

@@ -44,6 +44,97 @@ export interface GetPropertyValueCommandOutput extends GetPropertyValueResponse,
  * import { IoTTwinMakerClient, GetPropertyValueCommand } from "@aws-sdk/client-iottwinmaker"; // ES Modules import
  * // const { IoTTwinMakerClient, GetPropertyValueCommand } = require("@aws-sdk/client-iottwinmaker"); // CommonJS import
  * const client = new IoTTwinMakerClient(config);
+ * const input = {
+ *   componentName: "STRING_VALUE",
+ *   componentTypeId: "STRING_VALUE",
+ *   entityId: "STRING_VALUE",
+ *   selectedProperties: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ *   workspaceId: "STRING_VALUE", // required
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ *   propertyGroupName: "STRING_VALUE",
+ *   tabularConditions: {
+ *     orderBy: [
+ *       {
+ *         order: "STRING_VALUE",
+ *         propertyName: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *     propertyFilters: [
+ *       {
+ *         propertyName: "STRING_VALUE",
+ *         operator: "STRING_VALUE",
+ *         value: {
+ *           booleanValue: true || false,
+ *           doubleValue: Number("double"),
+ *           integerValue: Number("int"),
+ *           longValue: Number("long"),
+ *           stringValue: "STRING_VALUE",
+ *           listValue: [
+ *             {
+ *               booleanValue: true || false,
+ *               doubleValue: Number("double"),
+ *               integerValue: Number("int"),
+ *               longValue: Number("long"),
+ *               stringValue: "STRING_VALUE",
+ *               listValue: [
+ *                 {
+ *                   booleanValue: "<DataValue>",
+ *                   doubleValue: "<DataValue>",
+ *                   integerValue: "<DataValue>",
+ *                   longValue: "<DataValue>",
+ *                   stringValue: "<DataValue>",
+ *                   listValue: "<DataValue>",
+ *                   mapValue: {
+ *                     "<keys>": {
+ *                       booleanValue: "<DataValue>",
+ *                       doubleValue: "<DataValue>",
+ *                       integerValue: "<DataValue>",
+ *                       longValue: "<DataValue>",
+ *                       stringValue: "<DataValue>",
+ *                       listValue: "<DataValue>",
+ *                       mapValue: {
+ *                         "<keys>": {
+ *                           booleanValue: "<DataValue>",
+ *                           doubleValue: "<DataValue>",
+ *                           integerValue: "<DataValue>",
+ *                           longValue: "<DataValue>",
+ *                           stringValue: "<DataValue>",
+ *                           listValue: "<DataValue>",
+ *                           mapValue: "<DataValue>",
+ *                           relationshipValue: {
+ *                             targetEntityId: "STRING_VALUE",
+ *                             targetComponentName: "STRING_VALUE",
+ *                           },
+ *                           expression: "STRING_VALUE",
+ *                         },
+ *                       },
+ *                       relationshipValue: {
+ *                         targetEntityId: "STRING_VALUE",
+ *                         targetComponentName: "STRING_VALUE",
+ *                       },
+ *                       expression: "STRING_VALUE",
+ *                     },
+ *                   },
+ *                   relationshipValue: "<DataValue>",
+ *                   expression: "<DataValue>",
+ *                 },
+ *               ],
+ *               mapValue: "<DataValue>",
+ *               relationshipValue: "<DataValue>",
+ *               expression: "<DataValue>",
+ *             },
+ *           ],
+ *           mapValue: "<DataValue>",
+ *           relationshipValue: "<DataValue>",
+ *           expression: "<DataValue>",
+ *         },
+ *       },
+ *     ],
+ *   },
+ * };
  * const command = new GetPropertyValueCommand(input);
  * const response = await client.send(command);
  * ```

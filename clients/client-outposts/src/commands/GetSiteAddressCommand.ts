@@ -42,6 +42,10 @@ export interface GetSiteAddressCommandOutput extends GetSiteAddressOutput, __Met
  * import { OutpostsClient, GetSiteAddressCommand } from "@aws-sdk/client-outposts"; // ES Modules import
  * // const { OutpostsClient, GetSiteAddressCommand } = require("@aws-sdk/client-outposts"); // CommonJS import
  * const client = new OutpostsClient(config);
+ * const input = {
+ *   SiteId: "STRING_VALUE", // required
+ *   AddressType: "SHIPPING_ADDRESS" || "OPERATING_ADDRESS", // required
+ * };
  * const command = new GetSiteAddressCommand(input);
  * const response = await client.send(command);
  * ```

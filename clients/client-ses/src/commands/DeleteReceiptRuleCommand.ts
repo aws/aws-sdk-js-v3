@@ -45,6 +45,10 @@ export interface DeleteReceiptRuleCommandOutput extends DeleteReceiptRuleRespons
  * import { SESClient, DeleteReceiptRuleCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, DeleteReceiptRuleCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
+ * const input = {
+ *   RuleSetName: "STRING_VALUE", // required
+ *   RuleName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteReceiptRuleCommand(input);
  * const response = await client.send(command);
  * ```

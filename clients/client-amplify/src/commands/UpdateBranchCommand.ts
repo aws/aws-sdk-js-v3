@@ -47,6 +47,27 @@ export interface UpdateBranchCommandOutput extends UpdateBranchResult, __Metadat
  * import { AmplifyClient, UpdateBranchCommand } from "@aws-sdk/client-amplify"; // ES Modules import
  * // const { AmplifyClient, UpdateBranchCommand } = require("@aws-sdk/client-amplify"); // CommonJS import
  * const client = new AmplifyClient(config);
+ * const input = {
+ *   appId: "STRING_VALUE", // required
+ *   branchName: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   framework: "STRING_VALUE",
+ *   stage: "PRODUCTION" || "BETA" || "DEVELOPMENT" || "EXPERIMENTAL" || "PULL_REQUEST",
+ *   enableNotification: true || false,
+ *   enableAutoBuild: true || false,
+ *   environmentVariables: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   basicAuthCredentials: "STRING_VALUE",
+ *   enableBasicAuth: true || false,
+ *   enablePerformanceMode: true || false,
+ *   buildSpec: "STRING_VALUE",
+ *   ttl: "STRING_VALUE",
+ *   displayName: "STRING_VALUE",
+ *   enablePullRequestPreview: true || false,
+ *   pullRequestEnvironmentName: "STRING_VALUE",
+ *   backendEnvironmentArn: "STRING_VALUE",
+ * };
  * const command = new UpdateBranchCommand(input);
  * const response = await client.send(command);
  * ```

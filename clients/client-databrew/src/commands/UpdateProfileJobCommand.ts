@@ -42,6 +42,87 @@ export interface UpdateProfileJobCommandOutput extends UpdateProfileJobResponse,
  * import { DataBrewClient, UpdateProfileJobCommand } from "@aws-sdk/client-databrew"; // ES Modules import
  * // const { DataBrewClient, UpdateProfileJobCommand } = require("@aws-sdk/client-databrew"); // CommonJS import
  * const client = new DataBrewClient(config);
+ * const input = {
+ *   Configuration: {
+ *     DatasetStatisticsConfiguration: {
+ *       IncludedStatistics: [
+ *         "STRING_VALUE",
+ *       ],
+ *       Overrides: [
+ *         {
+ *           Statistic: "STRING_VALUE", // required
+ *           Parameters: { // required
+ *             "<keys>": "STRING_VALUE",
+ *           },
+ *         },
+ *       ],
+ *     },
+ *     ProfileColumns: [
+ *       {
+ *         Regex: "STRING_VALUE",
+ *         Name: "STRING_VALUE",
+ *       },
+ *     ],
+ *     ColumnStatisticsConfigurations: [
+ *       {
+ *         Selectors: [
+ *           {
+ *             Regex: "STRING_VALUE",
+ *             Name: "STRING_VALUE",
+ *           },
+ *         ],
+ *         Statistics: {
+ *           IncludedStatistics: [
+ *             "STRING_VALUE",
+ *           ],
+ *           Overrides: [
+ *             {
+ *               Statistic: "STRING_VALUE", // required
+ *               Parameters: { // required
+ *                 "<keys>": "STRING_VALUE",
+ *               },
+ *             },
+ *           ],
+ *         },
+ *       },
+ *     ],
+ *     EntityDetectorConfiguration: {
+ *       EntityTypes: [ // required
+ *         "STRING_VALUE",
+ *       ],
+ *       AllowedStatistics: [
+ *         {
+ *           Statistics: [ // required
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       ],
+ *     },
+ *   },
+ *   EncryptionKeyArn: "STRING_VALUE",
+ *   EncryptionMode: "SSE-KMS" || "SSE-S3",
+ *   Name: "STRING_VALUE", // required
+ *   LogSubscription: "ENABLE" || "DISABLE",
+ *   MaxCapacity: Number("int"),
+ *   MaxRetries: Number("int"),
+ *   OutputLocation: {
+ *     Bucket: "STRING_VALUE", // required
+ *     Key: "STRING_VALUE",
+ *     BucketOwner: "STRING_VALUE",
+ *   },
+ *   ValidationConfigurations: [
+ *     {
+ *       RulesetArn: "STRING_VALUE", // required
+ *       ValidationMode: "CHECK_ALL",
+ *     },
+ *   ],
+ *   RoleArn: "STRING_VALUE", // required
+ *   Timeout: Number("int"),
+ *   JobSample: {
+ *     Mode: "FULL_DATASET" || "CUSTOM_ROWS",
+ *     Size: Number("long"),
+ *   },
+ * };
  * const command = new UpdateProfileJobCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,10 @@ export interface DeleteLiveSourceCommandOutput extends DeleteLiveSourceResponse,
  * import { MediaTailorClient, DeleteLiveSourceCommand } from "@aws-sdk/client-mediatailor"; // ES Modules import
  * // const { MediaTailorClient, DeleteLiveSourceCommand } = require("@aws-sdk/client-mediatailor"); // CommonJS import
  * const client = new MediaTailorClient(config);
+ * const input = {
+ *   LiveSourceName: "STRING_VALUE", // required
+ *   SourceLocationName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteLiveSourceCommand(input);
  * const response = await client.send(command);
  * ```

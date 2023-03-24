@@ -73,6 +73,10 @@ export interface CreateRegexMatchSetCommandOutput extends CreateRegexMatchSetRes
  * import { WAFClient, CreateRegexMatchSetCommand } from "@aws-sdk/client-waf"; // ES Modules import
  * // const { WAFClient, CreateRegexMatchSetCommand } = require("@aws-sdk/client-waf"); // CommonJS import
  * const client = new WAFClient(config);
+ * const input = {
+ *   Name: "STRING_VALUE", // required
+ *   ChangeToken: "STRING_VALUE", // required
+ * };
  * const command = new CreateRegexMatchSetCommand(input);
  * const response = await client.send(command);
  * ```

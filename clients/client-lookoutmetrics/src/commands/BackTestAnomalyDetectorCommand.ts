@@ -42,6 +42,9 @@ export interface BackTestAnomalyDetectorCommandOutput extends BackTestAnomalyDet
  * import { LookoutMetricsClient, BackTestAnomalyDetectorCommand } from "@aws-sdk/client-lookoutmetrics"; // ES Modules import
  * // const { LookoutMetricsClient, BackTestAnomalyDetectorCommand } = require("@aws-sdk/client-lookoutmetrics"); // CommonJS import
  * const client = new LookoutMetricsClient(config);
+ * const input = {
+ *   AnomalyDetectorArn: "STRING_VALUE", // required
+ * };
  * const command = new BackTestAnomalyDetectorCommand(input);
  * const response = await client.send(command);
  * ```

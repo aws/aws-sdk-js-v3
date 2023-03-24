@@ -51,6 +51,9 @@ export interface DescribeInstanceCommandOutput extends DescribeInstanceResponse,
  * import { ConnectClient, DescribeInstanceCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, DescribeInstanceCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = {
+ *   InstanceId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeInstanceCommand(input);
  * const response = await client.send(command);
  * ```

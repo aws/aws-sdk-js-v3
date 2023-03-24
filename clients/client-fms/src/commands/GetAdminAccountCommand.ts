@@ -43,6 +43,7 @@ export interface GetAdminAccountCommandOutput extends GetAdminAccountResponse, _
  * import { FMSClient, GetAdminAccountCommand } from "@aws-sdk/client-fms"; // ES Modules import
  * // const { FMSClient, GetAdminAccountCommand } = require("@aws-sdk/client-fms"); // CommonJS import
  * const client = new FMSClient(config);
+ * const input = {};
  * const command = new GetAdminAccountCommand(input);
  * const response = await client.send(command);
  * ```

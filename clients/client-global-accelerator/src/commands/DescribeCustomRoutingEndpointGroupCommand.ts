@@ -51,6 +51,9 @@ export interface DescribeCustomRoutingEndpointGroupCommandOutput
  * import { GlobalAcceleratorClient, DescribeCustomRoutingEndpointGroupCommand } from "@aws-sdk/client-global-accelerator"; // ES Modules import
  * // const { GlobalAcceleratorClient, DescribeCustomRoutingEndpointGroupCommand } = require("@aws-sdk/client-global-accelerator"); // CommonJS import
  * const client = new GlobalAcceleratorClient(config);
+ * const input = {
+ *   EndpointGroupArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeCustomRoutingEndpointGroupCommand(input);
  * const response = await client.send(command);
  * ```

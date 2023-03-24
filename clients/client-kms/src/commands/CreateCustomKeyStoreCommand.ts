@@ -133,6 +133,21 @@ export interface CreateCustomKeyStoreCommandOutput extends CreateCustomKeyStoreR
  * import { KMSClient, CreateCustomKeyStoreCommand } from "@aws-sdk/client-kms"; // ES Modules import
  * // const { KMSClient, CreateCustomKeyStoreCommand } = require("@aws-sdk/client-kms"); // CommonJS import
  * const client = new KMSClient(config);
+ * const input = {
+ *   CustomKeyStoreName: "STRING_VALUE", // required
+ *   CloudHsmClusterId: "STRING_VALUE",
+ *   TrustAnchorCertificate: "STRING_VALUE",
+ *   KeyStorePassword: "STRING_VALUE",
+ *   CustomKeyStoreType: "AWS_CLOUDHSM" || "EXTERNAL_KEY_STORE",
+ *   XksProxyUriEndpoint: "STRING_VALUE",
+ *   XksProxyUriPath: "STRING_VALUE",
+ *   XksProxyVpcEndpointServiceName: "STRING_VALUE",
+ *   XksProxyAuthenticationCredential: {
+ *     AccessKeyId: "STRING_VALUE", // required
+ *     RawSecretAccessKey: "STRING_VALUE", // required
+ *   },
+ *   XksProxyConnectivity: "PUBLIC_ENDPOINT" || "VPC_ENDPOINT_SERVICE",
+ * };
  * const command = new CreateCustomKeyStoreCommand(input);
  * const response = await client.send(command);
  * ```

@@ -52,6 +52,9 @@ export interface PutAccountPreferencesCommandOutput extends PutAccountPreference
  * import { EFSClient, PutAccountPreferencesCommand } from "@aws-sdk/client-efs"; // ES Modules import
  * // const { EFSClient, PutAccountPreferencesCommand } = require("@aws-sdk/client-efs"); // CommonJS import
  * const client = new EFSClient(config);
+ * const input = {
+ *   ResourceIdType: "LONG_ID" || "SHORT_ID", // required
+ * };
  * const command = new PutAccountPreferencesCommand(input);
  * const response = await client.send(command);
  * ```

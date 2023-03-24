@@ -42,6 +42,10 @@ export interface GetDataSetDetailsCommandOutput extends GetDataSetDetailsRespons
  * import { M2Client, GetDataSetDetailsCommand } from "@aws-sdk/client-m2"; // ES Modules import
  * // const { M2Client, GetDataSetDetailsCommand } = require("@aws-sdk/client-m2"); // CommonJS import
  * const client = new M2Client(config);
+ * const input = {
+ *   applicationId: "STRING_VALUE", // required
+ *   dataSetName: "STRING_VALUE", // required
+ * };
  * const command = new GetDataSetDetailsCommand(input);
  * const response = await client.send(command);
  * ```

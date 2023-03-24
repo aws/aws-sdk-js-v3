@@ -42,6 +42,10 @@ export interface UpdateDeviceCommandOutput extends UpdateDeviceResponse, __Metad
  * import { AlexaForBusinessClient, UpdateDeviceCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, UpdateDeviceCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
+ * const input = {
+ *   DeviceArn: "STRING_VALUE",
+ *   DeviceName: "STRING_VALUE",
+ * };
  * const command = new UpdateDeviceCommand(input);
  * const response = await client.send(command);
  * ```

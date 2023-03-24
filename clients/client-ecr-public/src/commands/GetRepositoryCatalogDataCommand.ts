@@ -43,6 +43,10 @@ export interface GetRepositoryCatalogDataCommandOutput extends GetRepositoryCata
  * import { ECRPUBLICClient, GetRepositoryCatalogDataCommand } from "@aws-sdk/client-ecr-public"; // ES Modules import
  * // const { ECRPUBLICClient, GetRepositoryCatalogDataCommand } = require("@aws-sdk/client-ecr-public"); // CommonJS import
  * const client = new ECRPUBLICClient(config);
+ * const input = {
+ *   registryId: "STRING_VALUE",
+ *   repositoryName: "STRING_VALUE", // required
+ * };
  * const command = new GetRepositoryCatalogDataCommand(input);
  * const response = await client.send(command);
  * ```

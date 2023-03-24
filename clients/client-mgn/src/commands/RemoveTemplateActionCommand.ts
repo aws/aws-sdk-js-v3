@@ -42,6 +42,10 @@ export interface RemoveTemplateActionCommandOutput extends RemoveTemplateActionR
  * import { MgnClient, RemoveTemplateActionCommand } from "@aws-sdk/client-mgn"; // ES Modules import
  * // const { MgnClient, RemoveTemplateActionCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
  * const client = new MgnClient(config);
+ * const input = {
+ *   launchConfigurationTemplateID: "STRING_VALUE", // required
+ *   actionID: "STRING_VALUE", // required
+ * };
  * const command = new RemoveTemplateActionCommand(input);
  * const response = await client.send(command);
  * ```

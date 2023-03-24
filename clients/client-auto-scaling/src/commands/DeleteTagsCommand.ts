@@ -39,6 +39,17 @@ export interface DeleteTagsCommandOutput extends __MetadataBearer {}
  * import { AutoScalingClient, DeleteTagsCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, DeleteTagsCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
  * const client = new AutoScalingClient(config);
+ * const input = {
+ *   Tags: [ // required
+ *     {
+ *       ResourceId: "STRING_VALUE",
+ *       ResourceType: "STRING_VALUE",
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE",
+ *       PropagateAtLaunch: true || false,
+ *     },
+ *   ],
+ * };
  * const command = new DeleteTagsCommand(input);
  * const response = await client.send(command);
  * ```

@@ -44,6 +44,10 @@ export interface GetStreamingSessionCommandOutput extends GetStreamingSessionRes
  * import { NimbleClient, GetStreamingSessionCommand } from "@aws-sdk/client-nimble"; // ES Modules import
  * // const { NimbleClient, GetStreamingSessionCommand } = require("@aws-sdk/client-nimble"); // CommonJS import
  * const client = new NimbleClient(config);
+ * const input = {
+ *   sessionId: "STRING_VALUE", // required
+ *   studioId: "STRING_VALUE", // required
+ * };
  * const command = new GetStreamingSessionCommand(input);
  * const response = await client.send(command);
  * ```

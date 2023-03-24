@@ -43,6 +43,15 @@ export interface ListSuppressedDestinationsCommandOutput extends ListSuppressedD
  * import { SESv2Client, ListSuppressedDestinationsCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, ListSuppressedDestinationsCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
  * const client = new SESv2Client(config);
+ * const input = {
+ *   Reasons: [
+ *     "BOUNCE" || "COMPLAINT",
+ *   ],
+ *   StartDate: new Date("TIMESTAMP"),
+ *   EndDate: new Date("TIMESTAMP"),
+ *   NextToken: "STRING_VALUE",
+ *   PageSize: Number("int"),
+ * };
  * const command = new ListSuppressedDestinationsCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,9 @@ export interface DeletePresetCommandOutput extends DeletePresetResponse, __Metad
  * import { MediaConvertClient, DeletePresetCommand } from "@aws-sdk/client-mediaconvert"; // ES Modules import
  * // const { MediaConvertClient, DeletePresetCommand } = require("@aws-sdk/client-mediaconvert"); // CommonJS import
  * const client = new MediaConvertClient(config);
+ * const input = {
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new DeletePresetCommand(input);
  * const response = await client.send(command);
  * ```

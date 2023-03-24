@@ -44,6 +44,9 @@ export interface GetWirelessDeviceStatisticsCommandOutput
  * import { IoTWirelessClient, GetWirelessDeviceStatisticsCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, GetWirelessDeviceStatisticsCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
+ * const input = {
+ *   WirelessDeviceId: "STRING_VALUE", // required
+ * };
  * const command = new GetWirelessDeviceStatisticsCommand(input);
  * const response = await client.send(command);
  * ```

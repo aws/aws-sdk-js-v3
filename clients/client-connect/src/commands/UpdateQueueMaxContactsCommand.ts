@@ -44,6 +44,11 @@ export interface UpdateQueueMaxContactsCommandOutput extends __MetadataBearer {}
  * import { ConnectClient, UpdateQueueMaxContactsCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, UpdateQueueMaxContactsCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = {
+ *   InstanceId: "STRING_VALUE", // required
+ *   QueueId: "STRING_VALUE", // required
+ *   MaxContacts: Number("int"),
+ * };
  * const command = new UpdateQueueMaxContactsCommand(input);
  * const response = await client.send(command);
  * ```

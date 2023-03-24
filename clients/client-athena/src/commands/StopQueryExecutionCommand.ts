@@ -46,6 +46,9 @@ export interface StopQueryExecutionCommandOutput extends StopQueryExecutionOutpu
  * import { AthenaClient, StopQueryExecutionCommand } from "@aws-sdk/client-athena"; // ES Modules import
  * // const { AthenaClient, StopQueryExecutionCommand } = require("@aws-sdk/client-athena"); // CommonJS import
  * const client = new AthenaClient(config);
+ * const input = {
+ *   QueryExecutionId: "STRING_VALUE", // required
+ * };
  * const command = new StopQueryExecutionCommand(input);
  * const response = await client.send(command);
  * ```

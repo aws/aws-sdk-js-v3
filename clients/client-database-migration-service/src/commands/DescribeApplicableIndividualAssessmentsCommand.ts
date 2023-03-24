@@ -66,6 +66,15 @@ export interface DescribeApplicableIndividualAssessmentsCommandOutput
  * import { DatabaseMigrationServiceClient, DescribeApplicableIndividualAssessmentsCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, DescribeApplicableIndividualAssessmentsCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
+ * const input = {
+ *   ReplicationTaskArn: "STRING_VALUE",
+ *   ReplicationInstanceArn: "STRING_VALUE",
+ *   SourceEngineName: "STRING_VALUE",
+ *   TargetEngineName: "STRING_VALUE",
+ *   MigrationType: "full-load" || "cdc" || "full-load-and-cdc",
+ *   MaxRecords: Number("int"),
+ *   Marker: "STRING_VALUE",
+ * };
  * const command = new DescribeApplicableIndividualAssessmentsCommand(input);
  * const response = await client.send(command);
  * ```

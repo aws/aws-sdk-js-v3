@@ -55,6 +55,7 @@ export interface DeleteTextMessageSpendLimitOverrideCommandOutput
  * import { PinpointSMSVoiceV2Client, DeleteTextMessageSpendLimitOverrideCommand } from "@aws-sdk/client-pinpoint-sms-voice-v2"; // ES Modules import
  * // const { PinpointSMSVoiceV2Client, DeleteTextMessageSpendLimitOverrideCommand } = require("@aws-sdk/client-pinpoint-sms-voice-v2"); // CommonJS import
  * const client = new PinpointSMSVoiceV2Client(config);
+ * const input = {};
  * const command = new DeleteTextMessageSpendLimitOverrideCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,37 @@ export interface UpdateStageCommandOutput extends UpdateStageResponse, __Metadat
  * import { ApiGatewayV2Client, UpdateStageCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
  * // const { ApiGatewayV2Client, UpdateStageCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import
  * const client = new ApiGatewayV2Client(config);
+ * const input = {
+ *   AccessLogSettings: {
+ *     DestinationArn: "STRING_VALUE",
+ *     Format: "STRING_VALUE",
+ *   },
+ *   ApiId: "STRING_VALUE", // required
+ *   AutoDeploy: true || false,
+ *   ClientCertificateId: "STRING_VALUE",
+ *   DefaultRouteSettings: {
+ *     DataTraceEnabled: true || false,
+ *     DetailedMetricsEnabled: true || false,
+ *     LoggingLevel: "STRING_VALUE",
+ *     ThrottlingBurstLimit: Number("int"),
+ *     ThrottlingRateLimit: Number("double"),
+ *   },
+ *   DeploymentId: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   RouteSettings: {
+ *     "<keys>": {
+ *       DataTraceEnabled: true || false,
+ *       DetailedMetricsEnabled: true || false,
+ *       LoggingLevel: "STRING_VALUE",
+ *       ThrottlingBurstLimit: Number("int"),
+ *       ThrottlingRateLimit: Number("double"),
+ *     },
+ *   },
+ *   StageName: "STRING_VALUE", // required
+ *   StageVariables: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new UpdateStageCommand(input);
  * const response = await client.send(command);
  * ```

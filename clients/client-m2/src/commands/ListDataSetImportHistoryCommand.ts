@@ -42,6 +42,11 @@ export interface ListDataSetImportHistoryCommandOutput extends ListDataSetImport
  * import { M2Client, ListDataSetImportHistoryCommand } from "@aws-sdk/client-m2"; // ES Modules import
  * // const { M2Client, ListDataSetImportHistoryCommand } = require("@aws-sdk/client-m2"); // CommonJS import
  * const client = new M2Client(config);
+ * const input = {
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   applicationId: "STRING_VALUE", // required
+ * };
  * const command = new ListDataSetImportHistoryCommand(input);
  * const response = await client.send(command);
  * ```

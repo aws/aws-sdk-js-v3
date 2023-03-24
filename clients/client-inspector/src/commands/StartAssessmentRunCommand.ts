@@ -44,6 +44,10 @@ export interface StartAssessmentRunCommandOutput extends StartAssessmentRunRespo
  * import { InspectorClient, StartAssessmentRunCommand } from "@aws-sdk/client-inspector"; // ES Modules import
  * // const { InspectorClient, StartAssessmentRunCommand } = require("@aws-sdk/client-inspector"); // CommonJS import
  * const client = new InspectorClient(config);
+ * const input = {
+ *   assessmentTemplateArn: "STRING_VALUE", // required
+ *   assessmentRunName: "STRING_VALUE",
+ * };
  * const command = new StartAssessmentRunCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,14 @@ export interface ListReleaseLabelsCommandOutput extends ListReleaseLabelsOutput,
  * import { EMRClient, ListReleaseLabelsCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, ListReleaseLabelsCommand } = require("@aws-sdk/client-emr"); // CommonJS import
  * const client = new EMRClient(config);
+ * const input = {
+ *   Filters: {
+ *     Prefix: "STRING_VALUE",
+ *     Application: "STRING_VALUE",
+ *   },
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListReleaseLabelsCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,270 @@ export interface UpdateFilterCommandOutput extends UpdateFilterResponse, __Metad
  * import { Inspector2Client, UpdateFilterCommand } from "@aws-sdk/client-inspector2"; // ES Modules import
  * // const { Inspector2Client, UpdateFilterCommand } = require("@aws-sdk/client-inspector2"); // CommonJS import
  * const client = new Inspector2Client(config);
+ * const input = {
+ *   action: "STRING_VALUE",
+ *   description: "STRING_VALUE",
+ *   filterCriteria: {
+ *     findingArn: [
+ *       {
+ *         comparison: "STRING_VALUE", // required
+ *         value: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *     awsAccountId: [
+ *       {
+ *         comparison: "STRING_VALUE", // required
+ *         value: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *     findingType: [
+ *       {
+ *         comparison: "STRING_VALUE", // required
+ *         value: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *     severity: [
+ *       {
+ *         comparison: "STRING_VALUE", // required
+ *         value: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *     firstObservedAt: [
+ *       {
+ *         startInclusive: new Date("TIMESTAMP"),
+ *         endInclusive: new Date("TIMESTAMP"),
+ *       },
+ *     ],
+ *     lastObservedAt: [
+ *       {
+ *         startInclusive: new Date("TIMESTAMP"),
+ *         endInclusive: new Date("TIMESTAMP"),
+ *       },
+ *     ],
+ *     updatedAt: [
+ *       {
+ *         startInclusive: new Date("TIMESTAMP"),
+ *         endInclusive: new Date("TIMESTAMP"),
+ *       },
+ *     ],
+ *     findingStatus: [
+ *       {
+ *         comparison: "STRING_VALUE", // required
+ *         value: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *     title: [
+ *       {
+ *         comparison: "STRING_VALUE", // required
+ *         value: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *     inspectorScore: [
+ *       {
+ *         upperInclusive: Number("double"),
+ *         lowerInclusive: Number("double"),
+ *       },
+ *     ],
+ *     resourceType: [
+ *       {
+ *         comparison: "STRING_VALUE", // required
+ *         value: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *     resourceId: [
+ *       {
+ *         comparison: "STRING_VALUE", // required
+ *         value: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *     resourceTags: [
+ *       {
+ *         comparison: "STRING_VALUE", // required
+ *         key: "STRING_VALUE", // required
+ *         value: "STRING_VALUE",
+ *       },
+ *     ],
+ *     ec2InstanceImageId: [
+ *       {
+ *         comparison: "STRING_VALUE", // required
+ *         value: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *     ec2InstanceVpcId: [
+ *       {
+ *         comparison: "STRING_VALUE", // required
+ *         value: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *     ec2InstanceSubnetId: [
+ *       {
+ *         comparison: "STRING_VALUE", // required
+ *         value: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *     ecrImagePushedAt: [
+ *       {
+ *         startInclusive: new Date("TIMESTAMP"),
+ *         endInclusive: new Date("TIMESTAMP"),
+ *       },
+ *     ],
+ *     ecrImageArchitecture: [
+ *       {
+ *         comparison: "STRING_VALUE", // required
+ *         value: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *     ecrImageRegistry: [
+ *       {
+ *         comparison: "STRING_VALUE", // required
+ *         value: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *     ecrImageRepositoryName: [
+ *       {
+ *         comparison: "STRING_VALUE", // required
+ *         value: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *     ecrImageTags: [
+ *       {
+ *         comparison: "STRING_VALUE", // required
+ *         value: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *     ecrImageHash: [
+ *       {
+ *         comparison: "STRING_VALUE", // required
+ *         value: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *     portRange: [
+ *       {
+ *         beginInclusive: Number("int"),
+ *         endInclusive: Number("int"),
+ *       },
+ *     ],
+ *     networkProtocol: [
+ *       {
+ *         comparison: "STRING_VALUE", // required
+ *         value: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *     componentId: [
+ *       {
+ *         comparison: "STRING_VALUE", // required
+ *         value: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *     componentType: [
+ *       {
+ *         comparison: "STRING_VALUE", // required
+ *         value: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *     vulnerabilityId: [
+ *       {
+ *         comparison: "STRING_VALUE", // required
+ *         value: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *     vulnerabilitySource: [
+ *       {
+ *         comparison: "STRING_VALUE", // required
+ *         value: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *     vendorSeverity: [
+ *       {
+ *         comparison: "STRING_VALUE", // required
+ *         value: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *     vulnerablePackages: [
+ *       {
+ *         name: {
+ *           comparison: "STRING_VALUE", // required
+ *           value: "STRING_VALUE", // required
+ *         },
+ *         version: {
+ *           comparison: "STRING_VALUE", // required
+ *           value: "STRING_VALUE", // required
+ *         },
+ *         epoch: {
+ *           upperInclusive: Number("double"),
+ *           lowerInclusive: Number("double"),
+ *         },
+ *         release: {
+ *           comparison: "STRING_VALUE", // required
+ *           value: "STRING_VALUE", // required
+ *         },
+ *         architecture: {
+ *           comparison: "STRING_VALUE", // required
+ *           value: "STRING_VALUE", // required
+ *         },
+ *         sourceLayerHash: {
+ *           comparison: "STRING_VALUE", // required
+ *           value: "STRING_VALUE", // required
+ *         },
+ *         sourceLambdaLayerArn: {
+ *           comparison: "STRING_VALUE", // required
+ *           value: "STRING_VALUE", // required
+ *         },
+ *       },
+ *     ],
+ *     relatedVulnerabilities: [
+ *       {
+ *         comparison: "STRING_VALUE", // required
+ *         value: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *     fixAvailable: [
+ *       {
+ *         comparison: "STRING_VALUE", // required
+ *         value: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *     lambdaFunctionName: [
+ *       {
+ *         comparison: "STRING_VALUE", // required
+ *         value: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *     lambdaFunctionLayers: [
+ *       {
+ *         comparison: "STRING_VALUE", // required
+ *         value: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *     lambdaFunctionRuntime: [
+ *       {
+ *         comparison: "STRING_VALUE", // required
+ *         value: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *     lambdaFunctionLastModifiedAt: [
+ *       {
+ *         startInclusive: new Date("TIMESTAMP"),
+ *         endInclusive: new Date("TIMESTAMP"),
+ *       },
+ *     ],
+ *     lambdaFunctionExecutionRoleArn: [
+ *       {
+ *         comparison: "STRING_VALUE", // required
+ *         value: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *     exploitAvailable: [
+ *       {
+ *         comparison: "STRING_VALUE", // required
+ *         value: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *   },
+ *   name: "STRING_VALUE",
+ *   filterArn: "STRING_VALUE", // required
+ *   reason: "STRING_VALUE",
+ * };
  * const command = new UpdateFilterCommand(input);
  * const response = await client.send(command);
  * ```

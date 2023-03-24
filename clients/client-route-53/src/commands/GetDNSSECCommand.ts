@@ -41,6 +41,9 @@ export interface GetDNSSECCommandOutput extends GetDNSSECResponse, __MetadataBea
  * import { Route53Client, GetDNSSECCommand } from "@aws-sdk/client-route-53"; // ES Modules import
  * // const { Route53Client, GetDNSSECCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
  * const client = new Route53Client(config);
+ * const input = {
+ *   HostedZoneId: "STRING_VALUE", // required
+ * };
  * const command = new GetDNSSECCommand(input);
  * const response = await client.send(command);
  * ```

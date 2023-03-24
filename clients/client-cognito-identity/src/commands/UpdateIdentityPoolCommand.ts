@@ -44,6 +44,32 @@ export interface UpdateIdentityPoolCommandOutput extends IdentityPool, __Metadat
  * import { CognitoIdentityClient, UpdateIdentityPoolCommand } from "@aws-sdk/client-cognito-identity"; // ES Modules import
  * // const { CognitoIdentityClient, UpdateIdentityPoolCommand } = require("@aws-sdk/client-cognito-identity"); // CommonJS import
  * const client = new CognitoIdentityClient(config);
+ * const input = {
+ *   IdentityPoolId: "STRING_VALUE", // required
+ *   IdentityPoolName: "STRING_VALUE", // required
+ *   AllowUnauthenticatedIdentities: true || false, // required
+ *   AllowClassicFlow: true || false,
+ *   SupportedLoginProviders: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   DeveloperProviderName: "STRING_VALUE",
+ *   OpenIdConnectProviderARNs: [
+ *     "STRING_VALUE",
+ *   ],
+ *   CognitoIdentityProviders: [
+ *     {
+ *       ProviderName: "STRING_VALUE",
+ *       ClientId: "STRING_VALUE",
+ *       ServerSideTokenCheck: true || false,
+ *     },
+ *   ],
+ *   SamlProviderARNs: [
+ *     "STRING_VALUE",
+ *   ],
+ *   IdentityPoolTags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new UpdateIdentityPoolCommand(input);
  * const response = await client.send(command);
  * ```

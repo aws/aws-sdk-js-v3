@@ -42,6 +42,9 @@ export interface GetGatewayCommandOutput extends GetGatewayResponse, __MetadataB
  * import { AlexaForBusinessClient, GetGatewayCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, GetGatewayCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
+ * const input = {
+ *   GatewayArn: "STRING_VALUE", // required
+ * };
  * const command = new GetGatewayCommand(input);
  * const response = await client.send(command);
  * ```

@@ -52,6 +52,10 @@ export interface DeleteVpnConnectionCommandOutput extends __MetadataBearer {}
  * import { EC2Client, DeleteVpnConnectionCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DeleteVpnConnectionCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   VpnConnectionId: "STRING_VALUE", // required
+ *   DryRun: true || false,
+ * };
  * const command = new DeleteVpnConnectionCommand(input);
  * const response = await client.send(command);
  * ```

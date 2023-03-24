@@ -54,6 +54,9 @@ export interface DescribeGlobalTableSettingsCommandOutput extends DescribeGlobal
  * import { DynamoDBClient, DescribeGlobalTableSettingsCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
  * // const { DynamoDBClient, DescribeGlobalTableSettingsCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
  * const client = new DynamoDBClient(config);
+ * const input = {
+ *   GlobalTableName: "STRING_VALUE", // required
+ * };
  * const command = new DescribeGlobalTableSettingsCommand(input);
  * const response = await client.send(command);
  * ```

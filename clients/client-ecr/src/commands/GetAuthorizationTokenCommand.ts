@@ -49,6 +49,11 @@ export interface GetAuthorizationTokenCommandOutput extends GetAuthorizationToke
  * import { ECRClient, GetAuthorizationTokenCommand } from "@aws-sdk/client-ecr"; // ES Modules import
  * // const { ECRClient, GetAuthorizationTokenCommand } = require("@aws-sdk/client-ecr"); // CommonJS import
  * const client = new ECRClient(config);
+ * const input = {
+ *   registryIds: [
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new GetAuthorizationTokenCommand(input);
  * const response = await client.send(command);
  * ```

@@ -45,6 +45,10 @@ export interface GetAccessPointPolicyStatusCommandOutput extends GetAccessPointP
  * import { S3ControlClient, GetAccessPointPolicyStatusCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
  * // const { S3ControlClient, GetAccessPointPolicyStatusCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
  * const client = new S3ControlClient(config);
+ * const input = {
+ *   AccountId: "STRING_VALUE",
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new GetAccessPointPolicyStatusCommand(input);
  * const response = await client.send(command);
  * ```

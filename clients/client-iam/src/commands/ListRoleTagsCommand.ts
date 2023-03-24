@@ -41,6 +41,11 @@ export interface ListRoleTagsCommandOutput extends ListRoleTagsResponse, __Metad
  * import { IAMClient, ListRoleTagsCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, ListRoleTagsCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = {
+ *   RoleName: "STRING_VALUE", // required
+ *   Marker: "STRING_VALUE",
+ *   MaxItems: Number("int"),
+ * };
  * const command = new ListRoleTagsCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,20 @@ export interface UpdateNetworkProfileCommandOutput extends UpdateNetworkProfileR
  * import { DeviceFarmClient, UpdateNetworkProfileCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, UpdateNetworkProfileCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
+ * const input = {
+ *   arn: "STRING_VALUE", // required
+ *   name: "STRING_VALUE",
+ *   description: "STRING_VALUE",
+ *   type: "CURATED" || "PRIVATE",
+ *   uplinkBandwidthBits: Number("long"),
+ *   downlinkBandwidthBits: Number("long"),
+ *   uplinkDelayMs: Number("long"),
+ *   downlinkDelayMs: Number("long"),
+ *   uplinkJitterMs: Number("long"),
+ *   downlinkJitterMs: Number("long"),
+ *   uplinkLossPercent: Number("int"),
+ *   downlinkLossPercent: Number("int"),
+ * };
  * const command = new UpdateNetworkProfileCommand(input);
  * const response = await client.send(command);
  * ```

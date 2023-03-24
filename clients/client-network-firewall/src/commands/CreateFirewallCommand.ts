@@ -48,6 +48,31 @@ export interface CreateFirewallCommandOutput extends CreateFirewallResponse, __M
  * import { NetworkFirewallClient, CreateFirewallCommand } from "@aws-sdk/client-network-firewall"; // ES Modules import
  * // const { NetworkFirewallClient, CreateFirewallCommand } = require("@aws-sdk/client-network-firewall"); // CommonJS import
  * const client = new NetworkFirewallClient(config);
+ * const input = {
+ *   FirewallName: "STRING_VALUE", // required
+ *   FirewallPolicyArn: "STRING_VALUE", // required
+ *   VpcId: "STRING_VALUE", // required
+ *   SubnetMappings: [ // required
+ *     {
+ *       SubnetId: "STRING_VALUE", // required
+ *       IPAddressType: "DUALSTACK" || "IPV4",
+ *     },
+ *   ],
+ *   DeleteProtection: true || false,
+ *   SubnetChangeProtection: true || false,
+ *   FirewallPolicyChangeProtection: true || false,
+ *   Description: "STRING_VALUE",
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   EncryptionConfiguration: {
+ *     KeyId: "STRING_VALUE",
+ *     Type: "CUSTOMER_KMS" || "AWS_OWNED_KMS_KEY", // required
+ *   },
+ * };
  * const command = new CreateFirewallCommand(input);
  * const response = await client.send(command);
  * ```

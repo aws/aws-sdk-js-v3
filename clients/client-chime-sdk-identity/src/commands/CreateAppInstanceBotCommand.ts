@@ -47,6 +47,26 @@ export interface CreateAppInstanceBotCommandOutput extends CreateAppInstanceBotR
  * import { ChimeSDKIdentityClient, CreateAppInstanceBotCommand } from "@aws-sdk/client-chime-sdk-identity"; // ES Modules import
  * // const { ChimeSDKIdentityClient, CreateAppInstanceBotCommand } = require("@aws-sdk/client-chime-sdk-identity"); // CommonJS import
  * const client = new ChimeSDKIdentityClient(config);
+ * const input = {
+ *   AppInstanceArn: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE",
+ *   Metadata: "STRING_VALUE",
+ *   ClientRequestToken: "STRING_VALUE", // required
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   Configuration: {
+ *     Lex: {
+ *       RespondsTo: "STANDARD_MESSAGES", // required
+ *       LexBotAliasArn: "STRING_VALUE", // required
+ *       LocaleId: "STRING_VALUE", // required
+ *       WelcomeIntent: "STRING_VALUE",
+ *     },
+ *   },
+ * };
  * const command = new CreateAppInstanceBotCommand(input);
  * const response = await client.send(command);
  * ```

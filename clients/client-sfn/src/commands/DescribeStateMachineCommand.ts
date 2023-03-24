@@ -52,6 +52,9 @@ export interface DescribeStateMachineCommandOutput extends DescribeStateMachineO
  * import { SFNClient, DescribeStateMachineCommand } from "@aws-sdk/client-sfn"; // ES Modules import
  * // const { SFNClient, DescribeStateMachineCommand } = require("@aws-sdk/client-sfn"); // CommonJS import
  * const client = new SFNClient(config);
+ * const input = {
+ *   stateMachineArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeStateMachineCommand(input);
  * const response = await client.send(command);
  * ```

@@ -44,6 +44,12 @@ export interface DisassociatePricingRulesCommandOutput extends DisassociatePrici
  * import { BillingconductorClient, DisassociatePricingRulesCommand } from "@aws-sdk/client-billingconductor"; // ES Modules import
  * // const { BillingconductorClient, DisassociatePricingRulesCommand } = require("@aws-sdk/client-billingconductor"); // CommonJS import
  * const client = new BillingconductorClient(config);
+ * const input = {
+ *   Arn: "STRING_VALUE", // required
+ *   PricingRuleArns: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DisassociatePricingRulesCommand(input);
  * const response = await client.send(command);
  * ```

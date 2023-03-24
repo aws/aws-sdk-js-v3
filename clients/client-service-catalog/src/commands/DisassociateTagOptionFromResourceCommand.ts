@@ -44,6 +44,10 @@ export interface DisassociateTagOptionFromResourceCommandOutput
  * import { ServiceCatalogClient, DisassociateTagOptionFromResourceCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, DisassociateTagOptionFromResourceCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
+ * const input = {
+ *   ResourceId: "STRING_VALUE", // required
+ *   TagOptionId: "STRING_VALUE", // required
+ * };
  * const command = new DisassociateTagOptionFromResourceCommand(input);
  * const response = await client.send(command);
  * ```

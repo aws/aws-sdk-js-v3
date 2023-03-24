@@ -42,6 +42,16 @@ export interface ListReadSetImportJobsCommandOutput extends ListReadSetImportJob
  * import { OmicsClient, ListReadSetImportJobsCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, ListReadSetImportJobsCommand } = require("@aws-sdk/client-omics"); // CommonJS import
  * const client = new OmicsClient(config);
+ * const input = {
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ *   sequenceStoreId: "STRING_VALUE", // required
+ *   filter: {
+ *     status: "STRING_VALUE",
+ *     createdAfter: new Date("TIMESTAMP"),
+ *     createdBefore: new Date("TIMESTAMP"),
+ *   },
+ * };
  * const command = new ListReadSetImportJobsCommand(input);
  * const response = await client.send(command);
  * ```

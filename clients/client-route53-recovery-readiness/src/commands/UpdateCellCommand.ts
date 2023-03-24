@@ -46,6 +46,12 @@ export interface UpdateCellCommandOutput extends UpdateCellResponse, __MetadataB
  * import { Route53RecoveryReadinessClient, UpdateCellCommand } from "@aws-sdk/client-route53-recovery-readiness"; // ES Modules import
  * // const { Route53RecoveryReadinessClient, UpdateCellCommand } = require("@aws-sdk/client-route53-recovery-readiness"); // CommonJS import
  * const client = new Route53RecoveryReadinessClient(config);
+ * const input = {
+ *   CellName: "STRING_VALUE", // required
+ *   Cells: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new UpdateCellCommand(input);
  * const response = await client.send(command);
  * ```

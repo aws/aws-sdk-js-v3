@@ -46,6 +46,10 @@ export interface DeleteIpamPoolCommandOutput extends DeleteIpamPoolResult, __Met
  * import { EC2Client, DeleteIpamPoolCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DeleteIpamPoolCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   DryRun: true || false,
+ *   IpamPoolId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteIpamPoolCommand(input);
  * const response = await client.send(command);
  * ```

@@ -46,6 +46,19 @@ export interface ListCommandInvocationsCommandOutput extends ListCommandInvocati
  * import { SSMClient, ListCommandInvocationsCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, ListCommandInvocationsCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = {
+ *   CommandId: "STRING_VALUE",
+ *   InstanceId: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   Filters: [
+ *     {
+ *       key: "InvokedAfter" || "InvokedBefore" || "Status" || "ExecutionStage" || "DocumentName", // required
+ *       value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   Details: true || false,
+ * };
  * const command = new ListCommandInvocationsCommand(input);
  * const response = await client.send(command);
  * ```

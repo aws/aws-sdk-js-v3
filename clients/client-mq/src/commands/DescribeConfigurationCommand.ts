@@ -42,6 +42,9 @@ export interface DescribeConfigurationCommandOutput extends DescribeConfiguratio
  * import { MqClient, DescribeConfigurationCommand } from "@aws-sdk/client-mq"; // ES Modules import
  * // const { MqClient, DescribeConfigurationCommand } = require("@aws-sdk/client-mq"); // CommonJS import
  * const client = new MqClient(config);
+ * const input = {
+ *   ConfigurationId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeConfigurationCommand(input);
  * const response = await client.send(command);
  * ```

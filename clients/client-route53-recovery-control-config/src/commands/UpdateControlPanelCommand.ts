@@ -46,6 +46,10 @@ export interface UpdateControlPanelCommandOutput extends UpdateControlPanelRespo
  * import { Route53RecoveryControlConfigClient, UpdateControlPanelCommand } from "@aws-sdk/client-route53-recovery-control-config"; // ES Modules import
  * // const { Route53RecoveryControlConfigClient, UpdateControlPanelCommand } = require("@aws-sdk/client-route53-recovery-control-config"); // CommonJS import
  * const client = new Route53RecoveryControlConfigClient(config);
+ * const input = {
+ *   ControlPanelArn: "STRING_VALUE", // required
+ *   ControlPanelName: "STRING_VALUE", // required
+ * };
  * const command = new UpdateControlPanelCommand(input);
  * const response = await client.send(command);
  * ```

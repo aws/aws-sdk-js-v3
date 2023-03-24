@@ -42,6 +42,9 @@ export interface DeleteClassifierCommandOutput extends DeleteClassifierResponse,
  * import { GlueClient, DeleteClassifierCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, DeleteClassifierCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = {
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new DeleteClassifierCommand(input);
  * const response = await client.send(command);
  * ```

@@ -44,6 +44,38 @@ export interface CreateClassifierCommandOutput extends CreateClassifierResponse,
  * import { GlueClient, CreateClassifierCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, CreateClassifierCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = {
+ *   GrokClassifier: {
+ *     Classification: "STRING_VALUE", // required
+ *     Name: "STRING_VALUE", // required
+ *     GrokPattern: "STRING_VALUE", // required
+ *     CustomPatterns: "STRING_VALUE",
+ *   },
+ *   XMLClassifier: {
+ *     Classification: "STRING_VALUE", // required
+ *     Name: "STRING_VALUE", // required
+ *     RowTag: "STRING_VALUE",
+ *   },
+ *   JsonClassifier: {
+ *     Name: "STRING_VALUE", // required
+ *     JsonPath: "STRING_VALUE", // required
+ *   },
+ *   CsvClassifier: {
+ *     Name: "STRING_VALUE", // required
+ *     Delimiter: "STRING_VALUE",
+ *     QuoteSymbol: "STRING_VALUE",
+ *     ContainsHeader: "UNKNOWN" || "PRESENT" || "ABSENT",
+ *     Header: [
+ *       "STRING_VALUE",
+ *     ],
+ *     DisableValueTrimming: true || false,
+ *     AllowSingleColumn: true || false,
+ *     CustomDatatypeConfigured: true || false,
+ *     CustomDatatypes: [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ * };
  * const command = new CreateClassifierCommand(input);
  * const response = await client.send(command);
  * ```

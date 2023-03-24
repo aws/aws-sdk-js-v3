@@ -44,6 +44,90 @@ export interface CreateIntegrationWorkflowCommandOutput extends CreateIntegratio
  * import { CustomerProfilesClient, CreateIntegrationWorkflowCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
  * // const { CustomerProfilesClient, CreateIntegrationWorkflowCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
  * const client = new CustomerProfilesClient(config);
+ * const input = {
+ *   DomainName: "STRING_VALUE", // required
+ *   WorkflowType: "APPFLOW_INTEGRATION", // required
+ *   IntegrationConfig: {
+ *     AppflowIntegration: {
+ *       FlowDefinition: {
+ *         Description: "STRING_VALUE",
+ *         FlowName: "STRING_VALUE", // required
+ *         KmsArn: "STRING_VALUE", // required
+ *         SourceFlowConfig: {
+ *           ConnectorProfileName: "STRING_VALUE",
+ *           ConnectorType: "Salesforce" || "Marketo" || "Zendesk" || "Servicenow" || "S3", // required
+ *           IncrementalPullConfig: {
+ *             DatetimeTypeFieldName: "STRING_VALUE",
+ *           },
+ *           SourceConnectorProperties: {
+ *             Marketo: {
+ *               Object: "STRING_VALUE", // required
+ *             },
+ *             S3: {
+ *               BucketName: "STRING_VALUE", // required
+ *               BucketPrefix: "STRING_VALUE",
+ *             },
+ *             Salesforce: {
+ *               Object: "STRING_VALUE", // required
+ *               EnableDynamicFieldUpdate: true || false,
+ *               IncludeDeletedRecords: true || false,
+ *             },
+ *             ServiceNow: {
+ *               Object: "STRING_VALUE", // required
+ *             },
+ *             Zendesk: {
+ *               Object: "STRING_VALUE", // required
+ *             },
+ *           },
+ *         },
+ *         Tasks: [ // required
+ *           {
+ *             ConnectorOperator: {
+ *               Marketo: "PROJECTION" || "LESS_THAN" || "GREATER_THAN" || "BETWEEN" || "ADDITION" || "MULTIPLICATION" || "DIVISION" || "SUBTRACTION" || "MASK_ALL" || "MASK_FIRST_N" || "MASK_LAST_N" || "VALIDATE_NON_NULL" || "VALIDATE_NON_ZERO" || "VALIDATE_NON_NEGATIVE" || "VALIDATE_NUMERIC" || "NO_OP",
+ *               S3: "PROJECTION" || "LESS_THAN" || "GREATER_THAN" || "BETWEEN" || "LESS_THAN_OR_EQUAL_TO" || "GREATER_THAN_OR_EQUAL_TO" || "EQUAL_TO" || "NOT_EQUAL_TO" || "ADDITION" || "MULTIPLICATION" || "DIVISION" || "SUBTRACTION" || "MASK_ALL" || "MASK_FIRST_N" || "MASK_LAST_N" || "VALIDATE_NON_NULL" || "VALIDATE_NON_ZERO" || "VALIDATE_NON_NEGATIVE" || "VALIDATE_NUMERIC" || "NO_OP",
+ *               Salesforce: "PROJECTION" || "LESS_THAN" || "CONTAINS" || "GREATER_THAN" || "BETWEEN" || "LESS_THAN_OR_EQUAL_TO" || "GREATER_THAN_OR_EQUAL_TO" || "EQUAL_TO" || "NOT_EQUAL_TO" || "ADDITION" || "MULTIPLICATION" || "DIVISION" || "SUBTRACTION" || "MASK_ALL" || "MASK_FIRST_N" || "MASK_LAST_N" || "VALIDATE_NON_NULL" || "VALIDATE_NON_ZERO" || "VALIDATE_NON_NEGATIVE" || "VALIDATE_NUMERIC" || "NO_OP",
+ *               ServiceNow: "PROJECTION" || "CONTAINS" || "LESS_THAN" || "GREATER_THAN" || "BETWEEN" || "LESS_THAN_OR_EQUAL_TO" || "GREATER_THAN_OR_EQUAL_TO" || "EQUAL_TO" || "NOT_EQUAL_TO" || "ADDITION" || "MULTIPLICATION" || "DIVISION" || "SUBTRACTION" || "MASK_ALL" || "MASK_FIRST_N" || "MASK_LAST_N" || "VALIDATE_NON_NULL" || "VALIDATE_NON_ZERO" || "VALIDATE_NON_NEGATIVE" || "VALIDATE_NUMERIC" || "NO_OP",
+ *               Zendesk: "PROJECTION" || "GREATER_THAN" || "ADDITION" || "MULTIPLICATION" || "DIVISION" || "SUBTRACTION" || "MASK_ALL" || "MASK_FIRST_N" || "MASK_LAST_N" || "VALIDATE_NON_NULL" || "VALIDATE_NON_ZERO" || "VALIDATE_NON_NEGATIVE" || "VALIDATE_NUMERIC" || "NO_OP",
+ *             },
+ *             DestinationField: "STRING_VALUE",
+ *             SourceFields: [ // required
+ *               "STRING_VALUE",
+ *             ],
+ *             TaskProperties: {
+ *               "<keys>": "STRING_VALUE",
+ *             },
+ *             TaskType: "Arithmetic" || "Filter" || "Map" || "Mask" || "Merge" || "Truncate" || "Validate", // required
+ *           },
+ *         ],
+ *         TriggerConfig: {
+ *           TriggerType: "Scheduled" || "Event" || "OnDemand", // required
+ *           TriggerProperties: {
+ *             Scheduled: {
+ *               ScheduleExpression: "STRING_VALUE", // required
+ *               DataPullMode: "Incremental" || "Complete",
+ *               ScheduleStartTime: new Date("TIMESTAMP"),
+ *               ScheduleEndTime: new Date("TIMESTAMP"),
+ *               Timezone: "STRING_VALUE",
+ *               ScheduleOffset: Number("long"),
+ *               FirstExecutionFrom: new Date("TIMESTAMP"),
+ *             },
+ *           },
+ *         },
+ *       },
+ *       Batches: [
+ *         {
+ *           StartTime: new Date("TIMESTAMP"), // required
+ *           EndTime: new Date("TIMESTAMP"), // required
+ *         },
+ *       ],
+ *     },
+ *   },
+ *   ObjectTypeName: "STRING_VALUE", // required
+ *   RoleArn: "STRING_VALUE", // required
+ *   Tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateIntegrationWorkflowCommand(input);
  * const response = await client.send(command);
  * ```

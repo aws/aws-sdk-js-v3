@@ -48,6 +48,10 @@ export interface DescribeEdgeConfigurationCommandOutput extends DescribeEdgeConf
  * import { KinesisVideoClient, DescribeEdgeConfigurationCommand } from "@aws-sdk/client-kinesis-video"; // ES Modules import
  * // const { KinesisVideoClient, DescribeEdgeConfigurationCommand } = require("@aws-sdk/client-kinesis-video"); // CommonJS import
  * const client = new KinesisVideoClient(config);
+ * const input = {
+ *   StreamName: "STRING_VALUE",
+ *   StreamARN: "STRING_VALUE",
+ * };
  * const command = new DescribeEdgeConfigurationCommand(input);
  * const response = await client.send(command);
  * ```

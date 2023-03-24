@@ -50,6 +50,18 @@ export interface NotifyResourceDeploymentStatusChangeCommandOutput
  * import { ProtonClient, NotifyResourceDeploymentStatusChangeCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, NotifyResourceDeploymentStatusChangeCommand } = require("@aws-sdk/client-proton"); // CommonJS import
  * const client = new ProtonClient(config);
+ * const input = {
+ *   resourceArn: "STRING_VALUE", // required
+ *   status: "STRING_VALUE",
+ *   outputs: [
+ *     {
+ *       key: "STRING_VALUE",
+ *       valueString: "STRING_VALUE",
+ *     },
+ *   ],
+ *   deploymentId: "STRING_VALUE",
+ *   statusMessage: "STRING_VALUE",
+ * };
  * const command = new NotifyResourceDeploymentStatusChangeCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,13 @@ export interface ModifyCacheSubnetGroupCommandOutput extends ModifyCacheSubnetGr
  * import { ElastiCacheClient, ModifyCacheSubnetGroupCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, ModifyCacheSubnetGroupCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
  * const client = new ElastiCacheClient(config);
+ * const input = {
+ *   CacheSubnetGroupName: "STRING_VALUE", // required
+ *   CacheSubnetGroupDescription: "STRING_VALUE",
+ *   SubnetIds: [
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new ModifyCacheSubnetGroupCommand(input);
  * const response = await client.send(command);
  * ```

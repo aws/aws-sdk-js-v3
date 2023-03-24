@@ -42,6 +42,10 @@ export interface GetDataViewCommandOutput extends GetDataViewResponse, __Metadat
  * import { FinspaceDataClient, GetDataViewCommand } from "@aws-sdk/client-finspace-data"; // ES Modules import
  * // const { FinspaceDataClient, GetDataViewCommand } = require("@aws-sdk/client-finspace-data"); // CommonJS import
  * const client = new FinspaceDataClient(config);
+ * const input = {
+ *   dataViewId: "STRING_VALUE", // required
+ *   datasetId: "STRING_VALUE", // required
+ * };
  * const command = new GetDataViewCommand(input);
  * const response = await client.send(command);
  * ```

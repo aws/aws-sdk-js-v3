@@ -48,6 +48,25 @@ export interface IncreaseNodeGroupsInGlobalReplicationGroupCommandOutput
  * import { ElastiCacheClient, IncreaseNodeGroupsInGlobalReplicationGroupCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, IncreaseNodeGroupsInGlobalReplicationGroupCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
  * const client = new ElastiCacheClient(config);
+ * const input = {
+ *   GlobalReplicationGroupId: "STRING_VALUE", // required
+ *   NodeGroupCount: Number("int"), // required
+ *   RegionalConfigurations: [
+ *     {
+ *       ReplicationGroupId: "STRING_VALUE", // required
+ *       ReplicationGroupRegion: "STRING_VALUE", // required
+ *       ReshardingConfiguration: [ // required
+ *         {
+ *           NodeGroupId: "STRING_VALUE",
+ *           PreferredAvailabilityZones: [
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   ApplyImmediately: true || false, // required
+ * };
  * const command = new IncreaseNodeGroupsInGlobalReplicationGroupCommand(input);
  * const response = await client.send(command);
  * ```

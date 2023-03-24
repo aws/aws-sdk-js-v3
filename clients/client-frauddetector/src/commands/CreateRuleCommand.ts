@@ -42,6 +42,22 @@ export interface CreateRuleCommandOutput extends CreateRuleResult, __MetadataBea
  * import { FraudDetectorClient, CreateRuleCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, CreateRuleCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
  * const client = new FraudDetectorClient(config);
+ * const input = {
+ *   ruleId: "STRING_VALUE", // required
+ *   detectorId: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   expression: "STRING_VALUE", // required
+ *   language: "DETECTORPL", // required
+ *   outcomes: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ *   tags: [
+ *     {
+ *       key: "STRING_VALUE", // required
+ *       value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateRuleCommand(input);
  * const response = await client.send(command);
  * ```

@@ -43,6 +43,7 @@ export interface GetDatalakeCommandOutput extends GetDatalakeResponse, __Metadat
  * import { SecurityLakeClient, GetDatalakeCommand } from "@aws-sdk/client-securitylake"; // ES Modules import
  * // const { SecurityLakeClient, GetDatalakeCommand } = require("@aws-sdk/client-securitylake"); // CommonJS import
  * const client = new SecurityLakeClient(config);
+ * const input = {};
  * const command = new GetDatalakeCommand(input);
  * const response = await client.send(command);
  * ```

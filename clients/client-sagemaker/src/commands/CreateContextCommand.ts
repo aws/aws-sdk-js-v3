@@ -46,6 +46,25 @@ export interface CreateContextCommandOutput extends CreateContextResponse, __Met
  * import { SageMakerClient, CreateContextCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, CreateContextCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = {
+ *   ContextName: "STRING_VALUE", // required
+ *   Source: {
+ *     SourceUri: "STRING_VALUE", // required
+ *     SourceType: "STRING_VALUE",
+ *     SourceId: "STRING_VALUE",
+ *   },
+ *   ContextType: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   Properties: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateContextCommand(input);
  * const response = await client.send(command);
  * ```

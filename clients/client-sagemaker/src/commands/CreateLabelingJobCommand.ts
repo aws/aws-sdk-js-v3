@@ -79,6 +79,84 @@ export interface CreateLabelingJobCommandOutput extends CreateLabelingJobRespons
  * import { SageMakerClient, CreateLabelingJobCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, CreateLabelingJobCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = {
+ *   LabelingJobName: "STRING_VALUE", // required
+ *   LabelAttributeName: "STRING_VALUE", // required
+ *   InputConfig: {
+ *     DataSource: {
+ *       S3DataSource: {
+ *         ManifestS3Uri: "STRING_VALUE", // required
+ *       },
+ *       SnsDataSource: {
+ *         SnsTopicArn: "STRING_VALUE", // required
+ *       },
+ *     },
+ *     DataAttributes: {
+ *       ContentClassifiers: [
+ *         "FreeOfPersonallyIdentifiableInformation" || "FreeOfAdultContent",
+ *       ],
+ *     },
+ *   },
+ *   OutputConfig: {
+ *     S3OutputPath: "STRING_VALUE", // required
+ *     KmsKeyId: "STRING_VALUE",
+ *     SnsTopicArn: "STRING_VALUE",
+ *   },
+ *   RoleArn: "STRING_VALUE", // required
+ *   LabelCategoryConfigS3Uri: "STRING_VALUE",
+ *   StoppingConditions: {
+ *     MaxHumanLabeledObjectCount: Number("int"),
+ *     MaxPercentageOfInputDatasetLabeled: Number("int"),
+ *   },
+ *   LabelingJobAlgorithmsConfig: {
+ *     LabelingJobAlgorithmSpecificationArn: "STRING_VALUE", // required
+ *     InitialActiveLearningModelArn: "STRING_VALUE",
+ *     LabelingJobResourceConfig: {
+ *       VolumeKmsKeyId: "STRING_VALUE",
+ *       VpcConfig: {
+ *         SecurityGroupIds: [ // required
+ *           "STRING_VALUE",
+ *         ],
+ *         Subnets: [ // required
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *     },
+ *   },
+ *   HumanTaskConfig: {
+ *     WorkteamArn: "STRING_VALUE", // required
+ *     UiConfig: {
+ *       UiTemplateS3Uri: "STRING_VALUE",
+ *       HumanTaskUiArn: "STRING_VALUE",
+ *     },
+ *     PreHumanTaskLambdaArn: "STRING_VALUE", // required
+ *     TaskKeywords: [
+ *       "STRING_VALUE",
+ *     ],
+ *     TaskTitle: "STRING_VALUE", // required
+ *     TaskDescription: "STRING_VALUE", // required
+ *     NumberOfHumanWorkersPerDataObject: Number("int"), // required
+ *     TaskTimeLimitInSeconds: Number("int"), // required
+ *     TaskAvailabilityLifetimeInSeconds: Number("int"),
+ *     MaxConcurrentTaskCount: Number("int"),
+ *     AnnotationConsolidationConfig: {
+ *       AnnotationConsolidationLambdaArn: "STRING_VALUE", // required
+ *     },
+ *     PublicWorkforceTaskPrice: {
+ *       AmountInUsd: {
+ *         Dollars: Number("int"),
+ *         Cents: Number("int"),
+ *         TenthFractionsOfACent: Number("int"),
+ *       },
+ *     },
+ *   },
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateLabelingJobCommand(input);
  * const response = await client.send(command);
  * ```

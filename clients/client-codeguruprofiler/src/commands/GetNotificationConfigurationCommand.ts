@@ -44,6 +44,9 @@ export interface GetNotificationConfigurationCommandOutput
  * import { CodeGuruProfilerClient, GetNotificationConfigurationCommand } from "@aws-sdk/client-codeguruprofiler"; // ES Modules import
  * // const { CodeGuruProfilerClient, GetNotificationConfigurationCommand } = require("@aws-sdk/client-codeguruprofiler"); // CommonJS import
  * const client = new CodeGuruProfilerClient(config);
+ * const input = {
+ *   profilingGroupName: "STRING_VALUE", // required
+ * };
  * const command = new GetNotificationConfigurationCommand(input);
  * const response = await client.send(command);
  * ```

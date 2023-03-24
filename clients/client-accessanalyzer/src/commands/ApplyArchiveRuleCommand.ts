@@ -43,6 +43,11 @@ export interface ApplyArchiveRuleCommandOutput extends __MetadataBearer {}
  * import { AccessAnalyzerClient, ApplyArchiveRuleCommand } from "@aws-sdk/client-accessanalyzer"; // ES Modules import
  * // const { AccessAnalyzerClient, ApplyArchiveRuleCommand } = require("@aws-sdk/client-accessanalyzer"); // CommonJS import
  * const client = new AccessAnalyzerClient(config);
+ * const input = {
+ *   analyzerArn: "STRING_VALUE", // required
+ *   ruleName: "STRING_VALUE", // required
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new ApplyArchiveRuleCommand(input);
  * const response = await client.send(command);
  * ```

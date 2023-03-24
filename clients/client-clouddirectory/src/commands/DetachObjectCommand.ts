@@ -43,6 +43,13 @@ export interface DetachObjectCommandOutput extends DetachObjectResponse, __Metad
  * import { CloudDirectoryClient, DetachObjectCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, DetachObjectCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
  * const client = new CloudDirectoryClient(config);
+ * const input = {
+ *   DirectoryArn: "STRING_VALUE", // required
+ *   ParentReference: {
+ *     Selector: "STRING_VALUE",
+ *   },
+ *   LinkName: "STRING_VALUE", // required
+ * };
  * const command = new DetachObjectCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,11 @@ export interface GetBatchPredictionJobsCommandOutput extends GetBatchPredictionJ
  * import { FraudDetectorClient, GetBatchPredictionJobsCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, GetBatchPredictionJobsCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
  * const client = new FraudDetectorClient(config);
+ * const input = {
+ *   jobId: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new GetBatchPredictionJobsCommand(input);
  * const response = await client.send(command);
  * ```

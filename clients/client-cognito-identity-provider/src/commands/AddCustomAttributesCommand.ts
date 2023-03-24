@@ -47,6 +47,26 @@ export interface AddCustomAttributesCommandOutput extends AddCustomAttributesRes
  * import { CognitoIdentityProviderClient, AddCustomAttributesCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, AddCustomAttributesCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
+ * const input = {
+ *   UserPoolId: "STRING_VALUE", // required
+ *   CustomAttributes: [ // required
+ *     {
+ *       Name: "STRING_VALUE",
+ *       AttributeDataType: "String" || "Number" || "DateTime" || "Boolean",
+ *       DeveloperOnlyAttribute: true || false,
+ *       Mutable: true || false,
+ *       Required: true || false,
+ *       NumberAttributeConstraints: {
+ *         MinValue: "STRING_VALUE",
+ *         MaxValue: "STRING_VALUE",
+ *       },
+ *       StringAttributeConstraints: {
+ *         MinLength: "STRING_VALUE",
+ *         MaxLength: "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ * };
  * const command = new AddCustomAttributesCommand(input);
  * const response = await client.send(command);
  * ```

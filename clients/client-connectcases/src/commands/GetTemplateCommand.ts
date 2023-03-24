@@ -42,6 +42,10 @@ export interface GetTemplateCommandOutput extends GetTemplateResponse, __Metadat
  * import { ConnectCasesClient, GetTemplateCommand } from "@aws-sdk/client-connectcases"; // ES Modules import
  * // const { ConnectCasesClient, GetTemplateCommand } = require("@aws-sdk/client-connectcases"); // CommonJS import
  * const client = new ConnectCasesClient(config);
+ * const input = {
+ *   domainId: "STRING_VALUE", // required
+ *   templateId: "STRING_VALUE", // required
+ * };
  * const command = new GetTemplateCommand(input);
  * const response = await client.send(command);
  * ```

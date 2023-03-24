@@ -96,6 +96,21 @@ export interface UpdateRateBasedRuleCommandOutput extends UpdateRateBasedRuleRes
  * import { WAFClient, UpdateRateBasedRuleCommand } from "@aws-sdk/client-waf"; // ES Modules import
  * // const { WAFClient, UpdateRateBasedRuleCommand } = require("@aws-sdk/client-waf"); // CommonJS import
  * const client = new WAFClient(config);
+ * const input = {
+ *   RuleId: "STRING_VALUE", // required
+ *   ChangeToken: "STRING_VALUE", // required
+ *   Updates: [ // required
+ *     {
+ *       Action: "STRING_VALUE", // required
+ *       Predicate: {
+ *         Negated: true || false, // required
+ *         Type: "STRING_VALUE", // required
+ *         DataId: "STRING_VALUE", // required
+ *       },
+ *     },
+ *   ],
+ *   RateLimit: Number("long"), // required
+ * };
  * const command = new UpdateRateBasedRuleCommand(input);
  * const response = await client.send(command);
  * ```

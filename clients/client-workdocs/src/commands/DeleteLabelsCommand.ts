@@ -42,6 +42,14 @@ export interface DeleteLabelsCommandOutput extends DeleteLabelsResponse, __Metad
  * import { WorkDocsClient, DeleteLabelsCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
  * // const { WorkDocsClient, DeleteLabelsCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
  * const client = new WorkDocsClient(config);
+ * const input = {
+ *   ResourceId: "STRING_VALUE", // required
+ *   AuthenticationToken: "STRING_VALUE",
+ *   Labels: [
+ *     "STRING_VALUE",
+ *   ],
+ *   DeleteAll: true || false,
+ * };
  * const command = new DeleteLabelsCommand(input);
  * const response = await client.send(command);
  * ```

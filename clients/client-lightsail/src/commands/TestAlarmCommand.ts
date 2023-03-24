@@ -46,6 +46,10 @@ export interface TestAlarmCommandOutput extends TestAlarmResult, __MetadataBeare
  * import { LightsailClient, TestAlarmCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, TestAlarmCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = {
+ *   alarmName: "STRING_VALUE", // required
+ *   state: "OK" || "ALARM" || "INSUFFICIENT_DATA", // required
+ * };
  * const command = new TestAlarmCommand(input);
  * const response = await client.send(command);
  * ```

@@ -44,6 +44,21 @@ export interface BatchPutScheduledUpdateGroupActionCommandOutput
  * import { AutoScalingClient, BatchPutScheduledUpdateGroupActionCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, BatchPutScheduledUpdateGroupActionCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
  * const client = new AutoScalingClient(config);
+ * const input = {
+ *   AutoScalingGroupName: "STRING_VALUE", // required
+ *   ScheduledUpdateGroupActions: [ // required
+ *     {
+ *       ScheduledActionName: "STRING_VALUE", // required
+ *       StartTime: new Date("TIMESTAMP"),
+ *       EndTime: new Date("TIMESTAMP"),
+ *       Recurrence: "STRING_VALUE",
+ *       MinSize: Number("int"),
+ *       MaxSize: Number("int"),
+ *       DesiredCapacity: Number("int"),
+ *       TimeZone: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new BatchPutScheduledUpdateGroupActionCommand(input);
  * const response = await client.send(command);
  * ```

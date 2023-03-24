@@ -55,6 +55,76 @@ export interface CreateBatchLoadTaskCommandOutput extends CreateBatchLoadTaskRes
  * import { TimestreamWriteClient, CreateBatchLoadTaskCommand } from "@aws-sdk/client-timestream-write"; // ES Modules import
  * // const { TimestreamWriteClient, CreateBatchLoadTaskCommand } = require("@aws-sdk/client-timestream-write"); // CommonJS import
  * const client = new TimestreamWriteClient(config);
+ * const input = {
+ *   ClientToken: "STRING_VALUE",
+ *   DataModelConfiguration: {
+ *     DataModel: {
+ *       TimeColumn: "STRING_VALUE",
+ *       TimeUnit: "MILLISECONDS" || "SECONDS" || "MICROSECONDS" || "NANOSECONDS",
+ *       DimensionMappings: [ // required
+ *         {
+ *           SourceColumn: "STRING_VALUE",
+ *           DestinationColumn: "STRING_VALUE",
+ *         },
+ *       ],
+ *       MultiMeasureMappings: {
+ *         TargetMultiMeasureName: "STRING_VALUE",
+ *         MultiMeasureAttributeMappings: [ // required
+ *           {
+ *             SourceColumn: "STRING_VALUE", // required
+ *             TargetMultiMeasureAttributeName: "STRING_VALUE",
+ *             MeasureValueType: "DOUBLE" || "BIGINT" || "BOOLEAN" || "VARCHAR" || "TIMESTAMP",
+ *           },
+ *         ],
+ *       },
+ *       MixedMeasureMappings: [
+ *         {
+ *           MeasureName: "STRING_VALUE",
+ *           SourceColumn: "STRING_VALUE",
+ *           TargetMeasureName: "STRING_VALUE",
+ *           MeasureValueType: "DOUBLE" || "BIGINT" || "VARCHAR" || "BOOLEAN" || "TIMESTAMP" || "MULTI", // required
+ *           MultiMeasureAttributeMappings: [
+ *             {
+ *               SourceColumn: "STRING_VALUE", // required
+ *               TargetMultiMeasureAttributeName: "STRING_VALUE",
+ *               MeasureValueType: "DOUBLE" || "BIGINT" || "BOOLEAN" || "VARCHAR" || "TIMESTAMP",
+ *             },
+ *           ],
+ *         },
+ *       ],
+ *       MeasureNameColumn: "STRING_VALUE",
+ *     },
+ *     DataModelS3Configuration: {
+ *       BucketName: "STRING_VALUE",
+ *       ObjectKey: "STRING_VALUE",
+ *     },
+ *   },
+ *   DataSourceConfiguration: {
+ *     DataSourceS3Configuration: {
+ *       BucketName: "STRING_VALUE", // required
+ *       ObjectKeyPrefix: "STRING_VALUE",
+ *     },
+ *     CsvConfiguration: {
+ *       ColumnSeparator: "STRING_VALUE",
+ *       EscapeChar: "STRING_VALUE",
+ *       QuoteChar: "STRING_VALUE",
+ *       NullValue: "STRING_VALUE",
+ *       TrimWhiteSpace: true || false,
+ *     },
+ *     DataFormat: "CSV", // required
+ *   },
+ *   ReportConfiguration: {
+ *     ReportS3Configuration: {
+ *       BucketName: "STRING_VALUE", // required
+ *       ObjectKeyPrefix: "STRING_VALUE",
+ *       EncryptionOption: "SSE_S3" || "SSE_KMS",
+ *       KmsKeyId: "STRING_VALUE",
+ *     },
+ *   },
+ *   TargetDatabaseName: "STRING_VALUE", // required
+ *   TargetTableName: "STRING_VALUE", // required
+ *   RecordVersion: Number("long"),
+ * };
  * const command = new CreateBatchLoadTaskCommand(input);
  * const response = await client.send(command);
  * ```

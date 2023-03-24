@@ -42,6 +42,12 @@ export interface CreateDocumentationVersionCommandOutput extends DocumentationVe
  * import { APIGatewayClient, CreateDocumentationVersionCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, CreateDocumentationVersionCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
+ * const input = {
+ *   restApiId: "STRING_VALUE", // required
+ *   documentationVersion: "STRING_VALUE", // required
+ *   stageName: "STRING_VALUE",
+ *   description: "STRING_VALUE",
+ * };
  * const command = new CreateDocumentationVersionCommand(input);
  * const response = await client.send(command);
  * ```

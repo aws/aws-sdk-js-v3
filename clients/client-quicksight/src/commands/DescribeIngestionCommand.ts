@@ -42,6 +42,11 @@ export interface DescribeIngestionCommandOutput extends DescribeIngestionRespons
  * import { QuickSightClient, DescribeIngestionCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, DescribeIngestionCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
+ * const input = {
+ *   AwsAccountId: "STRING_VALUE", // required
+ *   DataSetId: "STRING_VALUE", // required
+ *   IngestionId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeIngestionCommand(input);
  * const response = await client.send(command);
  * ```

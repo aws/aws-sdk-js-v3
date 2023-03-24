@@ -47,6 +47,51 @@ export interface UpdateAppCommandOutput extends UpdateAppResult, __MetadataBeare
  * import { AmplifyClient, UpdateAppCommand } from "@aws-sdk/client-amplify"; // ES Modules import
  * // const { AmplifyClient, UpdateAppCommand } = require("@aws-sdk/client-amplify"); // CommonJS import
  * const client = new AmplifyClient(config);
+ * const input = {
+ *   appId: "STRING_VALUE", // required
+ *   name: "STRING_VALUE",
+ *   description: "STRING_VALUE",
+ *   platform: "WEB" || "WEB_DYNAMIC" || "WEB_COMPUTE",
+ *   iamServiceRoleArn: "STRING_VALUE",
+ *   environmentVariables: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   enableBranchAutoBuild: true || false,
+ *   enableBranchAutoDeletion: true || false,
+ *   enableBasicAuth: true || false,
+ *   basicAuthCredentials: "STRING_VALUE",
+ *   customRules: [
+ *     {
+ *       source: "STRING_VALUE", // required
+ *       target: "STRING_VALUE", // required
+ *       status: "STRING_VALUE",
+ *       condition: "STRING_VALUE",
+ *     },
+ *   ],
+ *   buildSpec: "STRING_VALUE",
+ *   customHeaders: "STRING_VALUE",
+ *   enableAutoBranchCreation: true || false,
+ *   autoBranchCreationPatterns: [
+ *     "STRING_VALUE",
+ *   ],
+ *   autoBranchCreationConfig: {
+ *     stage: "PRODUCTION" || "BETA" || "DEVELOPMENT" || "EXPERIMENTAL" || "PULL_REQUEST",
+ *     framework: "STRING_VALUE",
+ *     enableAutoBuild: true || false,
+ *     environmentVariables: {
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *     basicAuthCredentials: "STRING_VALUE",
+ *     enableBasicAuth: true || false,
+ *     enablePerformanceMode: true || false,
+ *     buildSpec: "STRING_VALUE",
+ *     enablePullRequestPreview: true || false,
+ *     pullRequestEnvironmentName: "STRING_VALUE",
+ *   },
+ *   repository: "STRING_VALUE",
+ *   oauthToken: "STRING_VALUE",
+ *   accessToken: "STRING_VALUE",
+ * };
  * const command = new UpdateAppCommand(input);
  * const response = await client.send(command);
  * ```

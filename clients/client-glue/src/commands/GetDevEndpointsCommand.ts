@@ -47,6 +47,10 @@ export interface GetDevEndpointsCommandOutput extends GetDevEndpointsResponse, _
  * import { GlueClient, GetDevEndpointsCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, GetDevEndpointsCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = {
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new GetDevEndpointsCommand(input);
  * const response = await client.send(command);
  * ```

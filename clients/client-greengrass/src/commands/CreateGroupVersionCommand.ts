@@ -42,6 +42,17 @@ export interface CreateGroupVersionCommandOutput extends CreateGroupVersionRespo
  * import { GreengrassClient, CreateGroupVersionCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, CreateGroupVersionCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
+ * const input = {
+ *   AmznClientToken: "STRING_VALUE",
+ *   ConnectorDefinitionVersionArn: "STRING_VALUE",
+ *   CoreDefinitionVersionArn: "STRING_VALUE",
+ *   DeviceDefinitionVersionArn: "STRING_VALUE",
+ *   FunctionDefinitionVersionArn: "STRING_VALUE",
+ *   GroupId: "STRING_VALUE", // required
+ *   LoggerDefinitionVersionArn: "STRING_VALUE",
+ *   ResourceDefinitionVersionArn: "STRING_VALUE",
+ *   SubscriptionDefinitionVersionArn: "STRING_VALUE",
+ * };
  * const command = new CreateGroupVersionCommand(input);
  * const response = await client.send(command);
  * ```

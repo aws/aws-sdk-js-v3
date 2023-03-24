@@ -44,6 +44,10 @@ export interface DisassociatePhoneNumberFromUserCommandOutput
  * import { ChimeClient, DisassociatePhoneNumberFromUserCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, DisassociatePhoneNumberFromUserCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = {
+ *   AccountId: "STRING_VALUE", // required
+ *   UserId: "STRING_VALUE", // required
+ * };
  * const command = new DisassociatePhoneNumberFromUserCommand(input);
  * const response = await client.send(command);
  * ```

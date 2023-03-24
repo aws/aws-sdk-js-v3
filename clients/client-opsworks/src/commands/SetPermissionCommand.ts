@@ -48,6 +48,13 @@ export interface SetPermissionCommandOutput extends __MetadataBearer {}
  * import { OpsWorksClient, SetPermissionCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, SetPermissionCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
+ * const input = {
+ *   StackId: "STRING_VALUE", // required
+ *   IamUserArn: "STRING_VALUE", // required
+ *   AllowSsh: true || false,
+ *   AllowSudo: true || false,
+ *   Level: "STRING_VALUE",
+ * };
  * const command = new SetPermissionCommand(input);
  * const response = await client.send(command);
  * ```

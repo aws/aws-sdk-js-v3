@@ -43,6 +43,33 @@ export interface UpdateAccessPolicyCommandOutput extends UpdateAccessPolicyRespo
  * import { IoTSiteWiseClient, UpdateAccessPolicyCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, UpdateAccessPolicyCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
+ * const input = {
+ *   accessPolicyId: "STRING_VALUE", // required
+ *   accessPolicyIdentity: {
+ *     user: {
+ *       id: "STRING_VALUE", // required
+ *     },
+ *     group: {
+ *       id: "STRING_VALUE", // required
+ *     },
+ *     iamUser: {
+ *       arn: "STRING_VALUE", // required
+ *     },
+ *     iamRole: {
+ *       arn: "STRING_VALUE", // required
+ *     },
+ *   },
+ *   accessPolicyResource: {
+ *     portal: {
+ *       id: "STRING_VALUE", // required
+ *     },
+ *     project: {
+ *       id: "STRING_VALUE", // required
+ *     },
+ *   },
+ *   accessPolicyPermission: "ADMINISTRATOR" || "VIEWER", // required
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new UpdateAccessPolicyCommand(input);
  * const response = await client.send(command);
  * ```

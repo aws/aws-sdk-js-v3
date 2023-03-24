@@ -89,6 +89,16 @@ export interface PollForDecisionTaskCommandOutput extends DecisionTask, __Metada
  * import { SWFClient, PollForDecisionTaskCommand } from "@aws-sdk/client-swf"; // ES Modules import
  * // const { SWFClient, PollForDecisionTaskCommand } = require("@aws-sdk/client-swf"); // CommonJS import
  * const client = new SWFClient(config);
+ * const input = {
+ *   domain: "STRING_VALUE", // required
+ *   taskList: {
+ *     name: "STRING_VALUE", // required
+ *   },
+ *   identity: "STRING_VALUE",
+ *   nextPageToken: "STRING_VALUE",
+ *   maximumPageSize: Number("int"),
+ *   reverseOrder: true || false,
+ * };
  * const command = new PollForDecisionTaskCommand(input);
  * const response = await client.send(command);
  * ```

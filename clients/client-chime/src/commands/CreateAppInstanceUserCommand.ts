@@ -47,6 +47,19 @@ export interface CreateAppInstanceUserCommandOutput extends CreateAppInstanceUse
  * import { ChimeClient, CreateAppInstanceUserCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, CreateAppInstanceUserCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = {
+ *   AppInstanceArn: "STRING_VALUE", // required
+ *   AppInstanceUserId: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE", // required
+ *   Metadata: "STRING_VALUE",
+ *   ClientRequestToken: "STRING_VALUE", // required
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateAppInstanceUserCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,30 @@ export interface CreateRecipeCommandOutput extends CreateRecipeResponse, __Metad
  * import { DataBrewClient, CreateRecipeCommand } from "@aws-sdk/client-databrew"; // ES Modules import
  * // const { DataBrewClient, CreateRecipeCommand } = require("@aws-sdk/client-databrew"); // CommonJS import
  * const client = new DataBrewClient(config);
+ * const input = {
+ *   Description: "STRING_VALUE",
+ *   Name: "STRING_VALUE", // required
+ *   Steps: [ // required
+ *     {
+ *       Action: {
+ *         Operation: "STRING_VALUE", // required
+ *         Parameters: {
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *       },
+ *       ConditionExpressions: [
+ *         {
+ *           Condition: "STRING_VALUE", // required
+ *           Value: "STRING_VALUE",
+ *           TargetColumn: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   Tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateRecipeCommand(input);
  * const response = await client.send(command);
  * ```

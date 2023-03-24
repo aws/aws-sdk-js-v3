@@ -43,6 +43,9 @@ export interface DeleteLicenseConfigurationCommandOutput extends DeleteLicenseCo
  * import { LicenseManagerClient, DeleteLicenseConfigurationCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
  * // const { LicenseManagerClient, DeleteLicenseConfigurationCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
  * const client = new LicenseManagerClient(config);
+ * const input = {
+ *   LicenseConfigurationArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteLicenseConfigurationCommand(input);
  * const response = await client.send(command);
  * ```

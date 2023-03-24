@@ -46,6 +46,9 @@ export interface RenewCertificateCommandOutput extends __MetadataBearer {}
  * import { ACMClient, RenewCertificateCommand } from "@aws-sdk/client-acm"; // ES Modules import
  * // const { ACMClient, RenewCertificateCommand } = require("@aws-sdk/client-acm"); // CommonJS import
  * const client = new ACMClient(config);
+ * const input = {
+ *   CertificateArn: "STRING_VALUE", // required
+ * };
  * const command = new RenewCertificateCommand(input);
  * const response = await client.send(command);
  * ```

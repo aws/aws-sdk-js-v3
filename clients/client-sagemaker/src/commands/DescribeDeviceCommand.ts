@@ -42,6 +42,11 @@ export interface DescribeDeviceCommandOutput extends DescribeDeviceResponse, __M
  * import { SageMakerClient, DescribeDeviceCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DescribeDeviceCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = {
+ *   NextToken: "STRING_VALUE",
+ *   DeviceName: "STRING_VALUE", // required
+ *   DeviceFleetName: "STRING_VALUE", // required
+ * };
  * const command = new DescribeDeviceCommand(input);
  * const response = await client.send(command);
  * ```

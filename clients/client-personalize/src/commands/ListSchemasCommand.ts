@@ -44,6 +44,10 @@ export interface ListSchemasCommandOutput extends ListSchemasResponse, __Metadat
  * import { PersonalizeClient, ListSchemasCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, ListSchemasCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
  * const client = new PersonalizeClient(config);
+ * const input = {
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListSchemasCommand(input);
  * const response = await client.send(command);
  * ```

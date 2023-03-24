@@ -43,6 +43,11 @@ export interface ListTargetsForPolicyCommandOutput extends ListTargetsForPolicyR
  * import { IoTClient, ListTargetsForPolicyCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, ListTargetsForPolicyCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = {
+ *   policyName: "STRING_VALUE", // required
+ *   marker: "STRING_VALUE",
+ *   pageSize: Number("int"),
+ * };
  * const command = new ListTargetsForPolicyCommand(input);
  * const response = await client.send(command);
  * ```

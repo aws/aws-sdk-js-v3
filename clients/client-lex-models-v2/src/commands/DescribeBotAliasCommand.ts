@@ -42,6 +42,10 @@ export interface DescribeBotAliasCommandOutput extends DescribeBotAliasResponse,
  * import { LexModelsV2Client, DescribeBotAliasCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
  * // const { LexModelsV2Client, DescribeBotAliasCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
  * const client = new LexModelsV2Client(config);
+ * const input = {
+ *   botAliasId: "STRING_VALUE", // required
+ *   botId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeBotAliasCommand(input);
  * const response = await client.send(command);
  * ```

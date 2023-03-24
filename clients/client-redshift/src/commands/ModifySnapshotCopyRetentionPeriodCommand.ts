@@ -50,6 +50,11 @@ export interface ModifySnapshotCopyRetentionPeriodCommandOutput
  * import { RedshiftClient, ModifySnapshotCopyRetentionPeriodCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, ModifySnapshotCopyRetentionPeriodCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = {
+ *   ClusterIdentifier: "STRING_VALUE", // required
+ *   RetentionPeriod: Number("int"), // required
+ *   Manual: true || false,
+ * };
  * const command = new ModifySnapshotCopyRetentionPeriodCommand(input);
  * const response = await client.send(command);
  * ```

@@ -47,6 +47,45 @@ export interface UpdateReplicationConfigurationCommandOutput extends Replication
  * import { DrsClient, UpdateReplicationConfigurationCommand } from "@aws-sdk/client-drs"; // ES Modules import
  * // const { DrsClient, UpdateReplicationConfigurationCommand } = require("@aws-sdk/client-drs"); // CommonJS import
  * const client = new DrsClient(config);
+ * const input = {
+ *   sourceServerID: "STRING_VALUE", // required
+ *   name: "STRING_VALUE",
+ *   stagingAreaSubnetId: "STRING_VALUE",
+ *   associateDefaultSecurityGroup: true || false,
+ *   replicationServersSecurityGroupsIDs: [
+ *     "STRING_VALUE",
+ *   ],
+ *   replicationServerInstanceType: "STRING_VALUE",
+ *   useDedicatedReplicationServer: true || false,
+ *   defaultLargeStagingDiskType: "STRING_VALUE",
+ *   replicatedDisks: [
+ *     {
+ *       deviceName: "STRING_VALUE",
+ *       isBootDisk: true || false,
+ *       stagingDiskType: "STRING_VALUE",
+ *       iops: Number("long"),
+ *       throughput: Number("long"),
+ *       optimizedStagingDiskType: "STRING_VALUE",
+ *     },
+ *   ],
+ *   ebsEncryption: "STRING_VALUE",
+ *   ebsEncryptionKeyArn: "STRING_VALUE",
+ *   bandwidthThrottling: Number("long"),
+ *   dataPlaneRouting: "STRING_VALUE",
+ *   createPublicIP: true || false,
+ *   stagingAreaTags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   pitPolicy: [
+ *     {
+ *       ruleID: Number("long"),
+ *       units: "STRING_VALUE", // required
+ *       interval: Number("int"), // required
+ *       retentionDuration: Number("int"), // required
+ *       enabled: true || false,
+ *     },
+ *   ],
+ * };
  * const command = new UpdateReplicationConfigurationCommand(input);
  * const response = await client.send(command);
  * ```

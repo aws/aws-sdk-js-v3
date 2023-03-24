@@ -42,6 +42,12 @@ export interface UpdateAccountSettingsCommandOutput extends UpdateAccountSetting
  * import { QuickSightClient, UpdateAccountSettingsCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, UpdateAccountSettingsCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
+ * const input = {
+ *   AwsAccountId: "STRING_VALUE", // required
+ *   DefaultNamespace: "STRING_VALUE", // required
+ *   NotificationEmail: "STRING_VALUE",
+ *   TerminationProtectionEnabled: true || false,
+ * };
  * const command = new UpdateAccountSettingsCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,7 @@ export interface GetLoggingOptionsCommandOutput extends GetLoggingOptionsRespons
  * import { IoTFleetWiseClient, GetLoggingOptionsCommand } from "@aws-sdk/client-iotfleetwise"; // ES Modules import
  * // const { IoTFleetWiseClient, GetLoggingOptionsCommand } = require("@aws-sdk/client-iotfleetwise"); // CommonJS import
  * const client = new IoTFleetWiseClient(config);
+ * const input = {};
  * const command = new GetLoggingOptionsCommand(input);
  * const response = await client.send(command);
  * ```

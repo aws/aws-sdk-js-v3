@@ -67,6 +67,19 @@ export interface ChangeCidrCollectionCommandOutput extends ChangeCidrCollectionR
  * import { Route53Client, ChangeCidrCollectionCommand } from "@aws-sdk/client-route-53"; // ES Modules import
  * // const { Route53Client, ChangeCidrCollectionCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
  * const client = new Route53Client(config);
+ * const input = {
+ *   Id: "STRING_VALUE", // required
+ *   CollectionVersion: Number("long"),
+ *   Changes: [ // required
+ *     {
+ *       LocationName: "STRING_VALUE", // required
+ *       Action: "PUT" || "DELETE_IF_EXISTS", // required
+ *       CidrList: [ // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ * };
  * const command = new ChangeCidrCollectionCommand(input);
  * const response = await client.send(command);
  * ```

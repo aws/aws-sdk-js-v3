@@ -42,6 +42,18 @@ export interface PutMetricPolicyCommandOutput extends PutMetricPolicyOutput, __M
  * import { MediaStoreClient, PutMetricPolicyCommand } from "@aws-sdk/client-mediastore"; // ES Modules import
  * // const { MediaStoreClient, PutMetricPolicyCommand } = require("@aws-sdk/client-mediastore"); // CommonJS import
  * const client = new MediaStoreClient(config);
+ * const input = {
+ *   ContainerName: "STRING_VALUE", // required
+ *   MetricPolicy: {
+ *     ContainerLevelMetrics: "STRING_VALUE", // required
+ *     MetricPolicyRules: [
+ *       {
+ *         ObjectGroup: "STRING_VALUE", // required
+ *         ObjectGroupName: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *   },
+ * };
  * const command = new PutMetricPolicyCommand(input);
  * const response = await client.send(command);
  * ```

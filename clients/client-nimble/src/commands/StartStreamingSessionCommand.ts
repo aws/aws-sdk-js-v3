@@ -44,6 +44,12 @@ export interface StartStreamingSessionCommandOutput extends StartStreamingSessio
  * import { NimbleClient, StartStreamingSessionCommand } from "@aws-sdk/client-nimble"; // ES Modules import
  * // const { NimbleClient, StartStreamingSessionCommand } = require("@aws-sdk/client-nimble"); // CommonJS import
  * const client = new NimbleClient(config);
+ * const input = {
+ *   clientToken: "STRING_VALUE",
+ *   sessionId: "STRING_VALUE", // required
+ *   studioId: "STRING_VALUE", // required
+ *   backupId: "STRING_VALUE",
+ * };
  * const command = new StartStreamingSessionCommand(input);
  * const response = await client.send(command);
  * ```

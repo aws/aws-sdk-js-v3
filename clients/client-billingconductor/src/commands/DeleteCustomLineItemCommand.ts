@@ -44,6 +44,13 @@ export interface DeleteCustomLineItemCommandOutput extends DeleteCustomLineItemO
  * import { BillingconductorClient, DeleteCustomLineItemCommand } from "@aws-sdk/client-billingconductor"; // ES Modules import
  * // const { BillingconductorClient, DeleteCustomLineItemCommand } = require("@aws-sdk/client-billingconductor"); // CommonJS import
  * const client = new BillingconductorClient(config);
+ * const input = {
+ *   Arn: "STRING_VALUE", // required
+ *   BillingPeriodRange: {
+ *     InclusiveStartBillingPeriod: "STRING_VALUE", // required
+ *     ExclusiveEndBillingPeriod: "STRING_VALUE",
+ *   },
+ * };
  * const command = new DeleteCustomLineItemCommand(input);
  * const response = await client.send(command);
  * ```

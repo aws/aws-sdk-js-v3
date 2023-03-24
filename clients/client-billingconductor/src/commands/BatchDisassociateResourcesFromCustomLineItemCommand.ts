@@ -50,6 +50,16 @@ export interface BatchDisassociateResourcesFromCustomLineItemCommandOutput
  * import { BillingconductorClient, BatchDisassociateResourcesFromCustomLineItemCommand } from "@aws-sdk/client-billingconductor"; // ES Modules import
  * // const { BillingconductorClient, BatchDisassociateResourcesFromCustomLineItemCommand } = require("@aws-sdk/client-billingconductor"); // CommonJS import
  * const client = new BillingconductorClient(config);
+ * const input = {
+ *   TargetArn: "STRING_VALUE", // required
+ *   ResourceArns: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ *   BillingPeriodRange: {
+ *     InclusiveStartBillingPeriod: "STRING_VALUE", // required
+ *     ExclusiveEndBillingPeriod: "STRING_VALUE",
+ *   },
+ * };
  * const command = new BatchDisassociateResourcesFromCustomLineItemCommand(input);
  * const response = await client.send(command);
  * ```

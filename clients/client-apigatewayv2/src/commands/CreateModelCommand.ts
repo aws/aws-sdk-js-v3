@@ -42,6 +42,13 @@ export interface CreateModelCommandOutput extends CreateModelResponse, __Metadat
  * import { ApiGatewayV2Client, CreateModelCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
  * // const { ApiGatewayV2Client, CreateModelCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import
  * const client = new ApiGatewayV2Client(config);
+ * const input = {
+ *   ApiId: "STRING_VALUE", // required
+ *   ContentType: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   Name: "STRING_VALUE", // required
+ *   Schema: "STRING_VALUE", // required
+ * };
  * const command = new CreateModelCommand(input);
  * const response = await client.send(command);
  * ```

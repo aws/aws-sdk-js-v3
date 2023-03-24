@@ -60,6 +60,21 @@ export interface SearchPlaceIndexForSuggestionsCommandOutput
  * import { LocationClient, SearchPlaceIndexForSuggestionsCommand } from "@aws-sdk/client-location"; // ES Modules import
  * // const { LocationClient, SearchPlaceIndexForSuggestionsCommand } = require("@aws-sdk/client-location"); // CommonJS import
  * const client = new LocationClient(config);
+ * const input = {
+ *   IndexName: "STRING_VALUE", // required
+ *   Text: "STRING_VALUE", // required
+ *   BiasPosition: [
+ *     Number("double"),
+ *   ],
+ *   FilterBBox: [
+ *     Number("double"),
+ *   ],
+ *   FilterCountries: [
+ *     "STRING_VALUE",
+ *   ],
+ *   MaxResults: Number("int"),
+ *   Language: "STRING_VALUE",
+ * };
  * const command = new SearchPlaceIndexForSuggestionsCommand(input);
  * const response = await client.send(command);
  * ```

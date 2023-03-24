@@ -49,6 +49,22 @@ export interface DescribeEventTypesCommandOutput extends DescribeEventTypesRespo
  * import { HealthClient, DescribeEventTypesCommand } from "@aws-sdk/client-health"; // ES Modules import
  * // const { HealthClient, DescribeEventTypesCommand } = require("@aws-sdk/client-health"); // CommonJS import
  * const client = new HealthClient(config);
+ * const input = {
+ *   filter: {
+ *     eventTypeCodes: [
+ *       "STRING_VALUE",
+ *     ],
+ *     services: [
+ *       "STRING_VALUE",
+ *     ],
+ *     eventTypeCategories: [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   locale: "STRING_VALUE",
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new DescribeEventTypesCommand(input);
  * const response = await client.send(command);
  * ```

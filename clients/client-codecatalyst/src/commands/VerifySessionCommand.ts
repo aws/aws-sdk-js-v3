@@ -42,6 +42,7 @@ export interface VerifySessionCommandOutput extends VerifySessionResponse, __Met
  * import { CodeCatalystClient, VerifySessionCommand } from "@aws-sdk/client-codecatalyst"; // ES Modules import
  * // const { CodeCatalystClient, VerifySessionCommand } = require("@aws-sdk/client-codecatalyst"); // CommonJS import
  * const client = new CodeCatalystClient(config);
+ * const input = {};
  * const command = new VerifySessionCommand(input);
  * const response = await client.send(command);
  * ```

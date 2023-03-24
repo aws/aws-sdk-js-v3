@@ -44,6 +44,12 @@ export interface ListStreamConsumersCommandOutput extends ListStreamConsumersOut
  * import { KinesisClient, ListStreamConsumersCommand } from "@aws-sdk/client-kinesis"; // ES Modules import
  * // const { KinesisClient, ListStreamConsumersCommand } = require("@aws-sdk/client-kinesis"); // CommonJS import
  * const client = new KinesisClient(config);
+ * const input = {
+ *   StreamARN: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   StreamCreationTimestamp: new Date("TIMESTAMP"),
+ * };
  * const command = new ListStreamConsumersCommand(input);
  * const response = await client.send(command);
  * ```

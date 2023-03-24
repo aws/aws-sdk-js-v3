@@ -44,6 +44,12 @@ export interface StopStreamingSessionCommandOutput extends StopStreamingSessionR
  * import { NimbleClient, StopStreamingSessionCommand } from "@aws-sdk/client-nimble"; // ES Modules import
  * // const { NimbleClient, StopStreamingSessionCommand } = require("@aws-sdk/client-nimble"); // CommonJS import
  * const client = new NimbleClient(config);
+ * const input = {
+ *   clientToken: "STRING_VALUE",
+ *   sessionId: "STRING_VALUE", // required
+ *   studioId: "STRING_VALUE", // required
+ *   volumeRetentionMode: "RETAIN" || "DELETE",
+ * };
  * const command = new StopStreamingSessionCommand(input);
  * const response = await client.send(command);
  * ```

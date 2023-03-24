@@ -42,6 +42,10 @@ export interface DescribeGroupMembershipCommandOutput extends DescribeGroupMembe
  * import { IdentitystoreClient, DescribeGroupMembershipCommand } from "@aws-sdk/client-identitystore"; // ES Modules import
  * // const { IdentitystoreClient, DescribeGroupMembershipCommand } = require("@aws-sdk/client-identitystore"); // CommonJS import
  * const client = new IdentitystoreClient(config);
+ * const input = {
+ *   IdentityStoreId: "STRING_VALUE", // required
+ *   MembershipId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeGroupMembershipCommand(input);
  * const response = await client.send(command);
  * ```

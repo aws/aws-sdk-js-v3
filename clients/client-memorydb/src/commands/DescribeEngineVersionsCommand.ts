@@ -42,6 +42,13 @@ export interface DescribeEngineVersionsCommandOutput extends DescribeEngineVersi
  * import { MemoryDBClient, DescribeEngineVersionsCommand } from "@aws-sdk/client-memorydb"; // ES Modules import
  * // const { MemoryDBClient, DescribeEngineVersionsCommand } = require("@aws-sdk/client-memorydb"); // CommonJS import
  * const client = new MemoryDBClient(config);
+ * const input = {
+ *   EngineVersion: "STRING_VALUE",
+ *   ParameterGroupFamily: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   DefaultOnly: true || false,
+ * };
  * const command = new DescribeEngineVersionsCommand(input);
  * const response = await client.send(command);
  * ```

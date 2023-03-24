@@ -46,6 +46,43 @@ export interface UpdateWorkGroupCommandOutput extends UpdateWorkGroupOutput, __M
  * import { AthenaClient, UpdateWorkGroupCommand } from "@aws-sdk/client-athena"; // ES Modules import
  * // const { AthenaClient, UpdateWorkGroupCommand } = require("@aws-sdk/client-athena"); // CommonJS import
  * const client = new AthenaClient(config);
+ * const input = {
+ *   WorkGroup: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   ConfigurationUpdates: {
+ *     EnforceWorkGroupConfiguration: true || false,
+ *     ResultConfigurationUpdates: {
+ *       OutputLocation: "STRING_VALUE",
+ *       RemoveOutputLocation: true || false,
+ *       EncryptionConfiguration: {
+ *         EncryptionOption: "SSE_S3" || "SSE_KMS" || "CSE_KMS", // required
+ *         KmsKey: "STRING_VALUE",
+ *       },
+ *       RemoveEncryptionConfiguration: true || false,
+ *       ExpectedBucketOwner: "STRING_VALUE",
+ *       RemoveExpectedBucketOwner: true || false,
+ *       AclConfiguration: {
+ *         S3AclOption: "BUCKET_OWNER_FULL_CONTROL", // required
+ *       },
+ *       RemoveAclConfiguration: true || false,
+ *     },
+ *     PublishCloudWatchMetricsEnabled: true || false,
+ *     BytesScannedCutoffPerQuery: Number("long"),
+ *     RemoveBytesScannedCutoffPerQuery: true || false,
+ *     RequesterPaysEnabled: true || false,
+ *     EngineVersion: {
+ *       SelectedEngineVersion: "STRING_VALUE",
+ *       EffectiveEngineVersion: "STRING_VALUE",
+ *     },
+ *     RemoveCustomerContentEncryptionConfiguration: true || false,
+ *     AdditionalConfiguration: "STRING_VALUE",
+ *     ExecutionRole: "STRING_VALUE",
+ *     CustomerContentEncryptionConfiguration: {
+ *       KmsKey: "STRING_VALUE", // required
+ *     },
+ *   },
+ *   State: "ENABLED" || "DISABLED",
+ * };
  * const command = new UpdateWorkGroupCommand(input);
  * const response = await client.send(command);
  * ```

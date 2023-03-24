@@ -43,6 +43,16 @@ export interface ListBillingGroupCostReportsCommandOutput extends ListBillingGro
  * import { BillingconductorClient, ListBillingGroupCostReportsCommand } from "@aws-sdk/client-billingconductor"; // ES Modules import
  * // const { BillingconductorClient, ListBillingGroupCostReportsCommand } = require("@aws-sdk/client-billingconductor"); // CommonJS import
  * const client = new BillingconductorClient(config);
+ * const input = {
+ *   BillingPeriod: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   Filters: {
+ *     BillingGroupArns: [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ * };
  * const command = new ListBillingGroupCostReportsCommand(input);
  * const response = await client.send(command);
  * ```

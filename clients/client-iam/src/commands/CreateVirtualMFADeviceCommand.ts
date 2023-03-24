@@ -58,6 +58,16 @@ export interface CreateVirtualMFADeviceCommandOutput extends CreateVirtualMFADev
  * import { IAMClient, CreateVirtualMFADeviceCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, CreateVirtualMFADeviceCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = {
+ *   Path: "STRING_VALUE",
+ *   VirtualMFADeviceName: "STRING_VALUE", // required
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateVirtualMFADeviceCommand(input);
  * const response = await client.send(command);
  * ```

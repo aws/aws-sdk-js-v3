@@ -42,6 +42,17 @@ export interface UpdateUsagePlanCommandOutput extends UsagePlan, __MetadataBeare
  * import { APIGatewayClient, UpdateUsagePlanCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, UpdateUsagePlanCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
+ * const input = {
+ *   usagePlanId: "STRING_VALUE", // required
+ *   patchOperations: [
+ *     {
+ *       op: "add" || "remove" || "replace" || "move" || "copy" || "test",
+ *       path: "STRING_VALUE",
+ *       value: "STRING_VALUE",
+ *       from: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new UpdateUsagePlanCommand(input);
  * const response = await client.send(command);
  * ```

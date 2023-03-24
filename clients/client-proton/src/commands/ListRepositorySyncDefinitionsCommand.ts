@@ -44,6 +44,12 @@ export interface ListRepositorySyncDefinitionsCommandOutput
  * import { ProtonClient, ListRepositorySyncDefinitionsCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, ListRepositorySyncDefinitionsCommand } = require("@aws-sdk/client-proton"); // CommonJS import
  * const client = new ProtonClient(config);
+ * const input = {
+ *   repositoryName: "STRING_VALUE", // required
+ *   repositoryProvider: "STRING_VALUE", // required
+ *   syncType: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListRepositorySyncDefinitionsCommand(input);
  * const response = await client.send(command);
  * ```

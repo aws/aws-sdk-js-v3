@@ -42,6 +42,21 @@ export interface UpdateChannelCommandOutput extends __MetadataBearer {}
  * import { IoTAnalyticsClient, UpdateChannelCommand } from "@aws-sdk/client-iotanalytics"; // ES Modules import
  * // const { IoTAnalyticsClient, UpdateChannelCommand } = require("@aws-sdk/client-iotanalytics"); // CommonJS import
  * const client = new IoTAnalyticsClient(config);
+ * const input = {
+ *   channelName: "STRING_VALUE", // required
+ *   channelStorage: {
+ *     serviceManagedS3: {},
+ *     customerManagedS3: {
+ *       bucket: "STRING_VALUE", // required
+ *       keyPrefix: "STRING_VALUE",
+ *       roleArn: "STRING_VALUE", // required
+ *     },
+ *   },
+ *   retentionPeriod: {
+ *     unlimited: true || false,
+ *     numberOfDays: Number("int"),
+ *   },
+ * };
  * const command = new UpdateChannelCommand(input);
  * const response = await client.send(command);
  * ```

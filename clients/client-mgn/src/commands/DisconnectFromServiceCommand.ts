@@ -42,6 +42,9 @@ export interface DisconnectFromServiceCommandOutput extends SourceServer, __Meta
  * import { MgnClient, DisconnectFromServiceCommand } from "@aws-sdk/client-mgn"; // ES Modules import
  * // const { MgnClient, DisconnectFromServiceCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
  * const client = new MgnClient(config);
+ * const input = {
+ *   sourceServerID: "STRING_VALUE", // required
+ * };
  * const command = new DisconnectFromServiceCommand(input);
  * const response = await client.send(command);
  * ```

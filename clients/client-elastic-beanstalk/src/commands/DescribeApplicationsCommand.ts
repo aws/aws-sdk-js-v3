@@ -42,6 +42,11 @@ export interface DescribeApplicationsCommandOutput extends ApplicationDescriptio
  * import { ElasticBeanstalkClient, DescribeApplicationsCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
  * // const { ElasticBeanstalkClient, DescribeApplicationsCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
  * const client = new ElasticBeanstalkClient(config);
+ * const input = {
+ *   ApplicationNames: [
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DescribeApplicationsCommand(input);
  * const response = await client.send(command);
  * ```

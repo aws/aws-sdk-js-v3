@@ -46,6 +46,237 @@ export interface UpdateDataSourceCommandOutput extends UpdateDataSourceResponse,
  * import { QuickSightClient, UpdateDataSourceCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, UpdateDataSourceCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
+ * const input = {
+ *   AwsAccountId: "STRING_VALUE", // required
+ *   DataSourceId: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE", // required
+ *   DataSourceParameters: { // Union: only one key present
+ *     AmazonElasticsearchParameters: {
+ *       Domain: "STRING_VALUE", // required
+ *     },
+ *     AthenaParameters: {
+ *       WorkGroup: "STRING_VALUE",
+ *       RoleArn: "STRING_VALUE",
+ *     },
+ *     AuroraParameters: {
+ *       Host: "STRING_VALUE", // required
+ *       Port: Number("int"), // required
+ *       Database: "STRING_VALUE", // required
+ *     },
+ *     AuroraPostgreSqlParameters: {
+ *       Host: "STRING_VALUE", // required
+ *       Port: Number("int"), // required
+ *       Database: "STRING_VALUE", // required
+ *     },
+ *     AwsIotAnalyticsParameters: {
+ *       DataSetName: "STRING_VALUE", // required
+ *     },
+ *     JiraParameters: {
+ *       SiteBaseUrl: "STRING_VALUE", // required
+ *     },
+ *     MariaDbParameters: {
+ *       Host: "STRING_VALUE", // required
+ *       Port: Number("int"), // required
+ *       Database: "STRING_VALUE", // required
+ *     },
+ *     MySqlParameters: {
+ *       Host: "STRING_VALUE", // required
+ *       Port: Number("int"), // required
+ *       Database: "STRING_VALUE", // required
+ *     },
+ *     OracleParameters: {
+ *       Host: "STRING_VALUE", // required
+ *       Port: Number("int"), // required
+ *       Database: "STRING_VALUE", // required
+ *     },
+ *     PostgreSqlParameters: {
+ *       Host: "STRING_VALUE", // required
+ *       Port: Number("int"), // required
+ *       Database: "STRING_VALUE", // required
+ *     },
+ *     PrestoParameters: {
+ *       Host: "STRING_VALUE", // required
+ *       Port: Number("int"), // required
+ *       Catalog: "STRING_VALUE", // required
+ *     },
+ *     RdsParameters: {
+ *       InstanceId: "STRING_VALUE", // required
+ *       Database: "STRING_VALUE", // required
+ *     },
+ *     RedshiftParameters: {
+ *       Host: "STRING_VALUE",
+ *       Port: Number("int"),
+ *       Database: "STRING_VALUE", // required
+ *       ClusterId: "STRING_VALUE",
+ *     },
+ *     S3Parameters: {
+ *       ManifestFileLocation: {
+ *         Bucket: "STRING_VALUE", // required
+ *         Key: "STRING_VALUE", // required
+ *       },
+ *       RoleArn: "STRING_VALUE",
+ *     },
+ *     ServiceNowParameters: {
+ *       SiteBaseUrl: "STRING_VALUE", // required
+ *     },
+ *     SnowflakeParameters: {
+ *       Host: "STRING_VALUE", // required
+ *       Database: "STRING_VALUE", // required
+ *       Warehouse: "STRING_VALUE", // required
+ *     },
+ *     SparkParameters: {
+ *       Host: "STRING_VALUE", // required
+ *       Port: Number("int"), // required
+ *     },
+ *     SqlServerParameters: {
+ *       Host: "STRING_VALUE", // required
+ *       Port: Number("int"), // required
+ *       Database: "STRING_VALUE", // required
+ *     },
+ *     TeradataParameters: {
+ *       Host: "STRING_VALUE", // required
+ *       Port: Number("int"), // required
+ *       Database: "STRING_VALUE", // required
+ *     },
+ *     TwitterParameters: {
+ *       Query: "STRING_VALUE", // required
+ *       MaxRows: Number("int"), // required
+ *     },
+ *     AmazonOpenSearchParameters: {
+ *       Domain: "STRING_VALUE", // required
+ *     },
+ *     ExasolParameters: {
+ *       Host: "STRING_VALUE", // required
+ *       Port: Number("int"), // required
+ *     },
+ *     DatabricksParameters: {
+ *       Host: "STRING_VALUE", // required
+ *       Port: Number("int"), // required
+ *       SqlEndpointPath: "STRING_VALUE", // required
+ *     },
+ *   },
+ *   Credentials: {
+ *     CredentialPair: {
+ *       Username: "STRING_VALUE", // required
+ *       Password: "STRING_VALUE", // required
+ *       AlternateDataSourceParameters: [
+ *         { // Union: only one key present
+ *           AmazonElasticsearchParameters: {
+ *             Domain: "STRING_VALUE", // required
+ *           },
+ *           AthenaParameters: {
+ *             WorkGroup: "STRING_VALUE",
+ *             RoleArn: "STRING_VALUE",
+ *           },
+ *           AuroraParameters: {
+ *             Host: "STRING_VALUE", // required
+ *             Port: Number("int"), // required
+ *             Database: "STRING_VALUE", // required
+ *           },
+ *           AuroraPostgreSqlParameters: {
+ *             Host: "STRING_VALUE", // required
+ *             Port: Number("int"), // required
+ *             Database: "STRING_VALUE", // required
+ *           },
+ *           AwsIotAnalyticsParameters: {
+ *             DataSetName: "STRING_VALUE", // required
+ *           },
+ *           JiraParameters: {
+ *             SiteBaseUrl: "STRING_VALUE", // required
+ *           },
+ *           MariaDbParameters: {
+ *             Host: "STRING_VALUE", // required
+ *             Port: Number("int"), // required
+ *             Database: "STRING_VALUE", // required
+ *           },
+ *           MySqlParameters: {
+ *             Host: "STRING_VALUE", // required
+ *             Port: Number("int"), // required
+ *             Database: "STRING_VALUE", // required
+ *           },
+ *           OracleParameters: {
+ *             Host: "STRING_VALUE", // required
+ *             Port: Number("int"), // required
+ *             Database: "STRING_VALUE", // required
+ *           },
+ *           PostgreSqlParameters: {
+ *             Host: "STRING_VALUE", // required
+ *             Port: Number("int"), // required
+ *             Database: "STRING_VALUE", // required
+ *           },
+ *           PrestoParameters: {
+ *             Host: "STRING_VALUE", // required
+ *             Port: Number("int"), // required
+ *             Catalog: "STRING_VALUE", // required
+ *           },
+ *           RdsParameters: {
+ *             InstanceId: "STRING_VALUE", // required
+ *             Database: "STRING_VALUE", // required
+ *           },
+ *           RedshiftParameters: {
+ *             Host: "STRING_VALUE",
+ *             Port: Number("int"),
+ *             Database: "STRING_VALUE", // required
+ *             ClusterId: "STRING_VALUE",
+ *           },
+ *           S3Parameters: {
+ *             ManifestFileLocation: {
+ *               Bucket: "STRING_VALUE", // required
+ *               Key: "STRING_VALUE", // required
+ *             },
+ *             RoleArn: "STRING_VALUE",
+ *           },
+ *           ServiceNowParameters: {
+ *             SiteBaseUrl: "STRING_VALUE", // required
+ *           },
+ *           SnowflakeParameters: {
+ *             Host: "STRING_VALUE", // required
+ *             Database: "STRING_VALUE", // required
+ *             Warehouse: "STRING_VALUE", // required
+ *           },
+ *           SparkParameters: {
+ *             Host: "STRING_VALUE", // required
+ *             Port: Number("int"), // required
+ *           },
+ *           SqlServerParameters: {
+ *             Host: "STRING_VALUE", // required
+ *             Port: Number("int"), // required
+ *             Database: "STRING_VALUE", // required
+ *           },
+ *           TeradataParameters: {
+ *             Host: "STRING_VALUE", // required
+ *             Port: Number("int"), // required
+ *             Database: "STRING_VALUE", // required
+ *           },
+ *           TwitterParameters: {
+ *             Query: "STRING_VALUE", // required
+ *             MaxRows: Number("int"), // required
+ *           },
+ *           AmazonOpenSearchParameters: {
+ *             Domain: "STRING_VALUE", // required
+ *           },
+ *           ExasolParameters: {
+ *             Host: "STRING_VALUE", // required
+ *             Port: Number("int"), // required
+ *           },
+ *           DatabricksParameters: {
+ *             Host: "STRING_VALUE", // required
+ *             Port: Number("int"), // required
+ *             SqlEndpointPath: "STRING_VALUE", // required
+ *           },
+ *         },
+ *       ],
+ *     },
+ *     CopySourceArn: "STRING_VALUE",
+ *     SecretArn: "STRING_VALUE",
+ *   },
+ *   VpcConnectionProperties: {
+ *     VpcConnectionArn: "STRING_VALUE", // required
+ *   },
+ *   SslProperties: {
+ *     DisableSsl: true || false,
+ *   },
+ * };
  * const command = new UpdateDataSourceCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,10 @@ export interface ListInvitationsCommandOutput extends ListInvitationsResponse, _
  * import { Macie2Client, ListInvitationsCommand } from "@aws-sdk/client-macie2"; // ES Modules import
  * // const { Macie2Client, ListInvitationsCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
  * const client = new Macie2Client(config);
+ * const input = {
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListInvitationsCommand(input);
  * const response = await client.send(command);
  * ```

@@ -48,6 +48,18 @@ export interface CreateQualificationTypeCommandOutput extends CreateQualificatio
  * import { MTurkClient, CreateQualificationTypeCommand } from "@aws-sdk/client-mturk"; // ES Modules import
  * // const { MTurkClient, CreateQualificationTypeCommand } = require("@aws-sdk/client-mturk"); // CommonJS import
  * const client = new MTurkClient(config);
+ * const input = {
+ *   Name: "STRING_VALUE", // required
+ *   Keywords: "STRING_VALUE",
+ *   Description: "STRING_VALUE", // required
+ *   QualificationTypeStatus: "STRING_VALUE", // required
+ *   RetryDelayInSeconds: Number("long"),
+ *   Test: "STRING_VALUE",
+ *   AnswerKey: "STRING_VALUE",
+ *   TestDurationInSeconds: Number("long"),
+ *   AutoGranted: true || false,
+ *   AutoGrantedValue: Number("int"),
+ * };
  * const command = new CreateQualificationTypeCommand(input);
  * const response = await client.send(command);
  * ```

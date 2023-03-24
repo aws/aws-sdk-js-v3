@@ -44,6 +44,10 @@ export interface AssociateSkillWithSkillGroupCommandOutput
  * import { AlexaForBusinessClient, AssociateSkillWithSkillGroupCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, AssociateSkillWithSkillGroupCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
+ * const input = {
+ *   SkillGroupArn: "STRING_VALUE",
+ *   SkillId: "STRING_VALUE", // required
+ * };
  * const command = new AssociateSkillWithSkillGroupCommand(input);
  * const response = await client.send(command);
  * ```

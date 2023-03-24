@@ -43,6 +43,16 @@ export interface CreateAgentStatusCommandOutput extends CreateAgentStatusRespons
  * import { ConnectClient, CreateAgentStatusCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, CreateAgentStatusCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = {
+ *   InstanceId: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   State: "ENABLED" || "DISABLED", // required
+ *   DisplayOrder: Number("int"),
+ *   Tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateAgentStatusCommand(input);
  * const response = await client.send(command);
  * ```

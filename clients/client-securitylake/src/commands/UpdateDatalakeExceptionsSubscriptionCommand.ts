@@ -48,6 +48,10 @@ export interface UpdateDatalakeExceptionsSubscriptionCommandOutput
  * import { SecurityLakeClient, UpdateDatalakeExceptionsSubscriptionCommand } from "@aws-sdk/client-securitylake"; // ES Modules import
  * // const { SecurityLakeClient, UpdateDatalakeExceptionsSubscriptionCommand } = require("@aws-sdk/client-securitylake"); // CommonJS import
  * const client = new SecurityLakeClient(config);
+ * const input = {
+ *   subscriptionProtocol: "STRING_VALUE", // required
+ *   notificationEndpoint: "STRING_VALUE", // required
+ * };
  * const command = new UpdateDatalakeExceptionsSubscriptionCommand(input);
  * const response = await client.send(command);
  * ```

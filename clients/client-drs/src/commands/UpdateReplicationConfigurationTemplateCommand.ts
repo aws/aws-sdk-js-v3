@@ -50,6 +50,35 @@ export interface UpdateReplicationConfigurationTemplateCommandOutput
  * import { DrsClient, UpdateReplicationConfigurationTemplateCommand } from "@aws-sdk/client-drs"; // ES Modules import
  * // const { DrsClient, UpdateReplicationConfigurationTemplateCommand } = require("@aws-sdk/client-drs"); // CommonJS import
  * const client = new DrsClient(config);
+ * const input = {
+ *   replicationConfigurationTemplateID: "STRING_VALUE", // required
+ *   arn: "STRING_VALUE",
+ *   stagingAreaSubnetId: "STRING_VALUE",
+ *   associateDefaultSecurityGroup: true || false,
+ *   replicationServersSecurityGroupsIDs: [
+ *     "STRING_VALUE",
+ *   ],
+ *   replicationServerInstanceType: "STRING_VALUE",
+ *   useDedicatedReplicationServer: true || false,
+ *   defaultLargeStagingDiskType: "STRING_VALUE",
+ *   ebsEncryption: "STRING_VALUE",
+ *   ebsEncryptionKeyArn: "STRING_VALUE",
+ *   bandwidthThrottling: Number("long"),
+ *   dataPlaneRouting: "STRING_VALUE",
+ *   createPublicIP: true || false,
+ *   stagingAreaTags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   pitPolicy: [
+ *     {
+ *       ruleID: Number("long"),
+ *       units: "STRING_VALUE", // required
+ *       interval: Number("int"), // required
+ *       retentionDuration: Number("int"), // required
+ *       enabled: true || false,
+ *     },
+ *   ],
+ * };
  * const command = new UpdateReplicationConfigurationTemplateCommand(input);
  * const response = await client.send(command);
  * ```

@@ -71,6 +71,58 @@ export interface PutPolicyCommandOutput extends PutPolicyResponse, __MetadataBea
  * import { FMSClient, PutPolicyCommand } from "@aws-sdk/client-fms"; // ES Modules import
  * // const { FMSClient, PutPolicyCommand } = require("@aws-sdk/client-fms"); // CommonJS import
  * const client = new FMSClient(config);
+ * const input = {
+ *   Policy: {
+ *     PolicyId: "STRING_VALUE",
+ *     PolicyName: "STRING_VALUE", // required
+ *     PolicyUpdateToken: "STRING_VALUE",
+ *     SecurityServicePolicyData: {
+ *       Type: "WAF" || "WAFV2" || "SHIELD_ADVANCED" || "SECURITY_GROUPS_COMMON" || "SECURITY_GROUPS_CONTENT_AUDIT" || "SECURITY_GROUPS_USAGE_AUDIT" || "NETWORK_FIREWALL" || "DNS_FIREWALL" || "THIRD_PARTY_FIREWALL" || "IMPORT_NETWORK_FIREWALL", // required
+ *       ManagedServiceData: "STRING_VALUE",
+ *       PolicyOption: {
+ *         NetworkFirewallPolicy: {
+ *           FirewallDeploymentModel: "CENTRALIZED" || "DISTRIBUTED",
+ *         },
+ *         ThirdPartyFirewallPolicy: {
+ *           FirewallDeploymentModel: "CENTRALIZED" || "DISTRIBUTED",
+ *         },
+ *       },
+ *     },
+ *     ResourceType: "STRING_VALUE", // required
+ *     ResourceTypeList: [
+ *       "STRING_VALUE",
+ *     ],
+ *     ResourceTags: [
+ *       {
+ *         Key: "STRING_VALUE", // required
+ *         Value: "STRING_VALUE",
+ *       },
+ *     ],
+ *     ExcludeResourceTags: true || false, // required
+ *     RemediationEnabled: true || false, // required
+ *     DeleteUnusedFMManagedResources: true || false,
+ *     IncludeMap: {
+ *       "<keys>": [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *     ExcludeMap: {
+ *       "<keys>": [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *     ResourceSetIds: [
+ *       "STRING_VALUE",
+ *     ],
+ *     PolicyDescription: "STRING_VALUE",
+ *   },
+ *   TagList: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new PutPolicyCommand(input);
  * const response = await client.send(command);
  * ```

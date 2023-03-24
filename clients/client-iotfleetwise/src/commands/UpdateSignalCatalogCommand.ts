@@ -42,6 +42,101 @@ export interface UpdateSignalCatalogCommandOutput extends UpdateSignalCatalogRes
  * import { IoTFleetWiseClient, UpdateSignalCatalogCommand } from "@aws-sdk/client-iotfleetwise"; // ES Modules import
  * // const { IoTFleetWiseClient, UpdateSignalCatalogCommand } = require("@aws-sdk/client-iotfleetwise"); // CommonJS import
  * const client = new IoTFleetWiseClient(config);
+ * const input = {
+ *   name: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   nodesToAdd: [
+ *     { // Union: only one key present
+ *       branch: {
+ *         fullyQualifiedName: "STRING_VALUE", // required
+ *         description: "STRING_VALUE",
+ *       },
+ *       sensor: {
+ *         fullyQualifiedName: "STRING_VALUE", // required
+ *         dataType: "STRING_VALUE", // required
+ *         description: "STRING_VALUE",
+ *         unit: "STRING_VALUE",
+ *         allowedValues: [
+ *           "STRING_VALUE",
+ *         ],
+ *         min: Number("double"),
+ *         max: Number("double"),
+ *       },
+ *       actuator: {
+ *         fullyQualifiedName: "STRING_VALUE", // required
+ *         dataType: "STRING_VALUE", // required
+ *         description: "STRING_VALUE",
+ *         unit: "STRING_VALUE",
+ *         allowedValues: [
+ *           "STRING_VALUE",
+ *         ],
+ *         min: Number("double"),
+ *         max: Number("double"),
+ *         assignedValue: "STRING_VALUE",
+ *       },
+ *       attribute: {
+ *         fullyQualifiedName: "STRING_VALUE", // required
+ *         dataType: "STRING_VALUE", // required
+ *         description: "STRING_VALUE",
+ *         unit: "STRING_VALUE",
+ *         allowedValues: [
+ *           "STRING_VALUE",
+ *         ],
+ *         min: Number("double"),
+ *         max: Number("double"),
+ *         assignedValue: "STRING_VALUE",
+ *         defaultValue: "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ *   nodesToUpdate: [
+ *     { // Union: only one key present
+ *       branch: {
+ *         fullyQualifiedName: "STRING_VALUE", // required
+ *         description: "STRING_VALUE",
+ *       },
+ *       sensor: {
+ *         fullyQualifiedName: "STRING_VALUE", // required
+ *         dataType: "STRING_VALUE", // required
+ *         description: "STRING_VALUE",
+ *         unit: "STRING_VALUE",
+ *         allowedValues: [
+ *           "STRING_VALUE",
+ *         ],
+ *         min: Number("double"),
+ *         max: Number("double"),
+ *       },
+ *       actuator: {
+ *         fullyQualifiedName: "STRING_VALUE", // required
+ *         dataType: "STRING_VALUE", // required
+ *         description: "STRING_VALUE",
+ *         unit: "STRING_VALUE",
+ *         allowedValues: [
+ *           "STRING_VALUE",
+ *         ],
+ *         min: Number("double"),
+ *         max: Number("double"),
+ *         assignedValue: "STRING_VALUE",
+ *       },
+ *       attribute: {
+ *         fullyQualifiedName: "STRING_VALUE", // required
+ *         dataType: "STRING_VALUE", // required
+ *         description: "STRING_VALUE",
+ *         unit: "STRING_VALUE",
+ *         allowedValues: [
+ *           "STRING_VALUE",
+ *         ],
+ *         min: Number("double"),
+ *         max: Number("double"),
+ *         assignedValue: "STRING_VALUE",
+ *         defaultValue: "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ *   nodesToRemove: [
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new UpdateSignalCatalogCommand(input);
  * const response = await client.send(command);
  * ```

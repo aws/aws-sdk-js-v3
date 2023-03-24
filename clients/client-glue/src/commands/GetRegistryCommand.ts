@@ -42,6 +42,12 @@ export interface GetRegistryCommandOutput extends GetRegistryResponse, __Metadat
  * import { GlueClient, GetRegistryCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, GetRegistryCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = {
+ *   RegistryId: {
+ *     RegistryName: "STRING_VALUE",
+ *     RegistryArn: "STRING_VALUE",
+ *   },
+ * };
  * const command = new GetRegistryCommand(input);
  * const response = await client.send(command);
  * ```

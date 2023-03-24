@@ -49,6 +49,46 @@ export interface SearchOrganizationInsightsCommandOutput extends SearchOrganizat
  * import { DevOpsGuruClient, SearchOrganizationInsightsCommand } from "@aws-sdk/client-devops-guru"; // ES Modules import
  * // const { DevOpsGuruClient, SearchOrganizationInsightsCommand } = require("@aws-sdk/client-devops-guru"); // CommonJS import
  * const client = new DevOpsGuruClient(config);
+ * const input = {
+ *   AccountIds: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ *   StartTimeRange: {
+ *     FromTime: new Date("TIMESTAMP"),
+ *     ToTime: new Date("TIMESTAMP"),
+ *   },
+ *   Filters: {
+ *     Severities: [
+ *       "LOW" || "MEDIUM" || "HIGH",
+ *     ],
+ *     Statuses: [
+ *       "ONGOING" || "CLOSED",
+ *     ],
+ *     ResourceCollection: {
+ *       CloudFormation: {
+ *         StackNames: [
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *       Tags: [
+ *         {
+ *           AppBoundaryKey: "STRING_VALUE", // required
+ *           TagValues: [ // required
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       ],
+ *     },
+ *     ServiceCollection: {
+ *       ServiceNames: [
+ *         "API_GATEWAY" || "APPLICATION_ELB" || "AUTO_SCALING_GROUP" || "CLOUD_FRONT" || "DYNAMO_DB" || "EC2" || "ECS" || "EKS" || "ELASTIC_BEANSTALK" || "ELASTI_CACHE" || "ELB" || "ES" || "KINESIS" || "LAMBDA" || "NAT_GATEWAY" || "NETWORK_ELB" || "RDS" || "REDSHIFT" || "ROUTE_53" || "S3" || "SAGE_MAKER" || "SNS" || "SQS" || "STEP_FUNCTIONS" || "SWF",
+ *       ],
+ *     },
+ *   },
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   Type: "REACTIVE" || "PROACTIVE", // required
+ * };
  * const command = new SearchOrganizationInsightsCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,12 @@ export interface BatchGetWorkflowsCommandOutput extends BatchGetWorkflowsRespons
  * import { GlueClient, BatchGetWorkflowsCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, BatchGetWorkflowsCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = {
+ *   Names: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ *   IncludeGraph: true || false,
+ * };
  * const command = new BatchGetWorkflowsCommand(input);
  * const response = await client.send(command);
  * ```

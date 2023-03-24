@@ -42,6 +42,42 @@ export interface UpdateRelatedItemsCommandOutput extends UpdateRelatedItemsOutpu
  * import { SSMIncidentsClient, UpdateRelatedItemsCommand } from "@aws-sdk/client-ssm-incidents"; // ES Modules import
  * // const { SSMIncidentsClient, UpdateRelatedItemsCommand } = require("@aws-sdk/client-ssm-incidents"); // CommonJS import
  * const client = new SSMIncidentsClient(config);
+ * const input = {
+ *   clientToken: "STRING_VALUE",
+ *   incidentRecordArn: "STRING_VALUE", // required
+ *   relatedItemsUpdate: { // Union: only one key present
+ *     itemToAdd: {
+ *       identifier: {
+ *         value: { // Union: only one key present
+ *           arn: "STRING_VALUE",
+ *           url: "STRING_VALUE",
+ *           metricDefinition: "STRING_VALUE",
+ *           pagerDutyIncidentDetail: {
+ *             id: "STRING_VALUE", // required
+ *             autoResolve: true || false,
+ *             secretId: "STRING_VALUE",
+ *           },
+ *         },
+ *         type: "STRING_VALUE", // required
+ *       },
+ *       title: "STRING_VALUE",
+ *       generatedId: "STRING_VALUE",
+ *     },
+ *     itemToRemove: {
+ *       value: { // Union: only one key present
+ *         arn: "STRING_VALUE",
+ *         url: "STRING_VALUE",
+ *         metricDefinition: "STRING_VALUE",
+ *         pagerDutyIncidentDetail: {
+ *           id: "STRING_VALUE", // required
+ *           autoResolve: true || false,
+ *           secretId: "STRING_VALUE",
+ *         },
+ *       },
+ *       type: "STRING_VALUE", // required
+ *     },
+ *   },
+ * };
  * const command = new UpdateRelatedItemsCommand(input);
  * const response = await client.send(command);
  * ```

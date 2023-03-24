@@ -50,6 +50,300 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  * import { ElasticTranscoderClient, CreateJobCommand } from "@aws-sdk/client-elastic-transcoder"; // ES Modules import
  * // const { ElasticTranscoderClient, CreateJobCommand } = require("@aws-sdk/client-elastic-transcoder"); // CommonJS import
  * const client = new ElasticTranscoderClient(config);
+ * const input = {
+ *   PipelineId: "STRING_VALUE", // required
+ *   Input: {
+ *     Key: "STRING_VALUE",
+ *     FrameRate: "STRING_VALUE",
+ *     Resolution: "STRING_VALUE",
+ *     AspectRatio: "STRING_VALUE",
+ *     Interlaced: "STRING_VALUE",
+ *     Container: "STRING_VALUE",
+ *     Encryption: {
+ *       Mode: "STRING_VALUE",
+ *       Key: "STRING_VALUE",
+ *       KeyMd5: "STRING_VALUE",
+ *       InitializationVector: "STRING_VALUE",
+ *     },
+ *     TimeSpan: {
+ *       StartTime: "STRING_VALUE",
+ *       Duration: "STRING_VALUE",
+ *     },
+ *     InputCaptions: {
+ *       MergePolicy: "STRING_VALUE",
+ *       CaptionSources: [
+ *         {
+ *           Key: "STRING_VALUE",
+ *           Language: "STRING_VALUE",
+ *           TimeOffset: "STRING_VALUE",
+ *           Label: "STRING_VALUE",
+ *           Encryption: {
+ *             Mode: "STRING_VALUE",
+ *             Key: "STRING_VALUE",
+ *             KeyMd5: "STRING_VALUE",
+ *             InitializationVector: "STRING_VALUE",
+ *           },
+ *         },
+ *       ],
+ *     },
+ *     DetectedProperties: {
+ *       Width: Number("int"),
+ *       Height: Number("int"),
+ *       FrameRate: "STRING_VALUE",
+ *       FileSize: Number("long"),
+ *       DurationMillis: Number("long"),
+ *     },
+ *   },
+ *   Inputs: [
+ *     {
+ *       Key: "STRING_VALUE",
+ *       FrameRate: "STRING_VALUE",
+ *       Resolution: "STRING_VALUE",
+ *       AspectRatio: "STRING_VALUE",
+ *       Interlaced: "STRING_VALUE",
+ *       Container: "STRING_VALUE",
+ *       Encryption: {
+ *         Mode: "<Encryption>",
+ *         Key: "<Encryption>",
+ *         KeyMd5: "<Encryption>",
+ *         InitializationVector: "<Encryption>",
+ *       },
+ *       TimeSpan: {
+ *         StartTime: "STRING_VALUE",
+ *         Duration: "STRING_VALUE",
+ *       },
+ *       InputCaptions: {
+ *         MergePolicy: "STRING_VALUE",
+ *         CaptionSources: [
+ *           {
+ *             Key: "STRING_VALUE",
+ *             Language: "STRING_VALUE",
+ *             TimeOffset: "STRING_VALUE",
+ *             Label: "STRING_VALUE",
+ *             Encryption: {
+ *               Mode: "<Encryption>",
+ *               Key: "<Encryption>",
+ *               KeyMd5: "<Encryption>",
+ *               InitializationVector: "<Encryption>",
+ *             },
+ *           },
+ *         ],
+ *       },
+ *       DetectedProperties: {
+ *         Width: Number("int"),
+ *         Height: Number("int"),
+ *         FrameRate: "STRING_VALUE",
+ *         FileSize: Number("long"),
+ *         DurationMillis: Number("long"),
+ *       },
+ *     },
+ *   ],
+ *   Output: {
+ *     Key: "STRING_VALUE",
+ *     ThumbnailPattern: "STRING_VALUE",
+ *     ThumbnailEncryption: {
+ *       Mode: "<Encryption>",
+ *       Key: "<Encryption>",
+ *       KeyMd5: "<Encryption>",
+ *       InitializationVector: "<Encryption>",
+ *     },
+ *     Rotate: "STRING_VALUE",
+ *     PresetId: "STRING_VALUE",
+ *     SegmentDuration: "STRING_VALUE",
+ *     Watermarks: [
+ *       {
+ *         PresetWatermarkId: "STRING_VALUE",
+ *         InputKey: "STRING_VALUE",
+ *         Encryption: {
+ *           Mode: "<Encryption>",
+ *           Key: "<Encryption>",
+ *           KeyMd5: "<Encryption>",
+ *           InitializationVector: "<Encryption>",
+ *         },
+ *       },
+ *     ],
+ *     AlbumArt: {
+ *       MergePolicy: "STRING_VALUE",
+ *       Artwork: [
+ *         {
+ *           InputKey: "STRING_VALUE",
+ *           MaxWidth: "STRING_VALUE",
+ *           MaxHeight: "STRING_VALUE",
+ *           SizingPolicy: "STRING_VALUE",
+ *           PaddingPolicy: "STRING_VALUE",
+ *           AlbumArtFormat: "STRING_VALUE",
+ *           Encryption: {
+ *             Mode: "<Encryption>",
+ *             Key: "<Encryption>",
+ *             KeyMd5: "<Encryption>",
+ *             InitializationVector: "<Encryption>",
+ *           },
+ *         },
+ *       ],
+ *     },
+ *     Composition: [
+ *       {
+ *         TimeSpan: {
+ *           StartTime: "<TimeSpan>",
+ *           Duration: "<TimeSpan>",
+ *         },
+ *       },
+ *     ],
+ *     Captions: {
+ *       MergePolicy: "STRING_VALUE",
+ *       CaptionSources: [
+ *         {
+ *           Key: "STRING_VALUE",
+ *           Language: "STRING_VALUE",
+ *           TimeOffset: "STRING_VALUE",
+ *           Label: "STRING_VALUE",
+ *           Encryption: {
+ *             Mode: "<Encryption>",
+ *             Key: "<Encryption>",
+ *             KeyMd5: "<Encryption>",
+ *             InitializationVector: "<Encryption>",
+ *           },
+ *         },
+ *       ],
+ *       CaptionFormats: [
+ *         {
+ *           Format: "STRING_VALUE",
+ *           Pattern: "STRING_VALUE",
+ *           Encryption: {
+ *             Mode: "<Encryption>",
+ *             Key: "<Encryption>",
+ *             KeyMd5: "<Encryption>",
+ *             InitializationVector: "<Encryption>",
+ *           },
+ *         },
+ *       ],
+ *     },
+ *     Encryption: {
+ *       Mode: "<Encryption>",
+ *       Key: "<Encryption>",
+ *       KeyMd5: "<Encryption>",
+ *       InitializationVector: "<Encryption>",
+ *     },
+ *   },
+ *   Outputs: [
+ *     {
+ *       Key: "STRING_VALUE",
+ *       ThumbnailPattern: "STRING_VALUE",
+ *       ThumbnailEncryption: {
+ *         Mode: "<Encryption>",
+ *         Key: "<Encryption>",
+ *         KeyMd5: "<Encryption>",
+ *         InitializationVector: "<Encryption>",
+ *       },
+ *       Rotate: "STRING_VALUE",
+ *       PresetId: "STRING_VALUE",
+ *       SegmentDuration: "STRING_VALUE",
+ *       Watermarks: [
+ *         {
+ *           PresetWatermarkId: "STRING_VALUE",
+ *           InputKey: "STRING_VALUE",
+ *           Encryption: {
+ *             Mode: "<Encryption>",
+ *             Key: "<Encryption>",
+ *             KeyMd5: "<Encryption>",
+ *             InitializationVector: "<Encryption>",
+ *           },
+ *         },
+ *       ],
+ *       AlbumArt: {
+ *         MergePolicy: "STRING_VALUE",
+ *         Artwork: [
+ *           {
+ *             InputKey: "STRING_VALUE",
+ *             MaxWidth: "STRING_VALUE",
+ *             MaxHeight: "STRING_VALUE",
+ *             SizingPolicy: "STRING_VALUE",
+ *             PaddingPolicy: "STRING_VALUE",
+ *             AlbumArtFormat: "STRING_VALUE",
+ *             Encryption: {
+ *               Mode: "<Encryption>",
+ *               Key: "<Encryption>",
+ *               KeyMd5: "<Encryption>",
+ *               InitializationVector: "<Encryption>",
+ *             },
+ *           },
+ *         ],
+ *       },
+ *       Composition: [
+ *         {
+ *           TimeSpan: {
+ *             StartTime: "<TimeSpan>",
+ *             Duration: "<TimeSpan>",
+ *           },
+ *         },
+ *       ],
+ *       Captions: {
+ *         MergePolicy: "STRING_VALUE",
+ *         CaptionSources: [
+ *           {
+ *             Key: "STRING_VALUE",
+ *             Language: "STRING_VALUE",
+ *             TimeOffset: "STRING_VALUE",
+ *             Label: "STRING_VALUE",
+ *             Encryption: {
+ *               Mode: "<Encryption>",
+ *               Key: "<Encryption>",
+ *               KeyMd5: "<Encryption>",
+ *               InitializationVector: "<Encryption>",
+ *             },
+ *           },
+ *         ],
+ *         CaptionFormats: [
+ *           {
+ *             Format: "STRING_VALUE",
+ *             Pattern: "STRING_VALUE",
+ *             Encryption: {
+ *               Mode: "<Encryption>",
+ *               Key: "<Encryption>",
+ *               KeyMd5: "<Encryption>",
+ *               InitializationVector: "<Encryption>",
+ *             },
+ *           },
+ *         ],
+ *       },
+ *       Encryption: {
+ *         Mode: "<Encryption>",
+ *         Key: "<Encryption>",
+ *         KeyMd5: "<Encryption>",
+ *         InitializationVector: "<Encryption>",
+ *       },
+ *     },
+ *   ],
+ *   OutputKeyPrefix: "STRING_VALUE",
+ *   Playlists: [
+ *     {
+ *       Name: "STRING_VALUE",
+ *       Format: "STRING_VALUE",
+ *       OutputKeys: [
+ *         "STRING_VALUE",
+ *       ],
+ *       HlsContentProtection: {
+ *         Method: "STRING_VALUE",
+ *         Key: "STRING_VALUE",
+ *         KeyMd5: "STRING_VALUE",
+ *         InitializationVector: "STRING_VALUE",
+ *         LicenseAcquisitionUrl: "STRING_VALUE",
+ *         KeyStoragePolicy: "STRING_VALUE",
+ *       },
+ *       PlayReadyDrm: {
+ *         Format: "STRING_VALUE",
+ *         Key: "STRING_VALUE",
+ *         KeyMd5: "STRING_VALUE",
+ *         KeyId: "STRING_VALUE",
+ *         InitializationVector: "STRING_VALUE",
+ *         LicenseAcquisitionUrl: "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ *   UserMetadata: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateJobCommand(input);
  * const response = await client.send(command);
  * ```

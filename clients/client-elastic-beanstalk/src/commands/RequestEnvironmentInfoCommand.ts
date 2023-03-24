@@ -57,6 +57,11 @@ export interface RequestEnvironmentInfoCommandOutput extends __MetadataBearer {}
  * import { ElasticBeanstalkClient, RequestEnvironmentInfoCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
  * // const { ElasticBeanstalkClient, RequestEnvironmentInfoCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
  * const client = new ElasticBeanstalkClient(config);
+ * const input = {
+ *   EnvironmentId: "STRING_VALUE",
+ *   EnvironmentName: "STRING_VALUE",
+ *   InfoType: "tail" || "bundle", // required
+ * };
  * const command = new RequestEnvironmentInfoCommand(input);
  * const response = await client.send(command);
  * ```

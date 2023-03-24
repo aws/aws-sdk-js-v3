@@ -42,6 +42,11 @@ export interface ListExportErrorsCommandOutput extends ListExportErrorsResponse,
  * import { MgnClient, ListExportErrorsCommand } from "@aws-sdk/client-mgn"; // ES Modules import
  * // const { MgnClient, ListExportErrorsCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
  * const client = new MgnClient(config);
+ * const input = {
+ *   exportID: "STRING_VALUE", // required
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListExportErrorsCommand(input);
  * const response = await client.send(command);
  * ```

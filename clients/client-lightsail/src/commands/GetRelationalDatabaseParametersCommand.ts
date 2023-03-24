@@ -48,6 +48,10 @@ export interface GetRelationalDatabaseParametersCommandOutput
  * import { LightsailClient, GetRelationalDatabaseParametersCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, GetRelationalDatabaseParametersCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = {
+ *   relationalDatabaseName: "STRING_VALUE", // required
+ *   pageToken: "STRING_VALUE",
+ * };
  * const command = new GetRelationalDatabaseParametersCommand(input);
  * const response = await client.send(command);
  * ```

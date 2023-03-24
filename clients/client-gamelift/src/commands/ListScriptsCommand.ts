@@ -55,6 +55,10 @@ export interface ListScriptsCommandOutput extends ListScriptsOutput, __MetadataB
  * import { GameLiftClient, ListScriptsCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, ListScriptsCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = {
+ *   Limit: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListScriptsCommand(input);
  * const response = await client.send(command);
  * ```

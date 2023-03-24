@@ -45,6 +45,9 @@ export interface ListSecurityConfigurationsCommandOutput extends ListSecurityCon
  * import { EMRClient, ListSecurityConfigurationsCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, ListSecurityConfigurationsCommand } = require("@aws-sdk/client-emr"); // CommonJS import
  * const client = new EMRClient(config);
+ * const input = {
+ *   Marker: "STRING_VALUE",
+ * };
  * const command = new ListSecurityConfigurationsCommand(input);
  * const response = await client.send(command);
  * ```

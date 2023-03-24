@@ -43,6 +43,18 @@ export interface UpdateLocationNfsCommandOutput extends UpdateLocationNfsRespons
  * import { DataSyncClient, UpdateLocationNfsCommand } from "@aws-sdk/client-datasync"; // ES Modules import
  * // const { DataSyncClient, UpdateLocationNfsCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
  * const client = new DataSyncClient(config);
+ * const input = {
+ *   LocationArn: "STRING_VALUE", // required
+ *   Subdirectory: "STRING_VALUE",
+ *   OnPremConfig: {
+ *     AgentArns: [ // required
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   MountOptions: {
+ *     Version: "AUTOMATIC" || "NFS3" || "NFS4_0" || "NFS4_1",
+ *   },
+ * };
  * const command = new UpdateLocationNfsCommand(input);
  * const response = await client.send(command);
  * ```

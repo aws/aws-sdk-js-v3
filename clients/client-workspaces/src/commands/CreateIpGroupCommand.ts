@@ -50,6 +50,22 @@ export interface CreateIpGroupCommandOutput extends CreateIpGroupResult, __Metad
  * import { WorkSpacesClient, CreateIpGroupCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, CreateIpGroupCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
  * const client = new WorkSpacesClient(config);
+ * const input = {
+ *   GroupName: "STRING_VALUE", // required
+ *   GroupDesc: "STRING_VALUE",
+ *   UserRules: [
+ *     {
+ *       ipRule: "STRING_VALUE",
+ *       ruleDesc: "STRING_VALUE",
+ *     },
+ *   ],
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateIpGroupCommand(input);
  * const response = await client.send(command);
  * ```

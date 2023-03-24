@@ -48,6 +48,20 @@ export interface CreateCodeRepositoryCommandOutput extends CreateCodeRepositoryO
  * import { SageMakerClient, CreateCodeRepositoryCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, CreateCodeRepositoryCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = {
+ *   CodeRepositoryName: "STRING_VALUE", // required
+ *   GitConfig: {
+ *     RepositoryUrl: "STRING_VALUE", // required
+ *     Branch: "STRING_VALUE",
+ *     SecretArn: "STRING_VALUE",
+ *   },
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateCodeRepositoryCommand(input);
  * const response = await client.send(command);
  * ```

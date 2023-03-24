@@ -45,6 +45,68 @@ export interface CreateCacheClusterCommandOutput extends CreateCacheClusterResul
  * import { ElastiCacheClient, CreateCacheClusterCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, CreateCacheClusterCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
  * const client = new ElastiCacheClient(config);
+ * const input = {
+ *   CacheClusterId: "STRING_VALUE", // required
+ *   ReplicationGroupId: "STRING_VALUE",
+ *   AZMode: "single-az" || "cross-az",
+ *   PreferredAvailabilityZone: "STRING_VALUE",
+ *   PreferredAvailabilityZones: [
+ *     "STRING_VALUE",
+ *   ],
+ *   NumCacheNodes: Number("int"),
+ *   CacheNodeType: "STRING_VALUE",
+ *   Engine: "STRING_VALUE",
+ *   EngineVersion: "STRING_VALUE",
+ *   CacheParameterGroupName: "STRING_VALUE",
+ *   CacheSubnetGroupName: "STRING_VALUE",
+ *   CacheSecurityGroupNames: [
+ *     "STRING_VALUE",
+ *   ],
+ *   SecurityGroupIds: [
+ *     "STRING_VALUE",
+ *   ],
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   SnapshotArns: [
+ *     "STRING_VALUE",
+ *   ],
+ *   SnapshotName: "STRING_VALUE",
+ *   PreferredMaintenanceWindow: "STRING_VALUE",
+ *   Port: Number("int"),
+ *   NotificationTopicArn: "STRING_VALUE",
+ *   AutoMinorVersionUpgrade: true || false,
+ *   SnapshotRetentionLimit: Number("int"),
+ *   SnapshotWindow: "STRING_VALUE",
+ *   AuthToken: "STRING_VALUE",
+ *   OutpostMode: "single-outpost" || "cross-outpost",
+ *   PreferredOutpostArn: "STRING_VALUE",
+ *   PreferredOutpostArns: [
+ *     "STRING_VALUE",
+ *   ],
+ *   LogDeliveryConfigurations: [
+ *     {
+ *       LogType: "slow-log" || "engine-log",
+ *       DestinationType: "cloudwatch-logs" || "kinesis-firehose",
+ *       DestinationDetails: {
+ *         CloudWatchLogsDetails: {
+ *           LogGroup: "STRING_VALUE",
+ *         },
+ *         KinesisFirehoseDetails: {
+ *           DeliveryStream: "STRING_VALUE",
+ *         },
+ *       },
+ *       LogFormat: "text" || "json",
+ *       Enabled: true || false,
+ *     },
+ *   ],
+ *   TransitEncryptionEnabled: true || false,
+ *   NetworkType: "ipv4" || "ipv6" || "dual_stack",
+ *   IpDiscovery: "ipv4" || "ipv6",
+ * };
  * const command = new CreateCacheClusterCommand(input);
  * const response = await client.send(command);
  * ```

@@ -49,6 +49,11 @@ export interface BatchGetRepositoriesCommandOutput extends BatchGetRepositoriesO
  * import { CodeCommitClient, BatchGetRepositoriesCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, BatchGetRepositoriesCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
  * const client = new CodeCommitClient(config);
+ * const input = {
+ *   repositoryNames: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new BatchGetRepositoriesCommand(input);
  * const response = await client.send(command);
  * ```

@@ -43,6 +43,10 @@ export interface ListProvisioningTemplatesCommandOutput extends ListProvisioning
  * import { IoTClient, ListProvisioningTemplatesCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, ListProvisioningTemplatesCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = {
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListProvisioningTemplatesCommand(input);
  * const response = await client.send(command);
  * ```

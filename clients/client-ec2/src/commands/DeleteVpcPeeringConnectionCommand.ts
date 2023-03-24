@@ -46,6 +46,10 @@ export interface DeleteVpcPeeringConnectionCommandOutput extends DeleteVpcPeerin
  * import { EC2Client, DeleteVpcPeeringConnectionCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DeleteVpcPeeringConnectionCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   DryRun: true || false,
+ *   VpcPeeringConnectionId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteVpcPeeringConnectionCommand(input);
  * const response = await client.send(command);
  * ```

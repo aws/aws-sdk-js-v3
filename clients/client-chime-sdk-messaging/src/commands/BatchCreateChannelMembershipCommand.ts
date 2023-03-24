@@ -52,6 +52,15 @@ export interface BatchCreateChannelMembershipCommandOutput
  * import { ChimeSDKMessagingClient, BatchCreateChannelMembershipCommand } from "@aws-sdk/client-chime-sdk-messaging"; // ES Modules import
  * // const { ChimeSDKMessagingClient, BatchCreateChannelMembershipCommand } = require("@aws-sdk/client-chime-sdk-messaging"); // CommonJS import
  * const client = new ChimeSDKMessagingClient(config);
+ * const input = {
+ *   ChannelArn: "STRING_VALUE", // required
+ *   Type: "DEFAULT" || "HIDDEN",
+ *   MemberArns: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ *   ChimeBearer: "STRING_VALUE", // required
+ *   SubChannelId: "STRING_VALUE",
+ * };
  * const command = new BatchCreateChannelMembershipCommand(input);
  * const response = await client.send(command);
  * ```

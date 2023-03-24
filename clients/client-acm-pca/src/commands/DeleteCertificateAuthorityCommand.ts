@@ -61,6 +61,10 @@ export interface DeleteCertificateAuthorityCommandOutput extends __MetadataBeare
  * import { ACMPCAClient, DeleteCertificateAuthorityCommand } from "@aws-sdk/client-acm-pca"; // ES Modules import
  * // const { ACMPCAClient, DeleteCertificateAuthorityCommand } = require("@aws-sdk/client-acm-pca"); // CommonJS import
  * const client = new ACMPCAClient(config);
+ * const input = {
+ *   CertificateAuthorityArn: "STRING_VALUE", // required
+ *   PermanentDeletionTimeInDays: Number("int"),
+ * };
  * const command = new DeleteCertificateAuthorityCommand(input);
  * const response = await client.send(command);
  * ```

@@ -54,6 +54,745 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceResponse,
  * import { KendraClient, CreateDataSourceCommand } from "@aws-sdk/client-kendra"; // ES Modules import
  * // const { KendraClient, CreateDataSourceCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
  * const client = new KendraClient(config);
+ * const input = {
+ *   Name: "STRING_VALUE", // required
+ *   IndexId: "STRING_VALUE", // required
+ *   Type: "S3" || "SHAREPOINT" || "DATABASE" || "SALESFORCE" || "ONEDRIVE" || "SERVICENOW" || "CUSTOM" || "CONFLUENCE" || "GOOGLEDRIVE" || "WEBCRAWLER" || "WORKDOCS" || "FSX" || "SLACK" || "BOX" || "QUIP" || "JIRA" || "GITHUB" || "ALFRESCO" || "TEMPLATE", // required
+ *   Configuration: {
+ *     S3Configuration: {
+ *       BucketName: "STRING_VALUE", // required
+ *       InclusionPrefixes: [
+ *         "STRING_VALUE",
+ *       ],
+ *       InclusionPatterns: [
+ *         "STRING_VALUE",
+ *       ],
+ *       ExclusionPatterns: [
+ *         "STRING_VALUE",
+ *       ],
+ *       DocumentsMetadataConfiguration: {
+ *         S3Prefix: "STRING_VALUE",
+ *       },
+ *       AccessControlListConfiguration: {
+ *         KeyPath: "STRING_VALUE",
+ *       },
+ *     },
+ *     SharePointConfiguration: {
+ *       SharePointVersion: "SHAREPOINT_2013" || "SHAREPOINT_2016" || "SHAREPOINT_ONLINE" || "SHAREPOINT_2019", // required
+ *       Urls: [ // required
+ *         "STRING_VALUE",
+ *       ],
+ *       SecretArn: "STRING_VALUE", // required
+ *       CrawlAttachments: true || false,
+ *       UseChangeLog: true || false,
+ *       InclusionPatterns: [
+ *         "STRING_VALUE",
+ *       ],
+ *       ExclusionPatterns: [
+ *         "STRING_VALUE",
+ *       ],
+ *       VpcConfiguration: {
+ *         SubnetIds: [ // required
+ *           "STRING_VALUE",
+ *         ],
+ *         SecurityGroupIds: [ // required
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *       FieldMappings: [
+ *         {
+ *           DataSourceFieldName: "STRING_VALUE", // required
+ *           DateFieldFormat: "STRING_VALUE",
+ *           IndexFieldName: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *       DocumentTitleFieldName: "STRING_VALUE",
+ *       DisableLocalGroups: true || false,
+ *       SslCertificateS3Path: {
+ *         Bucket: "STRING_VALUE", // required
+ *         Key: "STRING_VALUE", // required
+ *       },
+ *       AuthenticationType: "HTTP_BASIC" || "OAUTH2",
+ *       ProxyConfiguration: {
+ *         Host: "STRING_VALUE", // required
+ *         Port: Number("int"), // required
+ *         Credentials: "STRING_VALUE",
+ *       },
+ *     },
+ *     DatabaseConfiguration: {
+ *       DatabaseEngineType: "RDS_AURORA_MYSQL" || "RDS_AURORA_POSTGRESQL" || "RDS_MYSQL" || "RDS_POSTGRESQL", // required
+ *       ConnectionConfiguration: {
+ *         DatabaseHost: "STRING_VALUE", // required
+ *         DatabasePort: Number("int"), // required
+ *         DatabaseName: "STRING_VALUE", // required
+ *         TableName: "STRING_VALUE", // required
+ *         SecretArn: "STRING_VALUE", // required
+ *       },
+ *       VpcConfiguration: {
+ *         SubnetIds: [ // required
+ *           "STRING_VALUE",
+ *         ],
+ *         SecurityGroupIds: [ // required
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *       ColumnConfiguration: {
+ *         DocumentIdColumnName: "STRING_VALUE", // required
+ *         DocumentDataColumnName: "STRING_VALUE", // required
+ *         DocumentTitleColumnName: "STRING_VALUE",
+ *         FieldMappings: [
+ *           {
+ *             DataSourceFieldName: "STRING_VALUE", // required
+ *             DateFieldFormat: "STRING_VALUE",
+ *             IndexFieldName: "STRING_VALUE", // required
+ *           },
+ *         ],
+ *         ChangeDetectingColumns: [ // required
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *       AclConfiguration: {
+ *         AllowedGroupsColumnName: "STRING_VALUE", // required
+ *       },
+ *       SqlConfiguration: {
+ *         QueryIdentifiersEnclosingOption: "DOUBLE_QUOTES" || "NONE",
+ *       },
+ *     },
+ *     SalesforceConfiguration: {
+ *       ServerUrl: "STRING_VALUE", // required
+ *       SecretArn: "STRING_VALUE", // required
+ *       StandardObjectConfigurations: [
+ *         {
+ *           Name: "ACCOUNT" || "CAMPAIGN" || "CASE" || "CONTACT" || "CONTRACT" || "DOCUMENT" || "GROUP" || "IDEA" || "LEAD" || "OPPORTUNITY" || "PARTNER" || "PRICEBOOK" || "PRODUCT" || "PROFILE" || "SOLUTION" || "TASK" || "USER", // required
+ *           DocumentDataFieldName: "STRING_VALUE", // required
+ *           DocumentTitleFieldName: "STRING_VALUE",
+ *           FieldMappings: [
+ *             "<DataSourceToIndexFieldMappingList>",
+ *           ],
+ *         },
+ *       ],
+ *       KnowledgeArticleConfiguration: {
+ *         IncludedStates: [ // required
+ *           "DRAFT" || "PUBLISHED" || "ARCHIVED",
+ *         ],
+ *         StandardKnowledgeArticleTypeConfiguration: {
+ *           DocumentDataFieldName: "STRING_VALUE", // required
+ *           DocumentTitleFieldName: "STRING_VALUE",
+ *           FieldMappings: [
+ *             "<DataSourceToIndexFieldMappingList>",
+ *           ],
+ *         },
+ *         CustomKnowledgeArticleTypeConfigurations: [
+ *           {
+ *             Name: "STRING_VALUE", // required
+ *             DocumentDataFieldName: "STRING_VALUE", // required
+ *             DocumentTitleFieldName: "STRING_VALUE",
+ *             FieldMappings: [
+ *               "<DataSourceToIndexFieldMappingList>",
+ *             ],
+ *           },
+ *         ],
+ *       },
+ *       ChatterFeedConfiguration: {
+ *         DocumentDataFieldName: "STRING_VALUE", // required
+ *         DocumentTitleFieldName: "STRING_VALUE",
+ *         FieldMappings: [
+ *           "<DataSourceToIndexFieldMappingList>",
+ *         ],
+ *         IncludeFilterTypes: [
+ *           "ACTIVE_USER" || "STANDARD_USER",
+ *         ],
+ *       },
+ *       CrawlAttachments: true || false,
+ *       StandardObjectAttachmentConfiguration: {
+ *         DocumentTitleFieldName: "STRING_VALUE",
+ *         FieldMappings: [
+ *           "<DataSourceToIndexFieldMappingList>",
+ *         ],
+ *       },
+ *       IncludeAttachmentFilePatterns: [
+ *         "STRING_VALUE",
+ *       ],
+ *       ExcludeAttachmentFilePatterns: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *     OneDriveConfiguration: {
+ *       TenantDomain: "STRING_VALUE", // required
+ *       SecretArn: "STRING_VALUE", // required
+ *       OneDriveUsers: {
+ *         OneDriveUserList: [
+ *           "STRING_VALUE",
+ *         ],
+ *         OneDriveUserS3Path: {
+ *           Bucket: "STRING_VALUE", // required
+ *           Key: "STRING_VALUE", // required
+ *         },
+ *       },
+ *       InclusionPatterns: [
+ *         "STRING_VALUE",
+ *       ],
+ *       ExclusionPatterns: [
+ *         "STRING_VALUE",
+ *       ],
+ *       FieldMappings: [
+ *         "<DataSourceToIndexFieldMappingList>",
+ *       ],
+ *       DisableLocalGroups: true || false,
+ *     },
+ *     ServiceNowConfiguration: {
+ *       HostUrl: "STRING_VALUE", // required
+ *       SecretArn: "STRING_VALUE", // required
+ *       ServiceNowBuildVersion: "LONDON" || "OTHERS", // required
+ *       KnowledgeArticleConfiguration: {
+ *         CrawlAttachments: true || false,
+ *         IncludeAttachmentFilePatterns: [
+ *           "STRING_VALUE",
+ *         ],
+ *         ExcludeAttachmentFilePatterns: [
+ *           "STRING_VALUE",
+ *         ],
+ *         DocumentDataFieldName: "STRING_VALUE", // required
+ *         DocumentTitleFieldName: "STRING_VALUE",
+ *         FieldMappings: [
+ *           "<DataSourceToIndexFieldMappingList>",
+ *         ],
+ *         FilterQuery: "STRING_VALUE",
+ *       },
+ *       ServiceCatalogConfiguration: {
+ *         CrawlAttachments: true || false,
+ *         IncludeAttachmentFilePatterns: [
+ *           "STRING_VALUE",
+ *         ],
+ *         ExcludeAttachmentFilePatterns: [
+ *           "STRING_VALUE",
+ *         ],
+ *         DocumentDataFieldName: "STRING_VALUE", // required
+ *         DocumentTitleFieldName: "STRING_VALUE",
+ *         FieldMappings: [
+ *           "<DataSourceToIndexFieldMappingList>",
+ *         ],
+ *       },
+ *       AuthenticationType: "HTTP_BASIC" || "OAUTH2",
+ *     },
+ *     ConfluenceConfiguration: {
+ *       ServerUrl: "STRING_VALUE", // required
+ *       SecretArn: "STRING_VALUE", // required
+ *       Version: "CLOUD" || "SERVER", // required
+ *       SpaceConfiguration: {
+ *         CrawlPersonalSpaces: true || false,
+ *         CrawlArchivedSpaces: true || false,
+ *         IncludeSpaces: [
+ *           "STRING_VALUE",
+ *         ],
+ *         ExcludeSpaces: [
+ *           "STRING_VALUE",
+ *         ],
+ *         SpaceFieldMappings: [
+ *           {
+ *             DataSourceFieldName: "DISPLAY_URL" || "ITEM_TYPE" || "SPACE_KEY" || "URL",
+ *             DateFieldFormat: "STRING_VALUE",
+ *             IndexFieldName: "STRING_VALUE",
+ *           },
+ *         ],
+ *       },
+ *       PageConfiguration: {
+ *         PageFieldMappings: [
+ *           {
+ *             DataSourceFieldName: "AUTHOR" || "CONTENT_STATUS" || "CREATED_DATE" || "DISPLAY_URL" || "ITEM_TYPE" || "LABELS" || "MODIFIED_DATE" || "PARENT_ID" || "SPACE_KEY" || "SPACE_NAME" || "URL" || "VERSION",
+ *             DateFieldFormat: "STRING_VALUE",
+ *             IndexFieldName: "STRING_VALUE",
+ *           },
+ *         ],
+ *       },
+ *       BlogConfiguration: {
+ *         BlogFieldMappings: [
+ *           {
+ *             DataSourceFieldName: "AUTHOR" || "DISPLAY_URL" || "ITEM_TYPE" || "LABELS" || "PUBLISH_DATE" || "SPACE_KEY" || "SPACE_NAME" || "URL" || "VERSION",
+ *             DateFieldFormat: "STRING_VALUE",
+ *             IndexFieldName: "STRING_VALUE",
+ *           },
+ *         ],
+ *       },
+ *       AttachmentConfiguration: {
+ *         CrawlAttachments: true || false,
+ *         AttachmentFieldMappings: [
+ *           {
+ *             DataSourceFieldName: "AUTHOR" || "CONTENT_TYPE" || "CREATED_DATE" || "DISPLAY_URL" || "FILE_SIZE" || "ITEM_TYPE" || "PARENT_ID" || "SPACE_KEY" || "SPACE_NAME" || "URL" || "VERSION",
+ *             DateFieldFormat: "STRING_VALUE",
+ *             IndexFieldName: "STRING_VALUE",
+ *           },
+ *         ],
+ *       },
+ *       VpcConfiguration: {
+ *         SubnetIds: [ // required
+ *           "STRING_VALUE",
+ *         ],
+ *         SecurityGroupIds: [ // required
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *       InclusionPatterns: [
+ *         "STRING_VALUE",
+ *       ],
+ *       ExclusionPatterns: [
+ *         "STRING_VALUE",
+ *       ],
+ *       ProxyConfiguration: {
+ *         Host: "STRING_VALUE", // required
+ *         Port: Number("int"), // required
+ *         Credentials: "STRING_VALUE",
+ *       },
+ *       AuthenticationType: "HTTP_BASIC" || "PAT",
+ *     },
+ *     GoogleDriveConfiguration: {
+ *       SecretArn: "STRING_VALUE", // required
+ *       InclusionPatterns: [
+ *         "STRING_VALUE",
+ *       ],
+ *       ExclusionPatterns: [
+ *         "STRING_VALUE",
+ *       ],
+ *       FieldMappings: [
+ *         "<DataSourceToIndexFieldMappingList>",
+ *       ],
+ *       ExcludeMimeTypes: [
+ *         "STRING_VALUE",
+ *       ],
+ *       ExcludeUserAccounts: [
+ *         "STRING_VALUE",
+ *       ],
+ *       ExcludeSharedDrives: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *     WebCrawlerConfiguration: {
+ *       Urls: {
+ *         SeedUrlConfiguration: {
+ *           SeedUrls: [ // required
+ *             "STRING_VALUE",
+ *           ],
+ *           WebCrawlerMode: "HOST_ONLY" || "SUBDOMAINS" || "EVERYTHING",
+ *         },
+ *         SiteMapsConfiguration: {
+ *           SiteMaps: [ // required
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       },
+ *       CrawlDepth: Number("int"),
+ *       MaxLinksPerPage: Number("int"),
+ *       MaxContentSizePerPageInMegaBytes: Number("float"),
+ *       MaxUrlsPerMinuteCrawlRate: Number("int"),
+ *       UrlInclusionPatterns: [
+ *         "STRING_VALUE",
+ *       ],
+ *       UrlExclusionPatterns: [
+ *         "STRING_VALUE",
+ *       ],
+ *       ProxyConfiguration: {
+ *         Host: "STRING_VALUE", // required
+ *         Port: Number("int"), // required
+ *         Credentials: "STRING_VALUE",
+ *       },
+ *       AuthenticationConfiguration: {
+ *         BasicAuthentication: [
+ *           {
+ *             Host: "STRING_VALUE", // required
+ *             Port: Number("int"), // required
+ *             Credentials: "STRING_VALUE", // required
+ *           },
+ *         ],
+ *       },
+ *     },
+ *     WorkDocsConfiguration: {
+ *       OrganizationId: "STRING_VALUE", // required
+ *       CrawlComments: true || false,
+ *       UseChangeLog: true || false,
+ *       InclusionPatterns: [
+ *         "STRING_VALUE",
+ *       ],
+ *       ExclusionPatterns: [
+ *         "STRING_VALUE",
+ *       ],
+ *       FieldMappings: [
+ *         "<DataSourceToIndexFieldMappingList>",
+ *       ],
+ *     },
+ *     FsxConfiguration: {
+ *       FileSystemId: "STRING_VALUE", // required
+ *       FileSystemType: "WINDOWS", // required
+ *       VpcConfiguration: {
+ *         SubnetIds: [ // required
+ *           "STRING_VALUE",
+ *         ],
+ *         SecurityGroupIds: [ // required
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *       SecretArn: "STRING_VALUE",
+ *       InclusionPatterns: [
+ *         "STRING_VALUE",
+ *       ],
+ *       ExclusionPatterns: [
+ *         "STRING_VALUE",
+ *       ],
+ *       FieldMappings: [
+ *         "<DataSourceToIndexFieldMappingList>",
+ *       ],
+ *     },
+ *     SlackConfiguration: {
+ *       TeamId: "STRING_VALUE", // required
+ *       SecretArn: "STRING_VALUE", // required
+ *       VpcConfiguration: {
+ *         SubnetIds: [ // required
+ *           "STRING_VALUE",
+ *         ],
+ *         SecurityGroupIds: [ // required
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *       SlackEntityList: [ // required
+ *         "PUBLIC_CHANNEL" || "PRIVATE_CHANNEL" || "GROUP_MESSAGE" || "DIRECT_MESSAGE",
+ *       ],
+ *       UseChangeLog: true || false,
+ *       CrawlBotMessage: true || false,
+ *       ExcludeArchived: true || false,
+ *       SinceCrawlDate: "STRING_VALUE", // required
+ *       LookBackPeriod: Number("int"),
+ *       PrivateChannelFilter: [
+ *         "STRING_VALUE",
+ *       ],
+ *       PublicChannelFilter: [
+ *         "STRING_VALUE",
+ *       ],
+ *       InclusionPatterns: [
+ *         "STRING_VALUE",
+ *       ],
+ *       ExclusionPatterns: [
+ *         "STRING_VALUE",
+ *       ],
+ *       FieldMappings: [
+ *         "<DataSourceToIndexFieldMappingList>",
+ *       ],
+ *     },
+ *     BoxConfiguration: {
+ *       EnterpriseId: "STRING_VALUE", // required
+ *       SecretArn: "STRING_VALUE", // required
+ *       UseChangeLog: true || false,
+ *       CrawlComments: true || false,
+ *       CrawlTasks: true || false,
+ *       CrawlWebLinks: true || false,
+ *       FileFieldMappings: [
+ *         "<DataSourceToIndexFieldMappingList>",
+ *       ],
+ *       TaskFieldMappings: [
+ *         "<DataSourceToIndexFieldMappingList>",
+ *       ],
+ *       CommentFieldMappings: [
+ *         "<DataSourceToIndexFieldMappingList>",
+ *       ],
+ *       WebLinkFieldMappings: [
+ *         "<DataSourceToIndexFieldMappingList>",
+ *       ],
+ *       InclusionPatterns: [
+ *         "STRING_VALUE",
+ *       ],
+ *       ExclusionPatterns: [
+ *         "STRING_VALUE",
+ *       ],
+ *       VpcConfiguration: {
+ *         SubnetIds: [ // required
+ *           "STRING_VALUE",
+ *         ],
+ *         SecurityGroupIds: [ // required
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *     },
+ *     QuipConfiguration: {
+ *       Domain: "STRING_VALUE", // required
+ *       SecretArn: "STRING_VALUE", // required
+ *       CrawlFileComments: true || false,
+ *       CrawlChatRooms: true || false,
+ *       CrawlAttachments: true || false,
+ *       FolderIds: [
+ *         "STRING_VALUE",
+ *       ],
+ *       ThreadFieldMappings: [
+ *         "<DataSourceToIndexFieldMappingList>",
+ *       ],
+ *       MessageFieldMappings: [
+ *         "<DataSourceToIndexFieldMappingList>",
+ *       ],
+ *       AttachmentFieldMappings: [
+ *         "<DataSourceToIndexFieldMappingList>",
+ *       ],
+ *       InclusionPatterns: [
+ *         "STRING_VALUE",
+ *       ],
+ *       ExclusionPatterns: [
+ *         "STRING_VALUE",
+ *       ],
+ *       VpcConfiguration: {
+ *         SubnetIds: [ // required
+ *           "STRING_VALUE",
+ *         ],
+ *         SecurityGroupIds: [ // required
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *     },
+ *     JiraConfiguration: {
+ *       JiraAccountUrl: "STRING_VALUE", // required
+ *       SecretArn: "STRING_VALUE", // required
+ *       UseChangeLog: true || false,
+ *       Project: [
+ *         "STRING_VALUE",
+ *       ],
+ *       IssueType: [
+ *         "STRING_VALUE",
+ *       ],
+ *       Status: [
+ *         "STRING_VALUE",
+ *       ],
+ *       IssueSubEntityFilter: [
+ *         "COMMENTS" || "ATTACHMENTS" || "WORKLOGS",
+ *       ],
+ *       AttachmentFieldMappings: [
+ *         "<DataSourceToIndexFieldMappingList>",
+ *       ],
+ *       CommentFieldMappings: [
+ *         "<DataSourceToIndexFieldMappingList>",
+ *       ],
+ *       IssueFieldMappings: [
+ *         "<DataSourceToIndexFieldMappingList>",
+ *       ],
+ *       ProjectFieldMappings: [
+ *         "<DataSourceToIndexFieldMappingList>",
+ *       ],
+ *       WorkLogFieldMappings: [
+ *         "<DataSourceToIndexFieldMappingList>",
+ *       ],
+ *       InclusionPatterns: [
+ *         "STRING_VALUE",
+ *       ],
+ *       ExclusionPatterns: [
+ *         "STRING_VALUE",
+ *       ],
+ *       VpcConfiguration: {
+ *         SubnetIds: [ // required
+ *           "STRING_VALUE",
+ *         ],
+ *         SecurityGroupIds: [ // required
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *     },
+ *     GitHubConfiguration: {
+ *       SaaSConfiguration: {
+ *         OrganizationName: "STRING_VALUE", // required
+ *         HostUrl: "STRING_VALUE", // required
+ *       },
+ *       OnPremiseConfiguration: {
+ *         HostUrl: "STRING_VALUE", // required
+ *         OrganizationName: "STRING_VALUE", // required
+ *         SslCertificateS3Path: {
+ *           Bucket: "STRING_VALUE", // required
+ *           Key: "STRING_VALUE", // required
+ *         },
+ *       },
+ *       Type: "SAAS" || "ON_PREMISE",
+ *       SecretArn: "STRING_VALUE", // required
+ *       UseChangeLog: true || false,
+ *       GitHubDocumentCrawlProperties: {
+ *         CrawlRepositoryDocuments: true || false,
+ *         CrawlIssue: true || false,
+ *         CrawlIssueComment: true || false,
+ *         CrawlIssueCommentAttachment: true || false,
+ *         CrawlPullRequest: true || false,
+ *         CrawlPullRequestComment: true || false,
+ *         CrawlPullRequestCommentAttachment: true || false,
+ *       },
+ *       RepositoryFilter: [
+ *         "STRING_VALUE",
+ *       ],
+ *       InclusionFolderNamePatterns: [
+ *         "STRING_VALUE",
+ *       ],
+ *       InclusionFileTypePatterns: [
+ *         "STRING_VALUE",
+ *       ],
+ *       InclusionFileNamePatterns: [
+ *         "STRING_VALUE",
+ *       ],
+ *       ExclusionFolderNamePatterns: [
+ *         "STRING_VALUE",
+ *       ],
+ *       ExclusionFileTypePatterns: [
+ *         "STRING_VALUE",
+ *       ],
+ *       ExclusionFileNamePatterns: [
+ *         "STRING_VALUE",
+ *       ],
+ *       VpcConfiguration: {
+ *         SubnetIds: [ // required
+ *           "STRING_VALUE",
+ *         ],
+ *         SecurityGroupIds: [ // required
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *       GitHubRepositoryConfigurationFieldMappings: [
+ *         "<DataSourceToIndexFieldMappingList>",
+ *       ],
+ *       GitHubCommitConfigurationFieldMappings: [
+ *         "<DataSourceToIndexFieldMappingList>",
+ *       ],
+ *       GitHubIssueDocumentConfigurationFieldMappings: [
+ *         "<DataSourceToIndexFieldMappingList>",
+ *       ],
+ *       GitHubIssueCommentConfigurationFieldMappings: [
+ *         "<DataSourceToIndexFieldMappingList>",
+ *       ],
+ *       GitHubIssueAttachmentConfigurationFieldMappings: [
+ *         "<DataSourceToIndexFieldMappingList>",
+ *       ],
+ *       GitHubPullRequestCommentConfigurationFieldMappings: [
+ *         "<DataSourceToIndexFieldMappingList>",
+ *       ],
+ *       GitHubPullRequestDocumentConfigurationFieldMappings: [
+ *         "<DataSourceToIndexFieldMappingList>",
+ *       ],
+ *       GitHubPullRequestDocumentAttachmentConfigurationFieldMappings: [
+ *         "<DataSourceToIndexFieldMappingList>",
+ *       ],
+ *     },
+ *     AlfrescoConfiguration: {
+ *       SiteUrl: "STRING_VALUE", // required
+ *       SiteId: "STRING_VALUE", // required
+ *       SecretArn: "STRING_VALUE", // required
+ *       SslCertificateS3Path: {
+ *         Bucket: "STRING_VALUE", // required
+ *         Key: "STRING_VALUE", // required
+ *       },
+ *       CrawlSystemFolders: true || false,
+ *       CrawlComments: true || false,
+ *       EntityFilter: [
+ *         "wiki" || "blog" || "documentLibrary",
+ *       ],
+ *       DocumentLibraryFieldMappings: [
+ *         "<DataSourceToIndexFieldMappingList>",
+ *       ],
+ *       BlogFieldMappings: [
+ *         "<DataSourceToIndexFieldMappingList>",
+ *       ],
+ *       WikiFieldMappings: [
+ *         "<DataSourceToIndexFieldMappingList>",
+ *       ],
+ *       InclusionPatterns: [
+ *         "STRING_VALUE",
+ *       ],
+ *       ExclusionPatterns: [
+ *         "STRING_VALUE",
+ *       ],
+ *       VpcConfiguration: {
+ *         SubnetIds: [ // required
+ *           "STRING_VALUE",
+ *         ],
+ *         SecurityGroupIds: [ // required
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *     },
+ *     TemplateConfiguration: {
+ *       Template: "DOCUMENT_VALUE",
+ *     },
+ *   },
+ *   VpcConfiguration: {
+ *     SubnetIds: [ // required
+ *       "STRING_VALUE",
+ *     ],
+ *     SecurityGroupIds: [ // required
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   Description: "STRING_VALUE",
+ *   Schedule: "STRING_VALUE",
+ *   RoleArn: "STRING_VALUE",
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   ClientToken: "STRING_VALUE",
+ *   LanguageCode: "STRING_VALUE",
+ *   CustomDocumentEnrichmentConfiguration: {
+ *     InlineConfigurations: [
+ *       {
+ *         Condition: {
+ *           ConditionDocumentAttributeKey: "STRING_VALUE", // required
+ *           Operator: "GreaterThan" || "GreaterThanOrEquals" || "LessThan" || "LessThanOrEquals" || "Equals" || "NotEquals" || "Contains" || "NotContains" || "Exists" || "NotExists" || "BeginsWith", // required
+ *           ConditionOnValue: {
+ *             StringValue: "STRING_VALUE",
+ *             StringListValue: [
+ *               "STRING_VALUE",
+ *             ],
+ *             LongValue: Number("long"),
+ *             DateValue: new Date("TIMESTAMP"),
+ *           },
+ *         },
+ *         Target: {
+ *           TargetDocumentAttributeKey: "STRING_VALUE",
+ *           TargetDocumentAttributeValueDeletion: true || false,
+ *           TargetDocumentAttributeValue: {
+ *             StringValue: "STRING_VALUE",
+ *             StringListValue: [
+ *               "STRING_VALUE",
+ *             ],
+ *             LongValue: Number("long"),
+ *             DateValue: new Date("TIMESTAMP"),
+ *           },
+ *         },
+ *         DocumentContentDeletion: true || false,
+ *       },
+ *     ],
+ *     PreExtractionHookConfiguration: {
+ *       InvocationCondition: {
+ *         ConditionDocumentAttributeKey: "STRING_VALUE", // required
+ *         Operator: "GreaterThan" || "GreaterThanOrEquals" || "LessThan" || "LessThanOrEquals" || "Equals" || "NotEquals" || "Contains" || "NotContains" || "Exists" || "NotExists" || "BeginsWith", // required
+ *         ConditionOnValue: {
+ *           StringValue: "STRING_VALUE",
+ *           StringListValue: [
+ *             "STRING_VALUE",
+ *           ],
+ *           LongValue: Number("long"),
+ *           DateValue: new Date("TIMESTAMP"),
+ *         },
+ *       },
+ *       LambdaArn: "STRING_VALUE", // required
+ *       S3Bucket: "STRING_VALUE", // required
+ *     },
+ *     PostExtractionHookConfiguration: {
+ *       InvocationCondition: {
+ *         ConditionDocumentAttributeKey: "STRING_VALUE", // required
+ *         Operator: "GreaterThan" || "GreaterThanOrEquals" || "LessThan" || "LessThanOrEquals" || "Equals" || "NotEquals" || "Contains" || "NotContains" || "Exists" || "NotExists" || "BeginsWith", // required
+ *         ConditionOnValue: {
+ *           StringValue: "STRING_VALUE",
+ *           StringListValue: [
+ *             "STRING_VALUE",
+ *           ],
+ *           LongValue: Number("long"),
+ *           DateValue: new Date("TIMESTAMP"),
+ *         },
+ *       },
+ *       LambdaArn: "STRING_VALUE", // required
+ *       S3Bucket: "STRING_VALUE", // required
+ *     },
+ *     RoleArn: "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateDataSourceCommand(input);
  * const response = await client.send(command);
  * ```

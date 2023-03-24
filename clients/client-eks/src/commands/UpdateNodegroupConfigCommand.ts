@@ -45,6 +45,44 @@ export interface UpdateNodegroupConfigCommandOutput extends UpdateNodegroupConfi
  * import { EKSClient, UpdateNodegroupConfigCommand } from "@aws-sdk/client-eks"; // ES Modules import
  * // const { EKSClient, UpdateNodegroupConfigCommand } = require("@aws-sdk/client-eks"); // CommonJS import
  * const client = new EKSClient(config);
+ * const input = {
+ *   clusterName: "STRING_VALUE", // required
+ *   nodegroupName: "STRING_VALUE", // required
+ *   labels: {
+ *     addOrUpdateLabels: {
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *     removeLabels: [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   taints: {
+ *     addOrUpdateTaints: [
+ *       {
+ *         key: "STRING_VALUE",
+ *         value: "STRING_VALUE",
+ *         effect: "NO_SCHEDULE" || "NO_EXECUTE" || "PREFER_NO_SCHEDULE",
+ *       },
+ *     ],
+ *     removeTaints: [
+ *       {
+ *         key: "STRING_VALUE",
+ *         value: "STRING_VALUE",
+ *         effect: "NO_SCHEDULE" || "NO_EXECUTE" || "PREFER_NO_SCHEDULE",
+ *       },
+ *     ],
+ *   },
+ *   scalingConfig: {
+ *     minSize: Number("int"),
+ *     maxSize: Number("int"),
+ *     desiredSize: Number("int"),
+ *   },
+ *   updateConfig: {
+ *     maxUnavailable: Number("int"),
+ *     maxUnavailablePercentage: Number("int"),
+ *   },
+ *   clientRequestToken: "STRING_VALUE",
+ * };
  * const command = new UpdateNodegroupConfigCommand(input);
  * const response = await client.send(command);
  * ```

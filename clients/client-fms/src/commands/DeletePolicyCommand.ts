@@ -42,6 +42,10 @@ export interface DeletePolicyCommandOutput extends __MetadataBearer {}
  * import { FMSClient, DeletePolicyCommand } from "@aws-sdk/client-fms"; // ES Modules import
  * // const { FMSClient, DeletePolicyCommand } = require("@aws-sdk/client-fms"); // CommonJS import
  * const client = new FMSClient(config);
+ * const input = {
+ *   PolicyId: "STRING_VALUE", // required
+ *   DeleteAllPolicyResources: true || false,
+ * };
  * const command = new DeletePolicyCommand(input);
  * const response = await client.send(command);
  * ```

@@ -43,6 +43,9 @@ export interface DeleteLinkCommandOutput extends DeleteLinkOutput, __MetadataBea
  * import { OAMClient, DeleteLinkCommand } from "@aws-sdk/client-oam"; // ES Modules import
  * // const { OAMClient, DeleteLinkCommand } = require("@aws-sdk/client-oam"); // CommonJS import
  * const client = new OAMClient(config);
+ * const input = {
+ *   Identifier: "STRING_VALUE", // required
+ * };
  * const command = new DeleteLinkCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,47 @@ export interface PutPlaybackConfigurationCommandOutput extends PutPlaybackConfig
  * import { MediaTailorClient, PutPlaybackConfigurationCommand } from "@aws-sdk/client-mediatailor"; // ES Modules import
  * // const { MediaTailorClient, PutPlaybackConfigurationCommand } = require("@aws-sdk/client-mediatailor"); // CommonJS import
  * const client = new MediaTailorClient(config);
+ * const input = {
+ *   AdDecisionServerUrl: "STRING_VALUE",
+ *   AvailSuppression: {
+ *     Mode: "OFF" || "BEHIND_LIVE_EDGE",
+ *     Value: "STRING_VALUE",
+ *   },
+ *   Bumper: {
+ *     EndUrl: "STRING_VALUE",
+ *     StartUrl: "STRING_VALUE",
+ *   },
+ *   CdnConfiguration: {
+ *     AdSegmentUrlPrefix: "STRING_VALUE",
+ *     ContentSegmentUrlPrefix: "STRING_VALUE",
+ *   },
+ *   ConfigurationAliases: {
+ *     "<keys>": {
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *   },
+ *   DashConfiguration: {
+ *     MpdLocation: "STRING_VALUE",
+ *     OriginManifestType: "SINGLE_PERIOD" || "MULTI_PERIOD",
+ *   },
+ *   LivePreRollConfiguration: {
+ *     AdDecisionServerUrl: "STRING_VALUE",
+ *     MaxDurationSeconds: Number("int"),
+ *   },
+ *   ManifestProcessingRules: {
+ *     AdMarkerPassthrough: {
+ *       Enabled: true || false,
+ *     },
+ *   },
+ *   Name: "STRING_VALUE", // required
+ *   PersonalizationThresholdSeconds: Number("int"),
+ *   SlateAdUrl: "STRING_VALUE",
+ *   Tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   TranscodeProfileName: "STRING_VALUE",
+ *   VideoContentSourceUrl: "STRING_VALUE",
+ * };
  * const command = new PutPlaybackConfigurationCommand(input);
  * const response = await client.send(command);
  * ```

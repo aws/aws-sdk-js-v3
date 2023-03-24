@@ -42,6 +42,9 @@ export interface GetNamespaceCommandOutput extends GetNamespaceResponse, __Metad
  * import { ServiceDiscoveryClient, GetNamespaceCommand } from "@aws-sdk/client-servicediscovery"; // ES Modules import
  * // const { ServiceDiscoveryClient, GetNamespaceCommand } = require("@aws-sdk/client-servicediscovery"); // CommonJS import
  * const client = new ServiceDiscoveryClient(config);
+ * const input = {
+ *   Id: "STRING_VALUE", // required
+ * };
  * const command = new GetNamespaceCommand(input);
  * const response = await client.send(command);
  * ```

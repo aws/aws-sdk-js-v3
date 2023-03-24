@@ -42,6 +42,18 @@ export interface UpdateSceneCommandOutput extends UpdateSceneResponse, __Metadat
  * import { IoTTwinMakerClient, UpdateSceneCommand } from "@aws-sdk/client-iottwinmaker"; // ES Modules import
  * // const { IoTTwinMakerClient, UpdateSceneCommand } = require("@aws-sdk/client-iottwinmaker"); // CommonJS import
  * const client = new IoTTwinMakerClient(config);
+ * const input = {
+ *   workspaceId: "STRING_VALUE", // required
+ *   sceneId: "STRING_VALUE", // required
+ *   contentLocation: "STRING_VALUE",
+ *   description: "STRING_VALUE",
+ *   capabilities: [
+ *     "STRING_VALUE",
+ *   ],
+ *   sceneMetadata: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new UpdateSceneCommand(input);
  * const response = await client.send(command);
  * ```

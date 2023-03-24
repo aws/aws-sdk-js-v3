@@ -53,6 +53,17 @@ export interface CreateChatTokenCommandOutput extends CreateChatTokenResponse, _
  * import { IvschatClient, CreateChatTokenCommand } from "@aws-sdk/client-ivschat"; // ES Modules import
  * // const { IvschatClient, CreateChatTokenCommand } = require("@aws-sdk/client-ivschat"); // CommonJS import
  * const client = new IvschatClient(config);
+ * const input = {
+ *   roomIdentifier: "STRING_VALUE", // required
+ *   userId: "STRING_VALUE", // required
+ *   capabilities: [
+ *     "STRING_VALUE",
+ *   ],
+ *   sessionDurationInMinutes: Number("int"),
+ *   attributes: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateChatTokenCommand(input);
  * const response = await client.send(command);
  * ```

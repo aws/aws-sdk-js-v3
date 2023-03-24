@@ -46,6 +46,10 @@ export interface CancelJournalKinesisStreamCommandOutput extends CancelJournalKi
  * import { QLDBClient, CancelJournalKinesisStreamCommand } from "@aws-sdk/client-qldb"; // ES Modules import
  * // const { QLDBClient, CancelJournalKinesisStreamCommand } = require("@aws-sdk/client-qldb"); // CommonJS import
  * const client = new QLDBClient(config);
+ * const input = {
+ *   LedgerName: "STRING_VALUE", // required
+ *   StreamId: "STRING_VALUE", // required
+ * };
  * const command = new CancelJournalKinesisStreamCommand(input);
  * const response = await client.send(command);
  * ```

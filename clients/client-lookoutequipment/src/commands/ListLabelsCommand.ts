@@ -44,6 +44,15 @@ export interface ListLabelsCommandOutput extends ListLabelsResponse, __MetadataB
  * import { LookoutEquipmentClient, ListLabelsCommand } from "@aws-sdk/client-lookoutequipment"; // ES Modules import
  * // const { LookoutEquipmentClient, ListLabelsCommand } = require("@aws-sdk/client-lookoutequipment"); // CommonJS import
  * const client = new LookoutEquipmentClient(config);
+ * const input = {
+ *   LabelGroupName: "STRING_VALUE", // required
+ *   IntervalStartTime: new Date("TIMESTAMP"),
+ *   IntervalEndTime: new Date("TIMESTAMP"),
+ *   FaultCode: "STRING_VALUE",
+ *   Equipment: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListLabelsCommand(input);
  * const response = await client.send(command);
  * ```

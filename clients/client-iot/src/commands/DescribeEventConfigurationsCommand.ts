@@ -45,6 +45,7 @@ export interface DescribeEventConfigurationsCommandOutput
  * import { IoTClient, DescribeEventConfigurationsCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, DescribeEventConfigurationsCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = {};
  * const command = new DescribeEventConfigurationsCommand(input);
  * const response = await client.send(command);
  * ```

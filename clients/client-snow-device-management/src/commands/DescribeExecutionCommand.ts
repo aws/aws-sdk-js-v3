@@ -46,6 +46,10 @@ export interface DescribeExecutionCommandOutput extends DescribeExecutionOutput,
  * import { SnowDeviceManagementClient, DescribeExecutionCommand } from "@aws-sdk/client-snow-device-management"; // ES Modules import
  * // const { SnowDeviceManagementClient, DescribeExecutionCommand } = require("@aws-sdk/client-snow-device-management"); // CommonJS import
  * const client = new SnowDeviceManagementClient(config);
+ * const input = {
+ *   taskId: "STRING_VALUE", // required
+ *   managedDeviceId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeExecutionCommand(input);
  * const response = await client.send(command);
  * ```

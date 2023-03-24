@@ -46,6 +46,9 @@ export interface GetImportFileTaskCommandOutput extends GetImportFileTaskRespons
  * import { MigrationHubStrategyClient, GetImportFileTaskCommand } from "@aws-sdk/client-migrationhubstrategy"; // ES Modules import
  * // const { MigrationHubStrategyClient, GetImportFileTaskCommand } = require("@aws-sdk/client-migrationhubstrategy"); // CommonJS import
  * const client = new MigrationHubStrategyClient(config);
+ * const input = {
+ *   id: "STRING_VALUE", // required
+ * };
  * const command = new GetImportFileTaskCommand(input);
  * const response = await client.send(command);
  * ```

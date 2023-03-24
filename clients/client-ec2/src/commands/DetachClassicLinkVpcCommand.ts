@@ -45,6 +45,11 @@ export interface DetachClassicLinkVpcCommandOutput extends DetachClassicLinkVpcR
  * import { EC2Client, DetachClassicLinkVpcCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DetachClassicLinkVpcCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   DryRun: true || false,
+ *   InstanceId: "STRING_VALUE", // required
+ *   VpcId: "STRING_VALUE", // required
+ * };
  * const command = new DetachClassicLinkVpcCommand(input);
  * const response = await client.send(command);
  * ```

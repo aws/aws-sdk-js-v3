@@ -42,6 +42,9 @@ export interface DeleteWaveCommandOutput extends DeleteWaveResponse, __MetadataB
  * import { MgnClient, DeleteWaveCommand } from "@aws-sdk/client-mgn"; // ES Modules import
  * // const { MgnClient, DeleteWaveCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
  * const client = new MgnClient(config);
+ * const input = {
+ *   waveID: "STRING_VALUE", // required
+ * };
  * const command = new DeleteWaveCommand(input);
  * const response = await client.send(command);
  * ```

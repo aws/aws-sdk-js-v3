@@ -44,6 +44,15 @@ export interface ListReportsForReportGroupCommandOutput extends ListReportsForRe
  * import { CodeBuildClient, ListReportsForReportGroupCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
  * // const { CodeBuildClient, ListReportsForReportGroupCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
  * const client = new CodeBuildClient(config);
+ * const input = {
+ *   reportGroupArn: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ *   sortOrder: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   filter: {
+ *     status: "STRING_VALUE",
+ *   },
+ * };
  * const command = new ListReportsForReportGroupCommand(input);
  * const response = await client.send(command);
  * ```

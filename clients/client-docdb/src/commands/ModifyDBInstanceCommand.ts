@@ -42,6 +42,19 @@ export interface ModifyDBInstanceCommandOutput extends ModifyDBInstanceResult, _
  * import { DocDBClient, ModifyDBInstanceCommand } from "@aws-sdk/client-docdb"; // ES Modules import
  * // const { DocDBClient, ModifyDBInstanceCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
  * const client = new DocDBClient(config);
+ * const input = {
+ *   DBInstanceIdentifier: "STRING_VALUE", // required
+ *   DBInstanceClass: "STRING_VALUE",
+ *   ApplyImmediately: true || false,
+ *   PreferredMaintenanceWindow: "STRING_VALUE",
+ *   AutoMinorVersionUpgrade: true || false,
+ *   NewDBInstanceIdentifier: "STRING_VALUE",
+ *   CACertificateIdentifier: "STRING_VALUE",
+ *   CopyTagsToSnapshot: true || false,
+ *   PromotionTier: Number("int"),
+ *   EnablePerformanceInsights: true || false,
+ *   PerformanceInsightsKMSKeyId: "STRING_VALUE",
+ * };
  * const command = new ModifyDBInstanceCommand(input);
  * const response = await client.send(command);
  * ```

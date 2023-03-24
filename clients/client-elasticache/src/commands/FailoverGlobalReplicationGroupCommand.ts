@@ -44,6 +44,11 @@ export interface FailoverGlobalReplicationGroupCommandOutput
  * import { ElastiCacheClient, FailoverGlobalReplicationGroupCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, FailoverGlobalReplicationGroupCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
  * const client = new ElastiCacheClient(config);
+ * const input = {
+ *   GlobalReplicationGroupId: "STRING_VALUE", // required
+ *   PrimaryRegion: "STRING_VALUE", // required
+ *   PrimaryReplicationGroupId: "STRING_VALUE", // required
+ * };
  * const command = new FailoverGlobalReplicationGroupCommand(input);
  * const response = await client.send(command);
  * ```

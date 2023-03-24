@@ -46,6 +46,11 @@ export interface BatchGetStreamKeyCommandOutput extends BatchGetStreamKeyRespons
  * import { IvsClient, BatchGetStreamKeyCommand } from "@aws-sdk/client-ivs"; // ES Modules import
  * // const { IvsClient, BatchGetStreamKeyCommand } = require("@aws-sdk/client-ivs"); // CommonJS import
  * const client = new IvsClient(config);
+ * const input = {
+ *   arns: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new BatchGetStreamKeyCommand(input);
  * const response = await client.send(command);
  * ```

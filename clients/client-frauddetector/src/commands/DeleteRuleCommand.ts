@@ -43,6 +43,13 @@ export interface DeleteRuleCommandOutput extends DeleteRuleResult, __MetadataBea
  * import { FraudDetectorClient, DeleteRuleCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, DeleteRuleCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
  * const client = new FraudDetectorClient(config);
+ * const input = {
+ *   rule: {
+ *     detectorId: "STRING_VALUE", // required
+ *     ruleId: "STRING_VALUE", // required
+ *     ruleVersion: "STRING_VALUE", // required
+ *   },
+ * };
  * const command = new DeleteRuleCommand(input);
  * const response = await client.send(command);
  * ```

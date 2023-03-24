@@ -42,6 +42,10 @@ export interface DeletePublicIpv4PoolCommandOutput extends DeletePublicIpv4PoolR
  * import { EC2Client, DeletePublicIpv4PoolCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DeletePublicIpv4PoolCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   DryRun: true || false,
+ *   PoolId: "STRING_VALUE", // required
+ * };
  * const command = new DeletePublicIpv4PoolCommand(input);
  * const response = await client.send(command);
  * ```

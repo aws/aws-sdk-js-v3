@@ -45,6 +45,9 @@ export interface DeleteSlackWorkspaceConfigurationCommandOutput
  * import { SupportAppClient, DeleteSlackWorkspaceConfigurationCommand } from "@aws-sdk/client-support-app"; // ES Modules import
  * // const { SupportAppClient, DeleteSlackWorkspaceConfigurationCommand } = require("@aws-sdk/client-support-app"); // CommonJS import
  * const client = new SupportAppClient(config);
+ * const input = {
+ *   teamId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteSlackWorkspaceConfigurationCommand(input);
  * const response = await client.send(command);
  * ```

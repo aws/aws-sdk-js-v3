@@ -76,6 +76,9 @@ export interface DescribeDatasetImportJobCommandOutput extends DescribeDatasetIm
  * import { ForecastClient, DescribeDatasetImportJobCommand } from "@aws-sdk/client-forecast"; // ES Modules import
  * // const { ForecastClient, DescribeDatasetImportJobCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
  * const client = new ForecastClient(config);
+ * const input = {
+ *   DatasetImportJobArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeDatasetImportJobCommand(input);
  * const response = await client.send(command);
  * ```

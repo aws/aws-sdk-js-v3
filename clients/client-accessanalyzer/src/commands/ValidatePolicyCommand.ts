@@ -44,6 +44,14 @@ export interface ValidatePolicyCommandOutput extends ValidatePolicyResponse, __M
  * import { AccessAnalyzerClient, ValidatePolicyCommand } from "@aws-sdk/client-accessanalyzer"; // ES Modules import
  * // const { AccessAnalyzerClient, ValidatePolicyCommand } = require("@aws-sdk/client-accessanalyzer"); // CommonJS import
  * const client = new AccessAnalyzerClient(config);
+ * const input = {
+ *   locale: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ *   policyDocument: "STRING_VALUE", // required
+ *   policyType: "STRING_VALUE", // required
+ *   validatePolicyResourceType: "STRING_VALUE",
+ * };
  * const command = new ValidatePolicyCommand(input);
  * const response = await client.send(command);
  * ```

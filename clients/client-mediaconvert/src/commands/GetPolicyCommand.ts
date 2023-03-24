@@ -42,6 +42,7 @@ export interface GetPolicyCommandOutput extends GetPolicyResponse, __MetadataBea
  * import { MediaConvertClient, GetPolicyCommand } from "@aws-sdk/client-mediaconvert"; // ES Modules import
  * // const { MediaConvertClient, GetPolicyCommand } = require("@aws-sdk/client-mediaconvert"); // CommonJS import
  * const client = new MediaConvertClient(config);
+ * const input = {};
  * const command = new GetPolicyCommand(input);
  * const response = await client.send(command);
  * ```

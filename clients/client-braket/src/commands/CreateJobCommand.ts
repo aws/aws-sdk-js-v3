@@ -42,6 +42,57 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  * import { BraketClient, CreateJobCommand } from "@aws-sdk/client-braket"; // ES Modules import
  * // const { BraketClient, CreateJobCommand } = require("@aws-sdk/client-braket"); // CommonJS import
  * const client = new BraketClient(config);
+ * const input = {
+ *   clientToken: "STRING_VALUE", // required
+ *   algorithmSpecification: {
+ *     scriptModeConfig: {
+ *       entryPoint: "STRING_VALUE", // required
+ *       s3Uri: "STRING_VALUE", // required
+ *       compressionType: "STRING_VALUE",
+ *     },
+ *     containerImage: {
+ *       uri: "STRING_VALUE", // required
+ *     },
+ *   },
+ *   inputDataConfig: [
+ *     {
+ *       channelName: "STRING_VALUE", // required
+ *       contentType: "STRING_VALUE",
+ *       dataSource: {
+ *         s3DataSource: {
+ *           s3Uri: "STRING_VALUE", // required
+ *         },
+ *       },
+ *     },
+ *   ],
+ *   outputDataConfig: {
+ *     kmsKeyId: "STRING_VALUE",
+ *     s3Path: "STRING_VALUE", // required
+ *   },
+ *   checkpointConfig: {
+ *     localPath: "STRING_VALUE",
+ *     s3Uri: "STRING_VALUE", // required
+ *   },
+ *   jobName: "STRING_VALUE", // required
+ *   roleArn: "STRING_VALUE", // required
+ *   stoppingCondition: {
+ *     maxRuntimeInSeconds: Number("int"),
+ *   },
+ *   instanceConfig: {
+ *     instanceType: "STRING_VALUE", // required
+ *     volumeSizeInGb: Number("int"), // required
+ *     instanceCount: Number("int"),
+ *   },
+ *   hyperParameters: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   deviceConfig: {
+ *     device: "STRING_VALUE", // required
+ *   },
+ *   tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateJobCommand(input);
  * const response = await client.send(command);
  * ```

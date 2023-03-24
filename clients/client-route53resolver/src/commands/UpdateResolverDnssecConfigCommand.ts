@@ -42,6 +42,10 @@ export interface UpdateResolverDnssecConfigCommandOutput extends UpdateResolverD
  * import { Route53ResolverClient, UpdateResolverDnssecConfigCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
  * // const { Route53ResolverClient, UpdateResolverDnssecConfigCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
  * const client = new Route53ResolverClient(config);
+ * const input = {
+ *   ResourceId: "STRING_VALUE", // required
+ *   Validation: "ENABLE" || "DISABLE" || "USE_LOCAL_RESOURCE_SETTING", // required
+ * };
  * const command = new UpdateResolverDnssecConfigCommand(input);
  * const response = await client.send(command);
  * ```

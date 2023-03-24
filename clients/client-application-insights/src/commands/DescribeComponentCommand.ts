@@ -47,6 +47,10 @@ export interface DescribeComponentCommandOutput extends DescribeComponentRespons
  * import { ApplicationInsightsClient, DescribeComponentCommand } from "@aws-sdk/client-application-insights"; // ES Modules import
  * // const { ApplicationInsightsClient, DescribeComponentCommand } = require("@aws-sdk/client-application-insights"); // CommonJS import
  * const client = new ApplicationInsightsClient(config);
+ * const input = {
+ *   ResourceGroupName: "STRING_VALUE", // required
+ *   ComponentName: "STRING_VALUE", // required
+ * };
  * const command = new DescribeComponentCommand(input);
  * const response = await client.send(command);
  * ```

@@ -51,6 +51,10 @@ export interface GetAssociatedEnclaveCertificateIamRolesCommandOutput
  * import { EC2Client, GetAssociatedEnclaveCertificateIamRolesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, GetAssociatedEnclaveCertificateIamRolesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   CertificateArn: "STRING_VALUE", // required
+ *   DryRun: true || false,
+ * };
  * const command = new GetAssociatedEnclaveCertificateIamRolesCommand(input);
  * const response = await client.send(command);
  * ```

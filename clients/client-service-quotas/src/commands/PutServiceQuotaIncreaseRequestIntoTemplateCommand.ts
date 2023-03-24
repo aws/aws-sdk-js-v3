@@ -48,6 +48,12 @@ export interface PutServiceQuotaIncreaseRequestIntoTemplateCommandOutput
  * import { ServiceQuotasClient, PutServiceQuotaIncreaseRequestIntoTemplateCommand } from "@aws-sdk/client-service-quotas"; // ES Modules import
  * // const { ServiceQuotasClient, PutServiceQuotaIncreaseRequestIntoTemplateCommand } = require("@aws-sdk/client-service-quotas"); // CommonJS import
  * const client = new ServiceQuotasClient(config);
+ * const input = {
+ *   QuotaCode: "STRING_VALUE", // required
+ *   ServiceCode: "STRING_VALUE", // required
+ *   AwsRegion: "STRING_VALUE", // required
+ *   DesiredValue: Number("double"), // required
+ * };
  * const command = new PutServiceQuotaIncreaseRequestIntoTemplateCommand(input);
  * const response = await client.send(command);
  * ```

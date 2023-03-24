@@ -43,6 +43,10 @@ export interface DeleteConditionalForwarderCommandOutput extends DeleteCondition
  * import { DirectoryServiceClient, DeleteConditionalForwarderCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, DeleteConditionalForwarderCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
  * const client = new DirectoryServiceClient(config);
+ * const input = {
+ *   DirectoryId: "STRING_VALUE", // required
+ *   RemoteDomainName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteConditionalForwarderCommand(input);
  * const response = await client.send(command);
  * ```

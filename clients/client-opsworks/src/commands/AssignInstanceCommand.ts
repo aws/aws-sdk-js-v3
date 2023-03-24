@@ -59,6 +59,12 @@ export interface AssignInstanceCommandOutput extends __MetadataBearer {}
  * import { OpsWorksClient, AssignInstanceCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, AssignInstanceCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
+ * const input = {
+ *   InstanceId: "STRING_VALUE", // required
+ *   LayerIds: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new AssignInstanceCommand(input);
  * const response = await client.send(command);
  * ```

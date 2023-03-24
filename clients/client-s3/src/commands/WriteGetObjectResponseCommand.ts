@@ -73,6 +73,50 @@ export interface WriteGetObjectResponseCommandOutput extends __MetadataBearer {}
  * import { S3Client, WriteGetObjectResponseCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, WriteGetObjectResponseCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
+ * const input = {
+ *   RequestRoute: "STRING_VALUE", // required
+ *   RequestToken: "STRING_VALUE", // required
+ *   Body: "STREAMING_BLOB_VALUE",
+ *   StatusCode: Number("int"),
+ *   ErrorCode: "STRING_VALUE",
+ *   ErrorMessage: "STRING_VALUE",
+ *   AcceptRanges: "STRING_VALUE",
+ *   CacheControl: "STRING_VALUE",
+ *   ContentDisposition: "STRING_VALUE",
+ *   ContentEncoding: "STRING_VALUE",
+ *   ContentLanguage: "STRING_VALUE",
+ *   ContentLength: Number("long"),
+ *   ContentRange: "STRING_VALUE",
+ *   ContentType: "STRING_VALUE",
+ *   ChecksumCRC32: "STRING_VALUE",
+ *   ChecksumCRC32C: "STRING_VALUE",
+ *   ChecksumSHA1: "STRING_VALUE",
+ *   ChecksumSHA256: "STRING_VALUE",
+ *   DeleteMarker: true || false,
+ *   ETag: "STRING_VALUE",
+ *   Expires: new Date("TIMESTAMP"),
+ *   Expiration: "STRING_VALUE",
+ *   LastModified: new Date("TIMESTAMP"),
+ *   MissingMeta: Number("int"),
+ *   Metadata: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   ObjectLockMode: "GOVERNANCE" || "COMPLIANCE",
+ *   ObjectLockLegalHoldStatus: "ON" || "OFF",
+ *   ObjectLockRetainUntilDate: new Date("TIMESTAMP"),
+ *   PartsCount: Number("int"),
+ *   ReplicationStatus: "COMPLETE" || "PENDING" || "FAILED" || "REPLICA",
+ *   RequestCharged: "requester",
+ *   Restore: "STRING_VALUE",
+ *   ServerSideEncryption: "AES256" || "aws:kms",
+ *   SSECustomerAlgorithm: "STRING_VALUE",
+ *   SSEKMSKeyId: "STRING_VALUE",
+ *   SSECustomerKeyMD5: "STRING_VALUE",
+ *   StorageClass: "STANDARD" || "REDUCED_REDUNDANCY" || "STANDARD_IA" || "ONEZONE_IA" || "INTELLIGENT_TIERING" || "GLACIER" || "DEEP_ARCHIVE" || "OUTPOSTS" || "GLACIER_IR",
+ *   TagCount: Number("int"),
+ *   VersionId: "STRING_VALUE",
+ *   BucketKeyEnabled: true || false,
+ * };
  * const command = new WriteGetObjectResponseCommand(input);
  * const response = await client.send(command);
  * ```

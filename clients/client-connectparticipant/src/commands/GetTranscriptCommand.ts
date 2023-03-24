@@ -56,6 +56,19 @@ export interface GetTranscriptCommandOutput extends GetTranscriptResponse, __Met
  * import { ConnectParticipantClient, GetTranscriptCommand } from "@aws-sdk/client-connectparticipant"; // ES Modules import
  * // const { ConnectParticipantClient, GetTranscriptCommand } = require("@aws-sdk/client-connectparticipant"); // CommonJS import
  * const client = new ConnectParticipantClient(config);
+ * const input = {
+ *   ContactId: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   ScanDirection: "FORWARD" || "BACKWARD",
+ *   SortOrder: "DESCENDING" || "ASCENDING",
+ *   StartPosition: {
+ *     Id: "STRING_VALUE",
+ *     AbsoluteTime: "STRING_VALUE",
+ *     MostRecent: Number("int"),
+ *   },
+ *   ConnectionToken: "STRING_VALUE", // required
+ * };
  * const command = new GetTranscriptCommand(input);
  * const response = await client.send(command);
  * ```

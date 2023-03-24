@@ -45,6 +45,7 @@ export interface GetComplianceSummaryByConfigRuleCommandOutput
  * import { ConfigServiceClient, GetComplianceSummaryByConfigRuleCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, GetComplianceSummaryByConfigRuleCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
+ * const input = {};
  * const command = new GetComplianceSummaryByConfigRuleCommand(input);
  * const response = await client.send(command);
  * ```

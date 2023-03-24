@@ -42,6 +42,9 @@ export interface GetNetworkProfileCommandOutput extends GetNetworkProfileResult,
  * import { DeviceFarmClient, GetNetworkProfileCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, GetNetworkProfileCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
+ * const input = {
+ *   arn: "STRING_VALUE", // required
+ * };
  * const command = new GetNetworkProfileCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,9 @@ export interface GetSequenceStoreCommandOutput extends GetSequenceStoreResponse,
  * import { OmicsClient, GetSequenceStoreCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, GetSequenceStoreCommand } = require("@aws-sdk/client-omics"); // CommonJS import
  * const client = new OmicsClient(config);
+ * const input = {
+ *   id: "STRING_VALUE", // required
+ * };
  * const command = new GetSequenceStoreCommand(input);
  * const response = await client.send(command);
  * ```

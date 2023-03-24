@@ -43,6 +43,24 @@ export interface ReplaceNetworkAclEntryCommandOutput extends __MetadataBearer {}
  * import { EC2Client, ReplaceNetworkAclEntryCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ReplaceNetworkAclEntryCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   CidrBlock: "STRING_VALUE",
+ *   DryRun: true || false,
+ *   Egress: true || false, // required
+ *   IcmpTypeCode: {
+ *     Code: Number("int"),
+ *     Type: Number("int"),
+ *   },
+ *   Ipv6CidrBlock: "STRING_VALUE",
+ *   NetworkAclId: "STRING_VALUE", // required
+ *   PortRange: {
+ *     From: Number("int"),
+ *     To: Number("int"),
+ *   },
+ *   Protocol: "STRING_VALUE", // required
+ *   RuleAction: "allow" || "deny", // required
+ *   RuleNumber: Number("int"), // required
+ * };
  * const command = new ReplaceNetworkAclEntryCommand(input);
  * const response = await client.send(command);
  * ```

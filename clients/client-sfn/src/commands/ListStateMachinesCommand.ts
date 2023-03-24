@@ -47,6 +47,10 @@ export interface ListStateMachinesCommandOutput extends ListStateMachinesOutput,
  * import { SFNClient, ListStateMachinesCommand } from "@aws-sdk/client-sfn"; // ES Modules import
  * // const { SFNClient, ListStateMachinesCommand } = require("@aws-sdk/client-sfn"); // CommonJS import
  * const client = new SFNClient(config);
+ * const input = {
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListStateMachinesCommand(input);
  * const response = await client.send(command);
  * ```

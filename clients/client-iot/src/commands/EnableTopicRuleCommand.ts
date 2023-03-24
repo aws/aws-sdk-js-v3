@@ -43,6 +43,9 @@ export interface EnableTopicRuleCommandOutput extends __MetadataBearer {}
  * import { IoTClient, EnableTopicRuleCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, EnableTopicRuleCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = {
+ *   ruleName: "STRING_VALUE", // required
+ * };
  * const command = new EnableTopicRuleCommand(input);
  * const response = await client.send(command);
  * ```

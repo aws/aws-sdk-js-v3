@@ -44,6 +44,9 @@ export interface DisassociateDeviceFromRoomCommandOutput extends DisassociateDev
  * import { AlexaForBusinessClient, DisassociateDeviceFromRoomCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, DisassociateDeviceFromRoomCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
+ * const input = {
+ *   DeviceArn: "STRING_VALUE",
+ * };
  * const command = new DisassociateDeviceFromRoomCommand(input);
  * const response = await client.send(command);
  * ```

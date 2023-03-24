@@ -42,6 +42,55 @@ export interface UpdateGraphqlApiCommandOutput extends UpdateGraphqlApiResponse,
  * import { AppSyncClient, UpdateGraphqlApiCommand } from "@aws-sdk/client-appsync"; // ES Modules import
  * // const { AppSyncClient, UpdateGraphqlApiCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
  * const client = new AppSyncClient(config);
+ * const input = {
+ *   apiId: "STRING_VALUE", // required
+ *   name: "STRING_VALUE", // required
+ *   logConfig: {
+ *     fieldLogLevel: "NONE" || "ERROR" || "ALL", // required
+ *     cloudWatchLogsRoleArn: "STRING_VALUE", // required
+ *     excludeVerboseContent: true || false,
+ *   },
+ *   authenticationType: "API_KEY" || "AWS_IAM" || "AMAZON_COGNITO_USER_POOLS" || "OPENID_CONNECT" || "AWS_LAMBDA",
+ *   userPoolConfig: {
+ *     userPoolId: "STRING_VALUE", // required
+ *     awsRegion: "STRING_VALUE", // required
+ *     defaultAction: "ALLOW" || "DENY", // required
+ *     appIdClientRegex: "STRING_VALUE",
+ *   },
+ *   openIDConnectConfig: {
+ *     issuer: "STRING_VALUE", // required
+ *     clientId: "STRING_VALUE",
+ *     iatTTL: Number("long"),
+ *     authTTL: Number("long"),
+ *   },
+ *   additionalAuthenticationProviders: [
+ *     {
+ *       authenticationType: "API_KEY" || "AWS_IAM" || "AMAZON_COGNITO_USER_POOLS" || "OPENID_CONNECT" || "AWS_LAMBDA",
+ *       openIDConnectConfig: {
+ *         issuer: "STRING_VALUE", // required
+ *         clientId: "STRING_VALUE",
+ *         iatTTL: Number("long"),
+ *         authTTL: Number("long"),
+ *       },
+ *       userPoolConfig: {
+ *         userPoolId: "STRING_VALUE", // required
+ *         awsRegion: "STRING_VALUE", // required
+ *         appIdClientRegex: "STRING_VALUE",
+ *       },
+ *       lambdaAuthorizerConfig: {
+ *         authorizerResultTtlInSeconds: Number("int"),
+ *         authorizerUri: "STRING_VALUE", // required
+ *         identityValidationExpression: "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ *   xrayEnabled: true || false,
+ *   lambdaAuthorizerConfig: {
+ *     authorizerResultTtlInSeconds: Number("int"),
+ *     authorizerUri: "STRING_VALUE", // required
+ *     identityValidationExpression: "STRING_VALUE",
+ *   },
+ * };
  * const command = new UpdateGraphqlApiCommand(input);
  * const response = await client.send(command);
  * ```

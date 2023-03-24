@@ -53,6 +53,15 @@ export interface CreateTagsCommandOutput extends __MetadataBearer {}
  * import { EFSClient, CreateTagsCommand } from "@aws-sdk/client-efs"; // ES Modules import
  * // const { EFSClient, CreateTagsCommand } = require("@aws-sdk/client-efs"); // CommonJS import
  * const client = new EFSClient(config);
+ * const input = {
+ *   FileSystemId: "STRING_VALUE", // required
+ *   Tags: [ // required
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateTagsCommand(input);
  * const response = await client.send(command);
  * ```

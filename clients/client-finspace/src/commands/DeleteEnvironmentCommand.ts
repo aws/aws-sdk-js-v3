@@ -42,6 +42,9 @@ export interface DeleteEnvironmentCommandOutput extends DeleteEnvironmentRespons
  * import { FinspaceClient, DeleteEnvironmentCommand } from "@aws-sdk/client-finspace"; // ES Modules import
  * // const { FinspaceClient, DeleteEnvironmentCommand } = require("@aws-sdk/client-finspace"); // CommonJS import
  * const client = new FinspaceClient(config);
+ * const input = {
+ *   environmentId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteEnvironmentCommand(input);
  * const response = await client.send(command);
  * ```

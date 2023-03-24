@@ -51,6 +51,21 @@ export interface UpdateLicenseSpecificationsForResourceCommandOutput
  * import { LicenseManagerClient, UpdateLicenseSpecificationsForResourceCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
  * // const { LicenseManagerClient, UpdateLicenseSpecificationsForResourceCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
  * const client = new LicenseManagerClient(config);
+ * const input = {
+ *   ResourceArn: "STRING_VALUE", // required
+ *   AddLicenseSpecifications: [
+ *     {
+ *       LicenseConfigurationArn: "STRING_VALUE", // required
+ *       AmiAssociationScope: "STRING_VALUE",
+ *     },
+ *   ],
+ *   RemoveLicenseSpecifications: [
+ *     {
+ *       LicenseConfigurationArn: "STRING_VALUE", // required
+ *       AmiAssociationScope: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new UpdateLicenseSpecificationsForResourceCommand(input);
  * const response = await client.send(command);
  * ```

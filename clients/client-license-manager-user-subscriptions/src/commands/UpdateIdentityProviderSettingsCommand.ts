@@ -49,6 +49,23 @@ export interface UpdateIdentityProviderSettingsCommandOutput
  * import { LicenseManagerUserSubscriptionsClient, UpdateIdentityProviderSettingsCommand } from "@aws-sdk/client-license-manager-user-subscriptions"; // ES Modules import
  * // const { LicenseManagerUserSubscriptionsClient, UpdateIdentityProviderSettingsCommand } = require("@aws-sdk/client-license-manager-user-subscriptions"); // CommonJS import
  * const client = new LicenseManagerUserSubscriptionsClient(config);
+ * const input = {
+ *   IdentityProvider: { // Union: only one key present
+ *     ActiveDirectoryIdentityProvider: {
+ *       DirectoryId: "STRING_VALUE",
+ *     },
+ *   },
+ *   Product: "STRING_VALUE", // required
+ *   UpdateSettings: {
+ *     AddSubnets: [ // required
+ *       "STRING_VALUE",
+ *     ],
+ *     RemoveSubnets: [ // required
+ *       "STRING_VALUE",
+ *     ],
+ *     SecurityGroupId: "STRING_VALUE",
+ *   },
+ * };
  * const command = new UpdateIdentityProviderSettingsCommand(input);
  * const response = await client.send(command);
  * ```

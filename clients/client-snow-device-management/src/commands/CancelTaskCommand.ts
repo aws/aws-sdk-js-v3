@@ -51,6 +51,9 @@ export interface CancelTaskCommandOutput extends CancelTaskOutput, __MetadataBea
  * import { SnowDeviceManagementClient, CancelTaskCommand } from "@aws-sdk/client-snow-device-management"; // ES Modules import
  * // const { SnowDeviceManagementClient, CancelTaskCommand } = require("@aws-sdk/client-snow-device-management"); // CommonJS import
  * const client = new SnowDeviceManagementClient(config);
+ * const input = {
+ *   taskId: "STRING_VALUE", // required
+ * };
  * const command = new CancelTaskCommand(input);
  * const response = await client.send(command);
  * ```

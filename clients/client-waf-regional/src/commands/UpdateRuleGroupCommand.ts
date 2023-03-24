@@ -74,6 +74,31 @@ export interface UpdateRuleGroupCommandOutput extends UpdateRuleGroupResponse, _
  * import { WAFRegionalClient, UpdateRuleGroupCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
  * // const { WAFRegionalClient, UpdateRuleGroupCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
  * const client = new WAFRegionalClient(config);
+ * const input = {
+ *   RuleGroupId: "STRING_VALUE", // required
+ *   Updates: [ // required
+ *     {
+ *       Action: "STRING_VALUE", // required
+ *       ActivatedRule: {
+ *         Priority: Number("int"), // required
+ *         RuleId: "STRING_VALUE", // required
+ *         Action: {
+ *           Type: "STRING_VALUE", // required
+ *         },
+ *         OverrideAction: {
+ *           Type: "STRING_VALUE", // required
+ *         },
+ *         Type: "STRING_VALUE",
+ *         ExcludedRules: [
+ *           {
+ *             RuleId: "STRING_VALUE", // required
+ *           },
+ *         ],
+ *       },
+ *     },
+ *   ],
+ *   ChangeToken: "STRING_VALUE", // required
+ * };
  * const command = new UpdateRuleGroupCommand(input);
  * const response = await client.send(command);
  * ```

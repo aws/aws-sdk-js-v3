@@ -65,6 +65,10 @@ export interface GetComplianceDetailCommandOutput extends GetComplianceDetailRes
  * import { FMSClient, GetComplianceDetailCommand } from "@aws-sdk/client-fms"; // ES Modules import
  * // const { FMSClient, GetComplianceDetailCommand } = require("@aws-sdk/client-fms"); // CommonJS import
  * const client = new FMSClient(config);
+ * const input = {
+ *   PolicyId: "STRING_VALUE", // required
+ *   MemberAccount: "STRING_VALUE", // required
+ * };
  * const command = new GetComplianceDetailCommand(input);
  * const response = await client.send(command);
  * ```

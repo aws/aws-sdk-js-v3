@@ -45,6 +45,16 @@ export interface StartMailboxExportJobCommandOutput extends StartMailboxExportJo
  * import { WorkMailClient, StartMailboxExportJobCommand } from "@aws-sdk/client-workmail"; // ES Modules import
  * // const { WorkMailClient, StartMailboxExportJobCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
  * const client = new WorkMailClient(config);
+ * const input = {
+ *   ClientToken: "STRING_VALUE", // required
+ *   OrganizationId: "STRING_VALUE", // required
+ *   EntityId: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   RoleArn: "STRING_VALUE", // required
+ *   KmsKeyArn: "STRING_VALUE", // required
+ *   S3BucketName: "STRING_VALUE", // required
+ *   S3Prefix: "STRING_VALUE", // required
+ * };
  * const command = new StartMailboxExportJobCommand(input);
  * const response = await client.send(command);
  * ```

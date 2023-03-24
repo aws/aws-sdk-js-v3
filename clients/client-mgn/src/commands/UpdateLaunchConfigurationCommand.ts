@@ -42,6 +42,47 @@ export interface UpdateLaunchConfigurationCommandOutput extends LaunchConfigurat
  * import { MgnClient, UpdateLaunchConfigurationCommand } from "@aws-sdk/client-mgn"; // ES Modules import
  * // const { MgnClient, UpdateLaunchConfigurationCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
  * const client = new MgnClient(config);
+ * const input = {
+ *   sourceServerID: "STRING_VALUE", // required
+ *   name: "STRING_VALUE",
+ *   launchDisposition: "STRING_VALUE",
+ *   targetInstanceTypeRightSizingMethod: "STRING_VALUE",
+ *   copyPrivateIp: true || false,
+ *   copyTags: true || false,
+ *   licensing: {
+ *     osByol: true || false,
+ *   },
+ *   bootMode: "STRING_VALUE",
+ *   postLaunchActions: {
+ *     deployment: "STRING_VALUE",
+ *     s3LogBucket: "STRING_VALUE",
+ *     s3OutputKeyPrefix: "STRING_VALUE",
+ *     cloudWatchLogGroupName: "STRING_VALUE",
+ *     ssmDocuments: [
+ *       {
+ *         actionName: "STRING_VALUE", // required
+ *         ssmDocumentName: "STRING_VALUE", // required
+ *         timeoutSeconds: Number("int"),
+ *         mustSucceedForCutover: true || false,
+ *         parameters: {
+ *           "<keys>": [
+ *             {
+ *               parameterType: "STRING_VALUE", // required
+ *               parameterName: "STRING_VALUE", // required
+ *             },
+ *           ],
+ *         },
+ *         externalParameters: {
+ *           "<keys>": { // Union: only one key present
+ *             dynamicPath: "STRING_VALUE",
+ *           },
+ *         },
+ *       },
+ *     ],
+ *   },
+ *   enableMapAutoTagging: true || false,
+ *   mapAutoTaggingMpeID: "STRING_VALUE",
+ * };
  * const command = new UpdateLaunchConfigurationCommand(input);
  * const response = await client.send(command);
  * ```

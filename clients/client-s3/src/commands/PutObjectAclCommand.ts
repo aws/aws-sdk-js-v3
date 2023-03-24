@@ -221,6 +221,39 @@ export interface PutObjectAclCommandOutput extends PutObjectAclOutput, __Metadat
  * import { S3Client, PutObjectAclCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, PutObjectAclCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
+ * const input = {
+ *   ACL: "private" || "public-read" || "public-read-write" || "authenticated-read" || "aws-exec-read" || "bucket-owner-read" || "bucket-owner-full-control",
+ *   AccessControlPolicy: {
+ *     Grants: [
+ *       {
+ *         Grantee: {
+ *           DisplayName: "STRING_VALUE",
+ *           EmailAddress: "STRING_VALUE",
+ *           ID: "STRING_VALUE",
+ *           URI: "STRING_VALUE",
+ *           Type: "CanonicalUser" || "AmazonCustomerByEmail" || "Group", // required
+ *         },
+ *         Permission: "FULL_CONTROL" || "WRITE" || "WRITE_ACP" || "READ" || "READ_ACP",
+ *       },
+ *     ],
+ *     Owner: {
+ *       DisplayName: "STRING_VALUE",
+ *       ID: "STRING_VALUE",
+ *     },
+ *   },
+ *   Bucket: "STRING_VALUE", // required
+ *   ContentMD5: "STRING_VALUE",
+ *   ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256",
+ *   GrantFullControl: "STRING_VALUE",
+ *   GrantRead: "STRING_VALUE",
+ *   GrantReadACP: "STRING_VALUE",
+ *   GrantWrite: "STRING_VALUE",
+ *   GrantWriteACP: "STRING_VALUE",
+ *   Key: "STRING_VALUE", // required
+ *   RequestPayer: "requester",
+ *   VersionId: "STRING_VALUE",
+ *   ExpectedBucketOwner: "STRING_VALUE",
+ * };
  * const command = new PutObjectAclCommand(input);
  * const response = await client.send(command);
  * ```

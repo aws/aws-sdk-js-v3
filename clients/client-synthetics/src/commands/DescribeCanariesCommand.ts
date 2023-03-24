@@ -51,6 +51,13 @@ export interface DescribeCanariesCommandOutput extends DescribeCanariesResponse,
  * import { SyntheticsClient, DescribeCanariesCommand } from "@aws-sdk/client-synthetics"; // ES Modules import
  * // const { SyntheticsClient, DescribeCanariesCommand } = require("@aws-sdk/client-synthetics"); // CommonJS import
  * const client = new SyntheticsClient(config);
+ * const input = {
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   Names: [
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DescribeCanariesCommand(input);
  * const response = await client.send(command);
  * ```

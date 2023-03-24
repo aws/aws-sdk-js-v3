@@ -47,6 +47,19 @@ export interface CreateDomainEntryCommandOutput extends CreateDomainEntryResult,
  * import { LightsailClient, CreateDomainEntryCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, CreateDomainEntryCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = {
+ *   domainName: "STRING_VALUE", // required
+ *   domainEntry: {
+ *     id: "STRING_VALUE",
+ *     name: "STRING_VALUE",
+ *     target: "STRING_VALUE",
+ *     isAlias: true || false,
+ *     type: "STRING_VALUE",
+ *     options: {
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *   },
+ * };
  * const command = new CreateDomainEntryCommand(input);
  * const response = await client.send(command);
  * ```

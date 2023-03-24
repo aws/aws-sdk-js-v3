@@ -42,6 +42,9 @@ export interface DeleteProtectionGroupCommandOutput extends DeleteProtectionGrou
  * import { ShieldClient, DeleteProtectionGroupCommand } from "@aws-sdk/client-shield"; // ES Modules import
  * // const { ShieldClient, DeleteProtectionGroupCommand } = require("@aws-sdk/client-shield"); // CommonJS import
  * const client = new ShieldClient(config);
+ * const input = {
+ *   ProtectionGroupId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteProtectionGroupCommand(input);
  * const response = await client.send(command);
  * ```

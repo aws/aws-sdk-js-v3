@@ -51,6 +51,13 @@ export interface ProvisionByoipCidrCommandOutput extends ProvisionByoipCidrRespo
  * import { GlobalAcceleratorClient, ProvisionByoipCidrCommand } from "@aws-sdk/client-global-accelerator"; // ES Modules import
  * // const { GlobalAcceleratorClient, ProvisionByoipCidrCommand } = require("@aws-sdk/client-global-accelerator"); // CommonJS import
  * const client = new GlobalAcceleratorClient(config);
+ * const input = {
+ *   Cidr: "STRING_VALUE", // required
+ *   CidrAuthorizationContext: {
+ *     Message: "STRING_VALUE", // required
+ *     Signature: "STRING_VALUE", // required
+ *   },
+ * };
  * const command = new ProvisionByoipCidrCommand(input);
  * const response = await client.send(command);
  * ```

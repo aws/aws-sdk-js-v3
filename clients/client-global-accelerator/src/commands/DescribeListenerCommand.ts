@@ -46,6 +46,9 @@ export interface DescribeListenerCommandOutput extends DescribeListenerResponse,
  * import { GlobalAcceleratorClient, DescribeListenerCommand } from "@aws-sdk/client-global-accelerator"; // ES Modules import
  * // const { GlobalAcceleratorClient, DescribeListenerCommand } = require("@aws-sdk/client-global-accelerator"); // CommonJS import
  * const client = new GlobalAcceleratorClient(config);
+ * const input = {
+ *   ListenerArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeListenerCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,7 @@ export interface GetAccountConfigurationCommandOutput extends GetAccountConfigur
  * import { ACMClient, GetAccountConfigurationCommand } from "@aws-sdk/client-acm"; // ES Modules import
  * // const { ACMClient, GetAccountConfigurationCommand } = require("@aws-sdk/client-acm"); // CommonJS import
  * const client = new ACMClient(config);
+ * const input = {};
  * const command = new GetAccountConfigurationCommand(input);
  * const response = await client.send(command);
  * ```

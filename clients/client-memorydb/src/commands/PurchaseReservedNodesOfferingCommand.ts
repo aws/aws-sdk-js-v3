@@ -44,6 +44,17 @@ export interface PurchaseReservedNodesOfferingCommandOutput
  * import { MemoryDBClient, PurchaseReservedNodesOfferingCommand } from "@aws-sdk/client-memorydb"; // ES Modules import
  * // const { MemoryDBClient, PurchaseReservedNodesOfferingCommand } = require("@aws-sdk/client-memorydb"); // CommonJS import
  * const client = new MemoryDBClient(config);
+ * const input = {
+ *   ReservedNodesOfferingId: "STRING_VALUE", // required
+ *   ReservationId: "STRING_VALUE",
+ *   NodeCount: Number("int"),
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new PurchaseReservedNodesOfferingCommand(input);
  * const response = await client.send(command);
  * ```

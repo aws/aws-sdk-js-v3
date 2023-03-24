@@ -43,6 +43,7 @@ export interface CreateUploadUrlCommandOutput extends CreateUploadUrlResponse, _
  * import { LexModelsV2Client, CreateUploadUrlCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
  * // const { LexModelsV2Client, CreateUploadUrlCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
  * const client = new LexModelsV2Client(config);
+ * const input = {};
  * const command = new CreateUploadUrlCommand(input);
  * const response = await client.send(command);
  * ```

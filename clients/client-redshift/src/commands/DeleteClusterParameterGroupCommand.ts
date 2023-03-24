@@ -46,6 +46,9 @@ export interface DeleteClusterParameterGroupCommandOutput extends __MetadataBear
  * import { RedshiftClient, DeleteClusterParameterGroupCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DeleteClusterParameterGroupCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = {
+ *   ParameterGroupName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteClusterParameterGroupCommand(input);
  * const response = await client.send(command);
  * ```

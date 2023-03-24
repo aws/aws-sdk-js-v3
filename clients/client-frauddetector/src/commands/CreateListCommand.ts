@@ -46,6 +46,20 @@ export interface CreateListCommandOutput extends CreateListResult, __MetadataBea
  * import { FraudDetectorClient, CreateListCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, CreateListCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
  * const client = new FraudDetectorClient(config);
+ * const input = {
+ *   name: "STRING_VALUE", // required
+ *   elements: [
+ *     "STRING_VALUE",
+ *   ],
+ *   variableType: "STRING_VALUE",
+ *   description: "STRING_VALUE",
+ *   tags: [
+ *     {
+ *       key: "STRING_VALUE", // required
+ *       value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateListCommand(input);
  * const response = await client.send(command);
  * ```

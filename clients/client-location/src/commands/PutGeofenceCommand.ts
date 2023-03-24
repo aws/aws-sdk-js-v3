@@ -43,6 +43,25 @@ export interface PutGeofenceCommandOutput extends PutGeofenceResponse, __Metadat
  * import { LocationClient, PutGeofenceCommand } from "@aws-sdk/client-location"; // ES Modules import
  * // const { LocationClient, PutGeofenceCommand } = require("@aws-sdk/client-location"); // CommonJS import
  * const client = new LocationClient(config);
+ * const input = {
+ *   CollectionName: "STRING_VALUE", // required
+ *   GeofenceId: "STRING_VALUE", // required
+ *   Geometry: {
+ *     Polygon: [
+ *       [
+ *         [
+ *           Number("double"),
+ *         ],
+ *       ],
+ *     ],
+ *     Circle: {
+ *       Center: [ // required
+ *         Number("double"),
+ *       ],
+ *       Radius: Number("double"), // required
+ *     },
+ *   },
+ * };
  * const command = new PutGeofenceCommand(input);
  * const response = await client.send(command);
  * ```

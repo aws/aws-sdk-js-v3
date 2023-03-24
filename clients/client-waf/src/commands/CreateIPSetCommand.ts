@@ -75,6 +75,10 @@ export interface CreateIPSetCommandOutput extends CreateIPSetResponse, __Metadat
  * import { WAFClient, CreateIPSetCommand } from "@aws-sdk/client-waf"; // ES Modules import
  * // const { WAFClient, CreateIPSetCommand } = require("@aws-sdk/client-waf"); // CommonJS import
  * const client = new WAFClient(config);
+ * const input = {
+ *   Name: "STRING_VALUE", // required
+ *   ChangeToken: "STRING_VALUE", // required
+ * };
  * const command = new CreateIPSetCommand(input);
  * const response = await client.send(command);
  * ```

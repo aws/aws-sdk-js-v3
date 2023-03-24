@@ -46,6 +46,13 @@ export interface DisableEnhancedMonitoringCommandOutput extends EnhancedMonitori
  * import { KinesisClient, DisableEnhancedMonitoringCommand } from "@aws-sdk/client-kinesis"; // ES Modules import
  * // const { KinesisClient, DisableEnhancedMonitoringCommand } = require("@aws-sdk/client-kinesis"); // CommonJS import
  * const client = new KinesisClient(config);
+ * const input = {
+ *   StreamName: "STRING_VALUE",
+ *   ShardLevelMetrics: [ // required
+ *     "IncomingBytes" || "IncomingRecords" || "OutgoingBytes" || "OutgoingRecords" || "WriteProvisionedThroughputExceeded" || "ReadProvisionedThroughputExceeded" || "IteratorAgeMilliseconds" || "ALL",
+ *   ],
+ *   StreamARN: "STRING_VALUE",
+ * };
  * const command = new DisableEnhancedMonitoringCommand(input);
  * const response = await client.send(command);
  * ```

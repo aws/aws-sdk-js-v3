@@ -47,6 +47,13 @@ export interface ListNetworksCommandOutput extends ListNetworksOutput, __Metadat
  * import { ManagedBlockchainClient, ListNetworksCommand } from "@aws-sdk/client-managedblockchain"; // ES Modules import
  * // const { ManagedBlockchainClient, ListNetworksCommand } = require("@aws-sdk/client-managedblockchain"); // CommonJS import
  * const client = new ManagedBlockchainClient(config);
+ * const input = {
+ *   Name: "STRING_VALUE",
+ *   Framework: "HYPERLEDGER_FABRIC" || "ETHEREUM",
+ *   Status: "CREATING" || "AVAILABLE" || "CREATE_FAILED" || "DELETING" || "DELETED",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListNetworksCommand(input);
  * const response = await client.send(command);
  * ```

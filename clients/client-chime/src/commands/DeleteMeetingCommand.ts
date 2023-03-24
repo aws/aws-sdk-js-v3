@@ -45,6 +45,9 @@ export interface DeleteMeetingCommandOutput extends __MetadataBearer {}
  * import { ChimeClient, DeleteMeetingCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, DeleteMeetingCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = {
+ *   MeetingId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteMeetingCommand(input);
  * const response = await client.send(command);
  * ```

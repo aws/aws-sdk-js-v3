@@ -42,6 +42,9 @@ export interface DeleteAccessTokenCommandOutput extends DeleteAccessTokenRespons
  * import { CodeCatalystClient, DeleteAccessTokenCommand } from "@aws-sdk/client-codecatalyst"; // ES Modules import
  * // const { CodeCatalystClient, DeleteAccessTokenCommand } = require("@aws-sdk/client-codecatalyst"); // CommonJS import
  * const client = new CodeCatalystClient(config);
+ * const input = {
+ *   id: "STRING_VALUE", // required
+ * };
  * const command = new DeleteAccessTokenCommand(input);
  * const response = await client.send(command);
  * ```

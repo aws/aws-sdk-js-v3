@@ -52,6 +52,26 @@ export interface CreateSystemInstanceCommandOutput extends CreateSystemInstanceR
  * import { IoTThingsGraphClient, CreateSystemInstanceCommand } from "@aws-sdk/client-iotthingsgraph"; // ES Modules import
  * // const { IoTThingsGraphClient, CreateSystemInstanceCommand } = require("@aws-sdk/client-iotthingsgraph"); // CommonJS import
  * const client = new IoTThingsGraphClient(config);
+ * const input = {
+ *   tags: [
+ *     {
+ *       key: "STRING_VALUE", // required
+ *       value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   definition: {
+ *     language: "STRING_VALUE", // required
+ *     text: "STRING_VALUE", // required
+ *   },
+ *   target: "STRING_VALUE", // required
+ *   greengrassGroupName: "STRING_VALUE",
+ *   s3BucketName: "STRING_VALUE",
+ *   metricsConfiguration: {
+ *     cloudMetricEnabled: true || false,
+ *     metricRuleRoleArn: "STRING_VALUE",
+ *   },
+ *   flowActionsRoleArn: "STRING_VALUE",
+ * };
  * const command = new CreateSystemInstanceCommand(input);
  * const response = await client.send(command);
  * ```

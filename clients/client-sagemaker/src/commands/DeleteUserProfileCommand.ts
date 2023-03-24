@@ -43,6 +43,10 @@ export interface DeleteUserProfileCommandOutput extends __MetadataBearer {}
  * import { SageMakerClient, DeleteUserProfileCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DeleteUserProfileCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = {
+ *   DomainId: "STRING_VALUE", // required
+ *   UserProfileName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteUserProfileCommand(input);
  * const response = await client.send(command);
  * ```

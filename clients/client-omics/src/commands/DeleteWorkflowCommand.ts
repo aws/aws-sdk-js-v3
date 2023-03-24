@@ -42,6 +42,9 @@ export interface DeleteWorkflowCommandOutput extends __MetadataBearer {}
  * import { OmicsClient, DeleteWorkflowCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, DeleteWorkflowCommand } = require("@aws-sdk/client-omics"); // CommonJS import
  * const client = new OmicsClient(config);
+ * const input = {
+ *   id: "STRING_VALUE", // required
+ * };
  * const command = new DeleteWorkflowCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,38 @@ export interface CreateApiCommandOutput extends CreateApiResponse, __MetadataBea
  * import { ApiGatewayV2Client, CreateApiCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
  * // const { ApiGatewayV2Client, CreateApiCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import
  * const client = new ApiGatewayV2Client(config);
+ * const input = {
+ *   ApiKeySelectionExpression: "STRING_VALUE",
+ *   CorsConfiguration: {
+ *     AllowCredentials: true || false,
+ *     AllowHeaders: [
+ *       "STRING_VALUE",
+ *     ],
+ *     AllowMethods: [
+ *       "STRING_VALUE",
+ *     ],
+ *     AllowOrigins: [
+ *       "STRING_VALUE",
+ *     ],
+ *     ExposeHeaders: [
+ *       "STRING_VALUE",
+ *     ],
+ *     MaxAge: Number("int"),
+ *   },
+ *   CredentialsArn: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   DisableSchemaValidation: true || false,
+ *   DisableExecuteApiEndpoint: true || false,
+ *   Name: "STRING_VALUE", // required
+ *   ProtocolType: "STRING_VALUE", // required
+ *   RouteKey: "STRING_VALUE",
+ *   RouteSelectionExpression: "STRING_VALUE",
+ *   Tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   Target: "STRING_VALUE",
+ *   Version: "STRING_VALUE",
+ * };
  * const command = new CreateApiCommand(input);
  * const response = await client.send(command);
  * ```

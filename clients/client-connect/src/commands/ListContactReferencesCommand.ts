@@ -44,6 +44,14 @@ export interface ListContactReferencesCommandOutput extends ListContactReference
  * import { ConnectClient, ListContactReferencesCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, ListContactReferencesCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = {
+ *   InstanceId: "STRING_VALUE", // required
+ *   ContactId: "STRING_VALUE", // required
+ *   ReferenceTypes: [ // required
+ *     "URL" || "ATTACHMENT" || "NUMBER" || "STRING" || "DATE" || "EMAIL",
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListContactReferencesCommand(input);
  * const response = await client.send(command);
  * ```

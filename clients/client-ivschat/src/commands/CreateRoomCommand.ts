@@ -42,6 +42,21 @@ export interface CreateRoomCommandOutput extends CreateRoomResponse, __MetadataB
  * import { IvschatClient, CreateRoomCommand } from "@aws-sdk/client-ivschat"; // ES Modules import
  * // const { IvschatClient, CreateRoomCommand } = require("@aws-sdk/client-ivschat"); // CommonJS import
  * const client = new IvschatClient(config);
+ * const input = {
+ *   name: "STRING_VALUE",
+ *   maximumMessageRatePerSecond: Number("int"),
+ *   maximumMessageLength: Number("int"),
+ *   messageReviewHandler: {
+ *     uri: "STRING_VALUE",
+ *     fallbackResult: "STRING_VALUE",
+ *   },
+ *   tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   loggingConfigurationIdentifiers: [
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new CreateRoomCommand(input);
  * const response = await client.send(command);
  * ```

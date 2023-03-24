@@ -42,6 +42,9 @@ export interface DescribeClusterV2CommandOutput extends DescribeClusterV2Respons
  * import { KafkaClient, DescribeClusterV2Command } from "@aws-sdk/client-kafka"; // ES Modules import
  * // const { KafkaClient, DescribeClusterV2Command } = require("@aws-sdk/client-kafka"); // CommonJS import
  * const client = new KafkaClient(config);
+ * const input = {
+ *   ClusterArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeClusterV2Command(input);
  * const response = await client.send(command);
  * ```

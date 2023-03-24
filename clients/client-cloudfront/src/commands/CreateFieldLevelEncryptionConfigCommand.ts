@@ -44,6 +44,37 @@ export interface CreateFieldLevelEncryptionConfigCommandOutput
  * import { CloudFrontClient, CreateFieldLevelEncryptionConfigCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, CreateFieldLevelEncryptionConfigCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
+ * const input = {
+ *   FieldLevelEncryptionConfig: {
+ *     CallerReference: "STRING_VALUE", // required
+ *     Comment: "STRING_VALUE",
+ *     QueryArgProfileConfig: {
+ *       ForwardWhenQueryArgProfileIsUnknown: true || false, // required
+ *       QueryArgProfiles: {
+ *         Quantity: Number("int"), // required
+ *         Items: [
+ *           {
+ *             QueryArg: "STRING_VALUE", // required
+ *             ProfileId: "STRING_VALUE", // required
+ *           },
+ *         ],
+ *       },
+ *     },
+ *     ContentTypeProfileConfig: {
+ *       ForwardWhenContentTypeIsUnknown: true || false, // required
+ *       ContentTypeProfiles: {
+ *         Quantity: Number("int"), // required
+ *         Items: [
+ *           {
+ *             Format: "URLEncoded", // required
+ *             ProfileId: "STRING_VALUE",
+ *             ContentType: "STRING_VALUE", // required
+ *           },
+ *         ],
+ *       },
+ *     },
+ *   },
+ * };
  * const command = new CreateFieldLevelEncryptionConfigCommand(input);
  * const response = await client.send(command);
  * ```

@@ -44,6 +44,10 @@ export interface PutEmailIdentityDkimAttributesCommandOutput
  * import { SESv2Client, PutEmailIdentityDkimAttributesCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, PutEmailIdentityDkimAttributesCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
  * const client = new SESv2Client(config);
+ * const input = {
+ *   EmailIdentity: "STRING_VALUE", // required
+ *   SigningEnabled: true || false,
+ * };
  * const command = new PutEmailIdentityDkimAttributesCommand(input);
  * const response = await client.send(command);
  * ```

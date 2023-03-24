@@ -44,6 +44,11 @@ export interface GetInsightEventsCommandOutput extends GetInsightEventsResult, _
  * import { XRayClient, GetInsightEventsCommand } from "@aws-sdk/client-xray"; // ES Modules import
  * // const { XRayClient, GetInsightEventsCommand } = require("@aws-sdk/client-xray"); // CommonJS import
  * const client = new XRayClient(config);
+ * const input = {
+ *   InsightId: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new GetInsightEventsCommand(input);
  * const response = await client.send(command);
  * ```

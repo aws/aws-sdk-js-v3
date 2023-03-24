@@ -44,6 +44,16 @@ export interface DisassociateBotCommandOutput extends __MetadataBearer {}
  * import { ConnectClient, DisassociateBotCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, DisassociateBotCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = {
+ *   InstanceId: "STRING_VALUE", // required
+ *   LexBot: {
+ *     Name: "STRING_VALUE", // required
+ *     LexRegion: "STRING_VALUE", // required
+ *   },
+ *   LexV2Bot: {
+ *     AliasArn: "STRING_VALUE",
+ *   },
+ * };
  * const command = new DisassociateBotCommand(input);
  * const response = await client.send(command);
  * ```

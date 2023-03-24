@@ -42,6 +42,9 @@ export interface CancelBatchPredictionJobCommandOutput extends CancelBatchPredic
  * import { FraudDetectorClient, CancelBatchPredictionJobCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, CancelBatchPredictionJobCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
  * const client = new FraudDetectorClient(config);
+ * const input = {
+ *   jobId: "STRING_VALUE", // required
+ * };
  * const command = new CancelBatchPredictionJobCommand(input);
  * const response = await client.send(command);
  * ```

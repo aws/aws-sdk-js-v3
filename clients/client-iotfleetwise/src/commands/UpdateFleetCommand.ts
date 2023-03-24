@@ -46,6 +46,10 @@ export interface UpdateFleetCommandOutput extends UpdateFleetResponse, __Metadat
  * import { IoTFleetWiseClient, UpdateFleetCommand } from "@aws-sdk/client-iotfleetwise"; // ES Modules import
  * // const { IoTFleetWiseClient, UpdateFleetCommand } = require("@aws-sdk/client-iotfleetwise"); // CommonJS import
  * const client = new IoTFleetWiseClient(config);
+ * const input = {
+ *   fleetId: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ * };
  * const command = new UpdateFleetCommand(input);
  * const response = await client.send(command);
  * ```

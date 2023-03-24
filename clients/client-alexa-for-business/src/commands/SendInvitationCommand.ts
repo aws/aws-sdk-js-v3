@@ -43,6 +43,9 @@ export interface SendInvitationCommandOutput extends SendInvitationResponse, __M
  * import { AlexaForBusinessClient, SendInvitationCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, SendInvitationCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
+ * const input = {
+ *   UserArn: "STRING_VALUE",
+ * };
  * const command = new SendInvitationCommand(input);
  * const response = await client.send(command);
  * ```

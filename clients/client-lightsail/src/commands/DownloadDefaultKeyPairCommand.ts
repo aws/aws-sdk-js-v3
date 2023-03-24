@@ -44,6 +44,7 @@ export interface DownloadDefaultKeyPairCommandOutput extends DownloadDefaultKeyP
  * import { LightsailClient, DownloadDefaultKeyPairCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, DownloadDefaultKeyPairCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = {};
  * const command = new DownloadDefaultKeyPairCommand(input);
  * const response = await client.send(command);
  * ```

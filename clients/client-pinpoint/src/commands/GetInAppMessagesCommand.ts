@@ -42,6 +42,10 @@ export interface GetInAppMessagesCommandOutput extends GetInAppMessagesResponse,
  * import { PinpointClient, GetInAppMessagesCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, GetInAppMessagesCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
+ * const input = {
+ *   ApplicationId: "STRING_VALUE", // required
+ *   EndpointId: "STRING_VALUE", // required
+ * };
  * const command = new GetInAppMessagesCommand(input);
  * const response = await client.send(command);
  * ```

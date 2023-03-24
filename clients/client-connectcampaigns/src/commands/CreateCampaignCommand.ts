@@ -42,6 +42,29 @@ export interface CreateCampaignCommandOutput extends CreateCampaignResponse, __M
  * import { ConnectCampaignsClient, CreateCampaignCommand } from "@aws-sdk/client-connectcampaigns"; // ES Modules import
  * // const { ConnectCampaignsClient, CreateCampaignCommand } = require("@aws-sdk/client-connectcampaigns"); // CommonJS import
  * const client = new ConnectCampaignsClient(config);
+ * const input = {
+ *   name: "STRING_VALUE", // required
+ *   connectInstanceId: "STRING_VALUE", // required
+ *   dialerConfig: { // Union: only one key present
+ *     progressiveDialerConfig: {
+ *       bandwidthAllocation: Number("double"), // required
+ *     },
+ *     predictiveDialerConfig: {
+ *       bandwidthAllocation: Number("double"), // required
+ *     },
+ *   },
+ *   outboundCallConfig: {
+ *     connectContactFlowId: "STRING_VALUE", // required
+ *     connectSourcePhoneNumber: "STRING_VALUE",
+ *     connectQueueId: "STRING_VALUE", // required
+ *     answerMachineDetectionConfig: {
+ *       enableAnswerMachineDetection: true || false, // required
+ *     },
+ *   },
+ *   tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateCampaignCommand(input);
  * const response = await client.send(command);
  * ```

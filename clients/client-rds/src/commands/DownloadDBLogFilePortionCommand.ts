@@ -43,6 +43,12 @@ export interface DownloadDBLogFilePortionCommandOutput extends DownloadDBLogFile
  * import { RDSClient, DownloadDBLogFilePortionCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, DownloadDBLogFilePortionCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = {
+ *   DBInstanceIdentifier: "STRING_VALUE", // required
+ *   LogFileName: "STRING_VALUE", // required
+ *   Marker: "STRING_VALUE",
+ *   NumberOfLines: Number("int"),
+ * };
  * const command = new DownloadDBLogFilePortionCommand(input);
  * const response = await client.send(command);
  * ```

@@ -44,6 +44,16 @@ export interface UpdateAgreementCommandOutput extends UpdateAgreementResponse, _
  * import { TransferClient, UpdateAgreementCommand } from "@aws-sdk/client-transfer"; // ES Modules import
  * // const { TransferClient, UpdateAgreementCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
  * const client = new TransferClient(config);
+ * const input = {
+ *   AgreementId: "STRING_VALUE", // required
+ *   ServerId: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   Status: "ACTIVE" || "INACTIVE",
+ *   LocalProfileId: "STRING_VALUE",
+ *   PartnerProfileId: "STRING_VALUE",
+ *   BaseDirectory: "STRING_VALUE",
+ *   AccessRole: "STRING_VALUE",
+ * };
  * const command = new UpdateAgreementCommand(input);
  * const response = await client.send(command);
  * ```

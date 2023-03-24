@@ -43,6 +43,9 @@ export interface ListTagsCommandOutput extends ListTagsResponse, __MetadataBeare
  * import { LambdaClient, ListTagsCommand } from "@aws-sdk/client-lambda"; // ES Modules import
  * // const { LambdaClient, ListTagsCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
  * const client = new LambdaClient(config);
+ * const input = {
+ *   Resource: "STRING_VALUE", // required
+ * };
  * const command = new ListTagsCommand(input);
  * const response = await client.send(command);
  * ```

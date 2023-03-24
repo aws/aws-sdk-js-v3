@@ -42,6 +42,68 @@ export interface UpdatePushTemplateCommandOutput extends UpdatePushTemplateRespo
  * import { PinpointClient, UpdatePushTemplateCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, UpdatePushTemplateCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
+ * const input = {
+ *   CreateNewVersion: true || false,
+ *   PushNotificationTemplateRequest: {
+ *     ADM: {
+ *       Action: "STRING_VALUE",
+ *       Body: "STRING_VALUE",
+ *       ImageIconUrl: "STRING_VALUE",
+ *       ImageUrl: "STRING_VALUE",
+ *       RawContent: "STRING_VALUE",
+ *       SmallImageIconUrl: "STRING_VALUE",
+ *       Sound: "STRING_VALUE",
+ *       Title: "STRING_VALUE",
+ *       Url: "STRING_VALUE",
+ *     },
+ *     APNS: {
+ *       Action: "STRING_VALUE",
+ *       Body: "STRING_VALUE",
+ *       MediaUrl: "STRING_VALUE",
+ *       RawContent: "STRING_VALUE",
+ *       Sound: "STRING_VALUE",
+ *       Title: "STRING_VALUE",
+ *       Url: "STRING_VALUE",
+ *     },
+ *     Baidu: {
+ *       Action: "STRING_VALUE",
+ *       Body: "STRING_VALUE",
+ *       ImageIconUrl: "STRING_VALUE",
+ *       ImageUrl: "STRING_VALUE",
+ *       RawContent: "STRING_VALUE",
+ *       SmallImageIconUrl: "STRING_VALUE",
+ *       Sound: "STRING_VALUE",
+ *       Title: "STRING_VALUE",
+ *       Url: "STRING_VALUE",
+ *     },
+ *     Default: {
+ *       Action: "STRING_VALUE",
+ *       Body: "STRING_VALUE",
+ *       Sound: "STRING_VALUE",
+ *       Title: "STRING_VALUE",
+ *       Url: "STRING_VALUE",
+ *     },
+ *     DefaultSubstitutions: "STRING_VALUE",
+ *     GCM: {
+ *       Action: "STRING_VALUE",
+ *       Body: "STRING_VALUE",
+ *       ImageIconUrl: "STRING_VALUE",
+ *       ImageUrl: "STRING_VALUE",
+ *       RawContent: "STRING_VALUE",
+ *       SmallImageIconUrl: "STRING_VALUE",
+ *       Sound: "STRING_VALUE",
+ *       Title: "STRING_VALUE",
+ *       Url: "STRING_VALUE",
+ *     },
+ *     RecommenderId: "STRING_VALUE",
+ *     tags: {
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *     TemplateDescription: "STRING_VALUE",
+ *   },
+ *   TemplateName: "STRING_VALUE", // required
+ *   Version: "STRING_VALUE",
+ * };
  * const command = new UpdatePushTemplateCommand(input);
  * const response = await client.send(command);
  * ```

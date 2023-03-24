@@ -48,6 +48,10 @@ export interface DeleteResponseHeadersPolicyCommandOutput extends __MetadataBear
  * import { CloudFrontClient, DeleteResponseHeadersPolicyCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, DeleteResponseHeadersPolicyCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
+ * const input = {
+ *   Id: "STRING_VALUE", // required
+ *   IfMatch: "STRING_VALUE",
+ * };
  * const command = new DeleteResponseHeadersPolicyCommand(input);
  * const response = await client.send(command);
  * ```

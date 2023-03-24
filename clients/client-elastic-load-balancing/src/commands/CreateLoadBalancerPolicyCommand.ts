@@ -47,6 +47,17 @@ export interface CreateLoadBalancerPolicyCommandOutput extends CreateLoadBalance
  * import { ElasticLoadBalancingClient, CreateLoadBalancerPolicyCommand } from "@aws-sdk/client-elastic-load-balancing"; // ES Modules import
  * // const { ElasticLoadBalancingClient, CreateLoadBalancerPolicyCommand } = require("@aws-sdk/client-elastic-load-balancing"); // CommonJS import
  * const client = new ElasticLoadBalancingClient(config);
+ * const input = {
+ *   LoadBalancerName: "STRING_VALUE", // required
+ *   PolicyName: "STRING_VALUE", // required
+ *   PolicyTypeName: "STRING_VALUE", // required
+ *   PolicyAttributes: [
+ *     {
+ *       AttributeName: "STRING_VALUE",
+ *       AttributeValue: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateLoadBalancerPolicyCommand(input);
  * const response = await client.send(command);
  * ```

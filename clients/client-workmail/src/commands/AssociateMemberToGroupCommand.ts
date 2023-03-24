@@ -42,6 +42,11 @@ export interface AssociateMemberToGroupCommandOutput extends AssociateMemberToGr
  * import { WorkMailClient, AssociateMemberToGroupCommand } from "@aws-sdk/client-workmail"; // ES Modules import
  * // const { WorkMailClient, AssociateMemberToGroupCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
  * const client = new WorkMailClient(config);
+ * const input = {
+ *   OrganizationId: "STRING_VALUE", // required
+ *   GroupId: "STRING_VALUE", // required
+ *   MemberId: "STRING_VALUE", // required
+ * };
  * const command = new AssociateMemberToGroupCommand(input);
  * const response = await client.send(command);
  * ```

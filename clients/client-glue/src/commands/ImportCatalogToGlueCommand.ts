@@ -42,6 +42,9 @@ export interface ImportCatalogToGlueCommandOutput extends ImportCatalogToGlueRes
  * import { GlueClient, ImportCatalogToGlueCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, ImportCatalogToGlueCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = {
+ *   CatalogId: "STRING_VALUE",
+ * };
  * const command = new ImportCatalogToGlueCommand(input);
  * const response = await client.send(command);
  * ```

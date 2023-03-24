@@ -42,6 +42,11 @@ export interface GetIntegrationCommandOutput extends Integration, __MetadataBear
  * import { APIGatewayClient, GetIntegrationCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, GetIntegrationCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
+ * const input = {
+ *   restApiId: "STRING_VALUE", // required
+ *   resourceId: "STRING_VALUE", // required
+ *   httpMethod: "STRING_VALUE", // required
+ * };
  * const command = new GetIntegrationCommand(input);
  * const response = await client.send(command);
  * ```

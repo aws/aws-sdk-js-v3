@@ -42,6 +42,14 @@ export interface ModifyClusterMaintenanceCommandOutput extends ModifyClusterMain
  * import { RedshiftClient, ModifyClusterMaintenanceCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, ModifyClusterMaintenanceCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = {
+ *   ClusterIdentifier: "STRING_VALUE", // required
+ *   DeferMaintenance: true || false,
+ *   DeferMaintenanceIdentifier: "STRING_VALUE",
+ *   DeferMaintenanceStartTime: new Date("TIMESTAMP"),
+ *   DeferMaintenanceEndTime: new Date("TIMESTAMP"),
+ *   DeferMaintenanceDuration: Number("int"),
+ * };
  * const command = new ModifyClusterMaintenanceCommand(input);
  * const response = await client.send(command);
  * ```

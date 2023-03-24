@@ -41,6 +41,11 @@ export interface DeleteIpamCommandOutput extends DeleteIpamResult, __MetadataBea
  * import { EC2Client, DeleteIpamCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DeleteIpamCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   DryRun: true || false,
+ *   IpamId: "STRING_VALUE", // required
+ *   Cascade: true || false,
+ * };
  * const command = new DeleteIpamCommand(input);
  * const response = await client.send(command);
  * ```

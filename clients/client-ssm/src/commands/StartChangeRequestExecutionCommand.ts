@@ -44,6 +44,77 @@ export interface StartChangeRequestExecutionCommandOutput extends StartChangeReq
  * import { SSMClient, StartChangeRequestExecutionCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, StartChangeRequestExecutionCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = {
+ *   ScheduledTime: new Date("TIMESTAMP"),
+ *   DocumentName: "STRING_VALUE", // required
+ *   DocumentVersion: "STRING_VALUE",
+ *   Parameters: {
+ *     "<keys>": [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   ChangeRequestName: "STRING_VALUE",
+ *   ClientToken: "STRING_VALUE",
+ *   AutoApprove: true || false,
+ *   Runbooks: [ // required
+ *     {
+ *       DocumentName: "STRING_VALUE", // required
+ *       DocumentVersion: "STRING_VALUE",
+ *       Parameters: {
+ *         "<keys>": [
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *       TargetParameterName: "STRING_VALUE",
+ *       Targets: [
+ *         {
+ *           Key: "STRING_VALUE",
+ *           Values: [
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       ],
+ *       TargetMaps: [
+ *         {
+ *           "<keys>": [
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       ],
+ *       MaxConcurrency: "STRING_VALUE",
+ *       MaxErrors: "STRING_VALUE",
+ *       TargetLocations: [
+ *         {
+ *           Accounts: [
+ *             "STRING_VALUE",
+ *           ],
+ *           Regions: [
+ *             "STRING_VALUE",
+ *           ],
+ *           TargetLocationMaxConcurrency: "STRING_VALUE",
+ *           TargetLocationMaxErrors: "STRING_VALUE",
+ *           ExecutionRoleName: "STRING_VALUE",
+ *           TargetLocationAlarmConfiguration: {
+ *             IgnorePollAlarmFailure: true || false,
+ *             Alarms: [ // required
+ *               {
+ *                 Name: "STRING_VALUE", // required
+ *               },
+ *             ],
+ *           },
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   ScheduledEndTime: new Date("TIMESTAMP"),
+ *   ChangeDetails: "STRING_VALUE",
+ * };
  * const command = new StartChangeRequestExecutionCommand(input);
  * const response = await client.send(command);
  * ```

@@ -70,6 +70,11 @@ export interface DeletePermissionCommandOutput extends __MetadataBearer {}
  * import { ACMPCAClient, DeletePermissionCommand } from "@aws-sdk/client-acm-pca"; // ES Modules import
  * // const { ACMPCAClient, DeletePermissionCommand } = require("@aws-sdk/client-acm-pca"); // CommonJS import
  * const client = new ACMPCAClient(config);
+ * const input = {
+ *   CertificateAuthorityArn: "STRING_VALUE", // required
+ *   Principal: "STRING_VALUE", // required
+ *   SourceAccount: "STRING_VALUE",
+ * };
  * const command = new DeletePermissionCommand(input);
  * const response = await client.send(command);
  * ```

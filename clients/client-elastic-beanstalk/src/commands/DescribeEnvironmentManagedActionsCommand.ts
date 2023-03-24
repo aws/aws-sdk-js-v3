@@ -44,6 +44,11 @@ export interface DescribeEnvironmentManagedActionsCommandOutput
  * import { ElasticBeanstalkClient, DescribeEnvironmentManagedActionsCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
  * // const { ElasticBeanstalkClient, DescribeEnvironmentManagedActionsCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
  * const client = new ElasticBeanstalkClient(config);
+ * const input = {
+ *   EnvironmentName: "STRING_VALUE",
+ *   EnvironmentId: "STRING_VALUE",
+ *   Status: "Scheduled" || "Pending" || "Running" || "Unknown",
+ * };
  * const command = new DescribeEnvironmentManagedActionsCommand(input);
  * const response = await client.send(command);
  * ```

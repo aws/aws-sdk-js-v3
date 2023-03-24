@@ -42,6 +42,10 @@ export interface GetExtensionCommandOutput extends GetExtensionResult, __Metadat
  * import { GameSparksClient, GetExtensionCommand } from "@aws-sdk/client-gamesparks"; // ES Modules import
  * // const { GameSparksClient, GetExtensionCommand } = require("@aws-sdk/client-gamesparks"); // CommonJS import
  * const client = new GameSparksClient(config);
+ * const input = {
+ *   Namespace: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new GetExtensionCommand(input);
  * const response = await client.send(command);
  * ```

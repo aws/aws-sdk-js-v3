@@ -48,6 +48,11 @@ export interface AdminAddUserToGroupCommandOutput extends __MetadataBearer {}
  * import { CognitoIdentityProviderClient, AdminAddUserToGroupCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, AdminAddUserToGroupCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
+ * const input = {
+ *   UserPoolId: "STRING_VALUE", // required
+ *   Username: "STRING_VALUE", // required
+ *   GroupName: "STRING_VALUE", // required
+ * };
  * const command = new AdminAddUserToGroupCommand(input);
  * const response = await client.send(command);
  * ```

@@ -67,6 +67,10 @@ export interface DescribeFleetPortSettingsCommandOutput extends DescribeFleetPor
  * import { GameLiftClient, DescribeFleetPortSettingsCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, DescribeFleetPortSettingsCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = {
+ *   FleetId: "STRING_VALUE", // required
+ *   Location: "STRING_VALUE",
+ * };
  * const command = new DescribeFleetPortSettingsCommand(input);
  * const response = await client.send(command);
  * ```

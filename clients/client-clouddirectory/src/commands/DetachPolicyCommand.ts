@@ -42,6 +42,15 @@ export interface DetachPolicyCommandOutput extends DetachPolicyResponse, __Metad
  * import { CloudDirectoryClient, DetachPolicyCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, DetachPolicyCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
  * const client = new CloudDirectoryClient(config);
+ * const input = {
+ *   DirectoryArn: "STRING_VALUE", // required
+ *   PolicyReference: {
+ *     Selector: "STRING_VALUE",
+ *   },
+ *   ObjectReference: {
+ *     Selector: "STRING_VALUE",
+ *   },
+ * };
  * const command = new DetachPolicyCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,14 @@ export interface ModifyLocalGatewayRouteCommandOutput extends ModifyLocalGateway
  * import { EC2Client, ModifyLocalGatewayRouteCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ModifyLocalGatewayRouteCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   DestinationCidrBlock: "STRING_VALUE",
+ *   LocalGatewayRouteTableId: "STRING_VALUE", // required
+ *   LocalGatewayVirtualInterfaceGroupId: "STRING_VALUE",
+ *   NetworkInterfaceId: "STRING_VALUE",
+ *   DryRun: true || false,
+ *   DestinationPrefixListId: "STRING_VALUE",
+ * };
  * const command = new ModifyLocalGatewayRouteCommand(input);
  * const response = await client.send(command);
  * ```

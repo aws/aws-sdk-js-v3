@@ -42,6 +42,9 @@ export interface DescribeAlgorithmCommandOutput extends DescribeAlgorithmRespons
  * import { PersonalizeClient, DescribeAlgorithmCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, DescribeAlgorithmCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
  * const client = new PersonalizeClient(config);
+ * const input = {
+ *   algorithmArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeAlgorithmCommand(input);
  * const response = await client.send(command);
  * ```

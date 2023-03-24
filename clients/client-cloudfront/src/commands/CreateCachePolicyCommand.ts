@@ -64,6 +64,46 @@ export interface CreateCachePolicyCommandOutput extends CreateCachePolicyResult,
  * import { CloudFrontClient, CreateCachePolicyCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, CreateCachePolicyCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
+ * const input = {
+ *   CachePolicyConfig: {
+ *     Comment: "STRING_VALUE",
+ *     Name: "STRING_VALUE", // required
+ *     DefaultTTL: Number("long"),
+ *     MaxTTL: Number("long"),
+ *     MinTTL: Number("long"), // required
+ *     ParametersInCacheKeyAndForwardedToOrigin: {
+ *       EnableAcceptEncodingGzip: true || false, // required
+ *       EnableAcceptEncodingBrotli: true || false,
+ *       HeadersConfig: {
+ *         HeaderBehavior: "none" || "whitelist", // required
+ *         Headers: {
+ *           Quantity: Number("int"), // required
+ *           Items: [
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       },
+ *       CookiesConfig: {
+ *         CookieBehavior: "none" || "whitelist" || "allExcept" || "all", // required
+ *         Cookies: {
+ *           Quantity: Number("int"), // required
+ *           Items: [
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       },
+ *       QueryStringsConfig: {
+ *         QueryStringBehavior: "none" || "whitelist" || "allExcept" || "all", // required
+ *         QueryStrings: {
+ *           Quantity: Number("int"), // required
+ *           Items: [
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       },
+ *     },
+ *   },
+ * };
  * const command = new CreateCachePolicyCommand(input);
  * const response = await client.send(command);
  * ```

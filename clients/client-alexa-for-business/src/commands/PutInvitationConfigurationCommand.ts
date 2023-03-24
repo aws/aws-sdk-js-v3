@@ -43,6 +43,13 @@ export interface PutInvitationConfigurationCommandOutput extends PutInvitationCo
  * import { AlexaForBusinessClient, PutInvitationConfigurationCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, PutInvitationConfigurationCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
+ * const input = {
+ *   OrganizationName: "STRING_VALUE", // required
+ *   ContactEmail: "STRING_VALUE",
+ *   PrivateSkillIds: [
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new PutInvitationConfigurationCommand(input);
  * const response = await client.send(command);
  * ```

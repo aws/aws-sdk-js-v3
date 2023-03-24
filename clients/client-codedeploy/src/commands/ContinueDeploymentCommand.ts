@@ -46,6 +46,10 @@ export interface ContinueDeploymentCommandOutput extends __MetadataBearer {}
  * import { CodeDeployClient, ContinueDeploymentCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
  * // const { CodeDeployClient, ContinueDeploymentCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
  * const client = new CodeDeployClient(config);
+ * const input = {
+ *   deploymentId: "STRING_VALUE",
+ *   deploymentWaitType: "READY_WAIT" || "TERMINATION_WAIT",
+ * };
  * const command = new ContinueDeploymentCommand(input);
  * const response = await client.send(command);
  * ```

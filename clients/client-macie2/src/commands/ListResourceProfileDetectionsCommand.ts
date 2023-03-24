@@ -44,6 +44,11 @@ export interface ListResourceProfileDetectionsCommandOutput
  * import { Macie2Client, ListResourceProfileDetectionsCommand } from "@aws-sdk/client-macie2"; // ES Modules import
  * // const { Macie2Client, ListResourceProfileDetectionsCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
  * const client = new Macie2Client(config);
+ * const input = {
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ *   resourceArn: "STRING_VALUE", // required
+ * };
  * const command = new ListResourceProfileDetectionsCommand(input);
  * const response = await client.send(command);
  * ```

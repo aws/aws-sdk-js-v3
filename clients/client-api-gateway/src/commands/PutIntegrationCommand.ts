@@ -42,6 +42,33 @@ export interface PutIntegrationCommandOutput extends Integration, __MetadataBear
  * import { APIGatewayClient, PutIntegrationCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, PutIntegrationCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
+ * const input = {
+ *   restApiId: "STRING_VALUE", // required
+ *   resourceId: "STRING_VALUE", // required
+ *   httpMethod: "STRING_VALUE", // required
+ *   type: "HTTP" || "AWS" || "MOCK" || "HTTP_PROXY" || "AWS_PROXY", // required
+ *   integrationHttpMethod: "STRING_VALUE",
+ *   uri: "STRING_VALUE",
+ *   connectionType: "INTERNET" || "VPC_LINK",
+ *   connectionId: "STRING_VALUE",
+ *   credentials: "STRING_VALUE",
+ *   requestParameters: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   requestTemplates: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   passthroughBehavior: "STRING_VALUE",
+ *   cacheNamespace: "STRING_VALUE",
+ *   cacheKeyParameters: [
+ *     "STRING_VALUE",
+ *   ],
+ *   contentHandling: "CONVERT_TO_BINARY" || "CONVERT_TO_TEXT",
+ *   timeoutInMillis: Number("int"),
+ *   tlsConfig: {
+ *     insecureSkipVerification: true || false,
+ *   },
+ * };
  * const command = new PutIntegrationCommand(input);
  * const response = await client.send(command);
  * ```

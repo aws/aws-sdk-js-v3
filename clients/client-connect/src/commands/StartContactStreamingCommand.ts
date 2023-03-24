@@ -44,6 +44,14 @@ export interface StartContactStreamingCommandOutput extends StartContactStreamin
  * import { ConnectClient, StartContactStreamingCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, StartContactStreamingCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = {
+ *   InstanceId: "STRING_VALUE", // required
+ *   ContactId: "STRING_VALUE", // required
+ *   ChatStreamingConfiguration: {
+ *     StreamingEndpointArn: "STRING_VALUE", // required
+ *   },
+ *   ClientToken: "STRING_VALUE", // required
+ * };
  * const command = new StartContactStreamingCommand(input);
  * const response = await client.send(command);
  * ```

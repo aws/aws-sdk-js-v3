@@ -43,6 +43,11 @@ export interface UpdateHostKeyCommandOutput extends UpdateHostKeyResponse, __Met
  * import { TransferClient, UpdateHostKeyCommand } from "@aws-sdk/client-transfer"; // ES Modules import
  * // const { TransferClient, UpdateHostKeyCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
  * const client = new TransferClient(config);
+ * const input = {
+ *   ServerId: "STRING_VALUE", // required
+ *   HostKeyId: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE", // required
+ * };
  * const command = new UpdateHostKeyCommand(input);
  * const response = await client.send(command);
  * ```

@@ -45,6 +45,13 @@ export interface ListComponentsCommandOutput extends ListComponentsOutput, __Met
  * import { ProtonClient, ListComponentsCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, ListComponentsCommand } = require("@aws-sdk/client-proton"); // CommonJS import
  * const client = new ProtonClient(config);
+ * const input = {
+ *   nextToken: "STRING_VALUE",
+ *   environmentName: "STRING_VALUE",
+ *   serviceName: "STRING_VALUE",
+ *   serviceInstanceName: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListComponentsCommand(input);
  * const response = await client.send(command);
  * ```

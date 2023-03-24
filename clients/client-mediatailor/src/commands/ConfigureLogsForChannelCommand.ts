@@ -42,6 +42,12 @@ export interface ConfigureLogsForChannelCommandOutput extends ConfigureLogsForCh
  * import { MediaTailorClient, ConfigureLogsForChannelCommand } from "@aws-sdk/client-mediatailor"; // ES Modules import
  * // const { MediaTailorClient, ConfigureLogsForChannelCommand } = require("@aws-sdk/client-mediatailor"); // CommonJS import
  * const client = new MediaTailorClient(config);
+ * const input = {
+ *   ChannelName: "STRING_VALUE", // required
+ *   LogTypes: [ // required
+ *     "AS_RUN",
+ *   ],
+ * };
  * const command = new ConfigureLogsForChannelCommand(input);
  * const response = await client.send(command);
  * ```

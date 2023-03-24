@@ -47,6 +47,13 @@ export interface ListKeysCommandOutput extends ListKeysResponse, __MetadataBeare
  * import { LocationClient, ListKeysCommand } from "@aws-sdk/client-location"; // ES Modules import
  * // const { LocationClient, ListKeysCommand } = require("@aws-sdk/client-location"); // CommonJS import
  * const client = new LocationClient(config);
+ * const input = {
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   Filter: {
+ *     KeyStatus: "STRING_VALUE",
+ *   },
+ * };
  * const command = new ListKeysCommand(input);
  * const response = await client.send(command);
  * ```

@@ -45,6 +45,18 @@ export interface ListContactsCommandOutput extends ListContactsResponse, __Metad
  * import { GroundStationClient, ListContactsCommand } from "@aws-sdk/client-groundstation"; // ES Modules import
  * // const { GroundStationClient, ListContactsCommand } = require("@aws-sdk/client-groundstation"); // CommonJS import
  * const client = new GroundStationClient(config);
+ * const input = {
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ *   statusList: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ *   startTime: new Date("TIMESTAMP"), // required
+ *   endTime: new Date("TIMESTAMP"), // required
+ *   groundStation: "STRING_VALUE",
+ *   satelliteArn: "STRING_VALUE",
+ *   missionProfileArn: "STRING_VALUE",
+ * };
  * const command = new ListContactsCommand(input);
  * const response = await client.send(command);
  * ```

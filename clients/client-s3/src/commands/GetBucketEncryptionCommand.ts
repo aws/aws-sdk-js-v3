@@ -67,6 +67,10 @@ export interface GetBucketEncryptionCommandOutput extends GetBucketEncryptionOut
  * import { S3Client, GetBucketEncryptionCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, GetBucketEncryptionCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
+ * const input = {
+ *   Bucket: "STRING_VALUE", // required
+ *   ExpectedBucketOwner: "STRING_VALUE",
+ * };
  * const command = new GetBucketEncryptionCommand(input);
  * const response = await client.send(command);
  * ```

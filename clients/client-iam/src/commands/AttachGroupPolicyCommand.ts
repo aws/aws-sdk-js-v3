@@ -49,6 +49,10 @@ export interface AttachGroupPolicyCommandOutput extends __MetadataBearer {}
  * import { IAMClient, AttachGroupPolicyCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, AttachGroupPolicyCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = {
+ *   GroupName: "STRING_VALUE", // required
+ *   PolicyArn: "STRING_VALUE", // required
+ * };
  * const command = new AttachGroupPolicyCommand(input);
  * const response = await client.send(command);
  * ```

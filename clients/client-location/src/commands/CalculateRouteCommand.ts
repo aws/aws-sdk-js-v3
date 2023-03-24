@@ -80,6 +80,43 @@ export interface CalculateRouteCommandOutput extends CalculateRouteResponse, __M
  * import { LocationClient, CalculateRouteCommand } from "@aws-sdk/client-location"; // ES Modules import
  * // const { LocationClient, CalculateRouteCommand } = require("@aws-sdk/client-location"); // CommonJS import
  * const client = new LocationClient(config);
+ * const input = {
+ *   CalculatorName: "STRING_VALUE", // required
+ *   DeparturePosition: [ // required
+ *     Number("double"),
+ *   ],
+ *   DestinationPosition: [ // required
+ *     Number("double"),
+ *   ],
+ *   WaypointPositions: [
+ *     [
+ *       Number("double"),
+ *     ],
+ *   ],
+ *   TravelMode: "STRING_VALUE",
+ *   DepartureTime: new Date("TIMESTAMP"),
+ *   DepartNow: true || false,
+ *   DistanceUnit: "STRING_VALUE",
+ *   IncludeLegGeometry: true || false,
+ *   CarModeOptions: {
+ *     AvoidFerries: true || false,
+ *     AvoidTolls: true || false,
+ *   },
+ *   TruckModeOptions: {
+ *     AvoidFerries: true || false,
+ *     AvoidTolls: true || false,
+ *     Dimensions: {
+ *       Length: Number("double"),
+ *       Height: Number("double"),
+ *       Width: Number("double"),
+ *       Unit: "STRING_VALUE",
+ *     },
+ *     Weight: {
+ *       Total: Number("double"),
+ *       Unit: "STRING_VALUE",
+ *     },
+ *   },
+ * };
  * const command = new CalculateRouteCommand(input);
  * const response = await client.send(command);
  * ```

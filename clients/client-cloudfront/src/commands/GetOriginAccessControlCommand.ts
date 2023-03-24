@@ -42,6 +42,9 @@ export interface GetOriginAccessControlCommandOutput extends GetOriginAccessCont
  * import { CloudFrontClient, GetOriginAccessControlCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, GetOriginAccessControlCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
+ * const input = {
+ *   Id: "STRING_VALUE", // required
+ * };
  * const command = new GetOriginAccessControlCommand(input);
  * const response = await client.send(command);
  * ```

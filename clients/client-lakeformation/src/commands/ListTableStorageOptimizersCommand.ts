@@ -42,6 +42,14 @@ export interface ListTableStorageOptimizersCommandOutput extends ListTableStorag
  * import { LakeFormationClient, ListTableStorageOptimizersCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
  * // const { LakeFormationClient, ListTableStorageOptimizersCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
  * const client = new LakeFormationClient(config);
+ * const input = {
+ *   CatalogId: "STRING_VALUE",
+ *   DatabaseName: "STRING_VALUE", // required
+ *   TableName: "STRING_VALUE", // required
+ *   StorageOptimizerType: "COMPACTION" || "GARBAGE_COLLECTION" || "ALL",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListTableStorageOptimizersCommand(input);
  * const response = await client.send(command);
  * ```

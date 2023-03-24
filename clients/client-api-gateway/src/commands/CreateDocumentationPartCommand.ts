@@ -42,6 +42,17 @@ export interface CreateDocumentationPartCommandOutput extends DocumentationPart,
  * import { APIGatewayClient, CreateDocumentationPartCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, CreateDocumentationPartCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
+ * const input = {
+ *   restApiId: "STRING_VALUE", // required
+ *   location: {
+ *     type: "API" || "AUTHORIZER" || "MODEL" || "RESOURCE" || "METHOD" || "PATH_PARAMETER" || "QUERY_PARAMETER" || "REQUEST_HEADER" || "REQUEST_BODY" || "RESPONSE" || "RESPONSE_HEADER" || "RESPONSE_BODY", // required
+ *     path: "STRING_VALUE",
+ *     method: "STRING_VALUE",
+ *     statusCode: "STRING_VALUE",
+ *     name: "STRING_VALUE",
+ *   },
+ *   properties: "STRING_VALUE", // required
+ * };
  * const command = new CreateDocumentationPartCommand(input);
  * const response = await client.send(command);
  * ```

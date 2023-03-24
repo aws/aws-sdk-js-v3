@@ -44,6 +44,14 @@ export interface DescribeConnectionAliasesCommandOutput extends DescribeConnecti
  * import { WorkSpacesClient, DescribeConnectionAliasesCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, DescribeConnectionAliasesCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
  * const client = new WorkSpacesClient(config);
+ * const input = {
+ *   AliasIds: [
+ *     "STRING_VALUE",
+ *   ],
+ *   ResourceId: "STRING_VALUE",
+ *   Limit: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeConnectionAliasesCommand(input);
  * const response = await client.send(command);
  * ```

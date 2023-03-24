@@ -41,6 +41,22 @@ export interface DescribeIpamsCommandOutput extends DescribeIpamsResult, __Metad
  * import { EC2Client, DescribeIpamsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeIpamsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   DryRun: true || false,
+ *   Filters: [
+ *     {
+ *       Name: "STRING_VALUE",
+ *       Values: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   IpamIds: [
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DescribeIpamsCommand(input);
  * const response = await client.send(command);
  * ```

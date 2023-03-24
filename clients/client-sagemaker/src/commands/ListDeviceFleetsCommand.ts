@@ -42,6 +42,17 @@ export interface ListDeviceFleetsCommandOutput extends ListDeviceFleetsResponse,
  * import { SageMakerClient, ListDeviceFleetsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListDeviceFleetsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = {
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   CreationTimeAfter: new Date("TIMESTAMP"),
+ *   CreationTimeBefore: new Date("TIMESTAMP"),
+ *   LastModifiedTimeAfter: new Date("TIMESTAMP"),
+ *   LastModifiedTimeBefore: new Date("TIMESTAMP"),
+ *   NameContains: "STRING_VALUE",
+ *   SortBy: "NAME" || "CREATION_TIME" || "LAST_MODIFIED_TIME",
+ *   SortOrder: "Ascending" || "Descending",
+ * };
  * const command = new ListDeviceFleetsCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,11 @@ export interface CloneBackendCommandOutput extends CloneBackendResponse, __Metad
  * import { AmplifyBackendClient, CloneBackendCommand } from "@aws-sdk/client-amplifybackend"; // ES Modules import
  * // const { AmplifyBackendClient, CloneBackendCommand } = require("@aws-sdk/client-amplifybackend"); // CommonJS import
  * const client = new AmplifyBackendClient(config);
+ * const input = {
+ *   AppId: "STRING_VALUE", // required
+ *   BackendEnvironmentName: "STRING_VALUE", // required
+ *   TargetEnvironmentName: "STRING_VALUE", // required
+ * };
  * const command = new CloneBackendCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,20 @@ export interface CreateRouteResponseCommandOutput extends CreateRouteResponseRes
  * import { ApiGatewayV2Client, CreateRouteResponseCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
  * // const { ApiGatewayV2Client, CreateRouteResponseCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import
  * const client = new ApiGatewayV2Client(config);
+ * const input = {
+ *   ApiId: "STRING_VALUE", // required
+ *   ModelSelectionExpression: "STRING_VALUE",
+ *   ResponseModels: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   ResponseParameters: {
+ *     "<keys>": {
+ *       Required: true || false,
+ *     },
+ *   },
+ *   RouteId: "STRING_VALUE", // required
+ *   RouteResponseKey: "STRING_VALUE", // required
+ * };
  * const command = new CreateRouteResponseCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,22 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationResult,
  * import { AppStreamClient, UpdateApplicationCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, UpdateApplicationCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
  * const client = new AppStreamClient(config);
+ * const input = {
+ *   Name: "STRING_VALUE", // required
+ *   DisplayName: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   IconS3Location: {
+ *     S3Bucket: "STRING_VALUE", // required
+ *     S3Key: "STRING_VALUE", // required
+ *   },
+ *   LaunchPath: "STRING_VALUE",
+ *   WorkingDirectory: "STRING_VALUE",
+ *   LaunchParameters: "STRING_VALUE",
+ *   AppBlockArn: "STRING_VALUE",
+ *   AttributesToDelete: [
+ *     "LAUNCH_PARAMETERS" || "WORKING_DIRECTORY",
+ *   ],
+ * };
  * const command = new UpdateApplicationCommand(input);
  * const response = await client.send(command);
  * ```

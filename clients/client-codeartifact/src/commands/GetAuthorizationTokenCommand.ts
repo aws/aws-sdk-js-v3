@@ -62,6 +62,11 @@ export interface GetAuthorizationTokenCommandOutput extends GetAuthorizationToke
  * import { CodeartifactClient, GetAuthorizationTokenCommand } from "@aws-sdk/client-codeartifact"; // ES Modules import
  * // const { CodeartifactClient, GetAuthorizationTokenCommand } = require("@aws-sdk/client-codeartifact"); // CommonJS import
  * const client = new CodeartifactClient(config);
+ * const input = {
+ *   domain: "STRING_VALUE", // required
+ *   domainOwner: "STRING_VALUE",
+ *   durationSeconds: Number("long"),
+ * };
  * const command = new GetAuthorizationTokenCommand(input);
  * const response = await client.send(command);
  * ```

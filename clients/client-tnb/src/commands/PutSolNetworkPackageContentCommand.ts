@@ -43,6 +43,11 @@ export interface PutSolNetworkPackageContentCommandOutput extends PutSolNetworkP
  * import { TnbClient, PutSolNetworkPackageContentCommand } from "@aws-sdk/client-tnb"; // ES Modules import
  * // const { TnbClient, PutSolNetworkPackageContentCommand } = require("@aws-sdk/client-tnb"); // CommonJS import
  * const client = new TnbClient(config);
+ * const input = {
+ *   nsdInfoId: "STRING_VALUE", // required
+ *   contentType: "application/zip",
+ *   file: "BLOB_VALUE", // required
+ * };
  * const command = new PutSolNetworkPackageContentCommand(input);
  * const response = await client.send(command);
  * ```

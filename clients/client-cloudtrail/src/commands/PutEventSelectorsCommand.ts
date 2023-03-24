@@ -84,6 +84,54 @@ export interface PutEventSelectorsCommandOutput extends PutEventSelectorsRespons
  * import { CloudTrailClient, PutEventSelectorsCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
  * // const { CloudTrailClient, PutEventSelectorsCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
  * const client = new CloudTrailClient(config);
+ * const input = {
+ *   TrailName: "STRING_VALUE", // required
+ *   EventSelectors: [
+ *     {
+ *       ReadWriteType: "ReadOnly" || "WriteOnly" || "All",
+ *       IncludeManagementEvents: true || false,
+ *       DataResources: [
+ *         {
+ *           Type: "STRING_VALUE",
+ *           Values: [
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       ],
+ *       ExcludeManagementEventSources: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   AdvancedEventSelectors: [
+ *     {
+ *       Name: "STRING_VALUE",
+ *       FieldSelectors: [ // required
+ *         {
+ *           Field: "STRING_VALUE", // required
+ *           Equals: [
+ *             "STRING_VALUE",
+ *           ],
+ *           StartsWith: [
+ *             "STRING_VALUE",
+ *           ],
+ *           EndsWith: [
+ *             "STRING_VALUE",
+ *           ],
+ *           NotEquals: [
+ *             "STRING_VALUE",
+ *           ],
+ *           NotStartsWith: [
+ *             "STRING_VALUE",
+ *           ],
+ *           NotEndsWith: [
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       ],
+ *     },
+ *   ],
+ * };
  * const command = new PutEventSelectorsCommand(input);
  * const response = await client.send(command);
  * ```

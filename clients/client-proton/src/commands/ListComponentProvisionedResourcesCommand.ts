@@ -47,6 +47,10 @@ export interface ListComponentProvisionedResourcesCommandOutput
  * import { ProtonClient, ListComponentProvisionedResourcesCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, ListComponentProvisionedResourcesCommand } = require("@aws-sdk/client-proton"); // CommonJS import
  * const client = new ProtonClient(config);
+ * const input = {
+ *   componentName: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListComponentProvisionedResourcesCommand(input);
  * const response = await client.send(command);
  * ```

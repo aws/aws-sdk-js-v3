@@ -46,6 +46,10 @@ export interface ListSubjectsCommandOutput extends ListSubjectsResponse, __Metad
  * import { RolesAnywhereClient, ListSubjectsCommand } from "@aws-sdk/client-rolesanywhere"; // ES Modules import
  * // const { RolesAnywhereClient, ListSubjectsCommand } = require("@aws-sdk/client-rolesanywhere"); // CommonJS import
  * const client = new RolesAnywhereClient(config);
+ * const input = {
+ *   nextToken: "STRING_VALUE",
+ *   pageSize: Number("int"),
+ * };
  * const command = new ListSubjectsCommand(input);
  * const response = await client.send(command);
  * ```

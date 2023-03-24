@@ -42,6 +42,24 @@ export interface UpdateNotificationCommandOutput extends UpdateNotificationRespo
  * import { BudgetsClient, UpdateNotificationCommand } from "@aws-sdk/client-budgets"; // ES Modules import
  * // const { BudgetsClient, UpdateNotificationCommand } = require("@aws-sdk/client-budgets"); // CommonJS import
  * const client = new BudgetsClient(config);
+ * const input = {
+ *   AccountId: "STRING_VALUE", // required
+ *   BudgetName: "STRING_VALUE", // required
+ *   OldNotification: {
+ *     NotificationType: "STRING_VALUE", // required
+ *     ComparisonOperator: "STRING_VALUE", // required
+ *     Threshold: Number("double"), // required
+ *     ThresholdType: "STRING_VALUE",
+ *     NotificationState: "STRING_VALUE",
+ *   },
+ *   NewNotification: {
+ *     NotificationType: "STRING_VALUE", // required
+ *     ComparisonOperator: "STRING_VALUE", // required
+ *     Threshold: Number("double"), // required
+ *     ThresholdType: "STRING_VALUE",
+ *     NotificationState: "STRING_VALUE",
+ *   },
+ * };
  * const command = new UpdateNotificationCommand(input);
  * const response = await client.send(command);
  * ```

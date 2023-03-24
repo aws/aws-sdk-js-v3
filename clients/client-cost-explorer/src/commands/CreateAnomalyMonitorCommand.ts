@@ -43,6 +43,116 @@ export interface CreateAnomalyMonitorCommandOutput extends CreateAnomalyMonitorR
  * import { CostExplorerClient, CreateAnomalyMonitorCommand } from "@aws-sdk/client-cost-explorer"; // ES Modules import
  * // const { CostExplorerClient, CreateAnomalyMonitorCommand } = require("@aws-sdk/client-cost-explorer"); // CommonJS import
  * const client = new CostExplorerClient(config);
+ * const input = {
+ *   AnomalyMonitor: {
+ *     MonitorArn: "STRING_VALUE",
+ *     MonitorName: "STRING_VALUE", // required
+ *     CreationDate: "STRING_VALUE",
+ *     LastUpdatedDate: "STRING_VALUE",
+ *     LastEvaluatedDate: "STRING_VALUE",
+ *     MonitorType: "DIMENSIONAL" || "CUSTOM", // required
+ *     MonitorDimension: "SERVICE",
+ *     MonitorSpecification: {
+ *       Or: [
+ *         {
+ *           Or: [
+ *             {
+ *               Or: "<Expression>",
+ *               And: [
+ *                 "<Expressions>",
+ *               ],
+ *               Not: {
+ *                 Or: "<Expression>",
+ *                 And: [
+ *                   "<Expressions>",
+ *                 ],
+ *                 Not: {
+ *                   Or: "<Expression>",
+ *                   And: "<Expression>",
+ *                   Not: "<Expression>",
+ *                   Dimensions: {
+ *                     Key: "AZ" || "INSTANCE_TYPE" || "LINKED_ACCOUNT" || "LINKED_ACCOUNT_NAME" || "OPERATION" || "PURCHASE_TYPE" || "REGION" || "SERVICE" || "SERVICE_CODE" || "USAGE_TYPE" || "USAGE_TYPE_GROUP" || "RECORD_TYPE" || "OPERATING_SYSTEM" || "TENANCY" || "SCOPE" || "PLATFORM" || "SUBSCRIPTION_ID" || "LEGAL_ENTITY_NAME" || "DEPLOYMENT_OPTION" || "DATABASE_ENGINE" || "CACHE_ENGINE" || "INSTANCE_TYPE_FAMILY" || "BILLING_ENTITY" || "RESERVATION_ID" || "RESOURCE_ID" || "RIGHTSIZING_TYPE" || "SAVINGS_PLANS_TYPE" || "SAVINGS_PLAN_ARN" || "PAYMENT_OPTION" || "AGREEMENT_END_DATE_TIME_AFTER" || "AGREEMENT_END_DATE_TIME_BEFORE" || "INVOICING_ENTITY" || "ANOMALY_TOTAL_IMPACT_ABSOLUTE" || "ANOMALY_TOTAL_IMPACT_PERCENTAGE",
+ *                     Values: [
+ *                       "STRING_VALUE",
+ *                     ],
+ *                     MatchOptions: [
+ *                       "EQUALS" || "ABSENT" || "STARTS_WITH" || "ENDS_WITH" || "CONTAINS" || "CASE_SENSITIVE" || "CASE_INSENSITIVE" || "GREATER_THAN_OR_EQUAL",
+ *                     ],
+ *                   },
+ *                   Tags: {
+ *                     Key: "STRING_VALUE",
+ *                     Values: [
+ *                       "STRING_VALUE",
+ *                     ],
+ *                     MatchOptions: [
+ *                       "EQUALS" || "ABSENT" || "STARTS_WITH" || "ENDS_WITH" || "CONTAINS" || "CASE_SENSITIVE" || "CASE_INSENSITIVE" || "GREATER_THAN_OR_EQUAL",
+ *                     ],
+ *                   },
+ *                   CostCategories: {
+ *                     Key: "STRING_VALUE",
+ *                     Values: [
+ *                       "STRING_VALUE",
+ *                     ],
+ *                     MatchOptions: [
+ *                       "EQUALS" || "ABSENT" || "STARTS_WITH" || "ENDS_WITH" || "CONTAINS" || "CASE_SENSITIVE" || "CASE_INSENSITIVE" || "GREATER_THAN_OR_EQUAL",
+ *                     ],
+ *                   },
+ *                 },
+ *                 Dimensions: {
+ *                   Key: "AZ" || "INSTANCE_TYPE" || "LINKED_ACCOUNT" || "LINKED_ACCOUNT_NAME" || "OPERATION" || "PURCHASE_TYPE" || "REGION" || "SERVICE" || "SERVICE_CODE" || "USAGE_TYPE" || "USAGE_TYPE_GROUP" || "RECORD_TYPE" || "OPERATING_SYSTEM" || "TENANCY" || "SCOPE" || "PLATFORM" || "SUBSCRIPTION_ID" || "LEGAL_ENTITY_NAME" || "DEPLOYMENT_OPTION" || "DATABASE_ENGINE" || "CACHE_ENGINE" || "INSTANCE_TYPE_FAMILY" || "BILLING_ENTITY" || "RESERVATION_ID" || "RESOURCE_ID" || "RIGHTSIZING_TYPE" || "SAVINGS_PLANS_TYPE" || "SAVINGS_PLAN_ARN" || "PAYMENT_OPTION" || "AGREEMENT_END_DATE_TIME_AFTER" || "AGREEMENT_END_DATE_TIME_BEFORE" || "INVOICING_ENTITY" || "ANOMALY_TOTAL_IMPACT_ABSOLUTE" || "ANOMALY_TOTAL_IMPACT_PERCENTAGE",
+ *                   Values: [
+ *                     "STRING_VALUE",
+ *                   ],
+ *                   MatchOptions: [
+ *                     "EQUALS" || "ABSENT" || "STARTS_WITH" || "ENDS_WITH" || "CONTAINS" || "CASE_SENSITIVE" || "CASE_INSENSITIVE" || "GREATER_THAN_OR_EQUAL",
+ *                   ],
+ *                 },
+ *                 Tags: {
+ *                   Key: "STRING_VALUE",
+ *                   Values: [
+ *                     "STRING_VALUE",
+ *                   ],
+ *                   MatchOptions: [
+ *                     "EQUALS" || "ABSENT" || "STARTS_WITH" || "ENDS_WITH" || "CONTAINS" || "CASE_SENSITIVE" || "CASE_INSENSITIVE" || "GREATER_THAN_OR_EQUAL",
+ *                   ],
+ *                 },
+ *                 CostCategories: {
+ *                   Key: "STRING_VALUE",
+ *                   Values: [
+ *                     "STRING_VALUE",
+ *                   ],
+ *                   MatchOptions: [
+ *                     "EQUALS" || "ABSENT" || "STARTS_WITH" || "ENDS_WITH" || "CONTAINS" || "CASE_SENSITIVE" || "CASE_INSENSITIVE" || "GREATER_THAN_OR_EQUAL",
+ *                   ],
+ *                 },
+ *               },
+ *               Dimensions: "<Expression>",
+ *               Tags: "<Expression>",
+ *               CostCategories: "<Expression>",
+ *             },
+ *           ],
+ *           And: "<Expression>",
+ *           Not: "<Expression>",
+ *           Dimensions: "<Expression>",
+ *           Tags: "<Expression>",
+ *           CostCategories: "<Expression>",
+ *         },
+ *       ],
+ *       And: "<Expression>",
+ *       Not: "<Expression>",
+ *       Dimensions: "<Expression>",
+ *       Tags: "<Expression>",
+ *       CostCategories: "<Expression>",
+ *     },
+ *     DimensionalValueCount: Number("int"),
+ *   },
+ *   ResourceTags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateAnomalyMonitorCommand(input);
  * const response = await client.send(command);
  * ```

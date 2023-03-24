@@ -42,6 +42,9 @@ export interface DeleteEphemerisCommandOutput extends EphemerisIdResponse, __Met
  * import { GroundStationClient, DeleteEphemerisCommand } from "@aws-sdk/client-groundstation"; // ES Modules import
  * // const { GroundStationClient, DeleteEphemerisCommand } = require("@aws-sdk/client-groundstation"); // CommonJS import
  * const client = new GroundStationClient(config);
+ * const input = {
+ *   ephemerisId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteEphemerisCommand(input);
  * const response = await client.send(command);
  * ```

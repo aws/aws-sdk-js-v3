@@ -42,6 +42,17 @@ export interface CopyDBClusterParameterGroupCommandOutput extends CopyDBClusterP
  * import { DocDBClient, CopyDBClusterParameterGroupCommand } from "@aws-sdk/client-docdb"; // ES Modules import
  * // const { DocDBClient, CopyDBClusterParameterGroupCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
  * const client = new DocDBClient(config);
+ * const input = {
+ *   SourceDBClusterParameterGroupIdentifier: "STRING_VALUE", // required
+ *   TargetDBClusterParameterGroupIdentifier: "STRING_VALUE", // required
+ *   TargetDBClusterParameterGroupDescription: "STRING_VALUE", // required
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CopyDBClusterParameterGroupCommand(input);
  * const response = await client.send(command);
  * ```

@@ -57,6 +57,59 @@ export interface ModifyReplicationGroupCommandOutput extends ModifyReplicationGr
  * import { ElastiCacheClient, ModifyReplicationGroupCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, ModifyReplicationGroupCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
  * const client = new ElastiCacheClient(config);
+ * const input = {
+ *   ReplicationGroupId: "STRING_VALUE", // required
+ *   ReplicationGroupDescription: "STRING_VALUE",
+ *   PrimaryClusterId: "STRING_VALUE",
+ *   SnapshottingClusterId: "STRING_VALUE",
+ *   AutomaticFailoverEnabled: true || false,
+ *   MultiAZEnabled: true || false,
+ *   NodeGroupId: "STRING_VALUE",
+ *   CacheSecurityGroupNames: [
+ *     "STRING_VALUE",
+ *   ],
+ *   SecurityGroupIds: [
+ *     "STRING_VALUE",
+ *   ],
+ *   PreferredMaintenanceWindow: "STRING_VALUE",
+ *   NotificationTopicArn: "STRING_VALUE",
+ *   CacheParameterGroupName: "STRING_VALUE",
+ *   NotificationTopicStatus: "STRING_VALUE",
+ *   ApplyImmediately: true || false,
+ *   EngineVersion: "STRING_VALUE",
+ *   AutoMinorVersionUpgrade: true || false,
+ *   SnapshotRetentionLimit: Number("int"),
+ *   SnapshotWindow: "STRING_VALUE",
+ *   CacheNodeType: "STRING_VALUE",
+ *   AuthToken: "STRING_VALUE",
+ *   AuthTokenUpdateStrategy: "SET" || "ROTATE" || "DELETE",
+ *   UserGroupIdsToAdd: [
+ *     "STRING_VALUE",
+ *   ],
+ *   UserGroupIdsToRemove: [
+ *     "STRING_VALUE",
+ *   ],
+ *   RemoveUserGroups: true || false,
+ *   LogDeliveryConfigurations: [
+ *     {
+ *       LogType: "slow-log" || "engine-log",
+ *       DestinationType: "cloudwatch-logs" || "kinesis-firehose",
+ *       DestinationDetails: {
+ *         CloudWatchLogsDetails: {
+ *           LogGroup: "STRING_VALUE",
+ *         },
+ *         KinesisFirehoseDetails: {
+ *           DeliveryStream: "STRING_VALUE",
+ *         },
+ *       },
+ *       LogFormat: "text" || "json",
+ *       Enabled: true || false,
+ *     },
+ *   ],
+ *   IpDiscovery: "ipv4" || "ipv6",
+ *   TransitEncryptionEnabled: true || false,
+ *   TransitEncryptionMode: "preferred" || "required",
+ * };
  * const command = new ModifyReplicationGroupCommand(input);
  * const response = await client.send(command);
  * ```

@@ -55,6 +55,10 @@ export interface RegisterStreamConsumerCommandOutput extends RegisterStreamConsu
  * import { KinesisClient, RegisterStreamConsumerCommand } from "@aws-sdk/client-kinesis"; // ES Modules import
  * // const { KinesisClient, RegisterStreamConsumerCommand } = require("@aws-sdk/client-kinesis"); // CommonJS import
  * const client = new KinesisClient(config);
+ * const input = {
+ *   StreamARN: "STRING_VALUE", // required
+ *   ConsumerName: "STRING_VALUE", // required
+ * };
  * const command = new RegisterStreamConsumerCommand(input);
  * const response = await client.send(command);
  * ```

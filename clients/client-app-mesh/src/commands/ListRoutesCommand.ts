@@ -42,6 +42,13 @@ export interface ListRoutesCommandOutput extends ListRoutesOutput, __MetadataBea
  * import { AppMeshClient, ListRoutesCommand } from "@aws-sdk/client-app-mesh"; // ES Modules import
  * // const { AppMeshClient, ListRoutesCommand } = require("@aws-sdk/client-app-mesh"); // CommonJS import
  * const client = new AppMeshClient(config);
+ * const input = {
+ *   meshName: "STRING_VALUE", // required
+ *   virtualRouterName: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ *   limit: Number("int"),
+ *   meshOwner: "STRING_VALUE",
+ * };
  * const command = new ListRoutesCommand(input);
  * const response = await client.send(command);
  * ```

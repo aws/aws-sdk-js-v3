@@ -43,6 +43,9 @@ export interface GetSessionCommandOutput extends GetSessionResponse, __MetadataB
  * import { AthenaClient, GetSessionCommand } from "@aws-sdk/client-athena"; // ES Modules import
  * // const { AthenaClient, GetSessionCommand } = require("@aws-sdk/client-athena"); // CommonJS import
  * const client = new AthenaClient(config);
+ * const input = {
+ *   SessionId: "STRING_VALUE", // required
+ * };
  * const command = new GetSessionCommand(input);
  * const response = await client.send(command);
  * ```

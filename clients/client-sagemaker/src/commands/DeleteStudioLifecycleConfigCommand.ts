@@ -42,6 +42,9 @@ export interface DeleteStudioLifecycleConfigCommandOutput extends __MetadataBear
  * import { SageMakerClient, DeleteStudioLifecycleConfigCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DeleteStudioLifecycleConfigCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = {
+ *   StudioLifecycleConfigName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteStudioLifecycleConfigCommand(input);
  * const response = await client.send(command);
  * ```

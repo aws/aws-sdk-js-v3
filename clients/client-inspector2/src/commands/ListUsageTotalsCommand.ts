@@ -42,6 +42,13 @@ export interface ListUsageTotalsCommandOutput extends ListUsageTotalsResponse, _
  * import { Inspector2Client, ListUsageTotalsCommand } from "@aws-sdk/client-inspector2"; // ES Modules import
  * // const { Inspector2Client, ListUsageTotalsCommand } = require("@aws-sdk/client-inspector2"); // CommonJS import
  * const client = new Inspector2Client(config);
+ * const input = {
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ *   accountIds: [
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new ListUsageTotalsCommand(input);
  * const response = await client.send(command);
  * ```

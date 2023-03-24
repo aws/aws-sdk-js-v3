@@ -78,6 +78,21 @@ export interface PutRuleCommandOutput extends PutRuleResponse, __MetadataBearer 
  * import { EventBridgeClient, PutRuleCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
  * // const { EventBridgeClient, PutRuleCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
  * const client = new EventBridgeClient(config);
+ * const input = {
+ *   Name: "STRING_VALUE", // required
+ *   ScheduleExpression: "STRING_VALUE",
+ *   EventPattern: "STRING_VALUE",
+ *   State: "ENABLED" || "DISABLED",
+ *   Description: "STRING_VALUE",
+ *   RoleArn: "STRING_VALUE",
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   EventBusName: "STRING_VALUE",
+ * };
  * const command = new PutRuleCommand(input);
  * const response = await client.send(command);
  * ```

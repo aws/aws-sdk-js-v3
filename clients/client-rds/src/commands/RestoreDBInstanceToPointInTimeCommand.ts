@@ -53,6 +53,61 @@ export interface RestoreDBInstanceToPointInTimeCommandOutput
  * import { RDSClient, RestoreDBInstanceToPointInTimeCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, RestoreDBInstanceToPointInTimeCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = {
+ *   SourceDBInstanceIdentifier: "STRING_VALUE",
+ *   TargetDBInstanceIdentifier: "STRING_VALUE", // required
+ *   RestoreTime: new Date("TIMESTAMP"),
+ *   UseLatestRestorableTime: true || false,
+ *   DBInstanceClass: "STRING_VALUE",
+ *   Port: Number("int"),
+ *   AvailabilityZone: "STRING_VALUE",
+ *   DBSubnetGroupName: "STRING_VALUE",
+ *   MultiAZ: true || false,
+ *   PubliclyAccessible: true || false,
+ *   AutoMinorVersionUpgrade: true || false,
+ *   LicenseModel: "STRING_VALUE",
+ *   DBName: "STRING_VALUE",
+ *   Engine: "STRING_VALUE",
+ *   Iops: Number("int"),
+ *   OptionGroupName: "STRING_VALUE",
+ *   CopyTagsToSnapshot: true || false,
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   StorageType: "STRING_VALUE",
+ *   TdeCredentialArn: "STRING_VALUE",
+ *   TdeCredentialPassword: "STRING_VALUE",
+ *   VpcSecurityGroupIds: [
+ *     "STRING_VALUE",
+ *   ],
+ *   Domain: "STRING_VALUE",
+ *   DomainIAMRoleName: "STRING_VALUE",
+ *   EnableIAMDatabaseAuthentication: true || false,
+ *   EnableCloudwatchLogsExports: [
+ *     "STRING_VALUE",
+ *   ],
+ *   ProcessorFeatures: [
+ *     {
+ *       Name: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   UseDefaultProcessorFeatures: true || false,
+ *   DBParameterGroupName: "STRING_VALUE",
+ *   DeletionProtection: true || false,
+ *   SourceDbiResourceId: "STRING_VALUE",
+ *   MaxAllocatedStorage: Number("int"),
+ *   SourceDBInstanceAutomatedBackupsArn: "STRING_VALUE",
+ *   EnableCustomerOwnedIp: true || false,
+ *   CustomIamInstanceProfile: "STRING_VALUE",
+ *   BackupTarget: "STRING_VALUE",
+ *   NetworkType: "STRING_VALUE",
+ *   StorageThroughput: Number("int"),
+ *   AllocatedStorage: Number("int"),
+ * };
  * const command = new RestoreDBInstanceToPointInTimeCommand(input);
  * const response = await client.send(command);
  * ```

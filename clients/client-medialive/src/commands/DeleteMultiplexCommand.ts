@@ -42,6 +42,9 @@ export interface DeleteMultiplexCommandOutput extends DeleteMultiplexResponse, _
  * import { MediaLiveClient, DeleteMultiplexCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, DeleteMultiplexCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
  * const client = new MediaLiveClient(config);
+ * const input = {
+ *   MultiplexId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteMultiplexCommand(input);
  * const response = await client.send(command);
  * ```

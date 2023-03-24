@@ -66,6 +66,39 @@ export interface CreateForecastCommandOutput extends CreateForecastResponse, __M
  * import { ForecastClient, CreateForecastCommand } from "@aws-sdk/client-forecast"; // ES Modules import
  * // const { ForecastClient, CreateForecastCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
  * const client = new ForecastClient(config);
+ * const input = {
+ *   ForecastName: "STRING_VALUE", // required
+ *   PredictorArn: "STRING_VALUE", // required
+ *   ForecastTypes: [
+ *     "STRING_VALUE",
+ *   ],
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   TimeSeriesSelector: {
+ *     TimeSeriesIdentifiers: {
+ *       DataSource: {
+ *         S3Config: {
+ *           Path: "STRING_VALUE", // required
+ *           RoleArn: "STRING_VALUE", // required
+ *           KMSKeyArn: "STRING_VALUE",
+ *         },
+ *       },
+ *       Schema: {
+ *         Attributes: [
+ *           {
+ *             AttributeName: "STRING_VALUE",
+ *             AttributeType: "string" || "integer" || "float" || "timestamp" || "geolocation",
+ *           },
+ *         ],
+ *       },
+ *       Format: "STRING_VALUE",
+ *     },
+ *   },
+ * };
  * const command = new CreateForecastCommand(input);
  * const response = await client.send(command);
  * ```

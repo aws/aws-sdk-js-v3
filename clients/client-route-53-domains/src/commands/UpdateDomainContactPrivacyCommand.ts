@@ -64,6 +64,12 @@ export interface UpdateDomainContactPrivacyCommandOutput extends UpdateDomainCon
  * import { Route53DomainsClient, UpdateDomainContactPrivacyCommand } from "@aws-sdk/client-route-53-domains"; // ES Modules import
  * // const { Route53DomainsClient, UpdateDomainContactPrivacyCommand } = require("@aws-sdk/client-route-53-domains"); // CommonJS import
  * const client = new Route53DomainsClient(config);
+ * const input = {
+ *   DomainName: "STRING_VALUE", // required
+ *   AdminPrivacy: true || false,
+ *   RegistrantPrivacy: true || false,
+ *   TechPrivacy: true || false,
+ * };
  * const command = new UpdateDomainContactPrivacyCommand(input);
  * const response = await client.send(command);
  * ```

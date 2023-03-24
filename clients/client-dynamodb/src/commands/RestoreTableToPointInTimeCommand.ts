@@ -91,6 +91,61 @@ export interface RestoreTableToPointInTimeCommandOutput extends RestoreTableToPo
  * import { DynamoDBClient, RestoreTableToPointInTimeCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
  * // const { DynamoDBClient, RestoreTableToPointInTimeCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
  * const client = new DynamoDBClient(config);
+ * const input = {
+ *   SourceTableArn: "STRING_VALUE",
+ *   SourceTableName: "STRING_VALUE",
+ *   TargetTableName: "STRING_VALUE", // required
+ *   UseLatestRestorableTime: true || false,
+ *   RestoreDateTime: new Date("TIMESTAMP"),
+ *   BillingModeOverride: "PROVISIONED" || "PAY_PER_REQUEST",
+ *   GlobalSecondaryIndexOverride: [
+ *     {
+ *       IndexName: "STRING_VALUE", // required
+ *       KeySchema: [ // required
+ *         {
+ *           AttributeName: "STRING_VALUE", // required
+ *           KeyType: "HASH" || "RANGE", // required
+ *         },
+ *       ],
+ *       Projection: {
+ *         ProjectionType: "ALL" || "KEYS_ONLY" || "INCLUDE",
+ *         NonKeyAttributes: [
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *       ProvisionedThroughput: {
+ *         ReadCapacityUnits: Number("long"), // required
+ *         WriteCapacityUnits: Number("long"), // required
+ *       },
+ *     },
+ *   ],
+ *   LocalSecondaryIndexOverride: [
+ *     {
+ *       IndexName: "STRING_VALUE", // required
+ *       KeySchema: [ // required
+ *         {
+ *           AttributeName: "STRING_VALUE", // required
+ *           KeyType: "HASH" || "RANGE", // required
+ *         },
+ *       ],
+ *       Projection: {
+ *         ProjectionType: "ALL" || "KEYS_ONLY" || "INCLUDE",
+ *         NonKeyAttributes: [
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *     },
+ *   ],
+ *   ProvisionedThroughputOverride: {
+ *     ReadCapacityUnits: Number("long"), // required
+ *     WriteCapacityUnits: Number("long"), // required
+ *   },
+ *   SSESpecificationOverride: {
+ *     Enabled: true || false,
+ *     SSEType: "AES256" || "KMS",
+ *     KMSMasterKeyId: "STRING_VALUE",
+ *   },
+ * };
  * const command = new RestoreTableToPointInTimeCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,24 @@ export interface DescribeDBEngineVersionsCommandOutput extends DBEngineVersionMe
  * import { DocDBClient, DescribeDBEngineVersionsCommand } from "@aws-sdk/client-docdb"; // ES Modules import
  * // const { DocDBClient, DescribeDBEngineVersionsCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
  * const client = new DocDBClient(config);
+ * const input = {
+ *   Engine: "STRING_VALUE",
+ *   EngineVersion: "STRING_VALUE",
+ *   DBParameterGroupFamily: "STRING_VALUE",
+ *   Filters: [
+ *     {
+ *       Name: "STRING_VALUE", // required
+ *       Values: [ // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxRecords: Number("int"),
+ *   Marker: "STRING_VALUE",
+ *   DefaultOnly: true || false,
+ *   ListSupportedCharacterSets: true || false,
+ *   ListSupportedTimezones: true || false,
+ * };
  * const command = new DescribeDBEngineVersionsCommand(input);
  * const response = await client.send(command);
  * ```

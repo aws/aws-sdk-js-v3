@@ -43,6 +43,9 @@ export interface DescribeSecurityProfileCommandOutput extends DescribeSecurityPr
  * import { IoTClient, DescribeSecurityProfileCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, DescribeSecurityProfileCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = {
+ *   securityProfileName: "STRING_VALUE", // required
+ * };
  * const command = new DescribeSecurityProfileCommand(input);
  * const response = await client.send(command);
  * ```

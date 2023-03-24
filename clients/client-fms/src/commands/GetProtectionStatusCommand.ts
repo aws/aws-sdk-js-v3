@@ -43,6 +43,14 @@ export interface GetProtectionStatusCommandOutput extends GetProtectionStatusRes
  * import { FMSClient, GetProtectionStatusCommand } from "@aws-sdk/client-fms"; // ES Modules import
  * // const { FMSClient, GetProtectionStatusCommand } = require("@aws-sdk/client-fms"); // CommonJS import
  * const client = new FMSClient(config);
+ * const input = {
+ *   PolicyId: "STRING_VALUE", // required
+ *   MemberAccountId: "STRING_VALUE",
+ *   StartTime: new Date("TIMESTAMP"),
+ *   EndTime: new Date("TIMESTAMP"),
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new GetProtectionStatusCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,9 @@ export interface ResendOperationAuthorizationCommandOutput extends __MetadataBea
  * import { Route53DomainsClient, ResendOperationAuthorizationCommand } from "@aws-sdk/client-route-53-domains"; // ES Modules import
  * // const { Route53DomainsClient, ResendOperationAuthorizationCommand } = require("@aws-sdk/client-route-53-domains"); // CommonJS import
  * const client = new Route53DomainsClient(config);
+ * const input = {
+ *   OperationId: "STRING_VALUE", // required
+ * };
  * const command = new ResendOperationAuthorizationCommand(input);
  * const response = await client.send(command);
  * ```

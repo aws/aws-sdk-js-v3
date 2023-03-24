@@ -46,6 +46,10 @@ export interface ListCrlsCommandOutput extends ListCrlsResponse, __MetadataBeare
  * import { RolesAnywhereClient, ListCrlsCommand } from "@aws-sdk/client-rolesanywhere"; // ES Modules import
  * // const { RolesAnywhereClient, ListCrlsCommand } = require("@aws-sdk/client-rolesanywhere"); // CommonJS import
  * const client = new RolesAnywhereClient(config);
+ * const input = {
+ *   nextToken: "STRING_VALUE",
+ *   pageSize: Number("int"),
+ * };
  * const command = new ListCrlsCommand(input);
  * const response = await client.send(command);
  * ```

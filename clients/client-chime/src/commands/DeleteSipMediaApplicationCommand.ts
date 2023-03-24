@@ -42,6 +42,9 @@ export interface DeleteSipMediaApplicationCommandOutput extends __MetadataBearer
  * import { ChimeClient, DeleteSipMediaApplicationCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, DeleteSipMediaApplicationCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = {
+ *   SipMediaApplicationId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteSipMediaApplicationCommand(input);
  * const response = await client.send(command);
  * ```

@@ -46,6 +46,28 @@ export interface UpdateEndpointGroupCommandOutput extends UpdateEndpointGroupRes
  * import { GlobalAcceleratorClient, UpdateEndpointGroupCommand } from "@aws-sdk/client-global-accelerator"; // ES Modules import
  * // const { GlobalAcceleratorClient, UpdateEndpointGroupCommand } = require("@aws-sdk/client-global-accelerator"); // CommonJS import
  * const client = new GlobalAcceleratorClient(config);
+ * const input = {
+ *   EndpointGroupArn: "STRING_VALUE", // required
+ *   EndpointConfigurations: [
+ *     {
+ *       EndpointId: "STRING_VALUE",
+ *       Weight: Number("int"),
+ *       ClientIPPreservationEnabled: true || false,
+ *     },
+ *   ],
+ *   TrafficDialPercentage: Number("float"),
+ *   HealthCheckPort: Number("int"),
+ *   HealthCheckProtocol: "TCP" || "HTTP" || "HTTPS",
+ *   HealthCheckPath: "STRING_VALUE",
+ *   HealthCheckIntervalSeconds: Number("int"),
+ *   ThresholdCount: Number("int"),
+ *   PortOverrides: [
+ *     {
+ *       ListenerPort: Number("int"),
+ *       EndpointPort: Number("int"),
+ *     },
+ *   ],
+ * };
  * const command = new UpdateEndpointGroupCommand(input);
  * const response = await client.send(command);
  * ```

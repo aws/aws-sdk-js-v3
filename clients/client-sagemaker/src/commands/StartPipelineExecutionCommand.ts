@@ -42,6 +42,21 @@ export interface StartPipelineExecutionCommandOutput extends StartPipelineExecut
  * import { SageMakerClient, StartPipelineExecutionCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, StartPipelineExecutionCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = {
+ *   PipelineName: "STRING_VALUE", // required
+ *   PipelineExecutionDisplayName: "STRING_VALUE",
+ *   PipelineParameters: [
+ *     {
+ *       Name: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   PipelineExecutionDescription: "STRING_VALUE",
+ *   ClientRequestToken: "STRING_VALUE", // required
+ *   ParallelismConfiguration: {
+ *     MaxParallelExecutionSteps: Number("int"), // required
+ *   },
+ * };
  * const command = new StartPipelineExecutionCommand(input);
  * const response = await client.send(command);
  * ```

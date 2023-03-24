@@ -43,6 +43,11 @@ export interface GetAssessmentReportCommandOutput extends GetAssessmentReportRes
  * import { InspectorClient, GetAssessmentReportCommand } from "@aws-sdk/client-inspector"; // ES Modules import
  * // const { InspectorClient, GetAssessmentReportCommand } = require("@aws-sdk/client-inspector"); // CommonJS import
  * const client = new InspectorClient(config);
+ * const input = {
+ *   assessmentRunArn: "STRING_VALUE", // required
+ *   reportFileFormat: "STRING_VALUE", // required
+ *   reportType: "STRING_VALUE", // required
+ * };
  * const command = new GetAssessmentReportCommand(input);
  * const response = await client.send(command);
  * ```

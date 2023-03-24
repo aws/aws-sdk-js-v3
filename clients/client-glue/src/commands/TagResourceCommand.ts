@@ -44,6 +44,12 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * import { GlueClient, TagResourceCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, TagResourceCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = {
+ *   ResourceArn: "STRING_VALUE", // required
+ *   TagsToAdd: { // required
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
  * ```

@@ -64,6 +64,20 @@ export interface GetDashboardEmbedUrlCommandOutput extends GetDashboardEmbedUrlR
  * import { QuickSightClient, GetDashboardEmbedUrlCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, GetDashboardEmbedUrlCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
+ * const input = {
+ *   AwsAccountId: "STRING_VALUE", // required
+ *   DashboardId: "STRING_VALUE", // required
+ *   IdentityType: "IAM" || "QUICKSIGHT" || "ANONYMOUS", // required
+ *   SessionLifetimeInMinutes: Number("long"),
+ *   UndoRedoDisabled: true || false,
+ *   ResetDisabled: true || false,
+ *   StatePersistenceEnabled: true || false,
+ *   UserArn: "STRING_VALUE",
+ *   Namespace: "STRING_VALUE",
+ *   AdditionalDashboardIds: [
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new GetDashboardEmbedUrlCommand(input);
  * const response = await client.send(command);
  * ```

@@ -45,6 +45,19 @@ export interface BatchGetImageCommandOutput extends BatchGetImageResponse, __Met
  * import { ECRClient, BatchGetImageCommand } from "@aws-sdk/client-ecr"; // ES Modules import
  * // const { ECRClient, BatchGetImageCommand } = require("@aws-sdk/client-ecr"); // CommonJS import
  * const client = new ECRClient(config);
+ * const input = {
+ *   registryId: "STRING_VALUE",
+ *   repositoryName: "STRING_VALUE", // required
+ *   imageIds: [ // required
+ *     {
+ *       imageDigest: "STRING_VALUE",
+ *       imageTag: "STRING_VALUE",
+ *     },
+ *   ],
+ *   acceptedMediaTypes: [
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new BatchGetImageCommand(input);
  * const response = await client.send(command);
  * ```

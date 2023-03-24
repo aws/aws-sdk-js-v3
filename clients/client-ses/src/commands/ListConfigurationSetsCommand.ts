@@ -51,6 +51,10 @@ export interface ListConfigurationSetsCommandOutput extends ListConfigurationSet
  * import { SESClient, ListConfigurationSetsCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, ListConfigurationSetsCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
+ * const input = {
+ *   NextToken: "STRING_VALUE",
+ *   MaxItems: Number("int"),
+ * };
  * const command = new ListConfigurationSetsCommand(input);
  * const response = await client.send(command);
  * ```

@@ -40,6 +40,9 @@ export interface PauseClusterCommandOutput extends PauseClusterResult, __Metadat
  * import { RedshiftClient, PauseClusterCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, PauseClusterCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = {
+ *   ClusterIdentifier: "STRING_VALUE", // required
+ * };
  * const command = new PauseClusterCommand(input);
  * const response = await client.send(command);
  * ```

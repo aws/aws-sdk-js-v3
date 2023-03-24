@@ -45,6 +45,17 @@ export interface PutAttributesCommandOutput extends PutAttributesResponse, __Met
  * import { ECSClient, PutAttributesCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, PutAttributesCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
  * const client = new ECSClient(config);
+ * const input = {
+ *   cluster: "STRING_VALUE",
+ *   attributes: [ // required
+ *     {
+ *       name: "STRING_VALUE", // required
+ *       value: "STRING_VALUE",
+ *       targetType: "container-instance",
+ *       targetId: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new PutAttributesCommand(input);
  * const response = await client.send(command);
  * ```

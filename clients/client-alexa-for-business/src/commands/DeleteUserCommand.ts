@@ -42,6 +42,10 @@ export interface DeleteUserCommandOutput extends DeleteUserResponse, __MetadataB
  * import { AlexaForBusinessClient, DeleteUserCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, DeleteUserCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
+ * const input = {
+ *   UserArn: "STRING_VALUE",
+ *   EnrollmentId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteUserCommand(input);
  * const response = await client.send(command);
  * ```

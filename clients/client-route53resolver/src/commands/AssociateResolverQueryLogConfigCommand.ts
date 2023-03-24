@@ -52,6 +52,10 @@ export interface AssociateResolverQueryLogConfigCommandOutput
  * import { Route53ResolverClient, AssociateResolverQueryLogConfigCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
  * // const { Route53ResolverClient, AssociateResolverQueryLogConfigCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
  * const client = new Route53ResolverClient(config);
+ * const input = {
+ *   ResolverQueryLogConfigId: "STRING_VALUE", // required
+ *   ResourceId: "STRING_VALUE", // required
+ * };
  * const command = new AssociateResolverQueryLogConfigCommand(input);
  * const response = await client.send(command);
  * ```

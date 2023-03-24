@@ -89,6 +89,17 @@ export interface GetClipCommandOutput extends __WithSdkStreamMixin<GetClipOutput
  * import { KinesisVideoArchivedMediaClient, GetClipCommand } from "@aws-sdk/client-kinesis-video-archived-media"; // ES Modules import
  * // const { KinesisVideoArchivedMediaClient, GetClipCommand } = require("@aws-sdk/client-kinesis-video-archived-media"); // CommonJS import
  * const client = new KinesisVideoArchivedMediaClient(config);
+ * const input = {
+ *   StreamName: "STRING_VALUE",
+ *   StreamARN: "STRING_VALUE",
+ *   ClipFragmentSelector: {
+ *     FragmentSelectorType: "STRING_VALUE", // required
+ *     TimestampRange: {
+ *       StartTimestamp: new Date("TIMESTAMP"), // required
+ *       EndTimestamp: new Date("TIMESTAMP"), // required
+ *     },
+ *   },
+ * };
  * const command = new GetClipCommand(input);
  * const response = await client.send(command);
  * ```

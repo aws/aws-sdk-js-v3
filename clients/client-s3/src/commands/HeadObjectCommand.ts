@@ -157,6 +157,23 @@ export interface HeadObjectCommandOutput extends HeadObjectOutput, __MetadataBea
  * import { S3Client, HeadObjectCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, HeadObjectCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
+ * const input = {
+ *   Bucket: "STRING_VALUE", // required
+ *   IfMatch: "STRING_VALUE",
+ *   IfModifiedSince: new Date("TIMESTAMP"),
+ *   IfNoneMatch: "STRING_VALUE",
+ *   IfUnmodifiedSince: new Date("TIMESTAMP"),
+ *   Key: "STRING_VALUE", // required
+ *   Range: "STRING_VALUE",
+ *   VersionId: "STRING_VALUE",
+ *   SSECustomerAlgorithm: "STRING_VALUE",
+ *   SSECustomerKey: "STRING_VALUE",
+ *   SSECustomerKeyMD5: "STRING_VALUE",
+ *   RequestPayer: "requester",
+ *   PartNumber: Number("int"),
+ *   ExpectedBucketOwner: "STRING_VALUE",
+ *   ChecksumMode: "ENABLED",
+ * };
  * const command = new HeadObjectCommand(input);
  * const response = await client.send(command);
  * ```

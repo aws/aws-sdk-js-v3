@@ -52,6 +52,49 @@ export interface CreateFlywheelCommandOutput extends CreateFlywheelResponse, __M
  * import { ComprehendClient, CreateFlywheelCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, CreateFlywheelCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
+ * const input = {
+ *   FlywheelName: "STRING_VALUE", // required
+ *   ActiveModelArn: "STRING_VALUE",
+ *   DataAccessRoleArn: "STRING_VALUE", // required
+ *   TaskConfig: {
+ *     LanguageCode: "en" || "es" || "fr" || "de" || "it" || "pt" || "ar" || "hi" || "ja" || "ko" || "zh" || "zh-TW", // required
+ *     DocumentClassificationConfig: {
+ *       Mode: "MULTI_CLASS" || "MULTI_LABEL", // required
+ *       Labels: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *     EntityRecognitionConfig: {
+ *       EntityTypes: [ // required
+ *         {
+ *           Type: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *     },
+ *   },
+ *   ModelType: "DOCUMENT_CLASSIFIER" || "ENTITY_RECOGNIZER",
+ *   DataLakeS3Uri: "STRING_VALUE", // required
+ *   DataSecurityConfig: {
+ *     ModelKmsKeyId: "STRING_VALUE",
+ *     VolumeKmsKeyId: "STRING_VALUE",
+ *     DataLakeKmsKeyId: "STRING_VALUE",
+ *     VpcConfig: {
+ *       SecurityGroupIds: [ // required
+ *         "STRING_VALUE",
+ *       ],
+ *       Subnets: [ // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   },
+ *   ClientRequestToken: "STRING_VALUE",
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateFlywheelCommand(input);
  * const response = await client.send(command);
  * ```

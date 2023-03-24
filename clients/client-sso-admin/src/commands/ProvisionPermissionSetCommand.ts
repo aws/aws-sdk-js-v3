@@ -43,6 +43,12 @@ export interface ProvisionPermissionSetCommandOutput extends ProvisionPermission
  * import { SSOAdminClient, ProvisionPermissionSetCommand } from "@aws-sdk/client-sso-admin"; // ES Modules import
  * // const { SSOAdminClient, ProvisionPermissionSetCommand } = require("@aws-sdk/client-sso-admin"); // CommonJS import
  * const client = new SSOAdminClient(config);
+ * const input = {
+ *   InstanceArn: "STRING_VALUE", // required
+ *   PermissionSetArn: "STRING_VALUE", // required
+ *   TargetId: "STRING_VALUE",
+ *   TargetType: "AWS_ACCOUNT" || "ALL_PROVISIONED_ACCOUNTS", // required
+ * };
  * const command = new ProvisionPermissionSetCommand(input);
  * const response = await client.send(command);
  * ```

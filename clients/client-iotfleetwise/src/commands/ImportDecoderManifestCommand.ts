@@ -43,6 +43,22 @@ export interface ImportDecoderManifestCommandOutput extends ImportDecoderManifes
  * import { IoTFleetWiseClient, ImportDecoderManifestCommand } from "@aws-sdk/client-iotfleetwise"; // ES Modules import
  * // const { IoTFleetWiseClient, ImportDecoderManifestCommand } = require("@aws-sdk/client-iotfleetwise"); // CommonJS import
  * const client = new IoTFleetWiseClient(config);
+ * const input = {
+ *   name: "STRING_VALUE", // required
+ *   networkFileDefinitions: [ // required
+ *     { // Union: only one key present
+ *       canDbc: {
+ *         networkInterface: "STRING_VALUE", // required
+ *         canDbcFiles: [ // required
+ *           "BLOB_VALUE",
+ *         ],
+ *         signalsMap: {
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *       },
+ *     },
+ *   ],
+ * };
  * const command = new ImportDecoderManifestCommand(input);
  * const response = await client.send(command);
  * ```

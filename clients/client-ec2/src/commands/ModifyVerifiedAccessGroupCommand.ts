@@ -42,6 +42,13 @@ export interface ModifyVerifiedAccessGroupCommandOutput extends ModifyVerifiedAc
  * import { EC2Client, ModifyVerifiedAccessGroupCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ModifyVerifiedAccessGroupCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   VerifiedAccessGroupId: "STRING_VALUE", // required
+ *   VerifiedAccessInstanceId: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   ClientToken: "STRING_VALUE",
+ *   DryRun: true || false,
+ * };
  * const command = new ModifyVerifiedAccessGroupCommand(input);
  * const response = await client.send(command);
  * ```

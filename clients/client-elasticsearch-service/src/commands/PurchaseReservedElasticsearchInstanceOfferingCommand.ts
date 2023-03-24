@@ -52,6 +52,11 @@ export interface PurchaseReservedElasticsearchInstanceOfferingCommandOutput
  * import { ElasticsearchServiceClient, PurchaseReservedElasticsearchInstanceOfferingCommand } from "@aws-sdk/client-elasticsearch-service"; // ES Modules import
  * // const { ElasticsearchServiceClient, PurchaseReservedElasticsearchInstanceOfferingCommand } = require("@aws-sdk/client-elasticsearch-service"); // CommonJS import
  * const client = new ElasticsearchServiceClient(config);
+ * const input = {
+ *   ReservedElasticsearchInstanceOfferingId: "STRING_VALUE", // required
+ *   ReservationName: "STRING_VALUE", // required
+ *   InstanceCount: Number("int"),
+ * };
  * const command = new PurchaseReservedElasticsearchInstanceOfferingCommand(input);
  * const response = await client.send(command);
  * ```

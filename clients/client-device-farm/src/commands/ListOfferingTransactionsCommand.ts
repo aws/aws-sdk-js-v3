@@ -45,6 +45,9 @@ export interface ListOfferingTransactionsCommandOutput extends ListOfferingTrans
  * import { DeviceFarmClient, ListOfferingTransactionsCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, ListOfferingTransactionsCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
+ * const input = {
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListOfferingTransactionsCommand(input);
  * const response = await client.send(command);
  * ```

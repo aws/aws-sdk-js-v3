@@ -49,6 +49,9 @@ export interface AssociateDRTRoleCommandOutput extends AssociateDRTRoleResponse,
  * import { ShieldClient, AssociateDRTRoleCommand } from "@aws-sdk/client-shield"; // ES Modules import
  * // const { ShieldClient, AssociateDRTRoleCommand } = require("@aws-sdk/client-shield"); // CommonJS import
  * const client = new ShieldClient(config);
+ * const input = {
+ *   RoleArn: "STRING_VALUE", // required
+ * };
  * const command = new AssociateDRTRoleCommand(input);
  * const response = await client.send(command);
  * ```

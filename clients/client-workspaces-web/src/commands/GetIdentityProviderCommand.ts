@@ -46,6 +46,9 @@ export interface GetIdentityProviderCommandOutput extends GetIdentityProviderRes
  * import { WorkSpacesWebClient, GetIdentityProviderCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
  * // const { WorkSpacesWebClient, GetIdentityProviderCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
  * const client = new WorkSpacesWebClient(config);
+ * const input = {
+ *   identityProviderArn: "STRING_VALUE", // required
+ * };
  * const command = new GetIdentityProviderCommand(input);
  * const response = await client.send(command);
  * ```

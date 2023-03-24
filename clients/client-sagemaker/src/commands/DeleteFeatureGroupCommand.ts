@@ -47,6 +47,9 @@ export interface DeleteFeatureGroupCommandOutput extends __MetadataBearer {}
  * import { SageMakerClient, DeleteFeatureGroupCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DeleteFeatureGroupCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = {
+ *   FeatureGroupName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteFeatureGroupCommand(input);
  * const response = await client.send(command);
  * ```

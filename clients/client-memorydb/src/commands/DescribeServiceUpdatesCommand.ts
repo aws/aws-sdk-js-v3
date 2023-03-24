@@ -42,6 +42,17 @@ export interface DescribeServiceUpdatesCommandOutput extends DescribeServiceUpda
  * import { MemoryDBClient, DescribeServiceUpdatesCommand } from "@aws-sdk/client-memorydb"; // ES Modules import
  * // const { MemoryDBClient, DescribeServiceUpdatesCommand } = require("@aws-sdk/client-memorydb"); // CommonJS import
  * const client = new MemoryDBClient(config);
+ * const input = {
+ *   ServiceUpdateName: "STRING_VALUE",
+ *   ClusterNames: [
+ *     "STRING_VALUE",
+ *   ],
+ *   Status: [
+ *     "available" || "in-progress" || "complete" || "scheduled",
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeServiceUpdatesCommand(input);
  * const response = await client.send(command);
  * ```

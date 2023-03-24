@@ -47,6 +47,54 @@ export interface CreateDocumentClassifierCommandOutput extends CreateDocumentCla
  * import { ComprehendClient, CreateDocumentClassifierCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, CreateDocumentClassifierCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
+ * const input = {
+ *   DocumentClassifierName: "STRING_VALUE", // required
+ *   VersionName: "STRING_VALUE",
+ *   DataAccessRoleArn: "STRING_VALUE", // required
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   InputDataConfig: {
+ *     DataFormat: "COMPREHEND_CSV" || "AUGMENTED_MANIFEST",
+ *     S3Uri: "STRING_VALUE",
+ *     TestS3Uri: "STRING_VALUE",
+ *     LabelDelimiter: "STRING_VALUE",
+ *     AugmentedManifests: [
+ *       {
+ *         S3Uri: "STRING_VALUE", // required
+ *         Split: "TRAIN" || "TEST",
+ *         AttributeNames: [ // required
+ *           "STRING_VALUE",
+ *         ],
+ *         AnnotationDataS3Uri: "STRING_VALUE",
+ *         SourceDocumentsS3Uri: "STRING_VALUE",
+ *         DocumentType: "PLAIN_TEXT_DOCUMENT" || "SEMI_STRUCTURED_DOCUMENT",
+ *       },
+ *     ],
+ *   },
+ *   OutputDataConfig: {
+ *     S3Uri: "STRING_VALUE",
+ *     KmsKeyId: "STRING_VALUE",
+ *     FlywheelStatsS3Prefix: "STRING_VALUE",
+ *   },
+ *   ClientRequestToken: "STRING_VALUE",
+ *   LanguageCode: "en" || "es" || "fr" || "de" || "it" || "pt" || "ar" || "hi" || "ja" || "ko" || "zh" || "zh-TW", // required
+ *   VolumeKmsKeyId: "STRING_VALUE",
+ *   VpcConfig: {
+ *     SecurityGroupIds: [ // required
+ *       "STRING_VALUE",
+ *     ],
+ *     Subnets: [ // required
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   Mode: "MULTI_CLASS" || "MULTI_LABEL",
+ *   ModelKmsKeyId: "STRING_VALUE",
+ *   ModelPolicy: "STRING_VALUE",
+ * };
  * const command = new CreateDocumentClassifierCommand(input);
  * const response = await client.send(command);
  * ```

@@ -46,6 +46,16 @@ export interface DescribeTargetHealthCommandOutput extends DescribeTargetHealthO
  * import { ElasticLoadBalancingV2Client, DescribeTargetHealthCommand } from "@aws-sdk/client-elastic-load-balancing-v2"; // ES Modules import
  * // const { ElasticLoadBalancingV2Client, DescribeTargetHealthCommand } = require("@aws-sdk/client-elastic-load-balancing-v2"); // CommonJS import
  * const client = new ElasticLoadBalancingV2Client(config);
+ * const input = {
+ *   TargetGroupArn: "STRING_VALUE", // required
+ *   Targets: [
+ *     {
+ *       Id: "STRING_VALUE", // required
+ *       Port: Number("int"),
+ *       AvailabilityZone: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new DescribeTargetHealthCommand(input);
  * const response = await client.send(command);
  * ```

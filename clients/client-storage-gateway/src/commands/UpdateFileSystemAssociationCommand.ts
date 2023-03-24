@@ -47,6 +47,15 @@ export interface UpdateFileSystemAssociationCommandOutput extends UpdateFileSyst
  * import { StorageGatewayClient, UpdateFileSystemAssociationCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, UpdateFileSystemAssociationCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
+ * const input = {
+ *   FileSystemAssociationARN: "STRING_VALUE", // required
+ *   UserName: "STRING_VALUE",
+ *   Password: "STRING_VALUE",
+ *   AuditDestinationARN: "STRING_VALUE",
+ *   CacheAttributes: {
+ *     CacheStaleTimeoutInSeconds: Number("int"),
+ *   },
+ * };
  * const command = new UpdateFileSystemAssociationCommand(input);
  * const response = await client.send(command);
  * ```

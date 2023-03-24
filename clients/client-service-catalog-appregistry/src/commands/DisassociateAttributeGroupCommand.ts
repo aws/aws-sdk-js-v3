@@ -46,6 +46,10 @@ export interface DisassociateAttributeGroupCommandOutput extends DisassociateAtt
  * import { ServiceCatalogAppRegistryClient, DisassociateAttributeGroupCommand } from "@aws-sdk/client-service-catalog-appregistry"; // ES Modules import
  * // const { ServiceCatalogAppRegistryClient, DisassociateAttributeGroupCommand } = require("@aws-sdk/client-service-catalog-appregistry"); // CommonJS import
  * const client = new ServiceCatalogAppRegistryClient(config);
+ * const input = {
+ *   application: "STRING_VALUE", // required
+ *   attributeGroup: "STRING_VALUE", // required
+ * };
  * const command = new DisassociateAttributeGroupCommand(input);
  * const response = await client.send(command);
  * ```

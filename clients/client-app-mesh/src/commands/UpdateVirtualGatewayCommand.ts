@@ -42,6 +42,132 @@ export interface UpdateVirtualGatewayCommandOutput extends UpdateVirtualGatewayO
  * import { AppMeshClient, UpdateVirtualGatewayCommand } from "@aws-sdk/client-app-mesh"; // ES Modules import
  * // const { AppMeshClient, UpdateVirtualGatewayCommand } = require("@aws-sdk/client-app-mesh"); // CommonJS import
  * const client = new AppMeshClient(config);
+ * const input = {
+ *   virtualGatewayName: "STRING_VALUE", // required
+ *   meshName: "STRING_VALUE", // required
+ *   spec: {
+ *     backendDefaults: {
+ *       clientPolicy: {
+ *         tls: {
+ *           enforce: true || false,
+ *           ports: [
+ *             Number("int"),
+ *           ],
+ *           certificate: { // Union: only one key present
+ *             file: {
+ *               certificateChain: "STRING_VALUE", // required
+ *               privateKey: "STRING_VALUE", // required
+ *             },
+ *             sds: {
+ *               secretName: "STRING_VALUE", // required
+ *             },
+ *           },
+ *           validation: {
+ *             trust: { // Union: only one key present
+ *               acm: {
+ *                 certificateAuthorityArns: [ // required
+ *                   "STRING_VALUE",
+ *                 ],
+ *               },
+ *               file: {
+ *                 certificateChain: "STRING_VALUE", // required
+ *               },
+ *               sds: {
+ *                 secretName: "STRING_VALUE", // required
+ *               },
+ *             },
+ *             subjectAlternativeNames: {
+ *               match: {
+ *                 exact: [ // required
+ *                   "STRING_VALUE",
+ *                 ],
+ *               },
+ *             },
+ *           },
+ *         },
+ *       },
+ *     },
+ *     listeners: [ // required
+ *       {
+ *         healthCheck: {
+ *           timeoutMillis: Number("long"), // required
+ *           intervalMillis: Number("long"), // required
+ *           protocol: "STRING_VALUE", // required
+ *           port: Number("int"),
+ *           path: "STRING_VALUE",
+ *           healthyThreshold: Number("int"), // required
+ *           unhealthyThreshold: Number("int"), // required
+ *         },
+ *         portMapping: {
+ *           port: Number("int"), // required
+ *           protocol: "STRING_VALUE", // required
+ *         },
+ *         tls: {
+ *           mode: "STRING_VALUE", // required
+ *           validation: {
+ *             trust: { // Union: only one key present
+ *               file: {
+ *                 certificateChain: "STRING_VALUE", // required
+ *               },
+ *               sds: {
+ *                 secretName: "STRING_VALUE", // required
+ *               },
+ *             },
+ *             subjectAlternativeNames: {
+ *               match: {
+ *                 exact: [ // required
+ *                   "STRING_VALUE",
+ *                 ],
+ *               },
+ *             },
+ *           },
+ *           certificate: { // Union: only one key present
+ *             acm: {
+ *               certificateArn: "STRING_VALUE", // required
+ *             },
+ *             file: {
+ *               certificateChain: "STRING_VALUE", // required
+ *               privateKey: "STRING_VALUE", // required
+ *             },
+ *             sds: {
+ *               secretName: "STRING_VALUE", // required
+ *             },
+ *           },
+ *         },
+ *         connectionPool: { // Union: only one key present
+ *           http: {
+ *             maxConnections: Number("int"), // required
+ *             maxPendingRequests: Number("int"),
+ *           },
+ *           http2: {
+ *             maxRequests: Number("int"), // required
+ *           },
+ *           grpc: {
+ *             maxRequests: Number("int"), // required
+ *           },
+ *         },
+ *       },
+ *     ],
+ *     logging: {
+ *       accessLog: { // Union: only one key present
+ *         file: {
+ *           path: "STRING_VALUE", // required
+ *           format: { // Union: only one key present
+ *             text: "STRING_VALUE",
+ *             json: [
+ *               {
+ *                 key: "STRING_VALUE", // required
+ *                 value: "STRING_VALUE", // required
+ *               },
+ *             ],
+ *           },
+ *         },
+ *       },
+ *     },
+ *   },
+ *   clientToken: "STRING_VALUE",
+ *   meshOwner: "STRING_VALUE",
+ * };
  * const command = new UpdateVirtualGatewayCommand(input);
  * const response = await client.send(command);
  * ```

@@ -49,6 +49,11 @@ export interface ListQualificationRequestsCommandOutput extends ListQualificatio
  * import { MTurkClient, ListQualificationRequestsCommand } from "@aws-sdk/client-mturk"; // ES Modules import
  * // const { MTurkClient, ListQualificationRequestsCommand } = require("@aws-sdk/client-mturk"); // CommonJS import
  * const client = new MTurkClient(config);
+ * const input = {
+ *   QualificationTypeId: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListQualificationRequestsCommand(input);
  * const response = await client.send(command);
  * ```

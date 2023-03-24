@@ -42,6 +42,20 @@ export interface CreateEmailTemplateCommandOutput extends CreateEmailTemplateRes
  * import { PinpointClient, CreateEmailTemplateCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, CreateEmailTemplateCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
+ * const input = {
+ *   EmailTemplateRequest: {
+ *     DefaultSubstitutions: "STRING_VALUE",
+ *     HtmlPart: "STRING_VALUE",
+ *     RecommenderId: "STRING_VALUE",
+ *     Subject: "STRING_VALUE",
+ *     tags: {
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *     TemplateDescription: "STRING_VALUE",
+ *     TextPart: "STRING_VALUE",
+ *   },
+ *   TemplateName: "STRING_VALUE", // required
+ * };
  * const command = new CreateEmailTemplateCommand(input);
  * const response = await client.send(command);
  * ```

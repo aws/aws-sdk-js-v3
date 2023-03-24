@@ -39,6 +39,21 @@ export interface PutEventsCommandOutput extends PutEventsResponse, __MetadataBea
  * import { CloudWatchEventsClient, PutEventsCommand } from "@aws-sdk/client-cloudwatch-events"; // ES Modules import
  * // const { CloudWatchEventsClient, PutEventsCommand } = require("@aws-sdk/client-cloudwatch-events"); // CommonJS import
  * const client = new CloudWatchEventsClient(config);
+ * const input = {
+ *   Entries: [ // required
+ *     {
+ *       Time: new Date("TIMESTAMP"),
+ *       Source: "STRING_VALUE",
+ *       Resources: [
+ *         "STRING_VALUE",
+ *       ],
+ *       DetailType: "STRING_VALUE",
+ *       Detail: "STRING_VALUE",
+ *       EventBusName: "STRING_VALUE",
+ *       TraceHeader: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new PutEventsCommand(input);
  * const response = await client.send(command);
  * ```

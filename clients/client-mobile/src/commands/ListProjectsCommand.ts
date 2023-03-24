@@ -44,6 +44,10 @@ export interface ListProjectsCommandOutput extends ListProjectsResult, __Metadat
  * import { MobileClient, ListProjectsCommand } from "@aws-sdk/client-mobile"; // ES Modules import
  * // const { MobileClient, ListProjectsCommand } = require("@aws-sdk/client-mobile"); // CommonJS import
  * const client = new MobileClient(config);
+ * const input = {
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListProjectsCommand(input);
  * const response = await client.send(command);
  * ```

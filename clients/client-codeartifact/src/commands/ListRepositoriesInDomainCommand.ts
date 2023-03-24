@@ -47,6 +47,14 @@ export interface ListRepositoriesInDomainCommandOutput extends ListRepositoriesI
  * import { CodeartifactClient, ListRepositoriesInDomainCommand } from "@aws-sdk/client-codeartifact"; // ES Modules import
  * // const { CodeartifactClient, ListRepositoriesInDomainCommand } = require("@aws-sdk/client-codeartifact"); // CommonJS import
  * const client = new CodeartifactClient(config);
+ * const input = {
+ *   domain: "STRING_VALUE", // required
+ *   domainOwner: "STRING_VALUE",
+ *   administratorAccount: "STRING_VALUE",
+ *   repositoryPrefix: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListRepositoriesInDomainCommand(input);
  * const response = await client.send(command);
  * ```

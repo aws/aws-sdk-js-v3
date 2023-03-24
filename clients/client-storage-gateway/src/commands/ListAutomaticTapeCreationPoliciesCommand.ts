@@ -47,6 +47,9 @@ export interface ListAutomaticTapeCreationPoliciesCommandOutput
  * import { StorageGatewayClient, ListAutomaticTapeCreationPoliciesCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, ListAutomaticTapeCreationPoliciesCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
+ * const input = {
+ *   GatewayARN: "STRING_VALUE",
+ * };
  * const command = new ListAutomaticTapeCreationPoliciesCommand(input);
  * const response = await client.send(command);
  * ```

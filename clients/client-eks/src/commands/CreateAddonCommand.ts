@@ -45,6 +45,18 @@ export interface CreateAddonCommandOutput extends CreateAddonResponse, __Metadat
  * import { EKSClient, CreateAddonCommand } from "@aws-sdk/client-eks"; // ES Modules import
  * // const { EKSClient, CreateAddonCommand } = require("@aws-sdk/client-eks"); // CommonJS import
  * const client = new EKSClient(config);
+ * const input = {
+ *   clusterName: "STRING_VALUE", // required
+ *   addonName: "STRING_VALUE", // required
+ *   addonVersion: "STRING_VALUE",
+ *   serviceAccountRoleArn: "STRING_VALUE",
+ *   resolveConflicts: "OVERWRITE" || "NONE" || "PRESERVE",
+ *   clientRequestToken: "STRING_VALUE",
+ *   tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   configurationValues: "STRING_VALUE",
+ * };
  * const command = new CreateAddonCommand(input);
  * const response = await client.send(command);
  * ```

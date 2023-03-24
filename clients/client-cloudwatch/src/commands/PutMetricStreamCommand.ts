@@ -75,6 +75,42 @@ export interface PutMetricStreamCommandOutput extends PutMetricStreamOutput, __M
  * import { CloudWatchClient, PutMetricStreamCommand } from "@aws-sdk/client-cloudwatch"; // ES Modules import
  * // const { CloudWatchClient, PutMetricStreamCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import
  * const client = new CloudWatchClient(config);
+ * const input = {
+ *   Name: "STRING_VALUE", // required
+ *   IncludeFilters: [
+ *     {
+ *       Namespace: "STRING_VALUE",
+ *     },
+ *   ],
+ *   ExcludeFilters: [
+ *     {
+ *       Namespace: "STRING_VALUE",
+ *     },
+ *   ],
+ *   FirehoseArn: "STRING_VALUE", // required
+ *   RoleArn: "STRING_VALUE", // required
+ *   OutputFormat: "json" || "opentelemetry0.7", // required
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   StatisticsConfigurations: [
+ *     {
+ *       IncludeMetrics: [ // required
+ *         {
+ *           Namespace: "STRING_VALUE", // required
+ *           MetricName: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *       AdditionalStatistics: [ // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   IncludeLinkedAccountsMetrics: true || false,
+ * };
  * const command = new PutMetricStreamCommand(input);
  * const response = await client.send(command);
  * ```

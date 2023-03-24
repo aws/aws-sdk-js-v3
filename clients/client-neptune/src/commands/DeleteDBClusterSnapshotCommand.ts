@@ -47,6 +47,9 @@ export interface DeleteDBClusterSnapshotCommandOutput extends DeleteDBClusterSna
  * import { NeptuneClient, DeleteDBClusterSnapshotCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, DeleteDBClusterSnapshotCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
  * const client = new NeptuneClient(config);
+ * const input = {
+ *   DBClusterSnapshotIdentifier: "STRING_VALUE", // required
+ * };
  * const command = new DeleteDBClusterSnapshotCommand(input);
  * const response = await client.send(command);
  * ```

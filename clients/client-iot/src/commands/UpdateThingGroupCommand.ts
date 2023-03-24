@@ -43,6 +43,19 @@ export interface UpdateThingGroupCommandOutput extends UpdateThingGroupResponse,
  * import { IoTClient, UpdateThingGroupCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, UpdateThingGroupCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = {
+ *   thingGroupName: "STRING_VALUE", // required
+ *   thingGroupProperties: {
+ *     thingGroupDescription: "STRING_VALUE",
+ *     attributePayload: {
+ *       attributes: {
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *       merge: true || false,
+ *     },
+ *   },
+ *   expectedVersion: Number("long"),
+ * };
  * const command = new UpdateThingGroupCommand(input);
  * const response = await client.send(command);
  * ```

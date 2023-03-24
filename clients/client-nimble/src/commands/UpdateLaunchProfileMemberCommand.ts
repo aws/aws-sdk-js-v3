@@ -42,6 +42,13 @@ export interface UpdateLaunchProfileMemberCommandOutput extends UpdateLaunchProf
  * import { NimbleClient, UpdateLaunchProfileMemberCommand } from "@aws-sdk/client-nimble"; // ES Modules import
  * // const { NimbleClient, UpdateLaunchProfileMemberCommand } = require("@aws-sdk/client-nimble"); // CommonJS import
  * const client = new NimbleClient(config);
+ * const input = {
+ *   clientToken: "STRING_VALUE",
+ *   launchProfileId: "STRING_VALUE", // required
+ *   persona: "USER", // required
+ *   principalId: "STRING_VALUE", // required
+ *   studioId: "STRING_VALUE", // required
+ * };
  * const command = new UpdateLaunchProfileMemberCommand(input);
  * const response = await client.send(command);
  * ```

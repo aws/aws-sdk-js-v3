@@ -55,6 +55,36 @@ export interface StartSegmentDetectionCommandOutput extends StartSegmentDetectio
  * import { RekognitionClient, StartSegmentDetectionCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, StartSegmentDetectionCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
+ * const input = {
+ *   Video: {
+ *     S3Object: {
+ *       Bucket: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *       Version: "STRING_VALUE",
+ *     },
+ *   },
+ *   ClientRequestToken: "STRING_VALUE",
+ *   NotificationChannel: {
+ *     SNSTopicArn: "STRING_VALUE", // required
+ *     RoleArn: "STRING_VALUE", // required
+ *   },
+ *   JobTag: "STRING_VALUE",
+ *   Filters: {
+ *     TechnicalCueFilter: {
+ *       MinSegmentConfidence: Number("float"),
+ *       BlackFrame: {
+ *         MaxPixelThreshold: Number("float"),
+ *         MinCoveragePercentage: Number("float"),
+ *       },
+ *     },
+ *     ShotFilter: {
+ *       MinSegmentConfidence: Number("float"),
+ *     },
+ *   },
+ *   SegmentTypes: [ // required
+ *     "TECHNICAL_CUE" || "SHOT",
+ *   ],
+ * };
  * const command = new StartSegmentDetectionCommand(input);
  * const response = await client.send(command);
  * ```

@@ -43,6 +43,9 @@ export interface DescribeDataIngestionJobCommandOutput extends DescribeDataInges
  * import { LookoutEquipmentClient, DescribeDataIngestionJobCommand } from "@aws-sdk/client-lookoutequipment"; // ES Modules import
  * // const { LookoutEquipmentClient, DescribeDataIngestionJobCommand } = require("@aws-sdk/client-lookoutequipment"); // CommonJS import
  * const client = new LookoutEquipmentClient(config);
+ * const input = {
+ *   JobId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeDataIngestionJobCommand(input);
  * const response = await client.send(command);
  * ```

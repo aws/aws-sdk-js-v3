@@ -163,6 +163,51 @@ export interface SelectObjectContentCommandOutput extends SelectObjectContentOut
  * import { S3Client, SelectObjectContentCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, SelectObjectContentCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
+ * const input = {
+ *   Bucket: "STRING_VALUE", // required
+ *   Key: "STRING_VALUE", // required
+ *   SSECustomerAlgorithm: "STRING_VALUE",
+ *   SSECustomerKey: "STRING_VALUE",
+ *   SSECustomerKeyMD5: "STRING_VALUE",
+ *   Expression: "STRING_VALUE", // required
+ *   ExpressionType: "SQL", // required
+ *   RequestProgress: {
+ *     Enabled: true || false,
+ *   },
+ *   InputSerialization: {
+ *     CSV: {
+ *       FileHeaderInfo: "USE" || "IGNORE" || "NONE",
+ *       Comments: "STRING_VALUE",
+ *       QuoteEscapeCharacter: "STRING_VALUE",
+ *       RecordDelimiter: "STRING_VALUE",
+ *       FieldDelimiter: "STRING_VALUE",
+ *       QuoteCharacter: "STRING_VALUE",
+ *       AllowQuotedRecordDelimiter: true || false,
+ *     },
+ *     CompressionType: "NONE" || "GZIP" || "BZIP2",
+ *     JSON: {
+ *       Type: "DOCUMENT" || "LINES",
+ *     },
+ *     Parquet: {},
+ *   },
+ *   OutputSerialization: {
+ *     CSV: {
+ *       QuoteFields: "ALWAYS" || "ASNEEDED",
+ *       QuoteEscapeCharacter: "STRING_VALUE",
+ *       RecordDelimiter: "STRING_VALUE",
+ *       FieldDelimiter: "STRING_VALUE",
+ *       QuoteCharacter: "STRING_VALUE",
+ *     },
+ *     JSON: {
+ *       RecordDelimiter: "STRING_VALUE",
+ *     },
+ *   },
+ *   ScanRange: {
+ *     Start: Number("long"),
+ *     End: Number("long"),
+ *   },
+ *   ExpectedBucketOwner: "STRING_VALUE",
+ * };
  * const command = new SelectObjectContentCommand(input);
  * const response = await client.send(command);
  * ```

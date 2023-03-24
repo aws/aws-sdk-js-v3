@@ -44,6 +44,11 @@ export interface BatchGetSecurityControlsCommandOutput extends BatchGetSecurityC
  * import { SecurityHubClient, BatchGetSecurityControlsCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, BatchGetSecurityControlsCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
  * const client = new SecurityHubClient(config);
+ * const input = {
+ *   SecurityControlIds: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new BatchGetSecurityControlsCommand(input);
  * const response = await client.send(command);
  * ```

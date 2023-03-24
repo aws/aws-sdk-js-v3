@@ -47,6 +47,10 @@ export interface ForgetDeviceCommandOutput extends __MetadataBearer {}
  * import { CognitoIdentityProviderClient, ForgetDeviceCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, ForgetDeviceCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
+ * const input = {
+ *   AccessToken: "STRING_VALUE",
+ *   DeviceKey: "STRING_VALUE", // required
+ * };
  * const command = new ForgetDeviceCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,9 @@ export interface ArchiveWaveCommandOutput extends Wave, __MetadataBearer {}
  * import { MgnClient, ArchiveWaveCommand } from "@aws-sdk/client-mgn"; // ES Modules import
  * // const { MgnClient, ArchiveWaveCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
  * const client = new MgnClient(config);
+ * const input = {
+ *   waveID: "STRING_VALUE", // required
+ * };
  * const command = new ArchiveWaveCommand(input);
  * const response = await client.send(command);
  * ```

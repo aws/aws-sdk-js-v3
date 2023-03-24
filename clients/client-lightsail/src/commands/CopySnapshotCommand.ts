@@ -51,6 +51,14 @@ export interface CopySnapshotCommandOutput extends CopySnapshotResult, __Metadat
  * import { LightsailClient, CopySnapshotCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, CopySnapshotCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = {
+ *   sourceSnapshotName: "STRING_VALUE",
+ *   sourceResourceName: "STRING_VALUE",
+ *   restoreDate: "STRING_VALUE",
+ *   useLatestRestorableAutoSnapshot: true || false,
+ *   targetSnapshotName: "STRING_VALUE", // required
+ *   sourceRegion: "us-east-1" || "us-east-2" || "us-west-1" || "us-west-2" || "eu-west-1" || "eu-west-2" || "eu-west-3" || "eu-central-1" || "ca-central-1" || "ap-south-1" || "ap-southeast-1" || "ap-southeast-2" || "ap-northeast-1" || "ap-northeast-2" || "eu-north-1", // required
+ * };
  * const command = new CopySnapshotCommand(input);
  * const response = await client.send(command);
  * ```

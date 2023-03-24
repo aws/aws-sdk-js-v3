@@ -42,6 +42,9 @@ export interface DescribeLabelingJobCommandOutput extends DescribeLabelingJobRes
  * import { SageMakerClient, DescribeLabelingJobCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DescribeLabelingJobCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = {
+ *   LabelingJobName: "STRING_VALUE", // required
+ * };
  * const command = new DescribeLabelingJobCommand(input);
  * const response = await client.send(command);
  * ```

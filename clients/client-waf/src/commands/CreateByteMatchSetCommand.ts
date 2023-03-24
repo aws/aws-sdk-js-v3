@@ -73,6 +73,10 @@ export interface CreateByteMatchSetCommandOutput extends CreateByteMatchSetRespo
  * import { WAFClient, CreateByteMatchSetCommand } from "@aws-sdk/client-waf"; // ES Modules import
  * // const { WAFClient, CreateByteMatchSetCommand } = require("@aws-sdk/client-waf"); // CommonJS import
  * const client = new WAFClient(config);
+ * const input = {
+ *   Name: "STRING_VALUE", // required
+ *   ChangeToken: "STRING_VALUE", // required
+ * };
  * const command = new CreateByteMatchSetCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,11 @@ export interface PurchaseOfferingCommandOutput extends PurchaseOfferingResponse,
  * import { MediaConnectClient, PurchaseOfferingCommand } from "@aws-sdk/client-mediaconnect"; // ES Modules import
  * // const { MediaConnectClient, PurchaseOfferingCommand } = require("@aws-sdk/client-mediaconnect"); // CommonJS import
  * const client = new MediaConnectClient(config);
+ * const input = {
+ *   OfferingArn: "STRING_VALUE", // required
+ *   ReservationName: "STRING_VALUE", // required
+ *   Start: "STRING_VALUE", // required
+ * };
  * const command = new PurchaseOfferingCommand(input);
  * const response = await client.send(command);
  * ```

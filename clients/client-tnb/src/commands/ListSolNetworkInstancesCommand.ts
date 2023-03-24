@@ -43,6 +43,10 @@ export interface ListSolNetworkInstancesCommandOutput extends ListSolNetworkInst
  * import { TnbClient, ListSolNetworkInstancesCommand } from "@aws-sdk/client-tnb"; // ES Modules import
  * // const { TnbClient, ListSolNetworkInstancesCommand } = require("@aws-sdk/client-tnb"); // CommonJS import
  * const client = new TnbClient(config);
+ * const input = {
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListSolNetworkInstancesCommand(input);
  * const response = await client.send(command);
  * ```

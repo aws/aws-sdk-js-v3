@@ -154,6 +154,40 @@ export interface DetectLabelsCommandOutput extends DetectLabelsResponse, __Metad
  * import { RekognitionClient, DetectLabelsCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, DetectLabelsCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
+ * const input = {
+ *   Image: {
+ *     Bytes: "BLOB_VALUE",
+ *     S3Object: {
+ *       Bucket: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *       Version: "STRING_VALUE",
+ *     },
+ *   },
+ *   MaxLabels: Number("int"),
+ *   MinConfidence: Number("float"),
+ *   Features: [
+ *     "GENERAL_LABELS" || "IMAGE_PROPERTIES",
+ *   ],
+ *   Settings: {
+ *     GeneralLabels: {
+ *       LabelInclusionFilters: [
+ *         "STRING_VALUE",
+ *       ],
+ *       LabelExclusionFilters: [
+ *         "STRING_VALUE",
+ *       ],
+ *       LabelCategoryInclusionFilters: [
+ *         "STRING_VALUE",
+ *       ],
+ *       LabelCategoryExclusionFilters: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *     ImageProperties: {
+ *       MaxDominantColors: Number("int"),
+ *     },
+ *   },
+ * };
  * const command = new DetectLabelsCommand(input);
  * const response = await client.send(command);
  * ```

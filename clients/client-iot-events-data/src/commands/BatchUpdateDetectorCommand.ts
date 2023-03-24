@@ -43,6 +43,30 @@ export interface BatchUpdateDetectorCommandOutput extends BatchUpdateDetectorRes
  * import { IoTEventsDataClient, BatchUpdateDetectorCommand } from "@aws-sdk/client-iot-events-data"; // ES Modules import
  * // const { IoTEventsDataClient, BatchUpdateDetectorCommand } = require("@aws-sdk/client-iot-events-data"); // CommonJS import
  * const client = new IoTEventsDataClient(config);
+ * const input = {
+ *   detectors: [ // required
+ *     {
+ *       messageId: "STRING_VALUE", // required
+ *       detectorModelName: "STRING_VALUE", // required
+ *       keyValue: "STRING_VALUE",
+ *       state: {
+ *         stateName: "STRING_VALUE", // required
+ *         variables: [ // required
+ *           {
+ *             name: "STRING_VALUE", // required
+ *             value: "STRING_VALUE", // required
+ *           },
+ *         ],
+ *         timers: [ // required
+ *           {
+ *             name: "STRING_VALUE", // required
+ *             seconds: Number("int"), // required
+ *           },
+ *         ],
+ *       },
+ *     },
+ *   ],
+ * };
  * const command = new BatchUpdateDetectorCommand(input);
  * const response = await client.send(command);
  * ```

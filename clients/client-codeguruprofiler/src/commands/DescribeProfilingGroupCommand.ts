@@ -47,6 +47,9 @@ export interface DescribeProfilingGroupCommandOutput extends DescribeProfilingGr
  * import { CodeGuruProfilerClient, DescribeProfilingGroupCommand } from "@aws-sdk/client-codeguruprofiler"; // ES Modules import
  * // const { CodeGuruProfilerClient, DescribeProfilingGroupCommand } = require("@aws-sdk/client-codeguruprofiler"); // CommonJS import
  * const client = new CodeGuruProfilerClient(config);
+ * const input = {
+ *   profilingGroupName: "STRING_VALUE", // required
+ * };
  * const command = new DescribeProfilingGroupCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,15 @@ export interface UpdateParameterGroupCommandOutput extends UpdateParameterGroupR
  * import { MemoryDBClient, UpdateParameterGroupCommand } from "@aws-sdk/client-memorydb"; // ES Modules import
  * // const { MemoryDBClient, UpdateParameterGroupCommand } = require("@aws-sdk/client-memorydb"); // CommonJS import
  * const client = new MemoryDBClient(config);
+ * const input = {
+ *   ParameterGroupName: "STRING_VALUE", // required
+ *   ParameterNameValues: [ // required
+ *     {
+ *       ParameterName: "STRING_VALUE",
+ *       ParameterValue: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new UpdateParameterGroupCommand(input);
  * const response = await client.send(command);
  * ```

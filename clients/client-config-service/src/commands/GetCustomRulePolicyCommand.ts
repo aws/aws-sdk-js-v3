@@ -42,6 +42,9 @@ export interface GetCustomRulePolicyCommandOutput extends GetCustomRulePolicyRes
  * import { ConfigServiceClient, GetCustomRulePolicyCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, GetCustomRulePolicyCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
+ * const input = {
+ *   ConfigRuleName: "STRING_VALUE",
+ * };
  * const command = new GetCustomRulePolicyCommand(input);
  * const response = await client.send(command);
  * ```

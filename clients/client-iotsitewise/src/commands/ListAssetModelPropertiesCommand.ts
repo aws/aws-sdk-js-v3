@@ -44,6 +44,12 @@ export interface ListAssetModelPropertiesCommandOutput extends ListAssetModelPro
  * import { IoTSiteWiseClient, ListAssetModelPropertiesCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, ListAssetModelPropertiesCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
+ * const input = {
+ *   assetModelId: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   filter: "ALL" || "BASE",
+ * };
  * const command = new ListAssetModelPropertiesCommand(input);
  * const response = await client.send(command);
  * ```

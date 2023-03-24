@@ -47,6 +47,17 @@ export interface BatchDescribeTypeConfigurationsCommandOutput
  * import { CloudFormationClient, BatchDescribeTypeConfigurationsCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, BatchDescribeTypeConfigurationsCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
  * const client = new CloudFormationClient(config);
+ * const input = {
+ *   TypeConfigurationIdentifiers: [ // required
+ *     {
+ *       TypeArn: "STRING_VALUE",
+ *       TypeConfigurationAlias: "STRING_VALUE",
+ *       TypeConfigurationArn: "STRING_VALUE",
+ *       Type: "RESOURCE" || "MODULE" || "HOOK",
+ *       TypeName: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new BatchDescribeTypeConfigurationsCommand(input);
  * const response = await client.send(command);
  * ```

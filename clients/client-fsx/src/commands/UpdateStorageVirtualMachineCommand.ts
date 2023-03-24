@@ -48,6 +48,20 @@ export interface UpdateStorageVirtualMachineCommandOutput
  * import { FSxClient, UpdateStorageVirtualMachineCommand } from "@aws-sdk/client-fsx"; // ES Modules import
  * // const { FSxClient, UpdateStorageVirtualMachineCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
  * const client = new FSxClient(config);
+ * const input = {
+ *   ActiveDirectoryConfiguration: {
+ *     SelfManagedActiveDirectoryConfiguration: {
+ *       UserName: "STRING_VALUE",
+ *       Password: "STRING_VALUE",
+ *       DnsIps: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   },
+ *   ClientRequestToken: "STRING_VALUE",
+ *   StorageVirtualMachineId: "STRING_VALUE", // required
+ *   SvmAdminPassword: "STRING_VALUE",
+ * };
  * const command = new UpdateStorageVirtualMachineCommand(input);
  * const response = await client.send(command);
  * ```

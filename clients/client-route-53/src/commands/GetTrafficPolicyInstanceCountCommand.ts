@@ -45,6 +45,7 @@ export interface GetTrafficPolicyInstanceCountCommandOutput
  * import { Route53Client, GetTrafficPolicyInstanceCountCommand } from "@aws-sdk/client-route-53"; // ES Modules import
  * // const { Route53Client, GetTrafficPolicyInstanceCountCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
  * const client = new Route53Client(config);
+ * const input = {};
  * const command = new GetTrafficPolicyInstanceCountCommand(input);
  * const response = await client.send(command);
  * ```

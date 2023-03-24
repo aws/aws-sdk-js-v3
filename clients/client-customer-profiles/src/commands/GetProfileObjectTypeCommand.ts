@@ -42,6 +42,10 @@ export interface GetProfileObjectTypeCommandOutput extends GetProfileObjectTypeR
  * import { CustomerProfilesClient, GetProfileObjectTypeCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
  * // const { CustomerProfilesClient, GetProfileObjectTypeCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
  * const client = new CustomerProfilesClient(config);
+ * const input = {
+ *   DomainName: "STRING_VALUE", // required
+ *   ObjectTypeName: "STRING_VALUE", // required
+ * };
  * const command = new GetProfileObjectTypeCommand(input);
  * const response = await client.send(command);
  * ```

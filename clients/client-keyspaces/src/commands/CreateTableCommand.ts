@@ -49,6 +49,62 @@ export interface CreateTableCommandOutput extends CreateTableResponse, __Metadat
  * import { KeyspacesClient, CreateTableCommand } from "@aws-sdk/client-keyspaces"; // ES Modules import
  * // const { KeyspacesClient, CreateTableCommand } = require("@aws-sdk/client-keyspaces"); // CommonJS import
  * const client = new KeyspacesClient(config);
+ * const input = {
+ *   keyspaceName: "STRING_VALUE", // required
+ *   tableName: "STRING_VALUE", // required
+ *   schemaDefinition: {
+ *     allColumns: [ // required
+ *       {
+ *         name: "STRING_VALUE", // required
+ *         type: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *     partitionKeys: [ // required
+ *       {
+ *         name: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *     clusteringKeys: [
+ *       {
+ *         name: "STRING_VALUE", // required
+ *         orderBy: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *     staticColumns: [
+ *       {
+ *         name: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *   },
+ *   comment: {
+ *     message: "STRING_VALUE", // required
+ *   },
+ *   capacitySpecification: {
+ *     throughputMode: "STRING_VALUE", // required
+ *     readCapacityUnits: Number("long"),
+ *     writeCapacityUnits: Number("long"),
+ *   },
+ *   encryptionSpecification: {
+ *     type: "STRING_VALUE", // required
+ *     kmsKeyIdentifier: "STRING_VALUE",
+ *   },
+ *   pointInTimeRecovery: {
+ *     status: "STRING_VALUE", // required
+ *   },
+ *   ttl: {
+ *     status: "STRING_VALUE", // required
+ *   },
+ *   defaultTimeToLive: Number("int"),
+ *   tags: [
+ *     {
+ *       key: "STRING_VALUE", // required
+ *       value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   clientSideTimestamps: {
+ *     status: "STRING_VALUE", // required
+ *   },
+ * };
  * const command = new CreateTableCommand(input);
  * const response = await client.send(command);
  * ```

@@ -68,6 +68,14 @@ export interface UpdateTaskProtectionCommandOutput extends UpdateTaskProtectionR
  * import { ECSClient, UpdateTaskProtectionCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, UpdateTaskProtectionCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
  * const client = new ECSClient(config);
+ * const input = {
+ *   cluster: "STRING_VALUE", // required
+ *   tasks: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ *   protectionEnabled: true || false, // required
+ *   expiresInMinutes: Number("int"),
+ * };
  * const command = new UpdateTaskProtectionCommand(input);
  * const response = await client.send(command);
  * ```

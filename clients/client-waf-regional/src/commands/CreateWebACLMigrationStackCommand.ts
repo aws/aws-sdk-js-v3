@@ -49,6 +49,11 @@ export interface CreateWebACLMigrationStackCommandOutput extends CreateWebACLMig
  * import { WAFRegionalClient, CreateWebACLMigrationStackCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
  * // const { WAFRegionalClient, CreateWebACLMigrationStackCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
  * const client = new WAFRegionalClient(config);
+ * const input = {
+ *   WebACLId: "STRING_VALUE", // required
+ *   S3BucketName: "STRING_VALUE", // required
+ *   IgnoreUnsupportedType: true || false, // required
+ * };
  * const command = new CreateWebACLMigrationStackCommand(input);
  * const response = await client.send(command);
  * ```

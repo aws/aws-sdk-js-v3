@@ -42,6 +42,9 @@ export interface StopRecommenderCommandOutput extends StopRecommenderResponse, _
  * import { PersonalizeClient, StopRecommenderCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, StopRecommenderCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
  * const client = new PersonalizeClient(config);
+ * const input = {
+ *   recommenderArn: "STRING_VALUE", // required
+ * };
  * const command = new StopRecommenderCommand(input);
  * const response = await client.send(command);
  * ```

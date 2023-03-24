@@ -42,6 +42,9 @@ export interface DescribeInputCommandOutput extends DescribeInputResponse, __Met
  * import { MediaLiveClient, DescribeInputCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, DescribeInputCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
  * const client = new MediaLiveClient(config);
+ * const input = {
+ *   InputId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeInputCommand(input);
  * const response = await client.send(command);
  * ```

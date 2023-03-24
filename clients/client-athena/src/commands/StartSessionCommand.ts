@@ -43,6 +43,21 @@ export interface StartSessionCommandOutput extends StartSessionResponse, __Metad
  * import { AthenaClient, StartSessionCommand } from "@aws-sdk/client-athena"; // ES Modules import
  * // const { AthenaClient, StartSessionCommand } = require("@aws-sdk/client-athena"); // CommonJS import
  * const client = new AthenaClient(config);
+ * const input = {
+ *   Description: "STRING_VALUE",
+ *   WorkGroup: "STRING_VALUE", // required
+ *   EngineConfiguration: {
+ *     CoordinatorDpuSize: Number("int"),
+ *     MaxConcurrentDpus: Number("int"), // required
+ *     DefaultExecutorDpuSize: Number("int"),
+ *     AdditionalConfigs: {
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *   },
+ *   NotebookVersion: "STRING_VALUE",
+ *   SessionIdleTimeoutInMinutes: Number("int"),
+ *   ClientRequestToken: "STRING_VALUE",
+ * };
  * const command = new StartSessionCommand(input);
  * const response = await client.send(command);
  * ```

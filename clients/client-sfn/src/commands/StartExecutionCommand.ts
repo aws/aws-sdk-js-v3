@@ -55,6 +55,12 @@ export interface StartExecutionCommandOutput extends StartExecutionOutput, __Met
  * import { SFNClient, StartExecutionCommand } from "@aws-sdk/client-sfn"; // ES Modules import
  * // const { SFNClient, StartExecutionCommand } = require("@aws-sdk/client-sfn"); // CommonJS import
  * const client = new SFNClient(config);
+ * const input = {
+ *   stateMachineArn: "STRING_VALUE", // required
+ *   name: "STRING_VALUE",
+ *   input: "STRING_VALUE",
+ *   traceHeader: "STRING_VALUE",
+ * };
  * const command = new StartExecutionCommand(input);
  * const response = await client.send(command);
  * ```

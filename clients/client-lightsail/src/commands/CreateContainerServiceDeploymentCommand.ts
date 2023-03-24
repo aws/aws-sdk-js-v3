@@ -53,6 +53,35 @@ export interface CreateContainerServiceDeploymentCommandOutput
  * import { LightsailClient, CreateContainerServiceDeploymentCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, CreateContainerServiceDeploymentCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = {
+ *   serviceName: "STRING_VALUE", // required
+ *   containers: {
+ *     "<keys>": {
+ *       image: "STRING_VALUE",
+ *       command: [
+ *         "STRING_VALUE",
+ *       ],
+ *       environment: {
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *       ports: {
+ *         "<keys>": "HTTP" || "HTTPS" || "TCP" || "UDP",
+ *       },
+ *     },
+ *   },
+ *   publicEndpoint: {
+ *     containerName: "STRING_VALUE", // required
+ *     containerPort: Number("int"), // required
+ *     healthCheck: {
+ *       healthyThreshold: Number("int"),
+ *       unhealthyThreshold: Number("int"),
+ *       timeoutSeconds: Number("int"),
+ *       intervalSeconds: Number("int"),
+ *       path: "STRING_VALUE",
+ *       successCodes: "STRING_VALUE",
+ *     },
+ *   },
+ * };
  * const command = new CreateContainerServiceDeploymentCommand(input);
  * const response = await client.send(command);
  * ```

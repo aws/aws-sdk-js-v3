@@ -48,6 +48,12 @@ export interface ListTaskDefinitionFamiliesCommandOutput extends ListTaskDefinit
  * import { ECSClient, ListTaskDefinitionFamiliesCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, ListTaskDefinitionFamiliesCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
  * const client = new ECSClient(config);
+ * const input = {
+ *   familyPrefix: "STRING_VALUE",
+ *   status: "ACTIVE" || "INACTIVE" || "ALL",
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListTaskDefinitionFamiliesCommand(input);
  * const response = await client.send(command);
  * ```

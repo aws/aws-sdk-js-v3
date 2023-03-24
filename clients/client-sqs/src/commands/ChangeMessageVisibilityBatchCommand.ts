@@ -58,6 +58,16 @@ export interface ChangeMessageVisibilityBatchCommandOutput
  * import { SQSClient, ChangeMessageVisibilityBatchCommand } from "@aws-sdk/client-sqs"; // ES Modules import
  * // const { SQSClient, ChangeMessageVisibilityBatchCommand } = require("@aws-sdk/client-sqs"); // CommonJS import
  * const client = new SQSClient(config);
+ * const input = {
+ *   QueueUrl: "STRING_VALUE", // required
+ *   Entries: [ // required
+ *     {
+ *       Id: "STRING_VALUE", // required
+ *       ReceiptHandle: "STRING_VALUE", // required
+ *       VisibilityTimeout: Number("int"),
+ *     },
+ *   ],
+ * };
  * const command = new ChangeMessageVisibilityBatchCommand(input);
  * const response = await client.send(command);
  * ```

@@ -47,6 +47,9 @@ export interface GetDataIntegrationCommandOutput extends GetDataIntegrationRespo
  * import { AppIntegrationsClient, GetDataIntegrationCommand } from "@aws-sdk/client-appintegrations"; // ES Modules import
  * // const { AppIntegrationsClient, GetDataIntegrationCommand } = require("@aws-sdk/client-appintegrations"); // CommonJS import
  * const client = new AppIntegrationsClient(config);
+ * const input = {
+ *   Identifier: "STRING_VALUE", // required
+ * };
  * const command = new GetDataIntegrationCommand(input);
  * const response = await client.send(command);
  * ```

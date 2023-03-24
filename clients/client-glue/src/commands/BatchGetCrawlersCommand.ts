@@ -42,6 +42,11 @@ export interface BatchGetCrawlersCommandOutput extends BatchGetCrawlersResponse,
  * import { GlueClient, BatchGetCrawlersCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, BatchGetCrawlersCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = {
+ *   CrawlerNames: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new BatchGetCrawlersCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,10 @@ export interface GetRequestValidatorCommandOutput extends RequestValidator, __Me
  * import { APIGatewayClient, GetRequestValidatorCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, GetRequestValidatorCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
+ * const input = {
+ *   restApiId: "STRING_VALUE", // required
+ *   requestValidatorId: "STRING_VALUE", // required
+ * };
  * const command = new GetRequestValidatorCommand(input);
  * const response = await client.send(command);
  * ```

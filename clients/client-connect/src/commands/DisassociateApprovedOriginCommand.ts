@@ -43,6 +43,10 @@ export interface DisassociateApprovedOriginCommandOutput extends __MetadataBeare
  * import { ConnectClient, DisassociateApprovedOriginCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, DisassociateApprovedOriginCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = {
+ *   InstanceId: "STRING_VALUE", // required
+ *   Origin: "STRING_VALUE", // required
+ * };
  * const command = new DisassociateApprovedOriginCommand(input);
  * const response = await client.send(command);
  * ```

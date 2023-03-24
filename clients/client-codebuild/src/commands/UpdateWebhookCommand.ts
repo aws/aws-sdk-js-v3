@@ -46,6 +46,21 @@ export interface UpdateWebhookCommandOutput extends UpdateWebhookOutput, __Metad
  * import { CodeBuildClient, UpdateWebhookCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
  * // const { CodeBuildClient, UpdateWebhookCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
  * const client = new CodeBuildClient(config);
+ * const input = {
+ *   projectName: "STRING_VALUE", // required
+ *   branchFilter: "STRING_VALUE",
+ *   rotateSecret: true || false,
+ *   filterGroups: [
+ *     [
+ *       {
+ *         type: "STRING_VALUE", // required
+ *         pattern: "STRING_VALUE", // required
+ *         excludeMatchedPattern: true || false,
+ *       },
+ *     ],
+ *   ],
+ *   buildType: "STRING_VALUE",
+ * };
  * const command = new UpdateWebhookCommand(input);
  * const response = await client.send(command);
  * ```

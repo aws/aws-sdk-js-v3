@@ -58,6 +58,60 @@ export interface UpdateFunctionConfigurationCommandOutput extends FunctionConfig
  * import { LambdaClient, UpdateFunctionConfigurationCommand } from "@aws-sdk/client-lambda"; // ES Modules import
  * // const { LambdaClient, UpdateFunctionConfigurationCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
  * const client = new LambdaClient(config);
+ * const input = {
+ *   FunctionName: "STRING_VALUE", // required
+ *   Role: "STRING_VALUE",
+ *   Handler: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   Timeout: Number("int"),
+ *   MemorySize: Number("int"),
+ *   VpcConfig: {
+ *     SubnetIds: [
+ *       "STRING_VALUE",
+ *     ],
+ *     SecurityGroupIds: [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   Environment: {
+ *     Variables: {
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *   },
+ *   Runtime: "nodejs" || "nodejs4.3" || "nodejs6.10" || "nodejs8.10" || "nodejs10.x" || "nodejs12.x" || "nodejs14.x" || "nodejs16.x" || "java8" || "java8.al2" || "java11" || "python2.7" || "python3.6" || "python3.7" || "python3.8" || "python3.9" || "dotnetcore1.0" || "dotnetcore2.0" || "dotnetcore2.1" || "dotnetcore3.1" || "dotnet6" || "nodejs4.3-edge" || "go1.x" || "ruby2.5" || "ruby2.7" || "provided" || "provided.al2" || "nodejs18.x",
+ *   DeadLetterConfig: {
+ *     TargetArn: "STRING_VALUE",
+ *   },
+ *   KMSKeyArn: "STRING_VALUE",
+ *   TracingConfig: {
+ *     Mode: "Active" || "PassThrough",
+ *   },
+ *   RevisionId: "STRING_VALUE",
+ *   Layers: [
+ *     "STRING_VALUE",
+ *   ],
+ *   FileSystemConfigs: [
+ *     {
+ *       Arn: "STRING_VALUE", // required
+ *       LocalMountPath: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   ImageConfig: {
+ *     EntryPoint: [
+ *       "STRING_VALUE",
+ *     ],
+ *     Command: [
+ *       "STRING_VALUE",
+ *     ],
+ *     WorkingDirectory: "STRING_VALUE",
+ *   },
+ *   EphemeralStorage: {
+ *     Size: Number("int"), // required
+ *   },
+ *   SnapStart: {
+ *     ApplyOn: "PublishedVersions" || "None",
+ *   },
+ * };
  * const command = new UpdateFunctionConfigurationCommand(input);
  * const response = await client.send(command);
  * ```

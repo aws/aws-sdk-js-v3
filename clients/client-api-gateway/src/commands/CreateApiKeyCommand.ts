@@ -42,6 +42,23 @@ export interface CreateApiKeyCommandOutput extends ApiKey, __MetadataBearer {}
  * import { APIGatewayClient, CreateApiKeyCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, CreateApiKeyCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
+ * const input = {
+ *   name: "STRING_VALUE",
+ *   description: "STRING_VALUE",
+ *   enabled: true || false,
+ *   generateDistinctId: true || false,
+ *   value: "STRING_VALUE",
+ *   stageKeys: [
+ *     {
+ *       restApiId: "STRING_VALUE",
+ *       stageName: "STRING_VALUE",
+ *     },
+ *   ],
+ *   customerId: "STRING_VALUE",
+ *   tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateApiKeyCommand(input);
  * const response = await client.send(command);
  * ```

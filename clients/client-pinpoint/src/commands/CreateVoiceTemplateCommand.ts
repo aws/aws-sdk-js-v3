@@ -42,6 +42,19 @@ export interface CreateVoiceTemplateCommandOutput extends CreateVoiceTemplateRes
  * import { PinpointClient, CreateVoiceTemplateCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, CreateVoiceTemplateCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
+ * const input = {
+ *   TemplateName: "STRING_VALUE", // required
+ *   VoiceTemplateRequest: {
+ *     Body: "STRING_VALUE",
+ *     DefaultSubstitutions: "STRING_VALUE",
+ *     LanguageCode: "STRING_VALUE",
+ *     tags: {
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *     TemplateDescription: "STRING_VALUE",
+ *     VoiceId: "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateVoiceTemplateCommand(input);
  * const response = await client.send(command);
  * ```

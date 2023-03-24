@@ -42,6 +42,9 @@ export interface GetTriggerCommandOutput extends GetTriggerResponse, __MetadataB
  * import { GlueClient, GetTriggerCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, GetTriggerCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = {
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new GetTriggerCommand(input);
  * const response = await client.send(command);
  * ```

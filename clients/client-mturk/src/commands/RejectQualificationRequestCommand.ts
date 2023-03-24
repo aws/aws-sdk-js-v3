@@ -48,6 +48,10 @@ export interface RejectQualificationRequestCommandOutput extends RejectQualifica
  * import { MTurkClient, RejectQualificationRequestCommand } from "@aws-sdk/client-mturk"; // ES Modules import
  * // const { MTurkClient, RejectQualificationRequestCommand } = require("@aws-sdk/client-mturk"); // CommonJS import
  * const client = new MTurkClient(config);
+ * const input = {
+ *   QualificationRequestId: "STRING_VALUE", // required
+ *   Reason: "STRING_VALUE",
+ * };
  * const command = new RejectQualificationRequestCommand(input);
  * const response = await client.send(command);
  * ```

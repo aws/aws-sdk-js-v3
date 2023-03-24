@@ -49,6 +49,14 @@ export interface ListTrainingJobsForHyperParameterTuningJobCommandOutput
  * import { SageMakerClient, ListTrainingJobsForHyperParameterTuningJobCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListTrainingJobsForHyperParameterTuningJobCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = {
+ *   HyperParameterTuningJobName: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   StatusEquals: "InProgress" || "Completed" || "Failed" || "Stopping" || "Stopped",
+ *   SortBy: "Name" || "CreationTime" || "Status" || "FinalObjectiveMetricValue",
+ *   SortOrder: "Ascending" || "Descending",
+ * };
  * const command = new ListTrainingJobsForHyperParameterTuningJobCommand(input);
  * const response = await client.send(command);
  * ```

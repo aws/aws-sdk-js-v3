@@ -47,6 +47,13 @@ export interface ImportSourceCredentialsCommandOutput extends ImportSourceCreden
  * import { CodeBuildClient, ImportSourceCredentialsCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
  * // const { CodeBuildClient, ImportSourceCredentialsCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
  * const client = new CodeBuildClient(config);
+ * const input = {
+ *   username: "STRING_VALUE",
+ *   token: "STRING_VALUE", // required
+ *   serverType: "STRING_VALUE", // required
+ *   authType: "STRING_VALUE", // required
+ *   shouldOverwrite: true || false,
+ * };
  * const command = new ImportSourceCredentialsCommand(input);
  * const response = await client.send(command);
  * ```

@@ -39,6 +39,9 @@ export interface GetDomainCommandOutput extends GetDomainResult, __MetadataBeare
  * import { LightsailClient, GetDomainCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, GetDomainCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = {
+ *   domainName: "STRING_VALUE", // required
+ * };
  * const command = new GetDomainCommand(input);
  * const response = await client.send(command);
  * ```

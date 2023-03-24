@@ -44,6 +44,12 @@ export interface PutRumMetricsDestinationCommandOutput extends PutRumMetricsDest
  * import { RUMClient, PutRumMetricsDestinationCommand } from "@aws-sdk/client-rum"; // ES Modules import
  * // const { RUMClient, PutRumMetricsDestinationCommand } = require("@aws-sdk/client-rum"); // CommonJS import
  * const client = new RUMClient(config);
+ * const input = {
+ *   AppMonitorName: "STRING_VALUE", // required
+ *   Destination: "STRING_VALUE", // required
+ *   DestinationArn: "STRING_VALUE",
+ *   IamRoleArn: "STRING_VALUE",
+ * };
  * const command = new PutRumMetricsDestinationCommand(input);
  * const response = await client.send(command);
  * ```

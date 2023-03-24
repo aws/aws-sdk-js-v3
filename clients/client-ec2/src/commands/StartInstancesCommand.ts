@@ -57,6 +57,13 @@ export interface StartInstancesCommandOutput extends StartInstancesResult, __Met
  * import { EC2Client, StartInstancesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, StartInstancesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   InstanceIds: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ *   AdditionalInfo: "STRING_VALUE",
+ *   DryRun: true || false,
+ * };
  * const command = new StartInstancesCommand(input);
  * const response = await client.send(command);
  * ```

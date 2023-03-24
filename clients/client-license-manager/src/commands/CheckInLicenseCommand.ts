@@ -42,6 +42,10 @@ export interface CheckInLicenseCommandOutput extends CheckInLicenseResponse, __M
  * import { LicenseManagerClient, CheckInLicenseCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
  * // const { LicenseManagerClient, CheckInLicenseCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
  * const client = new LicenseManagerClient(config);
+ * const input = {
+ *   LicenseConsumptionToken: "STRING_VALUE", // required
+ *   Beneficiary: "STRING_VALUE",
+ * };
  * const command = new CheckInLicenseCommand(input);
  * const response = await client.send(command);
  * ```

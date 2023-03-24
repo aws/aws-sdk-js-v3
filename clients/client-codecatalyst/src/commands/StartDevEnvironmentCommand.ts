@@ -42,6 +42,19 @@ export interface StartDevEnvironmentCommandOutput extends StartDevEnvironmentRes
  * import { CodeCatalystClient, StartDevEnvironmentCommand } from "@aws-sdk/client-codecatalyst"; // ES Modules import
  * // const { CodeCatalystClient, StartDevEnvironmentCommand } = require("@aws-sdk/client-codecatalyst"); // CommonJS import
  * const client = new CodeCatalystClient(config);
+ * const input = {
+ *   spaceName: "STRING_VALUE", // required
+ *   projectName: "STRING_VALUE", // required
+ *   id: "STRING_VALUE", // required
+ *   ides: [
+ *     {
+ *       runtime: "STRING_VALUE",
+ *       name: "STRING_VALUE",
+ *     },
+ *   ],
+ *   instanceType: "STRING_VALUE",
+ *   inactivityTimeoutMinutes: Number("int"),
+ * };
  * const command = new StartDevEnvironmentCommand(input);
  * const response = await client.send(command);
  * ```

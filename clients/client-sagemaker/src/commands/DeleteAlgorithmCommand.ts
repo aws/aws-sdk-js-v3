@@ -42,6 +42,9 @@ export interface DeleteAlgorithmCommandOutput extends __MetadataBearer {}
  * import { SageMakerClient, DeleteAlgorithmCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DeleteAlgorithmCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = {
+ *   AlgorithmName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteAlgorithmCommand(input);
  * const response = await client.send(command);
  * ```

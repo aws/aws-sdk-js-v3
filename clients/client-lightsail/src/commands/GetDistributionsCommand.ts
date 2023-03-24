@@ -43,6 +43,10 @@ export interface GetDistributionsCommandOutput extends GetDistributionsResult, _
  * import { LightsailClient, GetDistributionsCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, GetDistributionsCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = {
+ *   distributionName: "STRING_VALUE",
+ *   pageToken: "STRING_VALUE",
+ * };
  * const command = new GetDistributionsCommand(input);
  * const response = await client.send(command);
  * ```

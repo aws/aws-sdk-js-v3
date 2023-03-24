@@ -42,6 +42,11 @@ export interface ResetDeploymentsCommandOutput extends ResetDeploymentsResponse,
  * import { GreengrassClient, ResetDeploymentsCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, ResetDeploymentsCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
+ * const input = {
+ *   AmznClientToken: "STRING_VALUE",
+ *   Force: true || false,
+ *   GroupId: "STRING_VALUE", // required
+ * };
  * const command = new ResetDeploymentsCommand(input);
  * const response = await client.send(command);
  * ```

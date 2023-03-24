@@ -57,6 +57,31 @@ export interface RequestCertificateCommandOutput extends RequestCertificateRespo
  * import { ACMClient, RequestCertificateCommand } from "@aws-sdk/client-acm"; // ES Modules import
  * // const { ACMClient, RequestCertificateCommand } = require("@aws-sdk/client-acm"); // CommonJS import
  * const client = new ACMClient(config);
+ * const input = {
+ *   DomainName: "STRING_VALUE", // required
+ *   ValidationMethod: "EMAIL" || "DNS",
+ *   SubjectAlternativeNames: [
+ *     "STRING_VALUE",
+ *   ],
+ *   IdempotencyToken: "STRING_VALUE",
+ *   DomainValidationOptions: [
+ *     {
+ *       DomainName: "STRING_VALUE", // required
+ *       ValidationDomain: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   Options: {
+ *     CertificateTransparencyLoggingPreference: "ENABLED" || "DISABLED",
+ *   },
+ *   CertificateAuthorityArn: "STRING_VALUE",
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   KeyAlgorithm: "RSA_1024" || "RSA_2048" || "RSA_3072" || "RSA_4096" || "EC_prime256v1" || "EC_secp384r1" || "EC_secp521r1",
+ * };
  * const command = new RequestCertificateCommand(input);
  * const response = await client.send(command);
  * ```

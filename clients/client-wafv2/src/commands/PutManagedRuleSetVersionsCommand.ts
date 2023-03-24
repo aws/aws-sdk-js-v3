@@ -53,6 +53,19 @@ export interface PutManagedRuleSetVersionsCommandOutput extends PutManagedRuleSe
  * import { WAFV2Client, PutManagedRuleSetVersionsCommand } from "@aws-sdk/client-wafv2"; // ES Modules import
  * // const { WAFV2Client, PutManagedRuleSetVersionsCommand } = require("@aws-sdk/client-wafv2"); // CommonJS import
  * const client = new WAFV2Client(config);
+ * const input = {
+ *   Name: "STRING_VALUE", // required
+ *   Scope: "CLOUDFRONT" || "REGIONAL", // required
+ *   Id: "STRING_VALUE", // required
+ *   LockToken: "STRING_VALUE", // required
+ *   RecommendedVersion: "STRING_VALUE",
+ *   VersionsToPublish: {
+ *     "<keys>": {
+ *       AssociatedRuleGroupArn: "STRING_VALUE",
+ *       ForecastedLifetime: Number("int"),
+ *     },
+ *   },
+ * };
  * const command = new PutManagedRuleSetVersionsCommand(input);
  * const response = await client.send(command);
  * ```

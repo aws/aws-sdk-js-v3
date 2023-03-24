@@ -42,6 +42,9 @@ export interface GetDataCatalogCommandOutput extends GetDataCatalogOutput, __Met
  * import { AthenaClient, GetDataCatalogCommand } from "@aws-sdk/client-athena"; // ES Modules import
  * // const { AthenaClient, GetDataCatalogCommand } = require("@aws-sdk/client-athena"); // CommonJS import
  * const client = new AthenaClient(config);
+ * const input = {
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new GetDataCatalogCommand(input);
  * const response = await client.send(command);
  * ```

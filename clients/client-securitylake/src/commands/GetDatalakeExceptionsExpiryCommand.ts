@@ -46,6 +46,7 @@ export interface GetDatalakeExceptionsExpiryCommandOutput
  * import { SecurityLakeClient, GetDatalakeExceptionsExpiryCommand } from "@aws-sdk/client-securitylake"; // ES Modules import
  * // const { SecurityLakeClient, GetDatalakeExceptionsExpiryCommand } = require("@aws-sdk/client-securitylake"); // CommonJS import
  * const client = new SecurityLakeClient(config);
+ * const input = {};
  * const command = new GetDatalakeExceptionsExpiryCommand(input);
  * const response = await client.send(command);
  * ```

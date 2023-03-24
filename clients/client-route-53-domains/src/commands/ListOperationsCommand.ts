@@ -44,6 +44,19 @@ export interface ListOperationsCommandOutput extends ListOperationsResponse, __M
  * import { Route53DomainsClient, ListOperationsCommand } from "@aws-sdk/client-route-53-domains"; // ES Modules import
  * // const { Route53DomainsClient, ListOperationsCommand } = require("@aws-sdk/client-route-53-domains"); // CommonJS import
  * const client = new Route53DomainsClient(config);
+ * const input = {
+ *   SubmittedSince: new Date("TIMESTAMP"),
+ *   Marker: "STRING_VALUE",
+ *   MaxItems: Number("int"),
+ *   Status: [
+ *     "SUBMITTED" || "IN_PROGRESS" || "ERROR" || "SUCCESSFUL" || "FAILED",
+ *   ],
+ *   Type: [
+ *     "REGISTER_DOMAIN" || "DELETE_DOMAIN" || "TRANSFER_IN_DOMAIN" || "UPDATE_DOMAIN_CONTACT" || "UPDATE_NAMESERVER" || "CHANGE_PRIVACY_PROTECTION" || "DOMAIN_LOCK" || "ENABLE_AUTORENEW" || "DISABLE_AUTORENEW" || "ADD_DNSSEC" || "REMOVE_DNSSEC" || "EXPIRE_DOMAIN" || "TRANSFER_OUT_DOMAIN" || "CHANGE_DOMAIN_OWNER" || "RENEW_DOMAIN" || "PUSH_DOMAIN" || "INTERNAL_TRANSFER_OUT_DOMAIN" || "INTERNAL_TRANSFER_IN_DOMAIN",
+ *   ],
+ *   SortBy: "SubmittedDate",
+ *   SortOrder: "ASC" || "DESC",
+ * };
  * const command = new ListOperationsCommand(input);
  * const response = await client.send(command);
  * ```

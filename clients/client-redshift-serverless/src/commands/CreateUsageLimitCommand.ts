@@ -47,6 +47,13 @@ export interface CreateUsageLimitCommandOutput extends CreateUsageLimitResponse,
  * import { RedshiftServerlessClient, CreateUsageLimitCommand } from "@aws-sdk/client-redshift-serverless"; // ES Modules import
  * // const { RedshiftServerlessClient, CreateUsageLimitCommand } = require("@aws-sdk/client-redshift-serverless"); // CommonJS import
  * const client = new RedshiftServerlessClient(config);
+ * const input = {
+ *   resourceArn: "STRING_VALUE", // required
+ *   usageType: "STRING_VALUE", // required
+ *   amount: Number("long"), // required
+ *   period: "STRING_VALUE",
+ *   breachAction: "STRING_VALUE",
+ * };
  * const command = new CreateUsageLimitCommand(input);
  * const response = await client.send(command);
  * ```

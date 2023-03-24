@@ -42,6 +42,12 @@ export interface ListDetectorsCommandOutput extends ListDetectorsResponse, __Met
  * import { IoTEventsDataClient, ListDetectorsCommand } from "@aws-sdk/client-iot-events-data"; // ES Modules import
  * // const { IoTEventsDataClient, ListDetectorsCommand } = require("@aws-sdk/client-iot-events-data"); // CommonJS import
  * const client = new IoTEventsDataClient(config);
+ * const input = {
+ *   detectorModelName: "STRING_VALUE", // required
+ *   stateName: "STRING_VALUE",
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListDetectorsCommand(input);
  * const response = await client.send(command);
  * ```

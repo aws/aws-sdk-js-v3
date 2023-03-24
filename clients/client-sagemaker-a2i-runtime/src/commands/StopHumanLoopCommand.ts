@@ -46,6 +46,9 @@ export interface StopHumanLoopCommandOutput extends StopHumanLoopResponse, __Met
  * import { SageMakerA2IRuntimeClient, StopHumanLoopCommand } from "@aws-sdk/client-sagemaker-a2i-runtime"; // ES Modules import
  * // const { SageMakerA2IRuntimeClient, StopHumanLoopCommand } = require("@aws-sdk/client-sagemaker-a2i-runtime"); // CommonJS import
  * const client = new SageMakerA2IRuntimeClient(config);
+ * const input = {
+ *   HumanLoopName: "STRING_VALUE", // required
+ * };
  * const command = new StopHumanLoopCommand(input);
  * const response = await client.send(command);
  * ```

@@ -53,6 +53,9 @@ export interface ListHapgsCommandOutput extends ListHapgsResponse, __MetadataBea
  * import { CloudHSMClient, ListHapgsCommand } from "@aws-sdk/client-cloudhsm"; // ES Modules import
  * // const { CloudHSMClient, ListHapgsCommand } = require("@aws-sdk/client-cloudhsm"); // CommonJS import
  * const client = new CloudHSMClient(config);
+ * const input = {
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListHapgsCommand(input);
  * const response = await client.send(command);
  * ```

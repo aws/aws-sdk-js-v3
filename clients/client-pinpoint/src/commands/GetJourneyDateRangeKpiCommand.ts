@@ -42,6 +42,15 @@ export interface GetJourneyDateRangeKpiCommandOutput extends GetJourneyDateRange
  * import { PinpointClient, GetJourneyDateRangeKpiCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, GetJourneyDateRangeKpiCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
+ * const input = {
+ *   ApplicationId: "STRING_VALUE", // required
+ *   EndTime: new Date("TIMESTAMP"),
+ *   JourneyId: "STRING_VALUE", // required
+ *   KpiName: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   PageSize: "STRING_VALUE",
+ *   StartTime: new Date("TIMESTAMP"),
+ * };
  * const command = new GetJourneyDateRangeKpiCommand(input);
  * const response = await client.send(command);
  * ```

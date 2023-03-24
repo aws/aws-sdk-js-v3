@@ -46,6 +46,7 @@ export interface GetEnrollmentStatusCommandOutput extends GetEnrollmentStatusRes
  * import { ComputeOptimizerClient, GetEnrollmentStatusCommand } from "@aws-sdk/client-compute-optimizer"; // ES Modules import
  * // const { ComputeOptimizerClient, GetEnrollmentStatusCommand } = require("@aws-sdk/client-compute-optimizer"); // CommonJS import
  * const client = new ComputeOptimizerClient(config);
+ * const input = {};
  * const command = new GetEnrollmentStatusCommand(input);
  * const response = await client.send(command);
  * ```

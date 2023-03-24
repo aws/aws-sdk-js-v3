@@ -45,6 +45,10 @@ export interface DeleteBudgetCommandOutput extends DeleteBudgetResponse, __Metad
  * import { BudgetsClient, DeleteBudgetCommand } from "@aws-sdk/client-budgets"; // ES Modules import
  * // const { BudgetsClient, DeleteBudgetCommand } = require("@aws-sdk/client-budgets"); // CommonJS import
  * const client = new BudgetsClient(config);
+ * const input = {
+ *   AccountId: "STRING_VALUE", // required
+ *   BudgetName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteBudgetCommand(input);
  * const response = await client.send(command);
  * ```

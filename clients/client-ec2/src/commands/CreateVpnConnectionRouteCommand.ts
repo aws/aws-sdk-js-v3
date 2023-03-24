@@ -46,6 +46,10 @@ export interface CreateVpnConnectionRouteCommandOutput extends __MetadataBearer 
  * import { EC2Client, CreateVpnConnectionRouteCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, CreateVpnConnectionRouteCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   DestinationCidrBlock: "STRING_VALUE", // required
+ *   VpnConnectionId: "STRING_VALUE", // required
+ * };
  * const command = new CreateVpnConnectionRouteCommand(input);
  * const response = await client.send(command);
  * ```

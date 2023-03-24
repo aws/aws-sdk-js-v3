@@ -60,6 +60,20 @@ export interface UpdateRuntimeConfigurationCommandOutput extends UpdateRuntimeCo
  * import { GameLiftClient, UpdateRuntimeConfigurationCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, UpdateRuntimeConfigurationCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = {
+ *   FleetId: "STRING_VALUE", // required
+ *   RuntimeConfiguration: {
+ *     ServerProcesses: [
+ *       {
+ *         LaunchPath: "STRING_VALUE", // required
+ *         Parameters: "STRING_VALUE",
+ *         ConcurrentExecutions: Number("int"), // required
+ *       },
+ *     ],
+ *     MaxConcurrentGameSessionActivations: Number("int"),
+ *     GameSessionActivationTimeoutSeconds: Number("int"),
+ *   },
+ * };
  * const command = new UpdateRuntimeConfigurationCommand(input);
  * const response = await client.send(command);
  * ```

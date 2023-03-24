@@ -42,6 +42,10 @@ export interface DescribeMeshCommandOutput extends DescribeMeshOutput, __Metadat
  * import { AppMeshClient, DescribeMeshCommand } from "@aws-sdk/client-app-mesh"; // ES Modules import
  * // const { AppMeshClient, DescribeMeshCommand } = require("@aws-sdk/client-app-mesh"); // CommonJS import
  * const client = new AppMeshClient(config);
+ * const input = {
+ *   meshName: "STRING_VALUE", // required
+ *   meshOwner: "STRING_VALUE",
+ * };
  * const command = new DescribeMeshCommand(input);
  * const response = await client.send(command);
  * ```

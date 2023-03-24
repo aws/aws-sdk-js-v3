@@ -46,6 +46,10 @@ export interface ListTrafficPoliciesCommandOutput extends ListTrafficPoliciesRes
  * import { Route53Client, ListTrafficPoliciesCommand } from "@aws-sdk/client-route-53"; // ES Modules import
  * // const { Route53Client, ListTrafficPoliciesCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
  * const client = new Route53Client(config);
+ * const input = {
+ *   TrafficPolicyIdMarker: "STRING_VALUE",
+ *   MaxItems: Number("int"),
+ * };
  * const command = new ListTrafficPoliciesCommand(input);
  * const response = await client.send(command);
  * ```

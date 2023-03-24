@@ -51,6 +51,18 @@ export interface UpdateSnapshotScheduleCommandOutput extends UpdateSnapshotSched
  * import { StorageGatewayClient, UpdateSnapshotScheduleCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, UpdateSnapshotScheduleCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
+ * const input = {
+ *   VolumeARN: "STRING_VALUE", // required
+ *   StartAt: Number("int"), // required
+ *   RecurrenceInHours: Number("int"), // required
+ *   Description: "STRING_VALUE",
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new UpdateSnapshotScheduleCommand(input);
  * const response = await client.send(command);
  * ```

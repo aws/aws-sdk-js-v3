@@ -44,6 +44,26 @@ export interface CreateProjectCommandOutput extends CreateProjectResponse, __Met
  * import { EvidentlyClient, CreateProjectCommand } from "@aws-sdk/client-evidently"; // ES Modules import
  * // const { EvidentlyClient, CreateProjectCommand } = require("@aws-sdk/client-evidently"); // CommonJS import
  * const client = new EvidentlyClient(config);
+ * const input = {
+ *   name: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   dataDelivery: {
+ *     s3Destination: {
+ *       bucket: "STRING_VALUE",
+ *       prefix: "STRING_VALUE",
+ *     },
+ *     cloudWatchLogs: {
+ *       logGroup: "STRING_VALUE",
+ *     },
+ *   },
+ *   appConfigResource: {
+ *     applicationId: "STRING_VALUE",
+ *     environmentId: "STRING_VALUE",
+ *   },
+ *   tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateProjectCommand(input);
  * const response = await client.send(command);
  * ```

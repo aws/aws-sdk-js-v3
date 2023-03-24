@@ -42,6 +42,9 @@ export interface DescribeRestoreJobCommandOutput extends DescribeRestoreJobOutpu
  * import { BackupClient, DescribeRestoreJobCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, DescribeRestoreJobCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
+ * const input = {
+ *   RestoreJobId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeRestoreJobCommand(input);
  * const response = await client.send(command);
  * ```

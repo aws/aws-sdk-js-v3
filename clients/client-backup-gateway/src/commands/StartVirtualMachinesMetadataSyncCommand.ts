@@ -44,6 +44,9 @@ export interface StartVirtualMachinesMetadataSyncCommandOutput
  * import { BackupGatewayClient, StartVirtualMachinesMetadataSyncCommand } from "@aws-sdk/client-backup-gateway"; // ES Modules import
  * // const { BackupGatewayClient, StartVirtualMachinesMetadataSyncCommand } = require("@aws-sdk/client-backup-gateway"); // CommonJS import
  * const client = new BackupGatewayClient(config);
+ * const input = {
+ *   HypervisorArn: "STRING_VALUE", // required
+ * };
  * const command = new StartVirtualMachinesMetadataSyncCommand(input);
  * const response = await client.send(command);
  * ```

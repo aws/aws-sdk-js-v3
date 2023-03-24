@@ -42,6 +42,53 @@ export interface GetDevicePoolCompatibilityCommandOutput extends GetDevicePoolCo
  * import { DeviceFarmClient, GetDevicePoolCompatibilityCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, GetDevicePoolCompatibilityCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
+ * const input = {
+ *   devicePoolArn: "STRING_VALUE", // required
+ *   appArn: "STRING_VALUE",
+ *   testType: "BUILTIN_FUZZ" || "BUILTIN_EXPLORER" || "WEB_PERFORMANCE_PROFILE" || "APPIUM_JAVA_JUNIT" || "APPIUM_JAVA_TESTNG" || "APPIUM_PYTHON" || "APPIUM_NODE" || "APPIUM_RUBY" || "APPIUM_WEB_JAVA_JUNIT" || "APPIUM_WEB_JAVA_TESTNG" || "APPIUM_WEB_PYTHON" || "APPIUM_WEB_NODE" || "APPIUM_WEB_RUBY" || "CALABASH" || "INSTRUMENTATION" || "UIAUTOMATION" || "UIAUTOMATOR" || "XCTEST" || "XCTEST_UI" || "REMOTE_ACCESS_RECORD" || "REMOTE_ACCESS_REPLAY",
+ *   test: {
+ *     type: "BUILTIN_FUZZ" || "BUILTIN_EXPLORER" || "WEB_PERFORMANCE_PROFILE" || "APPIUM_JAVA_JUNIT" || "APPIUM_JAVA_TESTNG" || "APPIUM_PYTHON" || "APPIUM_NODE" || "APPIUM_RUBY" || "APPIUM_WEB_JAVA_JUNIT" || "APPIUM_WEB_JAVA_TESTNG" || "APPIUM_WEB_PYTHON" || "APPIUM_WEB_NODE" || "APPIUM_WEB_RUBY" || "CALABASH" || "INSTRUMENTATION" || "UIAUTOMATION" || "UIAUTOMATOR" || "XCTEST" || "XCTEST_UI" || "REMOTE_ACCESS_RECORD" || "REMOTE_ACCESS_REPLAY", // required
+ *     testPackageArn: "STRING_VALUE",
+ *     testSpecArn: "STRING_VALUE",
+ *     filter: "STRING_VALUE",
+ *     parameters: {
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *   },
+ *   configuration: {
+ *     extraDataPackageArn: "STRING_VALUE",
+ *     networkProfileArn: "STRING_VALUE",
+ *     locale: "STRING_VALUE",
+ *     location: {
+ *       latitude: Number("double"), // required
+ *       longitude: Number("double"), // required
+ *     },
+ *     vpceConfigurationArns: [
+ *       "STRING_VALUE",
+ *     ],
+ *     customerArtifactPaths: {
+ *       iosPaths: [
+ *         "STRING_VALUE",
+ *       ],
+ *       androidPaths: [
+ *         "STRING_VALUE",
+ *       ],
+ *       deviceHostPaths: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *     radios: {
+ *       wifi: true || false,
+ *       bluetooth: true || false,
+ *       nfc: true || false,
+ *       gps: true || false,
+ *     },
+ *     auxiliaryApps: [
+ *       "STRING_VALUE",
+ *     ],
+ *     billingMethod: "METERED" || "UNMETERED",
+ *   },
+ * };
  * const command = new GetDevicePoolCompatibilityCommand(input);
  * const response = await client.send(command);
  * ```

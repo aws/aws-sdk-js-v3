@@ -45,6 +45,7 @@ export interface GetLogLevelsByResourceTypesCommandOutput
  * import { IoTWirelessClient, GetLogLevelsByResourceTypesCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, GetLogLevelsByResourceTypesCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
+ * const input = {};
  * const command = new GetLogLevelsByResourceTypesCommand(input);
  * const response = await client.send(command);
  * ```

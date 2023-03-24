@@ -45,6 +45,10 @@ export interface DeregisterFromWorkMailCommandOutput extends DeregisterFromWorkM
  * import { WorkMailClient, DeregisterFromWorkMailCommand } from "@aws-sdk/client-workmail"; // ES Modules import
  * // const { WorkMailClient, DeregisterFromWorkMailCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
  * const client = new WorkMailClient(config);
+ * const input = {
+ *   OrganizationId: "STRING_VALUE", // required
+ *   EntityId: "STRING_VALUE", // required
+ * };
  * const command = new DeregisterFromWorkMailCommand(input);
  * const response = await client.send(command);
  * ```

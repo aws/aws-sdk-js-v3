@@ -45,6 +45,18 @@ export interface UpdateIAMPolicyAssignmentCommandOutput extends UpdateIAMPolicyA
  * import { QuickSightClient, UpdateIAMPolicyAssignmentCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, UpdateIAMPolicyAssignmentCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
+ * const input = {
+ *   AwsAccountId: "STRING_VALUE", // required
+ *   AssignmentName: "STRING_VALUE", // required
+ *   Namespace: "STRING_VALUE", // required
+ *   AssignmentStatus: "ENABLED" || "DRAFT" || "DISABLED",
+ *   PolicyArn: "STRING_VALUE",
+ *   Identities: {
+ *     "<keys>": [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ * };
  * const command = new UpdateIAMPolicyAssignmentCommand(input);
  * const response = await client.send(command);
  * ```

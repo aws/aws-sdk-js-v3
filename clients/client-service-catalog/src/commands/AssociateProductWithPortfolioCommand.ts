@@ -45,6 +45,12 @@ export interface AssociateProductWithPortfolioCommandOutput
  * import { ServiceCatalogClient, AssociateProductWithPortfolioCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, AssociateProductWithPortfolioCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
+ * const input = {
+ *   AcceptLanguage: "STRING_VALUE",
+ *   ProductId: "STRING_VALUE", // required
+ *   PortfolioId: "STRING_VALUE", // required
+ *   SourcePortfolioId: "STRING_VALUE",
+ * };
  * const command = new AssociateProductWithPortfolioCommand(input);
  * const response = await client.send(command);
  * ```

@@ -43,6 +43,9 @@ export interface DeleteCertificateCommandOutput extends __MetadataBearer {}
  * import { TransferClient, DeleteCertificateCommand } from "@aws-sdk/client-transfer"; // ES Modules import
  * // const { TransferClient, DeleteCertificateCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
  * const client = new TransferClient(config);
+ * const input = {
+ *   CertificateId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteCertificateCommand(input);
  * const response = await client.send(command);
  * ```

@@ -61,6 +61,13 @@ export interface EnableSecurityHubCommandOutput extends EnableSecurityHubRespons
  * import { SecurityHubClient, EnableSecurityHubCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, EnableSecurityHubCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
  * const client = new SecurityHubClient(config);
+ * const input = {
+ *   Tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   EnableDefaultStandards: true || false,
+ *   ControlFindingGenerator: "STANDARD_CONTROL" || "SECURITY_CONTROL",
+ * };
  * const command = new EnableSecurityHubCommand(input);
  * const response = await client.send(command);
  * ```

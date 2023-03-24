@@ -64,6 +64,13 @@ export interface DeleteFleetsCommandOutput extends DeleteFleetsResult, __Metadat
  * import { EC2Client, DeleteFleetsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DeleteFleetsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   DryRun: true || false,
+ *   FleetIds: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ *   TerminateInstances: true || false, // required
+ * };
  * const command = new DeleteFleetsCommand(input);
  * const response = await client.send(command);
  * ```

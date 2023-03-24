@@ -47,6 +47,15 @@ export interface PutClassificationExportConfigurationCommandOutput
  * import { Macie2Client, PutClassificationExportConfigurationCommand } from "@aws-sdk/client-macie2"; // ES Modules import
  * // const { Macie2Client, PutClassificationExportConfigurationCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
  * const client = new Macie2Client(config);
+ * const input = {
+ *   configuration: {
+ *     s3Destination: {
+ *       bucketName: "STRING_VALUE", // required
+ *       keyPrefix: "STRING_VALUE",
+ *       kmsKeyArn: "STRING_VALUE", // required
+ *     },
+ *   },
+ * };
  * const command = new PutClassificationExportConfigurationCommand(input);
  * const response = await client.send(command);
  * ```

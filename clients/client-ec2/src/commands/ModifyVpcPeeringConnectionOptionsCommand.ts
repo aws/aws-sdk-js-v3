@@ -69,6 +69,20 @@ export interface ModifyVpcPeeringConnectionOptionsCommandOutput
  * import { EC2Client, ModifyVpcPeeringConnectionOptionsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ModifyVpcPeeringConnectionOptionsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   AccepterPeeringConnectionOptions: {
+ *     AllowDnsResolutionFromRemoteVpc: true || false,
+ *     AllowEgressFromLocalClassicLinkToRemoteVpc: true || false,
+ *     AllowEgressFromLocalVpcToRemoteClassicLink: true || false,
+ *   },
+ *   DryRun: true || false,
+ *   RequesterPeeringConnectionOptions: {
+ *     AllowDnsResolutionFromRemoteVpc: true || false,
+ *     AllowEgressFromLocalClassicLinkToRemoteVpc: true || false,
+ *     AllowEgressFromLocalVpcToRemoteClassicLink: true || false,
+ *   },
+ *   VpcPeeringConnectionId: "STRING_VALUE", // required
+ * };
  * const command = new ModifyVpcPeeringConnectionOptionsCommand(input);
  * const response = await client.send(command);
  * ```

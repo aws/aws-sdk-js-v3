@@ -45,6 +45,47 @@ export interface ValidateSecurityProfileBehaviorsCommandOutput
  * import { IoTClient, ValidateSecurityProfileBehaviorsCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, ValidateSecurityProfileBehaviorsCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = {
+ *   behaviors: [ // required
+ *     {
+ *       name: "STRING_VALUE", // required
+ *       metric: "STRING_VALUE",
+ *       metricDimension: {
+ *         dimensionName: "STRING_VALUE", // required
+ *         operator: "IN" || "NOT_IN",
+ *       },
+ *       criteria: {
+ *         comparisonOperator: "less-than" || "less-than-equals" || "greater-than" || "greater-than-equals" || "in-cidr-set" || "not-in-cidr-set" || "in-port-set" || "not-in-port-set" || "in-set" || "not-in-set",
+ *         value: {
+ *           count: Number("long"),
+ *           cidrs: [
+ *             "STRING_VALUE",
+ *           ],
+ *           ports: [
+ *             Number("int"),
+ *           ],
+ *           number: Number("double"),
+ *           numbers: [
+ *             Number("double"),
+ *           ],
+ *           strings: [
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *         durationSeconds: Number("int"),
+ *         consecutiveDatapointsToAlarm: Number("int"),
+ *         consecutiveDatapointsToClear: Number("int"),
+ *         statisticalThreshold: {
+ *           statistic: "STRING_VALUE",
+ *         },
+ *         mlDetectionConfig: {
+ *           confidenceLevel: "LOW" || "MEDIUM" || "HIGH", // required
+ *         },
+ *       },
+ *       suppressAlerts: true || false,
+ *     },
+ *   ],
+ * };
  * const command = new ValidateSecurityProfileBehaviorsCommand(input);
  * const response = await client.send(command);
  * ```

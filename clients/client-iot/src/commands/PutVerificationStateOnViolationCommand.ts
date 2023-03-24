@@ -44,6 +44,11 @@ export interface PutVerificationStateOnViolationCommandOutput
  * import { IoTClient, PutVerificationStateOnViolationCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, PutVerificationStateOnViolationCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = {
+ *   violationId: "STRING_VALUE", // required
+ *   verificationState: "FALSE_POSITIVE" || "BENIGN_POSITIVE" || "TRUE_POSITIVE" || "UNKNOWN", // required
+ *   verificationStateDescription: "STRING_VALUE",
+ * };
  * const command = new PutVerificationStateOnViolationCommand(input);
  * const response = await client.send(command);
  * ```

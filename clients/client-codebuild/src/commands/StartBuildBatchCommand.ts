@@ -42,6 +42,132 @@ export interface StartBuildBatchCommandOutput extends StartBuildBatchOutput, __M
  * import { CodeBuildClient, StartBuildBatchCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
  * // const { CodeBuildClient, StartBuildBatchCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
  * const client = new CodeBuildClient(config);
+ * const input = {
+ *   projectName: "STRING_VALUE", // required
+ *   secondarySourcesOverride: [
+ *     {
+ *       type: "STRING_VALUE", // required
+ *       location: "STRING_VALUE",
+ *       gitCloneDepth: Number("int"),
+ *       gitSubmodulesConfig: {
+ *         fetchSubmodules: true || false, // required
+ *       },
+ *       buildspec: "STRING_VALUE",
+ *       auth: {
+ *         type: "STRING_VALUE", // required
+ *         resource: "STRING_VALUE",
+ *       },
+ *       reportBuildStatus: true || false,
+ *       buildStatusConfig: {
+ *         context: "STRING_VALUE",
+ *         targetUrl: "STRING_VALUE",
+ *       },
+ *       insecureSsl: true || false,
+ *       sourceIdentifier: "STRING_VALUE",
+ *     },
+ *   ],
+ *   secondarySourcesVersionOverride: [
+ *     {
+ *       sourceIdentifier: "STRING_VALUE", // required
+ *       sourceVersion: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   sourceVersion: "STRING_VALUE",
+ *   artifactsOverride: {
+ *     type: "STRING_VALUE", // required
+ *     location: "STRING_VALUE",
+ *     path: "STRING_VALUE",
+ *     namespaceType: "STRING_VALUE",
+ *     name: "STRING_VALUE",
+ *     packaging: "STRING_VALUE",
+ *     overrideArtifactName: true || false,
+ *     encryptionDisabled: true || false,
+ *     artifactIdentifier: "STRING_VALUE",
+ *     bucketOwnerAccess: "STRING_VALUE",
+ *   },
+ *   secondaryArtifactsOverride: [
+ *     {
+ *       type: "STRING_VALUE", // required
+ *       location: "STRING_VALUE",
+ *       path: "STRING_VALUE",
+ *       namespaceType: "STRING_VALUE",
+ *       name: "STRING_VALUE",
+ *       packaging: "STRING_VALUE",
+ *       overrideArtifactName: true || false,
+ *       encryptionDisabled: true || false,
+ *       artifactIdentifier: "STRING_VALUE",
+ *       bucketOwnerAccess: "STRING_VALUE",
+ *     },
+ *   ],
+ *   environmentVariablesOverride: [
+ *     {
+ *       name: "STRING_VALUE", // required
+ *       value: "STRING_VALUE", // required
+ *       type: "STRING_VALUE",
+ *     },
+ *   ],
+ *   sourceTypeOverride: "STRING_VALUE",
+ *   sourceLocationOverride: "STRING_VALUE",
+ *   sourceAuthOverride: {
+ *     type: "STRING_VALUE", // required
+ *     resource: "STRING_VALUE",
+ *   },
+ *   gitCloneDepthOverride: Number("int"),
+ *   gitSubmodulesConfigOverride: {
+ *     fetchSubmodules: true || false, // required
+ *   },
+ *   buildspecOverride: "STRING_VALUE",
+ *   insecureSslOverride: true || false,
+ *   reportBuildBatchStatusOverride: true || false,
+ *   environmentTypeOverride: "STRING_VALUE",
+ *   imageOverride: "STRING_VALUE",
+ *   computeTypeOverride: "STRING_VALUE",
+ *   certificateOverride: "STRING_VALUE",
+ *   cacheOverride: {
+ *     type: "STRING_VALUE", // required
+ *     location: "STRING_VALUE",
+ *     modes: [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   serviceRoleOverride: "STRING_VALUE",
+ *   privilegedModeOverride: true || false,
+ *   buildTimeoutInMinutesOverride: Number("int"),
+ *   queuedTimeoutInMinutesOverride: Number("int"),
+ *   encryptionKeyOverride: "STRING_VALUE",
+ *   idempotencyToken: "STRING_VALUE",
+ *   logsConfigOverride: {
+ *     cloudWatchLogs: {
+ *       status: "STRING_VALUE", // required
+ *       groupName: "STRING_VALUE",
+ *       streamName: "STRING_VALUE",
+ *     },
+ *     s3Logs: {
+ *       status: "STRING_VALUE", // required
+ *       location: "STRING_VALUE",
+ *       encryptionDisabled: true || false,
+ *       bucketOwnerAccess: "STRING_VALUE",
+ *     },
+ *   },
+ *   registryCredentialOverride: {
+ *     credential: "STRING_VALUE", // required
+ *     credentialProvider: "STRING_VALUE", // required
+ *   },
+ *   imagePullCredentialsTypeOverride: "STRING_VALUE",
+ *   buildBatchConfigOverride: {
+ *     serviceRole: "STRING_VALUE",
+ *     combineArtifacts: true || false,
+ *     restrictions: {
+ *       maximumBuildsAllowed: Number("int"),
+ *       computeTypesAllowed: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *     timeoutInMins: Number("int"),
+ *     batchReportMode: "STRING_VALUE",
+ *   },
+ *   debugSessionEnabled: true || false,
+ * };
  * const command = new StartBuildBatchCommand(input);
  * const response = await client.send(command);
  * ```

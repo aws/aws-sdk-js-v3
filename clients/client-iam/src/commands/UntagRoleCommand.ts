@@ -40,6 +40,12 @@ export interface UntagRoleCommandOutput extends __MetadataBearer {}
  * import { IAMClient, UntagRoleCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, UntagRoleCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = {
+ *   RoleName: "STRING_VALUE", // required
+ *   TagKeys: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new UntagRoleCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,23 @@ export interface CreateHubCommandOutput extends CreateHubResponse, __MetadataBea
  * import { SageMakerClient, CreateHubCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, CreateHubCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = {
+ *   HubName: "STRING_VALUE", // required
+ *   HubDescription: "STRING_VALUE", // required
+ *   HubDisplayName: "STRING_VALUE",
+ *   HubSearchKeywords: [
+ *     "STRING_VALUE",
+ *   ],
+ *   S3StorageConfig: {
+ *     S3OutputPath: "STRING_VALUE",
+ *   },
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateHubCommand(input);
  * const response = await client.send(command);
  * ```

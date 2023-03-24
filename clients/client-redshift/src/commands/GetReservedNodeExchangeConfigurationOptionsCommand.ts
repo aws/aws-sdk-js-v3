@@ -50,6 +50,13 @@ export interface GetReservedNodeExchangeConfigurationOptionsCommandOutput
  * import { RedshiftClient, GetReservedNodeExchangeConfigurationOptionsCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, GetReservedNodeExchangeConfigurationOptionsCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = {
+ *   ActionType: "restore-cluster" || "resize-cluster", // required
+ *   ClusterIdentifier: "STRING_VALUE",
+ *   SnapshotIdentifier: "STRING_VALUE",
+ *   MaxRecords: Number("int"),
+ *   Marker: "STRING_VALUE",
+ * };
  * const command = new GetReservedNodeExchangeConfigurationOptionsCommand(input);
  * const response = await client.send(command);
  * ```

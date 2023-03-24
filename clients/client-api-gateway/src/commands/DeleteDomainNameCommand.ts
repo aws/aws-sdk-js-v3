@@ -42,6 +42,9 @@ export interface DeleteDomainNameCommandOutput extends __MetadataBearer {}
  * import { APIGatewayClient, DeleteDomainNameCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, DeleteDomainNameCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
+ * const input = {
+ *   domainName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteDomainNameCommand(input);
  * const response = await client.send(command);
  * ```

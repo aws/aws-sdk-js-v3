@@ -43,6 +43,20 @@ export interface RegisterAVSDeviceCommandOutput extends RegisterAVSDeviceRespons
  * import { AlexaForBusinessClient, RegisterAVSDeviceCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, RegisterAVSDeviceCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
+ * const input = {
+ *   ClientId: "STRING_VALUE", // required
+ *   UserCode: "STRING_VALUE", // required
+ *   ProductId: "STRING_VALUE", // required
+ *   DeviceSerialNumber: "STRING_VALUE",
+ *   AmazonId: "STRING_VALUE", // required
+ *   RoomArn: "STRING_VALUE",
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new RegisterAVSDeviceCommand(input);
  * const response = await client.send(command);
  * ```

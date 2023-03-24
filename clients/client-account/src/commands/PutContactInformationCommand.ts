@@ -44,6 +44,23 @@ export interface PutContactInformationCommandOutput extends __MetadataBearer {}
  * import { AccountClient, PutContactInformationCommand } from "@aws-sdk/client-account"; // ES Modules import
  * // const { AccountClient, PutContactInformationCommand } = require("@aws-sdk/client-account"); // CommonJS import
  * const client = new AccountClient(config);
+ * const input = {
+ *   ContactInformation: {
+ *     FullName: "STRING_VALUE", // required
+ *     AddressLine1: "STRING_VALUE", // required
+ *     AddressLine2: "STRING_VALUE",
+ *     AddressLine3: "STRING_VALUE",
+ *     City: "STRING_VALUE", // required
+ *     StateOrRegion: "STRING_VALUE",
+ *     DistrictOrCounty: "STRING_VALUE",
+ *     PostalCode: "STRING_VALUE", // required
+ *     CountryCode: "STRING_VALUE", // required
+ *     PhoneNumber: "STRING_VALUE", // required
+ *     CompanyName: "STRING_VALUE",
+ *     WebsiteUrl: "STRING_VALUE",
+ *   },
+ *   AccountId: "STRING_VALUE",
+ * };
  * const command = new PutContactInformationCommand(input);
  * const response = await client.send(command);
  * ```

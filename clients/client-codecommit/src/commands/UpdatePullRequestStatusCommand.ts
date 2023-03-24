@@ -42,6 +42,10 @@ export interface UpdatePullRequestStatusCommandOutput extends UpdatePullRequestS
  * import { CodeCommitClient, UpdatePullRequestStatusCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, UpdatePullRequestStatusCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
  * const client = new CodeCommitClient(config);
+ * const input = {
+ *   pullRequestId: "STRING_VALUE", // required
+ *   pullRequestStatus: "STRING_VALUE", // required
+ * };
  * const command = new UpdatePullRequestStatusCommand(input);
  * const response = await client.send(command);
  * ```

@@ -59,6 +59,11 @@ export interface CreatePlayerSessionCommandOutput extends CreatePlayerSessionOut
  * import { GameLiftClient, CreatePlayerSessionCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, CreatePlayerSessionCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = {
+ *   GameSessionId: "STRING_VALUE", // required
+ *   PlayerId: "STRING_VALUE", // required
+ *   PlayerData: "STRING_VALUE",
+ * };
  * const command = new CreatePlayerSessionCommand(input);
  * const response = await client.send(command);
  * ```

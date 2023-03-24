@@ -42,6 +42,10 @@ export interface UpdateMembershipCommandOutput extends UpdateMembershipOutput, _
  * import { CleanRoomsClient, UpdateMembershipCommand } from "@aws-sdk/client-cleanrooms"; // ES Modules import
  * // const { CleanRoomsClient, UpdateMembershipCommand } = require("@aws-sdk/client-cleanrooms"); // CommonJS import
  * const client = new CleanRoomsClient(config);
+ * const input = {
+ *   membershipIdentifier: "STRING_VALUE", // required
+ *   queryLogStatus: "STRING_VALUE",
+ * };
  * const command = new UpdateMembershipCommand(input);
  * const response = await client.send(command);
  * ```

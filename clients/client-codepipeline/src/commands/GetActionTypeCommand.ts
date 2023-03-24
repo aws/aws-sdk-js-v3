@@ -44,6 +44,12 @@ export interface GetActionTypeCommandOutput extends GetActionTypeOutput, __Metad
  * import { CodePipelineClient, GetActionTypeCommand } from "@aws-sdk/client-codepipeline"; // ES Modules import
  * // const { CodePipelineClient, GetActionTypeCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import
  * const client = new CodePipelineClient(config);
+ * const input = {
+ *   category: "STRING_VALUE", // required
+ *   owner: "STRING_VALUE", // required
+ *   provider: "STRING_VALUE", // required
+ *   version: "STRING_VALUE", // required
+ * };
  * const command = new GetActionTypeCommand(input);
  * const response = await client.send(command);
  * ```

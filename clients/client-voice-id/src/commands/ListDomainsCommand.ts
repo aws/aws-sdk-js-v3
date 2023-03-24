@@ -42,6 +42,10 @@ export interface ListDomainsCommandOutput extends ListDomainsResponse, __Metadat
  * import { VoiceIDClient, ListDomainsCommand } from "@aws-sdk/client-voice-id"; // ES Modules import
  * // const { VoiceIDClient, ListDomainsCommand } = require("@aws-sdk/client-voice-id"); // CommonJS import
  * const client = new VoiceIDClient(config);
+ * const input = {
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListDomainsCommand(input);
  * const response = await client.send(command);
  * ```

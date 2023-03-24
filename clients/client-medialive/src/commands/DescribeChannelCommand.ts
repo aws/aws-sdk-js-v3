@@ -42,6 +42,9 @@ export interface DescribeChannelCommandOutput extends DescribeChannelResponse, _
  * import { MediaLiveClient, DescribeChannelCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, DescribeChannelCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
  * const client = new MediaLiveClient(config);
+ * const input = {
+ *   ChannelId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeChannelCommand(input);
  * const response = await client.send(command);
  * ```

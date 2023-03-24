@@ -65,6 +65,9 @@ export interface DeleteVpcIngressConnectionCommandOutput extends DeleteVpcIngres
  * import { AppRunnerClient, DeleteVpcIngressConnectionCommand } from "@aws-sdk/client-apprunner"; // ES Modules import
  * // const { AppRunnerClient, DeleteVpcIngressConnectionCommand } = require("@aws-sdk/client-apprunner"); // CommonJS import
  * const client = new AppRunnerClient(config);
+ * const input = {
+ *   VpcIngressConnectionArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteVpcIngressConnectionCommand(input);
  * const response = await client.send(command);
  * ```

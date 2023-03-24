@@ -52,6 +52,11 @@ export interface GetDataEndpointCommandOutput extends GetDataEndpointOutput, __M
  * import { KinesisVideoClient, GetDataEndpointCommand } from "@aws-sdk/client-kinesis-video"; // ES Modules import
  * // const { KinesisVideoClient, GetDataEndpointCommand } = require("@aws-sdk/client-kinesis-video"); // CommonJS import
  * const client = new KinesisVideoClient(config);
+ * const input = {
+ *   StreamName: "STRING_VALUE",
+ *   StreamARN: "STRING_VALUE",
+ *   APIName: "PUT_MEDIA" || "GET_MEDIA" || "LIST_FRAGMENTS" || "GET_MEDIA_FOR_FRAGMENT_LIST" || "GET_HLS_STREAMING_SESSION_URL" || "GET_DASH_STREAMING_SESSION_URL" || "GET_CLIP" || "GET_IMAGES", // required
+ * };
  * const command = new GetDataEndpointCommand(input);
  * const response = await client.send(command);
  * ```

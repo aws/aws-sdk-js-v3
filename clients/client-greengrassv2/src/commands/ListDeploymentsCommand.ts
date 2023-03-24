@@ -42,6 +42,13 @@ export interface ListDeploymentsCommandOutput extends ListDeploymentsResponse, _
  * import { GreengrassV2Client, ListDeploymentsCommand } from "@aws-sdk/client-greengrassv2"; // ES Modules import
  * // const { GreengrassV2Client, ListDeploymentsCommand } = require("@aws-sdk/client-greengrassv2"); // CommonJS import
  * const client = new GreengrassV2Client(config);
+ * const input = {
+ *   targetArn: "STRING_VALUE",
+ *   historyFilter: "ALL" || "LATEST_ONLY",
+ *   parentTargetArn: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListDeploymentsCommand(input);
  * const response = await client.send(command);
  * ```

@@ -44,6 +44,50 @@ export interface UpdateLaunchCommandOutput extends UpdateLaunchResponse, __Metad
  * import { EvidentlyClient, UpdateLaunchCommand } from "@aws-sdk/client-evidently"; // ES Modules import
  * // const { EvidentlyClient, UpdateLaunchCommand } = require("@aws-sdk/client-evidently"); // CommonJS import
  * const client = new EvidentlyClient(config);
+ * const input = {
+ *   project: "STRING_VALUE", // required
+ *   launch: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   groups: [
+ *     {
+ *       name: "STRING_VALUE", // required
+ *       description: "STRING_VALUE",
+ *       feature: "STRING_VALUE", // required
+ *       variation: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   metricMonitors: [
+ *     {
+ *       metricDefinition: {
+ *         name: "STRING_VALUE", // required
+ *         entityIdKey: "STRING_VALUE", // required
+ *         valueKey: "STRING_VALUE", // required
+ *         eventPattern: "STRING_VALUE",
+ *         unitLabel: "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ *   randomizationSalt: "STRING_VALUE",
+ *   scheduledSplitsConfig: {
+ *     steps: [ // required
+ *       {
+ *         startTime: new Date("TIMESTAMP"), // required
+ *         groupWeights: { // required
+ *           "<keys>": Number("long"),
+ *         },
+ *         segmentOverrides: [
+ *           {
+ *             segment: "STRING_VALUE", // required
+ *             evaluationOrder: Number("long"), // required
+ *             weights: { // required
+ *               "<keys>": Number("long"),
+ *             },
+ *           },
+ *         ],
+ *       },
+ *     ],
+ *   },
+ * };
  * const command = new UpdateLaunchCommand(input);
  * const response = await client.send(command);
  * ```

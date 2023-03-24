@@ -48,6 +48,34 @@ export interface CreateUserCommandOutput extends CreateUserResponse, __MetadataB
  * import { TransferClient, CreateUserCommand } from "@aws-sdk/client-transfer"; // ES Modules import
  * // const { TransferClient, CreateUserCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
  * const client = new TransferClient(config);
+ * const input = {
+ *   HomeDirectory: "STRING_VALUE",
+ *   HomeDirectoryType: "PATH" || "LOGICAL",
+ *   HomeDirectoryMappings: [
+ *     {
+ *       Entry: "STRING_VALUE", // required
+ *       Target: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   Policy: "STRING_VALUE",
+ *   PosixProfile: {
+ *     Uid: Number("long"), // required
+ *     Gid: Number("long"), // required
+ *     SecondaryGids: [
+ *       Number("long"),
+ *     ],
+ *   },
+ *   Role: "STRING_VALUE", // required
+ *   ServerId: "STRING_VALUE", // required
+ *   SshPublicKeyBody: "STRING_VALUE",
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   UserName: "STRING_VALUE", // required
+ * };
  * const command = new CreateUserCommand(input);
  * const response = await client.send(command);
  * ```

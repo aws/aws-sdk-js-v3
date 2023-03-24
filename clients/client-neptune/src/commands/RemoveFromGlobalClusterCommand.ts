@@ -45,6 +45,10 @@ export interface RemoveFromGlobalClusterCommandOutput extends RemoveFromGlobalCl
  * import { NeptuneClient, RemoveFromGlobalClusterCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, RemoveFromGlobalClusterCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
  * const client = new NeptuneClient(config);
+ * const input = {
+ *   GlobalClusterIdentifier: "STRING_VALUE", // required
+ *   DbClusterIdentifier: "STRING_VALUE", // required
+ * };
  * const command = new RemoveFromGlobalClusterCommand(input);
  * const response = await client.send(command);
  * ```

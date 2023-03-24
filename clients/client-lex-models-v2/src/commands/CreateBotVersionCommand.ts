@@ -47,6 +47,15 @@ export interface CreateBotVersionCommandOutput extends CreateBotVersionResponse,
  * import { LexModelsV2Client, CreateBotVersionCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
  * // const { LexModelsV2Client, CreateBotVersionCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
  * const client = new LexModelsV2Client(config);
+ * const input = {
+ *   botId: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   botVersionLocaleSpecification: { // required
+ *     "<keys>": {
+ *       sourceBotVersion: "STRING_VALUE", // required
+ *     },
+ *   },
+ * };
  * const command = new CreateBotVersionCommand(input);
  * const response = await client.send(command);
  * ```

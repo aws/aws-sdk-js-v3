@@ -42,6 +42,11 @@ export interface UpdatePullRequestApprovalStateCommandOutput extends __MetadataB
  * import { CodeCommitClient, UpdatePullRequestApprovalStateCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, UpdatePullRequestApprovalStateCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
  * const client = new CodeCommitClient(config);
+ * const input = {
+ *   pullRequestId: "STRING_VALUE", // required
+ *   revisionId: "STRING_VALUE", // required
+ *   approvalState: "STRING_VALUE", // required
+ * };
  * const command = new UpdatePullRequestApprovalStateCommand(input);
  * const response = await client.send(command);
  * ```

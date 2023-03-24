@@ -89,6 +89,15 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * import { GameLiftClient, TagResourceCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, TagResourceCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = {
+ *   ResourceARN: "STRING_VALUE", // required
+ *   Tags: [ // required
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
  * ```

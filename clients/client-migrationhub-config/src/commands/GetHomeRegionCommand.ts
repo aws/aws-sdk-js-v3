@@ -50,6 +50,7 @@ export interface GetHomeRegionCommandOutput extends GetHomeRegionResult, __Metad
  * import { MigrationHubConfigClient, GetHomeRegionCommand } from "@aws-sdk/client-migrationhub-config"; // ES Modules import
  * // const { MigrationHubConfigClient, GetHomeRegionCommand } = require("@aws-sdk/client-migrationhub-config"); // CommonJS import
  * const client = new MigrationHubConfigClient(config);
+ * const input = {};
  * const command = new GetHomeRegionCommand(input);
  * const response = await client.send(command);
  * ```

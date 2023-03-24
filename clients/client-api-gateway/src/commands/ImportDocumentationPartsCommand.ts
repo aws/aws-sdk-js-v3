@@ -42,6 +42,12 @@ export interface ImportDocumentationPartsCommandOutput extends DocumentationPart
  * import { APIGatewayClient, ImportDocumentationPartsCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, ImportDocumentationPartsCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
+ * const input = {
+ *   restApiId: "STRING_VALUE", // required
+ *   mode: "merge" || "overwrite",
+ *   failOnWarnings: true || false,
+ *   body: "BLOB_VALUE", // required
+ * };
  * const command = new ImportDocumentationPartsCommand(input);
  * const response = await client.send(command);
  * ```

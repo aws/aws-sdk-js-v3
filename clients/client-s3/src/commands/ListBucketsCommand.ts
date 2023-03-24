@@ -43,6 +43,7 @@ export interface ListBucketsCommandOutput extends ListBucketsOutput, __MetadataB
  * import { S3Client, ListBucketsCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, ListBucketsCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
+ * const input = {};
  * const command = new ListBucketsCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,17 @@ export interface UpdateUserSettingsCommandOutput extends __MetadataBearer {}
  * import { ChimeClient, UpdateUserSettingsCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, UpdateUserSettingsCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = {
+ *   AccountId: "STRING_VALUE", // required
+ *   UserId: "STRING_VALUE", // required
+ *   UserSettings: {
+ *     Telephony: {
+ *       InboundCalling: true || false, // required
+ *       OutboundCalling: true || false, // required
+ *       SMS: true || false, // required
+ *     },
+ *   },
+ * };
  * const command = new UpdateUserSettingsCommand(input);
  * const response = await client.send(command);
  * ```

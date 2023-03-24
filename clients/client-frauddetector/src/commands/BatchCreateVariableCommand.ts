@@ -42,6 +42,24 @@ export interface BatchCreateVariableCommandOutput extends BatchCreateVariableRes
  * import { FraudDetectorClient, BatchCreateVariableCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, BatchCreateVariableCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
  * const client = new FraudDetectorClient(config);
+ * const input = {
+ *   variableEntries: [ // required
+ *     {
+ *       name: "STRING_VALUE",
+ *       dataType: "STRING_VALUE",
+ *       dataSource: "STRING_VALUE",
+ *       defaultValue: "STRING_VALUE",
+ *       description: "STRING_VALUE",
+ *       variableType: "STRING_VALUE",
+ *     },
+ *   ],
+ *   tags: [
+ *     {
+ *       key: "STRING_VALUE", // required
+ *       value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new BatchCreateVariableCommand(input);
  * const response = await client.send(command);
  * ```

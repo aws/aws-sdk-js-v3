@@ -45,6 +45,19 @@ export interface CreateTimelineEventCommandOutput extends CreateTimelineEventOut
  * import { SSMIncidentsClient, CreateTimelineEventCommand } from "@aws-sdk/client-ssm-incidents"; // ES Modules import
  * // const { SSMIncidentsClient, CreateTimelineEventCommand } = require("@aws-sdk/client-ssm-incidents"); // CommonJS import
  * const client = new SSMIncidentsClient(config);
+ * const input = {
+ *   clientToken: "STRING_VALUE",
+ *   incidentRecordArn: "STRING_VALUE", // required
+ *   eventTime: new Date("TIMESTAMP"), // required
+ *   eventType: "STRING_VALUE", // required
+ *   eventData: "STRING_VALUE", // required
+ *   eventReferences: [
+ *     { // Union: only one key present
+ *       resource: "STRING_VALUE",
+ *       relatedItemId: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateTimelineEventCommand(input);
  * const response = await client.send(command);
  * ```

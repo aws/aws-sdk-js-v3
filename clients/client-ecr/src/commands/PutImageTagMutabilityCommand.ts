@@ -44,6 +44,11 @@ export interface PutImageTagMutabilityCommandOutput extends PutImageTagMutabilit
  * import { ECRClient, PutImageTagMutabilityCommand } from "@aws-sdk/client-ecr"; // ES Modules import
  * // const { ECRClient, PutImageTagMutabilityCommand } = require("@aws-sdk/client-ecr"); // CommonJS import
  * const client = new ECRClient(config);
+ * const input = {
+ *   registryId: "STRING_VALUE",
+ *   repositoryName: "STRING_VALUE", // required
+ *   imageTagMutability: "STRING_VALUE", // required
+ * };
  * const command = new PutImageTagMutabilityCommand(input);
  * const response = await client.send(command);
  * ```

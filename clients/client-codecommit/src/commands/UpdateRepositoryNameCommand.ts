@@ -46,6 +46,10 @@ export interface UpdateRepositoryNameCommandOutput extends __MetadataBearer {}
  * import { CodeCommitClient, UpdateRepositoryNameCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, UpdateRepositoryNameCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
  * const client = new CodeCommitClient(config);
+ * const input = {
+ *   oldName: "STRING_VALUE", // required
+ *   newName: "STRING_VALUE", // required
+ * };
  * const command = new UpdateRepositoryNameCommand(input);
  * const response = await client.send(command);
  * ```

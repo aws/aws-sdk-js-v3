@@ -42,6 +42,18 @@ export interface SearchProductsCommandOutput extends SearchProductsOutput, __Met
  * import { ServiceCatalogClient, SearchProductsCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, SearchProductsCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
+ * const input = {
+ *   AcceptLanguage: "STRING_VALUE",
+ *   Filters: {
+ *     "<keys>": [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   PageSize: Number("int"),
+ *   SortBy: "Title" || "VersionCount" || "CreationDate",
+ *   SortOrder: "ASCENDING" || "DESCENDING",
+ *   PageToken: "STRING_VALUE",
+ * };
  * const command = new SearchProductsCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,9 @@ export interface GetAutomationExecutionCommandOutput extends GetAutomationExecut
  * import { SSMClient, GetAutomationExecutionCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, GetAutomationExecutionCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = {
+ *   AutomationExecutionId: "STRING_VALUE", // required
+ * };
  * const command = new GetAutomationExecutionCommand(input);
  * const response = await client.send(command);
  * ```

@@ -45,6 +45,16 @@ export interface CreateConnectionCommandOutput extends CreateConnectionResponse,
  * import { AppRunnerClient, CreateConnectionCommand } from "@aws-sdk/client-apprunner"; // ES Modules import
  * // const { AppRunnerClient, CreateConnectionCommand } = require("@aws-sdk/client-apprunner"); // CommonJS import
  * const client = new AppRunnerClient(config);
+ * const input = {
+ *   ConnectionName: "STRING_VALUE", // required
+ *   ProviderType: "GITHUB", // required
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateConnectionCommand(input);
  * const response = await client.send(command);
  * ```

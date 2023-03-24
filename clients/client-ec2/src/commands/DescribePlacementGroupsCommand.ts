@@ -44,6 +44,23 @@ export interface DescribePlacementGroupsCommandOutput extends DescribePlacementG
  * import { EC2Client, DescribePlacementGroupsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribePlacementGroupsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   Filters: [
+ *     {
+ *       Name: "STRING_VALUE",
+ *       Values: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   DryRun: true || false,
+ *   GroupNames: [
+ *     "STRING_VALUE",
+ *   ],
+ *   GroupIds: [
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DescribePlacementGroupsCommand(input);
  * const response = await client.send(command);
  * ```

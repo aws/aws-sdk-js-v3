@@ -42,6 +42,12 @@ export interface TagResourceCommandOutput extends TagResourceResult, __MetadataB
  * import { GameSparksClient, TagResourceCommand } from "@aws-sdk/client-gamesparks"; // ES Modules import
  * // const { GameSparksClient, TagResourceCommand } = require("@aws-sdk/client-gamesparks"); // CommonJS import
  * const client = new GameSparksClient(config);
+ * const input = {
+ *   ResourceArn: "STRING_VALUE", // required
+ *   tags: { // required
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
  * ```

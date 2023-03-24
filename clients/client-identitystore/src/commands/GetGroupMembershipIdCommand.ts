@@ -42,6 +42,13 @@ export interface GetGroupMembershipIdCommandOutput extends GetGroupMembershipIdR
  * import { IdentitystoreClient, GetGroupMembershipIdCommand } from "@aws-sdk/client-identitystore"; // ES Modules import
  * // const { IdentitystoreClient, GetGroupMembershipIdCommand } = require("@aws-sdk/client-identitystore"); // CommonJS import
  * const client = new IdentitystoreClient(config);
+ * const input = {
+ *   IdentityStoreId: "STRING_VALUE", // required
+ *   GroupId: "STRING_VALUE", // required
+ *   MemberId: { // Union: only one key present
+ *     UserId: "STRING_VALUE",
+ *   },
+ * };
  * const command = new GetGroupMembershipIdCommand(input);
  * const response = await client.send(command);
  * ```

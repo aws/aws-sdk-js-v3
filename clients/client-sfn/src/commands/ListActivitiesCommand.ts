@@ -47,6 +47,10 @@ export interface ListActivitiesCommandOutput extends ListActivitiesOutput, __Met
  * import { SFNClient, ListActivitiesCommand } from "@aws-sdk/client-sfn"; // ES Modules import
  * // const { SFNClient, ListActivitiesCommand } = require("@aws-sdk/client-sfn"); // CommonJS import
  * const client = new SFNClient(config);
+ * const input = {
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListActivitiesCommand(input);
  * const response = await client.send(command);
  * ```

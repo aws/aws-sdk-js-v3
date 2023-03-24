@@ -51,6 +51,9 @@ export interface CreateDomainCommandOutput extends CreateDomainResponse, __Metad
  * import { ConnectCasesClient, CreateDomainCommand } from "@aws-sdk/client-connectcases"; // ES Modules import
  * // const { ConnectCasesClient, CreateDomainCommand } = require("@aws-sdk/client-connectcases"); // CommonJS import
  * const client = new ConnectCasesClient(config);
+ * const input = {
+ *   name: "STRING_VALUE", // required
+ * };
  * const command = new CreateDomainCommand(input);
  * const response = await client.send(command);
  * ```

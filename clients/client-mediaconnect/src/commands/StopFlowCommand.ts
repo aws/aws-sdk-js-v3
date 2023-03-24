@@ -42,6 +42,9 @@ export interface StopFlowCommandOutput extends StopFlowResponse, __MetadataBeare
  * import { MediaConnectClient, StopFlowCommand } from "@aws-sdk/client-mediaconnect"; // ES Modules import
  * // const { MediaConnectClient, StopFlowCommand } = require("@aws-sdk/client-mediaconnect"); // CommonJS import
  * const client = new MediaConnectClient(config);
+ * const input = {
+ *   FlowArn: "STRING_VALUE", // required
+ * };
  * const command = new StopFlowCommand(input);
  * const response = await client.send(command);
  * ```

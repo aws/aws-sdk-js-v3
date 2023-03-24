@@ -57,6 +57,16 @@ export interface InvokeEndpointAsyncCommandOutput extends InvokeEndpointAsyncOut
  * import { SageMakerRuntimeClient, InvokeEndpointAsyncCommand } from "@aws-sdk/client-sagemaker-runtime"; // ES Modules import
  * // const { SageMakerRuntimeClient, InvokeEndpointAsyncCommand } = require("@aws-sdk/client-sagemaker-runtime"); // CommonJS import
  * const client = new SageMakerRuntimeClient(config);
+ * const input = {
+ *   EndpointName: "STRING_VALUE", // required
+ *   ContentType: "STRING_VALUE",
+ *   Accept: "STRING_VALUE",
+ *   CustomAttributes: "STRING_VALUE",
+ *   InferenceId: "STRING_VALUE",
+ *   InputLocation: "STRING_VALUE", // required
+ *   RequestTTLSeconds: Number("int"),
+ *   InvocationTimeoutSeconds: Number("int"),
+ * };
  * const command = new InvokeEndpointAsyncCommand(input);
  * const response = await client.send(command);
  * ```

@@ -47,6 +47,16 @@ export interface DescribeHomeRegionControlsCommandOutput extends DescribeHomeReg
  * import { MigrationHubConfigClient, DescribeHomeRegionControlsCommand } from "@aws-sdk/client-migrationhub-config"; // ES Modules import
  * // const { MigrationHubConfigClient, DescribeHomeRegionControlsCommand } = require("@aws-sdk/client-migrationhub-config"); // CommonJS import
  * const client = new MigrationHubConfigClient(config);
+ * const input = {
+ *   ControlId: "STRING_VALUE",
+ *   HomeRegion: "STRING_VALUE",
+ *   Target: {
+ *     Type: "STRING_VALUE", // required
+ *     Id: "STRING_VALUE",
+ *   },
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeHomeRegionControlsCommand(input);
  * const response = await client.send(command);
  * ```

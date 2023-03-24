@@ -42,6 +42,9 @@ export interface DeleteClusterCommandOutput extends DeleteClusterOutput, __Metad
  * import { DocDBElasticClient, DeleteClusterCommand } from "@aws-sdk/client-docdb-elastic"; // ES Modules import
  * // const { DocDBElasticClient, DeleteClusterCommand } = require("@aws-sdk/client-docdb-elastic"); // CommonJS import
  * const client = new DocDBElasticClient(config);
+ * const input = {
+ *   clusterArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteClusterCommand(input);
  * const response = await client.send(command);
  * ```

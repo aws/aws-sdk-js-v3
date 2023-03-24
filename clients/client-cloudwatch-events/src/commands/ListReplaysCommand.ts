@@ -43,6 +43,13 @@ export interface ListReplaysCommandOutput extends ListReplaysResponse, __Metadat
  * import { CloudWatchEventsClient, ListReplaysCommand } from "@aws-sdk/client-cloudwatch-events"; // ES Modules import
  * // const { CloudWatchEventsClient, ListReplaysCommand } = require("@aws-sdk/client-cloudwatch-events"); // CommonJS import
  * const client = new CloudWatchEventsClient(config);
+ * const input = {
+ *   NamePrefix: "STRING_VALUE",
+ *   State: "STRING_VALUE",
+ *   EventSourceArn: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   Limit: Number("int"),
+ * };
  * const command = new ListReplaysCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,11 @@ export interface DescribeSchedulingPoliciesCommandOutput extends DescribeSchedul
  * import { BatchClient, DescribeSchedulingPoliciesCommand } from "@aws-sdk/client-batch"; // ES Modules import
  * // const { BatchClient, DescribeSchedulingPoliciesCommand } = require("@aws-sdk/client-batch"); // CommonJS import
  * const client = new BatchClient(config);
+ * const input = {
+ *   arns: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DescribeSchedulingPoliciesCommand(input);
  * const response = await client.send(command);
  * ```

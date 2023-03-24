@@ -42,6 +42,21 @@ export interface UpdateVoiceTemplateCommandOutput extends UpdateVoiceTemplateRes
  * import { PinpointClient, UpdateVoiceTemplateCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, UpdateVoiceTemplateCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
+ * const input = {
+ *   CreateNewVersion: true || false,
+ *   TemplateName: "STRING_VALUE", // required
+ *   Version: "STRING_VALUE",
+ *   VoiceTemplateRequest: {
+ *     Body: "STRING_VALUE",
+ *     DefaultSubstitutions: "STRING_VALUE",
+ *     LanguageCode: "STRING_VALUE",
+ *     tags: {
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *     TemplateDescription: "STRING_VALUE",
+ *     VoiceId: "STRING_VALUE",
+ *   },
+ * };
  * const command = new UpdateVoiceTemplateCommand(input);
  * const response = await client.send(command);
  * ```

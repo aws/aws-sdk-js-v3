@@ -42,6 +42,10 @@ export interface GetAccessPreviewCommandOutput extends GetAccessPreviewResponse,
  * import { AccessAnalyzerClient, GetAccessPreviewCommand } from "@aws-sdk/client-accessanalyzer"; // ES Modules import
  * // const { AccessAnalyzerClient, GetAccessPreviewCommand } = require("@aws-sdk/client-accessanalyzer"); // CommonJS import
  * const client = new AccessAnalyzerClient(config);
+ * const input = {
+ *   accessPreviewId: "STRING_VALUE", // required
+ *   analyzerArn: "STRING_VALUE", // required
+ * };
  * const command = new GetAccessPreviewCommand(input);
  * const response = await client.send(command);
  * ```

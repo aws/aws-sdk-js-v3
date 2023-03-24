@@ -44,6 +44,9 @@ export interface StartCrawlerScheduleCommandOutput extends StartCrawlerScheduleR
  * import { GlueClient, StartCrawlerScheduleCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, StartCrawlerScheduleCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = {
+ *   CrawlerName: "STRING_VALUE", // required
+ * };
  * const command = new StartCrawlerScheduleCommand(input);
  * const response = await client.send(command);
  * ```

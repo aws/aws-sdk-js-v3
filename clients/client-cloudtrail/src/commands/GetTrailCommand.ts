@@ -39,6 +39,9 @@ export interface GetTrailCommandOutput extends GetTrailResponse, __MetadataBeare
  * import { CloudTrailClient, GetTrailCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
  * // const { CloudTrailClient, GetTrailCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
  * const client = new CloudTrailClient(config);
+ * const input = {
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new GetTrailCommand(input);
  * const response = await client.send(command);
  * ```

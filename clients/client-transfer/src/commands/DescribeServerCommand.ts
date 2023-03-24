@@ -46,6 +46,9 @@ export interface DescribeServerCommandOutput extends DescribeServerResponse, __M
  * import { TransferClient, DescribeServerCommand } from "@aws-sdk/client-transfer"; // ES Modules import
  * // const { TransferClient, DescribeServerCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
  * const client = new TransferClient(config);
+ * const input = {
+ *   ServerId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeServerCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,9 @@ export interface GetDevicePoolCommandOutput extends GetDevicePoolResult, __Metad
  * import { DeviceFarmClient, GetDevicePoolCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, GetDevicePoolCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
+ * const input = {
+ *   arn: "STRING_VALUE", // required
+ * };
  * const command = new GetDevicePoolCommand(input);
  * const response = await client.send(command);
  * ```

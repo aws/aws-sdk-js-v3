@@ -42,6 +42,11 @@ export interface DescribeThemeAliasCommandOutput extends DescribeThemeAliasRespo
  * import { QuickSightClient, DescribeThemeAliasCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, DescribeThemeAliasCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
+ * const input = {
+ *   AwsAccountId: "STRING_VALUE", // required
+ *   ThemeId: "STRING_VALUE", // required
+ *   AliasName: "STRING_VALUE", // required
+ * };
  * const command = new DescribeThemeAliasCommand(input);
  * const response = await client.send(command);
  * ```

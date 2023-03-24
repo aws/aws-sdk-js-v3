@@ -60,6 +60,19 @@ export interface CreateNotebookInstanceLifecycleConfigCommandOutput
  * import { SageMakerClient, CreateNotebookInstanceLifecycleConfigCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, CreateNotebookInstanceLifecycleConfigCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = {
+ *   NotebookInstanceLifecycleConfigName: "STRING_VALUE", // required
+ *   OnCreate: [
+ *     {
+ *       Content: "STRING_VALUE",
+ *     },
+ *   ],
+ *   OnStart: [
+ *     {
+ *       Content: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateNotebookInstanceLifecycleConfigCommand(input);
  * const response = await client.send(command);
  * ```

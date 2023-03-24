@@ -42,6 +42,11 @@ export interface ModifyClusterSnapshotScheduleCommandOutput extends __MetadataBe
  * import { RedshiftClient, ModifyClusterSnapshotScheduleCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, ModifyClusterSnapshotScheduleCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = {
+ *   ClusterIdentifier: "STRING_VALUE", // required
+ *   ScheduleIdentifier: "STRING_VALUE",
+ *   DisassociateSchedule: true || false,
+ * };
  * const command = new ModifyClusterSnapshotScheduleCommand(input);
  * const response = await client.send(command);
  * ```

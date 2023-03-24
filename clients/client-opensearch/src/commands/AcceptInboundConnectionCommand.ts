@@ -44,6 +44,9 @@ export interface AcceptInboundConnectionCommandOutput extends AcceptInboundConne
  * import { OpenSearchClient, AcceptInboundConnectionCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
  * // const { OpenSearchClient, AcceptInboundConnectionCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
  * const client = new OpenSearchClient(config);
+ * const input = {
+ *   ConnectionId: "STRING_VALUE", // required
+ * };
  * const command = new AcceptInboundConnectionCommand(input);
  * const response = await client.send(command);
  * ```

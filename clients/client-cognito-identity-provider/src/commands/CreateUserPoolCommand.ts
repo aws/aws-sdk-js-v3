@@ -66,6 +66,127 @@ export interface CreateUserPoolCommandOutput extends CreateUserPoolResponse, __M
  * import { CognitoIdentityProviderClient, CreateUserPoolCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, CreateUserPoolCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
+ * const input = {
+ *   PoolName: "STRING_VALUE", // required
+ *   Policies: {
+ *     PasswordPolicy: {
+ *       MinimumLength: Number("int"),
+ *       RequireUppercase: true || false,
+ *       RequireLowercase: true || false,
+ *       RequireNumbers: true || false,
+ *       RequireSymbols: true || false,
+ *       TemporaryPasswordValidityDays: Number("int"),
+ *     },
+ *   },
+ *   DeletionProtection: "ACTIVE" || "INACTIVE",
+ *   LambdaConfig: {
+ *     PreSignUp: "STRING_VALUE",
+ *     CustomMessage: "STRING_VALUE",
+ *     PostConfirmation: "STRING_VALUE",
+ *     PreAuthentication: "STRING_VALUE",
+ *     PostAuthentication: "STRING_VALUE",
+ *     DefineAuthChallenge: "STRING_VALUE",
+ *     CreateAuthChallenge: "STRING_VALUE",
+ *     VerifyAuthChallengeResponse: "STRING_VALUE",
+ *     PreTokenGeneration: "STRING_VALUE",
+ *     UserMigration: "STRING_VALUE",
+ *     CustomSMSSender: {
+ *       LambdaVersion: "V1_0", // required
+ *       LambdaArn: "STRING_VALUE", // required
+ *     },
+ *     CustomEmailSender: {
+ *       LambdaVersion: "V1_0", // required
+ *       LambdaArn: "STRING_VALUE", // required
+ *     },
+ *     KMSKeyID: "STRING_VALUE",
+ *   },
+ *   AutoVerifiedAttributes: [
+ *     "phone_number" || "email",
+ *   ],
+ *   AliasAttributes: [
+ *     "phone_number" || "email" || "preferred_username",
+ *   ],
+ *   UsernameAttributes: [
+ *     "phone_number" || "email",
+ *   ],
+ *   SmsVerificationMessage: "STRING_VALUE",
+ *   EmailVerificationMessage: "STRING_VALUE",
+ *   EmailVerificationSubject: "STRING_VALUE",
+ *   VerificationMessageTemplate: {
+ *     SmsMessage: "STRING_VALUE",
+ *     EmailMessage: "STRING_VALUE",
+ *     EmailSubject: "STRING_VALUE",
+ *     EmailMessageByLink: "STRING_VALUE",
+ *     EmailSubjectByLink: "STRING_VALUE",
+ *     DefaultEmailOption: "CONFIRM_WITH_LINK" || "CONFIRM_WITH_CODE",
+ *   },
+ *   SmsAuthenticationMessage: "STRING_VALUE",
+ *   MfaConfiguration: "OFF" || "ON" || "OPTIONAL",
+ *   UserAttributeUpdateSettings: {
+ *     AttributesRequireVerificationBeforeUpdate: [
+ *       "phone_number" || "email",
+ *     ],
+ *   },
+ *   DeviceConfiguration: {
+ *     ChallengeRequiredOnNewDevice: true || false,
+ *     DeviceOnlyRememberedOnUserPrompt: true || false,
+ *   },
+ *   EmailConfiguration: {
+ *     SourceArn: "STRING_VALUE",
+ *     ReplyToEmailAddress: "STRING_VALUE",
+ *     EmailSendingAccount: "COGNITO_DEFAULT" || "DEVELOPER",
+ *     From: "STRING_VALUE",
+ *     ConfigurationSet: "STRING_VALUE",
+ *   },
+ *   SmsConfiguration: {
+ *     SnsCallerArn: "STRING_VALUE", // required
+ *     ExternalId: "STRING_VALUE",
+ *     SnsRegion: "STRING_VALUE",
+ *   },
+ *   UserPoolTags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   AdminCreateUserConfig: {
+ *     AllowAdminCreateUserOnly: true || false,
+ *     UnusedAccountValidityDays: Number("int"),
+ *     InviteMessageTemplate: {
+ *       SMSMessage: "STRING_VALUE",
+ *       EmailMessage: "STRING_VALUE",
+ *       EmailSubject: "STRING_VALUE",
+ *     },
+ *   },
+ *   Schema: [
+ *     {
+ *       Name: "STRING_VALUE",
+ *       AttributeDataType: "String" || "Number" || "DateTime" || "Boolean",
+ *       DeveloperOnlyAttribute: true || false,
+ *       Mutable: true || false,
+ *       Required: true || false,
+ *       NumberAttributeConstraints: {
+ *         MinValue: "STRING_VALUE",
+ *         MaxValue: "STRING_VALUE",
+ *       },
+ *       StringAttributeConstraints: {
+ *         MinLength: "STRING_VALUE",
+ *         MaxLength: "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ *   UserPoolAddOns: {
+ *     AdvancedSecurityMode: "OFF" || "AUDIT" || "ENFORCED", // required
+ *   },
+ *   UsernameConfiguration: {
+ *     CaseSensitive: true || false, // required
+ *   },
+ *   AccountRecoverySetting: {
+ *     RecoveryMechanisms: [
+ *       {
+ *         Priority: Number("int"), // required
+ *         Name: "verified_email" || "verified_phone_number" || "admin_only", // required
+ *       },
+ *     ],
+ *   },
+ * };
  * const command = new CreateUserPoolCommand(input);
  * const response = await client.send(command);
  * ```

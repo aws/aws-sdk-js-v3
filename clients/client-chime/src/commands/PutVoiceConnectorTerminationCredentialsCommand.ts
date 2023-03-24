@@ -46,6 +46,15 @@ export interface PutVoiceConnectorTerminationCredentialsCommandOutput extends __
  * import { ChimeClient, PutVoiceConnectorTerminationCredentialsCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, PutVoiceConnectorTerminationCredentialsCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = {
+ *   VoiceConnectorId: "STRING_VALUE", // required
+ *   Credentials: [
+ *     {
+ *       Username: "STRING_VALUE",
+ *       Password: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new PutVoiceConnectorTerminationCredentialsCommand(input);
  * const response = await client.send(command);
  * ```

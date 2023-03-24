@@ -42,6 +42,10 @@ export interface ListDatasetsCommandOutput extends ListDatasetsResponse, __Metad
  * import { DataBrewClient, ListDatasetsCommand } from "@aws-sdk/client-databrew"; // ES Modules import
  * // const { DataBrewClient, ListDatasetsCommand } = require("@aws-sdk/client-databrew"); // CommonJS import
  * const client = new DataBrewClient(config);
+ * const input = {
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListDatasetsCommand(input);
  * const response = await client.send(command);
  * ```

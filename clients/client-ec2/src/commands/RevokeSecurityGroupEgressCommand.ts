@@ -55,6 +55,55 @@ export interface RevokeSecurityGroupEgressCommandOutput extends RevokeSecurityGr
  * import { EC2Client, RevokeSecurityGroupEgressCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, RevokeSecurityGroupEgressCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   DryRun: true || false,
+ *   GroupId: "STRING_VALUE", // required
+ *   IpPermissions: [
+ *     {
+ *       FromPort: Number("int"),
+ *       IpProtocol: "STRING_VALUE",
+ *       IpRanges: [
+ *         {
+ *           CidrIp: "STRING_VALUE",
+ *           Description: "STRING_VALUE",
+ *         },
+ *       ],
+ *       Ipv6Ranges: [
+ *         {
+ *           CidrIpv6: "STRING_VALUE",
+ *           Description: "STRING_VALUE",
+ *         },
+ *       ],
+ *       PrefixListIds: [
+ *         {
+ *           Description: "STRING_VALUE",
+ *           PrefixListId: "STRING_VALUE",
+ *         },
+ *       ],
+ *       ToPort: Number("int"),
+ *       UserIdGroupPairs: [
+ *         {
+ *           Description: "STRING_VALUE",
+ *           GroupId: "STRING_VALUE",
+ *           GroupName: "STRING_VALUE",
+ *           PeeringStatus: "STRING_VALUE",
+ *           UserId: "STRING_VALUE",
+ *           VpcId: "STRING_VALUE",
+ *           VpcPeeringConnectionId: "STRING_VALUE",
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   SecurityGroupRuleIds: [
+ *     "STRING_VALUE",
+ *   ],
+ *   CidrIp: "STRING_VALUE",
+ *   FromPort: Number("int"),
+ *   IpProtocol: "STRING_VALUE",
+ *   ToPort: Number("int"),
+ *   SourceSecurityGroupName: "STRING_VALUE",
+ *   SourceSecurityGroupOwnerId: "STRING_VALUE",
+ * };
  * const command = new RevokeSecurityGroupEgressCommand(input);
  * const response = await client.send(command);
  * ```

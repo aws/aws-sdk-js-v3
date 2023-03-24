@@ -50,6 +50,36 @@ export interface AssociateInstanceStorageConfigCommandOutput
  * import { ConnectClient, AssociateInstanceStorageConfigCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, AssociateInstanceStorageConfigCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = {
+ *   InstanceId: "STRING_VALUE", // required
+ *   ResourceType: "CHAT_TRANSCRIPTS" || "CALL_RECORDINGS" || "SCHEDULED_REPORTS" || "MEDIA_STREAMS" || "CONTACT_TRACE_RECORDS" || "AGENT_EVENTS" || "REAL_TIME_CONTACT_ANALYSIS_SEGMENTS" || "ATTACHMENTS" || "CONTACT_EVALUATIONS", // required
+ *   StorageConfig: {
+ *     AssociationId: "STRING_VALUE",
+ *     StorageType: "S3" || "KINESIS_VIDEO_STREAM" || "KINESIS_STREAM" || "KINESIS_FIREHOSE", // required
+ *     S3Config: {
+ *       BucketName: "STRING_VALUE", // required
+ *       BucketPrefix: "STRING_VALUE", // required
+ *       EncryptionConfig: {
+ *         EncryptionType: "KMS", // required
+ *         KeyId: "STRING_VALUE", // required
+ *       },
+ *     },
+ *     KinesisVideoStreamConfig: {
+ *       Prefix: "STRING_VALUE", // required
+ *       RetentionPeriodHours: Number("int"), // required
+ *       EncryptionConfig: {
+ *         EncryptionType: "KMS", // required
+ *         KeyId: "STRING_VALUE", // required
+ *       },
+ *     },
+ *     KinesisStreamConfig: {
+ *       StreamArn: "STRING_VALUE", // required
+ *     },
+ *     KinesisFirehoseConfig: {
+ *       FirehoseArn: "STRING_VALUE", // required
+ *     },
+ *   },
+ * };
  * const command = new AssociateInstanceStorageConfigCommand(input);
  * const response = await client.send(command);
  * ```

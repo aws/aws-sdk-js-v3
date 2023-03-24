@@ -54,6 +54,12 @@ export interface PutKeyPolicyCommandOutput extends __MetadataBearer {}
  * import { KMSClient, PutKeyPolicyCommand } from "@aws-sdk/client-kms"; // ES Modules import
  * // const { KMSClient, PutKeyPolicyCommand } = require("@aws-sdk/client-kms"); // CommonJS import
  * const client = new KMSClient(config);
+ * const input = {
+ *   KeyId: "STRING_VALUE", // required
+ *   PolicyName: "STRING_VALUE", // required
+ *   Policy: "STRING_VALUE", // required
+ *   BypassPolicyLockoutSafetyCheck: true || false,
+ * };
  * const command = new PutKeyPolicyCommand(input);
  * const response = await client.send(command);
  * ```

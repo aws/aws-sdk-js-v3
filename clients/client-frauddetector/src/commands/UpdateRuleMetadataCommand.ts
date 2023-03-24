@@ -42,6 +42,14 @@ export interface UpdateRuleMetadataCommandOutput extends UpdateRuleMetadataResul
  * import { FraudDetectorClient, UpdateRuleMetadataCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, UpdateRuleMetadataCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
  * const client = new FraudDetectorClient(config);
+ * const input = {
+ *   rule: {
+ *     detectorId: "STRING_VALUE", // required
+ *     ruleId: "STRING_VALUE", // required
+ *     ruleVersion: "STRING_VALUE", // required
+ *   },
+ *   description: "STRING_VALUE", // required
+ * };
  * const command = new UpdateRuleMetadataCommand(input);
  * const response = await client.send(command);
  * ```

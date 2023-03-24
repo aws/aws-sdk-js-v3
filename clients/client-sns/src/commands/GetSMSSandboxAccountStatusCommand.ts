@@ -51,6 +51,7 @@ export interface GetSMSSandboxAccountStatusCommandOutput extends GetSMSSandboxAc
  * import { SNSClient, GetSMSSandboxAccountStatusCommand } from "@aws-sdk/client-sns"; // ES Modules import
  * // const { SNSClient, GetSMSSandboxAccountStatusCommand } = require("@aws-sdk/client-sns"); // CommonJS import
  * const client = new SNSClient(config);
+ * const input = {};
  * const command = new GetSMSSandboxAccountStatusCommand(input);
  * const response = await client.send(command);
  * ```

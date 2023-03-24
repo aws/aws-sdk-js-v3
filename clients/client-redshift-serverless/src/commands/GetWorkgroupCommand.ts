@@ -46,6 +46,9 @@ export interface GetWorkgroupCommandOutput extends GetWorkgroupResponse, __Metad
  * import { RedshiftServerlessClient, GetWorkgroupCommand } from "@aws-sdk/client-redshift-serverless"; // ES Modules import
  * // const { RedshiftServerlessClient, GetWorkgroupCommand } = require("@aws-sdk/client-redshift-serverless"); // CommonJS import
  * const client = new RedshiftServerlessClient(config);
+ * const input = {
+ *   workgroupName: "STRING_VALUE", // required
+ * };
  * const command = new GetWorkgroupCommand(input);
  * const response = await client.send(command);
  * ```

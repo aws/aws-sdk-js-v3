@@ -44,6 +44,10 @@ export interface GetProgrammaticAccessCredentialsCommandOutput
  * import { FinspaceDataClient, GetProgrammaticAccessCredentialsCommand } from "@aws-sdk/client-finspace-data"; // ES Modules import
  * // const { FinspaceDataClient, GetProgrammaticAccessCredentialsCommand } = require("@aws-sdk/client-finspace-data"); // CommonJS import
  * const client = new FinspaceDataClient(config);
+ * const input = {
+ *   durationInMinutes: Number("long"),
+ *   environmentId: "STRING_VALUE", // required
+ * };
  * const command = new GetProgrammaticAccessCredentialsCommand(input);
  * const response = await client.send(command);
  * ```

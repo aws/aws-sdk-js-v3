@@ -43,6 +43,9 @@ export interface StopApplicationCommandOutput extends StopApplicationResponse, _
  * import { EMRServerlessClient, StopApplicationCommand } from "@aws-sdk/client-emr-serverless"; // ES Modules import
  * // const { EMRServerlessClient, StopApplicationCommand } = require("@aws-sdk/client-emr-serverless"); // CommonJS import
  * const client = new EMRServerlessClient(config);
+ * const input = {
+ *   applicationId: "STRING_VALUE", // required
+ * };
  * const command = new StopApplicationCommand(input);
  * const response = await client.send(command);
  * ```

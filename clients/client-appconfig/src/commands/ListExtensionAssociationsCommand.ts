@@ -45,6 +45,13 @@ export interface ListExtensionAssociationsCommandOutput extends ExtensionAssocia
  * import { AppConfigClient, ListExtensionAssociationsCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
  * // const { AppConfigClient, ListExtensionAssociationsCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
  * const client = new AppConfigClient(config);
+ * const input = {
+ *   ResourceIdentifier: "STRING_VALUE",
+ *   ExtensionIdentifier: "STRING_VALUE",
+ *   ExtensionVersionNumber: Number("int"),
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListExtensionAssociationsCommand(input);
  * const response = await client.send(command);
  * ```

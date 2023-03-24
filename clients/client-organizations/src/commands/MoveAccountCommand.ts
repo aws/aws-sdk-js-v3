@@ -44,6 +44,11 @@ export interface MoveAccountCommandOutput extends __MetadataBearer {}
  * import { OrganizationsClient, MoveAccountCommand } from "@aws-sdk/client-organizations"; // ES Modules import
  * // const { OrganizationsClient, MoveAccountCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
  * const client = new OrganizationsClient(config);
+ * const input = {
+ *   AccountId: "STRING_VALUE", // required
+ *   SourceParentId: "STRING_VALUE", // required
+ *   DestinationParentId: "STRING_VALUE", // required
+ * };
  * const command = new MoveAccountCommand(input);
  * const response = await client.send(command);
  * ```

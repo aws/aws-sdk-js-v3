@@ -44,6 +44,11 @@ export interface BatchGetJobsCommandOutput extends BatchGetJobsResponse, __Metad
  * import { GlueClient, BatchGetJobsCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, BatchGetJobsCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = {
+ *   JobNames: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new BatchGetJobsCommand(input);
  * const response = await client.send(command);
  * ```

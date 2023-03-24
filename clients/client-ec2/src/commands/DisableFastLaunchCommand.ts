@@ -47,6 +47,11 @@ export interface DisableFastLaunchCommandOutput extends DisableFastLaunchResult,
  * import { EC2Client, DisableFastLaunchCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DisableFastLaunchCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   ImageId: "STRING_VALUE", // required
+ *   Force: true || false,
+ *   DryRun: true || false,
+ * };
  * const command = new DisableFastLaunchCommand(input);
  * const response = await client.send(command);
  * ```

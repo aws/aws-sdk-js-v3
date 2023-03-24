@@ -232,6 +232,51 @@ export interface CopyObjectCommandOutput extends CopyObjectOutput, __MetadataBea
  * import { S3Client, CopyObjectCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, CopyObjectCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
+ * const input = {
+ *   ACL: "private" || "public-read" || "public-read-write" || "authenticated-read" || "aws-exec-read" || "bucket-owner-read" || "bucket-owner-full-control",
+ *   Bucket: "STRING_VALUE", // required
+ *   CacheControl: "STRING_VALUE",
+ *   ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256",
+ *   ContentDisposition: "STRING_VALUE",
+ *   ContentEncoding: "STRING_VALUE",
+ *   ContentLanguage: "STRING_VALUE",
+ *   ContentType: "STRING_VALUE",
+ *   CopySource: "STRING_VALUE", // required
+ *   CopySourceIfMatch: "STRING_VALUE",
+ *   CopySourceIfModifiedSince: new Date("TIMESTAMP"),
+ *   CopySourceIfNoneMatch: "STRING_VALUE",
+ *   CopySourceIfUnmodifiedSince: new Date("TIMESTAMP"),
+ *   Expires: new Date("TIMESTAMP"),
+ *   GrantFullControl: "STRING_VALUE",
+ *   GrantRead: "STRING_VALUE",
+ *   GrantReadACP: "STRING_VALUE",
+ *   GrantWriteACP: "STRING_VALUE",
+ *   Key: "STRING_VALUE", // required
+ *   Metadata: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   MetadataDirective: "COPY" || "REPLACE",
+ *   TaggingDirective: "COPY" || "REPLACE",
+ *   ServerSideEncryption: "AES256" || "aws:kms",
+ *   StorageClass: "STANDARD" || "REDUCED_REDUNDANCY" || "STANDARD_IA" || "ONEZONE_IA" || "INTELLIGENT_TIERING" || "GLACIER" || "DEEP_ARCHIVE" || "OUTPOSTS" || "GLACIER_IR",
+ *   WebsiteRedirectLocation: "STRING_VALUE",
+ *   SSECustomerAlgorithm: "STRING_VALUE",
+ *   SSECustomerKey: "STRING_VALUE",
+ *   SSECustomerKeyMD5: "STRING_VALUE",
+ *   SSEKMSKeyId: "STRING_VALUE",
+ *   SSEKMSEncryptionContext: "STRING_VALUE",
+ *   BucketKeyEnabled: true || false,
+ *   CopySourceSSECustomerAlgorithm: "STRING_VALUE",
+ *   CopySourceSSECustomerKey: "STRING_VALUE",
+ *   CopySourceSSECustomerKeyMD5: "STRING_VALUE",
+ *   RequestPayer: "requester",
+ *   Tagging: "STRING_VALUE",
+ *   ObjectLockMode: "GOVERNANCE" || "COMPLIANCE",
+ *   ObjectLockRetainUntilDate: new Date("TIMESTAMP"),
+ *   ObjectLockLegalHoldStatus: "ON" || "OFF",
+ *   ExpectedBucketOwner: "STRING_VALUE",
+ *   ExpectedSourceBucketOwner: "STRING_VALUE",
+ * };
  * const command = new CopyObjectCommand(input);
  * const response = await client.send(command);
  * ```

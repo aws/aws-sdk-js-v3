@@ -46,6 +46,17 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationRespons
  * import { ServerlessApplicationRepositoryClient, UpdateApplicationCommand } from "@aws-sdk/client-serverlessapplicationrepository"; // ES Modules import
  * // const { ServerlessApplicationRepositoryClient, UpdateApplicationCommand } = require("@aws-sdk/client-serverlessapplicationrepository"); // CommonJS import
  * const client = new ServerlessApplicationRepositoryClient(config);
+ * const input = {
+ *   ApplicationId: "STRING_VALUE", // required
+ *   Author: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   HomePageUrl: "STRING_VALUE",
+ *   Labels: [
+ *     "STRING_VALUE",
+ *   ],
+ *   ReadmeBody: "STRING_VALUE",
+ *   ReadmeUrl: "STRING_VALUE",
+ * };
  * const command = new UpdateApplicationCommand(input);
  * const response = await client.send(command);
  * ```

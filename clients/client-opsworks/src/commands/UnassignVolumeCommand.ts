@@ -49,6 +49,9 @@ export interface UnassignVolumeCommandOutput extends __MetadataBearer {}
  * import { OpsWorksClient, UnassignVolumeCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, UnassignVolumeCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
+ * const input = {
+ *   VolumeId: "STRING_VALUE", // required
+ * };
  * const command = new UnassignVolumeCommand(input);
  * const response = await client.send(command);
  * ```

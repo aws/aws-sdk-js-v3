@@ -43,6 +43,9 @@ export interface DescribeTextTranslationJobCommandOutput extends DescribeTextTra
  * import { TranslateClient, DescribeTextTranslationJobCommand } from "@aws-sdk/client-translate"; // ES Modules import
  * // const { TranslateClient, DescribeTextTranslationJobCommand } = require("@aws-sdk/client-translate"); // CommonJS import
  * const client = new TranslateClient(config);
+ * const input = {
+ *   JobId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeTextTranslationJobCommand(input);
  * const response = await client.send(command);
  * ```

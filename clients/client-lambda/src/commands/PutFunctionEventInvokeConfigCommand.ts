@@ -52,6 +52,20 @@ export interface PutFunctionEventInvokeConfigCommandOutput extends FunctionEvent
  * import { LambdaClient, PutFunctionEventInvokeConfigCommand } from "@aws-sdk/client-lambda"; // ES Modules import
  * // const { LambdaClient, PutFunctionEventInvokeConfigCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
  * const client = new LambdaClient(config);
+ * const input = {
+ *   FunctionName: "STRING_VALUE", // required
+ *   Qualifier: "STRING_VALUE",
+ *   MaximumRetryAttempts: Number("int"),
+ *   MaximumEventAgeInSeconds: Number("int"),
+ *   DestinationConfig: {
+ *     OnSuccess: {
+ *       Destination: "STRING_VALUE",
+ *     },
+ *     OnFailure: {
+ *       Destination: "STRING_VALUE",
+ *     },
+ *   },
+ * };
  * const command = new PutFunctionEventInvokeConfigCommand(input);
  * const response = await client.send(command);
  * ```

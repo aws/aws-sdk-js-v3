@@ -42,6 +42,12 @@ export interface DeleteDataCellsFilterCommandOutput extends DeleteDataCellsFilte
  * import { LakeFormationClient, DeleteDataCellsFilterCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
  * // const { LakeFormationClient, DeleteDataCellsFilterCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
  * const client = new LakeFormationClient(config);
+ * const input = {
+ *   TableCatalogId: "STRING_VALUE",
+ *   DatabaseName: "STRING_VALUE",
+ *   TableName: "STRING_VALUE",
+ *   Name: "STRING_VALUE",
+ * };
  * const command = new DeleteDataCellsFilterCommand(input);
  * const response = await client.send(command);
  * ```

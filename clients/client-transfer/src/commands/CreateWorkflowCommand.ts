@@ -45,6 +45,127 @@ export interface CreateWorkflowCommandOutput extends CreateWorkflowResponse, __M
  * import { TransferClient, CreateWorkflowCommand } from "@aws-sdk/client-transfer"; // ES Modules import
  * // const { TransferClient, CreateWorkflowCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
  * const client = new TransferClient(config);
+ * const input = {
+ *   Description: "STRING_VALUE",
+ *   Steps: [ // required
+ *     {
+ *       Type: "COPY" || "CUSTOM" || "TAG" || "DELETE" || "DECRYPT",
+ *       CopyStepDetails: {
+ *         Name: "STRING_VALUE",
+ *         DestinationFileLocation: {
+ *           S3FileLocation: {
+ *             Bucket: "STRING_VALUE",
+ *             Key: "STRING_VALUE",
+ *           },
+ *           EfsFileLocation: {
+ *             FileSystemId: "STRING_VALUE",
+ *             Path: "STRING_VALUE",
+ *           },
+ *         },
+ *         OverwriteExisting: "TRUE" || "FALSE",
+ *         SourceFileLocation: "STRING_VALUE",
+ *       },
+ *       CustomStepDetails: {
+ *         Name: "STRING_VALUE",
+ *         Target: "STRING_VALUE",
+ *         TimeoutSeconds: Number("int"),
+ *         SourceFileLocation: "STRING_VALUE",
+ *       },
+ *       DeleteStepDetails: {
+ *         Name: "STRING_VALUE",
+ *         SourceFileLocation: "STRING_VALUE",
+ *       },
+ *       TagStepDetails: {
+ *         Name: "STRING_VALUE",
+ *         Tags: [
+ *           {
+ *             Key: "STRING_VALUE", // required
+ *             Value: "STRING_VALUE", // required
+ *           },
+ *         ],
+ *         SourceFileLocation: "STRING_VALUE",
+ *       },
+ *       DecryptStepDetails: {
+ *         Name: "STRING_VALUE",
+ *         Type: "PGP", // required
+ *         SourceFileLocation: "STRING_VALUE",
+ *         OverwriteExisting: "TRUE" || "FALSE",
+ *         DestinationFileLocation: {
+ *           S3FileLocation: {
+ *             Bucket: "STRING_VALUE",
+ *             Key: "STRING_VALUE",
+ *           },
+ *           EfsFileLocation: {
+ *             FileSystemId: "STRING_VALUE",
+ *             Path: "STRING_VALUE",
+ *           },
+ *         },
+ *       },
+ *     },
+ *   ],
+ *   OnExceptionSteps: [
+ *     {
+ *       Type: "COPY" || "CUSTOM" || "TAG" || "DELETE" || "DECRYPT",
+ *       CopyStepDetails: {
+ *         Name: "STRING_VALUE",
+ *         DestinationFileLocation: {
+ *           S3FileLocation: {
+ *             Bucket: "STRING_VALUE",
+ *             Key: "STRING_VALUE",
+ *           },
+ *           EfsFileLocation: {
+ *             FileSystemId: "STRING_VALUE",
+ *             Path: "STRING_VALUE",
+ *           },
+ *         },
+ *         OverwriteExisting: "TRUE" || "FALSE",
+ *         SourceFileLocation: "STRING_VALUE",
+ *       },
+ *       CustomStepDetails: {
+ *         Name: "STRING_VALUE",
+ *         Target: "STRING_VALUE",
+ *         TimeoutSeconds: Number("int"),
+ *         SourceFileLocation: "STRING_VALUE",
+ *       },
+ *       DeleteStepDetails: {
+ *         Name: "STRING_VALUE",
+ *         SourceFileLocation: "STRING_VALUE",
+ *       },
+ *       TagStepDetails: {
+ *         Name: "STRING_VALUE",
+ *         Tags: [
+ *           {
+ *             Key: "STRING_VALUE", // required
+ *             Value: "STRING_VALUE", // required
+ *           },
+ *         ],
+ *         SourceFileLocation: "STRING_VALUE",
+ *       },
+ *       DecryptStepDetails: {
+ *         Name: "STRING_VALUE",
+ *         Type: "PGP", // required
+ *         SourceFileLocation: "STRING_VALUE",
+ *         OverwriteExisting: "TRUE" || "FALSE",
+ *         DestinationFileLocation: {
+ *           S3FileLocation: {
+ *             Bucket: "STRING_VALUE",
+ *             Key: "STRING_VALUE",
+ *           },
+ *           EfsFileLocation: {
+ *             FileSystemId: "STRING_VALUE",
+ *             Path: "STRING_VALUE",
+ *           },
+ *         },
+ *       },
+ *     },
+ *   ],
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateWorkflowCommand(input);
  * const response = await client.send(command);
  * ```

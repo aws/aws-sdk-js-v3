@@ -51,6 +51,10 @@ export interface DeleteBotCommandOutput extends DeleteBotResponse, __MetadataBea
  * import { LexModelsV2Client, DeleteBotCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
  * // const { LexModelsV2Client, DeleteBotCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
  * const client = new LexModelsV2Client(config);
+ * const input = {
+ *   botId: "STRING_VALUE", // required
+ *   skipResourceInUseCheck: true || false,
+ * };
  * const command = new DeleteBotCommand(input);
  * const response = await client.send(command);
  * ```

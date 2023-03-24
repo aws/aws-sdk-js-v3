@@ -42,6 +42,108 @@ export interface CreateTableCommandOutput extends CreateTableResponse, __Metadat
  * import { GlueClient, CreateTableCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, CreateTableCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = {
+ *   CatalogId: "STRING_VALUE",
+ *   DatabaseName: "STRING_VALUE", // required
+ *   TableInput: {
+ *     Name: "STRING_VALUE", // required
+ *     Description: "STRING_VALUE",
+ *     Owner: "STRING_VALUE",
+ *     LastAccessTime: new Date("TIMESTAMP"),
+ *     LastAnalyzedTime: new Date("TIMESTAMP"),
+ *     Retention: Number("int"),
+ *     StorageDescriptor: {
+ *       Columns: [
+ *         {
+ *           Name: "STRING_VALUE", // required
+ *           Type: "STRING_VALUE",
+ *           Comment: "STRING_VALUE",
+ *           Parameters: {
+ *             "<keys>": "STRING_VALUE",
+ *           },
+ *         },
+ *       ],
+ *       Location: "STRING_VALUE",
+ *       AdditionalLocations: [
+ *         "STRING_VALUE",
+ *       ],
+ *       InputFormat: "STRING_VALUE",
+ *       OutputFormat: "STRING_VALUE",
+ *       Compressed: true || false,
+ *       NumberOfBuckets: Number("int"),
+ *       SerdeInfo: {
+ *         Name: "STRING_VALUE",
+ *         SerializationLibrary: "STRING_VALUE",
+ *         Parameters: {
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *       },
+ *       BucketColumns: [
+ *         "STRING_VALUE",
+ *       ],
+ *       SortColumns: [
+ *         {
+ *           Column: "STRING_VALUE", // required
+ *           SortOrder: Number("int"), // required
+ *         },
+ *       ],
+ *       Parameters: {
+ *         "<keys>": "<ParametersMapValue>",
+ *       },
+ *       SkewedInfo: {
+ *         SkewedColumnNames: [
+ *           "STRING_VALUE",
+ *         ],
+ *         SkewedColumnValues: [
+ *           "STRING_VALUE",
+ *         ],
+ *         SkewedColumnValueLocationMaps: {
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *       },
+ *       StoredAsSubDirectories: true || false,
+ *       SchemaReference: {
+ *         SchemaId: {
+ *           SchemaArn: "STRING_VALUE",
+ *           SchemaName: "STRING_VALUE",
+ *           RegistryName: "STRING_VALUE",
+ *         },
+ *         SchemaVersionId: "STRING_VALUE",
+ *         SchemaVersionNumber: Number("long"),
+ *       },
+ *     },
+ *     PartitionKeys: [
+ *       {
+ *         Name: "STRING_VALUE", // required
+ *         Type: "STRING_VALUE",
+ *         Comment: "STRING_VALUE",
+ *         Parameters: {
+ *           "<keys>": "<ParametersMapValue>",
+ *         },
+ *       },
+ *     ],
+ *     ViewOriginalText: "STRING_VALUE",
+ *     ViewExpandedText: "STRING_VALUE",
+ *     TableType: "STRING_VALUE",
+ *     Parameters: {
+ *       "<keys>": "<ParametersMapValue>",
+ *     },
+ *     TargetTable: {
+ *       CatalogId: "STRING_VALUE",
+ *       DatabaseName: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *     },
+ *   },
+ *   PartitionIndexes: [
+ *     {
+ *       Keys: [ // required
+ *         "STRING_VALUE",
+ *       ],
+ *       IndexName: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   TransactionId: "STRING_VALUE",
+ * };
  * const command = new CreateTableCommand(input);
  * const response = await client.send(command);
  * ```

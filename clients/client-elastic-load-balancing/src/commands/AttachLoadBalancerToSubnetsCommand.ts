@@ -49,6 +49,12 @@ export interface AttachLoadBalancerToSubnetsCommandOutput extends AttachLoadBala
  * import { ElasticLoadBalancingClient, AttachLoadBalancerToSubnetsCommand } from "@aws-sdk/client-elastic-load-balancing"; // ES Modules import
  * // const { ElasticLoadBalancingClient, AttachLoadBalancerToSubnetsCommand } = require("@aws-sdk/client-elastic-load-balancing"); // CommonJS import
  * const client = new ElasticLoadBalancingClient(config);
+ * const input = {
+ *   LoadBalancerName: "STRING_VALUE", // required
+ *   Subnets: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new AttachLoadBalancerToSubnetsCommand(input);
  * const response = await client.send(command);
  * ```

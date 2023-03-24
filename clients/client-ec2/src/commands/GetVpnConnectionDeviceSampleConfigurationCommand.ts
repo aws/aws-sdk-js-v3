@@ -50,6 +50,12 @@ export interface GetVpnConnectionDeviceSampleConfigurationCommandOutput
  * import { EC2Client, GetVpnConnectionDeviceSampleConfigurationCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, GetVpnConnectionDeviceSampleConfigurationCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   VpnConnectionId: "STRING_VALUE", // required
+ *   VpnConnectionDeviceTypeId: "STRING_VALUE", // required
+ *   InternetKeyExchangeVersion: "STRING_VALUE",
+ *   DryRun: true || false,
+ * };
  * const command = new GetVpnConnectionDeviceSampleConfigurationCommand(input);
  * const response = await client.send(command);
  * ```

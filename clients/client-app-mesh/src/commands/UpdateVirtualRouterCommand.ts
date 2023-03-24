@@ -42,6 +42,22 @@ export interface UpdateVirtualRouterCommandOutput extends UpdateVirtualRouterOut
  * import { AppMeshClient, UpdateVirtualRouterCommand } from "@aws-sdk/client-app-mesh"; // ES Modules import
  * // const { AppMeshClient, UpdateVirtualRouterCommand } = require("@aws-sdk/client-app-mesh"); // CommonJS import
  * const client = new AppMeshClient(config);
+ * const input = {
+ *   virtualRouterName: "STRING_VALUE", // required
+ *   meshName: "STRING_VALUE", // required
+ *   spec: {
+ *     listeners: [
+ *       {
+ *         portMapping: {
+ *           port: Number("int"), // required
+ *           protocol: "STRING_VALUE", // required
+ *         },
+ *       },
+ *     ],
+ *   },
+ *   clientToken: "STRING_VALUE",
+ *   meshOwner: "STRING_VALUE",
+ * };
  * const command = new UpdateVirtualRouterCommand(input);
  * const response = await client.send(command);
  * ```

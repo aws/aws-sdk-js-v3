@@ -47,6 +47,13 @@ export interface CreateAccessorCommandOutput extends CreateAccessorOutput, __Met
  * import { ManagedBlockchainClient, CreateAccessorCommand } from "@aws-sdk/client-managedblockchain"; // ES Modules import
  * // const { ManagedBlockchainClient, CreateAccessorCommand } = require("@aws-sdk/client-managedblockchain"); // CommonJS import
  * const client = new ManagedBlockchainClient(config);
+ * const input = {
+ *   ClientRequestToken: "STRING_VALUE", // required
+ *   AccessorType: "BILLING_TOKEN", // required
+ *   Tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateAccessorCommand(input);
  * const response = await client.send(command);
  * ```

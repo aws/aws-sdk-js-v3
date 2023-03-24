@@ -42,6 +42,9 @@ export interface GetCollaborationCommandOutput extends GetCollaborationOutput, _
  * import { CleanRoomsClient, GetCollaborationCommand } from "@aws-sdk/client-cleanrooms"; // ES Modules import
  * // const { CleanRoomsClient, GetCollaborationCommand } = require("@aws-sdk/client-cleanrooms"); // CommonJS import
  * const client = new CleanRoomsClient(config);
+ * const input = {
+ *   collaborationIdentifier: "STRING_VALUE", // required
+ * };
  * const command = new GetCollaborationCommand(input);
  * const response = await client.send(command);
  * ```

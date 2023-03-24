@@ -43,6 +43,12 @@ export interface UntagResourceCommandOutput extends __MetadataBearer {}
  * import { EFSClient, UntagResourceCommand } from "@aws-sdk/client-efs"; // ES Modules import
  * // const { EFSClient, UntagResourceCommand } = require("@aws-sdk/client-efs"); // CommonJS import
  * const client = new EFSClient(config);
+ * const input = {
+ *   ResourceId: "STRING_VALUE", // required
+ *   TagKeys: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new UntagResourceCommand(input);
  * const response = await client.send(command);
  * ```

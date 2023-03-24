@@ -49,6 +49,15 @@ export interface ListSigningProfilesCommandOutput extends ListSigningProfilesRes
  * import { SignerClient, ListSigningProfilesCommand } from "@aws-sdk/client-signer"; // ES Modules import
  * // const { SignerClient, ListSigningProfilesCommand } = require("@aws-sdk/client-signer"); // CommonJS import
  * const client = new SignerClient(config);
+ * const input = {
+ *   includeCanceled: true || false,
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ *   platformId: "STRING_VALUE",
+ *   statuses: [
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new ListSigningProfilesCommand(input);
  * const response = await client.send(command);
  * ```

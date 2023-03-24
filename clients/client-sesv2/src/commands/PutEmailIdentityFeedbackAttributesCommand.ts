@@ -56,6 +56,10 @@ export interface PutEmailIdentityFeedbackAttributesCommandOutput
  * import { SESv2Client, PutEmailIdentityFeedbackAttributesCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, PutEmailIdentityFeedbackAttributesCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
  * const client = new SESv2Client(config);
+ * const input = {
+ *   EmailIdentity: "STRING_VALUE", // required
+ *   EmailForwardingEnabled: true || false,
+ * };
  * const command = new PutEmailIdentityFeedbackAttributesCommand(input);
  * const response = await client.send(command);
  * ```

@@ -48,6 +48,15 @@ export interface UpdateCustomRoutingListenerCommandOutput
  * import { GlobalAcceleratorClient, UpdateCustomRoutingListenerCommand } from "@aws-sdk/client-global-accelerator"; // ES Modules import
  * // const { GlobalAcceleratorClient, UpdateCustomRoutingListenerCommand } = require("@aws-sdk/client-global-accelerator"); // CommonJS import
  * const client = new GlobalAcceleratorClient(config);
+ * const input = {
+ *   ListenerArn: "STRING_VALUE", // required
+ *   PortRanges: [ // required
+ *     {
+ *       FromPort: Number("int"),
+ *       ToPort: Number("int"),
+ *     },
+ *   ],
+ * };
  * const command = new UpdateCustomRoutingListenerCommand(input);
  * const response = await client.send(command);
  * ```

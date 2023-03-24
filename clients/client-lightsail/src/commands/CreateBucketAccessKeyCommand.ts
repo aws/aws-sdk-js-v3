@@ -57,6 +57,9 @@ export interface CreateBucketAccessKeyCommandOutput extends CreateBucketAccessKe
  * import { LightsailClient, CreateBucketAccessKeyCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, CreateBucketAccessKeyCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = {
+ *   bucketName: "STRING_VALUE", // required
+ * };
  * const command = new CreateBucketAccessKeyCommand(input);
  * const response = await client.send(command);
  * ```

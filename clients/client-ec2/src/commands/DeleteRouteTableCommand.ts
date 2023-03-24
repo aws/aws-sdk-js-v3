@@ -42,6 +42,10 @@ export interface DeleteRouteTableCommandOutput extends __MetadataBearer {}
  * import { EC2Client, DeleteRouteTableCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DeleteRouteTableCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   DryRun: true || false,
+ *   RouteTableId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteRouteTableCommand(input);
  * const response = await client.send(command);
  * ```

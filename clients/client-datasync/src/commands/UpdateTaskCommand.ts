@@ -42,6 +42,43 @@ export interface UpdateTaskCommandOutput extends UpdateTaskResponse, __MetadataB
  * import { DataSyncClient, UpdateTaskCommand } from "@aws-sdk/client-datasync"; // ES Modules import
  * // const { DataSyncClient, UpdateTaskCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
  * const client = new DataSyncClient(config);
+ * const input = {
+ *   TaskArn: "STRING_VALUE", // required
+ *   Options: {
+ *     VerifyMode: "POINT_IN_TIME_CONSISTENT" || "ONLY_FILES_TRANSFERRED" || "NONE",
+ *     OverwriteMode: "ALWAYS" || "NEVER",
+ *     Atime: "NONE" || "BEST_EFFORT",
+ *     Mtime: "NONE" || "PRESERVE",
+ *     Uid: "NONE" || "INT_VALUE" || "NAME" || "BOTH",
+ *     Gid: "NONE" || "INT_VALUE" || "NAME" || "BOTH",
+ *     PreserveDeletedFiles: "PRESERVE" || "REMOVE",
+ *     PreserveDevices: "NONE" || "PRESERVE",
+ *     PosixPermissions: "NONE" || "PRESERVE",
+ *     BytesPerSecond: Number("long"),
+ *     TaskQueueing: "ENABLED" || "DISABLED",
+ *     LogLevel: "OFF" || "BASIC" || "TRANSFER",
+ *     TransferMode: "CHANGED" || "ALL",
+ *     SecurityDescriptorCopyFlags: "NONE" || "OWNER_DACL" || "OWNER_DACL_SACL",
+ *     ObjectTags: "PRESERVE" || "NONE",
+ *   },
+ *   Excludes: [
+ *     {
+ *       FilterType: "SIMPLE_PATTERN",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   Schedule: {
+ *     ScheduleExpression: "STRING_VALUE", // required
+ *   },
+ *   Name: "STRING_VALUE",
+ *   CloudWatchLogGroupArn: "STRING_VALUE",
+ *   Includes: [
+ *     {
+ *       FilterType: "SIMPLE_PATTERN",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new UpdateTaskCommand(input);
  * const response = await client.send(command);
  * ```

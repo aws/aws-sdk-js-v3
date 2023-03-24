@@ -51,6 +51,78 @@ export interface RunScheduledInstancesCommandOutput extends RunScheduledInstance
  * import { EC2Client, RunScheduledInstancesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, RunScheduledInstancesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   ClientToken: "STRING_VALUE",
+ *   DryRun: true || false,
+ *   InstanceCount: Number("int"),
+ *   LaunchSpecification: {
+ *     BlockDeviceMappings: [
+ *       {
+ *         DeviceName: "STRING_VALUE",
+ *         Ebs: {
+ *           DeleteOnTermination: true || false,
+ *           Encrypted: true || false,
+ *           Iops: Number("int"),
+ *           SnapshotId: "STRING_VALUE",
+ *           VolumeSize: Number("int"),
+ *           VolumeType: "STRING_VALUE",
+ *         },
+ *         NoDevice: "STRING_VALUE",
+ *         VirtualName: "STRING_VALUE",
+ *       },
+ *     ],
+ *     EbsOptimized: true || false,
+ *     IamInstanceProfile: {
+ *       Arn: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *     },
+ *     ImageId: "STRING_VALUE", // required
+ *     InstanceType: "STRING_VALUE",
+ *     KernelId: "STRING_VALUE",
+ *     KeyName: "STRING_VALUE",
+ *     Monitoring: {
+ *       Enabled: true || false,
+ *     },
+ *     NetworkInterfaces: [
+ *       {
+ *         AssociatePublicIpAddress: true || false,
+ *         DeleteOnTermination: true || false,
+ *         Description: "STRING_VALUE",
+ *         DeviceIndex: Number("int"),
+ *         Groups: [
+ *           "STRING_VALUE",
+ *         ],
+ *         Ipv6AddressCount: Number("int"),
+ *         Ipv6Addresses: [
+ *           {
+ *             Ipv6Address: "STRING_VALUE",
+ *           },
+ *         ],
+ *         NetworkInterfaceId: "STRING_VALUE",
+ *         PrivateIpAddress: "STRING_VALUE",
+ *         PrivateIpAddressConfigs: [
+ *           {
+ *             Primary: true || false,
+ *             PrivateIpAddress: "STRING_VALUE",
+ *           },
+ *         ],
+ *         SecondaryPrivateIpAddressCount: Number("int"),
+ *         SubnetId: "STRING_VALUE",
+ *       },
+ *     ],
+ *     Placement: {
+ *       AvailabilityZone: "STRING_VALUE",
+ *       GroupName: "STRING_VALUE",
+ *     },
+ *     RamdiskId: "STRING_VALUE",
+ *     SecurityGroupIds: [
+ *       "STRING_VALUE",
+ *     ],
+ *     SubnetId: "STRING_VALUE",
+ *     UserData: "STRING_VALUE",
+ *   },
+ *   ScheduledInstanceId: "STRING_VALUE", // required
+ * };
  * const command = new RunScheduledInstancesCommand(input);
  * const response = await client.send(command);
  * ```

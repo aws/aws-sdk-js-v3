@@ -49,6 +49,11 @@ export interface DescribeConnectionLoaCommandOutput extends DescribeConnectionLo
  * import { DirectConnectClient, DescribeConnectionLoaCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, DescribeConnectionLoaCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
  * const client = new DirectConnectClient(config);
+ * const input = {
+ *   connectionId: "STRING_VALUE", // required
+ *   providerName: "STRING_VALUE",
+ *   loaContentType: "application/pdf",
+ * };
  * const command = new DescribeConnectionLoaCommand(input);
  * const response = await client.send(command);
  * ```

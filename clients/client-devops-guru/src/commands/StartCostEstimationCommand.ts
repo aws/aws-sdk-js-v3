@@ -43,6 +43,24 @@ export interface StartCostEstimationCommandOutput extends StartCostEstimationRes
  * import { DevOpsGuruClient, StartCostEstimationCommand } from "@aws-sdk/client-devops-guru"; // ES Modules import
  * // const { DevOpsGuruClient, StartCostEstimationCommand } = require("@aws-sdk/client-devops-guru"); // CommonJS import
  * const client = new DevOpsGuruClient(config);
+ * const input = {
+ *   ResourceCollection: {
+ *     CloudFormation: {
+ *       StackNames: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *     Tags: [
+ *       {
+ *         AppBoundaryKey: "STRING_VALUE", // required
+ *         TagValues: [ // required
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *     ],
+ *   },
+ *   ClientToken: "STRING_VALUE",
+ * };
  * const command = new StartCostEstimationCommand(input);
  * const response = await client.send(command);
  * ```

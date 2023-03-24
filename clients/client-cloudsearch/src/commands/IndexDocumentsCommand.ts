@@ -42,6 +42,9 @@ export interface IndexDocumentsCommandOutput extends IndexDocumentsResponse, __M
  * import { CloudSearchClient, IndexDocumentsCommand } from "@aws-sdk/client-cloudsearch"; // ES Modules import
  * // const { CloudSearchClient, IndexDocumentsCommand } = require("@aws-sdk/client-cloudsearch"); // CommonJS import
  * const client = new CloudSearchClient(config);
+ * const input = {
+ *   DomainName: "STRING_VALUE", // required
+ * };
  * const command = new IndexDocumentsCommand(input);
  * const response = await client.send(command);
  * ```

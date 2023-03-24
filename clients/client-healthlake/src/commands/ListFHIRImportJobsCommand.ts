@@ -44,6 +44,15 @@ export interface ListFHIRImportJobsCommandOutput extends ListFHIRImportJobsRespo
  * import { HealthLakeClient, ListFHIRImportJobsCommand } from "@aws-sdk/client-healthlake"; // ES Modules import
  * // const { HealthLakeClient, ListFHIRImportJobsCommand } = require("@aws-sdk/client-healthlake"); // CommonJS import
  * const client = new HealthLakeClient(config);
+ * const input = {
+ *   DatastoreId: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   JobName: "STRING_VALUE",
+ *   JobStatus: "STRING_VALUE",
+ *   SubmittedBefore: new Date("TIMESTAMP"),
+ *   SubmittedAfter: new Date("TIMESTAMP"),
+ * };
  * const command = new ListFHIRImportJobsCommand(input);
  * const response = await client.send(command);
  * ```

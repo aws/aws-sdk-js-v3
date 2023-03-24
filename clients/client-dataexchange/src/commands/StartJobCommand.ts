@@ -42,6 +42,9 @@ export interface StartJobCommandOutput extends StartJobResponse, __MetadataBeare
  * import { DataExchangeClient, StartJobCommand } from "@aws-sdk/client-dataexchange"; // ES Modules import
  * // const { DataExchangeClient, StartJobCommand } = require("@aws-sdk/client-dataexchange"); // CommonJS import
  * const client = new DataExchangeClient(config);
+ * const input = {
+ *   JobId: "STRING_VALUE", // required
+ * };
  * const command = new StartJobCommand(input);
  * const response = await client.send(command);
  * ```

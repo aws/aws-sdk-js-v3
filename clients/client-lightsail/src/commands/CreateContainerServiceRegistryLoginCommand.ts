@@ -66,6 +66,7 @@ export interface CreateContainerServiceRegistryLoginCommandOutput
  * import { LightsailClient, CreateContainerServiceRegistryLoginCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, CreateContainerServiceRegistryLoginCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = {};
  * const command = new CreateContainerServiceRegistryLoginCommand(input);
  * const response = await client.send(command);
  * ```

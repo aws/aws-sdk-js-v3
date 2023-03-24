@@ -53,6 +53,12 @@ export interface SendEventCommandOutput extends SendEventResponse, __MetadataBea
  * import { ConnectParticipantClient, SendEventCommand } from "@aws-sdk/client-connectparticipant"; // ES Modules import
  * // const { ConnectParticipantClient, SendEventCommand } = require("@aws-sdk/client-connectparticipant"); // CommonJS import
  * const client = new ConnectParticipantClient(config);
+ * const input = {
+ *   ContentType: "STRING_VALUE", // required
+ *   Content: "STRING_VALUE",
+ *   ClientToken: "STRING_VALUE",
+ *   ConnectionToken: "STRING_VALUE", // required
+ * };
  * const command = new SendEventCommand(input);
  * const response = await client.send(command);
  * ```

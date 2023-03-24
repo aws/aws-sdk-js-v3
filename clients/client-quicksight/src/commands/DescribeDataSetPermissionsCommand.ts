@@ -43,6 +43,10 @@ export interface DescribeDataSetPermissionsCommandOutput extends DescribeDataSet
  * import { QuickSightClient, DescribeDataSetPermissionsCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, DescribeDataSetPermissionsCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
+ * const input = {
+ *   AwsAccountId: "STRING_VALUE", // required
+ *   DataSetId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeDataSetPermissionsCommand(input);
  * const response = await client.send(command);
  * ```

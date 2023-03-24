@@ -42,6 +42,9 @@ export interface DeleteStoredQueryCommandOutput extends DeleteStoredQueryRespons
  * import { ConfigServiceClient, DeleteStoredQueryCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, DeleteStoredQueryCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
+ * const input = {
+ *   QueryName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteStoredQueryCommand(input);
  * const response = await client.send(command);
  * ```

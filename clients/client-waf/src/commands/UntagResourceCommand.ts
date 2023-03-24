@@ -50,6 +50,12 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * import { WAFClient, UntagResourceCommand } from "@aws-sdk/client-waf"; // ES Modules import
  * // const { WAFClient, UntagResourceCommand } = require("@aws-sdk/client-waf"); // CommonJS import
  * const client = new WAFClient(config);
+ * const input = {
+ *   ResourceARN: "STRING_VALUE", // required
+ *   TagKeys: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new UntagResourceCommand(input);
  * const response = await client.send(command);
  * ```

@@ -43,6 +43,9 @@ export interface DescribeRoleAliasCommandOutput extends DescribeRoleAliasRespons
  * import { IoTClient, DescribeRoleAliasCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, DescribeRoleAliasCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = {
+ *   roleAlias: "STRING_VALUE", // required
+ * };
  * const command = new DescribeRoleAliasCommand(input);
  * const response = await client.send(command);
  * ```

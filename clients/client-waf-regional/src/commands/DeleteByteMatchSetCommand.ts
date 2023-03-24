@@ -65,6 +65,10 @@ export interface DeleteByteMatchSetCommandOutput extends DeleteByteMatchSetRespo
  * import { WAFRegionalClient, DeleteByteMatchSetCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
  * // const { WAFRegionalClient, DeleteByteMatchSetCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
  * const client = new WAFRegionalClient(config);
+ * const input = {
+ *   ByteMatchSetId: "STRING_VALUE", // required
+ *   ChangeToken: "STRING_VALUE", // required
+ * };
  * const command = new DeleteByteMatchSetCommand(input);
  * const response = await client.send(command);
  * ```

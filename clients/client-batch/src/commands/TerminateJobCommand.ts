@@ -44,6 +44,10 @@ export interface TerminateJobCommandOutput extends TerminateJobResponse, __Metad
  * import { BatchClient, TerminateJobCommand } from "@aws-sdk/client-batch"; // ES Modules import
  * // const { BatchClient, TerminateJobCommand } = require("@aws-sdk/client-batch"); // CommonJS import
  * const client = new BatchClient(config);
+ * const input = {
+ *   jobId: "STRING_VALUE", // required
+ *   reason: "STRING_VALUE", // required
+ * };
  * const command = new TerminateJobCommand(input);
  * const response = await client.send(command);
  * ```

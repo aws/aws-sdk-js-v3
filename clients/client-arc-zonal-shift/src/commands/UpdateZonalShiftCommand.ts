@@ -43,6 +43,11 @@ export interface UpdateZonalShiftCommandOutput extends ZonalShift, __MetadataBea
  * import { ARCZonalShiftClient, UpdateZonalShiftCommand } from "@aws-sdk/client-arc-zonal-shift"; // ES Modules import
  * // const { ARCZonalShiftClient, UpdateZonalShiftCommand } = require("@aws-sdk/client-arc-zonal-shift"); // CommonJS import
  * const client = new ARCZonalShiftClient(config);
+ * const input = {
+ *   zonalShiftId: "STRING_VALUE", // required
+ *   comment: "STRING_VALUE",
+ *   expiresIn: "STRING_VALUE",
+ * };
  * const command = new UpdateZonalShiftCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,14 @@ export interface ListFindingsReportsCommandOutput extends ListFindingsReportsRes
  * import { CodeGuruProfilerClient, ListFindingsReportsCommand } from "@aws-sdk/client-codeguruprofiler"; // ES Modules import
  * // const { CodeGuruProfilerClient, ListFindingsReportsCommand } = require("@aws-sdk/client-codeguruprofiler"); // CommonJS import
  * const client = new CodeGuruProfilerClient(config);
+ * const input = {
+ *   profilingGroupName: "STRING_VALUE", // required
+ *   startTime: new Date("TIMESTAMP"), // required
+ *   endTime: new Date("TIMESTAMP"), // required
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   dailyReportsOnly: true || false,
+ * };
  * const command = new ListFindingsReportsCommand(input);
  * const response = await client.send(command);
  * ```

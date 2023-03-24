@@ -61,6 +61,25 @@ export interface UpdateStateMachineCommandOutput extends UpdateStateMachineOutpu
  * import { SFNClient, UpdateStateMachineCommand } from "@aws-sdk/client-sfn"; // ES Modules import
  * // const { SFNClient, UpdateStateMachineCommand } = require("@aws-sdk/client-sfn"); // CommonJS import
  * const client = new SFNClient(config);
+ * const input = {
+ *   stateMachineArn: "STRING_VALUE", // required
+ *   definition: "STRING_VALUE",
+ *   roleArn: "STRING_VALUE",
+ *   loggingConfiguration: {
+ *     level: "ALL" || "ERROR" || "FATAL" || "OFF",
+ *     includeExecutionData: true || false,
+ *     destinations: [
+ *       {
+ *         cloudWatchLogsLogGroup: {
+ *           logGroupArn: "STRING_VALUE",
+ *         },
+ *       },
+ *     ],
+ *   },
+ *   tracingConfiguration: {
+ *     enabled: true || false,
+ *   },
+ * };
  * const command = new UpdateStateMachineCommand(input);
  * const response = await client.send(command);
  * ```

@@ -43,6 +43,16 @@ export interface AssociateNatGatewayAddressCommandOutput extends AssociateNatGat
  * import { EC2Client, AssociateNatGatewayAddressCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, AssociateNatGatewayAddressCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   NatGatewayId: "STRING_VALUE", // required
+ *   AllocationIds: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ *   PrivateIpAddresses: [
+ *     "STRING_VALUE",
+ *   ],
+ *   DryRun: true || false,
+ * };
  * const command = new AssociateNatGatewayAddressCommand(input);
  * const response = await client.send(command);
  * ```

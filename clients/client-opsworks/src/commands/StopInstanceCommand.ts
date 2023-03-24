@@ -50,6 +50,10 @@ export interface StopInstanceCommandOutput extends __MetadataBearer {}
  * import { OpsWorksClient, StopInstanceCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, StopInstanceCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
+ * const input = {
+ *   InstanceId: "STRING_VALUE", // required
+ *   Force: true || false,
+ * };
  * const command = new StopInstanceCommand(input);
  * const response = await client.send(command);
  * ```

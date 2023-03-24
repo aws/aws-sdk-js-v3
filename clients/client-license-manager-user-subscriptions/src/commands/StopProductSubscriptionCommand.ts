@@ -46,6 +46,16 @@ export interface StopProductSubscriptionCommandOutput extends StopProductSubscri
  * import { LicenseManagerUserSubscriptionsClient, StopProductSubscriptionCommand } from "@aws-sdk/client-license-manager-user-subscriptions"; // ES Modules import
  * // const { LicenseManagerUserSubscriptionsClient, StopProductSubscriptionCommand } = require("@aws-sdk/client-license-manager-user-subscriptions"); // CommonJS import
  * const client = new LicenseManagerUserSubscriptionsClient(config);
+ * const input = {
+ *   Username: "STRING_VALUE", // required
+ *   IdentityProvider: { // Union: only one key present
+ *     ActiveDirectoryIdentityProvider: {
+ *       DirectoryId: "STRING_VALUE",
+ *     },
+ *   },
+ *   Product: "STRING_VALUE", // required
+ *   Domain: "STRING_VALUE",
+ * };
  * const command = new StopProductSubscriptionCommand(input);
  * const response = await client.send(command);
  * ```

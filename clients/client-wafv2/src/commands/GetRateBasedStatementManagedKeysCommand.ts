@@ -57,6 +57,13 @@ export interface GetRateBasedStatementManagedKeysCommandOutput
  * import { WAFV2Client, GetRateBasedStatementManagedKeysCommand } from "@aws-sdk/client-wafv2"; // ES Modules import
  * // const { WAFV2Client, GetRateBasedStatementManagedKeysCommand } = require("@aws-sdk/client-wafv2"); // CommonJS import
  * const client = new WAFV2Client(config);
+ * const input = {
+ *   Scope: "CLOUDFRONT" || "REGIONAL", // required
+ *   WebACLName: "STRING_VALUE", // required
+ *   WebACLId: "STRING_VALUE", // required
+ *   RuleGroupRuleName: "STRING_VALUE",
+ *   RuleName: "STRING_VALUE", // required
+ * };
  * const command = new GetRateBasedStatementManagedKeysCommand(input);
  * const response = await client.send(command);
  * ```

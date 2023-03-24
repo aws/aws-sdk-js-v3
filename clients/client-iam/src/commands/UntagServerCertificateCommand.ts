@@ -51,6 +51,12 @@ export interface UntagServerCertificateCommandOutput extends __MetadataBearer {}
  * import { IAMClient, UntagServerCertificateCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, UntagServerCertificateCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = {
+ *   ServerCertificateName: "STRING_VALUE", // required
+ *   TagKeys: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new UntagServerCertificateCommand(input);
  * const response = await client.send(command);
  * ```

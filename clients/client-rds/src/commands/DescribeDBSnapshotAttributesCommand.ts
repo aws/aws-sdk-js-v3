@@ -51,6 +51,9 @@ export interface DescribeDBSnapshotAttributesCommandOutput
  * import { RDSClient, DescribeDBSnapshotAttributesCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, DescribeDBSnapshotAttributesCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = {
+ *   DBSnapshotIdentifier: "STRING_VALUE", // required
+ * };
  * const command = new DescribeDBSnapshotAttributesCommand(input);
  * const response = await client.send(command);
  * ```

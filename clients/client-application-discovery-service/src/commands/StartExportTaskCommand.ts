@@ -54,6 +54,22 @@ export interface StartExportTaskCommandOutput extends StartExportTaskResponse, _
  * import { ApplicationDiscoveryServiceClient, StartExportTaskCommand } from "@aws-sdk/client-application-discovery-service"; // ES Modules import
  * // const { ApplicationDiscoveryServiceClient, StartExportTaskCommand } = require("@aws-sdk/client-application-discovery-service"); // CommonJS import
  * const client = new ApplicationDiscoveryServiceClient(config);
+ * const input = {
+ *   exportDataFormat: [
+ *     "CSV" || "GRAPHML",
+ *   ],
+ *   filters: [
+ *     {
+ *       name: "STRING_VALUE", // required
+ *       values: [ // required
+ *         "STRING_VALUE",
+ *       ],
+ *       condition: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   startTime: new Date("TIMESTAMP"),
+ *   endTime: new Date("TIMESTAMP"),
+ * };
  * const command = new StartExportTaskCommand(input);
  * const response = await client.send(command);
  * ```

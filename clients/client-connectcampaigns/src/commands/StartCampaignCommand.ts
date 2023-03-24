@@ -42,6 +42,9 @@ export interface StartCampaignCommandOutput extends __MetadataBearer {}
  * import { ConnectCampaignsClient, StartCampaignCommand } from "@aws-sdk/client-connectcampaigns"; // ES Modules import
  * // const { ConnectCampaignsClient, StartCampaignCommand } = require("@aws-sdk/client-connectcampaigns"); // CommonJS import
  * const client = new ConnectCampaignsClient(config);
+ * const input = {
+ *   id: "STRING_VALUE", // required
+ * };
  * const command = new StartCampaignCommand(input);
  * const response = await client.send(command);
  * ```

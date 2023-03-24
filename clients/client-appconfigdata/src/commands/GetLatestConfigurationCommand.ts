@@ -66,6 +66,9 @@ export interface GetLatestConfigurationCommandOutput extends GetLatestConfigurat
  * import { AppConfigDataClient, GetLatestConfigurationCommand } from "@aws-sdk/client-appconfigdata"; // ES Modules import
  * // const { AppConfigDataClient, GetLatestConfigurationCommand } = require("@aws-sdk/client-appconfigdata"); // CommonJS import
  * const client = new AppConfigDataClient(config);
+ * const input = {
+ *   ConfigurationToken: "STRING_VALUE", // required
+ * };
  * const command = new GetLatestConfigurationCommand(input);
  * const response = await client.send(command);
  * ```

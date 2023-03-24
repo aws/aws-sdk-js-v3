@@ -42,6 +42,7 @@ export interface GetPricingPlanCommandOutput extends GetPricingPlanResponse, __M
  * import { IoTTwinMakerClient, GetPricingPlanCommand } from "@aws-sdk/client-iottwinmaker"; // ES Modules import
  * // const { IoTTwinMakerClient, GetPricingPlanCommand } = require("@aws-sdk/client-iottwinmaker"); // CommonJS import
  * const client = new IoTTwinMakerClient(config);
+ * const input = {};
  * const command = new GetPricingPlanCommand(input);
  * const response = await client.send(command);
  * ```

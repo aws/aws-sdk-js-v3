@@ -44,6 +44,28 @@ export interface SetIdentityPoolRolesCommandOutput extends __MetadataBearer {}
  * import { CognitoIdentityClient, SetIdentityPoolRolesCommand } from "@aws-sdk/client-cognito-identity"; // ES Modules import
  * // const { CognitoIdentityClient, SetIdentityPoolRolesCommand } = require("@aws-sdk/client-cognito-identity"); // CommonJS import
  * const client = new CognitoIdentityClient(config);
+ * const input = {
+ *   IdentityPoolId: "STRING_VALUE", // required
+ *   Roles: { // required
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   RoleMappings: {
+ *     "<keys>": {
+ *       Type: "STRING_VALUE", // required
+ *       AmbiguousRoleResolution: "STRING_VALUE",
+ *       RulesConfiguration: {
+ *         Rules: [ // required
+ *           {
+ *             Claim: "STRING_VALUE", // required
+ *             MatchType: "STRING_VALUE", // required
+ *             Value: "STRING_VALUE", // required
+ *             RoleARN: "STRING_VALUE", // required
+ *           },
+ *         ],
+ *       },
+ *     },
+ *   },
+ * };
  * const command = new SetIdentityPoolRolesCommand(input);
  * const response = await client.send(command);
  * ```

@@ -65,6 +65,30 @@ export interface CreateAccessPointForObjectLambdaCommandOutput
  * import { S3ControlClient, CreateAccessPointForObjectLambdaCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
  * // const { S3ControlClient, CreateAccessPointForObjectLambdaCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
  * const client = new S3ControlClient(config);
+ * const input = {
+ *   AccountId: "STRING_VALUE",
+ *   Name: "STRING_VALUE", // required
+ *   Configuration: {
+ *     SupportingAccessPoint: "STRING_VALUE", // required
+ *     CloudWatchMetricsEnabled: true || false,
+ *     AllowedFeatures: [
+ *       "GetObject-Range" || "GetObject-PartNumber" || "HeadObject-Range" || "HeadObject-PartNumber",
+ *     ],
+ *     TransformationConfigurations: [ // required
+ *       {
+ *         Actions: [ // required
+ *           "GetObject" || "HeadObject" || "ListObjects" || "ListObjectsV2",
+ *         ],
+ *         ContentTransformation: { // Union: only one key present
+ *           AwsLambda: {
+ *             FunctionArn: "STRING_VALUE", // required
+ *             FunctionPayload: "STRING_VALUE",
+ *           },
+ *         },
+ *       },
+ *     ],
+ *   },
+ * };
  * const command = new CreateAccessPointForObjectLambdaCommand(input);
  * const response = await client.send(command);
  * ```

@@ -44,6 +44,9 @@ export interface GetDistributionConfigurationCommandOutput
  * import { ImagebuilderClient, GetDistributionConfigurationCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
  * // const { ImagebuilderClient, GetDistributionConfigurationCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
  * const client = new ImagebuilderClient(config);
+ * const input = {
+ *   distributionConfigurationArn: "STRING_VALUE", // required
+ * };
  * const command = new GetDistributionConfigurationCommand(input);
  * const response = await client.send(command);
  * ```

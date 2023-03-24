@@ -48,6 +48,13 @@ export interface ListVpcEndpointsCommandOutput extends ListVpcEndpointsResponse,
  * import { OpenSearchServerlessClient, ListVpcEndpointsCommand } from "@aws-sdk/client-opensearchserverless"; // ES Modules import
  * // const { OpenSearchServerlessClient, ListVpcEndpointsCommand } = require("@aws-sdk/client-opensearchserverless"); // CommonJS import
  * const client = new OpenSearchServerlessClient(config);
+ * const input = {
+ *   vpcEndpointFilters: {
+ *     status: "STRING_VALUE",
+ *   },
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListVpcEndpointsCommand(input);
  * const response = await client.send(command);
  * ```

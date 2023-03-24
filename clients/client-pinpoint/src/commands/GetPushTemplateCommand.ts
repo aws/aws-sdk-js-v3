@@ -42,6 +42,10 @@ export interface GetPushTemplateCommandOutput extends GetPushTemplateResponse, _
  * import { PinpointClient, GetPushTemplateCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, GetPushTemplateCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
+ * const input = {
+ *   TemplateName: "STRING_VALUE", // required
+ *   Version: "STRING_VALUE",
+ * };
  * const command = new GetPushTemplateCommand(input);
  * const response = await client.send(command);
  * ```

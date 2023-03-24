@@ -43,6 +43,10 @@ export interface DescribeDefaultParametersCommandOutput extends DescribeDefaultP
  * import { DAXClient, DescribeDefaultParametersCommand } from "@aws-sdk/client-dax"; // ES Modules import
  * // const { DAXClient, DescribeDefaultParametersCommand } = require("@aws-sdk/client-dax"); // CommonJS import
  * const client = new DAXClient(config);
+ * const input = {
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeDefaultParametersCommand(input);
  * const response = await client.send(command);
  * ```

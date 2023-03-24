@@ -60,6 +60,9 @@ export interface DescribeAttachmentCommandOutput extends DescribeAttachmentRespo
  * import { SupportClient, DescribeAttachmentCommand } from "@aws-sdk/client-support"; // ES Modules import
  * // const { SupportClient, DescribeAttachmentCommand } = require("@aws-sdk/client-support"); // CommonJS import
  * const client = new SupportClient(config);
+ * const input = {
+ *   attachmentId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeAttachmentCommand(input);
  * const response = await client.send(command);
  * ```

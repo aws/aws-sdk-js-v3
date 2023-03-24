@@ -120,6 +120,14 @@ export interface PollForTaskCommandOutput extends PollForTaskOutput, __MetadataB
  * import { DataPipelineClient, PollForTaskCommand } from "@aws-sdk/client-data-pipeline"; // ES Modules import
  * // const { DataPipelineClient, PollForTaskCommand } = require("@aws-sdk/client-data-pipeline"); // CommonJS import
  * const client = new DataPipelineClient(config);
+ * const input = {
+ *   workerGroup: "STRING_VALUE", // required
+ *   hostname: "STRING_VALUE",
+ *   instanceIdentity: {
+ *     document: "STRING_VALUE",
+ *     signature: "STRING_VALUE",
+ *   },
+ * };
  * const command = new PollForTaskCommand(input);
  * const response = await client.send(command);
  * ```

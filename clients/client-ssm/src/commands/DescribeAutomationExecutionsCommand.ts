@@ -44,6 +44,18 @@ export interface DescribeAutomationExecutionsCommandOutput
  * import { SSMClient, DescribeAutomationExecutionsCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, DescribeAutomationExecutionsCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = {
+ *   Filters: [
+ *     {
+ *       Key: "DocumentNamePrefix" || "ExecutionStatus" || "ExecutionId" || "ParentExecutionId" || "CurrentAction" || "StartTimeBefore" || "StartTimeAfter" || "AutomationType" || "TagKey" || "TargetResourceGroup" || "AutomationSubtype" || "OpsItemId", // required
+ *       Values: [ // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeAutomationExecutionsCommand(input);
  * const response = await client.send(command);
  * ```

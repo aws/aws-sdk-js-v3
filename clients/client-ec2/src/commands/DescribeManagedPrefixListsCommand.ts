@@ -43,6 +43,22 @@ export interface DescribeManagedPrefixListsCommandOutput extends DescribeManaged
  * import { EC2Client, DescribeManagedPrefixListsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeManagedPrefixListsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   DryRun: true || false,
+ *   Filters: [
+ *     {
+ *       Name: "STRING_VALUE",
+ *       Values: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   PrefixListIds: [
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DescribeManagedPrefixListsCommand(input);
  * const response = await client.send(command);
  * ```

@@ -56,6 +56,62 @@ export interface SetRiskConfigurationCommandOutput extends SetRiskConfigurationR
  * import { CognitoIdentityProviderClient, SetRiskConfigurationCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, SetRiskConfigurationCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
+ * const input = {
+ *   UserPoolId: "STRING_VALUE", // required
+ *   ClientId: "STRING_VALUE",
+ *   CompromisedCredentialsRiskConfiguration: {
+ *     EventFilter: [
+ *       "SIGN_IN" || "PASSWORD_CHANGE" || "SIGN_UP",
+ *     ],
+ *     Actions: {
+ *       EventAction: "BLOCK" || "NO_ACTION", // required
+ *     },
+ *   },
+ *   AccountTakeoverRiskConfiguration: {
+ *     NotifyConfiguration: {
+ *       From: "STRING_VALUE",
+ *       ReplyTo: "STRING_VALUE",
+ *       SourceArn: "STRING_VALUE", // required
+ *       BlockEmail: {
+ *         Subject: "STRING_VALUE", // required
+ *         HtmlBody: "STRING_VALUE",
+ *         TextBody: "STRING_VALUE",
+ *       },
+ *       NoActionEmail: {
+ *         Subject: "STRING_VALUE", // required
+ *         HtmlBody: "STRING_VALUE",
+ *         TextBody: "STRING_VALUE",
+ *       },
+ *       MfaEmail: {
+ *         Subject: "STRING_VALUE", // required
+ *         HtmlBody: "STRING_VALUE",
+ *         TextBody: "STRING_VALUE",
+ *       },
+ *     },
+ *     Actions: {
+ *       LowAction: {
+ *         Notify: true || false, // required
+ *         EventAction: "BLOCK" || "MFA_IF_CONFIGURED" || "MFA_REQUIRED" || "NO_ACTION", // required
+ *       },
+ *       MediumAction: {
+ *         Notify: true || false, // required
+ *         EventAction: "BLOCK" || "MFA_IF_CONFIGURED" || "MFA_REQUIRED" || "NO_ACTION", // required
+ *       },
+ *       HighAction: {
+ *         Notify: true || false, // required
+ *         EventAction: "BLOCK" || "MFA_IF_CONFIGURED" || "MFA_REQUIRED" || "NO_ACTION", // required
+ *       },
+ *     },
+ *   },
+ *   RiskExceptionConfiguration: {
+ *     BlockedIPRangeList: [
+ *       "STRING_VALUE",
+ *     ],
+ *     SkippedIPRangeList: [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ * };
  * const command = new SetRiskConfigurationCommand(input);
  * const response = await client.send(command);
  * ```

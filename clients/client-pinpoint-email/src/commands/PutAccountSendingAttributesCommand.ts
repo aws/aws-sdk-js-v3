@@ -44,6 +44,9 @@ export interface PutAccountSendingAttributesCommandOutput
  * import { PinpointEmailClient, PutAccountSendingAttributesCommand } from "@aws-sdk/client-pinpoint-email"; // ES Modules import
  * // const { PinpointEmailClient, PutAccountSendingAttributesCommand } = require("@aws-sdk/client-pinpoint-email"); // CommonJS import
  * const client = new PinpointEmailClient(config);
+ * const input = {
+ *   SendingEnabled: true || false,
+ * };
  * const command = new PutAccountSendingAttributesCommand(input);
  * const response = await client.send(command);
  * ```

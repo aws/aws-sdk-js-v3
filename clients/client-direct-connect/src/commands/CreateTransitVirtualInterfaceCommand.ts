@@ -53,6 +53,27 @@ export interface CreateTransitVirtualInterfaceCommandOutput
  * import { DirectConnectClient, CreateTransitVirtualInterfaceCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, CreateTransitVirtualInterfaceCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
  * const client = new DirectConnectClient(config);
+ * const input = {
+ *   connectionId: "STRING_VALUE", // required
+ *   newTransitVirtualInterface: {
+ *     virtualInterfaceName: "STRING_VALUE",
+ *     vlan: Number("int"),
+ *     asn: Number("int"),
+ *     mtu: Number("int"),
+ *     authKey: "STRING_VALUE",
+ *     amazonAddress: "STRING_VALUE",
+ *     customerAddress: "STRING_VALUE",
+ *     addressFamily: "ipv4" || "ipv6",
+ *     directConnectGatewayId: "STRING_VALUE",
+ *     tags: [
+ *       {
+ *         key: "STRING_VALUE", // required
+ *         value: "STRING_VALUE",
+ *       },
+ *     ],
+ *     enableSiteLink: true || false,
+ *   },
+ * };
  * const command = new CreateTransitVirtualInterfaceCommand(input);
  * const response = await client.send(command);
  * ```

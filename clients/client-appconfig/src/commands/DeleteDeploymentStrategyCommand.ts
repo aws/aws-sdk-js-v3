@@ -43,6 +43,9 @@ export interface DeleteDeploymentStrategyCommandOutput extends __MetadataBearer 
  * import { AppConfigClient, DeleteDeploymentStrategyCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
  * // const { AppConfigClient, DeleteDeploymentStrategyCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
  * const client = new AppConfigClient(config);
+ * const input = {
+ *   DeploymentStrategyId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteDeploymentStrategyCommand(input);
  * const response = await client.send(command);
  * ```

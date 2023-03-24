@@ -54,6 +54,11 @@ export interface UpdateGroupCommandOutput extends UpdateGroupOutput, __MetadataB
  * import { ResourceGroupsClient, UpdateGroupCommand } from "@aws-sdk/client-resource-groups"; // ES Modules import
  * // const { ResourceGroupsClient, UpdateGroupCommand } = require("@aws-sdk/client-resource-groups"); // CommonJS import
  * const client = new ResourceGroupsClient(config);
+ * const input = {
+ *   GroupName: "STRING_VALUE",
+ *   Group: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ * };
  * const command = new UpdateGroupCommand(input);
  * const response = await client.send(command);
  * ```

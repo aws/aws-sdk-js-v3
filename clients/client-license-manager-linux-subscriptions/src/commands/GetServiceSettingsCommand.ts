@@ -46,6 +46,7 @@ export interface GetServiceSettingsCommandOutput extends GetServiceSettingsRespo
  * import { LicenseManagerLinuxSubscriptionsClient, GetServiceSettingsCommand } from "@aws-sdk/client-license-manager-linux-subscriptions"; // ES Modules import
  * // const { LicenseManagerLinuxSubscriptionsClient, GetServiceSettingsCommand } = require("@aws-sdk/client-license-manager-linux-subscriptions"); // CommonJS import
  * const client = new LicenseManagerLinuxSubscriptionsClient(config);
+ * const input = {};
  * const command = new GetServiceSettingsCommand(input);
  * const response = await client.send(command);
  * ```

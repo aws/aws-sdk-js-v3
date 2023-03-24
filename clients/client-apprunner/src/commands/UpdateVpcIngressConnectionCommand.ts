@@ -59,6 +59,13 @@ export interface UpdateVpcIngressConnectionCommandOutput extends UpdateVpcIngres
  * import { AppRunnerClient, UpdateVpcIngressConnectionCommand } from "@aws-sdk/client-apprunner"; // ES Modules import
  * // const { AppRunnerClient, UpdateVpcIngressConnectionCommand } = require("@aws-sdk/client-apprunner"); // CommonJS import
  * const client = new AppRunnerClient(config);
+ * const input = {
+ *   VpcIngressConnectionArn: "STRING_VALUE", // required
+ *   IngressVpcConfiguration: {
+ *     VpcId: "STRING_VALUE",
+ *     VpcEndpointId: "STRING_VALUE",
+ *   },
+ * };
  * const command = new UpdateVpcIngressConnectionCommand(input);
  * const response = await client.send(command);
  * ```

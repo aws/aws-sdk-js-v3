@@ -51,6 +51,11 @@ export interface GetSnapshotBlockCommandOutput
  * import { EBSClient, GetSnapshotBlockCommand } from "@aws-sdk/client-ebs"; // ES Modules import
  * // const { EBSClient, GetSnapshotBlockCommand } = require("@aws-sdk/client-ebs"); // CommonJS import
  * const client = new EBSClient(config);
+ * const input = {
+ *   SnapshotId: "STRING_VALUE", // required
+ *   BlockIndex: Number("int"), // required
+ *   BlockToken: "STRING_VALUE", // required
+ * };
  * const command = new GetSnapshotBlockCommand(input);
  * const response = await client.send(command);
  * ```

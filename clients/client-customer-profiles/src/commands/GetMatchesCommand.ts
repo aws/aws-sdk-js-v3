@@ -86,6 +86,11 @@ export interface GetMatchesCommandOutput extends GetMatchesResponse, __MetadataB
  * import { CustomerProfilesClient, GetMatchesCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
  * // const { CustomerProfilesClient, GetMatchesCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
  * const client = new CustomerProfilesClient(config);
+ * const input = {
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   DomainName: "STRING_VALUE", // required
+ * };
  * const command = new GetMatchesCommand(input);
  * const response = await client.send(command);
  * ```

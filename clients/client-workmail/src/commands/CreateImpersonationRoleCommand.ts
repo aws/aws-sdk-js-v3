@@ -47,6 +47,27 @@ export interface CreateImpersonationRoleCommandOutput extends CreateImpersonatio
  * import { WorkMailClient, CreateImpersonationRoleCommand } from "@aws-sdk/client-workmail"; // ES Modules import
  * // const { WorkMailClient, CreateImpersonationRoleCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
  * const client = new WorkMailClient(config);
+ * const input = {
+ *   ClientToken: "STRING_VALUE",
+ *   OrganizationId: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE", // required
+ *   Type: "FULL_ACCESS" || "READ_ONLY", // required
+ *   Description: "STRING_VALUE",
+ *   Rules: [ // required
+ *     {
+ *       ImpersonationRuleId: "STRING_VALUE", // required
+ *       Name: "STRING_VALUE",
+ *       Description: "STRING_VALUE",
+ *       Effect: "ALLOW" || "DENY", // required
+ *       TargetUsers: [
+ *         "STRING_VALUE",
+ *       ],
+ *       NotTargetUsers: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ * };
  * const command = new CreateImpersonationRoleCommand(input);
  * const response = await client.send(command);
  * ```

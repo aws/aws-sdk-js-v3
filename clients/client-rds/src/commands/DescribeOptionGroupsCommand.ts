@@ -42,6 +42,21 @@ export interface DescribeOptionGroupsCommandOutput extends OptionGroups, __Metad
  * import { RDSClient, DescribeOptionGroupsCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, DescribeOptionGroupsCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = {
+ *   OptionGroupName: "STRING_VALUE",
+ *   Filters: [
+ *     {
+ *       Name: "STRING_VALUE", // required
+ *       Values: [ // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   Marker: "STRING_VALUE",
+ *   MaxRecords: Number("int"),
+ *   EngineName: "STRING_VALUE",
+ *   MajorEngineVersion: "STRING_VALUE",
+ * };
  * const command = new DescribeOptionGroupsCommand(input);
  * const response = await client.send(command);
  * ```

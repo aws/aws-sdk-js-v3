@@ -42,6 +42,13 @@ export interface GetManagedPrefixListEntriesCommandOutput extends GetManagedPref
  * import { EC2Client, GetManagedPrefixListEntriesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, GetManagedPrefixListEntriesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   DryRun: true || false,
+ *   PrefixListId: "STRING_VALUE", // required
+ *   TargetVersion: Number("long"),
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new GetManagedPrefixListEntriesCommand(input);
  * const response = await client.send(command);
  * ```

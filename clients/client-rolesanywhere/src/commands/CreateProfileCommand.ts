@@ -50,6 +50,25 @@ export interface CreateProfileCommandOutput extends ProfileDetailResponse, __Met
  * import { RolesAnywhereClient, CreateProfileCommand } from "@aws-sdk/client-rolesanywhere"; // ES Modules import
  * // const { RolesAnywhereClient, CreateProfileCommand } = require("@aws-sdk/client-rolesanywhere"); // CommonJS import
  * const client = new RolesAnywhereClient(config);
+ * const input = {
+ *   name: "STRING_VALUE", // required
+ *   requireInstanceProperties: true || false,
+ *   sessionPolicy: "STRING_VALUE",
+ *   roleArns: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ *   managedPolicyArns: [
+ *     "STRING_VALUE",
+ *   ],
+ *   durationSeconds: Number("int"),
+ *   enabled: true || false,
+ *   tags: [
+ *     {
+ *       key: "STRING_VALUE", // required
+ *       value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateProfileCommand(input);
  * const response = await client.send(command);
  * ```

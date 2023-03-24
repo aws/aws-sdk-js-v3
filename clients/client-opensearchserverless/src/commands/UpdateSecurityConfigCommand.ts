@@ -48,6 +48,18 @@ export interface UpdateSecurityConfigCommandOutput extends UpdateSecurityConfigR
  * import { OpenSearchServerlessClient, UpdateSecurityConfigCommand } from "@aws-sdk/client-opensearchserverless"; // ES Modules import
  * // const { OpenSearchServerlessClient, UpdateSecurityConfigCommand } = require("@aws-sdk/client-opensearchserverless"); // CommonJS import
  * const client = new OpenSearchServerlessClient(config);
+ * const input = {
+ *   id: "STRING_VALUE", // required
+ *   configVersion: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   samlOptions: {
+ *     metadata: "STRING_VALUE", // required
+ *     userAttribute: "STRING_VALUE",
+ *     groupAttribute: "STRING_VALUE",
+ *     sessionTimeout: Number("int"),
+ *   },
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new UpdateSecurityConfigCommand(input);
  * const response = await client.send(command);
  * ```

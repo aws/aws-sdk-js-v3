@@ -107,6 +107,26 @@ export interface StartWorkflowExecutionCommandOutput extends Run, __MetadataBear
  * import { SWFClient, StartWorkflowExecutionCommand } from "@aws-sdk/client-swf"; // ES Modules import
  * // const { SWFClient, StartWorkflowExecutionCommand } = require("@aws-sdk/client-swf"); // CommonJS import
  * const client = new SWFClient(config);
+ * const input = {
+ *   domain: "STRING_VALUE", // required
+ *   workflowId: "STRING_VALUE", // required
+ *   workflowType: {
+ *     name: "STRING_VALUE", // required
+ *     version: "STRING_VALUE", // required
+ *   },
+ *   taskList: {
+ *     name: "STRING_VALUE", // required
+ *   },
+ *   taskPriority: "STRING_VALUE",
+ *   input: "STRING_VALUE",
+ *   executionStartToCloseTimeout: "STRING_VALUE",
+ *   tagList: [
+ *     "STRING_VALUE",
+ *   ],
+ *   taskStartToCloseTimeout: "STRING_VALUE",
+ *   childPolicy: "TERMINATE" || "REQUEST_CANCEL" || "ABANDON",
+ *   lambdaRole: "STRING_VALUE",
+ * };
  * const command = new StartWorkflowExecutionCommand(input);
  * const response = await client.send(command);
  * ```

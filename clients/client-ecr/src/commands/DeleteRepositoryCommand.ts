@@ -44,6 +44,11 @@ export interface DeleteRepositoryCommandOutput extends DeleteRepositoryResponse,
  * import { ECRClient, DeleteRepositoryCommand } from "@aws-sdk/client-ecr"; // ES Modules import
  * // const { ECRClient, DeleteRepositoryCommand } = require("@aws-sdk/client-ecr"); // CommonJS import
  * const client = new ECRClient(config);
+ * const input = {
+ *   registryId: "STRING_VALUE",
+ *   repositoryName: "STRING_VALUE", // required
+ *   force: true || false,
+ * };
  * const command = new DeleteRepositoryCommand(input);
  * const response = await client.send(command);
  * ```

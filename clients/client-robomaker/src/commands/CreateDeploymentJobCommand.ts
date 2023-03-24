@@ -54,6 +54,38 @@ export interface CreateDeploymentJobCommandOutput extends CreateDeploymentJobRes
  * import { RoboMakerClient, CreateDeploymentJobCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
  * // const { RoboMakerClient, CreateDeploymentJobCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
  * const client = new RoboMakerClient(config);
+ * const input = {
+ *   deploymentConfig: {
+ *     concurrentDeploymentPercentage: Number("int"),
+ *     failureThresholdPercentage: Number("int"),
+ *     robotDeploymentTimeoutInSeconds: Number("long"),
+ *     downloadConditionFile: {
+ *       bucket: "STRING_VALUE", // required
+ *       key: "STRING_VALUE", // required
+ *       etag: "STRING_VALUE",
+ *     },
+ *   },
+ *   clientRequestToken: "STRING_VALUE", // required
+ *   fleet: "STRING_VALUE", // required
+ *   deploymentApplicationConfigs: [ // required
+ *     {
+ *       application: "STRING_VALUE", // required
+ *       applicationVersion: "STRING_VALUE", // required
+ *       launchConfig: {
+ *         packageName: "STRING_VALUE", // required
+ *         preLaunchFile: "STRING_VALUE",
+ *         launchFile: "STRING_VALUE", // required
+ *         postLaunchFile: "STRING_VALUE",
+ *         environmentVariables: {
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *       },
+ *     },
+ *   ],
+ *   tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateDeploymentJobCommand(input);
  * const response = await client.send(command);
  * ```

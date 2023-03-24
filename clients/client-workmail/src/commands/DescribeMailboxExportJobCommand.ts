@@ -42,6 +42,10 @@ export interface DescribeMailboxExportJobCommandOutput extends DescribeMailboxEx
  * import { WorkMailClient, DescribeMailboxExportJobCommand } from "@aws-sdk/client-workmail"; // ES Modules import
  * // const { WorkMailClient, DescribeMailboxExportJobCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
  * const client = new WorkMailClient(config);
+ * const input = {
+ *   JobId: "STRING_VALUE", // required
+ *   OrganizationId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeMailboxExportJobCommand(input);
  * const response = await client.send(command);
  * ```

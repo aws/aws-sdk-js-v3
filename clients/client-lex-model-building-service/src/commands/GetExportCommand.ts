@@ -47,6 +47,12 @@ export interface GetExportCommandOutput extends GetExportResponse, __MetadataBea
  * import { LexModelBuildingServiceClient, GetExportCommand } from "@aws-sdk/client-lex-model-building-service"; // ES Modules import
  * // const { LexModelBuildingServiceClient, GetExportCommand } = require("@aws-sdk/client-lex-model-building-service"); // CommonJS import
  * const client = new LexModelBuildingServiceClient(config);
+ * const input = {
+ *   name: "STRING_VALUE", // required
+ *   version: "STRING_VALUE", // required
+ *   resourceType: "STRING_VALUE", // required
+ *   exportType: "STRING_VALUE", // required
+ * };
  * const command = new GetExportCommand(input);
  * const response = await client.send(command);
  * ```

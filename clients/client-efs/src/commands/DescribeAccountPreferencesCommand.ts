@@ -43,6 +43,10 @@ export interface DescribeAccountPreferencesCommandOutput extends DescribeAccount
  * import { EFSClient, DescribeAccountPreferencesCommand } from "@aws-sdk/client-efs"; // ES Modules import
  * // const { EFSClient, DescribeAccountPreferencesCommand } = require("@aws-sdk/client-efs"); // CommonJS import
  * const client = new EFSClient(config);
+ * const input = {
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new DescribeAccountPreferencesCommand(input);
  * const response = await client.send(command);
  * ```

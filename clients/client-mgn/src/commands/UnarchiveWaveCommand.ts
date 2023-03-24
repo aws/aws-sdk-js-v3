@@ -42,6 +42,9 @@ export interface UnarchiveWaveCommandOutput extends Wave, __MetadataBearer {}
  * import { MgnClient, UnarchiveWaveCommand } from "@aws-sdk/client-mgn"; // ES Modules import
  * // const { MgnClient, UnarchiveWaveCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
  * const client = new MgnClient(config);
+ * const input = {
+ *   waveID: "STRING_VALUE", // required
+ * };
  * const command = new UnarchiveWaveCommand(input);
  * const response = await client.send(command);
  * ```

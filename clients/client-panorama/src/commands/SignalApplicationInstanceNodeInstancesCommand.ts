@@ -48,6 +48,15 @@ export interface SignalApplicationInstanceNodeInstancesCommandOutput
  * import { PanoramaClient, SignalApplicationInstanceNodeInstancesCommand } from "@aws-sdk/client-panorama"; // ES Modules import
  * // const { PanoramaClient, SignalApplicationInstanceNodeInstancesCommand } = require("@aws-sdk/client-panorama"); // CommonJS import
  * const client = new PanoramaClient(config);
+ * const input = {
+ *   ApplicationInstanceId: "STRING_VALUE", // required
+ *   NodeSignals: [ // required
+ *     {
+ *       NodeInstanceId: "STRING_VALUE", // required
+ *       Signal: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new SignalApplicationInstanceNodeInstancesCommand(input);
  * const response = await client.send(command);
  * ```

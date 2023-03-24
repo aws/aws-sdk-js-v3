@@ -46,6 +46,247 @@ export interface UpdateConnectorProfileCommandOutput extends UpdateConnectorProf
  * import { AppflowClient, UpdateConnectorProfileCommand } from "@aws-sdk/client-appflow"; // ES Modules import
  * // const { AppflowClient, UpdateConnectorProfileCommand } = require("@aws-sdk/client-appflow"); // CommonJS import
  * const client = new AppflowClient(config);
+ * const input = {
+ *   connectorProfileName: "STRING_VALUE", // required
+ *   connectionMode: "Public" || "Private", // required
+ *   connectorProfileConfig: {
+ *     connectorProfileProperties: {
+ *       Amplitude: {},
+ *       Datadog: {
+ *         instanceUrl: "STRING_VALUE", // required
+ *       },
+ *       Dynatrace: {
+ *         instanceUrl: "STRING_VALUE", // required
+ *       },
+ *       GoogleAnalytics: {},
+ *       Honeycode: {},
+ *       InforNexus: {
+ *         instanceUrl: "STRING_VALUE", // required
+ *       },
+ *       Marketo: {
+ *         instanceUrl: "STRING_VALUE", // required
+ *       },
+ *       Redshift: {
+ *         databaseUrl: "STRING_VALUE",
+ *         bucketName: "STRING_VALUE", // required
+ *         bucketPrefix: "STRING_VALUE",
+ *         roleArn: "STRING_VALUE", // required
+ *         dataApiRoleArn: "STRING_VALUE",
+ *         isRedshiftServerless: true || false,
+ *         clusterIdentifier: "STRING_VALUE",
+ *         workgroupName: "STRING_VALUE",
+ *         databaseName: "STRING_VALUE",
+ *       },
+ *       Salesforce: {
+ *         instanceUrl: "STRING_VALUE",
+ *         isSandboxEnvironment: true || false,
+ *         usePrivateLinkForMetadataAndAuthorization: true || false,
+ *       },
+ *       ServiceNow: {
+ *         instanceUrl: "STRING_VALUE", // required
+ *       },
+ *       Singular: {},
+ *       Slack: {
+ *         instanceUrl: "STRING_VALUE", // required
+ *       },
+ *       Snowflake: {
+ *         warehouse: "STRING_VALUE", // required
+ *         stage: "STRING_VALUE", // required
+ *         bucketName: "STRING_VALUE", // required
+ *         bucketPrefix: "STRING_VALUE",
+ *         privateLinkServiceName: "STRING_VALUE",
+ *         accountName: "STRING_VALUE",
+ *         region: "STRING_VALUE",
+ *       },
+ *       Trendmicro: {},
+ *       Veeva: {
+ *         instanceUrl: "STRING_VALUE", // required
+ *       },
+ *       Zendesk: {
+ *         instanceUrl: "STRING_VALUE", // required
+ *       },
+ *       SAPOData: {
+ *         applicationHostUrl: "STRING_VALUE", // required
+ *         applicationServicePath: "STRING_VALUE", // required
+ *         portNumber: Number("int"), // required
+ *         clientNumber: "STRING_VALUE", // required
+ *         logonLanguage: "STRING_VALUE",
+ *         privateLinkServiceName: "STRING_VALUE",
+ *         oAuthProperties: {
+ *           tokenUrl: "STRING_VALUE", // required
+ *           authCodeUrl: "STRING_VALUE", // required
+ *           oAuthScopes: [ // required
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       },
+ *       CustomConnector: {
+ *         profileProperties: {
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *         oAuth2Properties: {
+ *           tokenUrl: "STRING_VALUE", // required
+ *           oAuth2GrantType: "CLIENT_CREDENTIALS" || "AUTHORIZATION_CODE", // required
+ *           tokenUrlCustomProperties: {
+ *             "<keys>": "STRING_VALUE",
+ *           },
+ *         },
+ *       },
+ *       Pardot: {
+ *         instanceUrl: "STRING_VALUE",
+ *         isSandboxEnvironment: true || false,
+ *         businessUnitId: "STRING_VALUE",
+ *       },
+ *     },
+ *     connectorProfileCredentials: {
+ *       Amplitude: {
+ *         apiKey: "STRING_VALUE", // required
+ *         secretKey: "STRING_VALUE", // required
+ *       },
+ *       Datadog: {
+ *         apiKey: "STRING_VALUE", // required
+ *         applicationKey: "STRING_VALUE", // required
+ *       },
+ *       Dynatrace: {
+ *         apiToken: "STRING_VALUE", // required
+ *       },
+ *       GoogleAnalytics: {
+ *         clientId: "STRING_VALUE", // required
+ *         clientSecret: "STRING_VALUE", // required
+ *         accessToken: "STRING_VALUE",
+ *         refreshToken: "STRING_VALUE",
+ *         oAuthRequest: {
+ *           authCode: "STRING_VALUE",
+ *           redirectUri: "STRING_VALUE",
+ *         },
+ *       },
+ *       Honeycode: {
+ *         accessToken: "STRING_VALUE",
+ *         refreshToken: "STRING_VALUE",
+ *         oAuthRequest: {
+ *           authCode: "STRING_VALUE",
+ *           redirectUri: "STRING_VALUE",
+ *         },
+ *       },
+ *       InforNexus: {
+ *         accessKeyId: "STRING_VALUE", // required
+ *         userId: "STRING_VALUE", // required
+ *         secretAccessKey: "STRING_VALUE", // required
+ *         datakey: "STRING_VALUE", // required
+ *       },
+ *       Marketo: {
+ *         clientId: "STRING_VALUE", // required
+ *         clientSecret: "STRING_VALUE", // required
+ *         accessToken: "STRING_VALUE",
+ *         oAuthRequest: {
+ *           authCode: "STRING_VALUE",
+ *           redirectUri: "STRING_VALUE",
+ *         },
+ *       },
+ *       Redshift: {
+ *         username: "STRING_VALUE",
+ *         password: "STRING_VALUE",
+ *       },
+ *       Salesforce: {
+ *         accessToken: "STRING_VALUE",
+ *         refreshToken: "STRING_VALUE",
+ *         oAuthRequest: {
+ *           authCode: "STRING_VALUE",
+ *           redirectUri: "STRING_VALUE",
+ *         },
+ *         clientCredentialsArn: "STRING_VALUE",
+ *       },
+ *       ServiceNow: {
+ *         username: "STRING_VALUE", // required
+ *         password: "STRING_VALUE", // required
+ *       },
+ *       Singular: {
+ *         apiKey: "STRING_VALUE", // required
+ *       },
+ *       Slack: {
+ *         clientId: "STRING_VALUE", // required
+ *         clientSecret: "STRING_VALUE", // required
+ *         accessToken: "STRING_VALUE",
+ *         oAuthRequest: {
+ *           authCode: "STRING_VALUE",
+ *           redirectUri: "STRING_VALUE",
+ *         },
+ *       },
+ *       Snowflake: {
+ *         username: "STRING_VALUE", // required
+ *         password: "STRING_VALUE", // required
+ *       },
+ *       Trendmicro: {
+ *         apiSecretKey: "STRING_VALUE", // required
+ *       },
+ *       Veeva: {
+ *         username: "STRING_VALUE", // required
+ *         password: "STRING_VALUE", // required
+ *       },
+ *       Zendesk: {
+ *         clientId: "STRING_VALUE", // required
+ *         clientSecret: "STRING_VALUE", // required
+ *         accessToken: "STRING_VALUE",
+ *         oAuthRequest: {
+ *           authCode: "STRING_VALUE",
+ *           redirectUri: "STRING_VALUE",
+ *         },
+ *       },
+ *       SAPOData: {
+ *         basicAuthCredentials: {
+ *           username: "STRING_VALUE", // required
+ *           password: "STRING_VALUE", // required
+ *         },
+ *         oAuthCredentials: {
+ *           clientId: "STRING_VALUE", // required
+ *           clientSecret: "STRING_VALUE", // required
+ *           accessToken: "STRING_VALUE",
+ *           refreshToken: "STRING_VALUE",
+ *           oAuthRequest: {
+ *             authCode: "STRING_VALUE",
+ *             redirectUri: "STRING_VALUE",
+ *           },
+ *         },
+ *       },
+ *       CustomConnector: {
+ *         authenticationType: "OAUTH2" || "APIKEY" || "BASIC" || "CUSTOM", // required
+ *         basic: {
+ *           username: "STRING_VALUE", // required
+ *           password: "STRING_VALUE", // required
+ *         },
+ *         oauth2: {
+ *           clientId: "STRING_VALUE",
+ *           clientSecret: "STRING_VALUE",
+ *           accessToken: "STRING_VALUE",
+ *           refreshToken: "STRING_VALUE",
+ *           oAuthRequest: {
+ *             authCode: "STRING_VALUE",
+ *             redirectUri: "STRING_VALUE",
+ *           },
+ *         },
+ *         apiKey: {
+ *           apiKey: "STRING_VALUE", // required
+ *           apiSecretKey: "STRING_VALUE",
+ *         },
+ *         custom: {
+ *           customAuthenticationType: "STRING_VALUE", // required
+ *           credentialsMap: {
+ *             "<keys>": "STRING_VALUE",
+ *           },
+ *         },
+ *       },
+ *       Pardot: {
+ *         accessToken: "STRING_VALUE",
+ *         refreshToken: "STRING_VALUE",
+ *         oAuthRequest: {
+ *           authCode: "STRING_VALUE",
+ *           redirectUri: "STRING_VALUE",
+ *         },
+ *         clientCredentialsArn: "STRING_VALUE",
+ *       },
+ *     },
+ *   },
+ * };
  * const command = new UpdateConnectorProfileCommand(input);
  * const response = await client.send(command);
  * ```

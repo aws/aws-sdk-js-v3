@@ -44,6 +44,32 @@ export interface CreateScheduledActionCommandOutput extends ScheduledAction, __M
  * import { RedshiftClient, CreateScheduledActionCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, CreateScheduledActionCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = {
+ *   ScheduledActionName: "STRING_VALUE", // required
+ *   TargetAction: {
+ *     ResizeCluster: {
+ *       ClusterIdentifier: "STRING_VALUE", // required
+ *       ClusterType: "STRING_VALUE",
+ *       NodeType: "STRING_VALUE",
+ *       NumberOfNodes: Number("int"),
+ *       Classic: true || false,
+ *       ReservedNodeId: "STRING_VALUE",
+ *       TargetReservedNodeOfferingId: "STRING_VALUE",
+ *     },
+ *     PauseCluster: {
+ *       ClusterIdentifier: "STRING_VALUE", // required
+ *     },
+ *     ResumeCluster: {
+ *       ClusterIdentifier: "STRING_VALUE", // required
+ *     },
+ *   },
+ *   Schedule: "STRING_VALUE", // required
+ *   IamRole: "STRING_VALUE", // required
+ *   ScheduledActionDescription: "STRING_VALUE",
+ *   StartTime: new Date("TIMESTAMP"),
+ *   EndTime: new Date("TIMESTAMP"),
+ *   Enable: true || false,
+ * };
  * const command = new CreateScheduledActionCommand(input);
  * const response = await client.send(command);
  * ```

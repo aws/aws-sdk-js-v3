@@ -53,6 +53,10 @@ export interface StopDBInstanceCommandOutput extends StopDBInstanceResult, __Met
  * import { RDSClient, StopDBInstanceCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, StopDBInstanceCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = {
+ *   DBInstanceIdentifier: "STRING_VALUE", // required
+ *   DBSnapshotIdentifier: "STRING_VALUE",
+ * };
  * const command = new StopDBInstanceCommand(input);
  * const response = await client.send(command);
  * ```

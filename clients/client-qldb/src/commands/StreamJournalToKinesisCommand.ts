@@ -44,6 +44,20 @@ export interface StreamJournalToKinesisCommandOutput extends StreamJournalToKine
  * import { QLDBClient, StreamJournalToKinesisCommand } from "@aws-sdk/client-qldb"; // ES Modules import
  * // const { QLDBClient, StreamJournalToKinesisCommand } = require("@aws-sdk/client-qldb"); // CommonJS import
  * const client = new QLDBClient(config);
+ * const input = {
+ *   LedgerName: "STRING_VALUE", // required
+ *   RoleArn: "STRING_VALUE", // required
+ *   Tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   InclusiveStartTime: new Date("TIMESTAMP"), // required
+ *   ExclusiveEndTime: new Date("TIMESTAMP"),
+ *   KinesisConfiguration: {
+ *     StreamArn: "STRING_VALUE", // required
+ *     AggregationEnabled: true || false,
+ *   },
+ *   StreamName: "STRING_VALUE", // required
+ * };
  * const command = new StreamJournalToKinesisCommand(input);
  * const response = await client.send(command);
  * ```

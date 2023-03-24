@@ -42,6 +42,11 @@ export interface EnableStageTransitionCommandOutput extends __MetadataBearer {}
  * import { CodePipelineClient, EnableStageTransitionCommand } from "@aws-sdk/client-codepipeline"; // ES Modules import
  * // const { CodePipelineClient, EnableStageTransitionCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import
  * const client = new CodePipelineClient(config);
+ * const input = {
+ *   pipelineName: "STRING_VALUE", // required
+ *   stageName: "STRING_VALUE", // required
+ *   transitionType: "STRING_VALUE", // required
+ * };
  * const command = new EnableStageTransitionCommand(input);
  * const response = await client.send(command);
  * ```

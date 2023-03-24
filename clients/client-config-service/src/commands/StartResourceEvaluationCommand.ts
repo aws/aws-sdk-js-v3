@@ -52,6 +52,20 @@ export interface StartResourceEvaluationCommandOutput extends StartResourceEvalu
  * import { ConfigServiceClient, StartResourceEvaluationCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, StartResourceEvaluationCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
+ * const input = {
+ *   ResourceDetails: {
+ *     ResourceId: "STRING_VALUE", // required
+ *     ResourceType: "STRING_VALUE", // required
+ *     ResourceConfiguration: "STRING_VALUE", // required
+ *     ResourceConfigurationSchemaType: "CFN_RESOURCE_SCHEMA",
+ *   },
+ *   EvaluationContext: {
+ *     EvaluationContextIdentifier: "STRING_VALUE",
+ *   },
+ *   EvaluationMode: "DETECTIVE" || "PROACTIVE", // required
+ *   EvaluationTimeout: Number("int"),
+ *   ClientToken: "STRING_VALUE",
+ * };
  * const command = new StartResourceEvaluationCommand(input);
  * const response = await client.send(command);
  * ```

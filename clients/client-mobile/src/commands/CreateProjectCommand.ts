@@ -44,6 +44,12 @@ export interface CreateProjectCommandOutput extends CreateProjectResult, __Metad
  * import { MobileClient, CreateProjectCommand } from "@aws-sdk/client-mobile"; // ES Modules import
  * // const { MobileClient, CreateProjectCommand } = require("@aws-sdk/client-mobile"); // CommonJS import
  * const client = new MobileClient(config);
+ * const input = {
+ *   name: "STRING_VALUE",
+ *   region: "STRING_VALUE",
+ *   contents: "BLOB_VALUE",
+ *   snapshotId: "STRING_VALUE",
+ * };
  * const command = new CreateProjectCommand(input);
  * const response = await client.send(command);
  * ```

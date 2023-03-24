@@ -49,6 +49,13 @@ export interface AssociatePhoneNumbersWithVoiceConnectorCommandOutput
  * import { ChimeClient, AssociatePhoneNumbersWithVoiceConnectorCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, AssociatePhoneNumbersWithVoiceConnectorCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = {
+ *   VoiceConnectorId: "STRING_VALUE", // required
+ *   E164PhoneNumbers: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ *   ForceAssociate: true || false,
+ * };
  * const command = new AssociatePhoneNumbersWithVoiceConnectorCommand(input);
  * const response = await client.send(command);
  * ```

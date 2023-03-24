@@ -52,6 +52,9 @@ export interface GetGameSessionLogUrlCommandOutput extends GetGameSessionLogUrlO
  * import { GameLiftClient, GetGameSessionLogUrlCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, GetGameSessionLogUrlCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = {
+ *   GameSessionId: "STRING_VALUE", // required
+ * };
  * const command = new GetGameSessionLogUrlCommand(input);
  * const response = await client.send(command);
  * ```

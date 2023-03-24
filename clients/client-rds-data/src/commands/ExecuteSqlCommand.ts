@@ -48,6 +48,13 @@ export interface ExecuteSqlCommandOutput extends ExecuteSqlResponse, __MetadataB
  * import { RDSDataClient, ExecuteSqlCommand } from "@aws-sdk/client-rds-data"; // ES Modules import
  * // const { RDSDataClient, ExecuteSqlCommand } = require("@aws-sdk/client-rds-data"); // CommonJS import
  * const client = new RDSDataClient(config);
+ * const input = {
+ *   dbClusterOrInstanceArn: "STRING_VALUE", // required
+ *   awsSecretStoreArn: "STRING_VALUE", // required
+ *   sqlStatements: "STRING_VALUE", // required
+ *   database: "STRING_VALUE",
+ *   schema: "STRING_VALUE",
+ * };
  * const command = new ExecuteSqlCommand(input);
  * const response = await client.send(command);
  * ```

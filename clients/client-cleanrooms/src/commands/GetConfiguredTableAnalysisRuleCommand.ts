@@ -44,6 +44,10 @@ export interface GetConfiguredTableAnalysisRuleCommandOutput
  * import { CleanRoomsClient, GetConfiguredTableAnalysisRuleCommand } from "@aws-sdk/client-cleanrooms"; // ES Modules import
  * // const { CleanRoomsClient, GetConfiguredTableAnalysisRuleCommand } = require("@aws-sdk/client-cleanrooms"); // CommonJS import
  * const client = new CleanRoomsClient(config);
+ * const input = {
+ *   configuredTableIdentifier: "STRING_VALUE", // required
+ *   analysisRuleType: "AGGREGATION" || "LIST", // required
+ * };
  * const command = new GetConfiguredTableAnalysisRuleCommand(input);
  * const response = await client.send(command);
  * ```

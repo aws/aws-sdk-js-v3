@@ -42,6 +42,9 @@ export interface UpdateGlobalSettingsCommandOutput extends __MetadataBearer {}
  * import { WellArchitectedClient, UpdateGlobalSettingsCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
  * // const { WellArchitectedClient, UpdateGlobalSettingsCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
  * const client = new WellArchitectedClient(config);
+ * const input = {
+ *   OrganizationSharingStatus: "ENABLED" || "DISABLED",
+ * };
  * const command = new UpdateGlobalSettingsCommand(input);
  * const response = await client.send(command);
  * ```

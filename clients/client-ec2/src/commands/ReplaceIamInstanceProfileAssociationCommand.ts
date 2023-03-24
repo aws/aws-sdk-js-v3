@@ -51,6 +51,13 @@ export interface ReplaceIamInstanceProfileAssociationCommandOutput
  * import { EC2Client, ReplaceIamInstanceProfileAssociationCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ReplaceIamInstanceProfileAssociationCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   IamInstanceProfile: {
+ *     Arn: "STRING_VALUE",
+ *     Name: "STRING_VALUE",
+ *   },
+ *   AssociationId: "STRING_VALUE", // required
+ * };
  * const command = new ReplaceIamInstanceProfileAssociationCommand(input);
  * const response = await client.send(command);
  * ```

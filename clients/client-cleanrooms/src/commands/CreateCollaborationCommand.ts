@@ -42,6 +42,33 @@ export interface CreateCollaborationCommandOutput extends CreateCollaborationOut
  * import { CleanRoomsClient, CreateCollaborationCommand } from "@aws-sdk/client-cleanrooms"; // ES Modules import
  * // const { CleanRoomsClient, CreateCollaborationCommand } = require("@aws-sdk/client-cleanrooms"); // CommonJS import
  * const client = new CleanRoomsClient(config);
+ * const input = {
+ *   members: [ // required
+ *     {
+ *       accountId: "STRING_VALUE", // required
+ *       memberAbilities: [ // required
+ *         "STRING_VALUE",
+ *       ],
+ *       displayName: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   name: "STRING_VALUE", // required
+ *   description: "STRING_VALUE", // required
+ *   creatorMemberAbilities: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ *   creatorDisplayName: "STRING_VALUE", // required
+ *   dataEncryptionMetadata: {
+ *     allowCleartext: true || false, // required
+ *     allowDuplicates: true || false, // required
+ *     allowJoinsOnColumnsWithDifferentNames: true || false, // required
+ *     preserveNulls: true || false, // required
+ *   },
+ *   queryLogStatus: "STRING_VALUE", // required
+ *   tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateCollaborationCommand(input);
  * const response = await client.send(command);
  * ```

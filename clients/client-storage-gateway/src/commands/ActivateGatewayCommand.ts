@@ -49,6 +49,21 @@ export interface ActivateGatewayCommandOutput extends ActivateGatewayOutput, __M
  * import { StorageGatewayClient, ActivateGatewayCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, ActivateGatewayCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
+ * const input = {
+ *   ActivationKey: "STRING_VALUE", // required
+ *   GatewayName: "STRING_VALUE", // required
+ *   GatewayTimezone: "STRING_VALUE", // required
+ *   GatewayRegion: "STRING_VALUE", // required
+ *   GatewayType: "STRING_VALUE",
+ *   TapeDriveType: "STRING_VALUE",
+ *   MediumChangerType: "STRING_VALUE",
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new ActivateGatewayCommand(input);
  * const response = await client.send(command);
  * ```

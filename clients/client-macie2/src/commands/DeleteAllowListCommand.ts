@@ -42,6 +42,10 @@ export interface DeleteAllowListCommandOutput extends DeleteAllowListResponse, _
  * import { Macie2Client, DeleteAllowListCommand } from "@aws-sdk/client-macie2"; // ES Modules import
  * // const { Macie2Client, DeleteAllowListCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
  * const client = new Macie2Client(config);
+ * const input = {
+ *   id: "STRING_VALUE", // required
+ *   ignoreJobChecks: "STRING_VALUE",
+ * };
  * const command = new DeleteAllowListCommand(input);
  * const response = await client.send(command);
  * ```

@@ -43,6 +43,9 @@ export interface DeleteDomainConfigurationCommandOutput extends DeleteDomainConf
  * import { IoTClient, DeleteDomainConfigurationCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, DeleteDomainConfigurationCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = {
+ *   domainConfigurationName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteDomainConfigurationCommand(input);
  * const response = await client.send(command);
  * ```

@@ -44,6 +44,9 @@ export interface DeleteTrialComponentCommandOutput extends DeleteTrialComponentR
  * import { SageMakerClient, DeleteTrialComponentCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DeleteTrialComponentCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = {
+ *   TrialComponentName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteTrialComponentCommand(input);
  * const response = await client.send(command);
  * ```

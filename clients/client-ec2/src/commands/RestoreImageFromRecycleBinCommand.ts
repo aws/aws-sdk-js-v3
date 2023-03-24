@@ -42,6 +42,10 @@ export interface RestoreImageFromRecycleBinCommandOutput extends RestoreImageFro
  * import { EC2Client, RestoreImageFromRecycleBinCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, RestoreImageFromRecycleBinCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   ImageId: "STRING_VALUE", // required
+ *   DryRun: true || false,
+ * };
  * const command = new RestoreImageFromRecycleBinCommand(input);
  * const response = await client.send(command);
  * ```

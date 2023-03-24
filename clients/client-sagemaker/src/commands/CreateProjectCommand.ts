@@ -43,6 +43,27 @@ export interface CreateProjectCommandOutput extends CreateProjectOutput, __Metad
  * import { SageMakerClient, CreateProjectCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, CreateProjectCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = {
+ *   ProjectName: "STRING_VALUE", // required
+ *   ProjectDescription: "STRING_VALUE",
+ *   ServiceCatalogProvisioningDetails: {
+ *     ProductId: "STRING_VALUE", // required
+ *     ProvisioningArtifactId: "STRING_VALUE",
+ *     PathId: "STRING_VALUE",
+ *     ProvisioningParameters: [
+ *       {
+ *         Key: "STRING_VALUE",
+ *         Value: "STRING_VALUE",
+ *       },
+ *     ],
+ *   },
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateProjectCommand(input);
  * const response = await client.send(command);
  * ```

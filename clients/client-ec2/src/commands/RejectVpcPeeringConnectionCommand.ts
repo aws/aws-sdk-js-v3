@@ -45,6 +45,10 @@ export interface RejectVpcPeeringConnectionCommandOutput extends RejectVpcPeerin
  * import { EC2Client, RejectVpcPeeringConnectionCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, RejectVpcPeeringConnectionCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   DryRun: true || false,
+ *   VpcPeeringConnectionId: "STRING_VALUE", // required
+ * };
  * const command = new RejectVpcPeeringConnectionCommand(input);
  * const response = await client.send(command);
  * ```

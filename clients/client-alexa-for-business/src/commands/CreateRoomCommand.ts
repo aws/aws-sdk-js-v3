@@ -42,6 +42,19 @@ export interface CreateRoomCommandOutput extends CreateRoomResponse, __MetadataB
  * import { AlexaForBusinessClient, CreateRoomCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, CreateRoomCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
+ * const input = {
+ *   RoomName: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   ProfileArn: "STRING_VALUE",
+ *   ProviderCalendarId: "STRING_VALUE",
+ *   ClientRequestToken: "STRING_VALUE",
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateRoomCommand(input);
  * const response = await client.send(command);
  * ```

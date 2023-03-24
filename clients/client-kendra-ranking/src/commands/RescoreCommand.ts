@@ -42,6 +42,25 @@ export interface RescoreCommandOutput extends RescoreResult, __MetadataBearer {}
  * import { KendraRankingClient, RescoreCommand } from "@aws-sdk/client-kendra-ranking"; // ES Modules import
  * // const { KendraRankingClient, RescoreCommand } = require("@aws-sdk/client-kendra-ranking"); // CommonJS import
  * const client = new KendraRankingClient(config);
+ * const input = {
+ *   RescoreExecutionPlanId: "STRING_VALUE", // required
+ *   SearchQuery: "STRING_VALUE", // required
+ *   Documents: [ // required
+ *     {
+ *       Id: "STRING_VALUE", // required
+ *       GroupId: "STRING_VALUE",
+ *       Title: "STRING_VALUE",
+ *       Body: "STRING_VALUE",
+ *       TokenizedTitle: [
+ *         "STRING_VALUE",
+ *       ],
+ *       TokenizedBody: [
+ *         "STRING_VALUE",
+ *       ],
+ *       OriginalScore: Number("float"), // required
+ *     },
+ *   ],
+ * };
  * const command = new RescoreCommand(input);
  * const response = await client.send(command);
  * ```

@@ -51,6 +51,14 @@ export interface PutObjectCommandOutput extends PutObjectResponse, __MetadataBea
  * import { MediaStoreDataClient, PutObjectCommand } from "@aws-sdk/client-mediastore-data"; // ES Modules import
  * // const { MediaStoreDataClient, PutObjectCommand } = require("@aws-sdk/client-mediastore-data"); // CommonJS import
  * const client = new MediaStoreDataClient(config);
+ * const input = {
+ *   Body: "STREAMING_BLOB_VALUE", // required
+ *   Path: "STRING_VALUE", // required
+ *   ContentType: "STRING_VALUE",
+ *   CacheControl: "STRING_VALUE",
+ *   StorageClass: "STRING_VALUE",
+ *   UploadAvailability: "STRING_VALUE",
+ * };
  * const command = new PutObjectCommand(input);
  * const response = await client.send(command);
  * ```

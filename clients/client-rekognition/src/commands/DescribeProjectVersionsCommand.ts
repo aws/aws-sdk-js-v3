@@ -46,6 +46,14 @@ export interface DescribeProjectVersionsCommandOutput extends DescribeProjectVer
  * import { RekognitionClient, DescribeProjectVersionsCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, DescribeProjectVersionsCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
+ * const input = {
+ *   ProjectArn: "STRING_VALUE", // required
+ *   VersionNames: [
+ *     "STRING_VALUE",
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new DescribeProjectVersionsCommand(input);
  * const response = await client.send(command);
  * ```

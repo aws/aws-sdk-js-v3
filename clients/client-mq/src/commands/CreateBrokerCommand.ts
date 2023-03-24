@@ -42,6 +42,69 @@ export interface CreateBrokerCommandOutput extends CreateBrokerResponse, __Metad
  * import { MqClient, CreateBrokerCommand } from "@aws-sdk/client-mq"; // ES Modules import
  * // const { MqClient, CreateBrokerCommand } = require("@aws-sdk/client-mq"); // CommonJS import
  * const client = new MqClient(config);
+ * const input = {
+ *   AuthenticationStrategy: "STRING_VALUE",
+ *   AutoMinorVersionUpgrade: true || false, // required
+ *   BrokerName: "STRING_VALUE", // required
+ *   Configuration: {
+ *     Id: "STRING_VALUE", // required
+ *     Revision: Number("int"),
+ *   },
+ *   CreatorRequestId: "STRING_VALUE",
+ *   DeploymentMode: "STRING_VALUE", // required
+ *   EncryptionOptions: {
+ *     KmsKeyId: "STRING_VALUE",
+ *     UseAwsOwnedKey: true || false, // required
+ *   },
+ *   EngineType: "STRING_VALUE", // required
+ *   EngineVersion: "STRING_VALUE", // required
+ *   HostInstanceType: "STRING_VALUE", // required
+ *   LdapServerMetadata: {
+ *     Hosts: [ // required
+ *       "STRING_VALUE",
+ *     ],
+ *     RoleBase: "STRING_VALUE", // required
+ *     RoleName: "STRING_VALUE",
+ *     RoleSearchMatching: "STRING_VALUE", // required
+ *     RoleSearchSubtree: true || false,
+ *     ServiceAccountPassword: "STRING_VALUE", // required
+ *     ServiceAccountUsername: "STRING_VALUE", // required
+ *     UserBase: "STRING_VALUE", // required
+ *     UserRoleName: "STRING_VALUE",
+ *     UserSearchMatching: "STRING_VALUE", // required
+ *     UserSearchSubtree: true || false,
+ *   },
+ *   Logs: {
+ *     Audit: true || false,
+ *     General: true || false,
+ *   },
+ *   MaintenanceWindowStartTime: {
+ *     DayOfWeek: "STRING_VALUE", // required
+ *     TimeOfDay: "STRING_VALUE", // required
+ *     TimeZone: "STRING_VALUE",
+ *   },
+ *   PubliclyAccessible: true || false, // required
+ *   SecurityGroups: [
+ *     "STRING_VALUE",
+ *   ],
+ *   StorageType: "STRING_VALUE",
+ *   SubnetIds: [
+ *     "STRING_VALUE",
+ *   ],
+ *   Tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   Users: [ // required
+ *     {
+ *       ConsoleAccess: true || false,
+ *       Groups: [
+ *         "<__listOf__string>",
+ *       ],
+ *       Password: "STRING_VALUE", // required
+ *       Username: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateBrokerCommand(input);
  * const response = await client.send(command);
  * ```

@@ -40,6 +40,51 @@ export interface CreateStackCommandOutput extends CreateStackOutput, __MetadataB
  * import { CloudFormationClient, CreateStackCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, CreateStackCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
  * const client = new CloudFormationClient(config);
+ * const input = {
+ *   StackName: "STRING_VALUE", // required
+ *   TemplateBody: "STRING_VALUE",
+ *   TemplateURL: "STRING_VALUE",
+ *   Parameters: [
+ *     {
+ *       ParameterKey: "STRING_VALUE",
+ *       ParameterValue: "STRING_VALUE",
+ *       UsePreviousValue: true || false,
+ *       ResolvedValue: "STRING_VALUE",
+ *     },
+ *   ],
+ *   DisableRollback: true || false,
+ *   RollbackConfiguration: {
+ *     RollbackTriggers: [
+ *       {
+ *         Arn: "STRING_VALUE", // required
+ *         Type: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *     MonitoringTimeInMinutes: Number("int"),
+ *   },
+ *   TimeoutInMinutes: Number("int"),
+ *   NotificationARNs: [
+ *     "STRING_VALUE",
+ *   ],
+ *   Capabilities: [
+ *     "CAPABILITY_IAM" || "CAPABILITY_NAMED_IAM" || "CAPABILITY_AUTO_EXPAND",
+ *   ],
+ *   ResourceTypes: [
+ *     "STRING_VALUE",
+ *   ],
+ *   RoleARN: "STRING_VALUE",
+ *   OnFailure: "DO_NOTHING" || "ROLLBACK" || "DELETE",
+ *   StackPolicyBody: "STRING_VALUE",
+ *   StackPolicyURL: "STRING_VALUE",
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   ClientRequestToken: "STRING_VALUE",
+ *   EnableTerminationProtection: true || false,
+ * };
  * const command = new CreateStackCommand(input);
  * const response = await client.send(command);
  * ```

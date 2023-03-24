@@ -55,6 +55,81 @@ export interface CreateHITCommandOutput extends CreateHITResponse, __MetadataBea
  * import { MTurkClient, CreateHITCommand } from "@aws-sdk/client-mturk"; // ES Modules import
  * // const { MTurkClient, CreateHITCommand } = require("@aws-sdk/client-mturk"); // CommonJS import
  * const client = new MTurkClient(config);
+ * const input = {
+ *   MaxAssignments: Number("int"),
+ *   AutoApprovalDelayInSeconds: Number("long"),
+ *   LifetimeInSeconds: Number("long"), // required
+ *   AssignmentDurationInSeconds: Number("long"), // required
+ *   Reward: "STRING_VALUE", // required
+ *   Title: "STRING_VALUE", // required
+ *   Keywords: "STRING_VALUE",
+ *   Description: "STRING_VALUE", // required
+ *   Question: "STRING_VALUE",
+ *   RequesterAnnotation: "STRING_VALUE",
+ *   QualificationRequirements: [
+ *     {
+ *       QualificationTypeId: "STRING_VALUE", // required
+ *       Comparator: "STRING_VALUE", // required
+ *       IntegerValues: [
+ *         Number("int"),
+ *       ],
+ *       LocaleValues: [
+ *         {
+ *           Country: "STRING_VALUE", // required
+ *           Subdivision: "STRING_VALUE",
+ *         },
+ *       ],
+ *       RequiredToPreview: true || false,
+ *       ActionsGuarded: "STRING_VALUE",
+ *     },
+ *   ],
+ *   UniqueRequestToken: "STRING_VALUE",
+ *   AssignmentReviewPolicy: {
+ *     PolicyName: "STRING_VALUE", // required
+ *     Parameters: [
+ *       {
+ *         Key: "STRING_VALUE",
+ *         Values: [
+ *           "STRING_VALUE",
+ *         ],
+ *         MapEntries: [
+ *           {
+ *             Key: "STRING_VALUE",
+ *             Values: [
+ *               "STRING_VALUE",
+ *             ],
+ *           },
+ *         ],
+ *       },
+ *     ],
+ *   },
+ *   HITReviewPolicy: {
+ *     PolicyName: "STRING_VALUE", // required
+ *     Parameters: [
+ *       {
+ *         Key: "STRING_VALUE",
+ *         Values: [
+ *           "STRING_VALUE",
+ *         ],
+ *         MapEntries: [
+ *           {
+ *             Key: "STRING_VALUE",
+ *             Values: [
+ *               "STRING_VALUE",
+ *             ],
+ *           },
+ *         ],
+ *       },
+ *     ],
+ *   },
+ *   HITLayoutId: "STRING_VALUE",
+ *   HITLayoutParameters: [
+ *     {
+ *       Name: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateHITCommand(input);
  * const response = await client.send(command);
  * ```

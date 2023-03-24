@@ -49,6 +49,9 @@ export interface DeleteStackCommandOutput extends __MetadataBearer {}
  * import { OpsWorksClient, DeleteStackCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, DeleteStackCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
+ * const input = {
+ *   StackId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteStackCommand(input);
  * const response = await client.send(command);
  * ```

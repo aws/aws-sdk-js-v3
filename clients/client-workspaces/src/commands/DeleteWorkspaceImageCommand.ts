@@ -44,6 +44,9 @@ export interface DeleteWorkspaceImageCommandOutput extends DeleteWorkspaceImageR
  * import { WorkSpacesClient, DeleteWorkspaceImageCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, DeleteWorkspaceImageCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
  * const client = new WorkSpacesClient(config);
+ * const input = {
+ *   ImageId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteWorkspaceImageCommand(input);
  * const response = await client.send(command);
  * ```

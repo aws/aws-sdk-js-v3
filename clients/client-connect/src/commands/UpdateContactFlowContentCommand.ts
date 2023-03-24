@@ -44,6 +44,11 @@ export interface UpdateContactFlowContentCommandOutput extends UpdateContactFlow
  * import { ConnectClient, UpdateContactFlowContentCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, UpdateContactFlowContentCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = {
+ *   InstanceId: "STRING_VALUE", // required
+ *   ContactFlowId: "STRING_VALUE", // required
+ *   Content: "STRING_VALUE", // required
+ * };
  * const command = new UpdateContactFlowContentCommand(input);
  * const response = await client.send(command);
  * ```

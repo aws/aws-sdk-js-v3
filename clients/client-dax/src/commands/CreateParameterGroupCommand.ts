@@ -43,6 +43,10 @@ export interface CreateParameterGroupCommandOutput extends CreateParameterGroupR
  * import { DAXClient, CreateParameterGroupCommand } from "@aws-sdk/client-dax"; // ES Modules import
  * // const { DAXClient, CreateParameterGroupCommand } = require("@aws-sdk/client-dax"); // CommonJS import
  * const client = new DAXClient(config);
+ * const input = {
+ *   ParameterGroupName: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ * };
  * const command = new CreateParameterGroupCommand(input);
  * const response = await client.send(command);
  * ```

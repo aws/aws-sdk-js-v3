@@ -42,6 +42,9 @@ export interface DeleteScheduleCommandOutput extends DeleteScheduleResponse, __M
  * import { MediaLiveClient, DeleteScheduleCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, DeleteScheduleCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
  * const client = new MediaLiveClient(config);
+ * const input = {
+ *   ChannelId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteScheduleCommand(input);
  * const response = await client.send(command);
  * ```

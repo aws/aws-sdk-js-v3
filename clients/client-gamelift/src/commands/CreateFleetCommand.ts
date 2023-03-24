@@ -77,6 +77,67 @@ export interface CreateFleetCommandOutput extends CreateFleetOutput, __MetadataB
  * import { GameLiftClient, CreateFleetCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, CreateFleetCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = {
+ *   Name: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   BuildId: "STRING_VALUE",
+ *   ScriptId: "STRING_VALUE",
+ *   ServerLaunchPath: "STRING_VALUE",
+ *   ServerLaunchParameters: "STRING_VALUE",
+ *   LogPaths: [
+ *     "STRING_VALUE",
+ *   ],
+ *   EC2InstanceType: "t2.micro" || "t2.small" || "t2.medium" || "t2.large" || "c3.large" || "c3.xlarge" || "c3.2xlarge" || "c3.4xlarge" || "c3.8xlarge" || "c4.large" || "c4.xlarge" || "c4.2xlarge" || "c4.4xlarge" || "c4.8xlarge" || "c5.large" || "c5.xlarge" || "c5.2xlarge" || "c5.4xlarge" || "c5.9xlarge" || "c5.12xlarge" || "c5.18xlarge" || "c5.24xlarge" || "c5a.large" || "c5a.xlarge" || "c5a.2xlarge" || "c5a.4xlarge" || "c5a.8xlarge" || "c5a.12xlarge" || "c5a.16xlarge" || "c5a.24xlarge" || "r3.large" || "r3.xlarge" || "r3.2xlarge" || "r3.4xlarge" || "r3.8xlarge" || "r4.large" || "r4.xlarge" || "r4.2xlarge" || "r4.4xlarge" || "r4.8xlarge" || "r4.16xlarge" || "r5.large" || "r5.xlarge" || "r5.2xlarge" || "r5.4xlarge" || "r5.8xlarge" || "r5.12xlarge" || "r5.16xlarge" || "r5.24xlarge" || "r5a.large" || "r5a.xlarge" || "r5a.2xlarge" || "r5a.4xlarge" || "r5a.8xlarge" || "r5a.12xlarge" || "r5a.16xlarge" || "r5a.24xlarge" || "m3.medium" || "m3.large" || "m3.xlarge" || "m3.2xlarge" || "m4.large" || "m4.xlarge" || "m4.2xlarge" || "m4.4xlarge" || "m4.10xlarge" || "m5.large" || "m5.xlarge" || "m5.2xlarge" || "m5.4xlarge" || "m5.8xlarge" || "m5.12xlarge" || "m5.16xlarge" || "m5.24xlarge" || "m5a.large" || "m5a.xlarge" || "m5a.2xlarge" || "m5a.4xlarge" || "m5a.8xlarge" || "m5a.12xlarge" || "m5a.16xlarge" || "m5a.24xlarge" || "c5d.large" || "c5d.xlarge" || "c5d.2xlarge" || "c5d.4xlarge" || "c5d.9xlarge" || "c5d.12xlarge" || "c5d.18xlarge" || "c5d.24xlarge" || "c6a.large" || "c6a.xlarge" || "c6a.2xlarge" || "c6a.4xlarge" || "c6a.8xlarge" || "c6a.12xlarge" || "c6a.16xlarge" || "c6a.24xlarge" || "c6i.large" || "c6i.xlarge" || "c6i.2xlarge" || "c6i.4xlarge" || "c6i.8xlarge" || "c6i.12xlarge" || "c6i.16xlarge" || "c6i.24xlarge" || "r5d.large" || "r5d.xlarge" || "r5d.2xlarge" || "r5d.4xlarge" || "r5d.8xlarge" || "r5d.12xlarge" || "r5d.16xlarge" || "r5d.24xlarge",
+ *   EC2InboundPermissions: [
+ *     {
+ *       FromPort: Number("int"), // required
+ *       ToPort: Number("int"), // required
+ *       IpRange: "STRING_VALUE", // required
+ *       Protocol: "TCP" || "UDP", // required
+ *     },
+ *   ],
+ *   NewGameSessionProtectionPolicy: "NoProtection" || "FullProtection",
+ *   RuntimeConfiguration: {
+ *     ServerProcesses: [
+ *       {
+ *         LaunchPath: "STRING_VALUE", // required
+ *         Parameters: "STRING_VALUE",
+ *         ConcurrentExecutions: Number("int"), // required
+ *       },
+ *     ],
+ *     MaxConcurrentGameSessionActivations: Number("int"),
+ *     GameSessionActivationTimeoutSeconds: Number("int"),
+ *   },
+ *   ResourceCreationLimitPolicy: {
+ *     NewGameSessionsPerCreator: Number("int"),
+ *     PolicyPeriodInMinutes: Number("int"),
+ *   },
+ *   MetricGroups: [
+ *     "STRING_VALUE",
+ *   ],
+ *   PeerVpcAwsAccountId: "STRING_VALUE",
+ *   PeerVpcId: "STRING_VALUE",
+ *   FleetType: "ON_DEMAND" || "SPOT",
+ *   InstanceRoleArn: "STRING_VALUE",
+ *   CertificateConfiguration: {
+ *     CertificateType: "DISABLED" || "GENERATED", // required
+ *   },
+ *   Locations: [
+ *     {
+ *       Location: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   ComputeType: "EC2" || "ANYWHERE",
+ *   AnywhereConfiguration: {
+ *     Cost: "STRING_VALUE", // required
+ *   },
+ * };
  * const command = new CreateFleetCommand(input);
  * const response = await client.send(command);
  * ```

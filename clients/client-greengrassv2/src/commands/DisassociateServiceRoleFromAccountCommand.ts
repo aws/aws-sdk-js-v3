@@ -50,6 +50,7 @@ export interface DisassociateServiceRoleFromAccountCommandOutput
  * import { GreengrassV2Client, DisassociateServiceRoleFromAccountCommand } from "@aws-sdk/client-greengrassv2"; // ES Modules import
  * // const { GreengrassV2Client, DisassociateServiceRoleFromAccountCommand } = require("@aws-sdk/client-greengrassv2"); // CommonJS import
  * const client = new GreengrassV2Client(config);
+ * const input = {};
  * const command = new DisassociateServiceRoleFromAccountCommand(input);
  * const response = await client.send(command);
  * ```

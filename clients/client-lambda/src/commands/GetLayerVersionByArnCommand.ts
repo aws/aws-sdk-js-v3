@@ -44,6 +44,9 @@ export interface GetLayerVersionByArnCommandOutput extends GetLayerVersionRespon
  * import { LambdaClient, GetLayerVersionByArnCommand } from "@aws-sdk/client-lambda"; // ES Modules import
  * // const { LambdaClient, GetLayerVersionByArnCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
  * const client = new LambdaClient(config);
+ * const input = {
+ *   Arn: "STRING_VALUE", // required
+ * };
  * const command = new GetLayerVersionByArnCommand(input);
  * const response = await client.send(command);
  * ```

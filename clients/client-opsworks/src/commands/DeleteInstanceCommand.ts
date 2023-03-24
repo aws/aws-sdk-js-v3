@@ -49,6 +49,11 @@ export interface DeleteInstanceCommandOutput extends __MetadataBearer {}
  * import { OpsWorksClient, DeleteInstanceCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, DeleteInstanceCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
+ * const input = {
+ *   InstanceId: "STRING_VALUE", // required
+ *   DeleteElasticIp: true || false,
+ *   DeleteVolumes: true || false,
+ * };
  * const command = new DeleteInstanceCommand(input);
  * const response = await client.send(command);
  * ```

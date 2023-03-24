@@ -42,6 +42,12 @@ export interface ListChunksCommandOutput extends ListChunksOutput, __MetadataBea
  * import { BackupStorageClient, ListChunksCommand } from "@aws-sdk/client-backupstorage"; // ES Modules import
  * // const { BackupStorageClient, ListChunksCommand } = require("@aws-sdk/client-backupstorage"); // CommonJS import
  * const client = new BackupStorageClient(config);
+ * const input = {
+ *   StorageJobId: "STRING_VALUE", // required
+ *   ObjectToken: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListChunksCommand(input);
  * const response = await client.send(command);
  * ```

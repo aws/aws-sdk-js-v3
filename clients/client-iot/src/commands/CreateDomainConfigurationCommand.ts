@@ -43,6 +43,25 @@ export interface CreateDomainConfigurationCommandOutput extends CreateDomainConf
  * import { IoTClient, CreateDomainConfigurationCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, CreateDomainConfigurationCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = {
+ *   domainConfigurationName: "STRING_VALUE", // required
+ *   domainName: "STRING_VALUE",
+ *   serverCertificateArns: [
+ *     "STRING_VALUE",
+ *   ],
+ *   validationCertificateArn: "STRING_VALUE",
+ *   authorizerConfig: {
+ *     defaultAuthorizerName: "STRING_VALUE",
+ *     allowAuthorizerOverride: true || false,
+ *   },
+ *   serviceType: "DATA" || "CREDENTIAL_PROVIDER" || "JOBS",
+ *   tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateDomainConfigurationCommand(input);
  * const response = await client.send(command);
  * ```

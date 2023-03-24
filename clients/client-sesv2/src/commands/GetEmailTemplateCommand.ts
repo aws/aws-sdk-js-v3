@@ -44,6 +44,9 @@ export interface GetEmailTemplateCommandOutput extends GetEmailTemplateResponse,
  * import { SESv2Client, GetEmailTemplateCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, GetEmailTemplateCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
  * const client = new SESv2Client(config);
+ * const input = {
+ *   TemplateName: "STRING_VALUE", // required
+ * };
  * const command = new GetEmailTemplateCommand(input);
  * const response = await client.send(command);
  * ```

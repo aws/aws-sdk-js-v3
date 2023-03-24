@@ -45,6 +45,10 @@ export interface DescribeMediaStorageConfigurationCommandOutput
  * import { KinesisVideoClient, DescribeMediaStorageConfigurationCommand } from "@aws-sdk/client-kinesis-video"; // ES Modules import
  * // const { KinesisVideoClient, DescribeMediaStorageConfigurationCommand } = require("@aws-sdk/client-kinesis-video"); // CommonJS import
  * const client = new KinesisVideoClient(config);
+ * const input = {
+ *   ChannelName: "STRING_VALUE",
+ *   ChannelARN: "STRING_VALUE",
+ * };
  * const command = new DescribeMediaStorageConfigurationCommand(input);
  * const response = await client.send(command);
  * ```

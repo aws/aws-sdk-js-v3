@@ -70,6 +70,9 @@ export interface GetEventSelectorsCommandOutput extends GetEventSelectorsRespons
  * import { CloudTrailClient, GetEventSelectorsCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
  * // const { CloudTrailClient, GetEventSelectorsCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
  * const client = new CloudTrailClient(config);
+ * const input = {
+ *   TrailName: "STRING_VALUE", // required
+ * };
  * const command = new GetEventSelectorsCommand(input);
  * const response = await client.send(command);
  * ```

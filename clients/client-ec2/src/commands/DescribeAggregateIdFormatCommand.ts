@@ -58,6 +58,9 @@ export interface DescribeAggregateIdFormatCommandOutput extends DescribeAggregat
  * import { EC2Client, DescribeAggregateIdFormatCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeAggregateIdFormatCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   DryRun: true || false,
+ * };
  * const command = new DescribeAggregateIdFormatCommand(input);
  * const response = await client.send(command);
  * ```

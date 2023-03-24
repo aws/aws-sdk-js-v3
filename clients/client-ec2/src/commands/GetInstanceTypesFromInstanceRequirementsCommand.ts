@@ -57,6 +57,85 @@ export interface GetInstanceTypesFromInstanceRequirementsCommandOutput
  * import { EC2Client, GetInstanceTypesFromInstanceRequirementsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, GetInstanceTypesFromInstanceRequirementsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   DryRun: true || false,
+ *   ArchitectureTypes: [ // required
+ *     "i386" || "x86_64" || "arm64" || "x86_64_mac" || "arm64_mac",
+ *   ],
+ *   VirtualizationTypes: [ // required
+ *     "hvm" || "paravirtual",
+ *   ],
+ *   InstanceRequirements: {
+ *     VCpuCount: {
+ *       Min: Number("int"), // required
+ *       Max: Number("int"),
+ *     },
+ *     MemoryMiB: {
+ *       Min: Number("int"), // required
+ *       Max: Number("int"),
+ *     },
+ *     CpuManufacturers: [
+ *       "intel" || "amd" || "amazon-web-services",
+ *     ],
+ *     MemoryGiBPerVCpu: {
+ *       Min: Number("double"),
+ *       Max: Number("double"),
+ *     },
+ *     ExcludedInstanceTypes: [
+ *       "STRING_VALUE",
+ *     ],
+ *     InstanceGenerations: [
+ *       "current" || "previous",
+ *     ],
+ *     SpotMaxPricePercentageOverLowestPrice: Number("int"),
+ *     OnDemandMaxPricePercentageOverLowestPrice: Number("int"),
+ *     BareMetal: "included" || "required" || "excluded",
+ *     BurstablePerformance: "included" || "required" || "excluded",
+ *     RequireHibernateSupport: true || false,
+ *     NetworkInterfaceCount: {
+ *       Min: Number("int"),
+ *       Max: Number("int"),
+ *     },
+ *     LocalStorage: "included" || "required" || "excluded",
+ *     LocalStorageTypes: [
+ *       "hdd" || "ssd",
+ *     ],
+ *     TotalLocalStorageGB: {
+ *       Min: Number("double"),
+ *       Max: Number("double"),
+ *     },
+ *     BaselineEbsBandwidthMbps: {
+ *       Min: Number("int"),
+ *       Max: Number("int"),
+ *     },
+ *     AcceleratorTypes: [
+ *       "gpu" || "fpga" || "inference",
+ *     ],
+ *     AcceleratorCount: {
+ *       Min: Number("int"),
+ *       Max: Number("int"),
+ *     },
+ *     AcceleratorManufacturers: [
+ *       "nvidia" || "amd" || "amazon-web-services" || "xilinx",
+ *     ],
+ *     AcceleratorNames: [
+ *       "a100" || "v100" || "k80" || "t4" || "m60" || "radeon-pro-v520" || "vu9p" || "inferentia" || "k520",
+ *     ],
+ *     AcceleratorTotalMemoryMiB: {
+ *       Min: Number("int"),
+ *       Max: Number("int"),
+ *     },
+ *     NetworkBandwidthGbps: {
+ *       Min: Number("double"),
+ *       Max: Number("double"),
+ *     },
+ *     AllowedInstanceTypes: [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new GetInstanceTypesFromInstanceRequirementsCommand(input);
  * const response = await client.send(command);
  * ```

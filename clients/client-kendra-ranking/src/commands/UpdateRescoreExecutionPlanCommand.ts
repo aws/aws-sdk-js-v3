@@ -47,6 +47,14 @@ export interface UpdateRescoreExecutionPlanCommandOutput extends __MetadataBeare
  * import { KendraRankingClient, UpdateRescoreExecutionPlanCommand } from "@aws-sdk/client-kendra-ranking"; // ES Modules import
  * // const { KendraRankingClient, UpdateRescoreExecutionPlanCommand } = require("@aws-sdk/client-kendra-ranking"); // CommonJS import
  * const client = new KendraRankingClient(config);
+ * const input = {
+ *   Id: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   CapacityUnits: {
+ *     RescoreCapacityUnits: Number("int"), // required
+ *   },
+ * };
  * const command = new UpdateRescoreExecutionPlanCommand(input);
  * const response = await client.send(command);
  * ```

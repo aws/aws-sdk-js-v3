@@ -45,6 +45,12 @@ export interface UpdatePolicyCommandOutput extends UpdatePolicyResponse, __Metad
  * import { OrganizationsClient, UpdatePolicyCommand } from "@aws-sdk/client-organizations"; // ES Modules import
  * // const { OrganizationsClient, UpdatePolicyCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
  * const client = new OrganizationsClient(config);
+ * const input = {
+ *   PolicyId: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   Content: "STRING_VALUE",
+ * };
  * const command = new UpdatePolicyCommand(input);
  * const response = await client.send(command);
  * ```

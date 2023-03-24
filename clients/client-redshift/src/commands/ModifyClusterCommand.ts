@@ -50,6 +50,37 @@ export interface ModifyClusterCommandOutput extends ModifyClusterResult, __Metad
  * import { RedshiftClient, ModifyClusterCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, ModifyClusterCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = {
+ *   ClusterIdentifier: "STRING_VALUE", // required
+ *   ClusterType: "STRING_VALUE",
+ *   NodeType: "STRING_VALUE",
+ *   NumberOfNodes: Number("int"),
+ *   ClusterSecurityGroups: [
+ *     "STRING_VALUE",
+ *   ],
+ *   VpcSecurityGroupIds: [
+ *     "STRING_VALUE",
+ *   ],
+ *   MasterUserPassword: "STRING_VALUE",
+ *   ClusterParameterGroupName: "STRING_VALUE",
+ *   AutomatedSnapshotRetentionPeriod: Number("int"),
+ *   ManualSnapshotRetentionPeriod: Number("int"),
+ *   PreferredMaintenanceWindow: "STRING_VALUE",
+ *   ClusterVersion: "STRING_VALUE",
+ *   AllowVersionUpgrade: true || false,
+ *   HsmClientCertificateIdentifier: "STRING_VALUE",
+ *   HsmConfigurationIdentifier: "STRING_VALUE",
+ *   NewClusterIdentifier: "STRING_VALUE",
+ *   PubliclyAccessible: true || false,
+ *   ElasticIp: "STRING_VALUE",
+ *   EnhancedVpcRouting: true || false,
+ *   MaintenanceTrackName: "STRING_VALUE",
+ *   Encrypted: true || false,
+ *   KmsKeyId: "STRING_VALUE",
+ *   AvailabilityZoneRelocation: true || false,
+ *   AvailabilityZone: "STRING_VALUE",
+ *   Port: Number("int"),
+ * };
  * const command = new ModifyClusterCommand(input);
  * const response = await client.send(command);
  * ```

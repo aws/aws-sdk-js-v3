@@ -50,6 +50,98 @@ export interface UpdateScheduleCommandOutput extends UpdateScheduleOutput, __Met
  * import { SchedulerClient, UpdateScheduleCommand } from "@aws-sdk/client-scheduler"; // ES Modules import
  * // const { SchedulerClient, UpdateScheduleCommand } = require("@aws-sdk/client-scheduler"); // CommonJS import
  * const client = new SchedulerClient(config);
+ * const input = {
+ *   Name: "STRING_VALUE", // required
+ *   GroupName: "STRING_VALUE",
+ *   ScheduleExpression: "STRING_VALUE", // required
+ *   StartDate: new Date("TIMESTAMP"),
+ *   EndDate: new Date("TIMESTAMP"),
+ *   Description: "STRING_VALUE",
+ *   ScheduleExpressionTimezone: "STRING_VALUE",
+ *   State: "STRING_VALUE",
+ *   KmsKeyArn: "STRING_VALUE",
+ *   Target: {
+ *     Arn: "STRING_VALUE", // required
+ *     RoleArn: "STRING_VALUE", // required
+ *     DeadLetterConfig: {
+ *       Arn: "STRING_VALUE",
+ *     },
+ *     RetryPolicy: {
+ *       MaximumEventAgeInSeconds: Number("int"),
+ *       MaximumRetryAttempts: Number("int"),
+ *     },
+ *     Input: "STRING_VALUE",
+ *     EcsParameters: {
+ *       TaskDefinitionArn: "STRING_VALUE", // required
+ *       TaskCount: Number("int"),
+ *       LaunchType: "STRING_VALUE",
+ *       NetworkConfiguration: {
+ *         awsvpcConfiguration: {
+ *           Subnets: [ // required
+ *             "STRING_VALUE",
+ *           ],
+ *           SecurityGroups: [
+ *             "STRING_VALUE",
+ *           ],
+ *           AssignPublicIp: "STRING_VALUE",
+ *         },
+ *       },
+ *       PlatformVersion: "STRING_VALUE",
+ *       Group: "STRING_VALUE",
+ *       CapacityProviderStrategy: [
+ *         {
+ *           capacityProvider: "STRING_VALUE", // required
+ *           weight: Number("int"),
+ *           base: Number("int"),
+ *         },
+ *       ],
+ *       EnableECSManagedTags: true || false,
+ *       EnableExecuteCommand: true || false,
+ *       PlacementConstraints: [
+ *         {
+ *           type: "STRING_VALUE",
+ *           expression: "STRING_VALUE",
+ *         },
+ *       ],
+ *       PlacementStrategy: [
+ *         {
+ *           type: "STRING_VALUE",
+ *           field: "STRING_VALUE",
+ *         },
+ *       ],
+ *       PropagateTags: "STRING_VALUE",
+ *       ReferenceId: "STRING_VALUE",
+ *       Tags: [
+ *         {
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *       ],
+ *     },
+ *     EventBridgeParameters: {
+ *       DetailType: "STRING_VALUE", // required
+ *       Source: "STRING_VALUE", // required
+ *     },
+ *     KinesisParameters: {
+ *       PartitionKey: "STRING_VALUE", // required
+ *     },
+ *     SageMakerPipelineParameters: {
+ *       PipelineParameterList: [
+ *         {
+ *           Name: "STRING_VALUE", // required
+ *           Value: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *     },
+ *     SqsParameters: {
+ *       MessageGroupId: "STRING_VALUE",
+ *     },
+ *   },
+ *   FlexibleTimeWindow: {
+ *     Mode: "STRING_VALUE", // required
+ *     MaximumWindowInMinutes: Number("int"),
+ *   },
+ *   ClientToken: "STRING_VALUE",
+ * };
  * const command = new UpdateScheduleCommand(input);
  * const response = await client.send(command);
  * ```

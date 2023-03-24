@@ -44,6 +44,14 @@ export interface SearchFlowExecutionsCommandOutput extends SearchFlowExecutionsR
  * import { IoTThingsGraphClient, SearchFlowExecutionsCommand } from "@aws-sdk/client-iotthingsgraph"; // ES Modules import
  * // const { IoTThingsGraphClient, SearchFlowExecutionsCommand } = require("@aws-sdk/client-iotthingsgraph"); // CommonJS import
  * const client = new IoTThingsGraphClient(config);
+ * const input = {
+ *   systemInstanceId: "STRING_VALUE", // required
+ *   flowExecutionId: "STRING_VALUE",
+ *   startTime: new Date("TIMESTAMP"),
+ *   endTime: new Date("TIMESTAMP"),
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new SearchFlowExecutionsCommand(input);
  * const response = await client.send(command);
  * ```

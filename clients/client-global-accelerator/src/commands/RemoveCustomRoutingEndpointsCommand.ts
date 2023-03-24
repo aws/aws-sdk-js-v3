@@ -46,6 +46,12 @@ export interface RemoveCustomRoutingEndpointsCommandOutput extends __MetadataBea
  * import { GlobalAcceleratorClient, RemoveCustomRoutingEndpointsCommand } from "@aws-sdk/client-global-accelerator"; // ES Modules import
  * // const { GlobalAcceleratorClient, RemoveCustomRoutingEndpointsCommand } = require("@aws-sdk/client-global-accelerator"); // CommonJS import
  * const client = new GlobalAcceleratorClient(config);
+ * const input = {
+ *   EndpointIds: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ *   EndpointGroupArn: "STRING_VALUE", // required
+ * };
  * const command = new RemoveCustomRoutingEndpointsCommand(input);
  * const response = await client.send(command);
  * ```

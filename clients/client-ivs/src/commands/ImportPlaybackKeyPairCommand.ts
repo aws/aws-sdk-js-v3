@@ -46,6 +46,13 @@ export interface ImportPlaybackKeyPairCommandOutput extends ImportPlaybackKeyPai
  * import { IvsClient, ImportPlaybackKeyPairCommand } from "@aws-sdk/client-ivs"; // ES Modules import
  * // const { IvsClient, ImportPlaybackKeyPairCommand } = require("@aws-sdk/client-ivs"); // CommonJS import
  * const client = new IvsClient(config);
+ * const input = {
+ *   publicKeyMaterial: "STRING_VALUE", // required
+ *   name: "STRING_VALUE",
+ *   tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new ImportPlaybackKeyPairCommand(input);
  * const response = await client.send(command);
  * ```

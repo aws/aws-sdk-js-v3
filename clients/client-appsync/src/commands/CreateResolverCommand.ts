@@ -44,6 +44,39 @@ export interface CreateResolverCommandOutput extends CreateResolverResponse, __M
  * import { AppSyncClient, CreateResolverCommand } from "@aws-sdk/client-appsync"; // ES Modules import
  * // const { AppSyncClient, CreateResolverCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
  * const client = new AppSyncClient(config);
+ * const input = {
+ *   apiId: "STRING_VALUE", // required
+ *   typeName: "STRING_VALUE", // required
+ *   fieldName: "STRING_VALUE", // required
+ *   dataSourceName: "STRING_VALUE",
+ *   requestMappingTemplate: "STRING_VALUE",
+ *   responseMappingTemplate: "STRING_VALUE",
+ *   kind: "UNIT" || "PIPELINE",
+ *   pipelineConfig: {
+ *     functions: [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   syncConfig: {
+ *     conflictHandler: "OPTIMISTIC_CONCURRENCY" || "LAMBDA" || "AUTOMERGE" || "NONE",
+ *     conflictDetection: "VERSION" || "NONE",
+ *     lambdaConflictHandlerConfig: {
+ *       lambdaConflictHandlerArn: "STRING_VALUE",
+ *     },
+ *   },
+ *   cachingConfig: {
+ *     ttl: Number("long"), // required
+ *     cachingKeys: [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   maxBatchSize: Number("int"),
+ *   runtime: {
+ *     name: "APPSYNC_JS", // required
+ *     runtimeVersion: "STRING_VALUE", // required
+ *   },
+ *   code: "STRING_VALUE",
+ * };
  * const command = new CreateResolverCommand(input);
  * const response = await client.send(command);
  * ```

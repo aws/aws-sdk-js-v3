@@ -42,6 +42,70 @@ export interface CreateWirelessDeviceCommandOutput extends CreateWirelessDeviceR
  * import { IoTWirelessClient, CreateWirelessDeviceCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, CreateWirelessDeviceCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
+ * const input = {
+ *   Type: "Sidewalk" || "LoRaWAN", // required
+ *   Name: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   DestinationName: "STRING_VALUE", // required
+ *   ClientRequestToken: "STRING_VALUE",
+ *   LoRaWAN: {
+ *     DevEui: "STRING_VALUE",
+ *     DeviceProfileId: "STRING_VALUE",
+ *     ServiceProfileId: "STRING_VALUE",
+ *     OtaaV1_1: {
+ *       AppKey: "STRING_VALUE",
+ *       NwkKey: "STRING_VALUE",
+ *       JoinEui: "STRING_VALUE",
+ *     },
+ *     OtaaV1_0_x: {
+ *       AppKey: "STRING_VALUE",
+ *       AppEui: "STRING_VALUE",
+ *       GenAppKey: "STRING_VALUE",
+ *     },
+ *     AbpV1_1: {
+ *       DevAddr: "STRING_VALUE",
+ *       SessionKeys: {
+ *         FNwkSIntKey: "STRING_VALUE",
+ *         SNwkSIntKey: "STRING_VALUE",
+ *         NwkSEncKey: "STRING_VALUE",
+ *         AppSKey: "STRING_VALUE",
+ *       },
+ *       FCntStart: Number("int"),
+ *     },
+ *     AbpV1_0_x: {
+ *       DevAddr: "STRING_VALUE",
+ *       SessionKeys: {
+ *         NwkSKey: "STRING_VALUE",
+ *         AppSKey: "STRING_VALUE",
+ *       },
+ *       FCntStart: Number("int"),
+ *     },
+ *     FPorts: {
+ *       Fuota: Number("int"),
+ *       Multicast: Number("int"),
+ *       ClockSync: Number("int"),
+ *       Positioning: {
+ *         ClockSync: Number("int"),
+ *         Stream: Number("int"),
+ *         Gnss: Number("int"),
+ *       },
+ *       Applications: [
+ *         {
+ *           FPort: Number("int"),
+ *           Type: "SemtechGeolocation",
+ *           DestinationName: "STRING_VALUE",
+ *         },
+ *       ],
+ *     },
+ *   },
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   Positioning: "Enabled" || "Disabled",
+ * };
  * const command = new CreateWirelessDeviceCommand(input);
  * const response = await client.send(command);
  * ```

@@ -44,6 +44,74 @@ export interface UpdatePipelineCommandOutput extends __MetadataBearer {}
  * import { IoTAnalyticsClient, UpdatePipelineCommand } from "@aws-sdk/client-iotanalytics"; // ES Modules import
  * // const { IoTAnalyticsClient, UpdatePipelineCommand } = require("@aws-sdk/client-iotanalytics"); // CommonJS import
  * const client = new IoTAnalyticsClient(config);
+ * const input = {
+ *   pipelineName: "STRING_VALUE", // required
+ *   pipelineActivities: [ // required
+ *     {
+ *       channel: {
+ *         name: "STRING_VALUE", // required
+ *         channelName: "STRING_VALUE", // required
+ *         next: "STRING_VALUE",
+ *       },
+ *       lambda: {
+ *         name: "STRING_VALUE", // required
+ *         lambdaName: "STRING_VALUE", // required
+ *         batchSize: Number("int"), // required
+ *         next: "STRING_VALUE",
+ *       },
+ *       datastore: {
+ *         name: "STRING_VALUE", // required
+ *         datastoreName: "STRING_VALUE", // required
+ *       },
+ *       addAttributes: {
+ *         name: "STRING_VALUE", // required
+ *         attributes: { // required
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *         next: "STRING_VALUE",
+ *       },
+ *       removeAttributes: {
+ *         name: "STRING_VALUE", // required
+ *         attributes: [ // required
+ *           "STRING_VALUE",
+ *         ],
+ *         next: "STRING_VALUE",
+ *       },
+ *       selectAttributes: {
+ *         name: "STRING_VALUE", // required
+ *         attributes: [ // required
+ *           "STRING_VALUE",
+ *         ],
+ *         next: "STRING_VALUE",
+ *       },
+ *       filter: {
+ *         name: "STRING_VALUE", // required
+ *         filter: "STRING_VALUE", // required
+ *         next: "STRING_VALUE",
+ *       },
+ *       math: {
+ *         name: "STRING_VALUE", // required
+ *         attribute: "STRING_VALUE", // required
+ *         math: "STRING_VALUE", // required
+ *         next: "STRING_VALUE",
+ *       },
+ *       deviceRegistryEnrich: {
+ *         name: "STRING_VALUE", // required
+ *         attribute: "STRING_VALUE", // required
+ *         thingName: "STRING_VALUE", // required
+ *         roleArn: "STRING_VALUE", // required
+ *         next: "STRING_VALUE",
+ *       },
+ *       deviceShadowEnrich: {
+ *         name: "STRING_VALUE", // required
+ *         attribute: "STRING_VALUE", // required
+ *         thingName: "STRING_VALUE", // required
+ *         roleArn: "STRING_VALUE", // required
+ *         next: "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ * };
  * const command = new UpdatePipelineCommand(input);
  * const response = await client.send(command);
  * ```

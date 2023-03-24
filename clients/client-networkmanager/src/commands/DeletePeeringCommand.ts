@@ -42,6 +42,9 @@ export interface DeletePeeringCommandOutput extends DeletePeeringResponse, __Met
  * import { NetworkManagerClient, DeletePeeringCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, DeletePeeringCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
+ * const input = {
+ *   PeeringId: "STRING_VALUE", // required
+ * };
  * const command = new DeletePeeringCommand(input);
  * const response = await client.send(command);
  * ```

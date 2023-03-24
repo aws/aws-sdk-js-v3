@@ -42,6 +42,26 @@ export interface UpdateUserHierarchyStructureCommandOutput extends __MetadataBea
  * import { ConnectClient, UpdateUserHierarchyStructureCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, UpdateUserHierarchyStructureCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = {
+ *   HierarchyStructure: {
+ *     LevelOne: {
+ *       Name: "STRING_VALUE", // required
+ *     },
+ *     LevelTwo: {
+ *       Name: "STRING_VALUE", // required
+ *     },
+ *     LevelThree: {
+ *       Name: "STRING_VALUE", // required
+ *     },
+ *     LevelFour: {
+ *       Name: "STRING_VALUE", // required
+ *     },
+ *     LevelFive: {
+ *       Name: "STRING_VALUE", // required
+ *     },
+ *   },
+ *   InstanceId: "STRING_VALUE", // required
+ * };
  * const command = new UpdateUserHierarchyStructureCommand(input);
  * const response = await client.send(command);
  * ```

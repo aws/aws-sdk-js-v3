@@ -43,6 +43,10 @@ export interface GenerateChangeSetCommandOutput extends GenerateChangeSetRespons
  * import { SMSClient, GenerateChangeSetCommand } from "@aws-sdk/client-sms"; // ES Modules import
  * // const { SMSClient, GenerateChangeSetCommand } = require("@aws-sdk/client-sms"); // CommonJS import
  * const client = new SMSClient(config);
+ * const input = {
+ *   appId: "STRING_VALUE",
+ *   changesetFormat: "STRING_VALUE",
+ * };
  * const command = new GenerateChangeSetCommand(input);
  * const response = await client.send(command);
  * ```

@@ -46,6 +46,11 @@ export interface DeleteDomainPermissionsPolicyCommandOutput
  * import { CodeartifactClient, DeleteDomainPermissionsPolicyCommand } from "@aws-sdk/client-codeartifact"; // ES Modules import
  * // const { CodeartifactClient, DeleteDomainPermissionsPolicyCommand } = require("@aws-sdk/client-codeartifact"); // CommonJS import
  * const client = new CodeartifactClient(config);
+ * const input = {
+ *   domain: "STRING_VALUE", // required
+ *   domainOwner: "STRING_VALUE",
+ *   policyRevision: "STRING_VALUE",
+ * };
  * const command = new DeleteDomainPermissionsPolicyCommand(input);
  * const response = await client.send(command);
  * ```

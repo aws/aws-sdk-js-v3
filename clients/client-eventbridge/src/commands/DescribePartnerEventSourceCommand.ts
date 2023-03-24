@@ -45,6 +45,9 @@ export interface DescribePartnerEventSourceCommandOutput extends DescribePartner
  * import { EventBridgeClient, DescribePartnerEventSourceCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
  * // const { EventBridgeClient, DescribePartnerEventSourceCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
  * const client = new EventBridgeClient(config);
+ * const input = {
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new DescribePartnerEventSourceCommand(input);
  * const response = await client.send(command);
  * ```

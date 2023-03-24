@@ -42,6 +42,9 @@ export interface DeleteBrokerCommandOutput extends DeleteBrokerResponse, __Metad
  * import { MqClient, DeleteBrokerCommand } from "@aws-sdk/client-mq"; // ES Modules import
  * // const { MqClient, DeleteBrokerCommand } = require("@aws-sdk/client-mq"); // CommonJS import
  * const client = new MqClient(config);
+ * const input = {
+ *   BrokerId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteBrokerCommand(input);
  * const response = await client.send(command);
  * ```

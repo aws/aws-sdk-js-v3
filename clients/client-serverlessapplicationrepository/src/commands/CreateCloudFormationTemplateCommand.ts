@@ -48,6 +48,10 @@ export interface CreateCloudFormationTemplateCommandOutput
  * import { ServerlessApplicationRepositoryClient, CreateCloudFormationTemplateCommand } from "@aws-sdk/client-serverlessapplicationrepository"; // ES Modules import
  * // const { ServerlessApplicationRepositoryClient, CreateCloudFormationTemplateCommand } = require("@aws-sdk/client-serverlessapplicationrepository"); // CommonJS import
  * const client = new ServerlessApplicationRepositoryClient(config);
+ * const input = {
+ *   ApplicationId: "STRING_VALUE", // required
+ *   SemanticVersion: "STRING_VALUE",
+ * };
  * const command = new CreateCloudFormationTemplateCommand(input);
  * const response = await client.send(command);
  * ```

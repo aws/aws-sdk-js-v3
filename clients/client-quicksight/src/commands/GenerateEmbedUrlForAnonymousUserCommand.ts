@@ -66,6 +66,38 @@ export interface GenerateEmbedUrlForAnonymousUserCommandOutput
  * import { QuickSightClient, GenerateEmbedUrlForAnonymousUserCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, GenerateEmbedUrlForAnonymousUserCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
+ * const input = {
+ *   AwsAccountId: "STRING_VALUE", // required
+ *   SessionLifetimeInMinutes: Number("long"),
+ *   Namespace: "STRING_VALUE", // required
+ *   SessionTags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   AuthorizedResourceArns: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ *   ExperienceConfiguration: {
+ *     Dashboard: {
+ *       InitialDashboardId: "STRING_VALUE", // required
+ *     },
+ *     DashboardVisual: {
+ *       InitialDashboardVisualId: {
+ *         DashboardId: "STRING_VALUE", // required
+ *         SheetId: "STRING_VALUE", // required
+ *         VisualId: "STRING_VALUE", // required
+ *       },
+ *     },
+ *     QSearchBar: {
+ *       InitialTopicId: "STRING_VALUE", // required
+ *     },
+ *   },
+ *   AllowedDomains: [
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new GenerateEmbedUrlForAnonymousUserCommand(input);
  * const response = await client.send(command);
  * ```

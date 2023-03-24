@@ -51,6 +51,17 @@ export interface AllowCustomRoutingTrafficCommandOutput extends __MetadataBearer
  * import { GlobalAcceleratorClient, AllowCustomRoutingTrafficCommand } from "@aws-sdk/client-global-accelerator"; // ES Modules import
  * // const { GlobalAcceleratorClient, AllowCustomRoutingTrafficCommand } = require("@aws-sdk/client-global-accelerator"); // CommonJS import
  * const client = new GlobalAcceleratorClient(config);
+ * const input = {
+ *   EndpointGroupArn: "STRING_VALUE", // required
+ *   EndpointId: "STRING_VALUE", // required
+ *   DestinationAddresses: [
+ *     "STRING_VALUE",
+ *   ],
+ *   DestinationPorts: [
+ *     Number("int"),
+ *   ],
+ *   AllowAllTrafficToEndpoint: true || false,
+ * };
  * const command = new AllowCustomRoutingTrafficCommand(input);
  * const response = await client.send(command);
  * ```

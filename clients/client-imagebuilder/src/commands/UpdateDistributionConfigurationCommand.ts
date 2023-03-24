@@ -45,6 +45,82 @@ export interface UpdateDistributionConfigurationCommandOutput
  * import { ImagebuilderClient, UpdateDistributionConfigurationCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
  * // const { ImagebuilderClient, UpdateDistributionConfigurationCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
  * const client = new ImagebuilderClient(config);
+ * const input = {
+ *   distributionConfigurationArn: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   distributions: [ // required
+ *     {
+ *       region: "STRING_VALUE", // required
+ *       amiDistributionConfiguration: {
+ *         name: "STRING_VALUE",
+ *         description: "STRING_VALUE",
+ *         targetAccountIds: [
+ *           "STRING_VALUE",
+ *         ],
+ *         amiTags: {
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *         kmsKeyId: "STRING_VALUE",
+ *         launchPermission: {
+ *           userIds: [
+ *             "STRING_VALUE",
+ *           ],
+ *           userGroups: [
+ *             "STRING_VALUE",
+ *           ],
+ *           organizationArns: [
+ *             "STRING_VALUE",
+ *           ],
+ *           organizationalUnitArns: [
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       },
+ *       containerDistributionConfiguration: {
+ *         description: "STRING_VALUE",
+ *         containerTags: [
+ *           "STRING_VALUE",
+ *         ],
+ *         targetRepository: {
+ *           service: "ECR", // required
+ *           repositoryName: "STRING_VALUE", // required
+ *         },
+ *       },
+ *       licenseConfigurationArns: [
+ *         "STRING_VALUE",
+ *       ],
+ *       launchTemplateConfigurations: [
+ *         {
+ *           launchTemplateId: "STRING_VALUE", // required
+ *           accountId: "STRING_VALUE",
+ *           setDefaultVersion: true || false,
+ *         },
+ *       ],
+ *       s3ExportConfiguration: {
+ *         roleName: "STRING_VALUE", // required
+ *         diskImageFormat: "VMDK" || "RAW" || "VHD", // required
+ *         s3Bucket: "STRING_VALUE", // required
+ *         s3Prefix: "STRING_VALUE",
+ *       },
+ *       fastLaunchConfigurations: [
+ *         {
+ *           enabled: true || false, // required
+ *           snapshotConfiguration: {
+ *             targetResourceCount: Number("int"),
+ *           },
+ *           maxParallelLaunches: Number("int"),
+ *           launchTemplate: {
+ *             launchTemplateId: "STRING_VALUE",
+ *             launchTemplateName: "STRING_VALUE",
+ *             launchTemplateVersion: "STRING_VALUE",
+ *           },
+ *           accountId: "STRING_VALUE",
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   clientToken: "STRING_VALUE", // required
+ * };
  * const command = new UpdateDistributionConfigurationCommand(input);
  * const response = await client.send(command);
  * ```

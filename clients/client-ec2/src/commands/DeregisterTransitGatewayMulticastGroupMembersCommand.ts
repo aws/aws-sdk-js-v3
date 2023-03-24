@@ -48,6 +48,14 @@ export interface DeregisterTransitGatewayMulticastGroupMembersCommandOutput
  * import { EC2Client, DeregisterTransitGatewayMulticastGroupMembersCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DeregisterTransitGatewayMulticastGroupMembersCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   TransitGatewayMulticastDomainId: "STRING_VALUE",
+ *   GroupIpAddress: "STRING_VALUE",
+ *   NetworkInterfaceIds: [
+ *     "STRING_VALUE",
+ *   ],
+ *   DryRun: true || false,
+ * };
  * const command = new DeregisterTransitGatewayMulticastGroupMembersCommand(input);
  * const response = await client.send(command);
  * ```

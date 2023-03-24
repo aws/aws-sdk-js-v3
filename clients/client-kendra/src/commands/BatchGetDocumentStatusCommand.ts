@@ -54,6 +54,27 @@ export interface BatchGetDocumentStatusCommandOutput extends BatchGetDocumentSta
  * import { KendraClient, BatchGetDocumentStatusCommand } from "@aws-sdk/client-kendra"; // ES Modules import
  * // const { KendraClient, BatchGetDocumentStatusCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
  * const client = new KendraClient(config);
+ * const input = {
+ *   IndexId: "STRING_VALUE", // required
+ *   DocumentInfoList: [ // required
+ *     {
+ *       DocumentId: "STRING_VALUE", // required
+ *       Attributes: [
+ *         {
+ *           Key: "STRING_VALUE", // required
+ *           Value: {
+ *             StringValue: "STRING_VALUE",
+ *             StringListValue: [
+ *               "STRING_VALUE",
+ *             ],
+ *             LongValue: Number("long"),
+ *             DateValue: new Date("TIMESTAMP"),
+ *           },
+ *         },
+ *       ],
+ *     },
+ *   ],
+ * };
  * const command = new BatchGetDocumentStatusCommand(input);
  * const response = await client.send(command);
  * ```

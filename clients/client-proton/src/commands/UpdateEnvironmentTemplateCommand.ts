@@ -47,6 +47,11 @@ export interface UpdateEnvironmentTemplateCommandOutput extends UpdateEnvironmen
  * import { ProtonClient, UpdateEnvironmentTemplateCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, UpdateEnvironmentTemplateCommand } = require("@aws-sdk/client-proton"); // CommonJS import
  * const client = new ProtonClient(config);
+ * const input = {
+ *   name: "STRING_VALUE", // required
+ *   displayName: "STRING_VALUE",
+ *   description: "STRING_VALUE",
+ * };
  * const command = new UpdateEnvironmentTemplateCommand(input);
  * const response = await client.send(command);
  * ```

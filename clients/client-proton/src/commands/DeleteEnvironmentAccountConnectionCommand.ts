@@ -49,6 +49,9 @@ export interface DeleteEnvironmentAccountConnectionCommandOutput
  * import { ProtonClient, DeleteEnvironmentAccountConnectionCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, DeleteEnvironmentAccountConnectionCommand } = require("@aws-sdk/client-proton"); // CommonJS import
  * const client = new ProtonClient(config);
+ * const input = {
+ *   id: "STRING_VALUE", // required
+ * };
  * const command = new DeleteEnvironmentAccountConnectionCommand(input);
  * const response = await client.send(command);
  * ```

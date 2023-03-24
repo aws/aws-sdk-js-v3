@@ -39,6 +39,7 @@ export interface PingCommandOutput extends PingResponse, __MetadataBearer {}
  * import { PrivateNetworksClient, PingCommand } from "@aws-sdk/client-privatenetworks"; // ES Modules import
  * // const { PrivateNetworksClient, PingCommand } = require("@aws-sdk/client-privatenetworks"); // CommonJS import
  * const client = new PrivateNetworksClient(config);
+ * const input = {};
  * const command = new PingCommand(input);
  * const response = await client.send(command);
  * ```

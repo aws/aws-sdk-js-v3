@@ -42,6 +42,9 @@ export interface StartApplicationCommandOutput extends StartApplicationResponse,
  * import { M2Client, StartApplicationCommand } from "@aws-sdk/client-m2"; // ES Modules import
  * // const { M2Client, StartApplicationCommand } = require("@aws-sdk/client-m2"); // CommonJS import
  * const client = new M2Client(config);
+ * const input = {
+ *   applicationId: "STRING_VALUE", // required
+ * };
  * const command = new StartApplicationCommand(input);
  * const response = await client.send(command);
  * ```

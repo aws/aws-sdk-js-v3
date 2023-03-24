@@ -39,6 +39,10 @@ export interface GetEventCommandOutput extends GetEventResult, __MetadataBearer 
  * import { FraudDetectorClient, GetEventCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, GetEventCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
  * const client = new FraudDetectorClient(config);
+ * const input = {
+ *   eventId: "STRING_VALUE", // required
+ *   eventTypeName: "STRING_VALUE", // required
+ * };
  * const command = new GetEventCommand(input);
  * const response = await client.send(command);
  * ```

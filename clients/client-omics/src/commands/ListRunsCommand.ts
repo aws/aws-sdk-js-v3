@@ -42,6 +42,12 @@ export interface ListRunsCommandOutput extends ListRunsResponse, __MetadataBeare
  * import { OmicsClient, ListRunsCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, ListRunsCommand } = require("@aws-sdk/client-omics"); // CommonJS import
  * const client = new OmicsClient(config);
+ * const input = {
+ *   name: "STRING_VALUE",
+ *   runGroupId: "STRING_VALUE",
+ *   startingToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListRunsCommand(input);
  * const response = await client.send(command);
  * ```

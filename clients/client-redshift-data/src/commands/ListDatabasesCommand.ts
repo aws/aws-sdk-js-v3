@@ -59,6 +59,15 @@ export interface ListDatabasesCommandOutput extends ListDatabasesResponse, __Met
  * import { RedshiftDataClient, ListDatabasesCommand } from "@aws-sdk/client-redshift-data"; // ES Modules import
  * // const { RedshiftDataClient, ListDatabasesCommand } = require("@aws-sdk/client-redshift-data"); // CommonJS import
  * const client = new RedshiftDataClient(config);
+ * const input = {
+ *   ClusterIdentifier: "STRING_VALUE",
+ *   Database: "STRING_VALUE", // required
+ *   SecretArn: "STRING_VALUE",
+ *   DbUser: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   WorkgroupName: "STRING_VALUE",
+ * };
  * const command = new ListDatabasesCommand(input);
  * const response = await client.send(command);
  * ```

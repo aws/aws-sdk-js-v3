@@ -58,6 +58,352 @@ export interface CreateHyperParameterTuningJobCommandOutput
  * import { SageMakerClient, CreateHyperParameterTuningJobCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, CreateHyperParameterTuningJobCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = {
+ *   HyperParameterTuningJobName: "STRING_VALUE", // required
+ *   HyperParameterTuningJobConfig: {
+ *     Strategy: "Bayesian" || "Random" || "Hyperband" || "Grid", // required
+ *     StrategyConfig: {
+ *       HyperbandStrategyConfig: {
+ *         MinResource: Number("int"),
+ *         MaxResource: Number("int"),
+ *       },
+ *     },
+ *     HyperParameterTuningJobObjective: {
+ *       Type: "Maximize" || "Minimize", // required
+ *       MetricName: "STRING_VALUE", // required
+ *     },
+ *     ResourceLimits: {
+ *       MaxNumberOfTrainingJobs: Number("int"),
+ *       MaxParallelTrainingJobs: Number("int"), // required
+ *       MaxRuntimeInSeconds: Number("int"),
+ *     },
+ *     ParameterRanges: {
+ *       IntegerParameterRanges: [
+ *         {
+ *           Name: "STRING_VALUE", // required
+ *           MinValue: "STRING_VALUE", // required
+ *           MaxValue: "STRING_VALUE", // required
+ *           ScalingType: "Auto" || "Linear" || "Logarithmic" || "ReverseLogarithmic",
+ *         },
+ *       ],
+ *       ContinuousParameterRanges: [
+ *         {
+ *           Name: "STRING_VALUE", // required
+ *           MinValue: "STRING_VALUE", // required
+ *           MaxValue: "STRING_VALUE", // required
+ *           ScalingType: "Auto" || "Linear" || "Logarithmic" || "ReverseLogarithmic",
+ *         },
+ *       ],
+ *       CategoricalParameterRanges: [
+ *         {
+ *           Name: "STRING_VALUE", // required
+ *           Values: [ // required
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       ],
+ *     },
+ *     TrainingJobEarlyStoppingType: "Off" || "Auto",
+ *     TuningJobCompletionCriteria: {
+ *       TargetObjectiveMetricValue: Number("float"),
+ *       BestObjectiveNotImproving: {
+ *         MaxNumberOfTrainingJobsNotImproving: Number("int"),
+ *       },
+ *       ConvergenceDetected: {
+ *         CompleteOnConvergence: "Disabled" || "Enabled",
+ *       },
+ *     },
+ *     RandomSeed: Number("int"),
+ *   },
+ *   TrainingJobDefinition: {
+ *     DefinitionName: "STRING_VALUE",
+ *     TuningObjective: {
+ *       Type: "Maximize" || "Minimize", // required
+ *       MetricName: "STRING_VALUE", // required
+ *     },
+ *     HyperParameterRanges: {
+ *       IntegerParameterRanges: [
+ *         {
+ *           Name: "STRING_VALUE", // required
+ *           MinValue: "STRING_VALUE", // required
+ *           MaxValue: "STRING_VALUE", // required
+ *           ScalingType: "Auto" || "Linear" || "Logarithmic" || "ReverseLogarithmic",
+ *         },
+ *       ],
+ *       ContinuousParameterRanges: [
+ *         {
+ *           Name: "STRING_VALUE", // required
+ *           MinValue: "STRING_VALUE", // required
+ *           MaxValue: "STRING_VALUE", // required
+ *           ScalingType: "Auto" || "Linear" || "Logarithmic" || "ReverseLogarithmic",
+ *         },
+ *       ],
+ *       CategoricalParameterRanges: [
+ *         {
+ *           Name: "STRING_VALUE", // required
+ *           Values: [ // required
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       ],
+ *     },
+ *     StaticHyperParameters: {
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *     AlgorithmSpecification: {
+ *       TrainingImage: "STRING_VALUE",
+ *       TrainingInputMode: "Pipe" || "File" || "FastFile", // required
+ *       AlgorithmName: "STRING_VALUE",
+ *       MetricDefinitions: [
+ *         {
+ *           Name: "STRING_VALUE", // required
+ *           Regex: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *     },
+ *     RoleArn: "STRING_VALUE", // required
+ *     InputDataConfig: [
+ *       {
+ *         ChannelName: "STRING_VALUE", // required
+ *         DataSource: {
+ *           S3DataSource: {
+ *             S3DataType: "ManifestFile" || "S3Prefix" || "AugmentedManifestFile", // required
+ *             S3Uri: "STRING_VALUE", // required
+ *             S3DataDistributionType: "FullyReplicated" || "ShardedByS3Key",
+ *             AttributeNames: [
+ *               "STRING_VALUE",
+ *             ],
+ *             InstanceGroupNames: [
+ *               "STRING_VALUE",
+ *             ],
+ *           },
+ *           FileSystemDataSource: {
+ *             FileSystemId: "STRING_VALUE", // required
+ *             FileSystemAccessMode: "rw" || "ro", // required
+ *             FileSystemType: "EFS" || "FSxLustre", // required
+ *             DirectoryPath: "STRING_VALUE", // required
+ *           },
+ *         },
+ *         ContentType: "STRING_VALUE",
+ *         CompressionType: "None" || "Gzip",
+ *         RecordWrapperType: "None" || "RecordIO",
+ *         InputMode: "Pipe" || "File" || "FastFile",
+ *         ShuffleConfig: {
+ *           Seed: Number("long"), // required
+ *         },
+ *       },
+ *     ],
+ *     VpcConfig: {
+ *       SecurityGroupIds: [ // required
+ *         "STRING_VALUE",
+ *       ],
+ *       Subnets: [ // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *     OutputDataConfig: {
+ *       KmsKeyId: "STRING_VALUE",
+ *       S3OutputPath: "STRING_VALUE", // required
+ *     },
+ *     ResourceConfig: {
+ *       InstanceType: "ml.m4.xlarge" || "ml.m4.2xlarge" || "ml.m4.4xlarge" || "ml.m4.10xlarge" || "ml.m4.16xlarge" || "ml.g4dn.xlarge" || "ml.g4dn.2xlarge" || "ml.g4dn.4xlarge" || "ml.g4dn.8xlarge" || "ml.g4dn.12xlarge" || "ml.g4dn.16xlarge" || "ml.m5.large" || "ml.m5.xlarge" || "ml.m5.2xlarge" || "ml.m5.4xlarge" || "ml.m5.12xlarge" || "ml.m5.24xlarge" || "ml.c4.xlarge" || "ml.c4.2xlarge" || "ml.c4.4xlarge" || "ml.c4.8xlarge" || "ml.p2.xlarge" || "ml.p2.8xlarge" || "ml.p2.16xlarge" || "ml.p3.2xlarge" || "ml.p3.8xlarge" || "ml.p3.16xlarge" || "ml.p3dn.24xlarge" || "ml.p4d.24xlarge" || "ml.c5.xlarge" || "ml.c5.2xlarge" || "ml.c5.4xlarge" || "ml.c5.9xlarge" || "ml.c5.18xlarge" || "ml.c5n.xlarge" || "ml.c5n.2xlarge" || "ml.c5n.4xlarge" || "ml.c5n.9xlarge" || "ml.c5n.18xlarge" || "ml.g5.xlarge" || "ml.g5.2xlarge" || "ml.g5.4xlarge" || "ml.g5.8xlarge" || "ml.g5.16xlarge" || "ml.g5.12xlarge" || "ml.g5.24xlarge" || "ml.g5.48xlarge" || "ml.trn1.2xlarge" || "ml.trn1.32xlarge",
+ *       InstanceCount: Number("int"),
+ *       VolumeSizeInGB: Number("int"), // required
+ *       VolumeKmsKeyId: "STRING_VALUE",
+ *       InstanceGroups: [
+ *         {
+ *           InstanceType: "ml.m4.xlarge" || "ml.m4.2xlarge" || "ml.m4.4xlarge" || "ml.m4.10xlarge" || "ml.m4.16xlarge" || "ml.g4dn.xlarge" || "ml.g4dn.2xlarge" || "ml.g4dn.4xlarge" || "ml.g4dn.8xlarge" || "ml.g4dn.12xlarge" || "ml.g4dn.16xlarge" || "ml.m5.large" || "ml.m5.xlarge" || "ml.m5.2xlarge" || "ml.m5.4xlarge" || "ml.m5.12xlarge" || "ml.m5.24xlarge" || "ml.c4.xlarge" || "ml.c4.2xlarge" || "ml.c4.4xlarge" || "ml.c4.8xlarge" || "ml.p2.xlarge" || "ml.p2.8xlarge" || "ml.p2.16xlarge" || "ml.p3.2xlarge" || "ml.p3.8xlarge" || "ml.p3.16xlarge" || "ml.p3dn.24xlarge" || "ml.p4d.24xlarge" || "ml.c5.xlarge" || "ml.c5.2xlarge" || "ml.c5.4xlarge" || "ml.c5.9xlarge" || "ml.c5.18xlarge" || "ml.c5n.xlarge" || "ml.c5n.2xlarge" || "ml.c5n.4xlarge" || "ml.c5n.9xlarge" || "ml.c5n.18xlarge" || "ml.g5.xlarge" || "ml.g5.2xlarge" || "ml.g5.4xlarge" || "ml.g5.8xlarge" || "ml.g5.16xlarge" || "ml.g5.12xlarge" || "ml.g5.24xlarge" || "ml.g5.48xlarge" || "ml.trn1.2xlarge" || "ml.trn1.32xlarge", // required
+ *           InstanceCount: Number("int"), // required
+ *           InstanceGroupName: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *       KeepAlivePeriodInSeconds: Number("int"),
+ *     },
+ *     StoppingCondition: {
+ *       MaxRuntimeInSeconds: Number("int"),
+ *       MaxWaitTimeInSeconds: Number("int"),
+ *     },
+ *     EnableNetworkIsolation: true || false,
+ *     EnableInterContainerTrafficEncryption: true || false,
+ *     EnableManagedSpotTraining: true || false,
+ *     CheckpointConfig: {
+ *       S3Uri: "STRING_VALUE", // required
+ *       LocalPath: "STRING_VALUE",
+ *     },
+ *     RetryStrategy: {
+ *       MaximumRetryAttempts: Number("int"), // required
+ *     },
+ *     HyperParameterTuningResourceConfig: {
+ *       InstanceType: "ml.m4.xlarge" || "ml.m4.2xlarge" || "ml.m4.4xlarge" || "ml.m4.10xlarge" || "ml.m4.16xlarge" || "ml.g4dn.xlarge" || "ml.g4dn.2xlarge" || "ml.g4dn.4xlarge" || "ml.g4dn.8xlarge" || "ml.g4dn.12xlarge" || "ml.g4dn.16xlarge" || "ml.m5.large" || "ml.m5.xlarge" || "ml.m5.2xlarge" || "ml.m5.4xlarge" || "ml.m5.12xlarge" || "ml.m5.24xlarge" || "ml.c4.xlarge" || "ml.c4.2xlarge" || "ml.c4.4xlarge" || "ml.c4.8xlarge" || "ml.p2.xlarge" || "ml.p2.8xlarge" || "ml.p2.16xlarge" || "ml.p3.2xlarge" || "ml.p3.8xlarge" || "ml.p3.16xlarge" || "ml.p3dn.24xlarge" || "ml.p4d.24xlarge" || "ml.c5.xlarge" || "ml.c5.2xlarge" || "ml.c5.4xlarge" || "ml.c5.9xlarge" || "ml.c5.18xlarge" || "ml.c5n.xlarge" || "ml.c5n.2xlarge" || "ml.c5n.4xlarge" || "ml.c5n.9xlarge" || "ml.c5n.18xlarge" || "ml.g5.xlarge" || "ml.g5.2xlarge" || "ml.g5.4xlarge" || "ml.g5.8xlarge" || "ml.g5.16xlarge" || "ml.g5.12xlarge" || "ml.g5.24xlarge" || "ml.g5.48xlarge" || "ml.trn1.2xlarge" || "ml.trn1.32xlarge",
+ *       InstanceCount: Number("int"),
+ *       VolumeSizeInGB: Number("int"),
+ *       VolumeKmsKeyId: "STRING_VALUE",
+ *       AllocationStrategy: "Prioritized",
+ *       InstanceConfigs: [
+ *         {
+ *           InstanceType: "ml.m4.xlarge" || "ml.m4.2xlarge" || "ml.m4.4xlarge" || "ml.m4.10xlarge" || "ml.m4.16xlarge" || "ml.g4dn.xlarge" || "ml.g4dn.2xlarge" || "ml.g4dn.4xlarge" || "ml.g4dn.8xlarge" || "ml.g4dn.12xlarge" || "ml.g4dn.16xlarge" || "ml.m5.large" || "ml.m5.xlarge" || "ml.m5.2xlarge" || "ml.m5.4xlarge" || "ml.m5.12xlarge" || "ml.m5.24xlarge" || "ml.c4.xlarge" || "ml.c4.2xlarge" || "ml.c4.4xlarge" || "ml.c4.8xlarge" || "ml.p2.xlarge" || "ml.p2.8xlarge" || "ml.p2.16xlarge" || "ml.p3.2xlarge" || "ml.p3.8xlarge" || "ml.p3.16xlarge" || "ml.p3dn.24xlarge" || "ml.p4d.24xlarge" || "ml.c5.xlarge" || "ml.c5.2xlarge" || "ml.c5.4xlarge" || "ml.c5.9xlarge" || "ml.c5.18xlarge" || "ml.c5n.xlarge" || "ml.c5n.2xlarge" || "ml.c5n.4xlarge" || "ml.c5n.9xlarge" || "ml.c5n.18xlarge" || "ml.g5.xlarge" || "ml.g5.2xlarge" || "ml.g5.4xlarge" || "ml.g5.8xlarge" || "ml.g5.16xlarge" || "ml.g5.12xlarge" || "ml.g5.24xlarge" || "ml.g5.48xlarge" || "ml.trn1.2xlarge" || "ml.trn1.32xlarge", // required
+ *           InstanceCount: Number("int"), // required
+ *           VolumeSizeInGB: Number("int"), // required
+ *         },
+ *       ],
+ *     },
+ *     Environment: {
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *   },
+ *   TrainingJobDefinitions: [
+ *     {
+ *       DefinitionName: "STRING_VALUE",
+ *       TuningObjective: {
+ *         Type: "Maximize" || "Minimize", // required
+ *         MetricName: "STRING_VALUE", // required
+ *       },
+ *       HyperParameterRanges: {
+ *         IntegerParameterRanges: [
+ *           {
+ *             Name: "STRING_VALUE", // required
+ *             MinValue: "STRING_VALUE", // required
+ *             MaxValue: "STRING_VALUE", // required
+ *             ScalingType: "Auto" || "Linear" || "Logarithmic" || "ReverseLogarithmic",
+ *           },
+ *         ],
+ *         ContinuousParameterRanges: [
+ *           {
+ *             Name: "STRING_VALUE", // required
+ *             MinValue: "STRING_VALUE", // required
+ *             MaxValue: "STRING_VALUE", // required
+ *             ScalingType: "Auto" || "Linear" || "Logarithmic" || "ReverseLogarithmic",
+ *           },
+ *         ],
+ *         CategoricalParameterRanges: [
+ *           {
+ *             Name: "STRING_VALUE", // required
+ *             Values: [ // required
+ *               "STRING_VALUE",
+ *             ],
+ *           },
+ *         ],
+ *       },
+ *       StaticHyperParameters: {
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *       AlgorithmSpecification: {
+ *         TrainingImage: "STRING_VALUE",
+ *         TrainingInputMode: "Pipe" || "File" || "FastFile", // required
+ *         AlgorithmName: "STRING_VALUE",
+ *         MetricDefinitions: [
+ *           {
+ *             Name: "STRING_VALUE", // required
+ *             Regex: "STRING_VALUE", // required
+ *           },
+ *         ],
+ *       },
+ *       RoleArn: "STRING_VALUE", // required
+ *       InputDataConfig: [
+ *         {
+ *           ChannelName: "STRING_VALUE", // required
+ *           DataSource: {
+ *             S3DataSource: {
+ *               S3DataType: "ManifestFile" || "S3Prefix" || "AugmentedManifestFile", // required
+ *               S3Uri: "STRING_VALUE", // required
+ *               S3DataDistributionType: "FullyReplicated" || "ShardedByS3Key",
+ *               AttributeNames: [
+ *                 "STRING_VALUE",
+ *               ],
+ *               InstanceGroupNames: [
+ *                 "STRING_VALUE",
+ *               ],
+ *             },
+ *             FileSystemDataSource: {
+ *               FileSystemId: "STRING_VALUE", // required
+ *               FileSystemAccessMode: "rw" || "ro", // required
+ *               FileSystemType: "EFS" || "FSxLustre", // required
+ *               DirectoryPath: "STRING_VALUE", // required
+ *             },
+ *           },
+ *           ContentType: "STRING_VALUE",
+ *           CompressionType: "None" || "Gzip",
+ *           RecordWrapperType: "None" || "RecordIO",
+ *           InputMode: "Pipe" || "File" || "FastFile",
+ *           ShuffleConfig: {
+ *             Seed: Number("long"), // required
+ *           },
+ *         },
+ *       ],
+ *       VpcConfig: {
+ *         SecurityGroupIds: [ // required
+ *           "STRING_VALUE",
+ *         ],
+ *         Subnets: [ // required
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *       OutputDataConfig: {
+ *         KmsKeyId: "STRING_VALUE",
+ *         S3OutputPath: "STRING_VALUE", // required
+ *       },
+ *       ResourceConfig: {
+ *         InstanceType: "ml.m4.xlarge" || "ml.m4.2xlarge" || "ml.m4.4xlarge" || "ml.m4.10xlarge" || "ml.m4.16xlarge" || "ml.g4dn.xlarge" || "ml.g4dn.2xlarge" || "ml.g4dn.4xlarge" || "ml.g4dn.8xlarge" || "ml.g4dn.12xlarge" || "ml.g4dn.16xlarge" || "ml.m5.large" || "ml.m5.xlarge" || "ml.m5.2xlarge" || "ml.m5.4xlarge" || "ml.m5.12xlarge" || "ml.m5.24xlarge" || "ml.c4.xlarge" || "ml.c4.2xlarge" || "ml.c4.4xlarge" || "ml.c4.8xlarge" || "ml.p2.xlarge" || "ml.p2.8xlarge" || "ml.p2.16xlarge" || "ml.p3.2xlarge" || "ml.p3.8xlarge" || "ml.p3.16xlarge" || "ml.p3dn.24xlarge" || "ml.p4d.24xlarge" || "ml.c5.xlarge" || "ml.c5.2xlarge" || "ml.c5.4xlarge" || "ml.c5.9xlarge" || "ml.c5.18xlarge" || "ml.c5n.xlarge" || "ml.c5n.2xlarge" || "ml.c5n.4xlarge" || "ml.c5n.9xlarge" || "ml.c5n.18xlarge" || "ml.g5.xlarge" || "ml.g5.2xlarge" || "ml.g5.4xlarge" || "ml.g5.8xlarge" || "ml.g5.16xlarge" || "ml.g5.12xlarge" || "ml.g5.24xlarge" || "ml.g5.48xlarge" || "ml.trn1.2xlarge" || "ml.trn1.32xlarge",
+ *         InstanceCount: Number("int"),
+ *         VolumeSizeInGB: Number("int"), // required
+ *         VolumeKmsKeyId: "STRING_VALUE",
+ *         InstanceGroups: [
+ *           {
+ *             InstanceType: "ml.m4.xlarge" || "ml.m4.2xlarge" || "ml.m4.4xlarge" || "ml.m4.10xlarge" || "ml.m4.16xlarge" || "ml.g4dn.xlarge" || "ml.g4dn.2xlarge" || "ml.g4dn.4xlarge" || "ml.g4dn.8xlarge" || "ml.g4dn.12xlarge" || "ml.g4dn.16xlarge" || "ml.m5.large" || "ml.m5.xlarge" || "ml.m5.2xlarge" || "ml.m5.4xlarge" || "ml.m5.12xlarge" || "ml.m5.24xlarge" || "ml.c4.xlarge" || "ml.c4.2xlarge" || "ml.c4.4xlarge" || "ml.c4.8xlarge" || "ml.p2.xlarge" || "ml.p2.8xlarge" || "ml.p2.16xlarge" || "ml.p3.2xlarge" || "ml.p3.8xlarge" || "ml.p3.16xlarge" || "ml.p3dn.24xlarge" || "ml.p4d.24xlarge" || "ml.c5.xlarge" || "ml.c5.2xlarge" || "ml.c5.4xlarge" || "ml.c5.9xlarge" || "ml.c5.18xlarge" || "ml.c5n.xlarge" || "ml.c5n.2xlarge" || "ml.c5n.4xlarge" || "ml.c5n.9xlarge" || "ml.c5n.18xlarge" || "ml.g5.xlarge" || "ml.g5.2xlarge" || "ml.g5.4xlarge" || "ml.g5.8xlarge" || "ml.g5.16xlarge" || "ml.g5.12xlarge" || "ml.g5.24xlarge" || "ml.g5.48xlarge" || "ml.trn1.2xlarge" || "ml.trn1.32xlarge", // required
+ *             InstanceCount: Number("int"), // required
+ *             InstanceGroupName: "STRING_VALUE", // required
+ *           },
+ *         ],
+ *         KeepAlivePeriodInSeconds: Number("int"),
+ *       },
+ *       StoppingCondition: {
+ *         MaxRuntimeInSeconds: Number("int"),
+ *         MaxWaitTimeInSeconds: Number("int"),
+ *       },
+ *       EnableNetworkIsolation: true || false,
+ *       EnableInterContainerTrafficEncryption: true || false,
+ *       EnableManagedSpotTraining: true || false,
+ *       CheckpointConfig: {
+ *         S3Uri: "STRING_VALUE", // required
+ *         LocalPath: "STRING_VALUE",
+ *       },
+ *       RetryStrategy: {
+ *         MaximumRetryAttempts: Number("int"), // required
+ *       },
+ *       HyperParameterTuningResourceConfig: {
+ *         InstanceType: "ml.m4.xlarge" || "ml.m4.2xlarge" || "ml.m4.4xlarge" || "ml.m4.10xlarge" || "ml.m4.16xlarge" || "ml.g4dn.xlarge" || "ml.g4dn.2xlarge" || "ml.g4dn.4xlarge" || "ml.g4dn.8xlarge" || "ml.g4dn.12xlarge" || "ml.g4dn.16xlarge" || "ml.m5.large" || "ml.m5.xlarge" || "ml.m5.2xlarge" || "ml.m5.4xlarge" || "ml.m5.12xlarge" || "ml.m5.24xlarge" || "ml.c4.xlarge" || "ml.c4.2xlarge" || "ml.c4.4xlarge" || "ml.c4.8xlarge" || "ml.p2.xlarge" || "ml.p2.8xlarge" || "ml.p2.16xlarge" || "ml.p3.2xlarge" || "ml.p3.8xlarge" || "ml.p3.16xlarge" || "ml.p3dn.24xlarge" || "ml.p4d.24xlarge" || "ml.c5.xlarge" || "ml.c5.2xlarge" || "ml.c5.4xlarge" || "ml.c5.9xlarge" || "ml.c5.18xlarge" || "ml.c5n.xlarge" || "ml.c5n.2xlarge" || "ml.c5n.4xlarge" || "ml.c5n.9xlarge" || "ml.c5n.18xlarge" || "ml.g5.xlarge" || "ml.g5.2xlarge" || "ml.g5.4xlarge" || "ml.g5.8xlarge" || "ml.g5.16xlarge" || "ml.g5.12xlarge" || "ml.g5.24xlarge" || "ml.g5.48xlarge" || "ml.trn1.2xlarge" || "ml.trn1.32xlarge",
+ *         InstanceCount: Number("int"),
+ *         VolumeSizeInGB: Number("int"),
+ *         VolumeKmsKeyId: "STRING_VALUE",
+ *         AllocationStrategy: "Prioritized",
+ *         InstanceConfigs: [
+ *           {
+ *             InstanceType: "ml.m4.xlarge" || "ml.m4.2xlarge" || "ml.m4.4xlarge" || "ml.m4.10xlarge" || "ml.m4.16xlarge" || "ml.g4dn.xlarge" || "ml.g4dn.2xlarge" || "ml.g4dn.4xlarge" || "ml.g4dn.8xlarge" || "ml.g4dn.12xlarge" || "ml.g4dn.16xlarge" || "ml.m5.large" || "ml.m5.xlarge" || "ml.m5.2xlarge" || "ml.m5.4xlarge" || "ml.m5.12xlarge" || "ml.m5.24xlarge" || "ml.c4.xlarge" || "ml.c4.2xlarge" || "ml.c4.4xlarge" || "ml.c4.8xlarge" || "ml.p2.xlarge" || "ml.p2.8xlarge" || "ml.p2.16xlarge" || "ml.p3.2xlarge" || "ml.p3.8xlarge" || "ml.p3.16xlarge" || "ml.p3dn.24xlarge" || "ml.p4d.24xlarge" || "ml.c5.xlarge" || "ml.c5.2xlarge" || "ml.c5.4xlarge" || "ml.c5.9xlarge" || "ml.c5.18xlarge" || "ml.c5n.xlarge" || "ml.c5n.2xlarge" || "ml.c5n.4xlarge" || "ml.c5n.9xlarge" || "ml.c5n.18xlarge" || "ml.g5.xlarge" || "ml.g5.2xlarge" || "ml.g5.4xlarge" || "ml.g5.8xlarge" || "ml.g5.16xlarge" || "ml.g5.12xlarge" || "ml.g5.24xlarge" || "ml.g5.48xlarge" || "ml.trn1.2xlarge" || "ml.trn1.32xlarge", // required
+ *             InstanceCount: Number("int"), // required
+ *             VolumeSizeInGB: Number("int"), // required
+ *           },
+ *         ],
+ *       },
+ *       Environment: {
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ *   WarmStartConfig: {
+ *     ParentHyperParameterTuningJobs: [ // required
+ *       {
+ *         HyperParameterTuningJobName: "STRING_VALUE",
+ *       },
+ *     ],
+ *     WarmStartType: "IdenticalDataAndAlgorithm" || "TransferLearning", // required
+ *   },
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateHyperParameterTuningJobCommand(input);
  * const response = await client.send(command);
  * ```

@@ -51,6 +51,18 @@ export interface UpdateRelationalDatabaseCommandOutput extends UpdateRelationalD
  * import { LightsailClient, UpdateRelationalDatabaseCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, UpdateRelationalDatabaseCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = {
+ *   relationalDatabaseName: "STRING_VALUE", // required
+ *   masterUserPassword: "STRING_VALUE",
+ *   rotateMasterUserPassword: true || false,
+ *   preferredBackupWindow: "STRING_VALUE",
+ *   preferredMaintenanceWindow: "STRING_VALUE",
+ *   enableBackupRetention: true || false,
+ *   disableBackupRetention: true || false,
+ *   publiclyAccessible: true || false,
+ *   applyImmediately: true || false,
+ *   caCertificateIdentifier: "STRING_VALUE",
+ * };
  * const command = new UpdateRelationalDatabaseCommand(input);
  * const response = await client.send(command);
  * ```

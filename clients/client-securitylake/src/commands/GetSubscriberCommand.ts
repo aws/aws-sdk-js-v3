@@ -43,6 +43,9 @@ export interface GetSubscriberCommandOutput extends GetSubscriberResponse, __Met
  * import { SecurityLakeClient, GetSubscriberCommand } from "@aws-sdk/client-securitylake"; // ES Modules import
  * // const { SecurityLakeClient, GetSubscriberCommand } = require("@aws-sdk/client-securitylake"); // CommonJS import
  * const client = new SecurityLakeClient(config);
+ * const input = {
+ *   id: "STRING_VALUE", // required
+ * };
  * const command = new GetSubscriberCommand(input);
  * const response = await client.send(command);
  * ```

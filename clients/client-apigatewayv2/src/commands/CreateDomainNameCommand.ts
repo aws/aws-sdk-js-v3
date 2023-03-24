@@ -42,6 +42,30 @@ export interface CreateDomainNameCommandOutput extends CreateDomainNameResponse,
  * import { ApiGatewayV2Client, CreateDomainNameCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
  * // const { ApiGatewayV2Client, CreateDomainNameCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import
  * const client = new ApiGatewayV2Client(config);
+ * const input = {
+ *   DomainName: "STRING_VALUE", // required
+ *   DomainNameConfigurations: [
+ *     {
+ *       ApiGatewayDomainName: "STRING_VALUE",
+ *       CertificateArn: "STRING_VALUE",
+ *       CertificateName: "STRING_VALUE",
+ *       CertificateUploadDate: new Date("TIMESTAMP"),
+ *       DomainNameStatus: "STRING_VALUE",
+ *       DomainNameStatusMessage: "STRING_VALUE",
+ *       EndpointType: "STRING_VALUE",
+ *       HostedZoneId: "STRING_VALUE",
+ *       SecurityPolicy: "STRING_VALUE",
+ *       OwnershipVerificationCertificateArn: "STRING_VALUE",
+ *     },
+ *   ],
+ *   MutualTlsAuthentication: {
+ *     TruststoreUri: "STRING_VALUE",
+ *     TruststoreVersion: "STRING_VALUE",
+ *   },
+ *   Tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateDomainNameCommand(input);
  * const response = await client.send(command);
  * ```

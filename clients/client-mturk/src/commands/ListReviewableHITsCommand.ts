@@ -45,6 +45,12 @@ export interface ListReviewableHITsCommandOutput extends ListReviewableHITsRespo
  * import { MTurkClient, ListReviewableHITsCommand } from "@aws-sdk/client-mturk"; // ES Modules import
  * // const { MTurkClient, ListReviewableHITsCommand } = require("@aws-sdk/client-mturk"); // CommonJS import
  * const client = new MTurkClient(config);
+ * const input = {
+ *   HITTypeId: "STRING_VALUE",
+ *   Status: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListReviewableHITsCommand(input);
  * const response = await client.send(command);
  * ```

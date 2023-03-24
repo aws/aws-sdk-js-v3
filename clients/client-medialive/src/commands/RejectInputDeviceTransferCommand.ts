@@ -42,6 +42,9 @@ export interface RejectInputDeviceTransferCommandOutput extends RejectInputDevic
  * import { MediaLiveClient, RejectInputDeviceTransferCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, RejectInputDeviceTransferCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
  * const client = new MediaLiveClient(config);
+ * const input = {
+ *   InputDeviceId: "STRING_VALUE", // required
+ * };
  * const command = new RejectInputDeviceTransferCommand(input);
  * const response = await client.send(command);
  * ```

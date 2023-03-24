@@ -42,6 +42,12 @@ export interface ListDiscoverersCommandOutput extends ListDiscoverersResponse, _
  * import { SchemasClient, ListDiscoverersCommand } from "@aws-sdk/client-schemas"; // ES Modules import
  * // const { SchemasClient, ListDiscoverersCommand } = require("@aws-sdk/client-schemas"); // CommonJS import
  * const client = new SchemasClient(config);
+ * const input = {
+ *   DiscovererIdPrefix: "STRING_VALUE",
+ *   Limit: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   SourceArnPrefix: "STRING_VALUE",
+ * };
  * const command = new ListDiscoverersCommand(input);
  * const response = await client.send(command);
  * ```

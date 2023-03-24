@@ -43,6 +43,62 @@ export interface SearchRoutingProfilesCommandOutput extends SearchRoutingProfile
  * import { ConnectClient, SearchRoutingProfilesCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, SearchRoutingProfilesCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = {
+ *   InstanceId: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   SearchFilter: {
+ *     TagFilter: {
+ *       OrConditions: [
+ *         [
+ *           {
+ *             TagKey: "STRING_VALUE",
+ *             TagValue: "STRING_VALUE",
+ *           },
+ *         ],
+ *       ],
+ *       AndConditions: [
+ *         {
+ *           TagKey: "STRING_VALUE",
+ *           TagValue: "STRING_VALUE",
+ *         },
+ *       ],
+ *       TagCondition: {
+ *         TagKey: "<TagCondition>",
+ *         TagValue: "<TagCondition>",
+ *       },
+ *     },
+ *   },
+ *   SearchCriteria: {
+ *     OrConditions: [
+ *       {
+ *         OrConditions: [
+ *           {
+ *             OrConditions: "<RoutingProfileSearchCriteria>",
+ *             AndConditions: [
+ *               "<RoutingProfileSearchConditionList>",
+ *             ],
+ *             StringCondition: {
+ *               FieldName: "STRING_VALUE",
+ *               Value: "STRING_VALUE",
+ *               ComparisonType: "STARTS_WITH" || "CONTAINS" || "EXACT",
+ *             },
+ *           },
+ *         ],
+ *         AndConditions: [
+ *           "<RoutingProfileSearchConditionList>",
+ *         ],
+ *         StringCondition: {
+ *           FieldName: "STRING_VALUE",
+ *           Value: "STRING_VALUE",
+ *           ComparisonType: "STARTS_WITH" || "CONTAINS" || "EXACT",
+ *         },
+ *       },
+ *     ],
+ *     AndConditions: "<RoutingProfileSearchCriteria>",
+ *     StringCondition: "<RoutingProfileSearchCriteria>",
+ *   },
+ * };
  * const command = new SearchRoutingProfilesCommand(input);
  * const response = await client.send(command);
  * ```

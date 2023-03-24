@@ -48,6 +48,16 @@ export interface ModifyCertificateBasedAuthPropertiesCommandOutput
  * import { WorkSpacesClient, ModifyCertificateBasedAuthPropertiesCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, ModifyCertificateBasedAuthPropertiesCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
  * const client = new WorkSpacesClient(config);
+ * const input = {
+ *   ResourceId: "STRING_VALUE", // required
+ *   CertificateBasedAuthProperties: {
+ *     Status: "DISABLED" || "ENABLED",
+ *     CertificateAuthorityArn: "STRING_VALUE",
+ *   },
+ *   PropertiesToDelete: [
+ *     "CERTIFICATE_BASED_AUTH_PROPERTIES_CERTIFICATE_AUTHORITY_ARN",
+ *   ],
+ * };
  * const command = new ModifyCertificateBasedAuthPropertiesCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,14 @@ export interface PutMetadataFlagCommandOutput extends __MetadataBearer {}
  * import { AmplifyUIBuilderClient, PutMetadataFlagCommand } from "@aws-sdk/client-amplifyuibuilder"; // ES Modules import
  * // const { AmplifyUIBuilderClient, PutMetadataFlagCommand } = require("@aws-sdk/client-amplifyuibuilder"); // CommonJS import
  * const client = new AmplifyUIBuilderClient(config);
+ * const input = {
+ *   appId: "STRING_VALUE", // required
+ *   environmentName: "STRING_VALUE", // required
+ *   featureName: "STRING_VALUE", // required
+ *   body: {
+ *     newValue: "STRING_VALUE", // required
+ *   },
+ * };
  * const command = new PutMetadataFlagCommand(input);
  * const response = await client.send(command);
  * ```

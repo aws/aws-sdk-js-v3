@@ -47,6 +47,15 @@ export interface SubmitAttachmentStateChangesCommandOutput
  * import { ECSClient, SubmitAttachmentStateChangesCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, SubmitAttachmentStateChangesCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
  * const client = new ECSClient(config);
+ * const input = {
+ *   cluster: "STRING_VALUE",
+ *   attachments: [ // required
+ *     {
+ *       attachmentArn: "STRING_VALUE", // required
+ *       status: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new SubmitAttachmentStateChangesCommand(input);
  * const response = await client.send(command);
  * ```

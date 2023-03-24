@@ -42,6 +42,14 @@ export interface UpdateWorkflowCommandOutput extends UpdateWorkflowResponse, __M
  * import { GlueClient, UpdateWorkflowCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, UpdateWorkflowCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = {
+ *   Name: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   DefaultRunProperties: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   MaxConcurrentRuns: Number("int"),
+ * };
  * const command = new UpdateWorkflowCommand(input);
  * const response = await client.send(command);
  * ```

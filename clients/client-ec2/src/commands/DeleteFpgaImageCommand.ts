@@ -39,6 +39,10 @@ export interface DeleteFpgaImageCommandOutput extends DeleteFpgaImageResult, __M
  * import { EC2Client, DeleteFpgaImageCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DeleteFpgaImageCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   DryRun: true || false,
+ *   FpgaImageId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteFpgaImageCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,9 @@ export interface GetImageCommandOutput extends GetImageResponse, __MetadataBeare
  * import { ImagebuilderClient, GetImageCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
  * // const { ImagebuilderClient, GetImageCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
  * const client = new ImagebuilderClient(config);
+ * const input = {
+ *   imageBuildVersionArn: "STRING_VALUE", // required
+ * };
  * const command = new GetImageCommand(input);
  * const response = await client.send(command);
  * ```

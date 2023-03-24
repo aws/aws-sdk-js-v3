@@ -42,6 +42,34 @@ export interface ListClassificationJobsCommandOutput extends ListClassificationJ
  * import { Macie2Client, ListClassificationJobsCommand } from "@aws-sdk/client-macie2"; // ES Modules import
  * // const { Macie2Client, ListClassificationJobsCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
  * const client = new Macie2Client(config);
+ * const input = {
+ *   filterCriteria: {
+ *     excludes: [
+ *       {
+ *         comparator: "EQ" || "GT" || "GTE" || "LT" || "LTE" || "NE" || "CONTAINS" || "STARTS_WITH",
+ *         key: "jobType" || "jobStatus" || "createdAt" || "name",
+ *         values: [
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *     ],
+ *     includes: [
+ *       {
+ *         comparator: "EQ" || "GT" || "GTE" || "LT" || "LTE" || "NE" || "CONTAINS" || "STARTS_WITH",
+ *         key: "jobType" || "jobStatus" || "createdAt" || "name",
+ *         values: [
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *     ],
+ *   },
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ *   sortCriteria: {
+ *     attributeName: "createdAt" || "jobStatus" || "name" || "jobType",
+ *     orderBy: "ASC" || "DESC",
+ *   },
+ * };
  * const command = new ListClassificationJobsCommand(input);
  * const response = await client.send(command);
  * ```

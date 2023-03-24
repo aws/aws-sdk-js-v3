@@ -43,6 +43,10 @@ export interface PutDataProtectionPolicyCommandOutput extends __MetadataBearer {
  * import { SNSClient, PutDataProtectionPolicyCommand } from "@aws-sdk/client-sns"; // ES Modules import
  * // const { SNSClient, PutDataProtectionPolicyCommand } = require("@aws-sdk/client-sns"); // CommonJS import
  * const client = new SNSClient(config);
+ * const input = {
+ *   ResourceArn: "STRING_VALUE", // required
+ *   DataProtectionPolicy: "STRING_VALUE", // required
+ * };
  * const command = new PutDataProtectionPolicyCommand(input);
  * const response = await client.send(command);
  * ```

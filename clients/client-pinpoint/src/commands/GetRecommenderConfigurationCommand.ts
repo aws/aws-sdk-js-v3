@@ -44,6 +44,9 @@ export interface GetRecommenderConfigurationCommandOutput
  * import { PinpointClient, GetRecommenderConfigurationCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, GetRecommenderConfigurationCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
+ * const input = {
+ *   RecommenderId: "STRING_VALUE", // required
+ * };
  * const command = new GetRecommenderConfigurationCommand(input);
  * const response = await client.send(command);
  * ```

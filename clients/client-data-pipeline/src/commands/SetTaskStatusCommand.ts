@@ -72,6 +72,13 @@ export interface SetTaskStatusCommandOutput extends SetTaskStatusOutput, __Metad
  * import { DataPipelineClient, SetTaskStatusCommand } from "@aws-sdk/client-data-pipeline"; // ES Modules import
  * // const { DataPipelineClient, SetTaskStatusCommand } = require("@aws-sdk/client-data-pipeline"); // CommonJS import
  * const client = new DataPipelineClient(config);
+ * const input = {
+ *   taskId: "STRING_VALUE", // required
+ *   taskStatus: "STRING_VALUE", // required
+ *   errorId: "STRING_VALUE",
+ *   errorMessage: "STRING_VALUE",
+ *   errorStackTrace: "STRING_VALUE",
+ * };
  * const command = new SetTaskStatusCommand(input);
  * const response = await client.send(command);
  * ```

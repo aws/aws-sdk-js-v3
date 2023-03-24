@@ -70,6 +70,70 @@ export interface PutScalingPolicyCommandOutput extends PutScalingPolicyResponse,
  * import { ApplicationAutoScalingClient, PutScalingPolicyCommand } from "@aws-sdk/client-application-auto-scaling"; // ES Modules import
  * // const { ApplicationAutoScalingClient, PutScalingPolicyCommand } = require("@aws-sdk/client-application-auto-scaling"); // CommonJS import
  * const client = new ApplicationAutoScalingClient(config);
+ * const input = {
+ *   PolicyName: "STRING_VALUE", // required
+ *   ServiceNamespace: "ecs" || "elasticmapreduce" || "ec2" || "appstream" || "dynamodb" || "rds" || "sagemaker" || "custom-resource" || "comprehend" || "lambda" || "cassandra" || "kafka" || "elasticache" || "neptune", // required
+ *   ResourceId: "STRING_VALUE", // required
+ *   ScalableDimension: "ecs:service:DesiredCount" || "ec2:spot-fleet-request:TargetCapacity" || "elasticmapreduce:instancegroup:InstanceCount" || "appstream:fleet:DesiredCapacity" || "dynamodb:table:ReadCapacityUnits" || "dynamodb:table:WriteCapacityUnits" || "dynamodb:index:ReadCapacityUnits" || "dynamodb:index:WriteCapacityUnits" || "rds:cluster:ReadReplicaCount" || "sagemaker:variant:DesiredInstanceCount" || "custom-resource:ResourceType:Property" || "comprehend:document-classifier-endpoint:DesiredInferenceUnits" || "comprehend:entity-recognizer-endpoint:DesiredInferenceUnits" || "lambda:function:ProvisionedConcurrency" || "cassandra:table:ReadCapacityUnits" || "cassandra:table:WriteCapacityUnits" || "kafka:broker-storage:VolumeSize" || "elasticache:replication-group:NodeGroups" || "elasticache:replication-group:Replicas" || "neptune:cluster:ReadReplicaCount", // required
+ *   PolicyType: "StepScaling" || "TargetTrackingScaling",
+ *   StepScalingPolicyConfiguration: {
+ *     AdjustmentType: "ChangeInCapacity" || "PercentChangeInCapacity" || "ExactCapacity",
+ *     StepAdjustments: [
+ *       {
+ *         MetricIntervalLowerBound: Number("double"),
+ *         MetricIntervalUpperBound: Number("double"),
+ *         ScalingAdjustment: Number("int"), // required
+ *       },
+ *     ],
+ *     MinAdjustmentMagnitude: Number("int"),
+ *     Cooldown: Number("int"),
+ *     MetricAggregationType: "Average" || "Minimum" || "Maximum",
+ *   },
+ *   TargetTrackingScalingPolicyConfiguration: {
+ *     TargetValue: Number("double"), // required
+ *     PredefinedMetricSpecification: {
+ *       PredefinedMetricType: "DynamoDBReadCapacityUtilization" || "DynamoDBWriteCapacityUtilization" || "ALBRequestCountPerTarget" || "RDSReaderAverageCPUUtilization" || "RDSReaderAverageDatabaseConnections" || "EC2SpotFleetRequestAverageCPUUtilization" || "EC2SpotFleetRequestAverageNetworkIn" || "EC2SpotFleetRequestAverageNetworkOut" || "SageMakerVariantInvocationsPerInstance" || "ECSServiceAverageCPUUtilization" || "ECSServiceAverageMemoryUtilization" || "AppStreamAverageCapacityUtilization" || "ComprehendInferenceUtilization" || "LambdaProvisionedConcurrencyUtilization" || "CassandraReadCapacityUtilization" || "CassandraWriteCapacityUtilization" || "KafkaBrokerStorageUtilization" || "ElastiCachePrimaryEngineCPUUtilization" || "ElastiCacheReplicaEngineCPUUtilization" || "ElastiCacheDatabaseMemoryUsageCountedForEvictPercentage" || "NeptuneReaderAverageCPUUtilization", // required
+ *       ResourceLabel: "STRING_VALUE",
+ *     },
+ *     CustomizedMetricSpecification: {
+ *       MetricName: "STRING_VALUE",
+ *       Namespace: "STRING_VALUE",
+ *       Dimensions: [
+ *         {
+ *           Name: "STRING_VALUE", // required
+ *           Value: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *       Statistic: "Average" || "Minimum" || "Maximum" || "SampleCount" || "Sum",
+ *       Unit: "STRING_VALUE",
+ *       Metrics: [
+ *         {
+ *           Expression: "STRING_VALUE",
+ *           Id: "STRING_VALUE", // required
+ *           Label: "STRING_VALUE",
+ *           MetricStat: {
+ *             Metric: {
+ *               Dimensions: [
+ *                 {
+ *                   Name: "STRING_VALUE", // required
+ *                   Value: "STRING_VALUE", // required
+ *                 },
+ *               ],
+ *               MetricName: "STRING_VALUE",
+ *               Namespace: "STRING_VALUE",
+ *             },
+ *             Stat: "STRING_VALUE", // required
+ *             Unit: "STRING_VALUE",
+ *           },
+ *           ReturnData: true || false,
+ *         },
+ *       ],
+ *     },
+ *     ScaleOutCooldown: Number("int"),
+ *     ScaleInCooldown: Number("int"),
+ *     DisableScaleIn: true || false,
+ *   },
+ * };
  * const command = new PutScalingPolicyCommand(input);
  * const response = await client.send(command);
  * ```

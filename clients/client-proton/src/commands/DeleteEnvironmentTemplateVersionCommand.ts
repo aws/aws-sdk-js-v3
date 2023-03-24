@@ -53,6 +53,11 @@ export interface DeleteEnvironmentTemplateVersionCommandOutput
  * import { ProtonClient, DeleteEnvironmentTemplateVersionCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, DeleteEnvironmentTemplateVersionCommand } = require("@aws-sdk/client-proton"); // CommonJS import
  * const client = new ProtonClient(config);
+ * const input = {
+ *   templateName: "STRING_VALUE", // required
+ *   majorVersion: "STRING_VALUE", // required
+ *   minorVersion: "STRING_VALUE", // required
+ * };
  * const command = new DeleteEnvironmentTemplateVersionCommand(input);
  * const response = await client.send(command);
  * ```

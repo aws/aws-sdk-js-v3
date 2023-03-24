@@ -48,6 +48,46 @@ export interface UpdateBackupPlanCommandOutput extends UpdateBackupPlanOutput, _
  * import { BackupClient, UpdateBackupPlanCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, UpdateBackupPlanCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
+ * const input = {
+ *   BackupPlanId: "STRING_VALUE", // required
+ *   BackupPlan: {
+ *     BackupPlanName: "STRING_VALUE", // required
+ *     Rules: [ // required
+ *       {
+ *         RuleName: "STRING_VALUE", // required
+ *         TargetBackupVaultName: "STRING_VALUE", // required
+ *         ScheduleExpression: "STRING_VALUE",
+ *         StartWindowMinutes: Number("long"),
+ *         CompletionWindowMinutes: Number("long"),
+ *         Lifecycle: {
+ *           MoveToColdStorageAfterDays: Number("long"),
+ *           DeleteAfterDays: Number("long"),
+ *         },
+ *         RecoveryPointTags: {
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *         CopyActions: [
+ *           {
+ *             Lifecycle: {
+ *               MoveToColdStorageAfterDays: Number("long"),
+ *               DeleteAfterDays: Number("long"),
+ *             },
+ *             DestinationBackupVaultArn: "STRING_VALUE", // required
+ *           },
+ *         ],
+ *         EnableContinuousBackup: true || false,
+ *       },
+ *     ],
+ *     AdvancedBackupSettings: [
+ *       {
+ *         ResourceType: "STRING_VALUE",
+ *         BackupOptions: {
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *       },
+ *     ],
+ *   },
+ * };
  * const command = new UpdateBackupPlanCommand(input);
  * const response = await client.send(command);
  * ```

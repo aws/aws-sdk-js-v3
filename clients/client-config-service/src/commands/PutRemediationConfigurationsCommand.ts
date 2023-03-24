@@ -58,6 +58,40 @@ export interface PutRemediationConfigurationsCommandOutput
  * import { ConfigServiceClient, PutRemediationConfigurationsCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, PutRemediationConfigurationsCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
+ * const input = {
+ *   RemediationConfigurations: [ // required
+ *     {
+ *       ConfigRuleName: "STRING_VALUE", // required
+ *       TargetType: "SSM_DOCUMENT", // required
+ *       TargetId: "STRING_VALUE", // required
+ *       TargetVersion: "STRING_VALUE",
+ *       Parameters: {
+ *         "<keys>": {
+ *           ResourceValue: {
+ *             Value: "RESOURCE_ID", // required
+ *           },
+ *           StaticValue: {
+ *             Values: [ // required
+ *               "STRING_VALUE",
+ *             ],
+ *           },
+ *         },
+ *       },
+ *       ResourceType: "STRING_VALUE",
+ *       Automatic: true || false,
+ *       ExecutionControls: {
+ *         SsmControls: {
+ *           ConcurrentExecutionRatePercentage: Number("int"),
+ *           ErrorPercentage: Number("int"),
+ *         },
+ *       },
+ *       MaximumAutomaticAttempts: Number("int"),
+ *       RetryAttemptSeconds: Number("long"),
+ *       Arn: "STRING_VALUE",
+ *       CreatedByService: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new PutRemediationConfigurationsCommand(input);
  * const response = await client.send(command);
  * ```

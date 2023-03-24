@@ -50,6 +50,12 @@ export interface CreateStreamingSessionStreamCommandOutput
  * import { NimbleClient, CreateStreamingSessionStreamCommand } from "@aws-sdk/client-nimble"; // ES Modules import
  * // const { NimbleClient, CreateStreamingSessionStreamCommand } = require("@aws-sdk/client-nimble"); // CommonJS import
  * const client = new NimbleClient(config);
+ * const input = {
+ *   clientToken: "STRING_VALUE",
+ *   expirationInSeconds: Number("int"),
+ *   sessionId: "STRING_VALUE", // required
+ *   studioId: "STRING_VALUE", // required
+ * };
  * const command = new CreateStreamingSessionStreamCommand(input);
  * const response = await client.send(command);
  * ```

@@ -61,6 +61,10 @@ export interface CreateSlotTypeVersionCommandOutput extends CreateSlotTypeVersio
  * import { LexModelBuildingServiceClient, CreateSlotTypeVersionCommand } from "@aws-sdk/client-lex-model-building-service"; // ES Modules import
  * // const { LexModelBuildingServiceClient, CreateSlotTypeVersionCommand } = require("@aws-sdk/client-lex-model-building-service"); // CommonJS import
  * const client = new LexModelBuildingServiceClient(config);
+ * const input = {
+ *   name: "STRING_VALUE", // required
+ *   checksum: "STRING_VALUE",
+ * };
  * const command = new CreateSlotTypeVersionCommand(input);
  * const response = await client.send(command);
  * ```

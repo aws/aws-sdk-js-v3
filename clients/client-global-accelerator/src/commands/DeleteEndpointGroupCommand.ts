@@ -46,6 +46,9 @@ export interface DeleteEndpointGroupCommandOutput extends __MetadataBearer {}
  * import { GlobalAcceleratorClient, DeleteEndpointGroupCommand } from "@aws-sdk/client-global-accelerator"; // ES Modules import
  * // const { GlobalAcceleratorClient, DeleteEndpointGroupCommand } = require("@aws-sdk/client-global-accelerator"); // CommonJS import
  * const client = new GlobalAcceleratorClient(config);
+ * const input = {
+ *   EndpointGroupArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteEndpointGroupCommand(input);
  * const response = await client.send(command);
  * ```

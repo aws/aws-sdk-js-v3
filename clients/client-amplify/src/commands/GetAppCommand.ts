@@ -39,6 +39,9 @@ export interface GetAppCommandOutput extends GetAppResult, __MetadataBearer {}
  * import { AmplifyClient, GetAppCommand } from "@aws-sdk/client-amplify"; // ES Modules import
  * // const { AmplifyClient, GetAppCommand } = require("@aws-sdk/client-amplify"); // CommonJS import
  * const client = new AmplifyClient(config);
+ * const input = {
+ *   appId: "STRING_VALUE", // required
+ * };
  * const command = new GetAppCommand(input);
  * const response = await client.send(command);
  * ```

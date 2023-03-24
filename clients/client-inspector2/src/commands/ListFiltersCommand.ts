@@ -42,6 +42,14 @@ export interface ListFiltersCommandOutput extends ListFiltersResponse, __Metadat
  * import { Inspector2Client, ListFiltersCommand } from "@aws-sdk/client-inspector2"; // ES Modules import
  * // const { Inspector2Client, ListFiltersCommand } = require("@aws-sdk/client-inspector2"); // CommonJS import
  * const client = new Inspector2Client(config);
+ * const input = {
+ *   arns: [
+ *     "STRING_VALUE",
+ *   ],
+ *   action: "STRING_VALUE",
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListFiltersCommand(input);
  * const response = await client.send(command);
  * ```

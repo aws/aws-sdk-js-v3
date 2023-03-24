@@ -48,6 +48,32 @@ export interface CreateStorageVirtualMachineCommandOutput
  * import { FSxClient, CreateStorageVirtualMachineCommand } from "@aws-sdk/client-fsx"; // ES Modules import
  * // const { FSxClient, CreateStorageVirtualMachineCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
  * const client = new FSxClient(config);
+ * const input = {
+ *   ActiveDirectoryConfiguration: {
+ *     NetBiosName: "STRING_VALUE", // required
+ *     SelfManagedActiveDirectoryConfiguration: {
+ *       DomainName: "STRING_VALUE", // required
+ *       OrganizationalUnitDistinguishedName: "STRING_VALUE",
+ *       FileSystemAdministratorsGroup: "STRING_VALUE",
+ *       UserName: "STRING_VALUE", // required
+ *       Password: "STRING_VALUE", // required
+ *       DnsIps: [ // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   },
+ *   ClientRequestToken: "STRING_VALUE",
+ *   FileSystemId: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE", // required
+ *   SvmAdminPassword: "STRING_VALUE",
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   RootVolumeSecurityStyle: "UNIX" || "NTFS" || "MIXED",
+ * };
  * const command = new CreateStorageVirtualMachineCommand(input);
  * const response = await client.send(command);
  * ```

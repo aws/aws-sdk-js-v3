@@ -70,6 +70,10 @@ export interface CreateVpcPeeringAuthorizationCommandOutput
  * import { GameLiftClient, CreateVpcPeeringAuthorizationCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, CreateVpcPeeringAuthorizationCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = {
+ *   GameLiftAwsAccountId: "STRING_VALUE", // required
+ *   PeerVpcId: "STRING_VALUE", // required
+ * };
  * const command = new CreateVpcPeeringAuthorizationCommand(input);
  * const response = await client.send(command);
  * ```

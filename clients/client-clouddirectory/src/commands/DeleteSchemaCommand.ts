@@ -42,6 +42,9 @@ export interface DeleteSchemaCommandOutput extends DeleteSchemaResponse, __Metad
  * import { CloudDirectoryClient, DeleteSchemaCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, DeleteSchemaCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
  * const client = new CloudDirectoryClient(config);
+ * const input = {
+ *   SchemaArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteSchemaCommand(input);
  * const response = await client.send(command);
  * ```

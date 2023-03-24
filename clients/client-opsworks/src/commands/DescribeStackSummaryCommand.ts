@@ -48,6 +48,9 @@ export interface DescribeStackSummaryCommandOutput extends DescribeStackSummaryR
  * import { OpsWorksClient, DescribeStackSummaryCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, DescribeStackSummaryCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
+ * const input = {
+ *   StackId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeStackSummaryCommand(input);
  * const response = await client.send(command);
  * ```

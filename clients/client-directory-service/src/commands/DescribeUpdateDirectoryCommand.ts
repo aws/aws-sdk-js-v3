@@ -44,6 +44,12 @@ export interface DescribeUpdateDirectoryCommandOutput extends DescribeUpdateDire
  * import { DirectoryServiceClient, DescribeUpdateDirectoryCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, DescribeUpdateDirectoryCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
  * const client = new DirectoryServiceClient(config);
+ * const input = {
+ *   DirectoryId: "STRING_VALUE", // required
+ *   UpdateType: "OS", // required
+ *   RegionName: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeUpdateDirectoryCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,325 @@ export interface RegisterJobDefinitionCommandOutput extends RegisterJobDefinitio
  * import { BatchClient, RegisterJobDefinitionCommand } from "@aws-sdk/client-batch"; // ES Modules import
  * // const { BatchClient, RegisterJobDefinitionCommand } = require("@aws-sdk/client-batch"); // CommonJS import
  * const client = new BatchClient(config);
+ * const input = {
+ *   jobDefinitionName: "STRING_VALUE", // required
+ *   type: "container" || "multinode", // required
+ *   parameters: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   schedulingPriority: Number("int"),
+ *   containerProperties: {
+ *     image: "STRING_VALUE",
+ *     vcpus: Number("int"),
+ *     memory: Number("int"),
+ *     command: [
+ *       "STRING_VALUE",
+ *     ],
+ *     jobRoleArn: "STRING_VALUE",
+ *     executionRoleArn: "STRING_VALUE",
+ *     volumes: [
+ *       {
+ *         host: {
+ *           sourcePath: "STRING_VALUE",
+ *         },
+ *         name: "STRING_VALUE",
+ *         efsVolumeConfiguration: {
+ *           fileSystemId: "STRING_VALUE", // required
+ *           rootDirectory: "STRING_VALUE",
+ *           transitEncryption: "ENABLED" || "DISABLED",
+ *           transitEncryptionPort: Number("int"),
+ *           authorizationConfig: {
+ *             accessPointId: "STRING_VALUE",
+ *             iam: "ENABLED" || "DISABLED",
+ *           },
+ *         },
+ *       },
+ *     ],
+ *     environment: [
+ *       {
+ *         name: "STRING_VALUE",
+ *         value: "STRING_VALUE",
+ *       },
+ *     ],
+ *     mountPoints: [
+ *       {
+ *         containerPath: "STRING_VALUE",
+ *         readOnly: true || false,
+ *         sourceVolume: "STRING_VALUE",
+ *       },
+ *     ],
+ *     readonlyRootFilesystem: true || false,
+ *     privileged: true || false,
+ *     ulimits: [
+ *       {
+ *         hardLimit: Number("int"), // required
+ *         name: "STRING_VALUE", // required
+ *         softLimit: Number("int"), // required
+ *       },
+ *     ],
+ *     user: "STRING_VALUE",
+ *     instanceType: "STRING_VALUE",
+ *     resourceRequirements: [
+ *       {
+ *         value: "STRING_VALUE", // required
+ *         type: "GPU" || "VCPU" || "MEMORY", // required
+ *       },
+ *     ],
+ *     linuxParameters: {
+ *       devices: [
+ *         {
+ *           hostPath: "STRING_VALUE", // required
+ *           containerPath: "STRING_VALUE",
+ *           permissions: [
+ *             "READ" || "WRITE" || "MKNOD",
+ *           ],
+ *         },
+ *       ],
+ *       initProcessEnabled: true || false,
+ *       sharedMemorySize: Number("int"),
+ *       tmpfs: [
+ *         {
+ *           containerPath: "STRING_VALUE", // required
+ *           size: Number("int"), // required
+ *           mountOptions: [
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       ],
+ *       maxSwap: Number("int"),
+ *       swappiness: Number("int"),
+ *     },
+ *     logConfiguration: {
+ *       logDriver: "json-file" || "syslog" || "journald" || "gelf" || "fluentd" || "awslogs" || "splunk", // required
+ *       options: {
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *       secretOptions: [
+ *         {
+ *           name: "STRING_VALUE", // required
+ *           valueFrom: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *     },
+ *     secrets: [
+ *       {
+ *         name: "STRING_VALUE", // required
+ *         valueFrom: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *     networkConfiguration: {
+ *       assignPublicIp: "ENABLED" || "DISABLED",
+ *     },
+ *     fargatePlatformConfiguration: {
+ *       platformVersion: "STRING_VALUE",
+ *     },
+ *     ephemeralStorage: {
+ *       sizeInGiB: Number("int"), // required
+ *     },
+ *   },
+ *   nodeProperties: {
+ *     numNodes: Number("int"), // required
+ *     mainNode: Number("int"), // required
+ *     nodeRangeProperties: [ // required
+ *       {
+ *         targetNodes: "STRING_VALUE", // required
+ *         container: {
+ *           image: "STRING_VALUE",
+ *           vcpus: Number("int"),
+ *           memory: Number("int"),
+ *           command: [
+ *             "STRING_VALUE",
+ *           ],
+ *           jobRoleArn: "STRING_VALUE",
+ *           executionRoleArn: "STRING_VALUE",
+ *           volumes: [
+ *             {
+ *               host: {
+ *                 sourcePath: "STRING_VALUE",
+ *               },
+ *               name: "STRING_VALUE",
+ *               efsVolumeConfiguration: {
+ *                 fileSystemId: "STRING_VALUE", // required
+ *                 rootDirectory: "STRING_VALUE",
+ *                 transitEncryption: "ENABLED" || "DISABLED",
+ *                 transitEncryptionPort: Number("int"),
+ *                 authorizationConfig: {
+ *                   accessPointId: "STRING_VALUE",
+ *                   iam: "ENABLED" || "DISABLED",
+ *                 },
+ *               },
+ *             },
+ *           ],
+ *           environment: [
+ *             {
+ *               name: "STRING_VALUE",
+ *               value: "STRING_VALUE",
+ *             },
+ *           ],
+ *           mountPoints: [
+ *             {
+ *               containerPath: "STRING_VALUE",
+ *               readOnly: true || false,
+ *               sourceVolume: "STRING_VALUE",
+ *             },
+ *           ],
+ *           readonlyRootFilesystem: true || false,
+ *           privileged: true || false,
+ *           ulimits: [
+ *             {
+ *               hardLimit: Number("int"), // required
+ *               name: "STRING_VALUE", // required
+ *               softLimit: Number("int"), // required
+ *             },
+ *           ],
+ *           user: "STRING_VALUE",
+ *           instanceType: "STRING_VALUE",
+ *           resourceRequirements: [
+ *             {
+ *               value: "STRING_VALUE", // required
+ *               type: "GPU" || "VCPU" || "MEMORY", // required
+ *             },
+ *           ],
+ *           linuxParameters: {
+ *             devices: [
+ *               {
+ *                 hostPath: "STRING_VALUE", // required
+ *                 containerPath: "STRING_VALUE",
+ *                 permissions: [
+ *                   "READ" || "WRITE" || "MKNOD",
+ *                 ],
+ *               },
+ *             ],
+ *             initProcessEnabled: true || false,
+ *             sharedMemorySize: Number("int"),
+ *             tmpfs: [
+ *               {
+ *                 containerPath: "STRING_VALUE", // required
+ *                 size: Number("int"), // required
+ *                 mountOptions: [
+ *                   "<StringList>",
+ *                 ],
+ *               },
+ *             ],
+ *             maxSwap: Number("int"),
+ *             swappiness: Number("int"),
+ *           },
+ *           logConfiguration: {
+ *             logDriver: "json-file" || "syslog" || "journald" || "gelf" || "fluentd" || "awslogs" || "splunk", // required
+ *             options: {
+ *               "<keys>": "<String>",
+ *             },
+ *             secretOptions: [
+ *               "<SecretList>",
+ *             ],
+ *           },
+ *           secrets: [
+ *             "<SecretList>",
+ *           ],
+ *           networkConfiguration: {
+ *             assignPublicIp: "ENABLED" || "DISABLED",
+ *           },
+ *           fargatePlatformConfiguration: {
+ *             platformVersion: "STRING_VALUE",
+ *           },
+ *           ephemeralStorage: {
+ *             sizeInGiB: Number("int"), // required
+ *           },
+ *         },
+ *       },
+ *     ],
+ *   },
+ *   retryStrategy: {
+ *     attempts: Number("int"),
+ *     evaluateOnExit: [
+ *       {
+ *         onStatusReason: "STRING_VALUE",
+ *         onReason: "STRING_VALUE",
+ *         onExitCode: "STRING_VALUE",
+ *         action: "RETRY" || "EXIT", // required
+ *       },
+ *     ],
+ *   },
+ *   propagateTags: true || false,
+ *   timeout: {
+ *     attemptDurationSeconds: Number("int"),
+ *   },
+ *   tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   platformCapabilities: [
+ *     "EC2" || "FARGATE",
+ *   ],
+ *   eksProperties: {
+ *     podProperties: {
+ *       serviceAccountName: "STRING_VALUE",
+ *       hostNetwork: true || false,
+ *       dnsPolicy: "STRING_VALUE",
+ *       containers: [
+ *         {
+ *           name: "STRING_VALUE",
+ *           image: "STRING_VALUE", // required
+ *           imagePullPolicy: "STRING_VALUE",
+ *           command: [
+ *             "<StringList>",
+ *           ],
+ *           args: [
+ *             "<StringList>",
+ *           ],
+ *           env: [
+ *             {
+ *               name: "STRING_VALUE", // required
+ *               value: "STRING_VALUE",
+ *             },
+ *           ],
+ *           resources: {
+ *             limits: {
+ *               "<keys>": "STRING_VALUE",
+ *             },
+ *             requests: {
+ *               "<keys>": "STRING_VALUE",
+ *             },
+ *           },
+ *           volumeMounts: [
+ *             {
+ *               name: "STRING_VALUE",
+ *               mountPath: "STRING_VALUE",
+ *               readOnly: true || false,
+ *             },
+ *           ],
+ *           securityContext: {
+ *             runAsUser: Number("long"),
+ *             runAsGroup: Number("long"),
+ *             privileged: true || false,
+ *             readOnlyRootFilesystem: true || false,
+ *             runAsNonRoot: true || false,
+ *           },
+ *         },
+ *       ],
+ *       volumes: [
+ *         {
+ *           name: "STRING_VALUE", // required
+ *           hostPath: {
+ *             path: "STRING_VALUE",
+ *           },
+ *           emptyDir: {
+ *             medium: "STRING_VALUE",
+ *             sizeLimit: "STRING_VALUE",
+ *           },
+ *           secret: {
+ *             secretName: "STRING_VALUE", // required
+ *             optional: true || false,
+ *           },
+ *         },
+ *       ],
+ *       metadata: {
+ *         labels: {
+ *           "<keys>": "<String>",
+ *         },
+ *       },
+ *     },
+ *   },
+ * };
  * const command = new RegisterJobDefinitionCommand(input);
  * const response = await client.send(command);
  * ```

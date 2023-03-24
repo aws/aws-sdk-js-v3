@@ -43,6 +43,11 @@ export interface DisassociateLinkCommandOutput extends DisassociateLinkResponse,
  * import { NetworkManagerClient, DisassociateLinkCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, DisassociateLinkCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
+ * const input = {
+ *   GlobalNetworkId: "STRING_VALUE", // required
+ *   DeviceId: "STRING_VALUE", // required
+ *   LinkId: "STRING_VALUE", // required
+ * };
  * const command = new DisassociateLinkCommand(input);
  * const response = await client.send(command);
  * ```

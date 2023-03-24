@@ -42,6 +42,10 @@ export interface ListOfferingsCommandOutput extends ListOfferingsResponse, __Met
  * import { MediaConnectClient, ListOfferingsCommand } from "@aws-sdk/client-mediaconnect"; // ES Modules import
  * // const { MediaConnectClient, ListOfferingsCommand } = require("@aws-sdk/client-mediaconnect"); // CommonJS import
  * const client = new MediaConnectClient(config);
+ * const input = {
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListOfferingsCommand(input);
  * const response = await client.send(command);
  * ```

@@ -74,6 +74,12 @@ export interface ListFleetsCommandOutput extends ListFleetsOutput, __MetadataBea
  * import { GameLiftClient, ListFleetsCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, ListFleetsCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = {
+ *   BuildId: "STRING_VALUE",
+ *   ScriptId: "STRING_VALUE",
+ *   Limit: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListFleetsCommand(input);
  * const response = await client.send(command);
  * ```

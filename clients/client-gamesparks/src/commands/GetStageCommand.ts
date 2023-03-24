@@ -42,6 +42,10 @@ export interface GetStageCommandOutput extends GetStageResult, __MetadataBearer 
  * import { GameSparksClient, GetStageCommand } from "@aws-sdk/client-gamesparks"; // ES Modules import
  * // const { GameSparksClient, GetStageCommand } = require("@aws-sdk/client-gamesparks"); // CommonJS import
  * const client = new GameSparksClient(config);
+ * const input = {
+ *   GameName: "STRING_VALUE", // required
+ *   StageName: "STRING_VALUE", // required
+ * };
  * const command = new GetStageCommand(input);
  * const response = await client.send(command);
  * ```

@@ -60,6 +60,32 @@ export interface CreateDataRepositoryAssociationCommandOutput
  * import { FSxClient, CreateDataRepositoryAssociationCommand } from "@aws-sdk/client-fsx"; // ES Modules import
  * // const { FSxClient, CreateDataRepositoryAssociationCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
  * const client = new FSxClient(config);
+ * const input = {
+ *   FileSystemId: "STRING_VALUE", // required
+ *   FileSystemPath: "STRING_VALUE",
+ *   DataRepositoryPath: "STRING_VALUE", // required
+ *   BatchImportMetaDataOnCreate: true || false,
+ *   ImportedFileChunkSize: Number("int"),
+ *   S3: {
+ *     AutoImportPolicy: {
+ *       Events: [
+ *         "NEW" || "CHANGED" || "DELETED",
+ *       ],
+ *     },
+ *     AutoExportPolicy: {
+ *       Events: [
+ *         "NEW" || "CHANGED" || "DELETED",
+ *       ],
+ *     },
+ *   },
+ *   ClientRequestToken: "STRING_VALUE",
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateDataRepositoryAssociationCommand(input);
  * const response = await client.send(command);
  * ```

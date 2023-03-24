@@ -44,6 +44,9 @@ export interface GetInfrastructureConfigurationCommandOutput
  * import { ImagebuilderClient, GetInfrastructureConfigurationCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
  * // const { ImagebuilderClient, GetInfrastructureConfigurationCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
  * const client = new ImagebuilderClient(config);
+ * const input = {
+ *   infrastructureConfigurationArn: "STRING_VALUE", // required
+ * };
  * const command = new GetInfrastructureConfigurationCommand(input);
  * const response = await client.send(command);
  * ```

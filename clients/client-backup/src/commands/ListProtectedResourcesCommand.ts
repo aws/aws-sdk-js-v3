@@ -44,6 +44,10 @@ export interface ListProtectedResourcesCommandOutput extends ListProtectedResour
  * import { BackupClient, ListProtectedResourcesCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, ListProtectedResourcesCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
+ * const input = {
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListProtectedResourcesCommand(input);
  * const response = await client.send(command);
  * ```

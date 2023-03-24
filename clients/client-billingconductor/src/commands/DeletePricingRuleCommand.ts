@@ -42,6 +42,9 @@ export interface DeletePricingRuleCommandOutput extends DeletePricingRuleOutput,
  * import { BillingconductorClient, DeletePricingRuleCommand } from "@aws-sdk/client-billingconductor"; // ES Modules import
  * // const { BillingconductorClient, DeletePricingRuleCommand } = require("@aws-sdk/client-billingconductor"); // CommonJS import
  * const client = new BillingconductorClient(config);
+ * const input = {
+ *   Arn: "STRING_VALUE", // required
+ * };
  * const command = new DeletePricingRuleCommand(input);
  * const response = await client.send(command);
  * ```

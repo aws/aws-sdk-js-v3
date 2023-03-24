@@ -42,6 +42,10 @@ export interface GetTemplateSyncConfigCommandOutput extends GetTemplateSyncConfi
  * import { ProtonClient, GetTemplateSyncConfigCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, GetTemplateSyncConfigCommand } = require("@aws-sdk/client-proton"); // CommonJS import
  * const client = new ProtonClient(config);
+ * const input = {
+ *   templateName: "STRING_VALUE", // required
+ *   templateType: "STRING_VALUE", // required
+ * };
  * const command = new GetTemplateSyncConfigCommand(input);
  * const response = await client.send(command);
  * ```

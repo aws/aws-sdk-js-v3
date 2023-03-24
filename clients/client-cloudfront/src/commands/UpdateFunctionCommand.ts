@@ -51,6 +51,15 @@ export interface UpdateFunctionCommandOutput extends UpdateFunctionResult, __Met
  * import { CloudFrontClient, UpdateFunctionCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, UpdateFunctionCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
+ * const input = {
+ *   Name: "STRING_VALUE", // required
+ *   IfMatch: "STRING_VALUE", // required
+ *   FunctionConfig: {
+ *     Comment: "STRING_VALUE", // required
+ *     Runtime: "cloudfront-js-1.0", // required
+ *   },
+ *   FunctionCode: "BLOB_VALUE", // required
+ * };
  * const command = new UpdateFunctionCommand(input);
  * const response = await client.send(command);
  * ```

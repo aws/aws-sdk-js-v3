@@ -47,6 +47,17 @@ export interface ImportHostKeyCommandOutput extends ImportHostKeyResponse, __Met
  * import { TransferClient, ImportHostKeyCommand } from "@aws-sdk/client-transfer"; // ES Modules import
  * // const { TransferClient, ImportHostKeyCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
  * const client = new TransferClient(config);
+ * const input = {
+ *   ServerId: "STRING_VALUE", // required
+ *   HostKeyBody: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new ImportHostKeyCommand(input);
  * const response = await client.send(command);
  * ```

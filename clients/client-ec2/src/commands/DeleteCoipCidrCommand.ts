@@ -41,6 +41,11 @@ export interface DeleteCoipCidrCommandOutput extends DeleteCoipCidrResult, __Met
  * import { EC2Client, DeleteCoipCidrCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DeleteCoipCidrCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   Cidr: "STRING_VALUE", // required
+ *   CoipPoolId: "STRING_VALUE", // required
+ *   DryRun: true || false,
+ * };
  * const command = new DeleteCoipCidrCommand(input);
  * const response = await client.send(command);
  * ```

@@ -54,6 +54,16 @@ export interface InitiateDocumentVersionUploadCommandOutput
  * import { WorkDocsClient, InitiateDocumentVersionUploadCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
  * // const { WorkDocsClient, InitiateDocumentVersionUploadCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
  * const client = new WorkDocsClient(config);
+ * const input = {
+ *   AuthenticationToken: "STRING_VALUE",
+ *   Id: "STRING_VALUE",
+ *   Name: "STRING_VALUE",
+ *   ContentCreatedTimestamp: new Date("TIMESTAMP"),
+ *   ContentModifiedTimestamp: new Date("TIMESTAMP"),
+ *   ContentType: "STRING_VALUE",
+ *   DocumentSizeInBytes: Number("long"),
+ *   ParentFolderId: "STRING_VALUE",
+ * };
  * const command = new InitiateDocumentVersionUploadCommand(input);
  * const response = await client.send(command);
  * ```

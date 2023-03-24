@@ -42,6 +42,9 @@ export interface CreateRealtimeEndpointCommandOutput extends CreateRealtimeEndpo
  * import { MachineLearningClient, CreateRealtimeEndpointCommand } from "@aws-sdk/client-machine-learning"; // ES Modules import
  * // const { MachineLearningClient, CreateRealtimeEndpointCommand } = require("@aws-sdk/client-machine-learning"); // CommonJS import
  * const client = new MachineLearningClient(config);
+ * const input = {
+ *   MLModelId: "STRING_VALUE", // required
+ * };
  * const command = new CreateRealtimeEndpointCommand(input);
  * const response = await client.send(command);
  * ```

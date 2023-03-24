@@ -42,6 +42,9 @@ export interface GetSnapshotLimitsCommandOutput extends GetSnapshotLimitsResult,
  * import { DirectoryServiceClient, GetSnapshotLimitsCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, GetSnapshotLimitsCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
  * const client = new DirectoryServiceClient(config);
+ * const input = {
+ *   DirectoryId: "STRING_VALUE", // required
+ * };
  * const command = new GetSnapshotLimitsCommand(input);
  * const response = await client.send(command);
  * ```

@@ -53,6 +53,17 @@ export interface StartApplicationCommandOutput extends StartApplicationResponse,
  * import { KinesisAnalyticsClient, StartApplicationCommand } from "@aws-sdk/client-kinesis-analytics"; // ES Modules import
  * // const { KinesisAnalyticsClient, StartApplicationCommand } = require("@aws-sdk/client-kinesis-analytics"); // CommonJS import
  * const client = new KinesisAnalyticsClient(config);
+ * const input = {
+ *   ApplicationName: "STRING_VALUE", // required
+ *   InputConfigurations: [ // required
+ *     {
+ *       Id: "STRING_VALUE", // required
+ *       InputStartingPositionConfiguration: {
+ *         InputStartingPosition: "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ * };
  * const command = new StartApplicationCommand(input);
  * const response = await client.send(command);
  * ```

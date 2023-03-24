@@ -47,6 +47,17 @@ export interface BatchCreateDelegationByAssessmentCommandOutput
  * import { AuditManagerClient, BatchCreateDelegationByAssessmentCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
  * // const { AuditManagerClient, BatchCreateDelegationByAssessmentCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
  * const client = new AuditManagerClient(config);
+ * const input = {
+ *   createDelegationRequests: [ // required
+ *     {
+ *       comment: "STRING_VALUE",
+ *       controlSetId: "STRING_VALUE",
+ *       roleArn: "STRING_VALUE",
+ *       roleType: "PROCESS_OWNER" || "RESOURCE_OWNER",
+ *     },
+ *   ],
+ *   assessmentId: "STRING_VALUE", // required
+ * };
  * const command = new BatchCreateDelegationByAssessmentCommand(input);
  * const response = await client.send(command);
  * ```

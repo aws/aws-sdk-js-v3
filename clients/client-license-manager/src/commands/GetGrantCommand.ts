@@ -39,6 +39,10 @@ export interface GetGrantCommandOutput extends GetGrantResponse, __MetadataBeare
  * import { LicenseManagerClient, GetGrantCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
  * // const { LicenseManagerClient, GetGrantCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
  * const client = new LicenseManagerClient(config);
+ * const input = {
+ *   GrantArn: "STRING_VALUE", // required
+ *   Version: "STRING_VALUE",
+ * };
  * const command = new GetGrantCommand(input);
  * const response = await client.send(command);
  * ```

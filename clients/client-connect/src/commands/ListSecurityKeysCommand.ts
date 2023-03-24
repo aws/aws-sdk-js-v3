@@ -43,6 +43,11 @@ export interface ListSecurityKeysCommandOutput extends ListSecurityKeysResponse,
  * import { ConnectClient, ListSecurityKeysCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, ListSecurityKeysCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = {
+ *   InstanceId: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListSecurityKeysCommand(input);
  * const response = await client.send(command);
  * ```

@@ -48,6 +48,11 @@ export interface DeleteChannelBanCommandOutput extends __MetadataBearer {}
  * import { ChimeClient, DeleteChannelBanCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, DeleteChannelBanCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = {
+ *   ChannelArn: "STRING_VALUE", // required
+ *   MemberArn: "STRING_VALUE", // required
+ *   ChimeBearer: "STRING_VALUE",
+ * };
  * const command = new DeleteChannelBanCommand(input);
  * const response = await client.send(command);
  * ```

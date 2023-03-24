@@ -45,6 +45,9 @@ export interface RebootInstanceCommandOutput extends RebootInstanceResult, __Met
  * import { LightsailClient, RebootInstanceCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, RebootInstanceCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = {
+ *   instanceName: "STRING_VALUE", // required
+ * };
  * const command = new RebootInstanceCommand(input);
  * const response = await client.send(command);
  * ```

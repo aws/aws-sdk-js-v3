@@ -42,6 +42,9 @@ export interface DeleteAppBlockCommandOutput extends DeleteAppBlockResult, __Met
  * import { AppStreamClient, DeleteAppBlockCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, DeleteAppBlockCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
  * const client = new AppStreamClient(config);
+ * const input = {
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new DeleteAppBlockCommand(input);
  * const response = await client.send(command);
  * ```

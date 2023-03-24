@@ -49,6 +49,15 @@ export interface DeregisterInstanceEventNotificationAttributesCommandOutput
  * import { EC2Client, DeregisterInstanceEventNotificationAttributesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DeregisterInstanceEventNotificationAttributesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   DryRun: true || false,
+ *   InstanceTagAttribute: {
+ *     IncludeAllTagsOfInstance: true || false,
+ *     InstanceTagKeys: [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ * };
  * const command = new DeregisterInstanceEventNotificationAttributesCommand(input);
  * const response = await client.send(command);
  * ```

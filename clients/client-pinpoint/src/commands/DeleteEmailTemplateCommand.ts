@@ -42,6 +42,10 @@ export interface DeleteEmailTemplateCommandOutput extends DeleteEmailTemplateRes
  * import { PinpointClient, DeleteEmailTemplateCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, DeleteEmailTemplateCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
+ * const input = {
+ *   TemplateName: "STRING_VALUE", // required
+ *   Version: "STRING_VALUE",
+ * };
  * const command = new DeleteEmailTemplateCommand(input);
  * const response = await client.send(command);
  * ```

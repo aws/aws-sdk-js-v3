@@ -50,6 +50,9 @@ export interface DescribeBandwidthRateLimitCommandOutput extends DescribeBandwid
  * import { StorageGatewayClient, DescribeBandwidthRateLimitCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, DescribeBandwidthRateLimitCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
+ * const input = {
+ *   GatewayARN: "STRING_VALUE", // required
+ * };
  * const command = new DescribeBandwidthRateLimitCommand(input);
  * const response = await client.send(command);
  * ```

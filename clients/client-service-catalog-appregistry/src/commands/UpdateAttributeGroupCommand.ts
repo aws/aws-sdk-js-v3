@@ -46,6 +46,12 @@ export interface UpdateAttributeGroupCommandOutput extends UpdateAttributeGroupR
  * import { ServiceCatalogAppRegistryClient, UpdateAttributeGroupCommand } from "@aws-sdk/client-service-catalog-appregistry"; // ES Modules import
  * // const { ServiceCatalogAppRegistryClient, UpdateAttributeGroupCommand } = require("@aws-sdk/client-service-catalog-appregistry"); // CommonJS import
  * const client = new ServiceCatalogAppRegistryClient(config);
+ * const input = {
+ *   attributeGroup: "STRING_VALUE", // required
+ *   name: "STRING_VALUE",
+ *   description: "STRING_VALUE",
+ *   attributes: "STRING_VALUE",
+ * };
  * const command = new UpdateAttributeGroupCommand(input);
  * const response = await client.send(command);
  * ```

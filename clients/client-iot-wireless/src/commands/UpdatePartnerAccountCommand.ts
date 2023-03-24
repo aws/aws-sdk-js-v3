@@ -46,6 +46,13 @@ export interface UpdatePartnerAccountCommandOutput extends UpdatePartnerAccountR
  * import { IoTWirelessClient, UpdatePartnerAccountCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, UpdatePartnerAccountCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
+ * const input = {
+ *   Sidewalk: {
+ *     AppServerPrivateKey: "STRING_VALUE",
+ *   },
+ *   PartnerAccountId: "STRING_VALUE", // required
+ *   PartnerType: "Sidewalk", // required
+ * };
  * const command = new UpdatePartnerAccountCommand(input);
  * const response = await client.send(command);
  * ```

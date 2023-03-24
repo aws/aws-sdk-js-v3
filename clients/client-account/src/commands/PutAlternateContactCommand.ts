@@ -50,6 +50,14 @@ export interface PutAlternateContactCommandOutput extends __MetadataBearer {}
  * import { AccountClient, PutAlternateContactCommand } from "@aws-sdk/client-account"; // ES Modules import
  * // const { AccountClient, PutAlternateContactCommand } = require("@aws-sdk/client-account"); // CommonJS import
  * const client = new AccountClient(config);
+ * const input = {
+ *   Name: "STRING_VALUE", // required
+ *   Title: "STRING_VALUE", // required
+ *   EmailAddress: "STRING_VALUE", // required
+ *   PhoneNumber: "STRING_VALUE", // required
+ *   AlternateContactType: "STRING_VALUE", // required
+ *   AccountId: "STRING_VALUE",
+ * };
  * const command = new PutAlternateContactCommand(input);
  * const response = await client.send(command);
  * ```

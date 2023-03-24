@@ -42,6 +42,12 @@ export interface StartFuotaTaskCommandOutput extends StartFuotaTaskResponse, __M
  * import { IoTWirelessClient, StartFuotaTaskCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, StartFuotaTaskCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
+ * const input = {
+ *   Id: "STRING_VALUE", // required
+ *   LoRaWAN: {
+ *     StartTime: new Date("TIMESTAMP"),
+ *   },
+ * };
  * const command = new StartFuotaTaskCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,31 @@ export interface CreateRoutingProfileCommandOutput extends CreateRoutingProfileR
  * import { ConnectClient, CreateRoutingProfileCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, CreateRoutingProfileCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = {
+ *   InstanceId: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE", // required
+ *   DefaultOutboundQueueId: "STRING_VALUE", // required
+ *   QueueConfigs: [
+ *     {
+ *       QueueReference: {
+ *         QueueId: "STRING_VALUE", // required
+ *         Channel: "VOICE" || "CHAT" || "TASK", // required
+ *       },
+ *       Priority: Number("int"), // required
+ *       Delay: Number("int"), // required
+ *     },
+ *   ],
+ *   MediaConcurrencies: [ // required
+ *     {
+ *       Channel: "VOICE" || "CHAT" || "TASK", // required
+ *       Concurrency: Number("int"), // required
+ *     },
+ *   ],
+ *   Tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateRoutingProfileCommand(input);
  * const response = await client.send(command);
  * ```

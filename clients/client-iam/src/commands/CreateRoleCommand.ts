@@ -43,6 +43,20 @@ export interface CreateRoleCommandOutput extends CreateRoleResponse, __MetadataB
  * import { IAMClient, CreateRoleCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, CreateRoleCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = {
+ *   Path: "STRING_VALUE",
+ *   RoleName: "STRING_VALUE", // required
+ *   AssumeRolePolicyDocument: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   MaxSessionDuration: Number("int"),
+ *   PermissionsBoundary: "STRING_VALUE",
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateRoleCommand(input);
  * const response = await client.send(command);
  * ```

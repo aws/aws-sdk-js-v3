@@ -39,6 +39,14 @@ export interface GetSdkCommandOutput extends SdkResponse, __MetadataBearer {}
  * import { APIGatewayClient, GetSdkCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, GetSdkCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
+ * const input = {
+ *   restApiId: "STRING_VALUE", // required
+ *   stageName: "STRING_VALUE", // required
+ *   sdkType: "STRING_VALUE", // required
+ *   parameters: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new GetSdkCommand(input);
  * const response = await client.send(command);
  * ```

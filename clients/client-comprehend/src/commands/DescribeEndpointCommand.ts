@@ -44,6 +44,9 @@ export interface DescribeEndpointCommandOutput extends DescribeEndpointResponse,
  * import { ComprehendClient, DescribeEndpointCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, DescribeEndpointCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
+ * const input = {
+ *   EndpointArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeEndpointCommand(input);
  * const response = await client.send(command);
  * ```

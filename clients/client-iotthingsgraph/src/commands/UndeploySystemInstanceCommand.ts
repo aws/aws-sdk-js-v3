@@ -44,6 +44,9 @@ export interface UndeploySystemInstanceCommandOutput extends UndeploySystemInsta
  * import { IoTThingsGraphClient, UndeploySystemInstanceCommand } from "@aws-sdk/client-iotthingsgraph"; // ES Modules import
  * // const { IoTThingsGraphClient, UndeploySystemInstanceCommand } = require("@aws-sdk/client-iotthingsgraph"); // CommonJS import
  * const client = new IoTThingsGraphClient(config);
+ * const input = {
+ *   id: "STRING_VALUE",
+ * };
  * const command = new UndeploySystemInstanceCommand(input);
  * const response = await client.send(command);
  * ```

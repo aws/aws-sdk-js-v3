@@ -42,6 +42,20 @@ export interface RestoreClusterFromSnapshotCommandOutput extends RestoreClusterF
  * import { DocDBElasticClient, RestoreClusterFromSnapshotCommand } from "@aws-sdk/client-docdb-elastic"; // ES Modules import
  * // const { DocDBElasticClient, RestoreClusterFromSnapshotCommand } = require("@aws-sdk/client-docdb-elastic"); // CommonJS import
  * const client = new DocDBElasticClient(config);
+ * const input = {
+ *   clusterName: "STRING_VALUE", // required
+ *   snapshotArn: "STRING_VALUE", // required
+ *   vpcSecurityGroupIds: [
+ *     "STRING_VALUE",
+ *   ],
+ *   subnetIds: [
+ *     "STRING_VALUE",
+ *   ],
+ *   kmsKeyId: "STRING_VALUE",
+ *   tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new RestoreClusterFromSnapshotCommand(input);
  * const response = await client.send(command);
  * ```

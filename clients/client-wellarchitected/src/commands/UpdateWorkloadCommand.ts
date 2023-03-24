@@ -42,6 +42,37 @@ export interface UpdateWorkloadCommandOutput extends UpdateWorkloadOutput, __Met
  * import { WellArchitectedClient, UpdateWorkloadCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
  * // const { WellArchitectedClient, UpdateWorkloadCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
  * const client = new WellArchitectedClient(config);
+ * const input = {
+ *   WorkloadId: "STRING_VALUE", // required
+ *   WorkloadName: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   Environment: "PRODUCTION" || "PREPRODUCTION",
+ *   AccountIds: [
+ *     "STRING_VALUE",
+ *   ],
+ *   AwsRegions: [
+ *     "STRING_VALUE",
+ *   ],
+ *   NonAwsRegions: [
+ *     "STRING_VALUE",
+ *   ],
+ *   PillarPriorities: [
+ *     "STRING_VALUE",
+ *   ],
+ *   ArchitecturalDesign: "STRING_VALUE",
+ *   ReviewOwner: "STRING_VALUE",
+ *   IsReviewOwnerUpdateAcknowledged: true || false,
+ *   IndustryType: "STRING_VALUE",
+ *   Industry: "STRING_VALUE",
+ *   Notes: "STRING_VALUE",
+ *   ImprovementStatus: "NOT_APPLICABLE" || "NOT_STARTED" || "IN_PROGRESS" || "COMPLETE" || "RISK_ACKNOWLEDGED",
+ *   DiscoveryConfig: {
+ *     TrustedAdvisorIntegrationStatus: "ENABLED" || "DISABLED",
+ *   },
+ *   Applications: [
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new UpdateWorkloadCommand(input);
  * const response = await client.send(command);
  * ```

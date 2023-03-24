@@ -42,6 +42,23 @@ export interface CreateConfiguredTableCommandOutput extends CreateConfiguredTabl
  * import { CleanRoomsClient, CreateConfiguredTableCommand } from "@aws-sdk/client-cleanrooms"; // ES Modules import
  * // const { CleanRoomsClient, CreateConfiguredTableCommand } = require("@aws-sdk/client-cleanrooms"); // CommonJS import
  * const client = new CleanRoomsClient(config);
+ * const input = {
+ *   name: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   tableReference: { // Union: only one key present
+ *     glue: {
+ *       tableName: "STRING_VALUE", // required
+ *       databaseName: "STRING_VALUE", // required
+ *     },
+ *   },
+ *   allowedColumns: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ *   analysisMethod: "STRING_VALUE", // required
+ *   tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateConfiguredTableCommand(input);
  * const response = await client.send(command);
  * ```

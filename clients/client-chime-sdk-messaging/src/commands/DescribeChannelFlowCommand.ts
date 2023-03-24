@@ -50,6 +50,9 @@ export interface DescribeChannelFlowCommandOutput extends DescribeChannelFlowRes
  * import { ChimeSDKMessagingClient, DescribeChannelFlowCommand } from "@aws-sdk/client-chime-sdk-messaging"; // ES Modules import
  * // const { ChimeSDKMessagingClient, DescribeChannelFlowCommand } = require("@aws-sdk/client-chime-sdk-messaging"); // CommonJS import
  * const client = new ChimeSDKMessagingClient(config);
+ * const input = {
+ *   ChannelFlowArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeChannelFlowCommand(input);
  * const response = await client.send(command);
  * ```

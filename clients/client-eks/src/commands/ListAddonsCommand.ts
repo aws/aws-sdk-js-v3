@@ -42,6 +42,11 @@ export interface ListAddonsCommandOutput extends ListAddonsResponse, __MetadataB
  * import { EKSClient, ListAddonsCommand } from "@aws-sdk/client-eks"; // ES Modules import
  * // const { EKSClient, ListAddonsCommand } = require("@aws-sdk/client-eks"); // CommonJS import
  * const client = new EKSClient(config);
+ * const input = {
+ *   clusterName: "STRING_VALUE", // required
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListAddonsCommand(input);
  * const response = await client.send(command);
  * ```

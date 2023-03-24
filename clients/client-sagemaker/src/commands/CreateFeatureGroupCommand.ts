@@ -54,6 +54,45 @@ export interface CreateFeatureGroupCommandOutput extends CreateFeatureGroupRespo
  * import { SageMakerClient, CreateFeatureGroupCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, CreateFeatureGroupCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = {
+ *   FeatureGroupName: "STRING_VALUE", // required
+ *   RecordIdentifierFeatureName: "STRING_VALUE", // required
+ *   EventTimeFeatureName: "STRING_VALUE", // required
+ *   FeatureDefinitions: [ // required
+ *     {
+ *       FeatureName: "STRING_VALUE",
+ *       FeatureType: "Integral" || "Fractional" || "String",
+ *     },
+ *   ],
+ *   OnlineStoreConfig: {
+ *     SecurityConfig: {
+ *       KmsKeyId: "STRING_VALUE",
+ *     },
+ *     EnableOnlineStore: true || false,
+ *   },
+ *   OfflineStoreConfig: {
+ *     S3StorageConfig: {
+ *       S3Uri: "STRING_VALUE", // required
+ *       KmsKeyId: "STRING_VALUE",
+ *       ResolvedOutputS3Uri: "STRING_VALUE",
+ *     },
+ *     DisableGlueTableCreation: true || false,
+ *     DataCatalogConfig: {
+ *       TableName: "STRING_VALUE", // required
+ *       Catalog: "STRING_VALUE", // required
+ *       Database: "STRING_VALUE", // required
+ *     },
+ *     TableFormat: "Glue" || "Iceberg",
+ *   },
+ *   RoleArn: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateFeatureGroupCommand(input);
  * const response = await client.send(command);
  * ```

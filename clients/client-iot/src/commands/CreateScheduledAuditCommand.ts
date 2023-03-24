@@ -44,6 +44,21 @@ export interface CreateScheduledAuditCommandOutput extends CreateScheduledAuditR
  * import { IoTClient, CreateScheduledAuditCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, CreateScheduledAuditCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = {
+ *   frequency: "DAILY" || "WEEKLY" || "BIWEEKLY" || "MONTHLY", // required
+ *   dayOfMonth: "STRING_VALUE",
+ *   dayOfWeek: "SUN" || "MON" || "TUE" || "WED" || "THU" || "FRI" || "SAT",
+ *   targetCheckNames: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ *   scheduledAuditName: "STRING_VALUE", // required
+ *   tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateScheduledAuditCommand(input);
  * const response = await client.send(command);
  * ```

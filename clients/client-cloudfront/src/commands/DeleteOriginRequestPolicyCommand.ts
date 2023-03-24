@@ -48,6 +48,10 @@ export interface DeleteOriginRequestPolicyCommandOutput extends __MetadataBearer
  * import { CloudFrontClient, DeleteOriginRequestPolicyCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, DeleteOriginRequestPolicyCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
+ * const input = {
+ *   Id: "STRING_VALUE", // required
+ *   IfMatch: "STRING_VALUE",
+ * };
  * const command = new DeleteOriginRequestPolicyCommand(input);
  * const response = await client.send(command);
  * ```

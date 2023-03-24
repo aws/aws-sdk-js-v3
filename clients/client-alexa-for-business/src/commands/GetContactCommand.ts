@@ -42,6 +42,9 @@ export interface GetContactCommandOutput extends GetContactResponse, __MetadataB
  * import { AlexaForBusinessClient, GetContactCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, GetContactCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
+ * const input = {
+ *   ContactArn: "STRING_VALUE", // required
+ * };
  * const command = new GetContactCommand(input);
  * const response = await client.send(command);
  * ```

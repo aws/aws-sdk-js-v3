@@ -49,6 +49,9 @@ export interface StopTrainingEntityRecognizerCommandOutput
  * import { ComprehendClient, StopTrainingEntityRecognizerCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, StopTrainingEntityRecognizerCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
+ * const input = {
+ *   EntityRecognizerArn: "STRING_VALUE", // required
+ * };
  * const command = new StopTrainingEntityRecognizerCommand(input);
  * const response = await client.send(command);
  * ```

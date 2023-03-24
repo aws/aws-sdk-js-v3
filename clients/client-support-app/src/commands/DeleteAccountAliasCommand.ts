@@ -43,6 +43,7 @@ export interface DeleteAccountAliasCommandOutput extends DeleteAccountAliasResul
  * import { SupportAppClient, DeleteAccountAliasCommand } from "@aws-sdk/client-support-app"; // ES Modules import
  * // const { SupportAppClient, DeleteAccountAliasCommand } = require("@aws-sdk/client-support-app"); // CommonJS import
  * const client = new SupportAppClient(config);
+ * const input = {};
  * const command = new DeleteAccountAliasCommand(input);
  * const response = await client.send(command);
  * ```

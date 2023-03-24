@@ -48,6 +48,22 @@ export interface RegisterTargetWithMaintenanceWindowCommandOutput
  * import { SSMClient, RegisterTargetWithMaintenanceWindowCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, RegisterTargetWithMaintenanceWindowCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = {
+ *   WindowId: "STRING_VALUE", // required
+ *   ResourceType: "INSTANCE" || "RESOURCE_GROUP", // required
+ *   Targets: [ // required
+ *     {
+ *       Key: "STRING_VALUE",
+ *       Values: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   OwnerInformation: "STRING_VALUE",
+ *   Name: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   ClientToken: "STRING_VALUE",
+ * };
  * const command = new RegisterTargetWithMaintenanceWindowCommand(input);
  * const response = await client.send(command);
  * ```

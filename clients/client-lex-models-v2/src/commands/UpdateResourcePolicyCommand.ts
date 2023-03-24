@@ -44,6 +44,11 @@ export interface UpdateResourcePolicyCommandOutput extends UpdateResourcePolicyR
  * import { LexModelsV2Client, UpdateResourcePolicyCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
  * // const { LexModelsV2Client, UpdateResourcePolicyCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
  * const client = new LexModelsV2Client(config);
+ * const input = {
+ *   resourceArn: "STRING_VALUE", // required
+ *   policy: "STRING_VALUE", // required
+ *   expectedRevisionId: "STRING_VALUE",
+ * };
  * const command = new UpdateResourcePolicyCommand(input);
  * const response = await client.send(command);
  * ```

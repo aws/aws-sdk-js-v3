@@ -63,6 +63,10 @@ export interface GetActivityTaskCommandOutput extends GetActivityTaskOutput, __M
  * import { SFNClient, GetActivityTaskCommand } from "@aws-sdk/client-sfn"; // ES Modules import
  * // const { SFNClient, GetActivityTaskCommand } = require("@aws-sdk/client-sfn"); // CommonJS import
  * const client = new SFNClient(config);
+ * const input = {
+ *   activityArn: "STRING_VALUE", // required
+ *   workerName: "STRING_VALUE",
+ * };
  * const command = new GetActivityTaskCommand(input);
  * const response = await client.send(command);
  * ```

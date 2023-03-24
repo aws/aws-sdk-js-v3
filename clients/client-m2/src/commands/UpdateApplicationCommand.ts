@@ -42,6 +42,15 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationRespons
  * import { M2Client, UpdateApplicationCommand } from "@aws-sdk/client-m2"; // ES Modules import
  * // const { M2Client, UpdateApplicationCommand } = require("@aws-sdk/client-m2"); // CommonJS import
  * const client = new M2Client(config);
+ * const input = {
+ *   applicationId: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   currentApplicationVersion: Number("int"), // required
+ *   definition: { // Union: only one key present
+ *     s3Location: "STRING_VALUE",
+ *     content: "STRING_VALUE",
+ *   },
+ * };
  * const command = new UpdateApplicationCommand(input);
  * const response = await client.send(command);
  * ```

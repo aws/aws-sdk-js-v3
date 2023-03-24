@@ -58,6 +58,25 @@ export interface AddApplicationOutputCommandOutput extends AddApplicationOutputR
  * import { KinesisAnalyticsV2Client, AddApplicationOutputCommand } from "@aws-sdk/client-kinesis-analytics-v2"; // ES Modules import
  * // const { KinesisAnalyticsV2Client, AddApplicationOutputCommand } = require("@aws-sdk/client-kinesis-analytics-v2"); // CommonJS import
  * const client = new KinesisAnalyticsV2Client(config);
+ * const input = {
+ *   ApplicationName: "STRING_VALUE", // required
+ *   CurrentApplicationVersionId: Number("long"), // required
+ *   Output: {
+ *     Name: "STRING_VALUE", // required
+ *     KinesisStreamsOutput: {
+ *       ResourceARN: "STRING_VALUE", // required
+ *     },
+ *     KinesisFirehoseOutput: {
+ *       ResourceARN: "STRING_VALUE", // required
+ *     },
+ *     LambdaOutput: {
+ *       ResourceARN: "STRING_VALUE", // required
+ *     },
+ *     DestinationSchema: {
+ *       RecordFormatType: "JSON" || "CSV", // required
+ *     },
+ *   },
+ * };
  * const command = new AddApplicationOutputCommand(input);
  * const response = await client.send(command);
  * ```

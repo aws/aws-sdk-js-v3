@@ -42,6 +42,12 @@ export interface ListWorkersCommandOutput extends ListWorkersResponse, __Metadat
  * import { IoTRoboRunnerClient, ListWorkersCommand } from "@aws-sdk/client-iot-roborunner"; // ES Modules import
  * // const { IoTRoboRunnerClient, ListWorkersCommand } = require("@aws-sdk/client-iot-roborunner"); // CommonJS import
  * const client = new IoTRoboRunnerClient(config);
+ * const input = {
+ *   site: "STRING_VALUE", // required
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ *   fleet: "STRING_VALUE",
+ * };
  * const command = new ListWorkersCommand(input);
  * const response = await client.send(command);
  * ```

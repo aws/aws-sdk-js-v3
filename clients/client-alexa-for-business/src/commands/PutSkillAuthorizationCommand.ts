@@ -48,6 +48,13 @@ export interface PutSkillAuthorizationCommandOutput extends PutSkillAuthorizatio
  * import { AlexaForBusinessClient, PutSkillAuthorizationCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, PutSkillAuthorizationCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
+ * const input = {
+ *   AuthorizationResult: { // required
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   SkillId: "STRING_VALUE", // required
+ *   RoomArn: "STRING_VALUE",
+ * };
  * const command = new PutSkillAuthorizationCommand(input);
  * const response = await client.send(command);
  * ```

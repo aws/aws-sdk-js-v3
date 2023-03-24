@@ -42,6 +42,9 @@ export interface RebootBrokerCommandOutput extends RebootBrokerResponse, __Metad
  * import { MqClient, RebootBrokerCommand } from "@aws-sdk/client-mq"; // ES Modules import
  * // const { MqClient, RebootBrokerCommand } = require("@aws-sdk/client-mq"); // CommonJS import
  * const client = new MqClient(config);
+ * const input = {
+ *   BrokerId: "STRING_VALUE", // required
+ * };
  * const command = new RebootBrokerCommand(input);
  * const response = await client.send(command);
  * ```

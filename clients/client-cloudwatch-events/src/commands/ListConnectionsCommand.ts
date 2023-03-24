@@ -42,6 +42,12 @@ export interface ListConnectionsCommandOutput extends ListConnectionsResponse, _
  * import { CloudWatchEventsClient, ListConnectionsCommand } from "@aws-sdk/client-cloudwatch-events"; // ES Modules import
  * // const { CloudWatchEventsClient, ListConnectionsCommand } = require("@aws-sdk/client-cloudwatch-events"); // CommonJS import
  * const client = new CloudWatchEventsClient(config);
+ * const input = {
+ *   NamePrefix: "STRING_VALUE",
+ *   ConnectionState: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   Limit: Number("int"),
+ * };
  * const command = new ListConnectionsCommand(input);
  * const response = await client.send(command);
  * ```

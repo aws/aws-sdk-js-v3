@@ -53,6 +53,7 @@ export interface ExportConfigurationsCommandOutput extends ExportConfigurationsR
  * import { ApplicationDiscoveryServiceClient, ExportConfigurationsCommand } from "@aws-sdk/client-application-discovery-service"; // ES Modules import
  * // const { ApplicationDiscoveryServiceClient, ExportConfigurationsCommand } = require("@aws-sdk/client-application-discovery-service"); // CommonJS import
  * const client = new ApplicationDiscoveryServiceClient(config);
+ * const input = {};
  * const command = new ExportConfigurationsCommand(input);
  * const response = await client.send(command);
  * ```

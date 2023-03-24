@@ -43,6 +43,11 @@ export interface ListThingRegistrationTasksCommandOutput extends ListThingRegist
  * import { IoTClient, ListThingRegistrationTasksCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, ListThingRegistrationTasksCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = {
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   status: "InProgress" || "Completed" || "Failed" || "Cancelled" || "Cancelling",
+ * };
  * const command = new ListThingRegistrationTasksCommand(input);
  * const response = await client.send(command);
  * ```

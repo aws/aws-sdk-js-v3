@@ -42,6 +42,9 @@ export interface GetStoredQueryCommandOutput extends GetStoredQueryResponse, __M
  * import { ConfigServiceClient, GetStoredQueryCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, GetStoredQueryCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
+ * const input = {
+ *   QueryName: "STRING_VALUE", // required
+ * };
  * const command = new GetStoredQueryCommand(input);
  * const response = await client.send(command);
  * ```

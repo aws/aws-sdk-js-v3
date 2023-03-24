@@ -42,6 +42,10 @@ export interface ListClassificationScopesCommandOutput extends ListClassificatio
  * import { Macie2Client, ListClassificationScopesCommand } from "@aws-sdk/client-macie2"; // ES Modules import
  * // const { Macie2Client, ListClassificationScopesCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
  * const client = new Macie2Client(config);
+ * const input = {
+ *   name: "STRING_VALUE",
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListClassificationScopesCommand(input);
  * const response = await client.send(command);
  * ```

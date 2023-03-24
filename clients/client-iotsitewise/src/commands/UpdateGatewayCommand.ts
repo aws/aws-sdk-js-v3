@@ -42,6 +42,10 @@ export interface UpdateGatewayCommandOutput extends __MetadataBearer {}
  * import { IoTSiteWiseClient, UpdateGatewayCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, UpdateGatewayCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
+ * const input = {
+ *   gatewayId: "STRING_VALUE", // required
+ *   gatewayName: "STRING_VALUE", // required
+ * };
  * const command = new UpdateGatewayCommand(input);
  * const response = await client.send(command);
  * ```

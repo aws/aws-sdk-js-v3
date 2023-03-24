@@ -42,6 +42,10 @@ export interface CreateSnapshotCommandOutput extends CreateSnapshotResult, __Met
  * import { GameSparksClient, CreateSnapshotCommand } from "@aws-sdk/client-gamesparks"; // ES Modules import
  * // const { GameSparksClient, CreateSnapshotCommand } = require("@aws-sdk/client-gamesparks"); // CommonJS import
  * const client = new GameSparksClient(config);
+ * const input = {
+ *   GameName: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ * };
  * const command = new CreateSnapshotCommand(input);
  * const response = await client.send(command);
  * ```

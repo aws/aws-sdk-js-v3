@@ -62,6 +62,29 @@ export interface CreateDatasetImportJobCommandOutput extends CreateDatasetImport
  * import { ForecastClient, CreateDatasetImportJobCommand } from "@aws-sdk/client-forecast"; // ES Modules import
  * // const { ForecastClient, CreateDatasetImportJobCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
  * const client = new ForecastClient(config);
+ * const input = {
+ *   DatasetImportJobName: "STRING_VALUE", // required
+ *   DatasetArn: "STRING_VALUE", // required
+ *   DataSource: {
+ *     S3Config: {
+ *       Path: "STRING_VALUE", // required
+ *       RoleArn: "STRING_VALUE", // required
+ *       KMSKeyArn: "STRING_VALUE",
+ *     },
+ *   },
+ *   TimestampFormat: "STRING_VALUE",
+ *   TimeZone: "STRING_VALUE",
+ *   UseGeolocationForTimeZone: true || false,
+ *   GeolocationFormat: "STRING_VALUE",
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   Format: "STRING_VALUE",
+ *   ImportMode: "FULL" || "INCREMENTAL",
+ * };
  * const command = new CreateDatasetImportJobCommand(input);
  * const response = await client.send(command);
  * ```

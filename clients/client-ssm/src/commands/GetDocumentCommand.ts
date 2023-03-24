@@ -42,6 +42,12 @@ export interface GetDocumentCommandOutput extends GetDocumentResult, __MetadataB
  * import { SSMClient, GetDocumentCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, GetDocumentCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = {
+ *   Name: "STRING_VALUE", // required
+ *   VersionName: "STRING_VALUE",
+ *   DocumentVersion: "STRING_VALUE",
+ *   DocumentFormat: "YAML" || "JSON" || "TEXT",
+ * };
  * const command = new GetDocumentCommand(input);
  * const response = await client.send(command);
  * ```

@@ -164,6 +164,108 @@ export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __Met
  * import { ECSClient, UpdateServiceCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, UpdateServiceCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
  * const client = new ECSClient(config);
+ * const input = {
+ *   cluster: "STRING_VALUE",
+ *   service: "STRING_VALUE", // required
+ *   desiredCount: Number("int"),
+ *   taskDefinition: "STRING_VALUE",
+ *   capacityProviderStrategy: [
+ *     {
+ *       capacityProvider: "STRING_VALUE", // required
+ *       weight: Number("int"),
+ *       base: Number("int"),
+ *     },
+ *   ],
+ *   deploymentConfiguration: {
+ *     deploymentCircuitBreaker: {
+ *       enable: true || false, // required
+ *       rollback: true || false, // required
+ *     },
+ *     maximumPercent: Number("int"),
+ *     minimumHealthyPercent: Number("int"),
+ *     alarms: {
+ *       alarmNames: [ // required
+ *         "STRING_VALUE",
+ *       ],
+ *       enable: true || false, // required
+ *       rollback: true || false, // required
+ *     },
+ *   },
+ *   networkConfiguration: {
+ *     awsvpcConfiguration: {
+ *       subnets: [ // required
+ *         "STRING_VALUE",
+ *       ],
+ *       securityGroups: [
+ *         "STRING_VALUE",
+ *       ],
+ *       assignPublicIp: "ENABLED" || "DISABLED",
+ *     },
+ *   },
+ *   placementConstraints: [
+ *     {
+ *       type: "distinctInstance" || "memberOf",
+ *       expression: "STRING_VALUE",
+ *     },
+ *   ],
+ *   placementStrategy: [
+ *     {
+ *       type: "random" || "spread" || "binpack",
+ *       field: "STRING_VALUE",
+ *     },
+ *   ],
+ *   platformVersion: "STRING_VALUE",
+ *   forceNewDeployment: true || false,
+ *   healthCheckGracePeriodSeconds: Number("int"),
+ *   enableExecuteCommand: true || false,
+ *   enableECSManagedTags: true || false,
+ *   loadBalancers: [
+ *     {
+ *       targetGroupArn: "STRING_VALUE",
+ *       loadBalancerName: "STRING_VALUE",
+ *       containerName: "STRING_VALUE",
+ *       containerPort: Number("int"),
+ *     },
+ *   ],
+ *   propagateTags: "TASK_DEFINITION" || "SERVICE" || "NONE",
+ *   serviceRegistries: [
+ *     {
+ *       registryArn: "STRING_VALUE",
+ *       port: Number("int"),
+ *       containerName: "STRING_VALUE",
+ *       containerPort: Number("int"),
+ *     },
+ *   ],
+ *   serviceConnectConfiguration: {
+ *     enabled: true || false, // required
+ *     namespace: "STRING_VALUE",
+ *     services: [
+ *       {
+ *         portName: "STRING_VALUE", // required
+ *         discoveryName: "STRING_VALUE",
+ *         clientAliases: [
+ *           {
+ *             port: Number("int"), // required
+ *             dnsName: "STRING_VALUE",
+ *           },
+ *         ],
+ *         ingressPortOverride: Number("int"),
+ *       },
+ *     ],
+ *     logConfiguration: {
+ *       logDriver: "json-file" || "syslog" || "journald" || "gelf" || "fluentd" || "awslogs" || "splunk" || "awsfirelens", // required
+ *       options: {
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *       secretOptions: [
+ *         {
+ *           name: "STRING_VALUE", // required
+ *           valueFrom: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *     },
+ *   },
+ * };
  * const command = new UpdateServiceCommand(input);
  * const response = await client.send(command);
  * ```

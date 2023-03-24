@@ -42,6 +42,9 @@ export interface DeleteInputCommandOutput extends DeleteInputResponse, __Metadat
  * import { IoTEventsClient, DeleteInputCommand } from "@aws-sdk/client-iot-events"; // ES Modules import
  * // const { IoTEventsClient, DeleteInputCommand } = require("@aws-sdk/client-iot-events"); // CommonJS import
  * const client = new IoTEventsClient(config);
+ * const input = {
+ *   inputName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteInputCommand(input);
  * const response = await client.send(command);
  * ```

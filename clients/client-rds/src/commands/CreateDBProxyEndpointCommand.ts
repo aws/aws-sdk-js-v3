@@ -44,6 +44,23 @@ export interface CreateDBProxyEndpointCommandOutput extends CreateDBProxyEndpoin
  * import { RDSClient, CreateDBProxyEndpointCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, CreateDBProxyEndpointCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = {
+ *   DBProxyName: "STRING_VALUE", // required
+ *   DBProxyEndpointName: "STRING_VALUE", // required
+ *   VpcSubnetIds: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ *   VpcSecurityGroupIds: [
+ *     "STRING_VALUE",
+ *   ],
+ *   TargetRole: "READ_WRITE" || "READ_ONLY",
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateDBProxyEndpointCommand(input);
  * const response = await client.send(command);
  * ```

@@ -43,6 +43,11 @@ export interface GetSMSAttributesCommandOutput extends GetSMSAttributesResponse,
  * import { SNSClient, GetSMSAttributesCommand } from "@aws-sdk/client-sns"; // ES Modules import
  * // const { SNSClient, GetSMSAttributesCommand } = require("@aws-sdk/client-sns"); // CommonJS import
  * const client = new SNSClient(config);
+ * const input = {
+ *   attributes: [
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new GetSMSAttributesCommand(input);
  * const response = await client.send(command);
  * ```

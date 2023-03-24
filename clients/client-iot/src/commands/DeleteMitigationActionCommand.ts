@@ -43,6 +43,9 @@ export interface DeleteMitigationActionCommandOutput extends DeleteMitigationAct
  * import { IoTClient, DeleteMitigationActionCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, DeleteMitigationActionCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = {
+ *   actionName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteMitigationActionCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,22 @@ export interface SearchProvisionedProductsCommandOutput extends SearchProvisione
  * import { ServiceCatalogClient, SearchProvisionedProductsCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, SearchProvisionedProductsCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
+ * const input = {
+ *   AcceptLanguage: "STRING_VALUE",
+ *   AccessLevelFilter: {
+ *     Key: "Account" || "Role" || "User",
+ *     Value: "STRING_VALUE",
+ *   },
+ *   Filters: {
+ *     "<keys>": [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   SortBy: "STRING_VALUE",
+ *   SortOrder: "ASCENDING" || "DESCENDING",
+ *   PageSize: Number("int"),
+ *   PageToken: "STRING_VALUE",
+ * };
  * const command = new SearchProvisionedProductsCommand(input);
  * const response = await client.send(command);
  * ```

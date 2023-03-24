@@ -53,6 +53,56 @@ export interface CreateMediaConcatenationPipelineCommandOutput
  * import { ChimeSDKMediaPipelinesClient, CreateMediaConcatenationPipelineCommand } from "@aws-sdk/client-chime-sdk-media-pipelines"; // ES Modules import
  * // const { ChimeSDKMediaPipelinesClient, CreateMediaConcatenationPipelineCommand } = require("@aws-sdk/client-chime-sdk-media-pipelines"); // CommonJS import
  * const client = new ChimeSDKMediaPipelinesClient(config);
+ * const input = {
+ *   Sources: [ // required
+ *     {
+ *       Type: "MediaCapturePipeline", // required
+ *       MediaCapturePipelineSourceConfiguration: {
+ *         MediaPipelineArn: "STRING_VALUE", // required
+ *         ChimeSdkMeetingConfiguration: {
+ *           ArtifactsConfiguration: {
+ *             Audio: {
+ *               State: "Enabled", // required
+ *             },
+ *             Video: {
+ *               State: "Enabled" || "Disabled", // required
+ *             },
+ *             Content: {
+ *               State: "Enabled" || "Disabled", // required
+ *             },
+ *             DataChannel: {
+ *               State: "Enabled" || "Disabled", // required
+ *             },
+ *             TranscriptionMessages: {
+ *               State: "Enabled" || "Disabled", // required
+ *             },
+ *             MeetingEvents: {
+ *               State: "Enabled" || "Disabled", // required
+ *             },
+ *             CompositedVideo: {
+ *               State: "Enabled" || "Disabled", // required
+ *             },
+ *           },
+ *         },
+ *       },
+ *     },
+ *   ],
+ *   Sinks: [ // required
+ *     {
+ *       Type: "S3Bucket", // required
+ *       S3BucketSinkConfiguration: {
+ *         Destination: "STRING_VALUE", // required
+ *       },
+ *     },
+ *   ],
+ *   ClientRequestToken: "STRING_VALUE",
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateMediaConcatenationPipelineCommand(input);
  * const response = await client.send(command);
  * ```

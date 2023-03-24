@@ -52,6 +52,11 @@ export interface DescribeDeliveryStreamCommandOutput extends DescribeDeliveryStr
  * import { FirehoseClient, DescribeDeliveryStreamCommand } from "@aws-sdk/client-firehose"; // ES Modules import
  * // const { FirehoseClient, DescribeDeliveryStreamCommand } = require("@aws-sdk/client-firehose"); // CommonJS import
  * const client = new FirehoseClient(config);
+ * const input = {
+ *   DeliveryStreamName: "STRING_VALUE", // required
+ *   Limit: Number("int"),
+ *   ExclusiveStartDestinationId: "STRING_VALUE",
+ * };
  * const command = new DescribeDeliveryStreamCommand(input);
  * const response = await client.send(command);
  * ```

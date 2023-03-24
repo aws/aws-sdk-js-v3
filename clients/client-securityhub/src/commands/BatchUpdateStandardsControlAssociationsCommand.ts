@@ -50,6 +50,16 @@ export interface BatchUpdateStandardsControlAssociationsCommandOutput
  * import { SecurityHubClient, BatchUpdateStandardsControlAssociationsCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, BatchUpdateStandardsControlAssociationsCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
  * const client = new SecurityHubClient(config);
+ * const input = {
+ *   StandardsControlAssociationUpdates: [ // required
+ *     {
+ *       StandardsArn: "STRING_VALUE", // required
+ *       SecurityControlId: "STRING_VALUE", // required
+ *       AssociationStatus: "ENABLED" || "DISABLED", // required
+ *       UpdatedReason: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new BatchUpdateStandardsControlAssociationsCommand(input);
  * const response = await client.send(command);
  * ```

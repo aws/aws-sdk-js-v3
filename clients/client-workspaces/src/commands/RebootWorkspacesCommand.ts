@@ -45,6 +45,13 @@ export interface RebootWorkspacesCommandOutput extends RebootWorkspacesResult, _
  * import { WorkSpacesClient, RebootWorkspacesCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, RebootWorkspacesCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
  * const client = new WorkSpacesClient(config);
+ * const input = {
+ *   RebootWorkspaceRequests: [ // required
+ *     {
+ *       WorkspaceId: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new RebootWorkspacesCommand(input);
  * const response = await client.send(command);
  * ```

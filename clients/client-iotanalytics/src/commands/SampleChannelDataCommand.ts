@@ -43,6 +43,12 @@ export interface SampleChannelDataCommandOutput extends SampleChannelDataRespons
  * import { IoTAnalyticsClient, SampleChannelDataCommand } from "@aws-sdk/client-iotanalytics"; // ES Modules import
  * // const { IoTAnalyticsClient, SampleChannelDataCommand } = require("@aws-sdk/client-iotanalytics"); // CommonJS import
  * const client = new IoTAnalyticsClient(config);
+ * const input = {
+ *   channelName: "STRING_VALUE", // required
+ *   maxMessages: Number("int"),
+ *   startTime: new Date("TIMESTAMP"),
+ *   endTime: new Date("TIMESTAMP"),
+ * };
  * const command = new SampleChannelDataCommand(input);
  * const response = await client.send(command);
  * ```

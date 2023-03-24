@@ -49,6 +49,9 @@ export interface EnableDomainAutoRenewCommandOutput extends EnableDomainAutoRene
  * import { Route53DomainsClient, EnableDomainAutoRenewCommand } from "@aws-sdk/client-route-53-domains"; // ES Modules import
  * // const { Route53DomainsClient, EnableDomainAutoRenewCommand } = require("@aws-sdk/client-route-53-domains"); // CommonJS import
  * const client = new Route53DomainsClient(config);
+ * const input = {
+ *   DomainName: "STRING_VALUE", // required
+ * };
  * const command = new EnableDomainAutoRenewCommand(input);
  * const response = await client.send(command);
  * ```

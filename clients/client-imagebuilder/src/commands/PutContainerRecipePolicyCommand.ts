@@ -42,6 +42,10 @@ export interface PutContainerRecipePolicyCommandOutput extends PutContainerRecip
  * import { ImagebuilderClient, PutContainerRecipePolicyCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
  * // const { ImagebuilderClient, PutContainerRecipePolicyCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
  * const client = new ImagebuilderClient(config);
+ * const input = {
+ *   containerRecipeArn: "STRING_VALUE", // required
+ *   policy: "STRING_VALUE", // required
+ * };
  * const command = new PutContainerRecipePolicyCommand(input);
  * const response = await client.send(command);
  * ```

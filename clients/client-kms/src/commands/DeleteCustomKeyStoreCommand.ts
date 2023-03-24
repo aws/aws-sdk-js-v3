@@ -100,6 +100,9 @@ export interface DeleteCustomKeyStoreCommandOutput extends DeleteCustomKeyStoreR
  * import { KMSClient, DeleteCustomKeyStoreCommand } from "@aws-sdk/client-kms"; // ES Modules import
  * // const { KMSClient, DeleteCustomKeyStoreCommand } = require("@aws-sdk/client-kms"); // CommonJS import
  * const client = new KMSClient(config);
+ * const input = {
+ *   CustomKeyStoreId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteCustomKeyStoreCommand(input);
  * const response = await client.send(command);
  * ```

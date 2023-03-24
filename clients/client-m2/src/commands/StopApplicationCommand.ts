@@ -42,6 +42,10 @@ export interface StopApplicationCommandOutput extends StopApplicationResponse, _
  * import { M2Client, StopApplicationCommand } from "@aws-sdk/client-m2"; // ES Modules import
  * // const { M2Client, StopApplicationCommand } = require("@aws-sdk/client-m2"); // CommonJS import
  * const client = new M2Client(config);
+ * const input = {
+ *   applicationId: "STRING_VALUE", // required
+ *   forceStop: true || false,
+ * };
  * const command = new StopApplicationCommand(input);
  * const response = await client.send(command);
  * ```

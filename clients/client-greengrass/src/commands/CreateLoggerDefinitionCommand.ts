@@ -42,6 +42,24 @@ export interface CreateLoggerDefinitionCommandOutput extends CreateLoggerDefinit
  * import { GreengrassClient, CreateLoggerDefinitionCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, CreateLoggerDefinitionCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
+ * const input = {
+ *   AmznClientToken: "STRING_VALUE",
+ *   InitialVersion: {
+ *     Loggers: [
+ *       {
+ *         Component: "GreengrassSystem" || "Lambda", // required
+ *         Id: "STRING_VALUE", // required
+ *         Level: "DEBUG" || "INFO" || "WARN" || "ERROR" || "FATAL", // required
+ *         Space: Number("int"),
+ *         Type: "FileSystem" || "AWSCloudWatch", // required
+ *       },
+ *     ],
+ *   },
+ *   Name: "STRING_VALUE",
+ *   tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateLoggerDefinitionCommand(input);
  * const response = await client.send(command);
  * ```

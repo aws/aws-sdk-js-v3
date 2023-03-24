@@ -42,6 +42,11 @@ export interface GetDeploymentCommandOutput extends Deployment, __MetadataBearer
  * import { AppConfigClient, GetDeploymentCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
  * // const { AppConfigClient, GetDeploymentCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
  * const client = new AppConfigClient(config);
+ * const input = {
+ *   ApplicationId: "STRING_VALUE", // required
+ *   EnvironmentId: "STRING_VALUE", // required
+ *   DeploymentNumber: Number("int"), // required
+ * };
  * const command = new GetDeploymentCommand(input);
  * const response = await client.send(command);
  * ```

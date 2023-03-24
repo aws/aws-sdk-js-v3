@@ -45,6 +45,48 @@ export interface PutAutoScalingPolicyCommandOutput extends PutAutoScalingPolicyO
  * import { EMRClient, PutAutoScalingPolicyCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, PutAutoScalingPolicyCommand } = require("@aws-sdk/client-emr"); // CommonJS import
  * const client = new EMRClient(config);
+ * const input = {
+ *   ClusterId: "STRING_VALUE", // required
+ *   InstanceGroupId: "STRING_VALUE", // required
+ *   AutoScalingPolicy: {
+ *     Constraints: {
+ *       MinCapacity: Number("int"), // required
+ *       MaxCapacity: Number("int"), // required
+ *     },
+ *     Rules: [ // required
+ *       {
+ *         Name: "STRING_VALUE", // required
+ *         Description: "STRING_VALUE",
+ *         Action: {
+ *           Market: "ON_DEMAND" || "SPOT",
+ *           SimpleScalingPolicyConfiguration: {
+ *             AdjustmentType: "CHANGE_IN_CAPACITY" || "PERCENT_CHANGE_IN_CAPACITY" || "EXACT_CAPACITY",
+ *             ScalingAdjustment: Number("int"), // required
+ *             CoolDown: Number("int"),
+ *           },
+ *         },
+ *         Trigger: {
+ *           CloudWatchAlarmDefinition: {
+ *             ComparisonOperator: "GREATER_THAN_OR_EQUAL" || "GREATER_THAN" || "LESS_THAN" || "LESS_THAN_OR_EQUAL", // required
+ *             EvaluationPeriods: Number("int"),
+ *             MetricName: "STRING_VALUE", // required
+ *             Namespace: "STRING_VALUE",
+ *             Period: Number("int"), // required
+ *             Statistic: "SAMPLE_COUNT" || "AVERAGE" || "SUM" || "MINIMUM" || "MAXIMUM",
+ *             Threshold: Number("double"), // required
+ *             Unit: "NONE" || "SECONDS" || "MICRO_SECONDS" || "MILLI_SECONDS" || "BYTES" || "KILO_BYTES" || "MEGA_BYTES" || "GIGA_BYTES" || "TERA_BYTES" || "BITS" || "KILO_BITS" || "MEGA_BITS" || "GIGA_BITS" || "TERA_BITS" || "PERCENT" || "COUNT" || "BYTES_PER_SECOND" || "KILO_BYTES_PER_SECOND" || "MEGA_BYTES_PER_SECOND" || "GIGA_BYTES_PER_SECOND" || "TERA_BYTES_PER_SECOND" || "BITS_PER_SECOND" || "KILO_BITS_PER_SECOND" || "MEGA_BITS_PER_SECOND" || "GIGA_BITS_PER_SECOND" || "TERA_BITS_PER_SECOND" || "COUNT_PER_SECOND",
+ *             Dimensions: [
+ *               {
+ *                 Key: "STRING_VALUE",
+ *                 Value: "STRING_VALUE",
+ *               },
+ *             ],
+ *           },
+ *         },
+ *       },
+ *     ],
+ *   },
+ * };
  * const command = new PutAutoScalingPolicyCommand(input);
  * const response = await client.send(command);
  * ```

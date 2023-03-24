@@ -44,6 +44,141 @@ export interface CreatePackagingConfigurationCommandOutput
  * import { MediaPackageVodClient, CreatePackagingConfigurationCommand } from "@aws-sdk/client-mediapackage-vod"; // ES Modules import
  * // const { MediaPackageVodClient, CreatePackagingConfigurationCommand } = require("@aws-sdk/client-mediapackage-vod"); // CommonJS import
  * const client = new MediaPackageVodClient(config);
+ * const input = {
+ *   CmafPackage: {
+ *     Encryption: {
+ *       ConstantInitializationVector: "STRING_VALUE",
+ *       SpekeKeyProvider: {
+ *         EncryptionContractConfiguration: {
+ *           PresetSpeke20Audio: "PRESET-AUDIO-1" || "PRESET-AUDIO-2" || "PRESET-AUDIO-3" || "SHARED" || "UNENCRYPTED", // required
+ *           PresetSpeke20Video: "PRESET-VIDEO-1" || "PRESET-VIDEO-2" || "PRESET-VIDEO-3" || "PRESET-VIDEO-4" || "PRESET-VIDEO-5" || "PRESET-VIDEO-6" || "PRESET-VIDEO-7" || "PRESET-VIDEO-8" || "SHARED" || "UNENCRYPTED", // required
+ *         },
+ *         RoleArn: "STRING_VALUE", // required
+ *         SystemIds: [ // required
+ *           "STRING_VALUE",
+ *         ],
+ *         Url: "STRING_VALUE", // required
+ *       },
+ *     },
+ *     HlsManifests: [ // required
+ *       {
+ *         AdMarkers: "NONE" || "SCTE35_ENHANCED" || "PASSTHROUGH",
+ *         IncludeIframeOnlyStream: true || false,
+ *         ManifestName: "STRING_VALUE",
+ *         ProgramDateTimeIntervalSeconds: Number("int"),
+ *         RepeatExtXKey: true || false,
+ *         StreamSelection: {
+ *           MaxVideoBitsPerSecond: Number("int"),
+ *           MinVideoBitsPerSecond: Number("int"),
+ *           StreamOrder: "ORIGINAL" || "VIDEO_BITRATE_ASCENDING" || "VIDEO_BITRATE_DESCENDING",
+ *         },
+ *       },
+ *     ],
+ *     IncludeEncoderConfigurationInSegments: true || false,
+ *     SegmentDurationSeconds: Number("int"),
+ *   },
+ *   DashPackage: {
+ *     DashManifests: [ // required
+ *       {
+ *         ManifestLayout: "FULL" || "COMPACT",
+ *         ManifestName: "STRING_VALUE",
+ *         MinBufferTimeSeconds: Number("int"),
+ *         Profile: "NONE" || "HBBTV_1_5",
+ *         ScteMarkersSource: "SEGMENTS" || "MANIFEST",
+ *         StreamSelection: {
+ *           MaxVideoBitsPerSecond: Number("int"),
+ *           MinVideoBitsPerSecond: Number("int"),
+ *           StreamOrder: "ORIGINAL" || "VIDEO_BITRATE_ASCENDING" || "VIDEO_BITRATE_DESCENDING",
+ *         },
+ *       },
+ *     ],
+ *     Encryption: {
+ *       SpekeKeyProvider: {
+ *         EncryptionContractConfiguration: {
+ *           PresetSpeke20Audio: "PRESET-AUDIO-1" || "PRESET-AUDIO-2" || "PRESET-AUDIO-3" || "SHARED" || "UNENCRYPTED", // required
+ *           PresetSpeke20Video: "PRESET-VIDEO-1" || "PRESET-VIDEO-2" || "PRESET-VIDEO-3" || "PRESET-VIDEO-4" || "PRESET-VIDEO-5" || "PRESET-VIDEO-6" || "PRESET-VIDEO-7" || "PRESET-VIDEO-8" || "SHARED" || "UNENCRYPTED", // required
+ *         },
+ *         RoleArn: "STRING_VALUE", // required
+ *         SystemIds: [ // required
+ *           "STRING_VALUE",
+ *         ],
+ *         Url: "STRING_VALUE", // required
+ *       },
+ *     },
+ *     IncludeEncoderConfigurationInSegments: true || false,
+ *     IncludeIframeOnlyStream: true || false,
+ *     PeriodTriggers: [
+ *       "ADS",
+ *     ],
+ *     SegmentDurationSeconds: Number("int"),
+ *     SegmentTemplateFormat: "NUMBER_WITH_TIMELINE" || "TIME_WITH_TIMELINE" || "NUMBER_WITH_DURATION",
+ *   },
+ *   HlsPackage: {
+ *     Encryption: {
+ *       ConstantInitializationVector: "STRING_VALUE",
+ *       EncryptionMethod: "AES_128" || "SAMPLE_AES",
+ *       SpekeKeyProvider: {
+ *         EncryptionContractConfiguration: {
+ *           PresetSpeke20Audio: "PRESET-AUDIO-1" || "PRESET-AUDIO-2" || "PRESET-AUDIO-3" || "SHARED" || "UNENCRYPTED", // required
+ *           PresetSpeke20Video: "PRESET-VIDEO-1" || "PRESET-VIDEO-2" || "PRESET-VIDEO-3" || "PRESET-VIDEO-4" || "PRESET-VIDEO-5" || "PRESET-VIDEO-6" || "PRESET-VIDEO-7" || "PRESET-VIDEO-8" || "SHARED" || "UNENCRYPTED", // required
+ *         },
+ *         RoleArn: "STRING_VALUE", // required
+ *         SystemIds: [ // required
+ *           "STRING_VALUE",
+ *         ],
+ *         Url: "STRING_VALUE", // required
+ *       },
+ *     },
+ *     HlsManifests: [ // required
+ *       {
+ *         AdMarkers: "NONE" || "SCTE35_ENHANCED" || "PASSTHROUGH",
+ *         IncludeIframeOnlyStream: true || false,
+ *         ManifestName: "STRING_VALUE",
+ *         ProgramDateTimeIntervalSeconds: Number("int"),
+ *         RepeatExtXKey: true || false,
+ *         StreamSelection: {
+ *           MaxVideoBitsPerSecond: Number("int"),
+ *           MinVideoBitsPerSecond: Number("int"),
+ *           StreamOrder: "ORIGINAL" || "VIDEO_BITRATE_ASCENDING" || "VIDEO_BITRATE_DESCENDING",
+ *         },
+ *       },
+ *     ],
+ *     IncludeDvbSubtitles: true || false,
+ *     SegmentDurationSeconds: Number("int"),
+ *     UseAudioRenditionGroup: true || false,
+ *   },
+ *   Id: "STRING_VALUE", // required
+ *   MssPackage: {
+ *     Encryption: {
+ *       SpekeKeyProvider: {
+ *         EncryptionContractConfiguration: {
+ *           PresetSpeke20Audio: "PRESET-AUDIO-1" || "PRESET-AUDIO-2" || "PRESET-AUDIO-3" || "SHARED" || "UNENCRYPTED", // required
+ *           PresetSpeke20Video: "PRESET-VIDEO-1" || "PRESET-VIDEO-2" || "PRESET-VIDEO-3" || "PRESET-VIDEO-4" || "PRESET-VIDEO-5" || "PRESET-VIDEO-6" || "PRESET-VIDEO-7" || "PRESET-VIDEO-8" || "SHARED" || "UNENCRYPTED", // required
+ *         },
+ *         RoleArn: "STRING_VALUE", // required
+ *         SystemIds: [ // required
+ *           "STRING_VALUE",
+ *         ],
+ *         Url: "STRING_VALUE", // required
+ *       },
+ *     },
+ *     MssManifests: [ // required
+ *       {
+ *         ManifestName: "STRING_VALUE",
+ *         StreamSelection: {
+ *           MaxVideoBitsPerSecond: Number("int"),
+ *           MinVideoBitsPerSecond: Number("int"),
+ *           StreamOrder: "ORIGINAL" || "VIDEO_BITRATE_ASCENDING" || "VIDEO_BITRATE_DESCENDING",
+ *         },
+ *       },
+ *     ],
+ *     SegmentDurationSeconds: Number("int"),
+ *   },
+ *   PackagingGroupId: "STRING_VALUE", // required
+ *   Tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreatePackagingConfigurationCommand(input);
  * const response = await client.send(command);
  * ```

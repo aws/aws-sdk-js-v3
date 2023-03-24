@@ -104,6 +104,12 @@ export interface DescribeCustomKeyStoresCommandOutput extends DescribeCustomKeyS
  * import { KMSClient, DescribeCustomKeyStoresCommand } from "@aws-sdk/client-kms"; // ES Modules import
  * // const { KMSClient, DescribeCustomKeyStoresCommand } = require("@aws-sdk/client-kms"); // CommonJS import
  * const client = new KMSClient(config);
+ * const input = {
+ *   CustomKeyStoreId: "STRING_VALUE",
+ *   CustomKeyStoreName: "STRING_VALUE",
+ *   Limit: Number("int"),
+ *   Marker: "STRING_VALUE",
+ * };
  * const command = new DescribeCustomKeyStoresCommand(input);
  * const response = await client.send(command);
  * ```

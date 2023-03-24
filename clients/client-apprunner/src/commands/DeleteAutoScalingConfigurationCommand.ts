@@ -45,6 +45,9 @@ export interface DeleteAutoScalingConfigurationCommandOutput
  * import { AppRunnerClient, DeleteAutoScalingConfigurationCommand } from "@aws-sdk/client-apprunner"; // ES Modules import
  * // const { AppRunnerClient, DeleteAutoScalingConfigurationCommand } = require("@aws-sdk/client-apprunner"); // CommonJS import
  * const client = new AppRunnerClient(config);
+ * const input = {
+ *   AutoScalingConfigurationArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteAutoScalingConfigurationCommand(input);
  * const response = await client.send(command);
  * ```

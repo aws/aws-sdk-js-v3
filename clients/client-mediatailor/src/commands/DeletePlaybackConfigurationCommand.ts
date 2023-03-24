@@ -44,6 +44,9 @@ export interface DeletePlaybackConfigurationCommandOutput
  * import { MediaTailorClient, DeletePlaybackConfigurationCommand } from "@aws-sdk/client-mediatailor"; // ES Modules import
  * // const { MediaTailorClient, DeletePlaybackConfigurationCommand } = require("@aws-sdk/client-mediatailor"); // CommonJS import
  * const client = new MediaTailorClient(config);
+ * const input = {
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new DeletePlaybackConfigurationCommand(input);
  * const response = await client.send(command);
  * ```

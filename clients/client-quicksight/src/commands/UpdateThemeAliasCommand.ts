@@ -42,6 +42,12 @@ export interface UpdateThemeAliasCommandOutput extends UpdateThemeAliasResponse,
  * import { QuickSightClient, UpdateThemeAliasCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, UpdateThemeAliasCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
+ * const input = {
+ *   AwsAccountId: "STRING_VALUE", // required
+ *   ThemeId: "STRING_VALUE", // required
+ *   AliasName: "STRING_VALUE", // required
+ *   ThemeVersionNumber: Number("long"), // required
+ * };
  * const command = new UpdateThemeAliasCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,12 @@ export interface UpdateApiKeyCommandOutput extends UpdateApiKeyResponse, __Metad
  * import { AppSyncClient, UpdateApiKeyCommand } from "@aws-sdk/client-appsync"; // ES Modules import
  * // const { AppSyncClient, UpdateApiKeyCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
  * const client = new AppSyncClient(config);
+ * const input = {
+ *   apiId: "STRING_VALUE", // required
+ *   id: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   expires: Number("long"),
+ * };
  * const command = new UpdateApiKeyCommand(input);
  * const response = await client.send(command);
  * ```

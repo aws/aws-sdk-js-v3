@@ -47,6 +47,12 @@ export interface ListBonusPaymentsCommandOutput extends ListBonusPaymentsRespons
  * import { MTurkClient, ListBonusPaymentsCommand } from "@aws-sdk/client-mturk"; // ES Modules import
  * // const { MTurkClient, ListBonusPaymentsCommand } = require("@aws-sdk/client-mturk"); // CommonJS import
  * const client = new MTurkClient(config);
+ * const input = {
+ *   HITId: "STRING_VALUE",
+ *   AssignmentId: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListBonusPaymentsCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,10 @@ export interface ListServiceProfilesCommandOutput extends ListServiceProfilesRes
  * import { IoTWirelessClient, ListServiceProfilesCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, ListServiceProfilesCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
+ * const input = {
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListServiceProfilesCommand(input);
  * const response = await client.send(command);
  * ```

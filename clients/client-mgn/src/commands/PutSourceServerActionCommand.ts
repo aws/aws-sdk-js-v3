@@ -42,6 +42,32 @@ export interface PutSourceServerActionCommandOutput extends SourceServerActionDo
  * import { MgnClient, PutSourceServerActionCommand } from "@aws-sdk/client-mgn"; // ES Modules import
  * // const { MgnClient, PutSourceServerActionCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
  * const client = new MgnClient(config);
+ * const input = {
+ *   sourceServerID: "STRING_VALUE", // required
+ *   actionName: "STRING_VALUE", // required
+ *   documentIdentifier: "STRING_VALUE", // required
+ *   order: Number("int"), // required
+ *   actionID: "STRING_VALUE", // required
+ *   documentVersion: "STRING_VALUE",
+ *   active: true || false,
+ *   timeoutSeconds: Number("int"),
+ *   mustSucceedForCutover: true || false,
+ *   parameters: {
+ *     "<keys>": [
+ *       {
+ *         parameterType: "STRING_VALUE", // required
+ *         parameterName: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *   },
+ *   externalParameters: {
+ *     "<keys>": { // Union: only one key present
+ *       dynamicPath: "STRING_VALUE",
+ *     },
+ *   },
+ *   description: "STRING_VALUE",
+ *   category: "STRING_VALUE",
+ * };
  * const command = new PutSourceServerActionCommand(input);
  * const response = await client.send(command);
  * ```

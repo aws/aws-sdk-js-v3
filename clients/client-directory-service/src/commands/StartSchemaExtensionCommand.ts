@@ -42,6 +42,12 @@ export interface StartSchemaExtensionCommandOutput extends StartSchemaExtensionR
  * import { DirectoryServiceClient, StartSchemaExtensionCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, StartSchemaExtensionCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
  * const client = new DirectoryServiceClient(config);
+ * const input = {
+ *   DirectoryId: "STRING_VALUE", // required
+ *   CreateSnapshotBeforeSchemaExtension: true || false, // required
+ *   LdifContent: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE", // required
+ * };
  * const command = new StartSchemaExtensionCommand(input);
  * const response = await client.send(command);
  * ```

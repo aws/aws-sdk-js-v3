@@ -42,6 +42,10 @@ export interface ListSourceLocationsCommandOutput extends ListSourceLocationsRes
  * import { MediaTailorClient, ListSourceLocationsCommand } from "@aws-sdk/client-mediatailor"; // ES Modules import
  * // const { MediaTailorClient, ListSourceLocationsCommand } = require("@aws-sdk/client-mediatailor"); // CommonJS import
  * const client = new MediaTailorClient(config);
+ * const input = {
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListSourceLocationsCommand(input);
  * const response = await client.send(command);
  * ```

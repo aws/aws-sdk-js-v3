@@ -51,6 +51,9 @@ export interface DescribeApplicationCommandOutput extends DescribeApplicationRes
  * import { KinesisAnalyticsClient, DescribeApplicationCommand } from "@aws-sdk/client-kinesis-analytics"; // ES Modules import
  * // const { KinesisAnalyticsClient, DescribeApplicationCommand } = require("@aws-sdk/client-kinesis-analytics"); // CommonJS import
  * const client = new KinesisAnalyticsClient(config);
+ * const input = {
+ *   ApplicationName: "STRING_VALUE", // required
+ * };
  * const command = new DescribeApplicationCommand(input);
  * const response = await client.send(command);
  * ```

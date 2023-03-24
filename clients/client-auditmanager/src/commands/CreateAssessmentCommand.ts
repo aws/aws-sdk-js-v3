@@ -42,6 +42,38 @@ export interface CreateAssessmentCommandOutput extends CreateAssessmentResponse,
  * import { AuditManagerClient, CreateAssessmentCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
  * // const { AuditManagerClient, CreateAssessmentCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
  * const client = new AuditManagerClient(config);
+ * const input = {
+ *   name: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   assessmentReportsDestination: {
+ *     destinationType: "S3",
+ *     destination: "STRING_VALUE",
+ *   },
+ *   scope: {
+ *     awsAccounts: [
+ *       {
+ *         id: "STRING_VALUE",
+ *         emailAddress: "STRING_VALUE",
+ *         name: "STRING_VALUE",
+ *       },
+ *     ],
+ *     awsServices: [
+ *       {
+ *         serviceName: "STRING_VALUE",
+ *       },
+ *     ],
+ *   },
+ *   roles: [ // required
+ *     {
+ *       roleType: "PROCESS_OWNER" || "RESOURCE_OWNER", // required
+ *       roleArn: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   frameworkId: "STRING_VALUE", // required
+ *   tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateAssessmentCommand(input);
  * const response = await client.send(command);
  * ```

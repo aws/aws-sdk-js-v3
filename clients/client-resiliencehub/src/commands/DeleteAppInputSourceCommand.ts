@@ -42,6 +42,18 @@ export interface DeleteAppInputSourceCommandOutput extends DeleteAppInputSourceR
  * import { ResiliencehubClient, DeleteAppInputSourceCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
  * // const { ResiliencehubClient, DeleteAppInputSourceCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
  * const client = new ResiliencehubClient(config);
+ * const input = {
+ *   appArn: "STRING_VALUE", // required
+ *   sourceArn: "STRING_VALUE",
+ *   terraformSource: {
+ *     s3StateFileUrl: "STRING_VALUE", // required
+ *   },
+ *   clientToken: "STRING_VALUE",
+ *   eksSourceClusterNamespace: {
+ *     eksClusterArn: "STRING_VALUE", // required
+ *     namespace: "STRING_VALUE", // required
+ *   },
+ * };
  * const command = new DeleteAppInputSourceCommand(input);
  * const response = await client.send(command);
  * ```

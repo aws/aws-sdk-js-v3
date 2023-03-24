@@ -45,6 +45,26 @@ export interface CreateMissionProfileCommandOutput extends MissionProfileIdRespo
  * import { GroundStationClient, CreateMissionProfileCommand } from "@aws-sdk/client-groundstation"; // ES Modules import
  * // const { GroundStationClient, CreateMissionProfileCommand } = require("@aws-sdk/client-groundstation"); // CommonJS import
  * const client = new GroundStationClient(config);
+ * const input = {
+ *   name: "STRING_VALUE", // required
+ *   contactPrePassDurationSeconds: Number("int"),
+ *   contactPostPassDurationSeconds: Number("int"),
+ *   minimumViableContactDurationSeconds: Number("int"), // required
+ *   dataflowEdges: [ // required
+ *     [
+ *       "STRING_VALUE",
+ *     ],
+ *   ],
+ *   trackingConfigArn: "STRING_VALUE", // required
+ *   tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   streamsKmsKey: { // Union: only one key present
+ *     kmsKeyArn: "STRING_VALUE",
+ *     kmsAliasArn: "STRING_VALUE",
+ *   },
+ *   streamsKmsRole: "STRING_VALUE",
+ * };
  * const command = new CreateMissionProfileCommand(input);
  * const response = await client.send(command);
  * ```

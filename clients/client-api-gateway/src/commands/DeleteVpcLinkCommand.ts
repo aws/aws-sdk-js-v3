@@ -42,6 +42,9 @@ export interface DeleteVpcLinkCommandOutput extends __MetadataBearer {}
  * import { APIGatewayClient, DeleteVpcLinkCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, DeleteVpcLinkCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
+ * const input = {
+ *   vpcLinkId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteVpcLinkCommand(input);
  * const response = await client.send(command);
  * ```

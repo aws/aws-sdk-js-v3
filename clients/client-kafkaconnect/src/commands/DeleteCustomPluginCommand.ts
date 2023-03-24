@@ -42,6 +42,9 @@ export interface DeleteCustomPluginCommandOutput extends DeleteCustomPluginRespo
  * import { KafkaConnectClient, DeleteCustomPluginCommand } from "@aws-sdk/client-kafkaconnect"; // ES Modules import
  * // const { KafkaConnectClient, DeleteCustomPluginCommand } = require("@aws-sdk/client-kafkaconnect"); // CommonJS import
  * const client = new KafkaConnectClient(config);
+ * const input = {
+ *   customPluginArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteCustomPluginCommand(input);
  * const response = await client.send(command);
  * ```

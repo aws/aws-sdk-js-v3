@@ -47,6 +47,9 @@ export interface DeleteRecordingConfigurationCommandOutput extends __MetadataBea
  * import { IvsClient, DeleteRecordingConfigurationCommand } from "@aws-sdk/client-ivs"; // ES Modules import
  * // const { IvsClient, DeleteRecordingConfigurationCommand } = require("@aws-sdk/client-ivs"); // CommonJS import
  * const client = new IvsClient(config);
+ * const input = {
+ *   arn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteRecordingConfigurationCommand(input);
  * const response = await client.send(command);
  * ```

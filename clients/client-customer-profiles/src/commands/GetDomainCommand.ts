@@ -42,6 +42,9 @@ export interface GetDomainCommandOutput extends GetDomainResponse, __MetadataBea
  * import { CustomerProfilesClient, GetDomainCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
  * // const { CustomerProfilesClient, GetDomainCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
  * const client = new CustomerProfilesClient(config);
+ * const input = {
+ *   DomainName: "STRING_VALUE", // required
+ * };
  * const command = new GetDomainCommand(input);
  * const response = await client.send(command);
  * ```

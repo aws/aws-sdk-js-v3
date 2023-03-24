@@ -42,6 +42,11 @@ export interface ListEngineVersionsCommandOutput extends ListEngineVersionsRespo
  * import { M2Client, ListEngineVersionsCommand } from "@aws-sdk/client-m2"; // ES Modules import
  * // const { M2Client, ListEngineVersionsCommand } = require("@aws-sdk/client-m2"); // CommonJS import
  * const client = new M2Client(config);
+ * const input = {
+ *   engineType: "STRING_VALUE",
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListEngineVersionsCommand(input);
  * const response = await client.send(command);
  * ```

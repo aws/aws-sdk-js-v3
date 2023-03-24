@@ -46,6 +46,9 @@ export interface DeleteReportDefinitionCommandOutput extends DeleteReportDefinit
  * import { CostAndUsageReportServiceClient, DeleteReportDefinitionCommand } from "@aws-sdk/client-cost-and-usage-report-service"; // ES Modules import
  * // const { CostAndUsageReportServiceClient, DeleteReportDefinitionCommand } = require("@aws-sdk/client-cost-and-usage-report-service"); // CommonJS import
  * const client = new CostAndUsageReportServiceClient(config);
+ * const input = {
+ *   ReportName: "STRING_VALUE",
+ * };
  * const command = new DeleteReportDefinitionCommand(input);
  * const response = await client.send(command);
  * ```

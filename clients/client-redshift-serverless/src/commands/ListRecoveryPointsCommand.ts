@@ -46,6 +46,14 @@ export interface ListRecoveryPointsCommandOutput extends ListRecoveryPointsRespo
  * import { RedshiftServerlessClient, ListRecoveryPointsCommand } from "@aws-sdk/client-redshift-serverless"; // ES Modules import
  * // const { RedshiftServerlessClient, ListRecoveryPointsCommand } = require("@aws-sdk/client-redshift-serverless"); // CommonJS import
  * const client = new RedshiftServerlessClient(config);
+ * const input = {
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   startTime: new Date("TIMESTAMP"),
+ *   endTime: new Date("TIMESTAMP"),
+ *   namespaceName: "STRING_VALUE",
+ *   namespaceArn: "STRING_VALUE",
+ * };
  * const command = new ListRecoveryPointsCommand(input);
  * const response = await client.send(command);
  * ```

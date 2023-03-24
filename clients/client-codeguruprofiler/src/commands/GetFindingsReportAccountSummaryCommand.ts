@@ -50,6 +50,11 @@ export interface GetFindingsReportAccountSummaryCommandOutput
  * import { CodeGuruProfilerClient, GetFindingsReportAccountSummaryCommand } from "@aws-sdk/client-codeguruprofiler"; // ES Modules import
  * // const { CodeGuruProfilerClient, GetFindingsReportAccountSummaryCommand } = require("@aws-sdk/client-codeguruprofiler"); // CommonJS import
  * const client = new CodeGuruProfilerClient(config);
+ * const input = {
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   dailyReportsOnly: true || false,
+ * };
  * const command = new GetFindingsReportAccountSummaryCommand(input);
  * const response = await client.send(command);
  * ```

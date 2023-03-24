@@ -47,6 +47,9 @@ export interface GetIPSetCommandOutput extends GetIPSetResponse, __MetadataBeare
  * import { WAFRegionalClient, GetIPSetCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
  * // const { WAFRegionalClient, GetIPSetCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
  * const client = new WAFRegionalClient(config);
+ * const input = {
+ *   IPSetId: "STRING_VALUE", // required
+ * };
  * const command = new GetIPSetCommand(input);
  * const response = await client.send(command);
  * ```

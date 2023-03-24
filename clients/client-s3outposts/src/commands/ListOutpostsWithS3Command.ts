@@ -44,6 +44,10 @@ export interface ListOutpostsWithS3CommandOutput extends ListOutpostsWithS3Resul
  * import { S3OutpostsClient, ListOutpostsWithS3Command } from "@aws-sdk/client-s3outposts"; // ES Modules import
  * // const { S3OutpostsClient, ListOutpostsWithS3Command } = require("@aws-sdk/client-s3outposts"); // CommonJS import
  * const client = new S3OutpostsClient(config);
+ * const input = {
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListOutpostsWithS3Command(input);
  * const response = await client.send(command);
  * ```

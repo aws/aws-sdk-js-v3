@@ -96,6 +96,71 @@ export interface PutBucketNotificationConfigurationCommandOutput extends __Metad
  * import { S3Client, PutBucketNotificationConfigurationCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, PutBucketNotificationConfigurationCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
+ * const input = {
+ *   Bucket: "STRING_VALUE", // required
+ *   NotificationConfiguration: {
+ *     TopicConfigurations: [
+ *       {
+ *         Id: "STRING_VALUE",
+ *         TopicArn: "STRING_VALUE", // required
+ *         Events: [ // required
+ *           "STRING_VALUE",
+ *         ],
+ *         Filter: {
+ *           Key: {
+ *             FilterRules: [
+ *               {
+ *                 Name: "prefix" || "suffix",
+ *                 Value: "STRING_VALUE",
+ *               },
+ *             ],
+ *           },
+ *         },
+ *       },
+ *     ],
+ *     QueueConfigurations: [
+ *       {
+ *         Id: "STRING_VALUE",
+ *         QueueArn: "STRING_VALUE", // required
+ *         Events: [ // required
+ *           "STRING_VALUE",
+ *         ],
+ *         Filter: {
+ *           Key: {
+ *             FilterRules: [
+ *               {
+ *                 Name: "prefix" || "suffix",
+ *                 Value: "STRING_VALUE",
+ *               },
+ *             ],
+ *           },
+ *         },
+ *       },
+ *     ],
+ *     LambdaFunctionConfigurations: [
+ *       {
+ *         Id: "STRING_VALUE",
+ *         LambdaFunctionArn: "STRING_VALUE", // required
+ *         Events: [ // required
+ *           "STRING_VALUE",
+ *         ],
+ *         Filter: {
+ *           Key: {
+ *             FilterRules: [
+ *               {
+ *                 Name: "prefix" || "suffix",
+ *                 Value: "STRING_VALUE",
+ *               },
+ *             ],
+ *           },
+ *         },
+ *       },
+ *     ],
+ *     EventBridgeConfiguration: {},
+ *   },
+ *   ExpectedBucketOwner: "STRING_VALUE",
+ *   SkipDestinationValidation: true || false,
+ * };
  * const command = new PutBucketNotificationConfigurationCommand(input);
  * const response = await client.send(command);
  * ```

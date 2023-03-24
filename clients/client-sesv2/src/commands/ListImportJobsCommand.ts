@@ -42,6 +42,11 @@ export interface ListImportJobsCommandOutput extends ListImportJobsResponse, __M
  * import { SESv2Client, ListImportJobsCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, ListImportJobsCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
  * const client = new SESv2Client(config);
+ * const input = {
+ *   ImportDestinationType: "SUPPRESSION_LIST" || "CONTACT_LIST",
+ *   NextToken: "STRING_VALUE",
+ *   PageSize: Number("int"),
+ * };
  * const command = new ListImportJobsCommand(input);
  * const response = await client.send(command);
  * ```

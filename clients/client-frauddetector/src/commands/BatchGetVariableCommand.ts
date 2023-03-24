@@ -42,6 +42,11 @@ export interface BatchGetVariableCommandOutput extends BatchGetVariableResult, _
  * import { FraudDetectorClient, BatchGetVariableCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, BatchGetVariableCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
  * const client = new FraudDetectorClient(config);
+ * const input = {
+ *   names: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new BatchGetVariableCommand(input);
  * const response = await client.send(command);
  * ```

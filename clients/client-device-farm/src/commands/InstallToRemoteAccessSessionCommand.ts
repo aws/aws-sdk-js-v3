@@ -50,6 +50,10 @@ export interface InstallToRemoteAccessSessionCommandOutput
  * import { DeviceFarmClient, InstallToRemoteAccessSessionCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, InstallToRemoteAccessSessionCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
+ * const input = {
+ *   remoteAccessSessionArn: "STRING_VALUE", // required
+ *   appArn: "STRING_VALUE", // required
+ * };
  * const command = new InstallToRemoteAccessSessionCommand(input);
  * const response = await client.send(command);
  * ```

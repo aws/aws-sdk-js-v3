@@ -42,6 +42,15 @@ export interface CreateMemberCommandOutput extends CreateMemberResponse, __Metad
  * import { Macie2Client, CreateMemberCommand } from "@aws-sdk/client-macie2"; // ES Modules import
  * // const { Macie2Client, CreateMemberCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
  * const client = new Macie2Client(config);
+ * const input = {
+ *   account: {
+ *     accountId: "STRING_VALUE", // required
+ *     email: "STRING_VALUE", // required
+ *   },
+ *   tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateMemberCommand(input);
  * const response = await client.send(command);
  * ```

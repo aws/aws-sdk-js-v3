@@ -42,6 +42,14 @@ export interface UpdateReservationCommandOutput extends UpdateReservationRespons
  * import { MediaLiveClient, UpdateReservationCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, UpdateReservationCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
  * const client = new MediaLiveClient(config);
+ * const input = {
+ *   Name: "STRING_VALUE",
+ *   RenewalSettings: {
+ *     AutomaticRenewal: "DISABLED" || "ENABLED" || "UNAVAILABLE",
+ *     RenewalCount: Number("int"),
+ *   },
+ *   ReservationId: "STRING_VALUE", // required
+ * };
  * const command = new UpdateReservationCommand(input);
  * const response = await client.send(command);
  * ```

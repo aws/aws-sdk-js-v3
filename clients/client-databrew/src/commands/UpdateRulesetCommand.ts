@@ -42,6 +42,31 @@ export interface UpdateRulesetCommandOutput extends UpdateRulesetResponse, __Met
  * import { DataBrewClient, UpdateRulesetCommand } from "@aws-sdk/client-databrew"; // ES Modules import
  * // const { DataBrewClient, UpdateRulesetCommand } = require("@aws-sdk/client-databrew"); // CommonJS import
  * const client = new DataBrewClient(config);
+ * const input = {
+ *   Name: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   Rules: [ // required
+ *     {
+ *       Name: "STRING_VALUE", // required
+ *       Disabled: true || false,
+ *       CheckExpression: "STRING_VALUE", // required
+ *       SubstitutionMap: {
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *       Threshold: {
+ *         Value: Number("double"), // required
+ *         Type: "GREATER_THAN_OR_EQUAL" || "LESS_THAN_OR_EQUAL" || "GREATER_THAN" || "LESS_THAN",
+ *         Unit: "COUNT" || "PERCENTAGE",
+ *       },
+ *       ColumnSelectors: [
+ *         {
+ *           Regex: "STRING_VALUE",
+ *           Name: "STRING_VALUE",
+ *         },
+ *       ],
+ *     },
+ *   ],
+ * };
  * const command = new UpdateRulesetCommand(input);
  * const response = await client.send(command);
  * ```

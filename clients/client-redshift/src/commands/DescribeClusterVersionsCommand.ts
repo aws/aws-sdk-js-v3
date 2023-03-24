@@ -47,6 +47,12 @@ export interface DescribeClusterVersionsCommandOutput extends ClusterVersionsMes
  * import { RedshiftClient, DescribeClusterVersionsCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DescribeClusterVersionsCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = {
+ *   ClusterVersion: "STRING_VALUE",
+ *   ClusterParameterGroupFamily: "STRING_VALUE",
+ *   MaxRecords: Number("int"),
+ *   Marker: "STRING_VALUE",
+ * };
  * const command = new DescribeClusterVersionsCommand(input);
  * const response = await client.send(command);
  * ```

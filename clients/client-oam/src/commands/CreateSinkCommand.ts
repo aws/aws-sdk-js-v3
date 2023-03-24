@@ -48,6 +48,12 @@ export interface CreateSinkCommandOutput extends CreateSinkOutput, __MetadataBea
  * import { OAMClient, CreateSinkCommand } from "@aws-sdk/client-oam"; // ES Modules import
  * // const { OAMClient, CreateSinkCommand } = require("@aws-sdk/client-oam"); // CommonJS import
  * const client = new OAMClient(config);
+ * const input = {
+ *   Name: "STRING_VALUE", // required
+ *   Tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateSinkCommand(input);
  * const response = await client.send(command);
  * ```

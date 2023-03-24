@@ -76,6 +76,15 @@ export interface DescribeComplianceByResourceCommandOutput
  * import { ConfigServiceClient, DescribeComplianceByResourceCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, DescribeComplianceByResourceCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
+ * const input = {
+ *   ResourceType: "STRING_VALUE",
+ *   ResourceId: "STRING_VALUE",
+ *   ComplianceTypes: [
+ *     "COMPLIANT" || "NON_COMPLIANT" || "NOT_APPLICABLE" || "INSUFFICIENT_DATA",
+ *   ],
+ *   Limit: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeComplianceByResourceCommand(input);
  * const response = await client.send(command);
  * ```

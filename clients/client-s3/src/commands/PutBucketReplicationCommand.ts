@@ -104,6 +104,77 @@ export interface PutBucketReplicationCommandOutput extends __MetadataBearer {}
  * import { S3Client, PutBucketReplicationCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, PutBucketReplicationCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
+ * const input = {
+ *   Bucket: "STRING_VALUE", // required
+ *   ContentMD5: "STRING_VALUE",
+ *   ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256",
+ *   ReplicationConfiguration: {
+ *     Role: "STRING_VALUE", // required
+ *     Rules: [ // required
+ *       {
+ *         ID: "STRING_VALUE",
+ *         Priority: Number("int"),
+ *         Prefix: "STRING_VALUE",
+ *         Filter: { // Union: only one key present
+ *           Prefix: "STRING_VALUE",
+ *           Tag: {
+ *             Key: "STRING_VALUE", // required
+ *             Value: "STRING_VALUE", // required
+ *           },
+ *           And: {
+ *             Prefix: "STRING_VALUE",
+ *             Tags: [
+ *               {
+ *                 Key: "STRING_VALUE", // required
+ *                 Value: "STRING_VALUE", // required
+ *               },
+ *             ],
+ *           },
+ *         },
+ *         Status: "Enabled" || "Disabled", // required
+ *         SourceSelectionCriteria: {
+ *           SseKmsEncryptedObjects: {
+ *             Status: "Enabled" || "Disabled", // required
+ *           },
+ *           ReplicaModifications: {
+ *             Status: "Enabled" || "Disabled", // required
+ *           },
+ *         },
+ *         ExistingObjectReplication: {
+ *           Status: "Enabled" || "Disabled", // required
+ *         },
+ *         Destination: {
+ *           Bucket: "STRING_VALUE", // required
+ *           Account: "STRING_VALUE",
+ *           StorageClass: "STANDARD" || "REDUCED_REDUNDANCY" || "STANDARD_IA" || "ONEZONE_IA" || "INTELLIGENT_TIERING" || "GLACIER" || "DEEP_ARCHIVE" || "OUTPOSTS" || "GLACIER_IR",
+ *           AccessControlTranslation: {
+ *             Owner: "Destination", // required
+ *           },
+ *           EncryptionConfiguration: {
+ *             ReplicaKmsKeyID: "STRING_VALUE",
+ *           },
+ *           ReplicationTime: {
+ *             Status: "Enabled" || "Disabled", // required
+ *             Time: {
+ *               Minutes: Number("int"),
+ *             },
+ *           },
+ *           Metrics: {
+ *             Status: "Enabled" || "Disabled", // required
+ *             EventThreshold: {
+ *               Minutes: Number("int"),
+ *             },
+ *           },
+ *         },
+ *         DeleteMarkerReplication: {
+ *           Status: "Enabled" || "Disabled",
+ *         },
+ *       },
+ *     ],
+ *   },
+ *   Token: "STRING_VALUE",
+ *   ExpectedBucketOwner: "STRING_VALUE",
+ * };
  * const command = new PutBucketReplicationCommand(input);
  * const response = await client.send(command);
  * ```

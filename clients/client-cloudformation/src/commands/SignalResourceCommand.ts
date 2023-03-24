@@ -47,6 +47,12 @@ export interface SignalResourceCommandOutput extends __MetadataBearer {}
  * import { CloudFormationClient, SignalResourceCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, SignalResourceCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
  * const client = new CloudFormationClient(config);
+ * const input = {
+ *   StackName: "STRING_VALUE", // required
+ *   LogicalResourceId: "STRING_VALUE", // required
+ *   UniqueId: "STRING_VALUE", // required
+ *   Status: "SUCCESS" || "FAILURE", // required
+ * };
  * const command = new SignalResourceCommand(input);
  * const response = await client.send(command);
  * ```

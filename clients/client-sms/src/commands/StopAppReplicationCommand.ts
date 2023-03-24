@@ -43,6 +43,9 @@ export interface StopAppReplicationCommandOutput extends StopAppReplicationRespo
  * import { SMSClient, StopAppReplicationCommand } from "@aws-sdk/client-sms"; // ES Modules import
  * // const { SMSClient, StopAppReplicationCommand } = require("@aws-sdk/client-sms"); // CommonJS import
  * const client = new SMSClient(config);
+ * const input = {
+ *   appId: "STRING_VALUE",
+ * };
  * const command = new StopAppReplicationCommand(input);
  * const response = await client.send(command);
  * ```

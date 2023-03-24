@@ -42,6 +42,7 @@ export interface DeleteRegistryPolicyCommandOutput extends DeleteRegistryPolicyR
  * import { ECRClient, DeleteRegistryPolicyCommand } from "@aws-sdk/client-ecr"; // ES Modules import
  * // const { ECRClient, DeleteRegistryPolicyCommand } = require("@aws-sdk/client-ecr"); // CommonJS import
  * const client = new ECRClient(config);
+ * const input = {};
  * const command = new DeleteRegistryPolicyCommand(input);
  * const response = await client.send(command);
  * ```

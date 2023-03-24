@@ -43,6 +43,17 @@ export interface UpdateCACertificateCommandOutput extends __MetadataBearer {}
  * import { IoTClient, UpdateCACertificateCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, UpdateCACertificateCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = {
+ *   certificateId: "STRING_VALUE", // required
+ *   newStatus: "ACTIVE" || "INACTIVE",
+ *   newAutoRegistrationStatus: "ENABLE" || "DISABLE",
+ *   registrationConfig: {
+ *     templateBody: "STRING_VALUE",
+ *     roleArn: "STRING_VALUE",
+ *     templateName: "STRING_VALUE",
+ *   },
+ *   removeAutoRegistration: true || false,
+ * };
  * const command = new UpdateCACertificateCommand(input);
  * const response = await client.send(command);
  * ```

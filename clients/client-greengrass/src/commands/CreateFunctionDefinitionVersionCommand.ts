@@ -44,6 +44,53 @@ export interface CreateFunctionDefinitionVersionCommandOutput
  * import { GreengrassClient, CreateFunctionDefinitionVersionCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, CreateFunctionDefinitionVersionCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
+ * const input = {
+ *   AmznClientToken: "STRING_VALUE",
+ *   DefaultConfig: {
+ *     Execution: {
+ *       IsolationMode: "GreengrassContainer" || "NoContainer",
+ *       RunAs: {
+ *         Gid: Number("int"),
+ *         Uid: Number("int"),
+ *       },
+ *     },
+ *   },
+ *   FunctionDefinitionId: "STRING_VALUE", // required
+ *   Functions: [
+ *     {
+ *       FunctionArn: "STRING_VALUE",
+ *       FunctionConfiguration: {
+ *         EncodingType: "binary" || "json",
+ *         Environment: {
+ *           AccessSysfs: true || false,
+ *           Execution: {
+ *             IsolationMode: "GreengrassContainer" || "NoContainer",
+ *             RunAs: {
+ *               Gid: Number("int"),
+ *               Uid: Number("int"),
+ *             },
+ *           },
+ *           ResourceAccessPolicies: [
+ *             {
+ *               Permission: "ro" || "rw",
+ *               ResourceId: "STRING_VALUE", // required
+ *             },
+ *           ],
+ *           Variables: {
+ *             "<keys>": "STRING_VALUE",
+ *           },
+ *         },
+ *         ExecArgs: "STRING_VALUE",
+ *         Executable: "STRING_VALUE",
+ *         MemorySize: Number("int"),
+ *         Pinned: true || false,
+ *         Timeout: Number("int"),
+ *         FunctionRuntimeOverride: "STRING_VALUE",
+ *       },
+ *       Id: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateFunctionDefinitionVersionCommand(input);
  * const response = await client.send(command);
  * ```

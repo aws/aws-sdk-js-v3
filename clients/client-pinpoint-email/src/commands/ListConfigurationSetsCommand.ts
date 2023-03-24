@@ -48,6 +48,10 @@ export interface ListConfigurationSetsCommandOutput extends ListConfigurationSet
  * import { PinpointEmailClient, ListConfigurationSetsCommand } from "@aws-sdk/client-pinpoint-email"; // ES Modules import
  * // const { PinpointEmailClient, ListConfigurationSetsCommand } = require("@aws-sdk/client-pinpoint-email"); // CommonJS import
  * const client = new PinpointEmailClient(config);
+ * const input = {
+ *   NextToken: "STRING_VALUE",
+ *   PageSize: Number("int"),
+ * };
  * const command = new ListConfigurationSetsCommand(input);
  * const response = await client.send(command);
  * ```

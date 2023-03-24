@@ -54,6 +54,10 @@ export interface AcceptDomainTransferFromAnotherAwsAccountCommandOutput
  * import { Route53DomainsClient, AcceptDomainTransferFromAnotherAwsAccountCommand } from "@aws-sdk/client-route-53-domains"; // ES Modules import
  * // const { Route53DomainsClient, AcceptDomainTransferFromAnotherAwsAccountCommand } = require("@aws-sdk/client-route-53-domains"); // CommonJS import
  * const client = new Route53DomainsClient(config);
+ * const input = {
+ *   DomainName: "STRING_VALUE", // required
+ *   Password: "STRING_VALUE", // required
+ * };
  * const command = new AcceptDomainTransferFromAnotherAwsAccountCommand(input);
  * const response = await client.send(command);
  * ```

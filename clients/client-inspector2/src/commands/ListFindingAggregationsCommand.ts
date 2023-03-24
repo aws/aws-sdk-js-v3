@@ -42,6 +42,214 @@ export interface ListFindingAggregationsCommandOutput extends ListFindingAggrega
  * import { Inspector2Client, ListFindingAggregationsCommand } from "@aws-sdk/client-inspector2"; // ES Modules import
  * // const { Inspector2Client, ListFindingAggregationsCommand } = require("@aws-sdk/client-inspector2"); // CommonJS import
  * const client = new Inspector2Client(config);
+ * const input = {
+ *   aggregationType: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   accountIds: [
+ *     {
+ *       comparison: "STRING_VALUE", // required
+ *       value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   aggregationRequest: { // Union: only one key present
+ *     accountAggregation: {
+ *       findingType: "STRING_VALUE",
+ *       resourceType: "STRING_VALUE",
+ *       sortOrder: "STRING_VALUE",
+ *       sortBy: "STRING_VALUE",
+ *     },
+ *     amiAggregation: {
+ *       amis: [
+ *         {
+ *           comparison: "STRING_VALUE", // required
+ *           value: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *       sortOrder: "STRING_VALUE",
+ *       sortBy: "STRING_VALUE",
+ *     },
+ *     awsEcrContainerAggregation: {
+ *       resourceIds: [
+ *         {
+ *           comparison: "STRING_VALUE", // required
+ *           value: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *       imageShas: [
+ *         {
+ *           comparison: "STRING_VALUE", // required
+ *           value: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *       repositories: [
+ *         {
+ *           comparison: "STRING_VALUE", // required
+ *           value: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *       architectures: [
+ *         {
+ *           comparison: "STRING_VALUE", // required
+ *           value: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *       imageTags: [
+ *         {
+ *           comparison: "STRING_VALUE", // required
+ *           value: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *       sortOrder: "STRING_VALUE",
+ *       sortBy: "STRING_VALUE",
+ *     },
+ *     ec2InstanceAggregation: {
+ *       amis: [
+ *         {
+ *           comparison: "STRING_VALUE", // required
+ *           value: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *       operatingSystems: [
+ *         {
+ *           comparison: "STRING_VALUE", // required
+ *           value: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *       instanceIds: [
+ *         {
+ *           comparison: "STRING_VALUE", // required
+ *           value: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *       instanceTags: [
+ *         {
+ *           comparison: "STRING_VALUE", // required
+ *           key: "STRING_VALUE", // required
+ *           value: "STRING_VALUE",
+ *         },
+ *       ],
+ *       sortOrder: "STRING_VALUE",
+ *       sortBy: "STRING_VALUE",
+ *     },
+ *     findingTypeAggregation: {
+ *       findingType: "STRING_VALUE",
+ *       resourceType: "STRING_VALUE",
+ *       sortOrder: "STRING_VALUE",
+ *       sortBy: "STRING_VALUE",
+ *     },
+ *     imageLayerAggregation: {
+ *       repositories: [
+ *         {
+ *           comparison: "STRING_VALUE", // required
+ *           value: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *       resourceIds: [
+ *         {
+ *           comparison: "STRING_VALUE", // required
+ *           value: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *       layerHashes: [
+ *         {
+ *           comparison: "STRING_VALUE", // required
+ *           value: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *       sortOrder: "STRING_VALUE",
+ *       sortBy: "STRING_VALUE",
+ *     },
+ *     packageAggregation: {
+ *       packageNames: [
+ *         {
+ *           comparison: "STRING_VALUE", // required
+ *           value: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *       sortOrder: "STRING_VALUE",
+ *       sortBy: "STRING_VALUE",
+ *     },
+ *     repositoryAggregation: {
+ *       repositories: [
+ *         {
+ *           comparison: "STRING_VALUE", // required
+ *           value: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *       sortOrder: "STRING_VALUE",
+ *       sortBy: "STRING_VALUE",
+ *     },
+ *     titleAggregation: {
+ *       titles: [
+ *         {
+ *           comparison: "STRING_VALUE", // required
+ *           value: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *       vulnerabilityIds: [
+ *         {
+ *           comparison: "STRING_VALUE", // required
+ *           value: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *       resourceType: "STRING_VALUE",
+ *       sortOrder: "STRING_VALUE",
+ *       sortBy: "STRING_VALUE",
+ *     },
+ *     lambdaLayerAggregation: {
+ *       functionNames: [
+ *         {
+ *           comparison: "STRING_VALUE", // required
+ *           value: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *       resourceIds: [
+ *         {
+ *           comparison: "STRING_VALUE", // required
+ *           value: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *       layerArns: [
+ *         {
+ *           comparison: "STRING_VALUE", // required
+ *           value: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *       sortOrder: "STRING_VALUE",
+ *       sortBy: "STRING_VALUE",
+ *     },
+ *     lambdaFunctionAggregation: {
+ *       resourceIds: [
+ *         {
+ *           comparison: "STRING_VALUE", // required
+ *           value: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *       functionNames: [
+ *         {
+ *           comparison: "STRING_VALUE", // required
+ *           value: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *       runtimes: [
+ *         {
+ *           comparison: "STRING_VALUE", // required
+ *           value: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *       functionTags: [
+ *         {
+ *           comparison: "STRING_VALUE", // required
+ *           key: "STRING_VALUE", // required
+ *           value: "STRING_VALUE",
+ *         },
+ *       ],
+ *       sortOrder: "STRING_VALUE",
+ *       sortBy: "STRING_VALUE",
+ *     },
+ *   },
+ * };
  * const command = new ListFindingAggregationsCommand(input);
  * const response = await client.send(command);
  * ```

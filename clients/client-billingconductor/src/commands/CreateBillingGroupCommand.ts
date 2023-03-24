@@ -48,6 +48,23 @@ export interface CreateBillingGroupCommandOutput extends CreateBillingGroupOutpu
  * import { BillingconductorClient, CreateBillingGroupCommand } from "@aws-sdk/client-billingconductor"; // ES Modules import
  * // const { BillingconductorClient, CreateBillingGroupCommand } = require("@aws-sdk/client-billingconductor"); // CommonJS import
  * const client = new BillingconductorClient(config);
+ * const input = {
+ *   ClientToken: "STRING_VALUE",
+ *   Name: "STRING_VALUE", // required
+ *   AccountGrouping: {
+ *     LinkedAccountIds: [ // required
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   ComputationPreference: {
+ *     PricingPlanArn: "STRING_VALUE", // required
+ *   },
+ *   PrimaryAccountId: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   Tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateBillingGroupCommand(input);
  * const response = await client.send(command);
  * ```

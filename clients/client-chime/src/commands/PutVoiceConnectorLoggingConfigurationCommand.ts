@@ -48,6 +48,13 @@ export interface PutVoiceConnectorLoggingConfigurationCommandOutput
  * import { ChimeClient, PutVoiceConnectorLoggingConfigurationCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, PutVoiceConnectorLoggingConfigurationCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = {
+ *   VoiceConnectorId: "STRING_VALUE", // required
+ *   LoggingConfiguration: {
+ *     EnableSIPLogs: true || false,
+ *     EnableMediaMetricLogs: true || false,
+ *   },
+ * };
  * const command = new PutVoiceConnectorLoggingConfigurationCommand(input);
  * const response = await client.send(command);
  * ```

@@ -46,6 +46,7 @@ export interface StartContinuousExportCommandOutput extends StartContinuousExpor
  * import { ApplicationDiscoveryServiceClient, StartContinuousExportCommand } from "@aws-sdk/client-application-discovery-service"; // ES Modules import
  * // const { ApplicationDiscoveryServiceClient, StartContinuousExportCommand } = require("@aws-sdk/client-application-discovery-service"); // CommonJS import
  * const client = new ApplicationDiscoveryServiceClient(config);
+ * const input = {};
  * const command = new StartContinuousExportCommand(input);
  * const response = await client.send(command);
  * ```

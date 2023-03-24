@@ -39,6 +39,9 @@ export interface GetRunCommandOutput extends GetRunResult, __MetadataBearer {}
  * import { DeviceFarmClient, GetRunCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, GetRunCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
+ * const input = {
+ *   arn: "STRING_VALUE", // required
+ * };
  * const command = new GetRunCommand(input);
  * const response = await client.send(command);
  * ```

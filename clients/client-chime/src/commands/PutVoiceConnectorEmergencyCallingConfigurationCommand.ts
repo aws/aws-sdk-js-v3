@@ -51,6 +51,18 @@ export interface PutVoiceConnectorEmergencyCallingConfigurationCommandOutput
  * import { ChimeClient, PutVoiceConnectorEmergencyCallingConfigurationCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, PutVoiceConnectorEmergencyCallingConfigurationCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = {
+ *   VoiceConnectorId: "STRING_VALUE", // required
+ *   EmergencyCallingConfiguration: {
+ *     DNIS: [
+ *       {
+ *         EmergencyPhoneNumber: "STRING_VALUE", // required
+ *         TestPhoneNumber: "STRING_VALUE",
+ *         CallingCountry: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *   },
+ * };
  * const command = new PutVoiceConnectorEmergencyCallingConfigurationCommand(input);
  * const response = await client.send(command);
  * ```

@@ -44,6 +44,14 @@ export interface ListAuditTasksCommandOutput extends ListAuditTasksResponse, __M
  * import { IoTClient, ListAuditTasksCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, ListAuditTasksCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = {
+ *   startTime: new Date("TIMESTAMP"), // required
+ *   endTime: new Date("TIMESTAMP"), // required
+ *   taskType: "ON_DEMAND_AUDIT_TASK" || "SCHEDULED_AUDIT_TASK",
+ *   taskStatus: "IN_PROGRESS" || "COMPLETED" || "FAILED" || "CANCELED",
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListAuditTasksCommand(input);
  * const response = await client.send(command);
  * ```

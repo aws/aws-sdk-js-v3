@@ -85,6 +85,21 @@ export interface PutRuleCommandOutput extends PutRuleResponse, __MetadataBearer 
  * import { CloudWatchEventsClient, PutRuleCommand } from "@aws-sdk/client-cloudwatch-events"; // ES Modules import
  * // const { CloudWatchEventsClient, PutRuleCommand } = require("@aws-sdk/client-cloudwatch-events"); // CommonJS import
  * const client = new CloudWatchEventsClient(config);
+ * const input = {
+ *   Name: "STRING_VALUE", // required
+ *   ScheduleExpression: "STRING_VALUE",
+ *   EventPattern: "STRING_VALUE",
+ *   State: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   RoleArn: "STRING_VALUE",
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   EventBusName: "STRING_VALUE",
+ * };
  * const command = new PutRuleCommand(input);
  * const response = await client.send(command);
  * ```

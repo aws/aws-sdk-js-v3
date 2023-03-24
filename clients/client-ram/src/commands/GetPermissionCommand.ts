@@ -42,6 +42,10 @@ export interface GetPermissionCommandOutput extends GetPermissionResponse, __Met
  * import { RAMClient, GetPermissionCommand } from "@aws-sdk/client-ram"; // ES Modules import
  * // const { RAMClient, GetPermissionCommand } = require("@aws-sdk/client-ram"); // CommonJS import
  * const client = new RAMClient(config);
+ * const input = {
+ *   permissionArn: "STRING_VALUE", // required
+ *   permissionVersion: Number("int"),
+ * };
  * const command = new GetPermissionCommand(input);
  * const response = await client.send(command);
  * ```

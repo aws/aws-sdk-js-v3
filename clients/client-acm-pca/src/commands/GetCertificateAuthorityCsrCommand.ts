@@ -46,6 +46,9 @@ export interface GetCertificateAuthorityCsrCommandOutput extends GetCertificateA
  * import { ACMPCAClient, GetCertificateAuthorityCsrCommand } from "@aws-sdk/client-acm-pca"; // ES Modules import
  * // const { ACMPCAClient, GetCertificateAuthorityCsrCommand } = require("@aws-sdk/client-acm-pca"); // CommonJS import
  * const client = new ACMPCAClient(config);
+ * const input = {
+ *   CertificateAuthorityArn: "STRING_VALUE", // required
+ * };
  * const command = new GetCertificateAuthorityCsrCommand(input);
  * const response = await client.send(command);
  * ```

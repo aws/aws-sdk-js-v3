@@ -48,6 +48,16 @@ export interface AddPermissionCommandOutput extends __MetadataBearer {}
  * import { SNSClient, AddPermissionCommand } from "@aws-sdk/client-sns"; // ES Modules import
  * // const { SNSClient, AddPermissionCommand } = require("@aws-sdk/client-sns"); // CommonJS import
  * const client = new SNSClient(config);
+ * const input = {
+ *   TopicArn: "STRING_VALUE", // required
+ *   Label: "STRING_VALUE", // required
+ *   AWSAccountId: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ *   ActionName: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new AddPermissionCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,19 @@ export interface SearchDatabasesByLFTagsCommandOutput extends SearchDatabasesByL
  * import { LakeFormationClient, SearchDatabasesByLFTagsCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
  * // const { LakeFormationClient, SearchDatabasesByLFTagsCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
  * const client = new LakeFormationClient(config);
+ * const input = {
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   CatalogId: "STRING_VALUE",
+ *   Expression: [ // required
+ *     {
+ *       TagKey: "STRING_VALUE", // required
+ *       TagValues: [ // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ * };
  * const command = new SearchDatabasesByLFTagsCommand(input);
  * const response = await client.send(command);
  * ```

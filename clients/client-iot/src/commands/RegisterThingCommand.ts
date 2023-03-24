@@ -46,6 +46,12 @@ export interface RegisterThingCommandOutput extends RegisterThingResponse, __Met
  * import { IoTClient, RegisterThingCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, RegisterThingCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = {
+ *   templateBody: "STRING_VALUE", // required
+ *   parameters: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new RegisterThingCommand(input);
  * const response = await client.send(command);
  * ```

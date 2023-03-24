@@ -124,6 +124,12 @@ export interface DescribeKeyCommandOutput extends DescribeKeyResponse, __Metadat
  * import { KMSClient, DescribeKeyCommand } from "@aws-sdk/client-kms"; // ES Modules import
  * // const { KMSClient, DescribeKeyCommand } = require("@aws-sdk/client-kms"); // CommonJS import
  * const client = new KMSClient(config);
+ * const input = {
+ *   KeyId: "STRING_VALUE", // required
+ *   GrantTokens: [
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DescribeKeyCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,37 @@ export interface GetLinkAttributesCommandOutput extends GetLinkAttributesRespons
  * import { CloudDirectoryClient, GetLinkAttributesCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, GetLinkAttributesCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
  * const client = new CloudDirectoryClient(config);
+ * const input = {
+ *   DirectoryArn: "STRING_VALUE", // required
+ *   TypedLinkSpecifier: {
+ *     TypedLinkFacet: {
+ *       SchemaArn: "STRING_VALUE", // required
+ *       TypedLinkName: "STRING_VALUE", // required
+ *     },
+ *     SourceObjectReference: {
+ *       Selector: "STRING_VALUE",
+ *     },
+ *     TargetObjectReference: {
+ *       Selector: "STRING_VALUE",
+ *     },
+ *     IdentityAttributeValues: [ // required
+ *       {
+ *         AttributeName: "STRING_VALUE", // required
+ *         Value: { // Union: only one key present
+ *           StringValue: "STRING_VALUE",
+ *           BinaryValue: "BLOB_VALUE",
+ *           BooleanValue: true || false,
+ *           NumberValue: "STRING_VALUE",
+ *           DatetimeValue: new Date("TIMESTAMP"),
+ *         },
+ *       },
+ *     ],
+ *   },
+ *   AttributeNames: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ *   ConsistencyLevel: "SERIALIZABLE" || "EVENTUAL",
+ * };
  * const command = new GetLinkAttributesCommand(input);
  * const response = await client.send(command);
  * ```

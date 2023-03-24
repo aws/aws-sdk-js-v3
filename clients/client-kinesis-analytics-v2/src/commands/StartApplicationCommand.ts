@@ -47,6 +47,26 @@ export interface StartApplicationCommandOutput extends StartApplicationResponse,
  * import { KinesisAnalyticsV2Client, StartApplicationCommand } from "@aws-sdk/client-kinesis-analytics-v2"; // ES Modules import
  * // const { KinesisAnalyticsV2Client, StartApplicationCommand } = require("@aws-sdk/client-kinesis-analytics-v2"); // CommonJS import
  * const client = new KinesisAnalyticsV2Client(config);
+ * const input = {
+ *   ApplicationName: "STRING_VALUE", // required
+ *   RunConfiguration: {
+ *     FlinkRunConfiguration: {
+ *       AllowNonRestoredState: true || false,
+ *     },
+ *     SqlRunConfigurations: [
+ *       {
+ *         InputId: "STRING_VALUE", // required
+ *         InputStartingPositionConfiguration: {
+ *           InputStartingPosition: "NOW" || "TRIM_HORIZON" || "LAST_STOPPED_POINT",
+ *         },
+ *       },
+ *     ],
+ *     ApplicationRestoreConfiguration: {
+ *       ApplicationRestoreType: "SKIP_RESTORE_FROM_SNAPSHOT" || "RESTORE_FROM_LATEST_SNAPSHOT" || "RESTORE_FROM_CUSTOM_SNAPSHOT", // required
+ *       SnapshotName: "STRING_VALUE",
+ *     },
+ *   },
+ * };
  * const command = new StartApplicationCommand(input);
  * const response = await client.send(command);
  * ```

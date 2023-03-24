@@ -47,6 +47,14 @@ export interface UpdateCostAllocationTagsStatusCommandOutput
  * import { CostExplorerClient, UpdateCostAllocationTagsStatusCommand } from "@aws-sdk/client-cost-explorer"; // ES Modules import
  * // const { CostExplorerClient, UpdateCostAllocationTagsStatusCommand } = require("@aws-sdk/client-cost-explorer"); // CommonJS import
  * const client = new CostExplorerClient(config);
+ * const input = {
+ *   CostAllocationTagsStatus: [ // required
+ *     {
+ *       TagKey: "STRING_VALUE", // required
+ *       Status: "Active" || "Inactive", // required
+ *     },
+ *   ],
+ * };
  * const command = new UpdateCostAllocationTagsStatusCommand(input);
  * const response = await client.send(command);
  * ```

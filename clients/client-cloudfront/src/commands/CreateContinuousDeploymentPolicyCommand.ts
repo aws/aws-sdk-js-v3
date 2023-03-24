@@ -52,6 +52,31 @@ export interface CreateContinuousDeploymentPolicyCommandOutput
  * import { CloudFrontClient, CreateContinuousDeploymentPolicyCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, CreateContinuousDeploymentPolicyCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
+ * const input = {
+ *   ContinuousDeploymentPolicyConfig: {
+ *     StagingDistributionDnsNames: {
+ *       Quantity: Number("int"), // required
+ *       Items: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *     Enabled: true || false, // required
+ *     TrafficConfig: {
+ *       SingleWeightConfig: {
+ *         Weight: Number("float"), // required
+ *         SessionStickinessConfig: {
+ *           IdleTTL: Number("int"), // required
+ *           MaximumTTL: Number("int"), // required
+ *         },
+ *       },
+ *       SingleHeaderConfig: {
+ *         Header: "STRING_VALUE", // required
+ *         Value: "STRING_VALUE", // required
+ *       },
+ *       Type: "SingleWeight" || "SingleHeader", // required
+ *     },
+ *   },
+ * };
  * const command = new CreateContinuousDeploymentPolicyCommand(input);
  * const response = await client.send(command);
  * ```

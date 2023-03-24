@@ -44,6 +44,9 @@ export interface GetCanaryCommandOutput extends GetCanaryResponse, __MetadataBea
  * import { SyntheticsClient, GetCanaryCommand } from "@aws-sdk/client-synthetics"; // ES Modules import
  * // const { SyntheticsClient, GetCanaryCommand } = require("@aws-sdk/client-synthetics"); // CommonJS import
  * const client = new SyntheticsClient(config);
+ * const input = {
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new GetCanaryCommand(input);
  * const response = await client.send(command);
  * ```

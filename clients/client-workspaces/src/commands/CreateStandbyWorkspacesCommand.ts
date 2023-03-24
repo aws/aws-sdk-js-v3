@@ -42,6 +42,22 @@ export interface CreateStandbyWorkspacesCommandOutput extends CreateStandbyWorks
  * import { WorkSpacesClient, CreateStandbyWorkspacesCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, CreateStandbyWorkspacesCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
  * const client = new WorkSpacesClient(config);
+ * const input = {
+ *   PrimaryRegion: "STRING_VALUE", // required
+ *   StandbyWorkspaces: [ // required
+ *     {
+ *       PrimaryWorkspaceId: "STRING_VALUE", // required
+ *       VolumeEncryptionKey: "STRING_VALUE",
+ *       DirectoryId: "STRING_VALUE", // required
+ *       Tags: [
+ *         {
+ *           Key: "STRING_VALUE", // required
+ *           Value: "STRING_VALUE",
+ *         },
+ *       ],
+ *     },
+ *   ],
+ * };
  * const command = new CreateStandbyWorkspacesCommand(input);
  * const response = await client.send(command);
  * ```

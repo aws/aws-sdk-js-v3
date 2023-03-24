@@ -43,6 +43,65 @@ export interface SearchQueuesCommandOutput extends SearchQueuesResponse, __Metad
  * import { ConnectClient, SearchQueuesCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, SearchQueuesCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = {
+ *   InstanceId: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   SearchFilter: {
+ *     TagFilter: {
+ *       OrConditions: [
+ *         [
+ *           {
+ *             TagKey: "STRING_VALUE",
+ *             TagValue: "STRING_VALUE",
+ *           },
+ *         ],
+ *       ],
+ *       AndConditions: [
+ *         {
+ *           TagKey: "STRING_VALUE",
+ *           TagValue: "STRING_VALUE",
+ *         },
+ *       ],
+ *       TagCondition: {
+ *         TagKey: "<TagCondition>",
+ *         TagValue: "<TagCondition>",
+ *       },
+ *     },
+ *   },
+ *   SearchCriteria: {
+ *     OrConditions: [
+ *       {
+ *         OrConditions: [
+ *           {
+ *             OrConditions: "<QueueSearchCriteria>",
+ *             AndConditions: [
+ *               "<QueueSearchConditionList>",
+ *             ],
+ *             StringCondition: {
+ *               FieldName: "STRING_VALUE",
+ *               Value: "STRING_VALUE",
+ *               ComparisonType: "STARTS_WITH" || "CONTAINS" || "EXACT",
+ *             },
+ *             QueueTypeCondition: "STANDARD",
+ *           },
+ *         ],
+ *         AndConditions: [
+ *           "<QueueSearchConditionList>",
+ *         ],
+ *         StringCondition: {
+ *           FieldName: "STRING_VALUE",
+ *           Value: "STRING_VALUE",
+ *           ComparisonType: "STARTS_WITH" || "CONTAINS" || "EXACT",
+ *         },
+ *         QueueTypeCondition: "STANDARD",
+ *       },
+ *     ],
+ *     AndConditions: "<QueueSearchCriteria>",
+ *     StringCondition: "<QueueSearchCriteria>",
+ *     QueueTypeCondition: "<QueueSearchCriteria>",
+ *   },
+ * };
  * const command = new SearchQueuesCommand(input);
  * const response = await client.send(command);
  * ```

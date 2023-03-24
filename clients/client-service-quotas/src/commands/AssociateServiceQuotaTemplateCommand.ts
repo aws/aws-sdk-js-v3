@@ -47,6 +47,7 @@ export interface AssociateServiceQuotaTemplateCommandOutput
  * import { ServiceQuotasClient, AssociateServiceQuotaTemplateCommand } from "@aws-sdk/client-service-quotas"; // ES Modules import
  * // const { ServiceQuotasClient, AssociateServiceQuotaTemplateCommand } = require("@aws-sdk/client-service-quotas"); // CommonJS import
  * const client = new ServiceQuotasClient(config);
+ * const input = {};
  * const command = new AssociateServiceQuotaTemplateCommand(input);
  * const response = await client.send(command);
  * ```

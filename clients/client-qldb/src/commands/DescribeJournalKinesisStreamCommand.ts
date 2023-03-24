@@ -49,6 +49,10 @@ export interface DescribeJournalKinesisStreamCommandOutput
  * import { QLDBClient, DescribeJournalKinesisStreamCommand } from "@aws-sdk/client-qldb"; // ES Modules import
  * // const { QLDBClient, DescribeJournalKinesisStreamCommand } = require("@aws-sdk/client-qldb"); // CommonJS import
  * const client = new QLDBClient(config);
+ * const input = {
+ *   LedgerName: "STRING_VALUE", // required
+ *   StreamId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeJournalKinesisStreamCommand(input);
  * const response = await client.send(command);
  * ```

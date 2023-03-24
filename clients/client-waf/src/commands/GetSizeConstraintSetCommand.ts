@@ -50,6 +50,9 @@ export interface GetSizeConstraintSetCommandOutput extends GetSizeConstraintSetR
  * import { WAFClient, GetSizeConstraintSetCommand } from "@aws-sdk/client-waf"; // ES Modules import
  * // const { WAFClient, GetSizeConstraintSetCommand } = require("@aws-sdk/client-waf"); // CommonJS import
  * const client = new WAFClient(config);
+ * const input = {
+ *   SizeConstraintSetId: "STRING_VALUE", // required
+ * };
  * const command = new GetSizeConstraintSetCommand(input);
  * const response = await client.send(command);
  * ```

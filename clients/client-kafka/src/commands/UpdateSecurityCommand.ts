@@ -42,6 +42,38 @@ export interface UpdateSecurityCommandOutput extends UpdateSecurityResponse, __M
  * import { KafkaClient, UpdateSecurityCommand } from "@aws-sdk/client-kafka"; // ES Modules import
  * // const { KafkaClient, UpdateSecurityCommand } = require("@aws-sdk/client-kafka"); // CommonJS import
  * const client = new KafkaClient(config);
+ * const input = {
+ *   ClientAuthentication: {
+ *     Sasl: {
+ *       Scram: {
+ *         Enabled: true || false,
+ *       },
+ *       Iam: {
+ *         Enabled: true || false,
+ *       },
+ *     },
+ *     Tls: {
+ *       CertificateAuthorityArnList: [
+ *         "STRING_VALUE",
+ *       ],
+ *       Enabled: true || false,
+ *     },
+ *     Unauthenticated: {
+ *       Enabled: true || false,
+ *     },
+ *   },
+ *   ClusterArn: "STRING_VALUE", // required
+ *   CurrentVersion: "STRING_VALUE", // required
+ *   EncryptionInfo: {
+ *     EncryptionAtRest: {
+ *       DataVolumeKMSKeyId: "STRING_VALUE", // required
+ *     },
+ *     EncryptionInTransit: {
+ *       ClientBroker: "TLS" || "TLS_PLAINTEXT" || "PLAINTEXT",
+ *       InCluster: true || false,
+ *     },
+ *   },
+ * };
  * const command = new UpdateSecurityCommand(input);
  * const response = await client.send(command);
  * ```

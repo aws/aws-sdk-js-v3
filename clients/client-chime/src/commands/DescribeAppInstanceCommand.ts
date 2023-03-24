@@ -46,6 +46,9 @@ export interface DescribeAppInstanceCommandOutput extends DescribeAppInstanceRes
  * import { ChimeClient, DescribeAppInstanceCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, DescribeAppInstanceCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = {
+ *   AppInstanceArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeAppInstanceCommand(input);
  * const response = await client.send(command);
  * ```

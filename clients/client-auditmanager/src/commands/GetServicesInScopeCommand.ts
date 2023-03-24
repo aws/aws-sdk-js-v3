@@ -44,6 +44,7 @@ export interface GetServicesInScopeCommandOutput extends GetServicesInScopeRespo
  * import { AuditManagerClient, GetServicesInScopeCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
  * // const { AuditManagerClient, GetServicesInScopeCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
  * const client = new AuditManagerClient(config);
+ * const input = {};
  * const command = new GetServicesInScopeCommand(input);
  * const response = await client.send(command);
  * ```

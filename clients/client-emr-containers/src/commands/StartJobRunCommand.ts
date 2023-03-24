@@ -43,6 +43,67 @@ export interface StartJobRunCommandOutput extends StartJobRunResponse, __Metadat
  * import { EMRContainersClient, StartJobRunCommand } from "@aws-sdk/client-emr-containers"; // ES Modules import
  * // const { EMRContainersClient, StartJobRunCommand } = require("@aws-sdk/client-emr-containers"); // CommonJS import
  * const client = new EMRContainersClient(config);
+ * const input = {
+ *   name: "STRING_VALUE",
+ *   virtualClusterId: "STRING_VALUE", // required
+ *   clientToken: "STRING_VALUE", // required
+ *   executionRoleArn: "STRING_VALUE",
+ *   releaseLabel: "STRING_VALUE",
+ *   jobDriver: {
+ *     sparkSubmitJobDriver: {
+ *       entryPoint: "STRING_VALUE", // required
+ *       entryPointArguments: [
+ *         "STRING_VALUE",
+ *       ],
+ *       sparkSubmitParameters: "STRING_VALUE",
+ *     },
+ *     sparkSqlJobDriver: {
+ *       entryPoint: "STRING_VALUE",
+ *       sparkSqlParameters: "STRING_VALUE",
+ *     },
+ *   },
+ *   configurationOverrides: {
+ *     applicationConfiguration: [
+ *       {
+ *         classification: "STRING_VALUE", // required
+ *         properties: {
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *         configurations: [
+ *           {
+ *             classification: "STRING_VALUE", // required
+ *             properties: {
+ *               "<keys>": "STRING_VALUE",
+ *             },
+ *             configurations: [
+ *               "<ConfigurationList>",
+ *             ],
+ *           },
+ *         ],
+ *       },
+ *     ],
+ *     monitoringConfiguration: {
+ *       persistentAppUI: "ENABLED" || "DISABLED",
+ *       cloudWatchMonitoringConfiguration: {
+ *         logGroupName: "STRING_VALUE", // required
+ *         logStreamNamePrefix: "STRING_VALUE",
+ *       },
+ *       s3MonitoringConfiguration: {
+ *         logUri: "STRING_VALUE", // required
+ *       },
+ *     },
+ *   },
+ *   tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   jobTemplateId: "STRING_VALUE",
+ *   jobTemplateParameters: {
+ *     "<keys>": "<String1024>",
+ *   },
+ *   retryPolicyConfiguration: {
+ *     maxAttempts: Number("int"), // required
+ *   },
+ * };
  * const command = new StartJobRunCommand(input);
  * const response = await client.send(command);
  * ```

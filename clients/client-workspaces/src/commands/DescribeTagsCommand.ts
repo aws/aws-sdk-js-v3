@@ -42,6 +42,9 @@ export interface DescribeTagsCommandOutput extends DescribeTagsResult, __Metadat
  * import { WorkSpacesClient, DescribeTagsCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, DescribeTagsCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
  * const client = new WorkSpacesClient(config);
+ * const input = {
+ *   ResourceId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeTagsCommand(input);
  * const response = await client.send(command);
  * ```

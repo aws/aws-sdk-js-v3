@@ -42,6 +42,9 @@ export interface BulkPublishCommandOutput extends BulkPublishResponse, __Metadat
  * import { CognitoSyncClient, BulkPublishCommand } from "@aws-sdk/client-cognito-sync"; // ES Modules import
  * // const { CognitoSyncClient, BulkPublishCommand } = require("@aws-sdk/client-cognito-sync"); // CommonJS import
  * const client = new CognitoSyncClient(config);
+ * const input = {
+ *   IdentityPoolId: "STRING_VALUE", // required
+ * };
  * const command = new BulkPublishCommand(input);
  * const response = await client.send(command);
  * ```

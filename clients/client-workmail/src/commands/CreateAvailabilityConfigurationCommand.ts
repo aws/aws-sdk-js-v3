@@ -48,6 +48,19 @@ export interface CreateAvailabilityConfigurationCommandOutput
  * import { WorkMailClient, CreateAvailabilityConfigurationCommand } from "@aws-sdk/client-workmail"; // ES Modules import
  * // const { WorkMailClient, CreateAvailabilityConfigurationCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
  * const client = new WorkMailClient(config);
+ * const input = {
+ *   ClientToken: "STRING_VALUE",
+ *   OrganizationId: "STRING_VALUE", // required
+ *   DomainName: "STRING_VALUE", // required
+ *   EwsProvider: {
+ *     EwsEndpoint: "STRING_VALUE", // required
+ *     EwsUsername: "STRING_VALUE", // required
+ *     EwsPassword: "STRING_VALUE", // required
+ *   },
+ *   LambdaProvider: {
+ *     LambdaArn: "STRING_VALUE", // required
+ *   },
+ * };
  * const command = new CreateAvailabilityConfigurationCommand(input);
  * const response = await client.send(command);
  * ```

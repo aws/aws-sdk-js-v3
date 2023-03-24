@@ -42,6 +42,12 @@ export interface ListContactsCommandOutput extends ListContactsResult, __Metadat
  * import { SSMContactsClient, ListContactsCommand } from "@aws-sdk/client-ssm-contacts"; // ES Modules import
  * // const { SSMContactsClient, ListContactsCommand } = require("@aws-sdk/client-ssm-contacts"); // CommonJS import
  * const client = new SSMContactsClient(config);
+ * const input = {
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   AliasPrefix: "STRING_VALUE",
+ *   Type: "STRING_VALUE",
+ * };
  * const command = new ListContactsCommand(input);
  * const response = await client.send(command);
  * ```

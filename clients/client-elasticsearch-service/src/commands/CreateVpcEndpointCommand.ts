@@ -46,6 +46,18 @@ export interface CreateVpcEndpointCommandOutput extends CreateVpcEndpointRespons
  * import { ElasticsearchServiceClient, CreateVpcEndpointCommand } from "@aws-sdk/client-elasticsearch-service"; // ES Modules import
  * // const { ElasticsearchServiceClient, CreateVpcEndpointCommand } = require("@aws-sdk/client-elasticsearch-service"); // CommonJS import
  * const client = new ElasticsearchServiceClient(config);
+ * const input = {
+ *   DomainArn: "STRING_VALUE", // required
+ *   VpcOptions: {
+ *     SubnetIds: [
+ *       "STRING_VALUE",
+ *     ],
+ *     SecurityGroupIds: [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   ClientToken: "STRING_VALUE",
+ * };
  * const command = new CreateVpcEndpointCommand(input);
  * const response = await client.send(command);
  * ```

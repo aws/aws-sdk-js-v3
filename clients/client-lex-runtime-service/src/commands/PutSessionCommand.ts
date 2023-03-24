@@ -60,6 +60,51 @@ export interface PutSessionCommandOutput
  * import { LexRuntimeServiceClient, PutSessionCommand } from "@aws-sdk/client-lex-runtime-service"; // ES Modules import
  * // const { LexRuntimeServiceClient, PutSessionCommand } = require("@aws-sdk/client-lex-runtime-service"); // CommonJS import
  * const client = new LexRuntimeServiceClient(config);
+ * const input = {
+ *   botName: "STRING_VALUE", // required
+ *   botAlias: "STRING_VALUE", // required
+ *   userId: "STRING_VALUE", // required
+ *   sessionAttributes: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   dialogAction: {
+ *     type: "STRING_VALUE", // required
+ *     intentName: "STRING_VALUE",
+ *     slots: {
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *     slotToElicit: "STRING_VALUE",
+ *     fulfillmentState: "STRING_VALUE",
+ *     message: "STRING_VALUE",
+ *     messageFormat: "STRING_VALUE",
+ *   },
+ *   recentIntentSummaryView: [
+ *     {
+ *       intentName: "STRING_VALUE",
+ *       checkpointLabel: "STRING_VALUE",
+ *       slots: {
+ *         "<keys>": "<String>",
+ *       },
+ *       confirmationStatus: "STRING_VALUE",
+ *       dialogActionType: "STRING_VALUE", // required
+ *       fulfillmentState: "STRING_VALUE",
+ *       slotToElicit: "STRING_VALUE",
+ *     },
+ *   ],
+ *   accept: "STRING_VALUE",
+ *   activeContexts: [
+ *     {
+ *       name: "STRING_VALUE", // required
+ *       timeToLive: {
+ *         timeToLiveInSeconds: Number("int"),
+ *         turnsToLive: Number("int"),
+ *       },
+ *       parameters: { // required
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ * };
  * const command = new PutSessionCommand(input);
  * const response = await client.send(command);
  * ```

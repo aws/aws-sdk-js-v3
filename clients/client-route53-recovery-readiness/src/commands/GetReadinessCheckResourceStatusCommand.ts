@@ -48,6 +48,12 @@ export interface GetReadinessCheckResourceStatusCommandOutput
  * import { Route53RecoveryReadinessClient, GetReadinessCheckResourceStatusCommand } from "@aws-sdk/client-route53-recovery-readiness"; // ES Modules import
  * // const { Route53RecoveryReadinessClient, GetReadinessCheckResourceStatusCommand } = require("@aws-sdk/client-route53-recovery-readiness"); // CommonJS import
  * const client = new Route53RecoveryReadinessClient(config);
+ * const input = {
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   ReadinessCheckName: "STRING_VALUE", // required
+ *   ResourceIdentifier: "STRING_VALUE", // required
+ * };
  * const command = new GetReadinessCheckResourceStatusCommand(input);
  * const response = await client.send(command);
  * ```

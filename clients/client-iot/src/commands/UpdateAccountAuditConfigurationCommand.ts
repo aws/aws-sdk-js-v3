@@ -47,6 +47,21 @@ export interface UpdateAccountAuditConfigurationCommandOutput
  * import { IoTClient, UpdateAccountAuditConfigurationCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, UpdateAccountAuditConfigurationCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = {
+ *   roleArn: "STRING_VALUE",
+ *   auditNotificationTargetConfigurations: {
+ *     "<keys>": {
+ *       targetArn: "STRING_VALUE",
+ *       roleArn: "STRING_VALUE",
+ *       enabled: true || false,
+ *     },
+ *   },
+ *   auditCheckConfigurations: {
+ *     "<keys>": {
+ *       enabled: true || false,
+ *     },
+ *   },
+ * };
  * const command = new UpdateAccountAuditConfigurationCommand(input);
  * const response = await client.send(command);
  * ```

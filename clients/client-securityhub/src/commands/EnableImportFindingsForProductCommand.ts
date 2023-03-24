@@ -47,6 +47,9 @@ export interface EnableImportFindingsForProductCommandOutput
  * import { SecurityHubClient, EnableImportFindingsForProductCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, EnableImportFindingsForProductCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
  * const client = new SecurityHubClient(config);
+ * const input = {
+ *   ProductArn: "STRING_VALUE", // required
+ * };
  * const command = new EnableImportFindingsForProductCommand(input);
  * const response = await client.send(command);
  * ```

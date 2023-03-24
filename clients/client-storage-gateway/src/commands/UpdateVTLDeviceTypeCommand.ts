@@ -45,6 +45,10 @@ export interface UpdateVTLDeviceTypeCommandOutput extends UpdateVTLDeviceTypeOut
  * import { StorageGatewayClient, UpdateVTLDeviceTypeCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, UpdateVTLDeviceTypeCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
+ * const input = {
+ *   VTLDeviceARN: "STRING_VALUE", // required
+ *   DeviceType: "STRING_VALUE", // required
+ * };
  * const command = new UpdateVTLDeviceTypeCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,21 @@ export interface StartReferenceImportJobCommandOutput extends StartReferenceImpo
  * import { OmicsClient, StartReferenceImportJobCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, StartReferenceImportJobCommand } = require("@aws-sdk/client-omics"); // CommonJS import
  * const client = new OmicsClient(config);
+ * const input = {
+ *   referenceStoreId: "STRING_VALUE", // required
+ *   roleArn: "STRING_VALUE", // required
+ *   clientToken: "STRING_VALUE",
+ *   sources: [ // required
+ *     {
+ *       sourceFile: "STRING_VALUE", // required
+ *       name: "STRING_VALUE", // required
+ *       description: "STRING_VALUE",
+ *       tags: {
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ * };
  * const command = new StartReferenceImportJobCommand(input);
  * const response = await client.send(command);
  * ```

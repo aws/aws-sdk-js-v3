@@ -46,6 +46,39 @@ export interface CreateInferenceSchedulerCommandOutput extends CreateInferenceSc
  * import { LookoutEquipmentClient, CreateInferenceSchedulerCommand } from "@aws-sdk/client-lookoutequipment"; // ES Modules import
  * // const { LookoutEquipmentClient, CreateInferenceSchedulerCommand } = require("@aws-sdk/client-lookoutequipment"); // CommonJS import
  * const client = new LookoutEquipmentClient(config);
+ * const input = {
+ *   ModelName: "STRING_VALUE", // required
+ *   InferenceSchedulerName: "STRING_VALUE", // required
+ *   DataDelayOffsetInMinutes: Number("long"),
+ *   DataUploadFrequency: "PT5M" || "PT10M" || "PT15M" || "PT30M" || "PT1H", // required
+ *   DataInputConfiguration: {
+ *     S3InputConfiguration: {
+ *       Bucket: "STRING_VALUE", // required
+ *       Prefix: "STRING_VALUE",
+ *     },
+ *     InputTimeZoneOffset: "STRING_VALUE",
+ *     InferenceInputNameConfiguration: {
+ *       TimestampFormat: "STRING_VALUE",
+ *       ComponentTimestampDelimiter: "STRING_VALUE",
+ *     },
+ *   },
+ *   DataOutputConfiguration: {
+ *     S3OutputConfiguration: {
+ *       Bucket: "STRING_VALUE", // required
+ *       Prefix: "STRING_VALUE",
+ *     },
+ *     KmsKeyId: "STRING_VALUE",
+ *   },
+ *   RoleArn: "STRING_VALUE", // required
+ *   ServerSideKmsKeyId: "STRING_VALUE",
+ *   ClientToken: "STRING_VALUE", // required
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateInferenceSchedulerCommand(input);
  * const response = await client.send(command);
  * ```

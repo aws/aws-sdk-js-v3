@@ -43,6 +43,42 @@ export interface CreateCustomActionTypeCommandOutput extends CreateCustomActionT
  * import { CodePipelineClient, CreateCustomActionTypeCommand } from "@aws-sdk/client-codepipeline"; // ES Modules import
  * // const { CodePipelineClient, CreateCustomActionTypeCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import
  * const client = new CodePipelineClient(config);
+ * const input = {
+ *   category: "STRING_VALUE", // required
+ *   provider: "STRING_VALUE", // required
+ *   version: "STRING_VALUE", // required
+ *   settings: {
+ *     thirdPartyConfigurationUrl: "STRING_VALUE",
+ *     entityUrlTemplate: "STRING_VALUE",
+ *     executionUrlTemplate: "STRING_VALUE",
+ *     revisionUrlTemplate: "STRING_VALUE",
+ *   },
+ *   configurationProperties: [
+ *     {
+ *       name: "STRING_VALUE", // required
+ *       required: true || false, // required
+ *       key: true || false, // required
+ *       secret: true || false, // required
+ *       queryable: true || false,
+ *       description: "STRING_VALUE",
+ *       type: "STRING_VALUE",
+ *     },
+ *   ],
+ *   inputArtifactDetails: {
+ *     minimumCount: Number("int"), // required
+ *     maximumCount: Number("int"), // required
+ *   },
+ *   outputArtifactDetails: {
+ *     minimumCount: Number("int"), // required
+ *     maximumCount: Number("int"), // required
+ *   },
+ *   tags: [
+ *     {
+ *       key: "STRING_VALUE", // required
+ *       value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateCustomActionTypeCommand(input);
  * const response = await client.send(command);
  * ```

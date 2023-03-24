@@ -43,6 +43,26 @@ export interface ListAccessPreviewFindingsCommandOutput extends ListAccessPrevie
  * import { AccessAnalyzerClient, ListAccessPreviewFindingsCommand } from "@aws-sdk/client-accessanalyzer"; // ES Modules import
  * // const { AccessAnalyzerClient, ListAccessPreviewFindingsCommand } = require("@aws-sdk/client-accessanalyzer"); // CommonJS import
  * const client = new AccessAnalyzerClient(config);
+ * const input = {
+ *   accessPreviewId: "STRING_VALUE", // required
+ *   analyzerArn: "STRING_VALUE", // required
+ *   filter: {
+ *     "<keys>": {
+ *       eq: [
+ *         "STRING_VALUE",
+ *       ],
+ *       neq: [
+ *         "STRING_VALUE",
+ *       ],
+ *       contains: [
+ *         "STRING_VALUE",
+ *       ],
+ *       exists: true || false,
+ *     },
+ *   },
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListAccessPreviewFindingsCommand(input);
  * const response = await client.send(command);
  * ```

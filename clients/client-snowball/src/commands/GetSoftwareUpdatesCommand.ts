@@ -43,6 +43,9 @@ export interface GetSoftwareUpdatesCommandOutput extends GetSoftwareUpdatesResul
  * import { SnowballClient, GetSoftwareUpdatesCommand } from "@aws-sdk/client-snowball"; // ES Modules import
  * // const { SnowballClient, GetSoftwareUpdatesCommand } = require("@aws-sdk/client-snowball"); // CommonJS import
  * const client = new SnowballClient(config);
+ * const input = {
+ *   JobId: "STRING_VALUE", // required
+ * };
  * const command = new GetSoftwareUpdatesCommand(input);
  * const response = await client.send(command);
  * ```

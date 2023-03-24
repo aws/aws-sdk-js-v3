@@ -59,6 +59,13 @@ export interface CreateEndpointCommandOutput extends CreateEndpointResult, __Met
  * import { S3OutpostsClient, CreateEndpointCommand } from "@aws-sdk/client-s3outposts"; // ES Modules import
  * // const { S3OutpostsClient, CreateEndpointCommand } = require("@aws-sdk/client-s3outposts"); // CommonJS import
  * const client = new S3OutpostsClient(config);
+ * const input = {
+ *   OutpostId: "STRING_VALUE", // required
+ *   SubnetId: "STRING_VALUE", // required
+ *   SecurityGroupId: "STRING_VALUE", // required
+ *   AccessType: "Private" || "CustomerOwnedIp",
+ *   CustomerOwnedIpv4Pool: "STRING_VALUE",
+ * };
  * const command = new CreateEndpointCommand(input);
  * const response = await client.send(command);
  * ```

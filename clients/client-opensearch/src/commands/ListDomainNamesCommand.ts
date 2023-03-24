@@ -43,6 +43,9 @@ export interface ListDomainNamesCommandOutput extends ListDomainNamesResponse, _
  * import { OpenSearchClient, ListDomainNamesCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
  * // const { OpenSearchClient, ListDomainNamesCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
  * const client = new OpenSearchClient(config);
+ * const input = {
+ *   EngineType: "OpenSearch" || "Elasticsearch",
+ * };
  * const command = new ListDomainNamesCommand(input);
  * const response = await client.send(command);
  * ```

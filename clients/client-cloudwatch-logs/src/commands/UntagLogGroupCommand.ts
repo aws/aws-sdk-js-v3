@@ -54,6 +54,12 @@ export interface UntagLogGroupCommandOutput extends __MetadataBearer {}
  * import { CloudWatchLogsClient, UntagLogGroupCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, UntagLogGroupCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
+ * const input = {
+ *   logGroupName: "STRING_VALUE", // required
+ *   tags: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new UntagLogGroupCommand(input);
  * const response = await client.send(command);
  * ```

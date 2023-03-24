@@ -69,6 +69,12 @@ export interface CountPendingActivityTasksCommandOutput extends PendingTaskCount
  * import { SWFClient, CountPendingActivityTasksCommand } from "@aws-sdk/client-swf"; // ES Modules import
  * // const { SWFClient, CountPendingActivityTasksCommand } = require("@aws-sdk/client-swf"); // CommonJS import
  * const client = new SWFClient(config);
+ * const input = {
+ *   domain: "STRING_VALUE", // required
+ *   taskList: {
+ *     name: "STRING_VALUE", // required
+ *   },
+ * };
  * const command = new CountPendingActivityTasksCommand(input);
  * const response = await client.send(command);
  * ```

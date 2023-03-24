@@ -44,6 +44,13 @@ export interface ModifyLaunchTemplateCommandOutput extends ModifyLaunchTemplateR
  * import { EC2Client, ModifyLaunchTemplateCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ModifyLaunchTemplateCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   DryRun: true || false,
+ *   ClientToken: "STRING_VALUE",
+ *   LaunchTemplateId: "STRING_VALUE",
+ *   LaunchTemplateName: "STRING_VALUE",
+ *   DefaultVersion: "STRING_VALUE",
+ * };
  * const command = new ModifyLaunchTemplateCommand(input);
  * const response = await client.send(command);
  * ```

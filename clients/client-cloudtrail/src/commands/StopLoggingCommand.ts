@@ -48,6 +48,9 @@ export interface StopLoggingCommandOutput extends StopLoggingResponse, __Metadat
  * import { CloudTrailClient, StopLoggingCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
  * // const { CloudTrailClient, StopLoggingCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
  * const client = new CloudTrailClient(config);
+ * const input = {
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new StopLoggingCommand(input);
  * const response = await client.send(command);
  * ```

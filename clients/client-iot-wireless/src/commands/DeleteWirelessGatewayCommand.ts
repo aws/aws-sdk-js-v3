@@ -42,6 +42,9 @@ export interface DeleteWirelessGatewayCommandOutput extends DeleteWirelessGatewa
  * import { IoTWirelessClient, DeleteWirelessGatewayCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, DeleteWirelessGatewayCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
+ * const input = {
+ *   Id: "STRING_VALUE", // required
+ * };
  * const command = new DeleteWirelessGatewayCommand(input);
  * const response = await client.send(command);
  * ```

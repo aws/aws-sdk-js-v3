@@ -47,6 +47,62 @@ export interface CreateStudioComponentCommandOutput extends CreateStudioComponen
  * import { NimbleClient, CreateStudioComponentCommand } from "@aws-sdk/client-nimble"; // ES Modules import
  * // const { NimbleClient, CreateStudioComponentCommand } = require("@aws-sdk/client-nimble"); // CommonJS import
  * const client = new NimbleClient(config);
+ * const input = {
+ *   clientToken: "STRING_VALUE",
+ *   configuration: {
+ *     activeDirectoryConfiguration: {
+ *       computerAttributes: [
+ *         {
+ *           name: "STRING_VALUE",
+ *           value: "STRING_VALUE",
+ *         },
+ *       ],
+ *       directoryId: "STRING_VALUE",
+ *       organizationalUnitDistinguishedName: "STRING_VALUE",
+ *     },
+ *     computeFarmConfiguration: {
+ *       activeDirectoryUser: "STRING_VALUE",
+ *       endpoint: "STRING_VALUE",
+ *     },
+ *     licenseServiceConfiguration: {
+ *       endpoint: "STRING_VALUE",
+ *     },
+ *     sharedFileSystemConfiguration: {
+ *       endpoint: "STRING_VALUE",
+ *       fileSystemId: "STRING_VALUE",
+ *       linuxMountPoint: "STRING_VALUE",
+ *       shareName: "STRING_VALUE",
+ *       windowsMountDrive: "STRING_VALUE",
+ *     },
+ *   },
+ *   description: "STRING_VALUE",
+ *   ec2SecurityGroupIds: [
+ *     "STRING_VALUE",
+ *   ],
+ *   initializationScripts: [
+ *     {
+ *       launchProfileProtocolVersion: "STRING_VALUE",
+ *       platform: "LINUX" || "WINDOWS",
+ *       runContext: "SYSTEM_INITIALIZATION" || "USER_INITIALIZATION",
+ *       script: "STRING_VALUE",
+ *     },
+ *   ],
+ *   name: "STRING_VALUE", // required
+ *   scriptParameters: [
+ *     {
+ *       key: "STRING_VALUE",
+ *       value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   studioId: "STRING_VALUE", // required
+ *   subtype: "AWS_MANAGED_MICROSOFT_AD" || "AMAZON_FSX_FOR_WINDOWS" || "AMAZON_FSX_FOR_LUSTRE" || "CUSTOM",
+ *   tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   type: "ACTIVE_DIRECTORY" || "SHARED_FILE_SYSTEM" || "COMPUTE_FARM" || "LICENSE_SERVICE" || "CUSTOM", // required
+ *   secureInitializationRoleArn: "STRING_VALUE",
+ *   runtimeRoleArn: "STRING_VALUE",
+ * };
  * const command = new CreateStudioComponentCommand(input);
  * const response = await client.send(command);
  * ```

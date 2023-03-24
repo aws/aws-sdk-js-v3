@@ -42,6 +42,16 @@ export interface DescribeRecoverySnapshotsCommandOutput extends DescribeRecovery
  * import { DrsClient, DescribeRecoverySnapshotsCommand } from "@aws-sdk/client-drs"; // ES Modules import
  * // const { DrsClient, DescribeRecoverySnapshotsCommand } = require("@aws-sdk/client-drs"); // CommonJS import
  * const client = new DrsClient(config);
+ * const input = {
+ *   sourceServerID: "STRING_VALUE", // required
+ *   filters: {
+ *     fromDateTime: "STRING_VALUE",
+ *     toDateTime: "STRING_VALUE",
+ *   },
+ *   order: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeRecoverySnapshotsCommand(input);
  * const response = await client.send(command);
  * ```

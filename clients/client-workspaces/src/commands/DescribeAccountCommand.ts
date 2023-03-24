@@ -43,6 +43,7 @@ export interface DescribeAccountCommandOutput extends DescribeAccountResult, __M
  * import { WorkSpacesClient, DescribeAccountCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, DescribeAccountCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
  * const client = new WorkSpacesClient(config);
+ * const input = {};
  * const command = new DescribeAccountCommand(input);
  * const response = await client.send(command);
  * ```

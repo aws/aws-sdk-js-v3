@@ -45,6 +45,64 @@ export interface UpdateActionTypeCommandOutput extends __MetadataBearer {}
  * import { CodePipelineClient, UpdateActionTypeCommand } from "@aws-sdk/client-codepipeline"; // ES Modules import
  * // const { CodePipelineClient, UpdateActionTypeCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import
  * const client = new CodePipelineClient(config);
+ * const input = {
+ *   actionType: {
+ *     description: "STRING_VALUE",
+ *     executor: {
+ *       configuration: {
+ *         lambdaExecutorConfiguration: {
+ *           lambdaFunctionArn: "STRING_VALUE", // required
+ *         },
+ *         jobWorkerExecutorConfiguration: {
+ *           pollingAccounts: [
+ *             "STRING_VALUE",
+ *           ],
+ *           pollingServicePrincipals: [
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       },
+ *       type: "STRING_VALUE", // required
+ *       policyStatementsTemplate: "STRING_VALUE",
+ *       jobTimeout: Number("int"),
+ *     },
+ *     id: {
+ *       category: "STRING_VALUE", // required
+ *       owner: "STRING_VALUE", // required
+ *       provider: "STRING_VALUE", // required
+ *       version: "STRING_VALUE", // required
+ *     },
+ *     inputArtifactDetails: {
+ *       minimumCount: Number("int"), // required
+ *       maximumCount: Number("int"), // required
+ *     },
+ *     outputArtifactDetails: {
+ *       minimumCount: Number("int"), // required
+ *       maximumCount: Number("int"), // required
+ *     },
+ *     permissions: {
+ *       allowedAccounts: [ // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *     properties: [
+ *       {
+ *         name: "STRING_VALUE", // required
+ *         optional: true || false, // required
+ *         key: true || false, // required
+ *         noEcho: true || false, // required
+ *         queryable: true || false,
+ *         description: "STRING_VALUE",
+ *       },
+ *     ],
+ *     urls: {
+ *       configurationUrl: "STRING_VALUE",
+ *       entityUrlTemplate: "STRING_VALUE",
+ *       executionUrlTemplate: "STRING_VALUE",
+ *       revisionUrlTemplate: "STRING_VALUE",
+ *     },
+ *   },
+ * };
  * const command = new UpdateActionTypeCommand(input);
  * const response = await client.send(command);
  * ```

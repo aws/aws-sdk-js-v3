@@ -39,6 +39,28 @@ export interface CreateUserCommandOutput extends User, __MetadataBearer {}
  * import { ElastiCacheClient, CreateUserCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, CreateUserCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
  * const client = new ElastiCacheClient(config);
+ * const input = {
+ *   UserId: "STRING_VALUE", // required
+ *   UserName: "STRING_VALUE", // required
+ *   Engine: "STRING_VALUE", // required
+ *   Passwords: [
+ *     "STRING_VALUE",
+ *   ],
+ *   AccessString: "STRING_VALUE", // required
+ *   NoPasswordRequired: true || false,
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   AuthenticationMode: {
+ *     Type: "password" || "no-password-required" || "iam",
+ *     Passwords: [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ * };
  * const command = new CreateUserCommand(input);
  * const response = await client.send(command);
  * ```

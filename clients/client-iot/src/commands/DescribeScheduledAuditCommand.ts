@@ -43,6 +43,9 @@ export interface DescribeScheduledAuditCommandOutput extends DescribeScheduledAu
  * import { IoTClient, DescribeScheduledAuditCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, DescribeScheduledAuditCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = {
+ *   scheduledAuditName: "STRING_VALUE", // required
+ * };
  * const command = new DescribeScheduledAuditCommand(input);
  * const response = await client.send(command);
  * ```

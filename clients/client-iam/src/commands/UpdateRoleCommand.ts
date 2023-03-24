@@ -39,6 +39,11 @@ export interface UpdateRoleCommandOutput extends UpdateRoleResponse, __MetadataB
  * import { IAMClient, UpdateRoleCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, UpdateRoleCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = {
+ *   RoleName: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   MaxSessionDuration: Number("int"),
+ * };
  * const command = new UpdateRoleCommand(input);
  * const response = await client.send(command);
  * ```

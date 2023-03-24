@@ -48,6 +48,9 @@ export interface DeleteSAMLProviderCommandOutput extends __MetadataBearer {}
  * import { IAMClient, DeleteSAMLProviderCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, DeleteSAMLProviderCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = {
+ *   SAMLProviderArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteSAMLProviderCommand(input);
  * const response = await client.send(command);
  * ```

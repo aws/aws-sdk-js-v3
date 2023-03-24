@@ -48,6 +48,18 @@ export interface PutRecommendationPreferencesCommandOutput
  * import { ComputeOptimizerClient, PutRecommendationPreferencesCommand } from "@aws-sdk/client-compute-optimizer"; // ES Modules import
  * // const { ComputeOptimizerClient, PutRecommendationPreferencesCommand } = require("@aws-sdk/client-compute-optimizer"); // CommonJS import
  * const client = new ComputeOptimizerClient(config);
+ * const input = {
+ *   resourceType: "Ec2Instance" || "AutoScalingGroup" || "EbsVolume" || "LambdaFunction" || "NotApplicable" || "EcsService", // required
+ *   scope: {
+ *     name: "Organization" || "AccountId" || "ResourceArn",
+ *     value: "STRING_VALUE",
+ *   },
+ *   enhancedInfrastructureMetrics: "Active" || "Inactive",
+ *   inferredWorkloadTypes: "Active" || "Inactive",
+ *   externalMetricsPreference: {
+ *     source: "Datadog" || "Dynatrace" || "NewRelic" || "Instana",
+ *   },
+ * };
  * const command = new PutRecommendationPreferencesCommand(input);
  * const response = await client.send(command);
  * ```

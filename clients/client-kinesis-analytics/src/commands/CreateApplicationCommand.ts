@@ -68,6 +68,87 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  * import { KinesisAnalyticsClient, CreateApplicationCommand } from "@aws-sdk/client-kinesis-analytics"; // ES Modules import
  * // const { KinesisAnalyticsClient, CreateApplicationCommand } = require("@aws-sdk/client-kinesis-analytics"); // CommonJS import
  * const client = new KinesisAnalyticsClient(config);
+ * const input = {
+ *   ApplicationName: "STRING_VALUE", // required
+ *   ApplicationDescription: "STRING_VALUE",
+ *   Inputs: [
+ *     {
+ *       NamePrefix: "STRING_VALUE", // required
+ *       InputProcessingConfiguration: {
+ *         InputLambdaProcessor: {
+ *           ResourceARN: "STRING_VALUE", // required
+ *           RoleARN: "STRING_VALUE", // required
+ *         },
+ *       },
+ *       KinesisStreamsInput: {
+ *         ResourceARN: "STRING_VALUE", // required
+ *         RoleARN: "STRING_VALUE", // required
+ *       },
+ *       KinesisFirehoseInput: {
+ *         ResourceARN: "STRING_VALUE", // required
+ *         RoleARN: "STRING_VALUE", // required
+ *       },
+ *       InputParallelism: {
+ *         Count: Number("int"),
+ *       },
+ *       InputSchema: {
+ *         RecordFormat: {
+ *           RecordFormatType: "STRING_VALUE", // required
+ *           MappingParameters: {
+ *             JSONMappingParameters: {
+ *               RecordRowPath: "STRING_VALUE", // required
+ *             },
+ *             CSVMappingParameters: {
+ *               RecordRowDelimiter: "STRING_VALUE", // required
+ *               RecordColumnDelimiter: "STRING_VALUE", // required
+ *             },
+ *           },
+ *         },
+ *         RecordEncoding: "STRING_VALUE",
+ *         RecordColumns: [ // required
+ *           {
+ *             Name: "STRING_VALUE", // required
+ *             Mapping: "STRING_VALUE",
+ *             SqlType: "STRING_VALUE", // required
+ *           },
+ *         ],
+ *       },
+ *     },
+ *   ],
+ *   Outputs: [
+ *     {
+ *       Name: "STRING_VALUE", // required
+ *       KinesisStreamsOutput: {
+ *         ResourceARN: "STRING_VALUE", // required
+ *         RoleARN: "STRING_VALUE", // required
+ *       },
+ *       KinesisFirehoseOutput: {
+ *         ResourceARN: "STRING_VALUE", // required
+ *         RoleARN: "STRING_VALUE", // required
+ *       },
+ *       LambdaOutput: {
+ *         ResourceARN: "STRING_VALUE", // required
+ *         RoleARN: "STRING_VALUE", // required
+ *       },
+ *       DestinationSchema: {
+ *         RecordFormatType: "STRING_VALUE", // required
+ *       },
+ *     },
+ *   ],
+ *   CloudWatchLoggingOptions: [
+ *     {
+ *       LogStreamARN: "STRING_VALUE", // required
+ *       RoleARN: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   ApplicationCode: "STRING_VALUE",
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateApplicationCommand(input);
  * const response = await client.send(command);
  * ```

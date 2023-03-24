@@ -49,6 +49,10 @@ export interface PutDefaultEncryptionConfigurationCommandOutput
  * import { IoTSiteWiseClient, PutDefaultEncryptionConfigurationCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, PutDefaultEncryptionConfigurationCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
+ * const input = {
+ *   encryptionType: "SITEWISE_DEFAULT_ENCRYPTION" || "KMS_BASED_ENCRYPTION", // required
+ *   kmsKeyId: "STRING_VALUE",
+ * };
  * const command = new PutDefaultEncryptionConfigurationCommand(input);
  * const response = await client.send(command);
  * ```

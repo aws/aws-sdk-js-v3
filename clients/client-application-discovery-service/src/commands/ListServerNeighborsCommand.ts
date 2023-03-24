@@ -47,6 +47,15 @@ export interface ListServerNeighborsCommandOutput extends ListServerNeighborsRes
  * import { ApplicationDiscoveryServiceClient, ListServerNeighborsCommand } from "@aws-sdk/client-application-discovery-service"; // ES Modules import
  * // const { ApplicationDiscoveryServiceClient, ListServerNeighborsCommand } = require("@aws-sdk/client-application-discovery-service"); // CommonJS import
  * const client = new ApplicationDiscoveryServiceClient(config);
+ * const input = {
+ *   configurationId: "STRING_VALUE", // required
+ *   portInformationNeeded: true || false,
+ *   neighborConfigurationIds: [
+ *     "STRING_VALUE",
+ *   ],
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListServerNeighborsCommand(input);
  * const response = await client.send(command);
  * ```

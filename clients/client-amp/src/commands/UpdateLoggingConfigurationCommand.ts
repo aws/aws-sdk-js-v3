@@ -42,6 +42,11 @@ export interface UpdateLoggingConfigurationCommandOutput extends UpdateLoggingCo
  * import { AmpClient, UpdateLoggingConfigurationCommand } from "@aws-sdk/client-amp"; // ES Modules import
  * // const { AmpClient, UpdateLoggingConfigurationCommand } = require("@aws-sdk/client-amp"); // CommonJS import
  * const client = new AmpClient(config);
+ * const input = {
+ *   workspaceId: "STRING_VALUE", // required
+ *   logGroupArn: "STRING_VALUE", // required
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new UpdateLoggingConfigurationCommand(input);
  * const response = await client.send(command);
  * ```

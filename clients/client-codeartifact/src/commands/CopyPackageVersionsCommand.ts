@@ -49,6 +49,23 @@ export interface CopyPackageVersionsCommandOutput extends CopyPackageVersionsRes
  * import { CodeartifactClient, CopyPackageVersionsCommand } from "@aws-sdk/client-codeartifact"; // ES Modules import
  * // const { CodeartifactClient, CopyPackageVersionsCommand } = require("@aws-sdk/client-codeartifact"); // CommonJS import
  * const client = new CodeartifactClient(config);
+ * const input = {
+ *   domain: "STRING_VALUE", // required
+ *   domainOwner: "STRING_VALUE",
+ *   sourceRepository: "STRING_VALUE", // required
+ *   destinationRepository: "STRING_VALUE", // required
+ *   format: "npm" || "pypi" || "maven" || "nuget" || "generic", // required
+ *   namespace: "STRING_VALUE",
+ *   package: "STRING_VALUE", // required
+ *   versions: [
+ *     "STRING_VALUE",
+ *   ],
+ *   versionRevisions: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   allowOverwrite: true || false,
+ *   includeFromUpstream: true || false,
+ * };
  * const command = new CopyPackageVersionsCommand(input);
  * const response = await client.send(command);
  * ```

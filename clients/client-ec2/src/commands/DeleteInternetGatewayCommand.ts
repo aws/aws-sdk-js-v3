@@ -43,6 +43,10 @@ export interface DeleteInternetGatewayCommandOutput extends __MetadataBearer {}
  * import { EC2Client, DeleteInternetGatewayCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DeleteInternetGatewayCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   DryRun: true || false,
+ *   InternetGatewayId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteInternetGatewayCommand(input);
  * const response = await client.send(command);
  * ```

@@ -50,6 +50,9 @@ export interface GetGeoMatchSetCommandOutput extends GetGeoMatchSetResponse, __M
  * import { WAFRegionalClient, GetGeoMatchSetCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
  * // const { WAFRegionalClient, GetGeoMatchSetCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
  * const client = new WAFRegionalClient(config);
+ * const input = {
+ *   GeoMatchSetId: "STRING_VALUE", // required
+ * };
  * const command = new GetGeoMatchSetCommand(input);
  * const response = await client.send(command);
  * ```

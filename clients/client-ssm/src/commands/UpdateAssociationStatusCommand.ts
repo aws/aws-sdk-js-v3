@@ -51,6 +51,16 @@ export interface UpdateAssociationStatusCommandOutput extends UpdateAssociationS
  * import { SSMClient, UpdateAssociationStatusCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, UpdateAssociationStatusCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = {
+ *   Name: "STRING_VALUE", // required
+ *   InstanceId: "STRING_VALUE", // required
+ *   AssociationStatus: {
+ *     Date: new Date("TIMESTAMP"), // required
+ *     Name: "Pending" || "Success" || "Failed", // required
+ *     Message: "STRING_VALUE", // required
+ *     AdditionalInfo: "STRING_VALUE",
+ *   },
+ * };
  * const command = new UpdateAssociationStatusCommand(input);
  * const response = await client.send(command);
  * ```

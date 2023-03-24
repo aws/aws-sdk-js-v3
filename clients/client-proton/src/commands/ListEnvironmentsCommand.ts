@@ -46,6 +46,16 @@ export interface ListEnvironmentsCommandOutput extends ListEnvironmentsOutput, _
  * import { ProtonClient, ListEnvironmentsCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, ListEnvironmentsCommand } = require("@aws-sdk/client-proton"); // CommonJS import
  * const client = new ProtonClient(config);
+ * const input = {
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   environmentTemplates: [
+ *     {
+ *       templateName: "STRING_VALUE", // required
+ *       majorVersion: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new ListEnvironmentsCommand(input);
  * const response = await client.send(command);
  * ```

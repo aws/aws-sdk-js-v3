@@ -49,6 +49,10 @@ export interface ListInstancesCommandOutput extends ListInstancesResponse, __Met
  * import { ConnectClient, ListInstancesCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, ListInstancesCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = {
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListInstancesCommand(input);
  * const response = await client.send(command);
  * ```

@@ -44,6 +44,9 @@ export interface DeleteDBProxyEndpointCommandOutput extends DeleteDBProxyEndpoin
  * import { RDSClient, DeleteDBProxyEndpointCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, DeleteDBProxyEndpointCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = {
+ *   DBProxyEndpointName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteDBProxyEndpointCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,11 @@ export interface GetIntrospectionSchemaCommandOutput extends GetIntrospectionSch
  * import { AppSyncClient, GetIntrospectionSchemaCommand } from "@aws-sdk/client-appsync"; // ES Modules import
  * // const { AppSyncClient, GetIntrospectionSchemaCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
  * const client = new AppSyncClient(config);
+ * const input = {
+ *   apiId: "STRING_VALUE", // required
+ *   format: "SDL" || "JSON", // required
+ *   includeDirectives: true || false,
+ * };
  * const command = new GetIntrospectionSchemaCommand(input);
  * const response = await client.send(command);
  * ```

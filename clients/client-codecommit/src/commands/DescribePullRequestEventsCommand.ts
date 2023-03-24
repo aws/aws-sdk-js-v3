@@ -42,6 +42,13 @@ export interface DescribePullRequestEventsCommandOutput extends DescribePullRequ
  * import { CodeCommitClient, DescribePullRequestEventsCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, DescribePullRequestEventsCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
  * const client = new CodeCommitClient(config);
+ * const input = {
+ *   pullRequestId: "STRING_VALUE", // required
+ *   pullRequestEventType: "STRING_VALUE",
+ *   actorArn: "STRING_VALUE",
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new DescribePullRequestEventsCommand(input);
  * const response = await client.send(command);
  * ```

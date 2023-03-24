@@ -48,6 +48,11 @@ export interface StopDataCollectionByAgentIdsCommandOutput
  * import { ApplicationDiscoveryServiceClient, StopDataCollectionByAgentIdsCommand } from "@aws-sdk/client-application-discovery-service"; // ES Modules import
  * // const { ApplicationDiscoveryServiceClient, StopDataCollectionByAgentIdsCommand } = require("@aws-sdk/client-application-discovery-service"); // CommonJS import
  * const client = new ApplicationDiscoveryServiceClient(config);
+ * const input = {
+ *   agentIds: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new StopDataCollectionByAgentIdsCommand(input);
  * const response = await client.send(command);
  * ```
